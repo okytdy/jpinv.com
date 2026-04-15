@@ -2741,18 +2741,7 @@ window.addEventListener('scroll', () => {
 // ---- Language toggle ----
 let currentLang = 'en';
 function toggleLang() {
-  currentLang = currentLang === 'en' ? 'ja' : 'en';
-  document.body.classList.toggle('lang-en', currentLang === 'en');
-  document.body.classList.toggle('lang-ja', currentLang === 'ja');
-  document.getElementById('langBtn').textContent = currentLang === 'en' ? '日本語' : 'English';
-
-  // Show/hide language-specific elements
-  document.querySelectorAll('.en-only').forEach(el => {
-    el.style.display = currentLang === 'en' ? '' : 'none';
-  });
-  document.querySelectorAll('.ja-only').forEach(el => {
-    el.style.display = currentLang === 'ja' ? '' : 'none';
-  });
+  window.location.href = 'index-ja.html';
 }
 
 // ---- Mobile menu ----
