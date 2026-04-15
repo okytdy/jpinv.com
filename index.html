@@ -5,3 +5,1818 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="海外投資家との対話で、何かが噛み合っていないと感じる経営者・IR担当者へ。JIIは、投資家面談の現場に立ち会い、対話の質を根本から変えるアドバイザリーです。">
 <meta name="keywords" content="海外投資家 IR コンサルティング, 外国人投資家 面談 通訳, 英文開示 アドバイザリー, アクティビスト対応 IR, プライム市場 英文開示, 投資家対話 改善">
+<meta property="og:title" content="海外投資家との対話を、根本から変える — Japan Investor Interface">
+<meta property="og:description" content="300回以上の投資家面談に通訳として立ち会い、両サイドの会話を完全に理解してきた。そのインサイトを、御社のIRに。">
+<meta property="og:url" content="https://jpinv.com/ja">
+<title>海外投資家対話アドバイザリー | Japan Investor Interface（JII）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   VARIABLES & RESET
+   ============================================================ */
+:root {
+  --ink:         #0f1c28;
+  --ink-mid:     #172333;
+  --ink-light:   #1f3040;
+  --ink-rule:    rgba(255,255,255,0.07);
+  --gold:        #b8965a;
+  --gold-pale:   rgba(184,150,90,0.10);
+  --gold-rule:   rgba(184,150,90,0.22);
+  --washi:       #f4efe6;
+  --washi-mid:   #e9e3d9;
+  --text:        #bfb9af;
+  --text-dim:    #72686a; /* warm dim — not cold grey */
+  --accent-red:  #9b3a2e; /* 朱色 — used sparingly for urgency signals */
+
+  --serif:  'Noto Serif JP', 'Yu Mincho', 'HiraMinProN-W3', serif;
+  --sans:   'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+  --mono:   'DM Mono', monospace;
+
+  --max: 1100px;
+  --pad: 96px;
+  --gutter: 56px;
+  --nav-h: 68px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  background: var(--ink);
+  color: var(--text);
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.85;
+  overflow-x: hidden;
+}
+
+/* ── TYPOGRAPHY ── */
+.mincho-xl {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 200;
+  line-height: 1.4;
+  letter-spacing: 0.05em;
+  color: var(--washi);
+}
+.mincho-lg {
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 3vw, 2.6rem);
+  font-weight: 300;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: var(--washi);
+}
+.mincho-md {
+  font-family: var(--serif);
+  font-size: clamp(1.1rem, 2vw, 1.6rem);
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--washi);
+}
+.label {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.body { font-size: 0.9rem; line-height: 1.9; color: var(--text); }
+.body-sm { font-size: 0.8rem; line-height: 1.85; color: var(--text-dim); }
+strong { font-weight: 500; color: var(--washi); }
+em { font-style: normal; color: var(--gold); }
+
+/* ── LAYOUT ── */
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+section { padding: var(--pad) 0; }
+@media (max-width: 768px) {
+  :root { --gutter: 24px; --pad: 64px; }
+}
+
+.rule-gold { width: 36px; height: 1px; background: var(--gold); margin: 18px 0 28px; }
+.divider { width: 100%; height: 1px; background: var(--ink-rule); margin: 60px 0; }
+
+/* ── NAVIGATION ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: var(--nav-h);
+  background: rgba(15,28,40,0.94);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--ink-rule);
+  display: flex; align-items: center;
+  transition: box-shadow 0.3s;
+}
+nav.scrolled { box-shadow: 0 4px 32px rgba(0,0,0,0.5); }
+.nav-inner {
+  display: flex; align-items: center;
+  justify-content: space-between; width: 100%;
+}
+.nav-logo { text-decoration: none; }
+.nav-logo-jp {
+  font-family: var(--serif);
+  font-size: 0.95rem; font-weight: 400;
+  color: var(--washi); letter-spacing: 0.08em; line-height: 1.2;
+}
+.nav-logo-en {
+  font-family: var(--mono);
+  font-size: 0.58rem; letter-spacing: 0.12em;
+  color: var(--gold); display: block;
+}
+.nav-links {
+  display: flex; align-items: center; gap: 28px; list-style: none;
+}
+.nav-links a {
+  font-family: var(--sans); font-size: 0.78rem; font-weight: 400;
+  letter-spacing: 0.04em; color: var(--text); text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--washi); }
+.nav-en-link {
+  font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.12em;
+  color: var(--text-dim); border: 1px solid var(--ink-rule);
+  padding: 5px 12px; text-decoration: none; transition: all 0.2s;
+}
+.nav-en-link:hover { color: var(--gold); border-color: var(--gold-rule); }
+.hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  background: none; border: none; cursor: pointer; padding: 4px;
+}
+.hamburger span { display: block; width: 22px; height: 1px; background: var(--washi); }
+@media (max-width: 860px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+}
+.mobile-menu {
+  display: none; position: fixed;
+  top: var(--nav-h); left: 0; right: 0;
+  background: var(--ink-mid);
+  border-bottom: 1px solid var(--ink-rule);
+  z-index: 99; padding: 20px var(--gutter);
+  flex-direction: column; gap: 0;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  font-size: 0.85rem; color: var(--text); text-decoration: none;
+  padding: 14px 0; border-bottom: 1px solid var(--ink-rule);
+  transition: color 0.2s; letter-spacing: 0.04em;
+}
+.mobile-menu a:hover { color: var(--washi); }
+
+/* ── BUTTONS ── */
+.btn {
+  display: inline-block; text-decoration: none;
+  font-family: var(--sans); font-size: 0.82rem;
+  font-weight: 400; letter-spacing: 0.08em;
+  padding: 14px 36px; transition: all 0.2s;
+}
+.btn-primary { background: var(--gold); color: var(--ink); }
+.btn-primary:hover { background: #c9a76b; }
+.btn-outline { border: 1px solid var(--gold-rule); color: var(--text); }
+.btn-outline:hover { border-color: var(--gold); color: var(--washi); }
+
+/* ── SCROLL REVEAL ── */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.on { opacity: 1; transform: none; }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+#hero {
+  min-height: 100vh; display: flex; align-items: center;
+  padding-top: var(--nav-h); position: relative; overflow: hidden;
+}
+.hero-texture {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(184,150,90,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(184,150,90,0.025) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent);
+}
+.hero-glow {
+  position: absolute;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(184,150,90,0.05) 0%, transparent 70%);
+  top: 10%; right: -100px; pointer-events: none;
+}
+.hero-body {
+  position: relative; z-index: 2;
+  padding: 80px 0 100px; max-width: 700px;
+}
+
+/* Opening question — the hook */
+.hero-question {
+  margin-bottom: 40px;
+  opacity: 0; animation: riseIn 0.9s ease 0.3s forwards;
+}
+.hero-question-line {
+  font-family: var(--serif);
+  font-size: clamp(1.25rem, 2.5vw, 1.85rem);
+  font-weight: 200;
+  color: var(--text); /* Intentionally muted — not asserting yet, questioning */
+  line-height: 1.7;
+  letter-spacing: 0.04em;
+}
+.hero-question-line + .hero-question-line { margin-top: 4px; }
+.hero-question-line.emphasis {
+  color: var(--washi);
+  font-weight: 300;
+  border-left: 2px solid var(--gold);
+  padding-left: 16px;
+  margin-top: 20px;
+}
+
+.hero-title {
+  margin-bottom: 32px;
+  opacity: 0; animation: riseIn 0.9s ease 0.55s forwards;
+}
+.hero-answer {
+  margin-bottom: 48px;
+  opacity: 0; animation: riseIn 0.9s ease 0.75s forwards;
+}
+.hero-answer p {
+  font-size: 0.9rem; line-height: 1.95; color: var(--text); max-width: 560px;
+}
+.hero-ctas {
+  display: flex; gap: 16px; flex-wrap: wrap;
+  opacity: 0; animation: riseIn 0.9s ease 0.95s forwards;
+}
+.hero-stats {
+  display: flex; gap: 48px; flex-wrap: wrap;
+  margin-top: 72px; padding-top: 48px;
+  border-top: 1px solid var(--ink-rule);
+  opacity: 0; animation: riseIn 0.9s ease 1.1s forwards;
+}
+.hero-stat-num {
+  font-family: var(--serif);
+  font-size: 2.2rem; font-weight: 200;
+  color: var(--washi); line-height: 1; margin-bottom: 6px;
+}
+.hero-stat-num em { color: var(--gold); font-style: normal; }
+.hero-stat-label { font-size: 0.72rem; color: var(--text-dim); line-height: 1.5; max-width: 110px; }
+
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   PROBLEM SECTION — 「こういうことが起きていませんか」
+   Recognition before prescription
+   ============================================================ */
+#mondai {
+  background: var(--ink-mid);
+  border-top: 1px solid var(--ink-rule);
+  border-bottom: 1px solid var(--ink-rule);
+}
+.mondai-intro {
+  max-width: 680px; margin-bottom: 64px;
+}
+.mondai-intro p {
+  font-size: 0.88rem; line-height: 1.95; margin-top: 16px;
+}
+
+/* Scene cards — concrete, specific moments the reader recognizes */
+.scene-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px;
+  margin-top: 8px;
+}
+@media (max-width: 700px) {
+  .scene-grid { grid-template-columns: 1fr; }
+}
+.scene-card {
+  background: var(--ink);
+  padding: 36px 32px 32px;
+  position: relative; overflow: hidden;
+  cursor: default; transition: background 0.3s;
+}
+.scene-card:hover { background: rgba(31,48,64,0.6); }
+.scene-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0;
+  width: 0; height: 2px;
+  background: var(--gold);
+  transition: width 0.5s ease;
+}
+.scene-card:hover::before { width: 100%; }
+.scene-num {
+  font-family: var(--mono); font-size: 0.6rem;
+  letter-spacing: 0.18em; color: var(--gold);
+  margin-bottom: 18px;
+}
+.scene-card h3 {
+  font-family: var(--serif);
+  font-size: 1rem; font-weight: 400;
+  color: var(--washi); line-height: 1.55;
+  margin-bottom: 14px; letter-spacing: 0.02em;
+}
+.scene-card p { font-size: 0.8rem; line-height: 1.85; }
+/* Urgency signal — 朱色 accent */
+.scene-signal {
+  display: inline-block; margin-top: 16px;
+  font-family: var(--mono); font-size: 0.6rem;
+  letter-spacing: 0.1em; color: var(--accent-red);
+  border: 1px solid rgba(155,58,46,0.3);
+  padding: 3px 8px;
+}
+
+/* The structural diagnosis — after the recognition scenes */
+.diagnosis-block {
+  margin-top: 72px;
+  border-left: 3px solid var(--gold);
+  padding-left: 32px; max-width: 640px;
+}
+.diagnosis-block p {
+  font-family: var(--serif);
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
+  font-weight: 300; line-height: 1.75;
+  color: var(--washi); letter-spacing: 0.02em;
+}
+.diagnosis-block p + p { margin-top: 16px; }
+
+/* ============================================================
+   JII APPROACH — 「私たちのアプローチ」
+   Not a service list — a logic statement
+   ============================================================ */
+#approach {
+  position: relative;
+}
+.approach-lead {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px; margin-bottom: 80px; align-items: start;
+}
+@media (max-width: 860px) {
+  .approach-lead { grid-template-columns: 1fr; gap: 40px; }
+}
+.approach-lead p { font-size: 0.88rem; line-height: 1.95; }
+.approach-lead p + p { margin-top: 18px; }
+
+/* The three-layer logic */
+.logic-flow {
+  display: flex; flex-direction: column; gap: 0;
+  border: 1px solid var(--gold-rule); margin-top: 0;
+}
+.logic-row {
+  display: grid;
+  grid-template-columns: 56px 1fr 1fr;
+  gap: 0; border-bottom: 1px solid var(--ink-rule);
+  transition: background 0.3s;
+}
+.logic-row:last-child { border-bottom: none; }
+.logic-row:hover { background: var(--gold-pale); }
+@media (max-width: 700px) {
+  .logic-row { grid-template-columns: 40px 1fr; }
+  .logic-row .logic-right { display: none; }
+}
+.logic-num {
+  font-family: var(--mono); font-size: 0.65rem;
+  color: var(--gold); letter-spacing: 0.12em;
+  padding: 24px 16px; border-right: 1px solid var(--ink-rule);
+  display: flex; align-items: flex-start; padding-top: 26px;
+}
+.logic-left {
+  padding: 22px 28px;
+  border-right: 1px solid var(--ink-rule);
+}
+.logic-left h4 {
+  font-family: var(--serif); font-size: 0.95rem;
+  font-weight: 400; color: var(--washi);
+  line-height: 1.5; margin-bottom: 6px; letter-spacing: 0.02em;
+}
+.logic-left p { font-size: 0.78rem; }
+.logic-right { padding: 22px 28px; }
+.logic-right p { font-size: 0.78rem; line-height: 1.8; color: var(--text-dim); }
+
+/* ============================================================
+   MEETING LIFECYCLE — Before / In / After
+   The organizing axis of the site
+   ============================================================ */
+#lifecycle {
+  background: var(--ink-mid);
+  border-top: 1px solid var(--ink-rule);
+  border-bottom: 1px solid var(--ink-rule);
+}
+.lifecycle-header { margin-bottom: 56px; }
+
+.lifecycle-tabs {
+  display: flex; gap: 0; border-bottom: 1px solid var(--gold-rule);
+  margin-bottom: 56px; overflow-x: auto;
+}
+.lifecycle-tab {
+  font-family: var(--sans); font-size: 0.82rem;
+  font-weight: 400; letter-spacing: 0.06em;
+  color: var(--text-dim); padding: 14px 32px;
+  border: none; background: none; cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.25s; white-space: nowrap;
+}
+.lifecycle-tab.active {
+  color: var(--washi);
+  border-bottom-color: var(--gold);
+}
+.lifecycle-tab:hover { color: var(--text); }
+
+.lifecycle-panels { position: relative; min-height: 400px; }
+.lifecycle-panel { display: none; }
+.lifecycle-panel.active { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+@media (max-width: 800px) {
+  .lifecycle-panel.active { grid-template-columns: 1fr; gap: 36px; }
+}
+.panel-body h3 {
+  font-family: var(--serif); font-size: 1.3rem;
+  font-weight: 300; color: var(--washi);
+  margin-bottom: 16px; line-height: 1.5; letter-spacing: 0.02em;
+}
+.panel-body p { font-size: 0.85rem; line-height: 1.95; margin-bottom: 16px; }
+.panel-items { display: flex; flex-direction: column; gap: 0; }
+.panel-item {
+  display: flex; gap: 16px; padding: 16px 0;
+  border-bottom: 1px solid var(--ink-rule); align-items: flex-start;
+}
+.panel-item:first-child { border-top: 1px solid var(--ink-rule); }
+.pi-marker {
+  font-family: var(--mono); font-size: 0.65rem;
+  color: var(--gold); flex-shrink: 0; padding-top: 2px;
+  min-width: 24px;
+}
+.pi-text { font-size: 0.82rem; line-height: 1.7; }
+.pi-text strong { font-weight: 500; color: var(--washi); }
+
+/* ============================================================
+   SERVICES — Framed by situation, not by product
+   ============================================================ */
+#services {
+  position: relative;
+}
+.services-intro { max-width: 640px; margin-bottom: 64px; }
+.services-intro p { font-size: 0.88rem; line-height: 1.95; margin-top: 14px; }
+
+.service-blocks {
+  display: grid; gap: 3px;
+  grid-template-columns: 1fr 1fr;
+}
+@media (max-width: 768px) {
+  .service-blocks { grid-template-columns: 1fr; }
+}
+.service-block {
+  background: var(--ink-mid);
+  padding: 44px 36px;
+  position: relative; overflow: hidden;
+  transition: background 0.3s;
+}
+.service-block:hover { background: var(--ink-light); }
+.service-block::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 1px; background: var(--gold);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.4s ease;
+}
+.service-block:hover::after { transform: scaleX(1); }
+.sb-icon {
+  font-family: var(--mono); font-size: 1.5rem;
+  color: var(--gold); margin-bottom: 20px; line-height: 1;
+}
+.service-block h3 {
+  font-family: var(--serif); font-size: 1.1rem;
+  font-weight: 400; color: var(--washi);
+  margin-bottom: 12px; line-height: 1.5; letter-spacing: 0.02em;
+}
+.service-block > p { font-size: 0.82rem; line-height: 1.85; margin-bottom: 20px; }
+.sb-occasions {
+  display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px;
+}
+.sb-occasion {
+  font-family: var(--mono); font-size: 0.58rem;
+  letter-spacing: 0.08em; color: var(--text-dim);
+  border: 1px solid var(--ink-rule); padding: 3px 8px;
+}
+.sb-link {
+  font-family: var(--sans); font-size: 0.75rem;
+  color: var(--gold); text-decoration: none;
+  display: flex; align-items: center; gap: 8px;
+  transition: gap 0.25s;
+}
+.sb-link:hover { gap: 14px; }
+.sb-link::after { content: '→'; }
+
+/* ── Large service block spanning full width ── */
+.service-block.wide {
+  grid-column: 1 / -1;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+  align-items: start;
+}
+@media (max-width: 768px) {
+  .service-block.wide { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   RATE / PRICING — clean, no-frills
+   ============================================================ */
+#ryokin {
+  background: var(--ink-mid);
+  border-top: 1px solid var(--ink-rule);
+}
+.rate-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px; margin-top: 48px;
+}
+@media (max-width: 768px) {
+  .rate-grid { grid-template-columns: 1fr; }
+}
+.rate-card {
+  background: var(--ink);
+  padding: 36px 28px; border-top: 2px solid transparent;
+  transition: border-color 0.3s;
+}
+.rate-card:hover { border-top-color: var(--gold); }
+.rate-card h4 {
+  font-family: var(--serif); font-size: 0.95rem;
+  font-weight: 400; color: var(--washi);
+  margin-bottom: 8px; letter-spacing: 0.02em;
+}
+.rate-price {
+  font-family: var(--serif); font-size: 1.6rem;
+  font-weight: 200; color: var(--washi);
+  line-height: 1; margin-bottom: 4px;
+}
+.rate-price span { font-size: 0.8rem; color: var(--text-dim); font-weight: 300; }
+.rate-note { font-size: 0.75rem; line-height: 1.7; color: var(--text-dim); margin-top: 12px; }
+.rate-card ul {
+  list-style: none; margin-top: 16px;
+  display: flex; flex-direction: column; gap: 0;
+}
+.rate-card ul li {
+  font-size: 0.78rem; padding: 7px 0;
+  border-bottom: 1px solid var(--ink-rule);
+  padding-left: 14px; position: relative; color: var(--text-dim);
+}
+.rate-card ul li::before { content: '—'; position: absolute; left: 0; color: var(--gold); }
+.rate-highlight {
+  background: var(--ink-light);
+  border: 1px solid var(--gold-rule);
+  border-top: 3px solid var(--gold);
+}
+
+/* ============================================================
+   SITUATIONS — 御社の状況を教えてください
+   ============================================================ */
+#jokyo {
+  border-top: 1px solid var(--ink-rule);
+}
+.jokyo-intro { max-width: 600px; margin-bottom: 56px; }
+.jokyo-intro p { font-size: 0.88rem; line-height: 1.95; margin-top: 12px; }
+
+.jokyo-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3px;
+}
+@media (max-width: 960px) {
+  .jokyo-cards { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .jokyo-cards { grid-template-columns: 1fr; }
+}
+.jokyo-card {
+  background: var(--ink-mid);
+  padding: 32px 28px;
+  position: relative; cursor: default;
+  transition: background 0.3s;
+}
+.jokyo-card:hover { background: var(--ink-light); }
+.jokyo-card h4 {
+  font-family: var(--serif); font-size: 0.92rem;
+  font-weight: 400; color: var(--washi);
+  margin-bottom: 10px; line-height: 1.55; letter-spacing: 0.02em;
+}
+.jokyo-card p { font-size: 0.78rem; line-height: 1.8; }
+.jokyo-marker {
+  font-family: var(--mono); font-size: 0.58rem;
+  letter-spacing: 0.1em; color: var(--gold);
+  margin-bottom: 14px;
+}
+
+/* ============================================================
+   EVIDENCE — 実績を数字で
+   ============================================================ */
+#jisseki {
+  background: var(--ink-mid);
+  border-top: 1px solid var(--ink-rule);
+  border-bottom: 1px solid var(--ink-rule);
+}
+.jisseki-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0; border: 1px solid var(--gold-rule);
+  margin-bottom: 72px;
+}
+@media (max-width: 700px) {
+  .jisseki-grid { grid-template-columns: 1fr 1fr; }
+}
+.jisseki-block {
+  padding: 36px 28px; text-align: center;
+  border-right: 1px solid var(--gold-rule);
+}
+.jisseki-block:last-child { border-right: none; }
+@media (max-width: 700px) {
+  .jisseki-block:nth-child(2n) { border-right: none; }
+  .jisseki-block { border-bottom: 1px solid var(--gold-rule); }
+}
+.jisseki-num {
+  font-family: var(--serif); font-size: 2.4rem;
+  font-weight: 200; color: var(--washi); line-height: 1; margin-bottom: 8px;
+}
+.jisseki-num em { color: var(--gold); font-style: normal; }
+.jisseki-label { font-size: 0.72rem; color: var(--text-dim); line-height: 1.5; }
+
+/* Case memos */
+.case-row {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px;
+  margin-top: 3px;
+}
+@media (max-width: 860px) { .case-row { grid-template-columns: 1fr; } }
+.case-memo {
+  background: var(--ink);
+  padding: 32px 28px;
+  border-left: 2px solid transparent;
+  transition: border-color 0.3s;
+}
+.case-memo:hover { border-left-color: var(--gold); }
+.case-tag {
+  font-family: var(--mono); font-size: 0.58rem;
+  letter-spacing: 0.12em; color: var(--gold); margin-bottom: 14px;
+}
+.case-memo h4 {
+  font-family: var(--serif); font-size: 0.9rem;
+  font-weight: 400; color: var(--washi);
+  margin-bottom: 10px; line-height: 1.55; letter-spacing: 0.02em;
+}
+.case-memo p { font-size: 0.78rem; line-height: 1.8; }
+
+/* ============================================================
+   INSIGHTS
+   ============================================================ */
+#insights {
+  border-top: 1px solid var(--ink-rule);
+}
+.insights-grid {
+  display: grid; grid-template-columns: 5fr 3fr;
+  gap: 64px; align-items: start; margin-top: 48px;
+}
+@media (max-width: 860px) {
+  .insights-grid { grid-template-columns: 1fr; }
+}
+.featured-insight {
+  background: var(--ink-mid); border: 1px solid var(--gold-rule);
+  padding: 44px; display: block; text-decoration: none;
+  transition: border-color 0.3s;
+}
+.featured-insight:hover { border-color: var(--gold); }
+.fi-tag { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; color: var(--gold); margin-bottom: 14px; }
+.fi-title {
+  font-family: var(--serif); font-size: 1.3rem;
+  font-weight: 300; color: var(--washi);
+  line-height: 1.55; margin-bottom: 14px; letter-spacing: 0.02em;
+}
+.fi-body { font-size: 0.82rem; line-height: 1.85; color: var(--text); }
+.fi-meta { font-size: 0.7rem; color: var(--text-dim); margin-top: 20px; }
+
+.insight-list { display: flex; flex-direction: column; gap: 0; }
+.insight-item {
+  padding: 18px 0; border-bottom: 1px solid var(--ink-rule);
+  display: block; text-decoration: none; transition: padding-left 0.25s;
+}
+.insight-item:first-child { border-top: 1px solid var(--ink-rule); }
+.insight-item:hover { padding-left: 8px; }
+.ii-tag { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 5px; }
+.ii-title {
+  font-family: var(--serif); font-size: 0.88rem;
+  font-weight: 400; color: var(--washi); line-height: 1.5;
+}
+.ii-meta { font-size: 0.68rem; color: var(--text-dim); margin-top: 4px; }
+
+.insights-cta {
+  margin-top: 36px; padding: 28px;
+  background: var(--ink-mid); border: 1px solid var(--ink-rule);
+  border-top: 2px solid var(--gold);
+}
+.insights-cta p { font-size: 0.8rem; line-height: 1.8; margin-bottom: 14px; }
+
+/* ============================================================
+   ABOUT — Founder-led, philosophy-first
+   ============================================================ */
+#about {
+  background: var(--ink-mid);
+  border-top: 1px solid var(--ink-rule);
+}
+.about-grid {
+  display: grid; grid-template-columns: 2fr 1fr;
+  gap: 72px; align-items: start;
+}
+@media (max-width: 860px) {
+  .about-grid { grid-template-columns: 1fr; }
+}
+.about-body h3 {
+  font-family: var(--serif); font-size: 1.3rem;
+  font-weight: 300; color: var(--washi);
+  margin-bottom: 16px; line-height: 1.55; letter-spacing: 0.02em;
+}
+.about-body h3 + h3 { margin-top: 48px; }
+.about-body p { font-size: 0.85rem; line-height: 1.95; margin-bottom: 16px; }
+.philosophy {
+  border-left: 2px solid var(--gold);
+  padding-left: 24px; margin: 32px 0;
+}
+.philosophy p {
+  font-family: var(--serif);
+  font-size: 1.05rem; font-weight: 300;
+  color: var(--washi); line-height: 1.7; letter-spacing: 0.02em;
+}
+
+.profile-card {
+  background: var(--ink);
+  border: 1px solid var(--gold-rule);
+  padding: 36px 28px;
+  position: sticky; top: calc(var(--nav-h) + 24px);
+}
+.profile-mono {
+  width: 52px; height: 52px;
+  background: var(--ink-mid); border: 1px solid var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif); font-size: 1.2rem;
+  color: var(--gold); margin-bottom: 20px;
+}
+.profile-name-jp {
+  font-family: var(--serif); font-size: 1.1rem;
+  font-weight: 400; color: var(--washi); margin-bottom: 2px;
+}
+.profile-name-en { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.1em; color: var(--text-dim); margin-bottom: 20px; }
+.profile-rows { display: flex; flex-direction: column; gap: 0; }
+.profile-row {
+  display: flex; gap: 12px; padding: 10px 0;
+  border-bottom: 1px solid var(--ink-rule); font-size: 0.78rem;
+}
+.profile-row:last-child { border-bottom: none; }
+.pr-key { color: var(--gold); font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.06em; min-width: 56px; padding-top: 2px; flex-shrink: 0; }
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+#faq {
+  border-top: 1px solid var(--ink-rule);
+}
+.faq-grid {
+  display: grid; grid-template-columns: 1fr 2fr;
+  gap: 80px; align-items: start;
+}
+@media (max-width: 860px) {
+  .faq-grid { grid-template-columns: 1fr; }
+}
+.faq-lead p { font-size: 0.85rem; line-height: 1.9; margin-top: 12px; }
+.faq-items { display: flex; flex-direction: column; }
+.faq-item { border-bottom: 1px solid var(--ink-rule); }
+.faq-q {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  padding: 20px 0; cursor: pointer; gap: 16px;
+}
+.faq-q h4 {
+  font-family: var(--serif); font-size: 0.92rem;
+  font-weight: 400; color: var(--washi);
+  line-height: 1.55; letter-spacing: 0.02em;
+}
+.faq-icon { color: var(--gold); font-size: 1rem; flex-shrink: 0; transition: transform 0.3s; padding-top: 2px; }
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+.faq-a { display: none; padding-bottom: 20px; padding-right: 24px; }
+.faq-item.open .faq-a { display: block; }
+.faq-a p { font-size: 0.82rem; line-height: 1.9; }
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+#contact {
+  background: var(--ink-mid);
+  border-top: 1px solid var(--ink-rule);
+  position: relative; overflow: hidden;
+}
+.contact-glow {
+  position: absolute; top: 0; right: -200px;
+  width: 500px; height: 100%;
+  background: radial-gradient(ellipse, rgba(184,150,90,0.04) 0%, transparent 60%);
+  pointer-events: none;
+}
+.contact-grid {
+  display: grid; grid-template-columns: 4fr 3fr;
+  gap: 72px; align-items: start;
+}
+@media (max-width: 860px) {
+  .contact-grid { grid-template-columns: 1fr; }
+}
+.contact-form {
+  background: var(--ink);
+  border: 1px solid var(--ink-rule);
+  padding: 44px;
+}
+.form-label {
+  display: block; font-family: var(--mono);
+  font-size: 0.6rem; letter-spacing: 0.12em;
+  color: var(--gold); margin-bottom: 7px; text-transform: uppercase;
+}
+.form-input, .form-select, .form-textarea {
+  width: 100%; background: var(--ink-mid);
+  border: 1px solid var(--ink-rule);
+  color: var(--washi); padding: 11px 14px;
+  font-family: var(--sans); font-size: 0.85rem; font-weight: 300;
+  outline: none; transition: border-color 0.2s;
+  margin-bottom: 20px; appearance: none;
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--gold); }
+.form-input::placeholder, .form-textarea::placeholder { color: var(--text-dim); }
+.form-textarea { resize: vertical; min-height: 90px; }
+.form-select { cursor: pointer; }
+.form-select option { background: var(--ink); }
+.form-submit {
+  width: 100%; background: var(--gold); color: var(--ink);
+  border: none; padding: 15px;
+  font-family: var(--sans); font-size: 0.85rem;
+  font-weight: 500; letter-spacing: 0.1em;
+  cursor: pointer; transition: background 0.2s;
+}
+.form-submit:hover { background: #c9a76b; }
+.form-note { font-size: 0.7rem; color: var(--text-dim); margin-top: 10px; }
+
+.contact-info h3 {
+  font-family: var(--serif); font-size: 1.4rem;
+  font-weight: 200; color: var(--washi);
+  margin-bottom: 16px; line-height: 1.5; letter-spacing: 0.04em;
+}
+.contact-info > p { font-size: 0.85rem; line-height: 1.9; margin-bottom: 32px; }
+.contact-rows { display: flex; flex-direction: column; gap: 0; margin-bottom: 36px; }
+.contact-row { display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--ink-rule); font-size: 0.8rem; }
+.cr-key { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.1em; color: var(--gold); min-width: 52px; padding-top: 2px; flex-shrink: 0; }
+.cr-val { color: var(--text); }
+.cr-val a { color: var(--text); text-decoration: none; }
+.cr-val a:hover { color: var(--washi); }
+
+.contact-path {
+  background: var(--ink);
+  border: 1px solid var(--ink-rule);
+  border-left: 3px solid var(--gold);
+  padding: 20px 20px 20px 22px;
+  margin-bottom: 12px;
+}
+.contact-path h5 {
+  font-family: var(--serif); font-size: 0.9rem;
+  font-weight: 400; color: var(--washi);
+  margin-bottom: 5px; letter-spacing: 0.02em;
+}
+.contact-path p { font-size: 0.75rem; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  background: #09141d;
+  border-top: 1px solid var(--ink-rule);
+  padding: 56px 0 36px;
+}
+.footer-grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px; margin-bottom: 40px;
+}
+@media (max-width: 860px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+.footer-brand h3 {
+  font-family: var(--serif); font-size: 1rem;
+  font-weight: 400; color: var(--washi); margin-bottom: 6px; letter-spacing: 0.04em;
+}
+.footer-brand p { font-size: 0.75rem; line-height: 1.7; max-width: 240px; }
+.footer-col h5 {
+  font-family: var(--mono); font-size: 0.6rem;
+  letter-spacing: 0.12em; color: var(--gold);
+  text-transform: uppercase; margin-bottom: 16px;
+}
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.footer-col ul a { font-size: 0.78rem; color: var(--text-dim); text-decoration: none; transition: color 0.2s; }
+.footer-col ul a:hover { color: var(--washi); }
+.footer-bottom {
+  border-top: 1px solid var(--ink-rule); padding-top: 24px;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 12px;
+}
+.footer-bottom p { font-size: 0.7rem; color: var(--text-dim); }
+.footer-en-note {
+  font-family: var(--mono); font-size: 0.6rem;
+  letter-spacing: 0.1em; color: var(--text-dim);
+}
+.footer-en-note a { color: var(--gold); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<nav id="main-nav">
+  <div class="wrap nav-inner">
+    <a href="#hero" class="nav-logo">
+      <span class="nav-logo-jp">ジャパン・インベスター・インターフェース</span>
+      <span class="nav-logo-en">Japan Investor Interface</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#mondai">IRの課題</a></li>
+      <li><a href="#lifecycle">面談の前・中・後</a></li>
+      <li><a href="#services">サービス</a></li>
+      <li><a href="#jokyo">こんな状況に</a></li>
+      <li><a href="#insights">インサイト</a></li>
+      <li><a href="#about">会社概要</a></li>
+      <li><a href="#contact">お問い合わせ</a></li>
+    </ul>
+    <a href="/en/" class="nav-en-link">English</a>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#mondai" onclick="toggleMenu()">IRの課題</a>
+  <a href="#lifecycle" onclick="toggleMenu()">面談の前・中・後</a>
+  <a href="#services" onclick="toggleMenu()">サービス</a>
+  <a href="#jokyo" onclick="toggleMenu()">こんな状況に</a>
+  <a href="#insights" onclick="toggleMenu()">インサイト</a>
+  <a href="#about" onclick="toggleMenu()">会社概要</a>
+  <a href="#contact" onclick="toggleMenu()">お問い合わせ</a>
+  <a href="/en/">English Site</a>
+</div>
+
+<!-- ============================================================
+     HERO — Opens with a question, not a claim
+     ============================================================ -->
+<section id="hero">
+  <div class="hero-texture"></div>
+  <div class="hero-glow"></div>
+  <div class="wrap">
+    <div class="hero-body">
+
+      <!-- The hook: a question the reader already feels -->
+      <div class="hero-question">
+        <p class="hero-question-line">海外投資家との面談は、なぜか手ごたえがない。</p>
+        <p class="hero-question-line">英語の資料は整備されている。通訳も入れている。</p>
+        <p class="hero-question-line">それでも——</p>
+        <p class="hero-question-line emphasis">投資家が何を考えているのか、面談後もわからない。</p>
+      </div>
+
+      <!-- The positioning statement -->
+      <div class="hero-title">
+        <h1 class="mincho-xl">
+          対話の現場に立ち会い、<br>
+          両側の言葉を完全に理解する。<br>
+          <span style="color:var(--gold); font-weight:300;">それが、私たちの仕事です。</span>
+        </h1>
+      </div>
+
+      <div class="hero-answer">
+        <p>JII（ジャパン・インベスター・インターフェース）は、海外投資家との対話における「通訳」ではありません。投資家面談の現場に立ち会い、双方の発言・意図・感情を完全に理解した上で、御社のIRコミュニケーションを根本から改善するアドバイザリーです。</p>
+        <p>英文翻訳は手段です。通訳は入口です。本質的な価値は、<strong>面談の中で何が起きているかを理解し、次の打ち手に変換すること</strong>にあります。</p>
+      </div>
+
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-primary">無料相談を予約する</a>
+        <a href="#mondai" class="btn btn-outline">IRの課題を見る</a>
+      </div>
+
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num">300<em>+</em></div>
+          <div class="hero-stat-label">通訳として立ち会った企業面談</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">80<em>+</em></div>
+          <div class="hero-stat-label">CFO・CEO・取締役クラスとの面談</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">40<em>+</em></div>
+          <div class="hero-stat-label">リバース・ロードショーの参加企業数</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PROBLEM — 「こういうことが起きていませんか」
+     Recognition before prescription
+     ============================================================ -->
+<section id="mondai">
+  <div class="wrap">
+    <div class="mondai-intro reveal">
+      <span class="label">よくある課題</span>
+      <div class="rule-gold"></div>
+      <h2 class="mincho-lg">海外IRが「うまくいかない」理由は、<br>言語の問題ではありません。</h2>
+      <p>多くの場合、英語の精度は十分です。翻訳会社も通訳者も、適切なプロが入っています。それでも成果が出ない。その根本的な理由は、<strong>「正確な英語」と「投資家に伝わる英語」の間にある溝</strong>——そして、面談の中で何が起きているかを把握できていないことにあります。</p>
+    </div>
+
+    <div class="scene-grid">
+      <div class="scene-card reveal">
+        <div class="scene-num">場面 01</div>
+        <h3>面談が終わった後、投資家が何を考えているか、わからない</h3>
+        <p>丁寧な対話ができた。英語でのコミュニケーションに大きな支障もなかった。しかし面談後、「今日の投資家、買うつもりがあるのか？」という問いに答えられる人間が、部屋にいない。投資家は礼儀正しい。だから、本音が見えない。</p>
+        <span class="scene-signal">情報の非対称</span>
+      </div>
+      <div class="scene-card reveal">
+        <div class="scene-num">場面 02</div>
+        <h3>同じ質問が、違う投資家からも繰り返し来る</h3>
+        <p>「ROEについてどう考えているか」「キャッシュをどう使う方針か」——これらが毎回のように出てくるなら、御社の開示のどこかに同じ穴がある。しかし、面談の後に「今日はこういう質問があった」と体系的に記録・分析する仕組みがなければ、その穴は永遠に埋まらない。</p>
+        <span class="scene-signal">学習ループの欠如</span>
+      </div>
+      <div class="scene-card reveal">
+        <div class="scene-num">場面 03</div>
+        <h3>英文資料は「正確」だが、投資家の判断材料になっていない</h3>
+        <p>決算短信の英訳は完成している。内容は正確だ。しかし、外国人投資家が財務モデルを作る上で本当に必要な情報——ユニット・エコノミクス、セグメント別の収益構造、キャピタル・アロケーションの論理——がどこにも書かれていない。翻訳の問題ではなく、<strong>開示設計の問題</strong>だ。</p>
+        <span class="scene-signal">開示の設計ミス</span>
+      </div>
+      <div class="scene-card reveal">
+        <div class="scene-num">場面 04</div>
+        <h3>アクティビストからのアプローチが、突然来た</h3>
+        <p>投資家との対話の質が長年低いままだと、最初の警告サインは「穏やかな懸念」ではなく「株主提案」や「公開書簡」として届く。海外のコンストラクティビスト系ファンドは、アプローチの前に相当な調査を行っている。彼らが何を求めているかを正確に理解し、適切に応答するためには、<strong>同じ言語で考えられるアドバイザー</strong>が不可欠だ。</p>
+        <span class="scene-signal">アクティビスト対応</span>
+      </div>
+    </div>
+
+    <div class="diagnosis-block reveal">
+      <p>これらはすべて、翻訳・通訳の精度の問題ではありません。<strong>面談の中で何が起きているかを、誰も把握していない</strong>という問題です。</p>
+      <p>両サイドの発言を完全に理解し、「質問の裏にある質問」を聞き取ることができる人間が、面談後にそのインサイトを御社に届ける——それが、JIIのアドバイザリーが提供するものです。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     APPROACH — 私たちのアプローチ
+     ============================================================ -->
+<section id="approach">
+  <div class="wrap">
+    <span class="label reveal">アプローチ</span>
+    <div class="rule-gold"></div>
+    <div class="approach-lead">
+      <div class="reveal">
+        <h2 class="mincho-lg">翻訳・通訳を入口に、<br>対話の質を上げる。</h2>
+      </div>
+      <div class="reveal">
+        <p>JIIのアプローチは、大手IRサポート会社とは根本的に異なります。それらの企業は「制作と運用」に強い。翻訳量、イベントのロジスティクス、データの配信——スケールが強みです。</p>
+        <p>JIIが提供するのは、<strong>スケールではなくインサイト</strong>です。面談に立ち会い、投資家の発言を文脈ごと理解し、御社がその面談から何を学ぶべきかを届ける——そのサイクルを回し続けることで、IRの質は四半期ごとに改善します。</p>
+      </div>
+    </div>
+
+    <div class="logic-flow reveal">
+      <div class="logic-row">
+        <div class="logic-num">01</div>
+        <div class="logic-left">
+          <h4>言語精度より、投資家可読性</h4>
+          <p>「正確な英語」と「投資家に伝わる英語」は違う。JIIは投資家が実際に読み、モデルに落とし込む視点でレビューする。</p>
+        </div>
+        <div class="logic-right">
+          <p>バイサイドのアナリストが決算資料を読む目的は、「何が書いてあるか」の確認ではない。<strong>「自分の投資仮説が正しいかどうか」の検証</strong>だ。その論点に答えているかどうかが、材料として機能するかの分岐点になる。</p>
+        </div>
+      </div>
+      <div class="logic-row">
+        <div class="logic-num">02</div>
+        <div class="logic-left">
+          <h4>面談中の観察を、次の打ち手に変換する</h4>
+          <p>立ち会い通訳は「場を成立させる」ためではなく、「何が起きているかを理解する」ために行う。</p>
+        </div>
+        <div class="logic-right">
+          <p>投資家はなぜその質問を繰り返したか。どの回答でペンが止まったか。どの話題を自ら切り出したか。<strong>これらのシグナルを読み取れる人間が場にいること</strong>——それが、普通の通訳との決定的な違いだ。</p>
+        </div>
+      </div>
+      <div class="logic-row">
+        <div class="logic-num">03</div>
+        <div class="logic-left">
+          <h4>一回の面談で終わらせない、継続的な改善ループ</h4>
+          <p>四半期を経るごとに、投資家から受ける質問のパターンが蓄積される。それが御社のIR改善のロードマップになる。</p>
+        </div>
+        <div class="logic-right">
+          <p>投資家が繰り返し問う質問は、御社の開示に存在する「構造的な穴」を示している。一回の面談でその穴を特定し、次の決算資料でそれを埋める——<strong>このループを意図的に設計することが、IR改善の本質</strong>だ。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MEETING LIFECYCLE — 面談の前・中・後
+     ============================================================ -->
+<section id="lifecycle">
+  <div class="wrap">
+    <div class="lifecycle-header reveal">
+      <span class="label">面談のライフサイクル</span>
+      <div class="rule-gold"></div>
+      <h2 class="mincho-lg">面談の「前」「中」「後」で、<br>何をすべきか。</h2>
+      <p style="font-size:0.88rem; line-height:1.95; margin-top:14px; max-width:580px;">JIIのエンゲージメントは、単発の翻訳・通訳ではありません。面談の前後を含む一連のサイクルとして設計されています。各ステージがどう連動するかを以下で説明します。</p>
+    </div>
+
+    <div class="lifecycle-tabs reveal">
+      <button class="lifecycle-tab active" onclick="switchTab('mae', this)">面談前</button>
+      <button class="lifecycle-tab" onclick="switchTab('naka', this)">面談中</button>
+      <button class="lifecycle-tab" onclick="switchTab('ato', this)">面談後</button>
+      <button class="lifecycle-tab" onclick="switchTab('cycle', this)">次の四半期へ</button>
+    </div>
+
+    <div class="lifecycle-panels reveal">
+      <!-- 面談前 -->
+      <div class="lifecycle-panel active" id="panel-mae">
+        <div class="panel-body">
+          <h3>「誰と会うか」を理解してから、<br>部屋に入る。</h3>
+          <p>多くの企業は、投資家の名前と面談時間だけを把握して当日を迎えます。JIIは面談前に、その投資家の投資スタイル・既存ポートフォリオ・過去の発言・御社への関心の深さを把握した上で準備します。</p>
+          <p>「この投資家は今日、何を確認しに来るか」——この問いに事前に答えておくことで、御社の説明の設計が根本から変わります。</p>
+        </div>
+        <div class="panel-items">
+          <div class="panel-item">
+            <div class="pi-marker">—</div>
+            <div class="pi-text"><strong>投資家プロファイルの確認</strong><br>投資スタイル、保有銘柄、過去の発言・報告書から、今日の面談で投資家が確認したいことを事前に整理する。</div>
+          </div>
+          <div class="panel-item">
+            <div class="pi-marker">—</div>
+            <div class="pi-text"><strong>想定質問の整理</strong><br>一般的なQ&Aではなく、この投資家が持つであろう「固有の疑問」を特定する。</div>
+          </div>
+          <div class="panel-item">
+            <div class="pi-marker">—</div>
+            <div class="pi-text"><strong>資料の投資家視点レビュー</strong><br>説明資料の中に、この投資家が必要とする情報が入っているかを確認。「正確さ」だけでなく「有用性」を評価する。</div>
+          </div>
+          <div class="panel-item">
+            <div class="pi-marker">—</div>
+            <div class="pi-text"><strong>難しいテーマへの準備</strong><br>ガバナンス、低ROE、M&A姿勢、資本配分——経営陣が最も答えにくい質問への準備を行う。</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 面談中 -->
+      <div class="lifecycle-panel" id="panel-naka">
+        <div class="panel-body">
+          <h3>通訳ではなく、<br>「何が起きているか」を把握する人間として。</h3>
+          <p>JIIの通訳は、言葉を正確に届けるだけではありません。面談中、双方の発言・反応・態度を同時に観察し、投資家が何を確認しようとしているかをリアルタイムで理解します。</p>
+          <p>「この質問を3回繰り返した」「この回答でメモを取るのを止めた」「この話題は自ら掘り下げてきた」——これらのシグナルは、言語化されない形で面談の中に存在します。</p>
+        </div>
+        <div class="panel-items">
+          <div class="panel-item">
+            <div class="pi-marker">—</div>
+            <div class="pi-text"><strong>逐次通訳（金融・IR特化）</strong><br>決算説明・ガバナンス議論・M&A戦略まで、専門用語を文脈ごと正確に通訳する。</div>
+          </div>
+          <div class="panel-item">
+            <div class="pi-marker">—</div>
+            <div class="pi-text"><strong>投資家シグナルの観察</strong><br>繰り返された質問、掘り下げた話題、言葉にされなかった懸念——これらを面談中に記録する。</div>
+          </div>
+          <div class="panel-item">
+            <div class="pi-marker">—</div>
+            <div class="pi-text"><strong>難しい場面のナビゲーション</strong><br>想定外の質問が来た際に、経営陣が適切に対応できるよう自然な形でサポートする。</div>
+          </div>
+          <div class="panel-item">
+            <div class="pi-marker">—</div>
+            <div class="pi-text"><strong>完全な機密保持</strong><br>面談の内容は第三者に共有しない。守秘性は、アクセスの前提条件である。</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 面談後 -->
+      <div class="lifecycle-panel" id="panel-ato">
+        <div class="panel-body">
+          <h3>面談が終わった後が、<br>最も価値ある時間だ。</h3>
+          <p>面談後のデブリーフィングこそが、JIIのアドバイザリーで最も価値の高いアウトプットです。「今日の投資家は何を考えているか」——この問いに、24時間以内に書面で答えます。</p>
+          <p>これは議事録ではありません。投資家の発言パターン・未解消の懸念・御社に対して持っているであろう仮説——これらを統合した、次のアクションに直結する分析です。</p>
+        </div>
+        <div class="panel-items">
+          <div class="panel-item">
+            <div class="pi-marker">—</div>
+            <div class="pi-text"><strong>24時間以内のデブリーフィング文書</strong><br>面談で観察されたシグナル・ギャップ・投資家の未解消懸念を整理した書面を御社担当者にのみ提供する。</div>
+          </div>
+          <div class="panel-item">
+            <div class="pi-marker">—</div>
+            <div class="pi-text"><strong>「質問の裏にある質問」の分析</strong><br>表面の質問ではなく、その質問が示す投資家の懸念の本質を特定する。</div>
+          </div>
+          <div class="panel-item">
+            <div class="pi-marker">—</div>
+            <div class="pi-text"><strong>次回面談・次の開示への示唆</strong><br>今日の面談から、次の決算説明・IR資料で何を変えるべきかの具体的な改善ポイントを提示する。</div>
+          </div>
+          <div class="panel-item">
+            <div class="pi-marker">—</div>
+            <div class="pi-text"><strong>フォローアップ対応の設計</strong><br>投資家が面談後に求める追加情報や対応の方向性について助言する。</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 次の四半期へ -->
+      <div class="lifecycle-panel" id="panel-cycle">
+        <div class="panel-body">
+          <h3>四半期を重ねるほど、<br>IRの質は上がる。</h3>
+          <p>JIIの継続的なエンゲージメントでは、各面談からのデブリーフィング記録が蓄積されます。複数の投資家・複数の面談を通じて繰り返し出てくる質問——これが御社のIR改善ロードマップになります。</p>
+          <p>海外投資家との対話は、一度の面談で完結しません。四半期ごとに投資家との理解が深まり、開示の質が改善し、信頼が積み重なる——それが海外IR本来の目的です。</p>
+        </div>
+        <div class="panel-items">
+          <div class="panel-item">
+            <div class="pi-marker">—</div>
+            <div class="pi-text"><strong>繰り返し質問のトラッキング</strong><br>複数の面談を通じて繰り返される質問テーマを蓄積し、御社の開示の「構造的な穴」を特定する。</div>
+          </div>
+          <div class="panel-item">
+            <div class="pi-marker">—</div>
+            <div class="pi-text"><strong>開示ナラティブの進化</strong><br>四半期ごとに、投資家が求める情報を反映した資料設計の改善提案を行う。</div>
+          </div>
+          <div class="panel-item">
+            <div class="pi-marker">—</div>
+            <div class="pi-text"><strong>投資家テーマのモニタリング</strong><br>御社に関心を持つファンドが注目している市場テーマの変化を追跡し、メッセージングへの反映を助言する。</div>
+          </div>
+          <div class="panel-item">
+            <div class="pi-marker">—</div>
+            <div class="pi-text"><strong>年間IR戦略レビュー</strong><br>年度末に、蓄積した面談記録をもとに翌年のIR方針について総合的なアドバイスを行う。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SERVICES — Grounded in situation, not product
+     ============================================================ -->
+<section id="services">
+  <div class="wrap">
+    <div class="services-intro reveal">
+      <span class="label">サービス</span>
+      <div class="rule-gold"></div>
+      <h2 class="mincho-lg">御社の状況に応じた、<br>4つのエンゲージメント</h2>
+      <p>JIIのサービスは、「何を提供するか」ではなく「どの局面で役に立つか」で設計されています。単発での依頼も、継続的なパートナーシップも、どちらも対応します。</p>
+    </div>
+
+    <div class="service-blocks reveal">
+      <!-- 通訳 -->
+      <div class="service-block">
+        <div class="sb-icon">◈</div>
+        <h3>投資家面談の立ち会い通訳</h3>
+        <p>IR面談・リバース・ロードショー・決算説明会・アクティビスト対応など、経営の核心に触れる議論を含む場での通訳。面談前の準備と面談後のデブリーフィングがセットです。</p>
+        <div class="sb-occasions">
+          <span class="sb-occasion">1on1面談</span>
+          <span class="sb-occasion">リバース・ロードショー</span>
+          <span class="sb-occasion">決算説明会</span>
+          <span class="sb-occasion">アクティビスト対応</span>
+          <span class="sb-occasion">オンライン会議</span>
+        </div>
+        <a href="#contact" class="sb-link">詳細・依頼</a>
+      </div>
+
+      <!-- アドバイザリー -->
+      <div class="service-block">
+        <div class="sb-icon">◎</div>
+        <h3>海外投資家コミュニケーション・アドバイザリー</h3>
+        <p>投資家が問うであろう質問を事前に特定し、経営陣が適切に答えられるよう準備する。面談後の投資家意図分析、開示のメッセージング改善提案まで含めた、戦略的なアドバイザリーです。</p>
+        <div class="sb-occasions">
+          <span class="sb-occasion">Q&A準備</span>
+          <span class="sb-occasion">メッセージング設計</span>
+          <span class="sb-occasion">アクティビスト対応戦略</span>
+          <span class="sb-occasion">中計発表前</span>
+        </div>
+        <a href="#contact" class="sb-link">詳細・依頼</a>
+      </div>
+
+      <!-- 英文翻訳・レビュー -->
+      <div class="service-block">
+        <div class="sb-icon">◻</div>
+        <h3>英文開示・IR資料の翻訳・投資家可読性レビュー</h3>
+        <p>決算短信・決算説明資料・中期経営計画・統合報告書・アナリストレポートの英訳。「正確な翻訳」ではなく、「投資家が実際に使える翻訳」を基準に制作・レビューします。</p>
+        <div class="sb-occasions">
+          <span class="sb-occasion">決算短信</span>
+          <span class="sb-occasion">決算説明資料</span>
+          <span class="sb-occasion">中期経営計画</span>
+          <span class="sb-occasion">統合報告書</span>
+          <span class="sb-occasion">アナリストレポート</span>
+        </div>
+        <a href="#contact" class="sb-link">詳細・依頼</a>
+      </div>
+
+      <!-- 継続的IRインテリジェンス -->
+      <div class="service-block">
+        <div class="sb-icon">◉</div>
+        <h3>継続的IRインテリジェンス支援（年間契約）</h3>
+        <p>四半期ごとの翻訳・通訳・デブリーフィング・アドバイザリーをパッケージ化した年間契約。単発の翻訳会社費用と同水準の価格で、翻訳＋アドバイザリーをすべて包含します。</p>
+        <div class="sb-occasions">
+          <span class="sb-occasion">年間契約</span>
+          <span class="sb-occasion">四半期フィードバック</span>
+          <span class="sb-occasion">継続的Q&A改善</span>
+          <span class="sb-occasion">投資家テーマ追跡</span>
+        </div>
+        <a href="#contact" class="sb-link">詳細・依頼</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PRICING
+     ============================================================ -->
+<section id="ryokin">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="label">料金体系</span>
+      <div class="rule-gold"></div>
+      <h2 class="mincho-md">明確な料金体系</h2>
+      <p style="font-size:0.85rem; line-height:1.9; margin-top:12px; max-width:580px;">すべての案件は開始前に書面で見積もりをご提示します。隠れた費用はありません。</p>
+    </div>
+    <div class="rate-grid reveal">
+      <div class="rate-card">
+        <h4>英文翻訳</h4>
+        <div class="rate-price">¥12<span> / 文字（日本語）</span></div>
+        <div class="rate-note">年間契約・ボリューム割引あり。翻訳対象箇所の文字数をカウントしてお見積もりします。</div>
+        <ul>
+          <li>決算短信（4半期4回）</li>
+          <li>決算説明資料（半期・通期）</li>
+          <li>中期経営計画</li>
+          <li>統合報告書・ESGレポート</li>
+          <li>アナリストレポート（当日納品対応）</li>
+        </ul>
+      </div>
+      <div class="rate-card rate-highlight">
+        <h4>年間IRインテリジェンス契約</h4>
+        <div class="rate-price">¥1,500,000<span> / 年</span></div>
+        <div class="rate-note">翻訳単体の市場価格と同水準。IRアドバイザリーを追加費用なしで包含。</div>
+        <ul>
+          <li>四半期決算翻訳（4回）</li>
+          <li>半期・通期説明資料翻訳（2回）</li>
+          <li>四半期フィードバック・セッション（4回）</li>
+          <li>投資家面談準備（随時）</li>
+          <li>デブリーフィング文書（面談ごと）</li>
+          <li>継続的メッセージング支援</li>
+        </ul>
+      </div>
+      <div class="rate-card">
+        <h4>立ち会い通訳</h4>
+        <div class="rate-price">¥10,000 <span>〜 / 時間</span></div>
+        <div class="rate-note">面談タイプにより変動。アナリスト向け：¥10,000/時。経営陣IR面談：¥20,000/時。</div>
+        <ul>
+          <li>面談前準備（資料レビュー含む）込み</li>
+          <li>面談後デブリーフィング文書込み</li>
+          <li>海外投資家向け：USD 200 / 面談</li>
+          <li>オンライン対応可</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SITUATIONS — 御社の状況を見つけてください
+     ============================================================ -->
+<section id="jokyo">
+  <div class="wrap">
+    <div class="jokyo-intro reveal">
+      <span class="label">こんな状況に</span>
+      <div class="rule-gold"></div>
+      <h2 class="mincho-lg">御社の状況を、<br>見つけてください。</h2>
+      <p>JIIは特定の状況・局面で最も大きな価値を発揮します。以下のいずれかに当てはまる場合、まずご相談ください。</p>
+    </div>
+
+    <div class="jokyo-cards reveal">
+      <div class="jokyo-card">
+        <div class="jokyo-marker">状況 01</div>
+        <h4>初めて本格的な海外機関投資家との面談がある</h4>
+        <p>実績のある海外ファンドが株主として現れ、経営陣との直接面談を求めてきた。自社だけでは準備が不十分だと感じている。</p>
+      </div>
+      <div class="jokyo-card">
+        <div class="jokyo-marker">状況 02</div>
+        <h4>海外IRを続けているが、成果が見えない</h4>
+        <p>1〜2年間、海外投資家との面談を重ねているが、外国人持株比率が改善しない。何が問題なのか、特定できていない。</p>
+      </div>
+      <div class="jokyo-card">
+        <div class="jokyo-marker">状況 03</div>
+        <h4>アクティビスト・コンストラクティビストが登場した</h4>
+        <p>海外の物言う株主が株主として現れるか、面談を要請してきた。彼らが本当に求めているものを正確に理解した上で対応する必要がある。</p>
+      </div>
+      <div class="jokyo-card">
+        <div class="jokyo-marker">状況 04</div>
+        <h4>中期経営計画・資本配分方針を海外投資家に説明する</h4>
+        <p>新たな中計・構造改革・株主還元方針を対外発表する予定がある。海外投資家への説明を、単なる翻訳ではなく「投資家の納得」を軸に設計したい。</p>
+      </div>
+      <div class="jokyo-card">
+        <div class="jokyo-marker">状況 05</div>
+        <h4>プライム市場の英文開示義務に対応したい</h4>
+        <p>2025年4月以降の英文開示ルールへの対応が必要。コンプライアンス対応にとどまらず、投資家に本当に伝わる英文開示を構築したい。</p>
+      </div>
+      <div class="jokyo-card">
+        <div class="jokyo-marker">状況 06</div>
+        <h4>海外IR体制をゼロから構築する</h4>
+        <p>これまで海外投資家との対話実績がない。翻訳・通訳・アドバイザリーを一括で依頼できるパートナーを探している。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     EVIDENCE — 実績
+     ============================================================ -->
+<section id="jisseki">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="label">実績・経験</span>
+      <div class="rule-gold"></div>
+      <h2 class="mincho-lg">経験の根拠</h2>
+      <p style="font-size:0.85rem; line-height:1.9; margin-top:12px; max-width:580px;">私たちの実績はクライアントの社名リストではありません。どれだけの場面に立ち会い、何を理解してきたかで示します。以下は2026年4月時点の実績です。</p>
+    </div>
+    <div class="jisseki-grid reveal">
+      <div class="jisseki-block">
+        <div class="jisseki-num">300<em>+</em></div>
+        <div class="jisseki-label">通訳として立ち会った企業・投資家面談</div>
+      </div>
+      <div class="jisseki-block">
+        <div class="jisseki-num">80<em>+</em></div>
+        <div class="jisseki-label">CFO・CEO・取締役クラスとの面談</div>
+      </div>
+      <div class="jisseki-block">
+        <div class="jisseki-num">40<em>+</em></div>
+        <div class="jisseki-label">リバース・ロードショーの参加企業</div>
+      </div>
+      <div class="jisseki-block">
+        <div class="jisseki-num">12<em>+</em></div>
+        <div class="jisseki-label">対応した海外ファンドの国籍（米・英・欧・アジア）</div>
+      </div>
+    </div>
+
+    <div class="case-row reveal">
+      <div class="case-memo">
+        <div class="case-tag">事例タイプ — アクティビスト対応</div>
+        <h4>取締役会室での、コンストラクティビスト・エンゲージメント</h4>
+        <p>ボストン拠点のコンストラクティビスト・ファンドと日本の中規模金融機関経営陣との間で、取締役会室で直接通訳を担当。業務改善・資本構成最適化・新ファンドビークルの共同スポンサー構想を議題とした高度な戦略議論を、文脈ごと完全に通訳。双方に「伝わった」と評価された。</p>
+      </div>
+      <div class="case-memo">
+        <div class="case-tag">事例タイプ — IRコミュニケーション課題</div>
+        <h4>英文資料は正確だが、海外投資家の関心を引けていなかった小型株</h4>
+        <p>強固な事業経済性を持つ小型株が、1年間海外投資家と面談を重ねても成果が出ていなかった。面談立ち会いと事後分析の結果、3つの開示上の構造的ギャップを特定。競争優位の説明が経済的文脈ではなく製品文脈で語られていたこと、資本配分の論理が明示されていなかったことなど、<strong>戦略を変えずに開示設計を変えるだけで改善できる問題</strong>だった。</p>
+      </div>
+      <div class="case-memo">
+        <div class="case-tag">事例タイプ — 継続的IR支援</div>
+        <h4>月60本のアナリストレポート翻訳＋月20件以上の投資家面談通訳</h4>
+        <p>中規模証券会社向けに継続エンゲージメントを実施。月60本のアナリストレポート英訳、月20件以上の投資家・企業間のIR面談通訳、経営陣との面談準備・事後フォローアップを担当。翻訳・通訳の両方を同一の担当者が行うことで、アナリストの論点と投資家の反応を連動させた高品質な支援を実現している。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     INSIGHTS
+     ============================================================ -->
+<section id="insights">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="label">インサイト</span>
+      <div class="rule-gold"></div>
+      <h2 class="mincho-lg">面談の現場が教えること</h2>
+      <p style="font-size:0.85rem; line-height:1.9; margin-top:12px; max-width:560px;">コンテンツのソースは3つのみ：ライブ対話、開示・資料業務、面談後の分析。一般的なIRノウハウは扱いません。</p>
+    </div>
+    <div class="insights-grid">
+      <div>
+        <a href="https://substack.com/@japanir" target="_blank" class="featured-insight reveal">
+          <div class="fi-tag">特集 — 2026年4月</div>
+          <h3 class="fi-title">通訳者が目撃した日本市場の変革（2023〜2026年）</h3>
+          <p class="fi-body">プラザ合意以来最大の構造的変化が起きた日本株式市場で、投資家面談の現場に3年間立ち会った記録。TSEの資本効率改革は何を変え、何を変えなかったか。海外投資家がまだ待っているものは何か。英語版Substackにて公開中。</p>
+          <div class="fi-meta">Substackで全文を読む →</div>
+        </a>
+      </div>
+      <div class="reveal">
+        <div class="insight-list">
+          <a href="#insights" class="insight-item" style="color:inherit">
+            <div class="ii-tag">投資家質問インテリジェンス</div>
+            <h4 class="ii-title">米国アクティビスト系ファンドが初回面談で必ず問う5つの質問</h4>
+            <div class="ii-meta">近日公開</div>
+          </a>
+          <a href="#insights" class="insight-item" style="color:inherit">
+            <div class="ii-tag">開示設計</div>
+            <h4 class="ii-title">プライム市場の英文決算短信に繰り返し見られる、5つの構造的ギャップ</h4>
+            <div class="ii-meta">近日公開</div>
+          </a>
+          <a href="#insights" class="insight-item" style="color:inherit">
+            <div class="ii-tag">経営陣Q&A</div>
+            <h4 class="ii-title">「キャッシュをどう使うか」——経営陣が最も答えにくい質問への準備方法</h4>
+            <div class="ii-meta">近日公開</div>
+          </a>
+          <a href="#insights" class="insight-item" style="color:inherit">
+            <div class="ii-tag">市場コンテキスト</div>
+            <h4 class="ii-title">TSEの資本効率要請は、海外投資家の日本株評価をどう変えたか</h4>
+            <div class="ii-meta">近日公開</div>
+          </a>
+        </div>
+        <div class="insights-cta">
+          <p>インサイトノートを定期受信する。マーケティングメールは送りません。現場からの分析のみです。</p>
+          <a href="https://substack.com/@japanir" target="_blank" class="btn btn-outline" style="font-size:0.78rem; padding:10px 24px;">Substackで購読する</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ABOUT — Founder-led, philosophy first
+     ============================================================ -->
+<section id="about">
+  <div class="wrap">
+    <span class="label reveal">会社概要</span>
+    <div class="rule-gold"></div>
+    <div class="about-grid">
+      <div class="about-body reveal">
+        <h3>なぜ、この会社をつくったか。</h3>
+        <p>日本のIRサポート業界には、優秀な企業が多くあります。翻訳量、制作能力、イベントのロジスティクス——スケールと安定性では、大手に一日の長があります。</p>
+        <p>しかし、一つのことができる会社がほとんど存在しない。<strong>「面談の現場で何が起きているかを理解し、それを御社の次の打ち手に変換すること。」</strong></p>
+        <p>この欠如は構造的なものです。大手のIRサポート会社は、通訳者を「言語の変換機」として送り込む。通訳者は、その場で起きていることを深く観察するよりも、言葉の精度に集中する。面談後のデブリーフィングは、行われたとしても議事録止まりです。</p>
+
+        <div class="philosophy">
+          <p>「質問の裏にある質問は、常に質問そのものより重要です。海外投資家は、本当にためらっている理由を直接には言いません。彼らが言っていないことを聞き取る——それが、面談の現場でしか培えないスキルです。」</p>
+        </div>
+
+        <h3>創業者主導のアドバイザリー</h3>
+        <p>JIIのすべての案件は、創業者の屋山テディが直接担当します。これは意図的な設計です。投資家面談からのインサイトの質は、誰が部屋にいるかによって決まります。方法論ドキュメントは代替できません。クライアントは、経験を持つ人間と直接関わることを前提にしています。</p>
+        <p>このため、受け入れ可能な案件数には上限があります。その分、担当するすべての案件に最高品質のコミットメントを提供します。</p>
+      </div>
+      <div>
+        <div class="profile-card reveal">
+          <div class="profile-mono">TO</div>
+          <div class="profile-name-jp">屋山テディ</div>
+          <div class="profile-name-en">Teddy Okuyama</div>
+          <div class="profile-rows">
+            <div class="profile-row">
+              <div class="pr-key">設立</div>
+              <div>株式会社ジャパン・インベスター・インターフェース（JII）<br>2023年9月</div>
+            </div>
+            <div class="profile-row">
+              <div class="pr-key">経歴</div>
+              <div>三菱UFJモルガン・スタンレー証券、シェアードリサーチ、2023年より独立IR専門家</div>
+            </div>
+            <div class="profile-row">
+              <div class="pr-key">言語</div>
+              <div>英語（ネイティブ）、日本語（ビジネス）</div>
+            </div>
+            <div class="profile-row">
+              <div class="pr-key">所在地</div>
+              <div>大阪（東京・海外案件対応可）</div>
+            </div>
+            <div class="profile-row">
+              <div class="pr-key">Email</div>
+              <div><a href="mailto:info@jpinv.com" style="color:var(--gold); text-decoration:none;">info@jpinv.com</a></div>
+            </div>
+            <div class="profile-row">
+              <div class="pr-key">Web</div>
+              <div><a href="https://jpinv.com" style="color:var(--gold); text-decoration:none;">jpinv.com</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FAQ
+     ============================================================ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="faq-grid">
+      <div class="reveal">
+        <span class="label">よくある質問</span>
+        <div class="rule-gold"></div>
+        <h2 class="mincho-md">ご不明な点は<br>こちらへ</h2>
+        <p>案件の詳細・機密保持・スケジュール・価格など、初回のご相談前によくいただく質問をまとめました。</p>
+      </div>
+      <div class="faq-items reveal">
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <h4>JIIは翻訳会社ですか？IRコンサルティング会社ですか？</h4>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">
+            <p>どちらでもありません。JIIはクロスボーダーIRインテリジェンス・アドバイザーです。翻訳・通訳が主要なサービスですが、それは入口であり、提供する本質的な価値は「ライブ投資家対話から抽出されたインサイトを、御社の次の打ち手に変換すること」です。多くの企業は翻訳・通訳でJIIとの関係を始め、アドバイザリー業務へと継続する形が一般的です。</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <h4>機密情報の取り扱いはどうなっていますか？</h4>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">
+            <p>すべての面談内容・企業資料・投資家対話は、デフォルトで機密として扱います。他のクライアント（投資家・企業問わず）への情報共有は一切行いません。正式案件ではNDA（秘密保持契約）を締結します。守秘性はサービスの付加価値ではなく、アクセスの前提条件です。守秘が保証されなければ、経営の核心に関わる議論の場に立ち会えません。</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <h4>案件開始前に、どの程度の準備が必要ですか？</h4>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">
+            <p>最小限です。翻訳業務では、対象文書をご提供いただくだけです。通訳案件では、面談ロジスティクスと公開開示資料へのアクセスが必要です。アドバイザリー案件では、初回の30分コールで案件の範囲を確認します。事前準備はJIIが責任を持って行います——御社の開示資料の読み込み、投資家のリサーチ、当日の準備は、すべてJII側で行います。</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <h4>翻訳の納品までにどのくらいかかりますか？</h4>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">
+            <p>通常の決算短信は3〜5営業日。アナリストレポートは当日納品にも対応しています。決算説明資料・中計など資料量が多い案件は事前にスケジュールを調整します。納期については、初回依頼時に必ずご確認ください。</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <h4>年間契約はどういった内容ですか？</h4>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">
+            <p>年間¥1,500,000で、四半期決算翻訳（4回）・半期・通期説明資料翻訳（2回）・四半期フィードバックセッション（4回）・投資家面談準備（随時）・デブリーフィング文書（面談ごと）・継続的メッセージング支援を含みます。翻訳単体での市場価格とほぼ同水準で、IRアドバイザリーをすべて包含しています。費用対効果の面で最も優れた選択肢です。</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <h4>大阪ベースとのことですが、東京での案件にも対応できますか？</h4>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">
+            <p>はい。東京での面談にも出張対応します。出張費は案件費用と別途ご請求します。オンライン会議での通訳も対応しており、その場合は出張費は発生しません。国内外問わず、対応します。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTACT
+     ============================================================ -->
+<section id="contact">
+  <div class="contact-glow"></div>
+  <div class="wrap">
+    <div class="reveal" style="margin-bottom:56px;">
+      <span class="label">お問い合わせ</span>
+      <div class="rule-gold"></div>
+      <h2 class="mincho-lg">まず、話しましょう。</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-form reveal">
+        <div class="form-group">
+          <label class="form-label">会社名・お名前</label>
+          <input type="text" class="form-input" placeholder="会社名と担当者名">
+        </div>
+        <div class="form-group">
+          <label class="form-label">メールアドレス</label>
+          <input type="email" class="form-input" placeholder="your@company.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label">お問い合わせの内容</label>
+          <select class="form-select">
+            <option value="">お選びください...</option>
+            <option>通訳 — 近日の投資家面談がある</option>
+            <option>翻訳 — 決算・開示資料の英訳</option>
+            <option>アドバイザリー — 面談前の準備・Q&A設計</option>
+            <option>アドバイザリー — アクティビスト対応</option>
+            <option>年間IRインテリジェンス契約</option>
+            <option>英文開示体制の構築</option>
+            <option>その他・まず話を聞きたい</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">状況のご説明（任意）</label>
+          <textarea class="form-textarea" placeholder="会社名、面談予定日（ある場合）、現在の課題感など、自由にご記入ください..."></textarea>
+        </div>
+        <button type="button" class="form-submit">送信する</button>
+        <p class="form-note">1営業日以内に返信いたします。すべてのお問い合わせは機密として扱われます。</p>
+      </div>
+      <div class="reveal">
+        <div class="contact-info">
+          <h3>重要な面談の前に、<br>一度ご相談ください。</h3>
+          <p>高リスクな投資家面談が近いほど、リードタイムが重要です。面談の2週間前にご連絡いただければ、投資家のリサーチから当日の準備まで、十分な準備が可能です。</p>
+          <div class="contact-rows">
+            <div class="contact-row">
+              <div class="cr-key">Email</div>
+              <div class="cr-val"><a href="mailto:info@jpinv.com">info@jpinv.com</a></div>
+            </div>
+            <div class="contact-row">
+              <div class="cr-key">Web</div>
+              <div class="cr-val"><a href="https://jpinv.com">jpinv.com</a></div>
+            </div>
+            <div class="contact-row">
+              <div class="cr-key">所在地</div>
+              <div class="cr-val">大阪市（東京・海外案件対応可）</div>
+            </div>
+          </div>
+          <div class="contact-path">
+            <h5>面談の予定がある方</h5>
+            <p>面談日、相手方の投資家名、達成したいことをお知らせください。後はこちらで対応します。</p>
+          </div>
+          <div class="contact-path" style="margin-top:12px;">
+            <h5>まだ何が必要か分からない方</h5>
+            <p>無料の30分診断コールをご用意しています。御社の状況をお聞きし、JIIがどのようにお役に立てるかをお伝えします。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>株式会社ジャパン・インベスター・インターフェース</h3>
+        <p>海外投資家対話アドバイザリー。面談の現場に立ち会い、両サイドの言葉を完全に理解することで、御社のIRコミュニケーションを根本から変えます。</p>
+      </div>
+      <div class="footer-col">
+        <h5>サービス</h5>
+        <ul>
+          <li><a href="#services">立ち会い通訳</a></li>
+          <li><a href="#services">IRアドバイザリー</a></li>
+          <li><a href="#services">英文開示・翻訳</a></li>
+          <li><a href="#services">年間契約</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>情報</h5>
+        <ul>
+          <li><a href="#mondai">IRの課題</a></li>
+          <li><a href="#insights">インサイト</a></li>
+          <li><a href="#jokyo">こんな状況に</a></li>
+          <li><a href="#faq">よくある質問</a></li>
+          <li><a href="#about">会社概要</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>連絡先</h5>
+        <ul>
+          <li><a href="mailto:info@jpinv.com">info@jpinv.com</a></li>
+          <li><a href="https://jpinv.com">jpinv.com</a></li>
+          <li><a href="/en/">English Site</a></li>
+          <li><a href="https://substack.com/@japanir" target="_blank">Substack</a></li>
+        </ul>
+        <p style="font-size:0.7rem; color:var(--text-dim); margin-top:16px; line-height:1.6;">〒大阪市<br>東京・海外案件対応可</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 株式会社ジャパン・インベスター・インターフェース. All rights reserved.</p>
+      <div class="footer-en-note">
+        English site: <a href="/en/">jpinv.com/en/</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+// Nav scroll
+const nav = document.getElementById('main-nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Mobile menu
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+// FAQ accordion
+function toggleFaq(el) {
+  const item = el.closest('.faq-item');
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+
+// Lifecycle tabs
+function switchTab(id, btn) {
+  document.querySelectorAll('.lifecycle-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.lifecycle-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// Scroll reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) {
+      e.preventDefault();
+      window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>
