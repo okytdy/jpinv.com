@@ -2562,21 +2562,22 @@ footer {
       <h2 class="display-lg reveal ja-only" style="display:none">対話を始めましょう</h2>
     </div>
     <div class="contact-grid">
-      <div class="contact-form-wrap reveal">
+      <form class="contact-form-wrap reveal" id="contact-form-en">
+        <input type="hidden" name="form_type" value="contact">
         <div class="form-group">
           <label class="form-label en-only">Your Name</label>
           <label class="form-label ja-only" style="display:none">お名前</label>
-          <input type="text" class="form-input en-only" placeholder="Name / Company">
-          <input type="text" class="form-input ja-only" style="display:none" placeholder="氏名・会社名">
+          <input type="text" class="form-input en-only" id="contact-name-en" placeholder="Name / Company">
+          <input type="text" class="form-input ja-only" id="contact-name-ja" style="display:none" placeholder="氏名・会社名">
         </div>
         <div class="form-group">
           <label class="form-label">Email</label>
-          <input type="email" class="form-input" placeholder="your@company.com">
+          <input type="email" class="form-input" id="contact-email-en" placeholder="your@company.com">
         </div>
         <div class="form-group">
           <label class="form-label en-only">Inquiry Type</label>
           <label class="form-label ja-only" style="display:none">お問い合わせ内容</label>
-          <select class="form-select">
+          <select class="form-select" id="contact-type-en">
             <option value="" class="en-only">Select situation...</option>
             <option class="en-only">Interpretation — upcoming investor meeting</option>
             <option class="en-only">Translation — earnings or disclosure material</option>
@@ -2590,14 +2591,15 @@ footer {
         <div class="form-group">
           <label class="form-label en-only">Brief Context</label>
           <label class="form-label ja-only" style="display:none">状況のご説明</label>
-          <textarea class="form-textarea en-only" placeholder="Company name, upcoming meeting date if relevant, and what you're trying to achieve..."></textarea>
-          <textarea class="form-textarea ja-only" style="display:none" placeholder="会社名、面談予定日（ある場合）、達成したいことをご記入ください..."></textarea>
+          <textarea class="form-textarea en-only" id="contact-message-en" placeholder="Company name, upcoming meeting date if relevant, and what you're trying to achieve..."></textarea>
+          <textarea class="form-textarea ja-only" id="contact-message-ja" style="display:none" placeholder="会社名、面談予定日（ある場合）、達成したいことをご記入ください..."></textarea>
         </div>
-        <button type="button" class="form-submit en-only">Send inquiry</button>
-        <button type="button" class="form-submit ja-only" style="display:none">送信する</button>
+        <button type="submit" class="form-submit en-only">Send inquiry</button>
+        <button type="submit" class="form-submit ja-only" style="display:none">送信する</button>
+        <p class="form-note" data-form-status aria-live="polite"></p>
         <p class="form-note en-only">We respond within one business day. All inquiries are treated as confidential.</p>
         <p class="form-note ja-only" style="display:none">1営業日以内に返信いたします。すべての問い合わせは機密として扱われます。</p>
-      </div>
+      </form>
       <div class="contact-info reveal">
         <h3 class="en-only">We're here for the meetings that matter most.</h3>
         <h3 class="ja-only" style="display:none">最も重要な面談のために、ここにいます。</h3>
@@ -2738,6 +2740,63 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 revealEls.forEach(el => observer.observe(el));
+
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mdayglyl';
+const contactFormEn = document.getElementById('contact-form-en');
+
+if (contactFormEn) {
+  const statusEl = contactFormEn.querySelector('[data-form-status]');
+  const submitButtons = contactFormEn.querySelectorAll('.form-submit');
+
+  contactFormEn.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const isJapanese = Array.from(document.querySelectorAll('.ja-only')).some(el => el.style.display !== 'none');
+    const activeButton = isJapanese ? contactFormEn.querySelector('.form-submit.ja-only') : contactFormEn.querySelector('.form-submit.en-only');
+    const defaultButtonText = activeButton.dataset.defaultText || activeButton.textContent;
+    activeButton.dataset.defaultText = defaultButtonText;
+
+    submitButtons.forEach(btn => { btn.disabled = true; });
+    activeButton.textContent = isJapanese ? '送信中...' : 'Sending...';
+    if (statusEl) statusEl.textContent = '';
+
+    const payload = {
+      form_type: 'contact',
+      name: (isJapanese ? document.getElementById('contact-name-ja') : document.getElementById('contact-name-en')).value || '',
+      email: document.getElementById('contact-email-en').value || '',
+      inquiry_type: document.getElementById('contact-type-en').value || '',
+      message: (isJapanese ? document.getElementById('contact-message-ja') : document.getElementById('contact-message-en')).value || ''
+    };
+
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      if (!response.ok) throw new Error('Formspree request failed');
+      if (statusEl) {
+        statusEl.textContent = isJapanese
+          ? '送信ありがとうございます。1営業日以内にご返信します。'
+          : 'Thank you. We will reply within 1 business day.';
+      }
+      contactFormEn.reset();
+    } catch (error) {
+      if (statusEl) {
+        statusEl.innerHTML = isJapanese
+          ? '送信に失敗しました。<a href="mailto:info@jpinv.com">info@jpinv.com</a> までご連絡ください。'
+          : 'Submission failed. Please contact <a href="mailto:info@jpinv.com">info@jpinv.com</a>.';
+      }
+    } finally {
+      submitButtons.forEach(btn => { btn.disabled = false; });
+      activeButton.textContent = defaultButtonText;
+    }
+  });
+}
 
 // ---- Smooth click for nav links ----
 document.querySelectorAll('a[href^="#"]').forEach(a => {

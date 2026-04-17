@@ -1853,7 +1853,8 @@ footer {
       <h2 class="mincho-lg">見積もり依頼（RFQ）</h2>
       <p style="font-size:0.86rem; line-height:1.9; margin-top:12px;">翻訳・通訳・面談準備支援の見積もり依頼はこちらからお送りください。</p>
     </div>
-    <div class="rfq-box reveal">
+    <form class="rfq-box reveal" id="rfq-form">
+      <input type="hidden" name="form_type" value="contact">
       <div class="form-group"><label class="form-label" for="rfq-name">会社名・ご担当者名</label><input id="rfq-name" class="form-input" type="text" required></div>
       <div class="form-group"><label class="form-label" for="rfq-email">メールアドレス</label><input id="rfq-email" class="form-input" type="email" required></div>
       <div class="form-group"><label class="form-label" for="rfq-type">ご相談の種類</label><select id="rfq-type" class="form-select" required><option value="">お選びください</option><option>翻訳</option><option>通訳</option><option>面談準備支援</option><option>複合（翻訳 + 通訳 + 準備）</option></select></div>
@@ -1864,8 +1865,9 @@ footer {
       <div class="form-group"><label class="form-label" for="rfq-history">過去の英訳資料あり（任意）</label><select id="rfq-history" class="form-select"><option>未選択</option><option>あり</option><option>なし</option></select></div>
       <div class="form-group"><label class="form-label" for="rfq-nda">NDA希望（任意）</label><select id="rfq-nda" class="form-select"><option>未選択</option><option>希望する</option><option>不要</option></select></div>
       <p class="form-note">資料添付が必要な場合は、送信後の返信メールにそのままご返信ください。</p>
-      <button type="button" class="form-submit">見積もりを依頼する</button>
-    </div>
+      <button type="submit" class="form-submit">見積もりを依頼する</button>
+      <p class="form-note" data-form-status aria-live="polite"></p>
+    </form>
     <div class="next-steps-box reveal" style="margin-top:20px;">
       <h3 class="mincho-md">お問い合わせ後の流れ</h3>
       <ul class="next-steps-list">
@@ -1886,14 +1888,16 @@ footer {
   <div class="wrap">
     <div class="reveal" style="margin-bottom:34px;"><span class="label">相談フォーム</span><div class="rule-gold"></div><h2 class="mincho-lg">アドバイザリー相談フォーム</h2></div>
     <div class="contact-grid">
-      <div class="contact-form reveal">
+      <form class="contact-form reveal" id="contact-form">
+        <input type="hidden" name="form_type" value="contact">
         <div class="form-group"><label class="form-label" for="form-name">会社名・ご担当者名</label><input type="text" id="form-name" class="form-input" placeholder="株式会社〇〇　山田様"></div>
         <div class="form-group"><label class="form-label" for="form-email">メールアドレス</label><input type="email" id="form-email" class="form-input" placeholder="your@company.com"></div>
         <div class="form-group"><label class="form-label" for="form-type">ご相談の種類</label><select id="form-type" class="form-select"><option value="">お選びください</option><option>相談 / アドバイザリー</option><option>面談支援</option><option>翻訳相談</option><option>その他</option></select></div>
         <div class="form-group"><label class="form-label" for="form-message">ご要望の概要</label><textarea id="form-message" class="form-textarea" placeholder="現状とご相談したい内容をご記入ください"></textarea></div>
-        <button type="button" class="form-submit">送信する</button>
+        <button type="submit" class="form-submit">送信する</button>
+        <p class="form-note" data-form-status aria-live="polite"></p>
         <p class="form-note">1営業日以内にご返信します。お問い合わせ内容はすべて機密として扱います。</p>
-      </div>
+      </form>
       <div class="reveal"><div class="contact-info"><h3>お問い合わせ後の流れ</h3>
         <ul class="next-steps-list"><li>Step 1: 1営業日以内にご返信します</li><li>Step 2: 必要に応じてNDAを締結します</li><li>Step 3: ご相談日程の調整、または見積もりをご提示します</li></ul>
         <ul class="helper-notes"><li>面談予定がある場合は、面談日と投資家名が分かれば初回相談がスムーズです</li><li>何を依頼すべきか未整理でも、そのままご相談ください</li></ul>
@@ -2040,6 +2044,88 @@ function presetInquiry(value) {
 }
 
 syncFounderPhoto();
+
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mdayglyl';
+
+async function submitInquiryForm({ form, submitButton, statusEl, fields }) {
+  const defaultButtonText = submitButton.dataset.defaultText || submitButton.textContent;
+  submitButton.dataset.defaultText = defaultButtonText;
+  submitButton.disabled = true;
+  submitButton.textContent = '送信中...';
+  if (statusEl) statusEl.textContent = '';
+
+  const payload = { form_type: 'contact' };
+  fields.forEach(({ key, el }) => {
+    if (el) payload[key] = el.value || '';
+  });
+
+  try {
+    const response = await fetch(FORMSPREE_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    });
+
+    if (!response.ok) throw new Error('Formspree request failed');
+    if (statusEl) statusEl.textContent = '送信ありがとうございます。1営業日以内にご返信します。';
+    form.reset();
+  } catch (error) {
+    if (statusEl) {
+      statusEl.innerHTML = '送信に失敗しました。<a href="mailto:info@jpinv.com">info@jpinv.com</a> までご連絡ください。';
+    }
+  } finally {
+    submitButton.disabled = false;
+    submitButton.textContent = defaultButtonText;
+  }
+}
+
+const rfqForm = document.getElementById('rfq-form');
+if (rfqForm) {
+  const rfqSubmitButton = rfqForm.querySelector('.form-submit');
+  const rfqStatus = rfqForm.querySelector('[data-form-status]');
+  rfqForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    submitInquiryForm({
+      form: rfqForm,
+      submitButton: rfqSubmitButton,
+      statusEl: rfqStatus,
+      fields: [
+        { key: 'name', el: document.getElementById('rfq-name') },
+        { key: 'email', el: document.getElementById('rfq-email') },
+        { key: 'inquiry_type', el: document.getElementById('rfq-type') },
+        { key: 'desired_date', el: document.getElementById('rfq-date') },
+        { key: 'target', el: document.getElementById('rfq-target') },
+        { key: 'message', el: document.getElementById('rfq-summary') },
+        { key: 'volume', el: document.getElementById('rfq-volume') },
+        { key: 'history', el: document.getElementById('rfq-history') },
+        { key: 'nda', el: document.getElementById('rfq-nda') }
+      ]
+    });
+  });
+}
+
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+  const contactSubmitButton = contactForm.querySelector('.form-submit');
+  const contactStatus = contactForm.querySelector('[data-form-status]');
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    submitInquiryForm({
+      form: contactForm,
+      submitButton: contactSubmitButton,
+      statusEl: contactStatus,
+      fields: [
+        { key: 'name', el: document.getElementById('form-name') },
+        { key: 'email', el: document.getElementById('form-email') },
+        { key: 'inquiry_type', el: document.getElementById('form-type') },
+        { key: 'message', el: document.getElementById('form-message') }
+      ]
+    });
+  });
+}
 
 // Smooth scroll (offset for fixed nav)
 document.querySelectorAll('a[href^="#"]').forEach(a => {
