@@ -893,6 +893,73 @@ footer {
   letter-spacing: 0.1em; color: var(--text-dim);
 }
 .footer-en-note a { color: var(--gold); text-decoration: none; }
+
+
+/* ============================================================
+   CONVERSION MODULES
+   ============================================================ */
+.nav-cta-cluster { display:flex; gap:8px; margin-left:16px; }
+.nav-cta-cluster .btn { padding:8px 12px; font-size:0.68rem; }
+@media (max-width: 900px) { .nav-cta-cluster { display:none; } }
+
+.hero-eyebrow { margin-bottom: 10px; }
+.hero-eyebrow .label { font-size:0.62rem; }
+.hero-ctas-3 { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:10px; max-width:760px; }
+.hero-ctas-3 .btn { text-align:center; padding:12px 16px; }
+@media (max-width: 768px) {
+  .hero-ctas-3 { grid-template-columns: 1fr; }
+}
+
+.intent-grid { display:grid; grid-template-columns: repeat(3,1fr); gap:3px; margin-top:32px; }
+.intent-card { background: var(--ink-mid); padding:24px 22px; border-top:2px solid transparent; }
+.intent-card:hover { border-top-color: var(--gold); }
+.intent-card h4 { font-family: var(--serif); color:var(--washi); font-size:0.92rem; margin-bottom:8px; }
+.intent-card p { font-size:0.78rem; margin-bottom:14px; line-height:1.7; }
+@media (max-width: 860px) { .intent-grid { grid-template-columns:1fr; } }
+
+.trust-band { display:grid; grid-template-columns: repeat(5, 1fr); gap:2px; margin-top:28px; }
+.trust-item { background: rgba(184,150,90,0.06); border:1px solid var(--gold-rule); padding:12px; font-size:0.74rem; text-align:center; }
+@media (max-width: 860px) { .trust-band { grid-template-columns: 1fr 1fr; } }
+
+.advisory-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:3px; margin-top:26px; }
+.advisory-card { background: var(--ink-mid); padding:28px 24px; }
+.advisory-card h4 { font-family:var(--serif); font-size:0.94rem; color:var(--washi); margin-bottom:10px; }
+.advisory-card ul { list-style:none; }
+.advisory-card li { font-size:0.78rem; color:var(--text-dim); padding-left:14px; position:relative; margin:6px 0; }
+.advisory-card li::before { content:'—'; position:absolute; left:0; color:var(--gold); }
+@media (max-width: 860px) { .advisory-cards { grid-template-columns:1fr; } }
+
+.consultation-box, .next-steps-box, .rfq-box { background: var(--ink-mid); border:1px solid var(--ink-rule); padding:30px; }
+.consultation-box ul, .next-steps-list, .helper-notes { list-style:none; margin-top:14px; }
+.consultation-box li, .next-steps-list li, .helper-notes li { font-size:0.82rem; padding-left:14px; position:relative; margin:7px 0; }
+.consultation-box li::before, .next-steps-list li::before, .helper-notes li::before { content:'—'; position:absolute; left:0; color:var(--gold); }
+
+.founder-compact { background: var(--ink); border:1px solid var(--gold-rule); padding:22px; margin:26px 0 34px; display:grid; grid-template-columns:90px 1fr; gap:18px; align-items:start; }
+.founder-compact img { width:90px; height:90px; object-fit:cover; border:1px solid var(--gold-rule); }
+.founder-compact h3 { font-family:var(--serif); font-size:1.02rem; color:var(--washi); margin-bottom:8px; }
+.founder-compact ul { list-style:none; }
+.founder-compact li { font-size:0.8rem; margin:6px 0; color:var(--text); }
+@media (max-width: 700px) { .founder-compact { grid-template-columns:1fr; } }
+
+.example-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:3px; margin-top:26px; }
+.example-card { background:var(--ink); padding:22px; border:1px solid var(--ink-rule); }
+.example-card h4 { font-family:var(--serif); color:var(--washi); font-size:0.9rem; margin-bottom:10px; }
+.example-card p { font-size:0.76rem; line-height:1.7; }
+.example-card ul { list-style:none; margin-top:10px; }
+.example-card li { font-size:0.75rem; color:var(--text-dim); margin:4px 0; }
+@media (max-width: 860px) { .example-grid { grid-template-columns:1fr; } }
+
+.mobile-sticky-cta {
+  position: fixed; left:0; right:0; bottom:0; z-index:100;
+  display:none; grid-template-columns:repeat(3,1fr); gap:1px;
+  background:var(--ink-rule); border-top:1px solid var(--gold-rule);
+}
+.mobile-sticky-cta a { background:var(--ink-mid); color:var(--washi); text-decoration:none; text-align:center; padding:10px 8px; font-size:0.66rem; }
+@media (max-width: 860px) {
+  .mobile-sticky-cta { display:grid; }
+  body { padding-bottom:52px; }
+}
+
 </style>
 </head>
 <body>
@@ -912,8 +979,13 @@ footer {
       <li><a href="#lifecycle">支援の流れ</a></li>
       <li><a href="#ryokin">料金</a></li>
       <li><a href="#about">会社概要</a></li>
-      <li><a href="#contact">お問い合わせ</a></li>
+      <li><a href="#consultation">30分相談</a></li>
     </ul>
+    <div class="nav-cta-cluster" aria-label="主要アクション">
+      <a href="#consultation" class="btn btn-primary">30分相談を予約</a>
+      <a href="#consultation" class="btn btn-outline" onclick="presetInquiry('相談 / アドバイザリー')">アドバイザリー相談</a>
+      <a href="#rfq" class="btn btn-outline" onclick="presetInquiry('RFQ / 見積もり')">見積もりを依頼</a>
+    </div>
     <a href="/en/" class="nav-en-link">English</a>
     <button class="hamburger" onclick="toggleMenu()" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobileMenu">
       <span></span><span></span><span></span>
@@ -929,7 +1001,8 @@ footer {
   <a href="#jisseki" onclick="toggleMenu()">実績</a>
   <a href="#about" onclick="toggleMenu()">会社概要</a>
   <a href="#faq" onclick="toggleMenu()">よくある質問</a>
-  <a href="#contact" onclick="toggleMenu()">お問い合わせ</a>
+  <a href="#consultation" onclick="toggleMenu()">30分相談</a>
+  <a href="#rfq" onclick="toggleMenu()">RFQ送信</a>
   <a href="/en/">English Site</a>
 </div>
 
@@ -942,25 +1015,22 @@ footer {
   <div class="wrap">
     <div class="hero-body">
 
-      <div class="hero-lead">
-        <p class="hero-lead-line">海外投資家向けのIR活動を、現場から支援します。</p>
+      <div class="hero-eyebrow hero-lead">
+        <span class="label">海外投資家との対話を、準備から面談後まで支援</span>
       </div>
 
       <div class="hero-title">
-        <h1 class="mincho-xl">
-          英文翻訳、立ち会い通訳、<br>面談前後の論点整理まで。<br>
-          <span style="color:var(--gold); font-weight:300;">一貫してご対応します。</span>
-        </h1>
+        <h1 class="mincho-xl">海外IRの実務を、翻訳だけで終わらせません。</h1>
       </div>
 
       <div class="hero-desc">
-        <p>JII（ジャパン・インベスター・インターフェース）は、海外投資家との対話に特化したIR支援の専門家です。英文開示の翻訳から、投資家面談への立ち会い通訳、面談後の振り返りまで、一貫してお手伝いします。</p>
-        <p>創業者が直接担当するため、案件ごとの理解の質が高く、IR担当者・CFO室・経営企画からの個別相談にも対応します。まずはご状況をお聞かせください。</p>
+        <p>英文開示、投資家面談の立ち会い通訳、想定問答、面談後の論点整理まで。JIIが一貫して対応します。</p>
       </div>
 
-      <div class="hero-ctas">
-        <a href="#contact" class="btn btn-primary">お問い合わせ</a>
-        <a href="#services" class="btn btn-outline">支援内容を見る</a>
+      <div class="hero-ctas hero-ctas-3">
+        <a href="#consultation" class="btn btn-primary" onclick="presetInquiry('相談 / アドバイザリー')">30分相談を予約</a>
+        <a href="#consultation" class="btn btn-outline" onclick="presetInquiry('相談 / アドバイザリー')">アドバイザリーについて相談</a>
+        <a href="#rfq" class="btn btn-outline" onclick="presetInquiry('RFQ / 見積もり')">見積もりを依頼</a>
       </div>
 
       <div class="hero-stats" aria-label="実績">
@@ -977,6 +1047,40 @@ footer {
           <div class="hero-stat-label">海外機関投資家との対話実績</div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="intent-paths">
+  <div class="wrap">
+    <div class="reveal" style="max-width:640px;">
+      <span class="label">ご状況別のご案内</span>
+      <div class="rule-gold"></div>
+      <h2 class="mincho-lg">今の状況に合わせて、すぐ進めます</h2>
+    </div>
+    <div class="intent-grid reveal">
+      <div class="intent-card">
+        <h4>A. 面談が決まっている方</h4>
+        <p>面談日が近い場合は、準備と立ち会い支援を優先して進めます。</p>
+        <a href="#consultation" class="btn btn-outline" onclick="presetInquiry('面談支援')">面談支援を相談する</a>
+      </div>
+      <div class="intent-card">
+        <h4>B. 何を頼むべきか整理したい方</h4>
+        <p>翻訳・通訳・アドバイザリーのどれが必要か、30分で整理します。</p>
+        <a href="#consultation" class="btn btn-primary" onclick="presetInquiry('相談 / アドバイザリー')">30分相談を予約する</a>
+      </div>
+      <div class="intent-card">
+        <h4>C. まず概算見積もりが欲しい方</h4>
+        <p>納期と対象資料が分かれば、見積もり検討に進めます。</p>
+        <a href="#rfq" class="btn btn-outline" onclick="presetInquiry('RFQ / 見積もり')">RFQを送る</a>
+      </div>
+    </div>
+    <div class="trust-band reveal" aria-label="信頼ポイント">
+      <div class="trust-item">代表が直接担当</div>
+      <div class="trust-item">外部再委託なし</div>
+      <div class="trust-item">機密保持 / NDA対応</div>
+      <div class="trust-item">1営業日以内に返信</div>
+      <div class="trust-item">東京・オンライン対応可</div>
     </div>
   </div>
 </section>
@@ -1128,6 +1232,41 @@ footer {
         <h4>海外IR体制をゼロから整えたい</h4>
         <p>これまで海外投資家との対話実績がほとんどない。翻訳・通訳・対話支援をまとめて依頼できるパートナーを探している。</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="advisory">
+  <div class="wrap">
+    <div class="reveal" style="max-width:620px;">
+      <span class="label">アドバイザリー</span>
+      <div class="rule-gold"></div>
+      <h2 class="mincho-lg">何を相談できるか</h2>
+    </div>
+    <div class="advisory-cards reveal">
+      <div class="advisory-card">
+        <h4>A. 面談前の準備支援</h4>
+        <ul>
+          <li>想定問答の整理</li><li>投資家の関心事項の整理</li><li>資料の投資家視点レビュー</li>
+        </ul>
+      </div>
+      <div class="advisory-card">
+        <h4>B. 面談当日の立ち会い・通訳</h4>
+        <ul>
+          <li>金融・IR特化の逐次通訳</li><li>難しい論点の文脈理解</li><li>面談中の関心事項の把握</li>
+        </ul>
+      </div>
+      <div class="advisory-card">
+        <h4>C. 面談後の振り返り・改善提案</h4>
+        <ul>
+          <li>論点整理サマリー</li><li>次回面談への改善提案</li><li>開示資料への反映ポイント</li>
+        </ul>
+      </div>
+    </div>
+    <div class="intent-grid reveal" style="margin-top:22px;">
+      <div class="intent-card"><h4>A. 面談が決まっている方</h4><a href="#consultation" class="btn btn-outline" onclick="presetInquiry('面談支援')">面談支援を相談する</a></div>
+      <div class="intent-card"><h4>B. 何を頼むべきか整理したい方</h4><a href="#consultation" class="btn btn-primary" onclick="presetInquiry('相談 / アドバイザリー')">30分相談を予約する</a></div>
+      <div class="intent-card"><h4>C. まず概算見積もりが欲しい方</h4><a href="#rfq" class="btn btn-outline" onclick="presetInquiry('RFQ / 見積もり')">RFQを送る</a></div>
     </div>
   </div>
 </section>
@@ -1337,18 +1476,21 @@ footer {
     <div class="case-row reveal">
       <div class="case-memo">
         <div class="case-tag">支援事例 — フレンドリー・アクティビスト対応</div>
-        <h4>ROEではなくROICで語るべきだった——開示の軸がずれていたケース</h4>
-        <p>海外のフレンドリー・アクティビスト系ファンドが株主として接触してきた企業への支援。当該企業はROEを軸とした資本改善の開示を整備していたが、もともと利益率の高いビジネスモデルであり、投資家の本来の関心は投下資本の効率性——すなわちROICにあった。面談の振り返り分析を通じてこのズレを特定し、次の開示では指標の軸をROICに切り替えることで、投資家との議論の噛み合いが改善した。</p>
+        <h4>課題</h4><p>ROE中心の説明が、投資家の関心（ROIC）とずれていた。</p>
+        <h4>支援内容</h4><p>面談振り返りで関心軸を特定し、開示指標の整理を支援。</p>
+        <h4>何が改善したか</h4><p>次回開示で議論の噛み合いが改善。</p>
       </div>
       <div class="case-memo">
         <div class="case-tag">支援事例 — IRコミュニケーション改善</div>
-        <h4>英文資料は整備済みでも、海外投資家の関心を引けていなかった中小型株</h4>
-        <p>1年間、海外投資家との面談を重ねても成果が見えなかった企業への支援。面談立ち会いと振り返り分析の結果、開示設計上の構造的な論点不足を特定。戦略を変えることなく、開示の組み替えで対応できる問題でした。</p>
+        <h4>課題</h4><p>面談回数を重ねても、関心を引く論点が不足していた。</p>
+        <h4>支援内容</h4><p>面談立ち会いと振り返り分析で、開示設計の不足点を整理。</p>
+        <h4>何が改善したか</h4><p>戦略を変えず、開示の組み替えで対話の質が改善。</p>
       </div>
       <div class="case-memo">
         <div class="case-tag">支援事例 — 継続的IR支援</div>
-        <h4>月60本の翻訳と月20件以上の面談通訳を同一担当者が継続実施</h4>
-        <p>中規模証券会社向けに、アナリストレポートの英訳と投資家・企業間のIR面談通訳を継続的に担当。翻訳と通訳を同一担当者が行うことで、アナリストの論点と投資家の反応を連動させた一貫した支援を実現しています。</p>
+        <h4>課題</h4><p>翻訳と面談対応が分断され、論点が蓄積しにくかった。</p>
+        <h4>支援内容</h4><p>同一担当者が翻訳と通訳を継続して担当。</p>
+        <h4>何が改善したか</h4><p>論点の連動が進み、継続的な海外IR支援体制を構築。</p>
       </div>
     </div>
   </div>
@@ -1431,6 +1573,40 @@ footer {
         </div>
       </div>
 
+    </div>
+
+    <div class="founder-compact reveal" id="who">
+      <img id="founder-compact-img" src="" alt="屋山テディのプロフィール写真">
+      <div>
+        <h3>誰が対応するのか</h3>
+        <ul>
+          <li>代表が初回相談から納品まで直接担当</li>
+          <li>証券会社での実務経験をもとに海外IR支援</li>
+          <li>英語ネイティブで、面談通訳・英文開示の両方に対応</li>
+          <li>東京・オンライン・海外案件に対応可</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="reveal">
+      <h3 class="mincho-md" style="margin-bottom:12px;">よくあるご依頼例（参考 / 概算）</h3>
+      <div class="example-grid">
+        <div class="example-card">
+          <h4>決算短信の英訳</h4>
+          <p>既存の文字単価（日本語1文字あたり）を基準に算出します。</p>
+          <ul><li>含まれるもの：英訳、用語整合、最終データ納品</li></ul>
+        </div>
+        <div class="example-card">
+          <h4>投資家面談の立ち会い</h4>
+          <p>既存の時間単価（1時間あたり）を基準に、面談時間・場所で見積。</p>
+          <ul><li>含まれるもの：面談前メモ、立ち会い通訳、面談後サマリー</li></ul>
+        </div>
+        <div class="example-card">
+          <h4>面談前後のアドバイザリー</h4>
+          <p>個別見積。面談回数・支援範囲に応じてご提案します。</p>
+          <ul><li>含まれるもの：想定問答整理、振り返り、改善提案</li></ul>
+        </div>
+      </div>
     </div>
 
     <div class="ryokin-footer-note reveal">
@@ -1641,74 +1817,85 @@ footer {
 <!-- ============================================================
      CONTACT
      ============================================================ -->
-<section id="contact">
-  <div class="contact-glow" aria-hidden="true"></div>
+<section id="consultation">
   <div class="wrap">
-    <div class="reveal" style="margin-bottom:52px;">
-      <span class="label">お問い合わせ</span>
+    <div class="reveal" style="margin-bottom:24px; max-width:640px;">
+      <span class="label">30分相談</span>
       <div class="rule-gold"></div>
-      <h2 class="mincho-lg">まずはご相談ください。</h2>
+      <h2 class="mincho-lg">まずは30分、状況を整理しませんか</h2>
+      <p style="font-size:0.86rem; line-height:1.9; margin-top:12px;">何を依頼すべきか整理できていない段階でも問題ありません。ご状況を伺い、JIIがお役に立てる領域をご説明します。</p>
     </div>
-    <div class="contact-grid">
-      <div class="contact-form reveal">
-        <div class="form-group">
-          <label class="form-label" for="form-name">会社名・ご担当者名</label>
-          <input type="text" id="form-name" class="form-input" placeholder="株式会社〇〇　山田様">
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="form-email">メールアドレス</label>
-          <input type="email" id="form-email" class="form-input" placeholder="your@company.com">
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="form-type">ご相談の内容</label>
-          <select id="form-type" class="form-select">
-            <option value="">お選びください</option>
-            <option>翻訳 — 開示資料・英文化</option>
-            <option>通訳 — 投資家面談の立ち会い</option>
-            <option>準備支援 — 面談前の論点整理・想定問答</option>
-            <option>振り返り — 面談後の分析・サマリー</option>
-            <option>年間IR支援契約について</option>
-            <option>その他・まずご相談したい</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="form-message">ご状況・ご要望（任意）</label>
-          <textarea id="form-message" class="form-textarea" placeholder="面談予定日・資料の種類・現在の課題など、自由にご記入ください"></textarea>
-        </div>
-        <button type="button" class="form-submit">送信する</button>
-        <p class="form-note">1営業日以内にご返信します。お問い合わせ内容はすべて機密として扱います。</p>
-      </div>
-      <div class="reveal">
-        <div class="contact-info">
-          <h3>面談が近いほど、<br>早めのご連絡をお勧めします。</h3>
-          <p>面談の2週間前にご連絡いただければ、投資家の関心事項の確認から当日の準備まで、十分に対応できます。お急ぎの場合もまずご連絡ください。</p>
-          <div class="contact-rows">
-            <div class="contact-row">
-              <div class="cr-key">Email</div>
-              <div class="cr-val"><a href="mailto:info@jpinv.com">info@jpinv.com</a></div>
-            </div>
-            <div class="contact-row">
-              <div class="cr-key">Web</div>
-              <div class="cr-val"><a href="https://jpinv.com">jpinv.com</a></div>
-            </div>
-            <div class="contact-row">
-              <div class="cr-key">所在地</div>
-              <div class="cr-val">大阪・梅田オフィス<br>〒530-0001<br>大阪府大阪市北区梅田1丁目2番2号大阪駅前第2ビル12-12</div>
-            </div>
-          </div>
-          <div class="contact-path">
-            <h5>面談の予定がある方</h5>
-            <p>面談日・相手の投資家・ご希望の支援内容をお知らせください。後はこちらで対応します。</p>
-          </div>
-          <div class="contact-path" style="margin-top:10px;">
-            <h5>何が必要か整理されていない方</h5>
-            <p>30分ほどご状況をお聞きした上で、お役に立てることをご説明します。まずはお気軽にご相談ください。</p>
-          </div>
-        </div>
-      </div>
+    <div class="consultation-box reveal">
+      <ul>
+        <li>海外投資家面談の準備</li><li>アクティビスト・重要株主対応</li><li>英文開示の見直し</li><li>継続的な海外IR体制の相談</li>
+      </ul>
+      <div style="margin-top:16px;"><a href="#contact" class="btn btn-primary" onclick="presetInquiry('相談 / アドバイザリー')">相談フォームへ進む</a></div>
     </div>
   </div>
 </section>
+
+<section id="rfq">
+  <div class="wrap">
+    <div class="reveal" style="margin-bottom:24px; max-width:640px;">
+      <span class="label">RFQ</span>
+      <div class="rule-gold"></div>
+      <h2 class="mincho-lg">見積もり依頼（RFQ）</h2>
+      <p style="font-size:0.86rem; line-height:1.9; margin-top:12px;">翻訳・通訳・面談準備支援の見積もり依頼はこちらからお送りください。</p>
+    </div>
+    <div class="rfq-box reveal">
+      <div class="form-group"><label class="form-label" for="rfq-name">会社名・ご担当者名</label><input id="rfq-name" class="form-input" type="text" required></div>
+      <div class="form-group"><label class="form-label" for="rfq-email">メールアドレス</label><input id="rfq-email" class="form-input" type="email" required></div>
+      <div class="form-group"><label class="form-label" for="rfq-type">ご相談の種類</label><select id="rfq-type" class="form-select" required><option value="">お選びください</option><option>翻訳</option><option>通訳</option><option>面談準備支援</option><option>複合（翻訳 + 通訳 + 準備）</option></select></div>
+      <div class="form-group"><label class="form-label" for="rfq-date">希望納期 or 面談予定日</label><input id="rfq-date" class="form-input" type="text" placeholder="例：2026/05/20面談、5/15までに初稿希望" required></div>
+      <div class="form-group"><label class="form-label" for="rfq-target">対象資料 or 面談の種類</label><input id="rfq-target" class="form-input" type="text" placeholder="決算短信、1on1面談、説明会など" required></div>
+      <div class="form-group"><label class="form-label" for="rfq-summary">ご要望の概要</label><textarea id="rfq-summary" class="form-textarea" required></textarea></div>
+      <div class="form-group"><label class="form-label" for="rfq-volume">想定ボリューム（任意）</label><input id="rfq-volume" class="form-input" type="text" placeholder="文字数 / スライド数 / 面談時間"></div>
+      <div class="form-group"><label class="form-label" for="rfq-history">過去の英訳資料あり（任意）</label><select id="rfq-history" class="form-select"><option>未選択</option><option>あり</option><option>なし</option></select></div>
+      <div class="form-group"><label class="form-label" for="rfq-nda">NDA希望（任意）</label><select id="rfq-nda" class="form-select"><option>未選択</option><option>希望する</option><option>不要</option></select></div>
+      <p class="form-note">資料添付が必要な場合は、送信後の返信メールにそのままご返信ください。</p>
+      <button type="button" class="form-submit">見積もりを依頼する</button>
+    </div>
+    <div class="next-steps-box reveal" style="margin-top:20px;">
+      <h3 class="mincho-md">お問い合わせ後の流れ</h3>
+      <ul class="next-steps-list">
+        <li>Step 1: 1営業日以内にご返信します</li>
+        <li>Step 2: 必要に応じてNDAを締結します</li>
+        <li>Step 3: ご相談日程の調整、または見積もりをご提示します</li>
+      </ul>
+      <ul class="helper-notes">
+        <li>面談予定がある場合は、面談日と投資家名が分かれば初回相談がスムーズです</li>
+        <li>何を依頼すべきか未整理でも、そのままご相談ください</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="reveal" style="margin-bottom:34px;"><span class="label">相談フォーム</span><div class="rule-gold"></div><h2 class="mincho-lg">アドバイザリー相談フォーム</h2></div>
+    <div class="contact-grid">
+      <div class="contact-form reveal">
+        <div class="form-group"><label class="form-label" for="form-name">会社名・ご担当者名</label><input type="text" id="form-name" class="form-input" placeholder="株式会社〇〇　山田様"></div>
+        <div class="form-group"><label class="form-label" for="form-email">メールアドレス</label><input type="email" id="form-email" class="form-input" placeholder="your@company.com"></div>
+        <div class="form-group"><label class="form-label" for="form-type">ご相談の種類</label><select id="form-type" class="form-select"><option value="">お選びください</option><option>相談 / アドバイザリー</option><option>面談支援</option><option>翻訳相談</option><option>その他</option></select></div>
+        <div class="form-group"><label class="form-label" for="form-message">ご要望の概要</label><textarea id="form-message" class="form-textarea" placeholder="現状とご相談したい内容をご記入ください"></textarea></div>
+        <button type="button" class="form-submit">送信する</button>
+        <p class="form-note">1営業日以内にご返信します。お問い合わせ内容はすべて機密として扱います。</p>
+      </div>
+      <div class="reveal"><div class="contact-info"><h3>お問い合わせ後の流れ</h3>
+        <ul class="next-steps-list"><li>Step 1: 1営業日以内にご返信します</li><li>Step 2: 必要に応じてNDAを締結します</li><li>Step 3: ご相談日程の調整、または見積もりをご提示します</li></ul>
+        <ul class="helper-notes"><li>面談予定がある場合は、面談日と投資家名が分かれば初回相談がスムーズです</li><li>何を依頼すべきか未整理でも、そのままご相談ください</li></ul>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<div class="mobile-sticky-cta" aria-label="モバイル主要CTA">
+  <a href="#consultation" onclick="presetInquiry('面談支援')">面談支援を相談する</a>
+  <a href="#consultation" onclick="presetInquiry('相談 / アドバイザリー')">30分相談を予約する</a>
+  <a href="#rfq" onclick="presetInquiry('RFQ / 見積もり')">RFQを送る</a>
+</div>
 
 <!-- ============================================================
      FOOTER
@@ -1829,6 +2016,19 @@ const revealObs = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.07, rootMargin: '0px 0px -28px 0px' });
 document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+function syncFounderPhoto(){
+  const source = document.querySelector('.profile-initial img');
+  const target = document.getElementById('founder-compact-img');
+  if (source && target && source.src) target.src = source.src;
+}
+
+function presetInquiry(value) {
+  const formType = document.getElementById('form-type');
+  if (formType && value) formType.value = value;
+}
+
+syncFounderPhoto();
 
 // Smooth scroll (offset for fixed nav)
 document.querySelectorAll('a[href^="#"]').forEach(a => {
