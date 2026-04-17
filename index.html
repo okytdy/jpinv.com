@@ -123,21 +123,33 @@ nav.scrolled { box-shadow: 0 4px 28px rgba(0,0,0,0.4); }
   font-size: 0.55rem; letter-spacing: 0.1em;
   color: var(--gold); display: block;
 }
+.nav-center { flex: 1; display: flex; justify-content: center; }
 .nav-links {
-  display: flex; align-items: center; gap: 24px; list-style: none;
+  display: flex; align-items: center; gap: 22px; list-style: none;
+  flex-wrap: nowrap; white-space: nowrap;
 }
 .nav-links a {
   font-family: var(--sans); font-size: 0.78rem; font-weight: 400;
   letter-spacing: 0.04em; color: var(--text); text-decoration: none;
   transition: color 0.2s;
+  white-space: nowrap;
 }
 .nav-links a:hover { color: var(--washi); }
+.nav-right {
+  display: flex; align-items: center; gap: 8px;
+  margin-left: 22px; flex-shrink: 0;
+}
+.nav-cta-cluster { display:flex; gap:8px; }
+.nav-cta-cluster .btn { padding:8px 12px; font-size:0.68rem; white-space: nowrap; }
 .nav-en-link {
   font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em;
   color: var(--text-dim); border: 1px solid var(--ink-rule);
-  padding: 5px 12px; text-decoration: none; transition: all 0.2s;
+  padding: 6px 10px; text-decoration: none; transition: all 0.2s;
+  white-space: nowrap;
 }
 .nav-en-link:hover { color: var(--gold); border-color: var(--gold-rule); }
+.nav-mobile-primary { display: none; }
+.nav-mobile-primary .btn { padding: 7px 10px; font-size: 0.66rem; white-space: nowrap; }
 .hamburger {
   display: none; flex-direction: column; gap: 5px;
   background: none; border: none; cursor: pointer; padding: 4px;
@@ -145,7 +157,8 @@ nav.scrolled { box-shadow: 0 4px 28px rgba(0,0,0,0.4); }
 }
 .hamburger span { display: block; width: 22px; height: 1px; background: var(--washi); transition: all 0.25s; }
 @media (max-width: 900px) {
-  .nav-links { display: none; }
+  .nav-center, .nav-cta-cluster, .nav-en-link { display: none; }
+  .nav-mobile-primary { display: inline-flex; margin-left: auto; margin-right: 8px; }
   .hamburger { display: flex; }
 }
 .mobile-menu {
@@ -898,10 +911,6 @@ footer {
 /* ============================================================
    CONVERSION MODULES
    ============================================================ */
-.nav-cta-cluster { display:flex; gap:8px; margin-left:16px; }
-.nav-cta-cluster .btn { padding:8px 12px; font-size:0.68rem; }
-@media (max-width: 900px) { .nav-cta-cluster { display:none; } }
-
 .hero-eyebrow { margin-bottom: 10px; }
 .hero-eyebrow .label { font-size:0.62rem; }
 .hero-ctas-3 { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:10px; max-width:760px; }
@@ -973,20 +982,24 @@ footer {
       <span class="nav-logo-abbr">JII</span>
       <span class="nav-logo-sub">Japan Investor Interface</span>
     </a>
-    <ul class="nav-links" role="list">
-      <li><a href="#services">支援内容</a></li>
-      <li><a href="#jokyo">ご相談が多いケース</a></li>
-      <li><a href="#lifecycle">支援の流れ</a></li>
-      <li><a href="#ryokin">料金</a></li>
-      <li><a href="#about">会社概要</a></li>
-      <li><a href="#consultation">30分相談</a></li>
-    </ul>
-    <div class="nav-cta-cluster" aria-label="主要アクション">
-      <a href="#consultation" class="btn btn-primary">30分相談を予約</a>
-      <a href="#consultation" class="btn btn-outline" onclick="presetInquiry('相談 / アドバイザリー')">アドバイザリー相談</a>
-      <a href="#rfq" class="btn btn-outline" onclick="presetInquiry('RFQ / 見積もり')">見積もりを依頼</a>
+    <div class="nav-center">
+      <ul class="nav-links" role="list">
+        <li><a href="#services">支援内容</a></li>
+        <li><a href="#jokyo">ケース</a></li>
+        <li><a href="#ryokin">料金</a></li>
+        <li><a href="#about">会社概要</a></li>
+      </ul>
     </div>
-    <a href="/en/" class="nav-en-link">English</a>
+    <div class="nav-right" aria-label="主要アクション">
+      <div class="nav-cta-cluster">
+        <a href="#consultation" class="btn btn-primary" onclick="presetInquiry('相談 / アドバイザリー')">30分相談を予約</a>
+        <a href="#rfq" class="btn btn-outline" onclick="presetInquiry('RFQ / 見積もり')">見積もりを依頼</a>
+      </div>
+      <a href="/en/" class="nav-en-link">EN</a>
+    </div>
+    <div class="nav-mobile-primary">
+      <a href="#consultation" class="btn btn-primary" onclick="presetInquiry('相談 / アドバイザリー')">30分相談</a>
+    </div>
     <button class="hamburger" onclick="toggleMenu()" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobileMenu">
       <span></span><span></span><span></span>
     </button>
@@ -995,15 +1008,13 @@ footer {
 
 <div class="mobile-menu" id="mobileMenu" role="menu">
   <a href="#services" onclick="toggleMenu()">支援内容</a>
-  <a href="#jokyo" onclick="toggleMenu()">ご相談が多いケース</a>
-  <a href="#lifecycle" onclick="toggleMenu()">支援の流れ</a>
+  <a href="#jokyo" onclick="toggleMenu()">ケース</a>
   <a href="#ryokin" onclick="toggleMenu()">料金</a>
-  <a href="#jisseki" onclick="toggleMenu()">実績</a>
   <a href="#about" onclick="toggleMenu()">会社概要</a>
+  <a href="#jisseki" onclick="toggleMenu()">実績</a>
   <a href="#faq" onclick="toggleMenu()">よくある質問</a>
-  <a href="#consultation" onclick="toggleMenu()">30分相談</a>
-  <a href="#rfq" onclick="toggleMenu()">RFQ送信</a>
-  <a href="/en/">English Site</a>
+  <a href="#rfq" onclick="toggleMenu()">見積もりを依頼</a>
+  <a href="/en/" onclick="toggleMenu()">EN</a>
 </div>
 
 <!-- ============================================================
