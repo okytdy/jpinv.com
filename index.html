@@ -813,6 +813,7 @@ nav.scrolled { box-shadow: 0 4px 28px rgba(0,0,0,0.4); }
   padding: 40px;
 }
 .form-group { margin-bottom: 20px; }
+.form-group-secondary { opacity: 0.86; }
 .form-label {
   display: block; font-family: var(--mono);
   font-size: 0.58rem; letter-spacing: 0.12em;
@@ -1852,20 +1853,21 @@ footer {
       <div class="rule-gold"></div>
       <h2 class="mincho-lg">見積もり依頼（RFQ）</h2>
       <p style="font-size:0.86rem; line-height:1.9; margin-top:12px;">翻訳・通訳・面談準備支援の見積もり依頼はこちらからお送りください。</p>
+      <p style="font-size:0.8rem; line-height:1.8; margin-top:8px; color:var(--text-dim);">詳細が未確定でも、そのままお送りください。</p>
     </div>
     <form class="rfq-box reveal" id="rfq-form">
       <input type="hidden" name="form_type" value="contact">
       <div class="form-group"><label class="form-label" for="rfq-name">会社名・ご担当者名</label><input id="rfq-name" class="form-input" type="text" required></div>
       <div class="form-group"><label class="form-label" for="rfq-email">メールアドレス</label><input id="rfq-email" class="form-input" type="email" required></div>
-      <div class="form-group"><label class="form-label" for="rfq-type">ご相談の種類</label><select id="rfq-type" class="form-select" required><option value="">お選びください</option><option>翻訳</option><option>通訳</option><option>面談準備支援</option><option>複合（翻訳 + 通訳 + 準備）</option></select></div>
+      <div class="form-group"><label class="form-label" for="rfq-type">ご相談の種類</label><select id="rfq-type" class="form-select" required><option value="">お選びください</option><option>英文開示</option><option>投資家面談</option><option>アドバイザリー</option><option>その他（未定含む）</option></select></div>
       <div class="form-group"><label class="form-label" for="rfq-date">希望納期 or 面談予定日</label><input id="rfq-date" class="form-input" type="text" placeholder="例：2026/05/20面談、5/15までに初稿希望" required></div>
       <div class="form-group"><label class="form-label" for="rfq-target">対象資料 or 面談の種類</label><input id="rfq-target" class="form-input" type="text" placeholder="決算短信、1on1面談、説明会など" required></div>
       <div class="form-group"><label class="form-label" for="rfq-summary">ご要望の概要</label><textarea id="rfq-summary" class="form-textarea" required></textarea></div>
-      <div class="form-group"><label class="form-label" for="rfq-volume">想定ボリューム（任意）</label><input id="rfq-volume" class="form-input" type="text" placeholder="文字数 / スライド数 / 面談時間"></div>
-      <div class="form-group"><label class="form-label" for="rfq-history">過去の英訳資料あり（任意）</label><select id="rfq-history" class="form-select"><option>未選択</option><option>あり</option><option>なし</option></select></div>
-      <div class="form-group"><label class="form-label" for="rfq-nda">NDA希望（任意）</label><select id="rfq-nda" class="form-select"><option>未選択</option><option>希望する</option><option>不要</option></select></div>
+      <div class="form-group"><label class="form-label" for="rfq-volume">想定ボリューム（任意）</label><input id="rfq-volume" class="form-input" type="text" placeholder="分かる範囲でご記入ください（文字数 / スライド数 / 面談時間など）"></div>
+      <div class="form-group form-group-secondary"><label class="form-label" for="rfq-history">過去の英訳資料あり（任意）</label><select id="rfq-history" class="form-select"><option>未選択</option><option>あり</option><option>なし</option></select><p class="form-note">未選択のままでも問題ありません。</p></div>
       <p class="form-note">資料添付が必要な場合は、送信後の返信メールにそのままご返信ください。</p>
-      <button type="submit" class="form-submit">見積もりを依頼する</button>
+      <p class="form-note">機密情報を含む場合は、NDA締結後のやり取りも可能です。</p>
+      <button type="submit" class="form-submit">相談・見積もりを依頼する</button>
       <p class="form-note" data-form-status aria-live="polite"></p>
     </form>
     <div class="next-steps-box reveal" style="margin-top:20px;">
@@ -2100,8 +2102,7 @@ if (rfqForm) {
         { key: 'target', el: document.getElementById('rfq-target') },
         { key: 'message', el: document.getElementById('rfq-summary') },
         { key: 'volume', el: document.getElementById('rfq-volume') },
-        { key: 'history', el: document.getElementById('rfq-history') },
-        { key: 'nda', el: document.getElementById('rfq-nda') }
+        { key: 'history', el: document.getElementById('rfq-history') }
       ]
     });
   });
