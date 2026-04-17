@@ -1330,7 +1330,40 @@ section {
   font-weight: 500;
 }
 .form-submit:hover { background: var(--gold-light); }
+.form-submit:disabled { cursor: not-allowed; opacity: 0.72; }
 .form-note { font-size: 0.72rem; color: var(--text-dim); margin-top: 12px; }
+.form-status-error {
+  margin-top: 12px;
+  line-height: 1.8;
+  color: #dcb7b7;
+}
+.form-success-box {
+  background: var(--ink-mid);
+  border: 1px solid var(--gold-line);
+  border-left: 3px solid var(--gold);
+  padding: 26px 24px;
+  margin-bottom: 18px;
+}
+.form-success-box[hidden] { display: none; }
+.form-success-title {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: var(--paper);
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+.form-success-body {
+  font-size: 0.84rem;
+  line-height: 1.85;
+  color: var(--text);
+}
+.form-success-note {
+  margin-top: 10px;
+  font-size: 0.74rem;
+  line-height: 1.7;
+  color: var(--text-dim);
+}
 .contact-info {
   position: sticky;
   top: calc(var(--nav-height) + 32px);
@@ -2562,6 +2595,14 @@ footer {
       <h2 class="display-lg reveal ja-only" style="display:none">対話を始めましょう</h2>
     </div>
     <div class="contact-grid">
+      <div class="form-success-box reveal" data-form-success-box hidden>
+        <h3 class="form-success-title en-only">Thank you for your inquiry</h3>
+        <h3 class="form-success-title ja-only" style="display:none">送信ありがとうございました</h3>
+        <p class="form-success-body en-only">We have received your inquiry.<br>We will review your message and reply within 1 business day.</p>
+        <p class="form-success-body ja-only" style="display:none">お問い合わせを受け付けました。<br>内容を確認のうえ、1営業日以内にご返信します。</p>
+        <p class="form-success-note en-only">If an automatic confirmation email was sent, please check it as well.</p>
+        <p class="form-success-note ja-only" style="display:none">確認のため、自動受付メールをお送りしている場合は、あわせてご確認ください。</p>
+      </div>
       <form class="contact-form-wrap reveal" id="contact-form-en">
         <input type="hidden" name="form_type" value="contact">
         <div class="form-group">
@@ -2596,7 +2637,7 @@ footer {
         </div>
         <button type="submit" class="form-submit en-only">Send inquiry</button>
         <button type="submit" class="form-submit ja-only" style="display:none">送信する</button>
-        <p class="form-note" data-form-status aria-live="polite"></p>
+        <p class="form-status-error" data-form-status aria-live="polite"></p>
         <p class="form-note en-only">We respond within one business day. All inquiries are treated as confidential.</p>
         <p class="form-note ja-only" style="display:none">1営業日以内に返信いたします。すべての問い合わせは機密として扱われます。</p>
       </form>
@@ -2746,7 +2787,9 @@ const contactFormEn = document.getElementById('contact-form-en');
 
 if (contactFormEn) {
   const statusEl = contactFormEn.querySelector('[data-form-status]');
+  const successBox = contactFormEn.previousElementSibling;
   const submitButtons = contactFormEn.querySelectorAll('.form-submit');
+  const controls = contactFormEn.querySelectorAll('input, select, textarea, button');
 
   contactFormEn.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -2757,6 +2800,7 @@ if (contactFormEn) {
     activeButton.dataset.defaultText = defaultButtonText;
 
     submitButtons.forEach(btn => { btn.disabled = true; });
+    controls.forEach((el) => { el.disabled = true; });
     activeButton.textContent = isJapanese ? '送信中...' : 'Sending...';
     if (statusEl) statusEl.textContent = '';
 
@@ -2779,21 +2823,23 @@ if (contactFormEn) {
       });
 
       if (!response.ok) throw new Error('Formspree request failed');
-      if (statusEl) {
-        statusEl.textContent = isJapanese
-          ? '送信ありがとうございます。1営業日以内にご返信します。'
-          : 'Thank you. We will reply within 1 business day.';
+      if (successBox) {
+        successBox.hidden = false;
+        contactFormEn.hidden = true;
       }
       contactFormEn.reset();
     } catch (error) {
       if (statusEl) {
-        statusEl.innerHTML = isJapanese
-          ? '送信に失敗しました。<a href="mailto:info@jpinv.com">info@jpinv.com</a> までご連絡ください。'
-          : 'Submission failed. Please contact <a href="mailto:info@jpinv.com">info@jpinv.com</a>.';
+        statusEl.textContent = isJapanese
+          ? '送信に失敗しました。お手数ですが、再度お試しいただくか、info@jpinv.com までご連絡ください。'
+          : 'Submission failed. Please try again or contact info@jpinv.com.';
       }
     } finally {
-      submitButtons.forEach(btn => { btn.disabled = false; });
-      activeButton.textContent = defaultButtonText;
+      if (!contactFormEn.hidden) {
+        submitButtons.forEach(btn => { btn.disabled = false; });
+        controls.forEach((el) => { el.disabled = false; });
+        activeButton.textContent = defaultButtonText;
+      }
     }
   });
 }
