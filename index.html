@@ -198,7 +198,7 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.4); }
 
 /* DIAGNOSTIC CARD MOCK */
 #card { background: var(--ink-mid); border-top: 1px solid var(--ink-rule); border-bottom: 1px solid var(--ink-rule); }
-.card-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+.card-layout { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; }
 @media (max-width: 920px) { .card-layout { grid-template-columns: 1fr; gap: 36px; } }
 .card-explain p { font-size: 0.92rem; line-height: 1.85; margin-bottom: 14px; }
 .card-explain ul { list-style: none; margin-top: 18px; }
@@ -207,23 +207,24 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.4); }
 .card-explain li::before { content: '◇'; color: var(--gold); position: absolute; left: 0; top: 10px; font-size: 0.7rem; }
 .card-note { font-size: 0.72rem; color: var(--text-dim); margin-top: 18px; font-family: var(--mono); letter-spacing: 0.05em; }
 
-.diag-card { background: var(--washi); color: var(--ink); padding: 28px 32px; box-shadow: 0 16px 48px rgba(0,0,0,0.45); border: 1px solid rgba(0,0,0,0.05); position: relative; }
-.diag-card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; padding-bottom: 14px; border-bottom: 1px solid rgba(15,28,40,0.12); margin-bottom: 18px; }
+.diag-card { background: #f6f1e6; color: var(--ink); padding: 26px 30px 22px; box-shadow: 0 22px 60px rgba(0,0,0,0.55), 0 2px 6px rgba(0,0,0,0.30); border: 1px solid rgba(15,28,40,0.10); position: relative; max-width: 460px; margin-left: auto; }
+.diag-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gold) 0%, rgba(184,150,90,0.4) 100%); }
+.diag-card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; padding-bottom: 14px; border-bottom: 1px solid rgba(15,28,40,0.18); margin-bottom: 16px; }
 .diag-card-id { font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
 .diag-card-title { font-family: var(--serif); font-size: 1.15rem; font-weight: 400; color: var(--ink); margin-top: 4px; line-height: 1.4; }
-.diag-card-meta { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.1em; color: var(--text-dim); text-align: right; line-height: 1.7; text-transform: uppercase; }
+.diag-card-meta { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.1em; color: #6f6553; text-align: right; line-height: 1.7; text-transform: uppercase; }
 
 .diag-score { display: flex; align-items: baseline; gap: 12px; margin-bottom: 6px; }
-.diag-score-num { font-family: var(--serif); font-size: 2.6rem; font-weight: 300; color: var(--ink); line-height: 1; }
+.diag-score-num { font-family: var(--serif); font-size: 2.4rem; font-weight: 300; color: var(--ink); line-height: 1; }
 .diag-score-num em { color: var(--gold); font-style: normal; }
-.diag-score-label { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; }
-.diag-meter { height: 6px; background: rgba(15,28,40,0.08); position: relative; margin: 8px 0 22px; }
+.diag-score-label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.14em; color: #6f6553; text-transform: uppercase; }
+.diag-meter { height: 5px; background: rgba(15,28,40,0.12); position: relative; margin: 8px 0 18px; }
 .diag-meter-fill { position: absolute; left: 0; top: 0; bottom: 0; background: var(--gold); width: 54%; }
 .diag-meter-marks { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 0.55rem; color: var(--text-dim); margin-top: 6px; letter-spacing: 0.08em; }
 
-.diag-grid-label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 8px; }
-.diag-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid rgba(15,28,40,0.10); margin-bottom: 18px; }
-.diag-item { display: flex; align-items: center; gap: 10px; padding: 8px 6px 8px 0; border-bottom: 1px solid rgba(15,28,40,0.07); font-size: 0.78rem; color: var(--ink); }
+.diag-grid-label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.14em; color: #6f6553; text-transform: uppercase; margin-bottom: 10px; }
+.diag-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid rgba(15,28,40,0.18); margin-bottom: 4px; }
+.diag-item { display: flex; align-items: center; gap: 10px; padding: 8px 6px 8px 0; border-bottom: 1px solid rgba(15,28,40,0.10); font-size: 0.8rem; color: var(--ink); }
 .diag-item .dot { width: 10px; height: 10px; flex-shrink: 0; border-radius: 50%; }
 .diag-item.ok .dot { background: var(--ok); }
 .diag-item.half .dot { background: var(--warn); }
@@ -237,7 +238,7 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.4); }
 .diag-block ol li { margin: 4px 0; }
 .diag-block p { font-size: 0.8rem; line-height: 1.65; color: var(--ink); }
 
-.diag-foot { display: flex; justify-content: space-between; padding-top: 14px; margin-top: 14px; border-top: 1px solid rgba(15,28,40,0.10); font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.12em; color: var(--text-dim); text-transform: uppercase; flex-wrap: wrap; gap: 6px; }
+.diag-foot { display: flex; justify-content: space-between; padding-top: 14px; margin-top: 14px; border-top: 1px solid rgba(15,28,40,0.18); font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.12em; color: #6f6553; text-transform: uppercase; flex-wrap: wrap; gap: 6px; }
 
 /* SELF-CHECK */
 .selfcheck { max-width: 800px; }
@@ -422,8 +423,8 @@ footer { background: var(--ink); padding: 64px 0 44px; border-top: 1px solid var
   <div class="wrap">
     <div class="hero-body">
       <div class="hero-eyebrow"><span class="label">JII Foreign IR Diagnostic Card / 海外IR診断カード</span></div>
-      <div class="hero-title"><h1 class="mincho-xl">海外投資家から見た御社IRの<br>見え方を、診断カードで可視化する。</h1></div>
-      <p class="hero-sub">英文の正確さでは届かない情報がある。診断カードは、海外資本に何が伝わっていて、何が伝わっていないかを構造化して示します。</p>
+      <div class="hero-title"><h1 class="mincho-xl">海外投資家から見た御社IRを、<br>診断カード一枚に整理する。</h1></div>
+      <p class="hero-sub">英文として正確でも、海外投資家にうまく届いていないことがあります。診断カードは、いま伝わっている点・伝わっていない点を、項目ごとに整理した一枚です。</p>
       <div class="hero-ctas">
         <a href="#card" class="btn btn-primary">診断カードを見る</a>
         <a href="#contact" class="btn btn-outline" onclick="presetInquiry('30分相談（プランを決める前）')">30分相談</a>
@@ -444,21 +445,21 @@ footer { background: var(--ink); padding: 64px 0 44px; border-top: 1px solid var
       <span class="label">中核プロダクト</span>
       <div class="rule-gold"></div>
       <h2 class="mincho-lg">診断カードとは</h2>
-      <p>御社のIR資料・面談観察を12項目・24点でスコアリングし、海外投資家視点で何が伝わっていないかを構造化します。社内で共有・実行できる単一の文書です。</p>
+      <p>御社のIR資料と面談の様子を12項目・24点で点検し、海外投資家からどう見えているか・どこで理解が止まっているかを整理した一枚です。IR・CFO室・経営企画でそのまま社内資料として使えます。</p>
     </div>
 
     <div class="card-layout">
       <div class="card-explain reveal">
-        <p>診断カードは、海外投資家が御社IRに触れたときに <strong>どこで止まり、何を理解しないか</strong> を、項目別に可視化します。</p>
-        <p>抽象的な評価ではなく、具体的な箇所と次の一手を示します。<strong>翻訳する前に、まず点検する</strong> ためのものです。</p>
+        <p>海外投資家が御社のIR資料を読んだときに <strong>どこで止まり、何が伝わっていないか</strong> を、項目ごとに整理しています。</p>
+        <p>ふわっとした感想ではなく、具体的にどこか・次にどこを直すかまで示します。<strong>翻訳の前に一度、現状を棚卸しするための一枚</strong> です。</p>
         <ul>
           <li>12項目・24点満点のスコアカード</li>
-          <li>海外投資家視点での Top 3 ギャップ</li>
+          <li>海外投資家から見た優先課題（上位3点）</li>
           <li>具体例（IR資料・面談からの引用）</li>
           <li>改善優先順位と次の一手</li>
           <li>IR部・CFO室・経営企画で社内共有可</li>
         </ul>
-        <p class="card-note">※ 右の図は構造を示すサンプルです。実際の診断は御社固有の資料・面談に基づき作成します。</p>
+        <p class="card-note">※ 右の図は構造のサンプルです。実際の診断は、御社固有の資料・面談に基づいて作成します。</p>
       </div>
 
       <!-- mock card -->
@@ -498,25 +499,6 @@ footer { background: var(--ink); padding: 64px 0 44px; border-top: 1px solid var
           <div class="diag-item bad"><span class="dot"></span><span class="diag-item-label">アクティビスト想定問</span></div>
         </div>
 
-        <div class="diag-block">
-          <div class="diag-block-label">Top 3 ギャップ</div>
-          <ol>
-            <li>資本配分方針が ROIC 目標と接続していない</li>
-            <li>中計の前提を覆す感応度（為替・原材料）が示されていない</li>
-            <li>株主還元の優先順位が、再投資ロジックと矛盾して読める</li>
-          </ol>
-        </div>
-
-        <div class="diag-block">
-          <div class="diag-block-label">海外投資家が理解できていない可能性</div>
-          <p>「セグメント別の利益率がなぜ縮小しているのか」が、面談3件すべてで質問された。資料には書かれているが、構成上 P.18 にある一行に依存している。</p>
-        </div>
-
-        <div class="diag-block">
-          <div class="diag-block-label">推奨する次の一手</div>
-          <p>次の決算開示で <em>Capital Allocation Framework</em> を1ページにまとめ、ROIC・配当・自社株買い・再投資の優先順位を明示する。翻訳前に日本語版で先に整理する。</p>
-        </div>
-
         <div class="diag-foot">
           <span>社内利用: IR部 / CFO室 / 経営企画</span>
           <span>機密 / NDA可</span>
@@ -533,7 +515,7 @@ footer { background: var(--ink); padding: 64px 0 44px; border-top: 1px solid var
       <span class="label">状況別ご案内</span>
       <div class="rule-gold"></div>
       <h2 class="mincho-lg">いまの御社IRに、近いものは？</h2>
-      <p>該当するものを選ぶと、目安となるプランをご案内します。最終的には30分相談で擦り合わせます。</p>
+      <p>該当するものをお選びください。目安のプランをご案内します。最終的には30分相談で詳細を詰めさせてください。</p>
     </div>
     <div class="selfcheck reveal">
       <div class="selfcheck-grid" role="group" aria-label="セルフチェック">
@@ -545,7 +527,7 @@ footer { background: var(--ink); padding: 64px 0 44px; border-top: 1px solid var
       <div class="selfcheck-result" id="selfcheck-result" role="status" aria-live="polite">
         <span class="sr-tag" id="sr-tag">推奨</span>
         <h4 id="sr-title">Light — まず初回診断から</h4>
-        <p id="sr-body">いまの御社IRが海外投資家にどう映っているか、まず一度診断カードで点検することをお勧めします。判断材料が揃ってから、Standard/Proに進むかを決められます。</p>
+        <p id="sr-body">まずは一度、診断カードで現状を点検することをお勧めします。判断材料がそろったうえで、Standard・Pro へ進むかをご検討いただけます。</p>
         <a href="#plans" id="sr-link">Lightプランを見る →</a>
       </div>
     </div>
@@ -564,12 +546,12 @@ footer { background: var(--ink); padding: 64px 0 44px; border-top: 1px solid var
       <div class="why-card">
         <span class="label">翻訳が答えるのは</span>
         <h3>「これを英語でどう言うか？」</h3>
-        <p>正確に英語化することはできる。ただし、海外投資家が判断に必要としている情報の有無や順序、論理の接続までは扱わない。</p>
+        <p>英語表現としては正確に直せます。ただし、海外投資家が投資判断のために必要としている情報があるか・どんな順序で出ているかまでは、翻訳の領域では扱いません。</p>
       </div>
       <div class="why-card is-diag">
         <span class="label">診断カードが答えるのは</span>
-        <h3>「英語にする前に、海外資本は何を理解する必要があるか？」</h3>
-        <p>資本配分・差別化・成長前提など、投資判断に直結する論点が伝わる構成になっているかを点検し、優先順位を提示します。</p>
+        <h3>「英語にする前に、海外投資家には何が伝わっていないか？」</h3>
+        <p>資本配分・差別化・成長前提など、投資判断に直結する論点が、伝わる順序・伝わる粒度になっているかを点検し、見直しの優先順位までお示しします。</p>
       </div>
     </div>
   </div>
@@ -585,13 +567,13 @@ footer { background: var(--ink); padding: 64px 0 44px; border-top: 1px solid var
     </div>
     <div class="receive-grid reveal">
       <div class="receive-card"><span class="num">01</span><h4>診断カード本体</h4><p>12項目・24点のスコアカードと総合所見。1ファイルで社内共有可。</p></div>
-      <div class="receive-card"><span class="num">02</span><h4>Top 3 コミュニケーションギャップ</h4><p>海外投資家視点で最も投資判断に響いているズレを3点に絞って提示。</p></div>
-      <div class="receive-card"><span class="num">03</span><h4>具体例 / 引用</h4><p>御社のIR資料・面談記録から、ギャップが起きている具体的な箇所を引用。</p></div>
+      <div class="receive-card"><span class="num">02</span><h4>伝わっていない上位3点</h4><p>投資判断に最も影響している、伝わっていない論点を3点に絞ってご提示。</p></div>
+      <div class="receive-card"><span class="num">03</span><h4>具体例 / 引用</h4><p>御社のIR資料や面談記録から、伝わりにくくなっている具体的な箇所を引用。</p></div>
       <div class="receive-card"><span class="num">04</span><h4>改善優先順位</h4><p>「次の決算で直すべきもの」「中期で整えるもの」を分けて提示。</p></div>
       <div class="receive-card"><span class="num">05</span><h4>社内ウォークスルー</h4><p>IR部・CFO室・経営企画と、診断結果を読み合わせる60分のセッション。</p></div>
-      <div class="receive-card"><span class="num">06</span><h4>実装パスのご提案</h4><p>翻訳・通訳・開示見直しなど、診断結果をどう実装に落とすかの選択肢。</p></div>
+      <div class="receive-card"><span class="num">06</span><h4>次の一手のご提案</h4><p>翻訳・通訳・開示見直しなど、診断結果を実際にどう動かすかの選択肢を整理してお渡しします。</p></div>
     </div>
-    <p class="receive-foot reveal">翻訳・英文レビュー・面談通訳は、診断後の実装レイヤーとしてのみ提供します。単発の翻訳発注（文字単価ベース）は本サイトの提供範囲外です。</p>
+    <p class="receive-foot reveal">翻訳・英文レビュー・面談通訳は、診断を踏まえたうえでお引き受けする運用です。文字単価での単発翻訳は、本サイトの対象外です。</p>
   </div>
 </section>
 
@@ -605,10 +587,10 @@ footer { background: var(--ink); padding: 64px 0 44px; border-top: 1px solid var
     </div>
     <div class="process-flow reveal">
       <div class="process-step"><h5>資料 / 面談観察</h5><p>IR資料・IRページ・直近面談を点検対象として収集。</p></div>
-      <div class="process-step"><h5>診断カード</h5><p>12項目・24点でスコアリングし、Top 3 ギャップを抽出。</p></div>
+      <div class="process-step"><h5>診断カード</h5><p>12項目・24点で点検し、伝わっていない上位3点を整理。</p></div>
       <div class="process-step"><h5>優先順位</h5><p>次の決算で直す / 中期で整えるを切り分け、社内で合意。</p></div>
-      <div class="process-step"><h5>開示 / Q&A / 面談</h5><p>開示見直し・面談準備・通訳手配など実装レイヤーへ反映。</p></div>
-      <div class="process-step"><h5>翌四半期で再点検</h5><p>面談での反応を再度カードに戻し、改善ループを回します。</p></div>
+      <div class="process-step"><h5>開示 / Q&A / 面談</h5><p>開示の見直し・面談準備・通訳など、実際の対応に落としていきます。</p></div>
+      <div class="process-step"><h5>翌四半期で再点検</h5><p>面談で得た反応を次の診断に戻し、改善のサイクルを回します。</p></div>
     </div>
   </div>
 </section>
@@ -629,10 +611,10 @@ footer { background: var(--ink); padding: 64px 0 44px; border-top: 1px solid var
         <div class="plan-sub">まず現状を点検する</div>
         <div class="plan-price">¥200,000<small> ／回</small></div>
         <div class="plan-tax">税別 / 単発</div>
-        <div class="plan-best"><strong>Best for</strong>海外IRの実態を一度棚卸ししたい / 何から手をつけるべきか合意したい企業</div>
+        <div class="plan-best"><strong>Best for</strong>海外IRの現状を一度棚卸しし、どこから手をつけるかを社内で合意したい企業</div>
         <ul class="plan-list">
           <li>診断カード本体（12項目・24点）</li>
-          <li>Top 3 ギャップと具体例</li>
+          <li>上位3点の課題と具体例</li>
           <li>改善優先順位の提示</li>
           <li>社内ウォークスルー（60分）</li>
         </ul>
@@ -641,22 +623,22 @@ footer { background: var(--ink); padding: 64px 0 44px; border-top: 1px solid var
       <div class="plan-card is-mid">
         <span class="plan-tag">Standard</span>
         <h3>四半期開示改善</h3>
-        <div class="plan-sub">診断を四半期サイクルに乗せる</div>
+        <div class="plan-sub">四半期ごとに診断を更新する</div>
         <div class="plan-price">¥100,000<small> ／月</small></div>
         <div class="plan-tax">税別 / 6ヶ月〜</div>
         <div class="plan-best"><strong>Best for</strong>四半期開示・英文IR資料を継続的に「海外投資家に伝わる形」へ寄せたい企業</div>
         <ul class="plan-list">
-          <li>初回診断カード一式</li>
+          <li>初回の診断カード一式</li>
           <li>四半期ごとの再診断</li>
           <li>決算開示・英文資料の点検</li>
-          <li>診断ベースの翻訳・レビュー</li>
+          <li>診断結果に沿った翻訳・英文レビュー</li>
         </ul>
         <a href="#contact" class="btn btn-primary" onclick="presetInquiry('Standard — 四半期開示改善')">Standardで相談する</a>
       </div>
       <div class="plan-card">
         <span class="plan-tag">Pro</span>
         <h3>面談含むIR改善ループ</h3>
-        <div class="plan-sub">面談前後を一緒に回す</div>
+        <div class="plan-sub">投資家面談の前後をご一緒に対応</div>
         <div class="plan-price">¥200,000<small> ／月</small></div>
         <div class="plan-tax">税別 / 6ヶ月〜</div>
         <div class="plan-best"><strong>Best for</strong>海外投資家面談を継続的に行い、得た反応を次の開示に戻したい企業</div>
@@ -664,7 +646,7 @@ footer { background: var(--ink); padding: 64px 0 44px; border-top: 1px solid var
           <li>Standard の内容すべて</li>
           <li>投資家面談の準備支援</li>
           <li>立ち会い通訳 / 面談観察</li>
-          <li>面談後の Top 3 反応レポート</li>
+          <li>面談後の上位3反応をまとめたレポート</li>
         </ul>
         <a href="#contact" class="btn btn-outline" onclick="presetInquiry('Pro — 面談まで含めたIR改善ループ')">Proで相談する</a>
       </div>
@@ -682,9 +664,9 @@ footer { background: var(--ink); padding: 64px 0 44px; border-top: 1px solid var
     </div>
     <div class="case-grid reveal">
       <div class="case-card"><span class="case-tag">Case A</span><h4>初めて本格的な海外投資家面談がある</h4><p>面談前に、自社IRが投資家にどう映るかを一度点検したい。</p></div>
-      <div class="case-card"><span class="case-tag">Case B</span><h4>海外IRを続けているが投資につながらない</h4><p>面談はあるが買い注文に至らない。何が伝わっていないかを構造化したい。</p></div>
+      <div class="case-card"><span class="case-tag">Case B</span><h4>海外IRを続けているが投資につながらない</h4><p>面談はあるが買い注文に至らない。どこで伝わっていないのかを整理したい。</p></div>
       <div class="case-card"><span class="case-tag">Case C</span><h4>アクティビスト / 重要株主対応</h4><p>主要株主が変わり、論点を整理して説明軸を作り直す必要がある。</p></div>
-      <div class="case-card"><span class="case-tag">Case D</span><h4>中計・資本配分方針を説明する</h4><p>新中計の前提・ROIC目標・株主還元ロジックを海外資本に届ける。</p></div>
+      <div class="case-card"><span class="case-tag">Case D</span><h4>中計・資本配分方針を説明する</h4><p>新中計の前提・ROIC目標・株主還元の考え方を、海外投資家にまっすぐ届ける。</p></div>
       <div class="case-card"><span class="case-tag">Case E</span><h4>英文IRページ・決算資料を見直したい</h4><p>翻訳の前に、構成と論点の優先順位を整える。</p></div>
       <div class="case-card"><span class="case-tag">Case F</span><h4>面談で得た反応を次の開示に戻したい</h4><p>個別面談の反応を、四半期開示の改善ループに乗せる。</p></div>
     </div>
@@ -706,8 +688,8 @@ footer { background: var(--ink); padding: 64px 0 44px; border-top: 1px solid var
       <div class="about-content">
         <h3>屋山 テディ — 代表取締役</h3>
         <div class="role">Founder · Japan Investor Interface Co., Ltd.</div>
-        <p>米国出身、日本拠点。2023年に Japan Investor Interface Co., Ltd. を設立。日本の上場企業と海外投資家の面談に300件以上立ち会い、両者を同じ部屋でリアルタイムに理解できる立場で、IR部・CFO室・経営企画に <strong>「海外資本に御社が実際にどう映っているか」</strong> を返してきました。</p>
-        <p>JIIは、その観察を構造化された診断書として提供する会社です。翻訳・通訳は単発の発注先ではなく、診断ベースの関係の中で実装される一つのレイヤーです。</p>
+        <p>米国出身、日本拠点。2023年に Japan Investor Interface Co., Ltd. を設立。日本の上場企業と海外投資家の面談に300件以上立ち会い、両者の話をその場で同時に理解できる立場から、IR部・CFO室・経営企画に <strong>「いま海外投資家から自社がどう見えているか」</strong> を返してきました。</p>
+        <p>JIIは、その観察を一枚の診断書としてまとめてお渡しする会社です。翻訳・通訳は単発でお請けするものではなく、診断を踏まえたうえで必要な部分だけお引き受けしています。</p>
 
         <div class="proof-row">
           <div class="proof-cell"><div class="proof-num">300<em>+</em></div><div class="proof-label">海外投資家面談 立ち会い</div></div>
@@ -748,11 +730,11 @@ footer { background: var(--ink); padding: 64px 0 44px; border-top: 1px solid var
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">診断までの流れと所要期間は？</button>
-        <div class="faq-a"><div class="faq-a-inner">お問い合わせ → 30分相談 → NDA → 資料受領 → 診断作成（通常2〜3週間）→ 社内ウォークスルー（60分）→ 実装オプションのご提案。面談予定がある場合は、その前に間に合う形で組み立てます。</div></div>
+        <div class="faq-a"><div class="faq-a-inner">お問い合わせ → 30分相談 → NDA → 資料受領 → 診断作成（通常2〜3週間）→ 社内ウォークスルー（60分）→ 次の一手のご提案。面談予定がある場合は、その日程に間に合うよう組み立てます。</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">単発の翻訳・通訳だけ依頼できますか？</button>
-        <div class="faq-a"><div class="faq-a-inner">本サイトでは承っておりません。翻訳・通訳は診断ベースの関係の中で、Standard / Pro プランの実装レイヤーとして提供します。文字単価制での発注をお探しの場合、本サイトの提供範囲外です。</div></div>
+        <div class="faq-a"><div class="faq-a-inner">本サイトでは単発でのお受けはしておりません。翻訳・通訳は、診断を踏まえたうえで Standard / Pro プランの一部としてお引き受けしています。文字単価での発注をお探しの場合は、本サイトの対象外です。</div></div>
       </div>
     </div>
   </div>
@@ -813,7 +795,7 @@ footer { background: var(--ink); padding: 64px 0 44px; border-top: 1px solid var
           <li>1営業日以内にご返信</li>
           <li>必要に応じてNDA締結</li>
           <li>30分相談で論点を整理</li>
-          <li>診断 or プランのご提案</li>
+          <li>診断またはプランのご提案</li>
         </ul>
         <h4>連絡先</h4>
         <ul>
@@ -832,7 +814,7 @@ footer { background: var(--ink); padding: 64px 0 44px; border-top: 1px solid var
     <div class="footer-grid">
       <div class="footer-brand">
         <h3>Japan Investor Interface Co., Ltd.</h3>
-        <p>株式会社ジャパン・インベスター・インターフェース。海外投資家から見た自社IRの見え方を、12項目・24点の診断カードで可視化します。翻訳・通訳は診断後の実装レイヤーです。</p>
+        <p>株式会社ジャパン・インベスター・インターフェース。海外投資家から見た自社IRを、12項目・24点の診断カード一枚に整理します。翻訳・通訳は診断を踏まえたうえでお引き受けしています。</p>
       </div>
       <div class="footer-col">
         <h5>診断とプラン</h5>
@@ -919,8 +901,8 @@ document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 // Self-check interaction
 const recommendations = {
   light:    { tag: '推奨プラン: Light',    title: 'Light — まず初回診断から', body: '海外投資家との面談はあるものの投資につながっていない場合、原因は資料の翻訳ではなく構成（投資ストーリーの伝わり方）にあることがほとんどです。Lightで一度診断し、何から直すかを社内で合意することをお勧めします。', link: '#plans' },
-  standard: { tag: '推奨プラン: Standard', title: 'Standard — 四半期開示に診断を組み込む', body: '同じ質問が毎回戻る、資本配分の説明に手応えがない、というのは「四半期ごとに診断を更新して開示に反映する」必要のあるサインです。Standardで継続的に整えていくと改善が定着します。', link: '#plans' },
-  pro:      { tag: '推奨プラン: Pro',      title: 'Pro — 面談前後まで含めて回す', body: 'アクティビスト・重要株主対応や、面談を継続的に行いそこで得た反応を次の開示に戻したい場合、Proが最適です。面談準備・通訳・面談後の反応レポートまで一連でカバーします。', link: '#plans' }
+  standard: { tag: '推奨プラン: Standard', title: 'Standard — 四半期開示に診断を組み込む', body: '同じ質問が毎回戻ってくる、資本配分の説明に手応えがない、といった状況は「四半期ごとに診断を更新して開示に反映する」必要のあるサインです。Standardで継続的に整えると、改善が定着します。', link: '#plans' },
+  pro:      { tag: '推奨プラン: Pro',      title: 'Pro — 面談前後まで含めて回す', body: 'アクティビスト・重要株主対応や、面談を継続的に行い、そこで得た反応を次の開示に戻したい場合は、Proが最適です。面談準備・通訳・面談後の反応レポートまで、一連でカバーします。', link: '#plans' }
 };
 document.querySelectorAll('.selfcheck-opt').forEach(btn => {
   btn.addEventListener('click', () => {
