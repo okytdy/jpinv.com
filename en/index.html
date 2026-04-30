@@ -136,7 +136,7 @@ a { color: inherit; }
 .mincho-xl { font-family: var(--serif); font-size: clamp(2rem, 4.6vw, 3.4rem); font-weight: 200; line-height: 1.2; letter-spacing: 0.01em; color: var(--washi); }
 .mincho-lg { font-family: var(--serif); font-size: clamp(1.5rem, 2.8vw, 2.3rem); font-weight: 300; line-height: 1.3; letter-spacing: 0.01em; color: var(--washi); }
 
-#hero .mincho-xl { font-size: clamp(2rem, 4.2vw, 3rem); line-height: 1.25; }
+#top .mincho-xl { font-size: clamp(2rem, 4.2vw, 3rem); line-height: 1.25; }
 .mincho-md { font-family: var(--serif); font-size: clamp(1.05rem, 2vw, 1.4rem); font-weight: 300; line-height: 1.45; color: var(--washi); }
 .label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
 strong { font-weight: 500; color: var(--washi); }
@@ -187,7 +187,7 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.4); }
 .reveal.on { opacity: 1; transform: none; }
 
 /* HERO */
-#hero { min-height: 86vh; display: flex; align-items: center; padding-top: var(--nav-h); position: relative; overflow: hidden; }
+#top { min-height: 86vh; display: flex; align-items: center; padding-top: var(--nav-h); position: relative; overflow: hidden; }
 .hero-texture { position: absolute; inset: 0; background-image: linear-gradient(rgba(184,150,90,0.022) 1px, transparent 1px), linear-gradient(90deg, rgba(184,150,90,0.022) 1px, transparent 1px); background-size: 64px 64px; mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent); }
 .hero-glow { position: absolute; width: 540px; height: 540px; background: radial-gradient(circle, rgba(184,150,90,0.05) 0%, transparent 70%); top: 8%; right: -80px; pointer-events: none; }
 .hero-body { position: relative; z-index: 2; padding: 56px 0 72px; max-width: 800px; }
@@ -386,7 +386,7 @@ footer { background: var(--ink); padding: 64px 0 44px; border-top: 1px solid var
 
 <nav id="main-nav" role="navigation" aria-label="Main navigation">
   <div class="wrap nav-inner">
-    <a href="#hero" class="nav-logo" aria-label="JII home">
+    <a href="#top" class="nav-logo" aria-label="JII home">
       <span class="nav-logo-abbr">JII</span>
       <span class="nav-logo-sub">Japan Investor Interface</span>
     </a>
@@ -400,7 +400,7 @@ footer { background: var(--ink); padding: 64px 0 44px; border-top: 1px solid var
       </ul>
     </div>
     <div class="nav-right">
-      <a href="#contact" class="btn btn-primary nav-cta" onclick="presetInquiry('30-min introductory call')">30-min call</a>
+      <a href="#contact" class="btn btn-primary nav-cta" onclick="presetInquiry('Free 30-min introductory call')">Free 30-min call</a>
       <a href="/" class="nav-en-link">JA</a>
     </div>
     <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
@@ -420,7 +420,7 @@ footer { background: var(--ink); padding: 64px 0 44px; border-top: 1px solid var
 </div>
 
 <!-- HERO -->
-<section id="hero" aria-label="Hero">
+<section id="top" aria-label="Hero">
   <div class="hero-texture" aria-hidden="true"></div>
   <div class="hero-glow" aria-hidden="true"></div>
   <div class="wrap">
@@ -430,12 +430,7 @@ footer { background: var(--ink); padding: 64px 0 44px; border-top: 1px solid var
       <p class="hero-sub">English accuracy isn't the bottleneck. The diagnostic shows what foreign investors are — and aren't — taking away from your IR, before the next meeting or the next disclosure.</p>
       <div class="hero-ctas">
         <a href="#card" class="btn btn-primary">See the Diagnostic Card</a>
-        <a href="#contact" class="btn btn-outline" onclick="presetInquiry('30-min introductory call')">Start a conversation</a>
-      </div>
-      <div class="hero-stats" aria-label="Track record">
-        <div><div class="hero-stat-num">300<em>+</em></div><div class="hero-stat-label">Investor / company meetings observed</div></div>
-        <div><div class="hero-stat-num">80<em>+</em></div><div class="hero-stat-label">CFO / CEO / board-level meetings</div></div>
-        <div><div class="hero-stat-num">40<em>+</em></div><div class="hero-stat-label">Reverse-roadshow / multi-fund settings</div></div>
+        <a href="#contact" class="btn btn-outline" onclick="presetInquiry('Free 30-min introductory call')">Start a conversation</a>
       </div>
     </div>
   </div>
@@ -517,7 +512,7 @@ footer { background: var(--ink); padding: 64px 0 44px; border-top: 1px solid var
       <span class="label">Quick self-check</span>
       <div class="rule-gold"></div>
       <h2 class="mincho-lg">Which of these describes your IR right now?</h2>
-      <p>Pick the closest fit and we'll suggest a starting plan. Final scoping happens in a 30-minute call.</p>
+      <p>Pick the closest fit and we'll suggest a starting plan. Final scoping happens in a free 30-minute call.</p>
     </div>
     <div class="selfcheck reveal">
       <div class="selfcheck-grid" role="group" aria-label="Self-check options">
@@ -696,8 +691,8 @@ footer { background: var(--ink); padding: 64px 0 44px; border-top: 1px solid var
         <div class="proof-row">
           <div class="proof-cell"><div class="proof-num">300<em>+</em></div><div class="proof-label">Investor / company meetings observed</div></div>
           <div class="proof-cell"><div class="proof-num">80<em>+</em></div><div class="proof-label">CFO / CEO / board-level meetings</div></div>
-          <div class="proof-cell"><div class="proof-num">40<em>+</em></div><div class="proof-label">Reverse-roadshow / multi-fund settings</div></div>
-          <div class="proof-cell"><div class="proof-num">12<em>+</em></div><div class="proof-label">Global fund manager geographies</div></div>
+          <div class="proof-cell"><div class="proof-num">40<em>+</em></div><div class="proof-label">Different foreign funds engaged</div></div>
+          <div class="proof-cell"><div class="proof-num">12<em>+</em></div><div class="proof-label">Geographies of foreign funds engaged</div></div>
         </div>
         <div class="entity-line">Japan Investor Interface Co., Ltd. · Founded September 2023 · Osaka</div>
       </div>
@@ -732,7 +727,7 @@ footer { background: var(--ink); padding: 64px 0 44px; border-top: 1px solid var
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">What's the timeline from inquiry to delivered diagnostic?</button>
-        <div class="faq-a"><div class="faq-a-inner">Inquiry → 30-minute call → NDA → materials received → diagnostic drafted (typically 2–3 weeks) → 60-minute internal walkthrough → optional implementation path. If a meeting is approaching we sequence backwards from that date.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Inquiry → free 30-minute call → NDA → materials received → diagnostic drafted (typically 2–3 weeks) → 60-minute internal walkthrough → optional implementation path. If a meeting is approaching we sequence backwards from that date.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Can I just buy translation or interpretation on its own?</button>
@@ -748,7 +743,7 @@ footer { background: var(--ink); padding: 64px 0 44px; border-top: 1px solid var
     <div class="section-head reveal">
       <span class="label">Contact</span>
       <div class="rule-gold"></div>
-      <h2 class="mincho-lg">Start with a 30-minute call</h2>
+      <h2 class="mincho-lg">Start with a free 30-minute call</h2>
       <p>One inquiry form, replied to within one business day. NDA can be signed before any materials change hands.</p>
     </div>
     <div class="contact-grid">
@@ -774,7 +769,7 @@ footer { background: var(--ink); padding: 64px 0 44px; border-top: 1px solid var
               <option>Light — Initial Diagnostic (¥200,000)</option>
               <option>Standard — Disclosure Improvement (¥100,000/mo)</option>
               <option>Pro — Investor-Meeting Cycle (¥200,000/mo)</option>
-              <option>30-min introductory call</option>
+              <option>Free 30-min introductory call</option>
               <option>Other / not sure yet</option>
             </select>
           </div>
@@ -796,7 +791,7 @@ footer { background: var(--ink); padding: 64px 0 44px; border-top: 1px solid var
         <ul>
           <li>Reply within one business day</li>
           <li>NDA on request</li>
-          <li>30-minute call to scope</li>
+          <li>Free 30-minute call to scope</li>
           <li>Diagnostic or plan proposal</li>
         </ul>
         <h4>Reach us</h4>

@@ -136,7 +136,7 @@ a { color: inherit; }
 .mincho-xl { font-family: var(--serif); font-size: clamp(1.85rem, 4.4vw, 3.2rem); font-weight: 200; line-height: 1.45; letter-spacing: 0.04em; color: var(--washi); }
 .mincho-lg { font-family: var(--serif); font-size: clamp(1.4rem, 2.8vw, 2.2rem); font-weight: 300; line-height: 1.5; letter-spacing: 0.04em; color: var(--washi); }
 
-#hero .mincho-xl { font-size: clamp(1.85rem, 4.0vw, 2.9rem); line-height: 1.4; }
+#top .mincho-xl { font-size: clamp(1.85rem, 4.0vw, 2.9rem); line-height: 1.4; }
 .mincho-md { font-family: var(--serif); font-size: clamp(1.05rem, 2vw, 1.4rem); font-weight: 300; line-height: 1.6; color: var(--washi); }
 .label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
 strong { font-weight: 500; color: var(--washi); }
@@ -189,7 +189,7 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.4); }
 .reveal.on { opacity: 1; transform: none; }
 
 /* HERO */
-#hero { min-height: 86vh; display: flex; align-items: center; padding-top: var(--nav-h); position: relative; overflow: hidden; }
+#top { min-height: 86vh; display: flex; align-items: center; padding-top: var(--nav-h); position: relative; overflow: hidden; }
 .hero-texture { position: absolute; inset: 0; background-image: linear-gradient(rgba(184,150,90,0.022) 1px, transparent 1px), linear-gradient(90deg, rgba(184,150,90,0.022) 1px, transparent 1px); background-size: 64px 64px; mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent); }
 .hero-glow { position: absolute; width: 540px; height: 540px; background: radial-gradient(circle, rgba(184,150,90,0.05) 0%, transparent 70%); top: 8%; right: -80px; pointer-events: none; }
 .hero-body { position: relative; z-index: 2; padding: 56px 0 72px; max-width: 800px; }
@@ -389,7 +389,7 @@ footer { background: var(--ink); padding: 64px 0 44px; border-top: 1px solid var
 
 <nav id="main-nav" role="navigation" aria-label="メインナビゲーション">
   <div class="wrap nav-inner">
-    <a href="#hero" class="nav-logo" aria-label="JII トップページへ">
+    <a href="#top" class="nav-logo" aria-label="JII トップページへ">
       <span class="nav-logo-abbr">JII</span>
       <span class="nav-logo-sub">Japan Investor Interface</span>
     </a>
@@ -403,7 +403,7 @@ footer { background: var(--ink); padding: 64px 0 44px; border-top: 1px solid var
       </ul>
     </div>
     <div class="nav-right">
-      <a href="#contact" class="btn btn-primary nav-cta" onclick="presetInquiry('30分相談（プランを決める前）')">30分相談</a>
+      <a href="#contact" class="btn btn-primary nav-cta" onclick="presetInquiry('30分無料相談（プランを決める前）')">30分無料相談</a>
       <a href="/en/" class="nav-en-link">EN</a>
     </div>
     <button class="hamburger" onclick="toggleMenu()" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobileMenu">
@@ -423,7 +423,7 @@ footer { background: var(--ink); padding: 64px 0 44px; border-top: 1px solid var
 </div>
 
 <!-- HERO -->
-<section id="hero" aria-label="ヒーロー">
+<section id="top" aria-label="ヒーロー">
   <div class="hero-texture" aria-hidden="true"></div>
   <div class="hero-glow" aria-hidden="true"></div>
   <div class="wrap">
@@ -433,12 +433,7 @@ footer { background: var(--ink); padding: 64px 0 44px; border-top: 1px solid var
       <p class="hero-sub">英文として正確でも、海外投資家にうまく届いていないことがあります。診断カードは、いま伝わっている点・伝わっていない点を、項目ごとに整理した一枚です。</p>
       <div class="hero-ctas">
         <a href="#card" class="btn btn-primary">診断カードを見る</a>
-        <a href="#contact" class="btn btn-outline" onclick="presetInquiry('30分相談（プランを決める前）')">30分相談</a>
-      </div>
-      <div class="hero-stats" aria-label="実績">
-        <div><div class="hero-stat-num">300<em>+</em></div><div class="hero-stat-label">海外投資家面談 立ち会い</div></div>
-        <div><div class="hero-stat-num">80<em>+</em></div><div class="hero-stat-label">CFO・経営幹部クラス面談</div></div>
-        <div><div class="hero-stat-num">40<em>+</em></div><div class="hero-stat-label">リバースロードショー / 複数ファンド面談</div></div>
+        <a href="#contact" class="btn btn-outline" onclick="presetInquiry('30分無料相談（プランを決める前）')">30分無料相談</a>
       </div>
     </div>
   </div>
@@ -521,7 +516,7 @@ footer { background: var(--ink); padding: 64px 0 44px; border-top: 1px solid var
       <span class="label">状況別ご案内</span>
       <div class="rule-gold"></div>
       <h2 class="mincho-lg">いまの御社IRに、近いものは？</h2>
-      <p>該当するものをお選びください。目安のプランをご案内します。最終的には30分相談で詳細を詰めさせてください。</p>
+      <p>該当するものをお選びください。目安のプランをご案内します。最終的には30分無料相談で詳細を詰めさせてください。</p>
     </div>
     <div class="selfcheck reveal">
       <div class="selfcheck-grid" role="group" aria-label="セルフチェック">
@@ -700,8 +695,8 @@ footer { background: var(--ink); padding: 64px 0 44px; border-top: 1px solid var
         <div class="proof-row">
           <div class="proof-cell"><div class="proof-num">300<em>+</em></div><div class="proof-label">海外投資家面談 立ち会い</div></div>
           <div class="proof-cell"><div class="proof-num">80<em>+</em></div><div class="proof-label">CFO・経営幹部クラス面談</div></div>
-          <div class="proof-cell"><div class="proof-num">40<em>+</em></div><div class="proof-label">複数ファンド面談 / リバースロードショー</div></div>
-          <div class="proof-cell"><div class="proof-num">12<em>+</em></div><div class="proof-label">海外ファンド地域カバー</div></div>
+          <div class="proof-cell"><div class="proof-num">40<em>+</em></div><div class="proof-label">対応した海外ファンド</div></div>
+          <div class="proof-cell"><div class="proof-num">12<em>+</em></div><div class="proof-label">海外ファンドの拠点カバー地域</div></div>
         </div>
         <div class="entity-line">Japan Investor Interface Co., Ltd. / 株式会社ジャパン・インベスター・インターフェース · 設立 2023年9月 · 大阪</div>
       </div>
@@ -736,7 +731,7 @@ footer { background: var(--ink); padding: 64px 0 44px; border-top: 1px solid var
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">診断までの流れと所要期間は？</button>
-        <div class="faq-a"><div class="faq-a-inner">お問い合わせ → 30分相談 → NDA → 資料受領 → 診断作成（通常2〜3週間）→ 社内ウォークスルー（60分）→ 次の一手のご提案。面談予定がある場合は、その日程に間に合うよう組み立てます。</div></div>
+        <div class="faq-a"><div class="faq-a-inner">お問い合わせ → 30分無料相談 → NDA → 資料受領 → 診断作成（通常2〜3週間）→ 社内ウォークスルー（60分）→ 次の一手のご提案。面談予定がある場合は、その日程に間に合うよう組み立てます。</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">単発の翻訳・通訳だけ依頼できますか？</button>
@@ -778,7 +773,7 @@ footer { background: var(--ink); padding: 64px 0 44px; border-top: 1px solid var
               <option>Light — 初回診断（¥200,000／回）</option>
               <option>Standard — 四半期開示改善（¥100,000／月）</option>
               <option>Pro — 面談まで含めたIR改善ループ（¥200,000／月）</option>
-              <option>30分相談（プランを決める前）</option>
+              <option>30分無料相談（プランを決める前）</option>
               <option>その他 / 未定</option>
             </select>
           </div>
@@ -800,7 +795,7 @@ footer { background: var(--ink); padding: 64px 0 44px; border-top: 1px solid var
         <ul>
           <li>1営業日以内にご返信</li>
           <li>必要に応じてNDA締結</li>
-          <li>30分相談で論点を整理</li>
+          <li>30分無料相談で論点を整理</li>
           <li>診断またはプランのご提案</li>
         </ul>
         <h4>連絡先</h4>
