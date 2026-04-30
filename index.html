@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="JII 海外IR診断カード — 海外投資家から見た自社IRの見え方を、12項目・24点の診断書で可視化。Light（¥200,000／回）・Standard（¥100,000／月）・Pro（¥200,000／月）。翻訳・通訳は診断後の実装レイヤーです。">
+<meta name="description" content="JII 海外IR診断カード — 海外投資家から見た自社IRを、12項目・24点で点検した一枚にまとめます。Light（¥200,000／回）・Standard（¥100,000／月）・Pro（¥200,000／月）。翻訳・通訳は診断を踏まえたうえでお引き受けします。">
 <meta name="keywords" content="海外IR診断, IR診断カード, 海外投資家 IR, 英文IR点検, 海外IR支援, 海外IR診断レポート">
 <meta property="og:title" content="JII 海外IR診断カード — Japan Investor Interface Co., Ltd.">
-<meta property="og:description" content="海外投資家から見た自社IRの見え方を、12項目・24点の診断書で可視化する。翻訳の前に、まず診断する。">
+<meta property="og:description" content="海外投資家から見た自社IRを、12項目・24点で点検した一枚にまとめます。翻訳の前に、まず点検する。">
 <meta property="og:url" content="https://jpinv.com/">
 <meta property="og:image" content="https://jpinv.com/logo.svg">
 <meta property="og:image:type" content="image/svg+xml">
@@ -75,7 +75,7 @@
       "@id": "https://jpinv.com/#webpage",
       "url": "https://jpinv.com/",
       "name": "JII 海外IR診断カード | Japan Investor Interface Co., Ltd.",
-      "description": "海外投資家から見た自社IRの見え方を、12項目・24点の診断書で可視化する。",
+      "description": "海外投資家から見た自社IRを、12項目・24点で点検した一枚にまとめます。",
       "inLanguage": "ja",
       "isPartOf": {"@id": "https://jpinv.com/#website-ja"},
       "about": {"@id": "https://jpinv.com/#organization"}
@@ -131,6 +131,8 @@ a { color: inherit; }
 
 .mincho-xl { font-family: var(--serif); font-size: clamp(1.85rem, 4.4vw, 3.2rem); font-weight: 200; line-height: 1.45; letter-spacing: 0.04em; color: var(--washi); }
 .mincho-lg { font-family: var(--serif); font-size: clamp(1.4rem, 2.8vw, 2.2rem); font-weight: 300; line-height: 1.5; letter-spacing: 0.04em; color: var(--washi); }
+
+#hero .mincho-xl { font-size: clamp(1.85rem, 4.0vw, 2.9rem); line-height: 1.4; }
 .mincho-md { font-family: var(--serif); font-size: clamp(1.05rem, 2vw, 1.4rem); font-weight: 300; line-height: 1.6; color: var(--washi); }
 .label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
 strong { font-weight: 500; color: var(--washi); }
@@ -186,9 +188,9 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.4); }
 #hero { min-height: 86vh; display: flex; align-items: center; padding-top: var(--nav-h); position: relative; overflow: hidden; }
 .hero-texture { position: absolute; inset: 0; background-image: linear-gradient(rgba(184,150,90,0.022) 1px, transparent 1px), linear-gradient(90deg, rgba(184,150,90,0.022) 1px, transparent 1px); background-size: 64px 64px; mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent); }
 .hero-glow { position: absolute; width: 540px; height: 540px; background: radial-gradient(circle, rgba(184,150,90,0.05) 0%, transparent 70%); top: 8%; right: -80px; pointer-events: none; }
-.hero-body { position: relative; z-index: 2; padding: 56px 0 72px; max-width: 720px; }
+.hero-body { position: relative; z-index: 2; padding: 56px 0 72px; max-width: 800px; }
 .hero-eyebrow { margin-bottom: 24px; }
-.hero-title h1 { margin: 0 0 26px; }
+.hero-title h1 { margin: 0 0 26px; word-break: keep-all; line-break: strict; overflow-wrap: break-word; }
 .hero-sub { font-size: 1rem; line-height: 1.85; color: var(--text); max-width: 600px; margin-bottom: 36px; }
 .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
 .hero-stats { display: flex; gap: 36px; flex-wrap: wrap; margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--ink-rule); }
@@ -198,7 +200,7 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.4); }
 
 /* DIAGNOSTIC CARD MOCK */
 #card { background: var(--ink-mid); border-top: 1px solid var(--ink-rule); border-bottom: 1px solid var(--ink-rule); }
-.card-layout { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; }
+.card-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
 @media (max-width: 920px) { .card-layout { grid-template-columns: 1fr; gap: 36px; } }
 .card-explain p { font-size: 0.92rem; line-height: 1.85; margin-bottom: 14px; }
 .card-explain ul { list-style: none; margin-top: 18px; }
@@ -207,22 +209,22 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.4); }
 .card-explain li::before { content: '◇'; color: var(--gold); position: absolute; left: 0; top: 10px; font-size: 0.7rem; }
 .card-note { font-size: 0.72rem; color: var(--text-dim); margin-top: 18px; font-family: var(--mono); letter-spacing: 0.05em; }
 
-.diag-card { background: #f6f1e6; color: var(--ink); padding: 26px 30px 22px; box-shadow: 0 22px 60px rgba(0,0,0,0.55), 0 2px 6px rgba(0,0,0,0.30); border: 1px solid rgba(15,28,40,0.10); position: relative; max-width: 460px; margin-left: auto; }
-.diag-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gold) 0%, rgba(184,150,90,0.4) 100%); }
-.diag-card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; padding-bottom: 14px; border-bottom: 1px solid rgba(15,28,40,0.18); margin-bottom: 16px; }
-.diag-card-id { font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
-.diag-card-title { font-family: var(--serif); font-size: 1.15rem; font-weight: 400; color: var(--ink); margin-top: 4px; line-height: 1.4; }
-.diag-card-meta { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.1em; color: #6f6553; text-align: right; line-height: 1.7; text-transform: uppercase; }
+.diag-card { background: #ecedf0; color: var(--ink); padding: 26px 30px 22px; box-shadow: 0 14px 40px rgba(0,0,0,0.45), 0 1px 3px rgba(0,0,0,0.22); border: 1px solid rgba(15,28,40,0.12); position: relative; max-width: 480px; margin: 0 auto; }
+.diag-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--gold); opacity: 0.85; }
+.diag-card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; padding-bottom: 12px; border-bottom: 1px solid rgba(15,28,40,0.16); margin-bottom: 16px; }
+.diag-card-id { font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.16em; color: #5a6571; text-transform: uppercase; }
+.diag-card-title { font-family: var(--serif); font-size: 1.1rem; font-weight: 400; color: var(--ink); margin-top: 4px; line-height: 1.35; }
+.diag-card-meta { font-family: var(--mono); font-size: 0.56rem; letter-spacing: 0.1em; color: #5a6571; text-align: right; line-height: 1.65; text-transform: uppercase; }
 
 .diag-score { display: flex; align-items: baseline; gap: 12px; margin-bottom: 6px; }
 .diag-score-num { font-family: var(--serif); font-size: 2.4rem; font-weight: 300; color: var(--ink); line-height: 1; }
 .diag-score-num em { color: var(--gold); font-style: normal; }
-.diag-score-label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.14em; color: #6f6553; text-transform: uppercase; }
-.diag-meter { height: 5px; background: rgba(15,28,40,0.12); position: relative; margin: 8px 0 18px; }
+.diag-score-label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.14em; color: #5a6571; text-transform: uppercase; }
+.diag-meter { height: 4px; background: rgba(15,28,40,0.14); position: relative; margin: 8px 0 18px; }
 .diag-meter-fill { position: absolute; left: 0; top: 0; bottom: 0; background: var(--gold); width: 54%; }
 .diag-meter-marks { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 0.55rem; color: var(--text-dim); margin-top: 6px; letter-spacing: 0.08em; }
 
-.diag-grid-label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.14em; color: #6f6553; text-transform: uppercase; margin-bottom: 10px; }
+.diag-grid-label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.14em; color: #5a6571; text-transform: uppercase; margin-bottom: 10px; }
 .diag-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid rgba(15,28,40,0.18); margin-bottom: 4px; }
 .diag-item { display: flex; align-items: center; gap: 10px; padding: 8px 6px 8px 0; border-bottom: 1px solid rgba(15,28,40,0.10); font-size: 0.8rem; color: var(--ink); }
 .diag-item .dot { width: 10px; height: 10px; flex-shrink: 0; border-radius: 50%; }
@@ -238,7 +240,7 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.4); }
 .diag-block ol li { margin: 4px 0; }
 .diag-block p { font-size: 0.8rem; line-height: 1.65; color: var(--ink); }
 
-.diag-foot { display: flex; justify-content: space-between; padding-top: 14px; margin-top: 14px; border-top: 1px solid rgba(15,28,40,0.18); font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.12em; color: #6f6553; text-transform: uppercase; flex-wrap: wrap; gap: 6px; }
+.diag-foot { display: flex; justify-content: space-between; padding-top: 12px; margin-top: 14px; border-top: 1px solid rgba(15,28,40,0.16); font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.12em; color: #5a6571; text-transform: uppercase; flex-wrap: wrap; gap: 6px; }
 
 /* SELF-CHECK */
 .selfcheck { max-width: 800px; }
