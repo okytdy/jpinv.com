@@ -177,7 +177,8 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.4); }
   .nav-en-link { font-size: 0.55rem; padding: 5px 8px; }
   #top .mincho-xl { font-size: clamp(1.5rem, 7.2vw, 2rem); line-height: 1.55; }
   .hero-body { padding: 34px 0 52px; }
-  .hero-sub { font-size: 0.93rem; line-height: 1.95; margin-bottom: 30px; max-width: 30ch; }
+  .hero-sub { font-size: 0.93rem; line-height: 1.95; margin-bottom: 30px; max-width: none; }
+  .hero-sub-mobile-break { display: inline; }
   .hero-stats { gap: 16px 20px; margin-top: 34px; padding-top: 20px; }
   .hero-stat-label { max-width: 100px; }
   .diag-card { padding: 20px 16px 16px; }
@@ -208,6 +209,7 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.4); }
 .hero-eyebrow { margin-bottom: 24px; }
 .hero-title h1 { margin: 0 0 26px; word-break: keep-all; line-break: strict; overflow-wrap: break-word; }
 .hero-sub { font-size: 1rem; line-height: 1.85; color: var(--text); max-width: 600px; margin-bottom: 36px; }
+.hero-sub-mobile-break { display: none; }
 .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
 .hero-stats { display: flex; gap: 36px; flex-wrap: wrap; margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--ink-rule); }
 .hero-stat-num { font-family: var(--serif); font-size: 1.85rem; font-weight: 200; color: var(--washi); line-height: 1; margin-bottom: 5px; }
@@ -442,7 +444,7 @@ footer { background: var(--ink); padding: 64px 0 44px; border-top: 1px solid var
     <div class="hero-body">
       <div class="hero-eyebrow"><span class="label">JII Foreign IR Diagnostic Card / 海外IR診断カード</span></div>
       <div class="hero-title"><h1 class="mincho-xl">海外投資家から見た御社IRを、<br>診断カード一枚に整理する。</h1></div>
-      <p class="hero-sub">英文として正確でも、海外投資家にうまく届いていないことがあります。診断カードは、いま伝わっている点・伝わっていない点を、項目ごとに整理した一枚です。</p>
+      <p class="hero-sub">英文として正確でも、<span class="hero-sub-mobile-break"><br></span>海外投資家にうまく届いていないことがあります。<span class="hero-sub-mobile-break"><br></span>診断カードは、いま伝わっている点・<span class="hero-sub-mobile-break"><br></span>伝わっていない点を、項目ごとに整理した一枚です。</p>
       <div class="hero-ctas">
         <a href="#card" class="btn btn-primary">診断カードを見る</a>
         <a href="#contact" class="btn btn-outline" onclick="presetInquiry('30分無料相談（プランを決める前）')">30分無料相談</a>
