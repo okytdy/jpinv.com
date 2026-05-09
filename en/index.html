@@ -8,11 +8,11 @@
 <meta property="og:title" content="JII Foreign IR Diagnostic Card — Japan Investor Interface Co., Ltd.">
 <meta property="og:description" content="See your IR through the eyes of foreign capital. A 12-item, 24-point diagnostic for Japanese listed companies — before translation, before the next investor meeting.">
 <meta property="og:url" content="https://jpinv.com/en/">
-<meta property="og:image" content="https://jpinv.com/logo.svg">
+<meta property="og:image" content="https://jpinv.com/assets/logo-jii-wordmark.svg">
 <meta property="og:image:type" content="image/svg+xml">
 <meta property="og:image:alt" content="Japan Investor Interface logo">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://jpinv.com/logo.svg">
+<meta name="twitter:image" content="https://jpinv.com/assets/logo-jii-wordmark.svg">
 <title>Cross-Border IR Diagnostics for Japanese Listed Companies | JII</title>
 <link rel="canonical" href="https://jpinv.com/en/">
 <link rel="alternate" hreflang="ja" href="https://jpinv.com/">
@@ -29,8 +29,8 @@
       "name": "Japan Investor Interface Co., Ltd.",
       "alternateName": ["株式会社ジャパン・インベスター・インターフェース", "JII"],
       "url": "https://jpinv.com/en/",
-      "logo": "https://jpinv.com/logo.svg",
-      "image": "https://jpinv.com/logo.svg",
+      "logo": "https://jpinv.com/assets/logo-jii-wordmark.svg",
+      "image": "https://jpinv.com/assets/logo-jii-wordmark.svg",
       "foundingDate": "2023-09",
       "email": "info@jpinv.com",
       "telephone": "+81-80-5804-8760",
@@ -92,9 +92,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
 :root {
-  --ink:        #0f1f3a;
-  --ink-mid:    #1a3457;
-  --ink-soft:   #2c4870;
+  --ink:        #1a2a4a;
+  --ink-mid:    #172641;
+  --ink-soft:   #304466;
   --rule:       #d6dee8;
   --rule-soft:  #e8edf3;
   --bg:         #ffffff;
@@ -103,8 +103,8 @@
   --text:       #1f2937;
   --text-mid:   #4a5566;
   --text-dim:   #7a8290;
-  --accent:     #b91c1c;
-  --accent-soft:#fee2e2;
+  --accent:     #b08a4a;
+  --accent-soft:#f4eee4;
   --bad:        #b91c1c;
   --warn:       #b88a3a;
   --ok:         #2f6f4f;
@@ -151,9 +151,9 @@ section { padding: var(--pad) 0; }
 nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: var(--nav-h); background: rgba(255,255,255,0.96); backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule); display: flex; align-items: center; transition: box-shadow 0.3s; }
 nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; }
-.nav-logo { text-decoration: none; display: flex; flex-direction: column; min-width: 0; flex-shrink: 1; }
-.nav-logo-abbr { font-family: var(--mono); font-size: 1.05rem; font-weight: 400; color: var(--ink); letter-spacing: 0.12em; line-height: 1.1; }
-.nav-logo-sub { font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.1em; color: var(--ink-soft); display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.nav-logo { text-decoration: none; display: inline-flex; align-items: center; flex: 0 0 auto; min-width: max-content; white-space: nowrap; }
+.nav-logo-img { display: block; width: auto; height: 40px; max-width: none; object-fit: contain; object-position: left center; }
+.nav-logo-img--mobile { display: none; width: 32px; height: 32px; object-fit: contain; }
 .nav-center { flex: 1; display: flex; justify-content: center; }
 .nav-links { display: flex; gap: 22px; list-style: none; flex-wrap: nowrap; white-space: nowrap; }
 .nav-links a { font-family: var(--sans); font-size: 0.78rem; font-weight: 400; letter-spacing: 0.04em; color: var(--text); text-decoration: none; transition: color 0.2s; }
@@ -167,6 +167,10 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
 @media (max-width: 900px) {
   .nav-center, .nav-right .nav-cta { display: none; }
   .hamburger { display: flex; }
+}
+@media (max-width: 768px) {
+  .nav-logo-img--desktop { display: none; }
+  .nav-logo-img--mobile { display: block; }
 }
 @media (max-width: 480px) {
   .wrap { padding: 0 16px; }
@@ -284,7 +288,6 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
 .receive-card .num { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.16em; color: var(--ink-soft); }
 .receive-card h4 { font-family: var(--sans); font-size: 1rem; color: var(--ink); margin: 8px 0 8px; font-weight: 500; line-height: 1.35; }
 .receive-card p { font-size: 0.84rem; line-height: 1.55; }
-.receive-foot { font-size: 0.84rem; color: var(--text-dim); margin-top: 22px; line-height: 1.6; max-width: 720px; padding: 14px 18px; background: var(--bg-mid); border-left: 2px solid var(--rule); }
 
 /* PROCESS */
 .process-flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; counter-reset: step; align-items: stretch; }
@@ -296,18 +299,19 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
 .process-step p { font-size: 0.78rem; line-height: 1.5; color: var(--text); }
 
 /* PLANS */
-.plan-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--rule); }
+.plan-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; background: transparent; }
 @media (max-width: 920px) { .plan-grid { grid-template-columns: 1fr; gap: 14px; background: transparent; } }
-.plan-card { background: #fff; border: 1px solid var(--rule); padding: 32px 28px; display: flex; flex-direction: column; }
-.plan-card.is-mid { background: var(--rule-soft); border-top: 2px solid var(--ink); }
-.plan-tag { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; }
+.plan-card { background: #fff; border: 1px solid #e6e6e0; padding: 32px 28px; display: flex; flex-direction: column; position: relative; }
+.plan-card.is-mid { background: #fff; border: 1px solid #e6e6e0; border-top: 2px solid var(--ink); }
+.plan-tag { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.14em; color: var(--ink); text-transform: uppercase; }
 .plan-card h3 { font-family: var(--sans); font-size: 1.45rem; color: var(--ink); margin: 8px 0 4px; font-weight: 500; }
-.plan-sub { font-size: 0.9rem; color: var(--text); margin-bottom: 14px; }
+.plan-sub { font-size: 0.9rem; color: var(--text-dim); margin-bottom: 14px; }
 .plan-price { font-family: var(--sans); color: var(--ink); font-size: 1.65rem; font-weight: 500; line-height: 1.2; margin: 10px 0 2px; }
 .plan-price small { font-size: 0.78rem; color: var(--text-dim); font-family: var(--mono); letter-spacing: 0.06em; }
 .plan-tax { font-size: 0.72rem; color: var(--text-dim); margin-bottom: 18px; }
-.plan-best { padding: 10px 12px; background: var(--ink); border-left: 0; font-size: 0.82rem; line-height: 1.5; color: #fff; margin-bottom: 16px; }
-.plan-best strong { color: #fff; display: block; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; font-family: var(--mono); font-weight: 600; }
+.plan-best { padding: 12px 14px; background: rgba(26,42,74,0.06); border-left: 3px solid var(--ink); font-size: 0.82rem; line-height: 1.5; color: var(--ink); margin-bottom: 16px; }
+.plan-best strong { color: var(--ink); display: block; font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 4px; font-family: var(--mono); font-weight: 600; }
+.plan-badge { position: absolute; top: -14px; right: 24px; background: var(--ink); color: #fff; font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 10px; }
 .plan-list { list-style: none; margin: 8px 0 22px; }
 .plan-list li { font-size: 0.82rem; line-height: 1.5; padding: 8px 0 8px 16px; position: relative; color: var(--text); border-bottom: 1px solid var(--rule); }
 .plan-list li:last-child { border-bottom: none; }
@@ -325,14 +329,15 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
 
 /* ABOUT */
 #about { background: var(--bg-mid); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
-.about-grid { display: grid; grid-template-columns: 220px 1fr; gap: 44px; align-items: start; }
+.about-grid { display: grid; grid-template-columns: 220px 1fr; gap: 44px; align-items: stretch; }
 @media (max-width: 760px) { .about-grid { grid-template-columns: 1fr; } }
 .about-photo { width: 100%; aspect-ratio: 3/4; object-fit: cover; filter: grayscale(0.1) contrast(1.02); border: 1px solid var(--rule); }
 .about-content h3 { font-family: var(--sans); font-size: 1.3rem; color: var(--ink); margin-bottom: 4px; font-weight: 500; }
 .about-content .role { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; margin-bottom: 20px; }
 .about-content p { font-size: 0.92rem; line-height: 1.65; margin-bottom: 14px; }
-.proof-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--rule); margin-top: 26px; }
-@media (max-width: 700px) { .proof-row { grid-template-columns: 1fr 1fr; } }
+.proof-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--rule); margin-top: auto; }
+@media (max-width: 760px) { .about-content { display: block; } .proof-row { margin-top: 26px; } }
+@media (max-width: 700px) { .proof-row { grid-template-columns: 1fr; } }
 .proof-cell { background: #fff; padding: 18px 16px; }
 .proof-num { font-family: var(--serif); font-size: 1.55rem; color: var(--ink); font-weight: 300; line-height: 1; }
 .proof-num em { color: var(--ink); font-weight: 600; }
@@ -374,10 +379,19 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
 .contact-side li { font-size: 0.86rem; line-height: 1.55; padding: 8px 0 8px 18px; position: relative; border-bottom: 1px solid var(--rule); }
 .contact-side li::before { content: '—'; color: var(--ink-soft); position: absolute; left: 0; }
 .contact-side li:last-child { border-bottom: none; }
+.contact-info-grid { margin-top: 22px; }
+.contact-info-grid h4 { margin-bottom: 10px; }
+.contact-info-grid dl { font-size: 0.86rem; line-height: 1.55; }
+.contact-info-grid dt { color: var(--ink); font-weight: 500; display: inline; margin-right: 10px; }
+.contact-info-grid dd { display: inline; color: var(--text-dim); }
+.contact-info-grid dd::after { content: ""; display: block; height: 6px; }
+.contact-info-grid a { color: var(--text); text-decoration: none; }
+.contact-info-grid a:hover { color: var(--ink-soft); }
+
 
 /* FOOTER */
 footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rule); color: var(--text-mid); }
-.footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 36px; margin-bottom: 38px; }
+.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 36px; margin-bottom: 38px; }
 @media (max-width: 860px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; } }
 @media (max-width: 540px) { .footer-grid { grid-template-columns: 1fr; } }
 .footer-brand h3 { font-family: var(--sans); color: var(--ink); font-size: 1.1rem; font-weight: 500; margin-bottom: 12px; }
@@ -387,7 +401,16 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
 .footer-col li { padding: 5px 0; }
 .footer-col a { color: var(--text); text-decoration: none; font-size: 0.84rem; }
 .footer-col a:hover { color: var(--ink-soft); }
-.footer-addr { font-size: 0.74rem; color: var(--text-dim); line-height: 1.6; margin-top: 14px; }
+
+.company-info-band { background: var(--bg-mid); border: 1px solid var(--rule-soft); padding: 22px 24px; margin: 8px 0 28px; }
+.company-info-band h5 { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; margin-bottom: 16px; }
+.company-info-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px 28px; }
+.company-info-item { min-width: 0; }
+.company-info-item--wide { grid-column: span 2; }
+.company-info-item dt { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.12em; color: var(--ink); margin-bottom: 4px; }
+.company-info-value { color: var(--text-dim); font-size: 0.8rem; line-height: 1.6; word-break: keep-all; overflow-wrap: anywhere; }
+@media (max-width: 900px) { .company-info-list { grid-template-columns: 1fr 1fr; } .company-info-item--wide { grid-column: span 2; } }
+@media (max-width: 540px) { .company-info-band { padding: 20px 18px; } .company-info-list { grid-template-columns: 1fr; } .company-info-item--wide { grid-column: auto; } }
 .footer-bottom { padding-top: 22px; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 14px; font-size: 0.72rem; color: var(--text-dim); }
 
 </style>
@@ -397,8 +420,8 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
 <nav id="main-nav" role="navigation" aria-label="Main navigation">
   <div class="wrap nav-inner">
     <a href="#top" class="nav-logo" aria-label="JII home">
-      <span class="nav-logo-abbr">JII</span>
-      <span class="nav-logo-sub">Japan Investor Interface</span>
+      <img class="nav-logo-img nav-logo-img--desktop" src="/assets/logo-jii-wordmark.svg" alt="Japan Investor Interface logo" width="282" height="40">
+      <img class="nav-logo-img nav-logo-img--mobile" src="/assets/logo-jii-monogram.svg" alt="Japan Investor Interface logo" width="32" height="32">
     </a>
     <div class="nav-center">
       <ul class="nav-links" role="list">
@@ -440,7 +463,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
       <p class="hero-sub">English accuracy isn't the bottleneck. The diagnostic shows what foreign investors are — and aren't — taking away from your IR, before the next meeting or the next disclosure.</p>
       <div class="hero-ctas">
         <a href="#card" class="btn btn-primary">See the Diagnostic Card</a>
-        <a href="#contact" class="btn btn-outline" onclick="presetInquiry('Free 30-min introductory call')">Start a conversation</a>
+        <a href="#contact" class="btn btn-primary" onclick="presetInquiry('Free 30-min introductory call')">Start a conversation</a>
       </div>
     </div>
   </div>
@@ -580,7 +603,6 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
       <div class="receive-card"><span class="num">05</span><h4>Internal walkthrough session</h4><p>A 60-minute working session to read the card with IR / CFO / Corporate Planning and align on next steps.</p></div>
       <div class="receive-card"><span class="num">06</span><h4>Optional implementation path</h4><p>If you want to act on the findings — translation, review, interpretation, meeting prep — scoped against the diagnostic.</p></div>
     </div>
-    <p class="receive-foot reveal">Translation, English review and interpretation are offered only as implementation layers of a diagnostic engagement. Per-character / per-document translation is outside the scope of this site.</p>
   </div>
 </section>
 
@@ -609,7 +631,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
       <span class="label">Plans</span>
       <div class="rule-accent"></div>
       <h2 class="mincho-lg">Three plans</h2>
-      <p>All work is delivered directly by the founder. Pricing is plan-based and tax-exclusive — not per-character.</p>
+      <p>All work is delivered directly by the founder. Pricing is plan-based and tax-exclusive.</p>
     </div>
     <div class="plan-grid reveal">
       <div class="plan-card">
@@ -625,9 +647,10 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
           <li>Recommended fix priority</li>
           <li>60-minute internal walkthrough</li>
         </ul>
-        <a href="#contact" class="btn btn-outline" onclick="presetInquiry('Light — Initial Diagnostic (¥200,000)')">Talk about Light</a>
+        <a href="#contact" class="btn btn-primary" onclick="presetInquiry('Light — Initial Diagnostic (¥200,000)')">Talk about Light</a>
       </div>
       <div class="plan-card is-mid">
+        <span class="plan-badge">Recommended</span>
         <span class="plan-tag">Standard</span>
         <h3>Disclosure Improvement</h3>
         <div class="plan-sub">Roll the diagnostic into the quarterly cycle</div>
@@ -655,7 +678,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
           <li>In-room interpretation / observation</li>
           <li>Post-meeting Top 3 reaction note</li>
         </ul>
-        <a href="#contact" class="btn btn-outline" onclick="presetInquiry('Pro — Investor-Meeting Cycle (¥200,000/mo)')">Talk about Pro</a>
+        <a href="#contact" class="btn btn-primary" onclick="presetInquiry('Pro — Investor-Meeting Cycle (¥200,000/mo)')">Talk about Pro</a>
       </div>
     </div>
   </div>
@@ -702,9 +725,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
           <div class="proof-cell"><div class="proof-num">300<em>+</em></div><div class="proof-label">Investor / company meetings observed</div></div>
           <div class="proof-cell"><div class="proof-num">80<em>+</em></div><div class="proof-label">CFO / CEO / board-level meetings</div></div>
           <div class="proof-cell"><div class="proof-num">40<em>+</em></div><div class="proof-label">Different foreign funds engaged</div></div>
-          <div class="proof-cell"><div class="proof-num">12<em>+</em></div><div class="proof-label">Geographies of foreign funds engaged</div></div>
         </div>
-        <div class="entity-line">Japan Investor Interface Co., Ltd. · Founded September 2023 · Osaka</div>
       </div>
     </div>
   </div>
@@ -741,7 +762,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Can I just buy translation or interpretation on its own?</button>
-        <div class="faq-a"><div class="faq-a-inner">Not from this site. Translation and interpretation are offered only as implementation layers inside a diagnostic engagement. If you are looking for per-character translation procurement, this is not the right vendor.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Not from this site. Translation and interpretation are offered only as implementation layers inside a diagnostic engagement.</div></div>
       </div>
     </div>
   </div>
@@ -775,11 +796,10 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
           <div class="form-row">
             <label for="form-type">Inquiry type</label>
             <select id="form-type" name="inquiry_type" required>
-              <option value="">Please select</option>
+              <option selected>Free 30-min introductory call</option>
               <option>Light — Initial Diagnostic (¥200,000)</option>
               <option>Standard — Disclosure Improvement (¥100,000/mo)</option>
               <option>Pro — Investor-Meeting Cycle (¥200,000/mo)</option>
-              <option>Free 30-min introductory call</option>
               <option>Other / not sure yet</option>
             </select>
           </div>
@@ -804,12 +824,14 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
           <li>Free 30-minute call to scope</li>
           <li>Diagnostic or plan proposal</li>
         </ul>
-        <h4>Reach us</h4>
-        <ul>
-          <li>info@jpinv.com</li>
-          <li>jpinv.com</li>
-          <li><a href="/">日本語サイト</a></li>
-        </ul>
+        <div class="contact-info-grid">
+          <div>
+            <h4>Contact</h4>
+            <dl>
+              <dt>Email</dt><dd><a href="mailto:info@jpinv.com">info@jpinv.com</a></dd>
+            </dl>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -842,15 +864,24 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Reach us</h5>
+        <h5>Contact</h5>
         <ul>
-          <li><a href="mailto:info@jpinv.com">info@jpinv.com</a></li>
-          <li><a href="/">日本語サイト</a></li>
-          <li><a href="https://substack.com/home/post/p-193128721" target="_blank" rel="noopener">Substack</a></li>
+          <li>Email <a href="mailto:info@jpinv.com">info@jpinv.com</a></li>
         </ul>
-        <div class="footer-addr">Osaka — Umeda office<br>Osaka Ekimae 2 Bldg. 12-12<br>1-2-2 Umeda, Kita-ku, Osaka 530-0001<br>Tokyo and overseas engagements available</div>
       </div>
     </div>
+    <section class="company-info-band" aria-label="Company information">
+      <h5>Company information</h5>
+      <dl class="company-info-list">
+        <div class="company-info-item company-info-item--wide"><dt>Japanese name</dt><dd class="company-info-value">株式会社ジャパン・<wbr>インベスター・<wbr>インターフェース</dd></div>
+        <div class="company-info-item"><dt>English name</dt><dd class="company-info-value">Japan Investor Interface Co., Ltd.</dd></div>
+        <div class="company-info-item"><dt>Representative</dt><dd class="company-info-value">Teddy Yama (Representative Director)</dd></div>
+        <div class="company-info-item"><dt>Founded</dt><dd class="company-info-value">September 2023</dd></div>
+        <div class="company-info-item"><dt>Location</dt><dd class="company-info-value">Osaka</dd></div>
+        <div class="company-info-item"><dt>Corporate number</dt><dd class="company-info-value">[法人番号を入力]</dd></div>
+        <div class="company-info-item company-info-item--wide"><dt>Business</dt><dd class="company-info-value">日本の上場企業向け海外IR診断・英文IRレビュー・面談通訳</dd></div>
+      </dl>
+    </section>
     <div class="footer-bottom">
       <p>© 2026 Japan Investor Interface Co., Ltd. · All rights reserved.</p>
       <p>日本語: <a href="/">jpinv.com</a></p>
