@@ -8,17 +8,19 @@
 <meta property="og:title" content="JII 海外IR診断カード — Japan Investor Interface Co., Ltd.">
 <meta property="og:description" content="海外投資家から見た自社IRを、12項目・24点で点検した一枚にまとめます。翻訳の前に、まず点検する。">
 <meta property="og:url" content="https://jpinv.com/">
-<meta property="og:image" content="https://jpinv.com/logo.svg">
+<meta property="og:image" content="https://jpinv.com/assets/logo-jii-wordmark.svg">
 <meta property="og:image:type" content="image/svg+xml">
 <meta property="og:image:alt" content="Japan Investor Interface logo">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://jpinv.com/logo.svg">
+<meta name="twitter:image" content="https://jpinv.com/assets/logo-jii-wordmark.svg">
 <title>JII 海外IR診断カード | Japan Investor Interface Co., Ltd.</title>
 <link rel="canonical" href="https://jpinv.com/">
 <link rel="alternate" hreflang="ja" href="https://jpinv.com/">
 <link rel="alternate" hreflang="en" href="https://jpinv.com/en/">
 <link rel="alternate" hreflang="x-default" href="https://jpinv.com/">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/svg+xml" sizes="any" href="/favicon.svg">
+<link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="msapplication-TileColor" content="#ffffff">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -29,8 +31,8 @@
       "name": "Japan Investor Interface Co., Ltd.",
       "alternateName": ["株式会社ジャパン・インベスター・インターフェース", "JII"],
       "url": "https://jpinv.com/",
-      "logo": "https://jpinv.com/logo.svg",
-      "image": "https://jpinv.com/logo.svg",
+      "logo": "https://jpinv.com/assets/logo-jii-wordmark.svg",
+      "image": "https://jpinv.com/assets/logo-jii-wordmark.svg",
       "foundingDate": "2023-09",
       "email": "info@jpinv.com",
       "telephone": "+81-80-5804-8760",
@@ -92,9 +94,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <style>
 :root {
-  --ink:        #0f1f3a;
-  --ink-mid:    #1a3457;
-  --ink-soft:   #2c4870;
+  --ink:        #1a2a4a;
+  --ink-mid:    #172641;
+  --ink-soft:   #304466;
   --rule:       #d6dee8;
   --rule-soft:  #e8edf3;
   --bg:         #ffffff;
@@ -103,8 +105,8 @@
   --text:       #1f2937;
   --text-mid:   #4a5566;
   --text-dim:   #7a8290;
-  --accent:     #b91c1c;
-  --accent-soft:#fee2e2;
+  --accent:     #b08a4a;
+  --accent-soft:#f4eee4;
   --bad:        #b91c1c;
   --warn:       #b88a3a;
   --ok:         #2f6f4f;
@@ -146,14 +148,15 @@ section { padding: var(--pad) 0; }
 .rule-accent { width: 32px; height: 2px; background: var(--accent); margin: 14px 0 22px; }
 .section-head { max-width: 640px; margin-bottom: 38px; }
 .section-head p { font-size: 0.92rem; line-height: 1.85; margin-top: 12px; color: var(--text); }
+.about-heading span { display: inline-block; }
 
 /* NAV */
 nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: var(--nav-h); background: rgba(255,255,255,0.96); backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule); display: flex; align-items: center; transition: box-shadow 0.3s; }
 nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; }
-.nav-logo { text-decoration: none; display: flex; flex-direction: column; min-width: 0; flex-shrink: 1; }
-.nav-logo-abbr { font-family: var(--mono); font-size: 1.05rem; font-weight: 400; color: var(--ink); letter-spacing: 0.12em; line-height: 1.1; }
-.nav-logo-sub { font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.1em; color: var(--ink-soft); display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.nav-logo { text-decoration: none; display: inline-flex; align-items: center; flex: 0 0 auto; min-width: max-content; white-space: nowrap; }
+.nav-logo-img { display: block; width: auto; height: 40px; max-width: none; object-fit: contain; object-position: left center; }
+.nav-logo-img--mobile { display: none; width: 32px; height: 32px; object-fit: contain; }
 .nav-center { flex: 1; display: flex; justify-content: center; }
 .nav-links { display: flex; gap: 22px; list-style: none; flex-wrap: nowrap; white-space: nowrap; }
 .nav-links a { font-family: var(--sans); font-size: 0.78rem; font-weight: 400; letter-spacing: 0.04em; color: var(--text); text-decoration: none; transition: color 0.2s; }
@@ -167,6 +170,10 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
 @media (max-width: 900px) {
   .nav-center, .nav-right .nav-cta { display: none; }
   .hamburger { display: flex; }
+}
+@media (max-width: 768px) {
+  .nav-logo-img--desktop { display: none; }
+  .nav-logo-img--mobile { display: block; }
 }
 @media (max-width: 480px) {
   .wrap { padding: 0 16px; }
@@ -292,7 +299,6 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
 .receive-card .num { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.16em; color: var(--ink-soft); }
 .receive-card h4 { font-family: var(--sans); font-size: 0.98rem; color: var(--ink); margin: 8px 0 8px; font-weight: 500; line-height: 1.45; }
 .receive-card p { font-size: 0.78rem; line-height: 1.7; }
-.receive-foot { font-size: 0.78rem; color: var(--text-mid); margin-top: 22px; line-height: 1.75; max-width: 720px; padding: 14px 18px; background: var(--bg-mid); border-left: 2px solid var(--rule); }
 
 /* PROCESS */
 .process-flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; counter-reset: step; align-items: stretch; }
@@ -304,22 +310,23 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
 .process-step p { font-size: 0.74rem; line-height: 1.65; color: var(--text); }
 
 /* PLANS */
-.plan-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--rule); }
+.plan-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; background: transparent; }
 @media (max-width: 920px) { .plan-grid { grid-template-columns: 1fr; gap: 14px; background: transparent; } }
-.plan-card { background: #fff; border: 1px solid var(--rule); padding: 32px 28px; display: flex; flex-direction: column; }
-.plan-card.is-mid { background: var(--rule-soft); border-top: 2px solid var(--ink); }
-.plan-tag { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; }
+.plan-card { background: #fff; border: 1px solid #e6e6e0; padding: 32px 28px; display: flex; flex-direction: column; position: relative; }
+.plan-card.is-mid { background: #fff; border: 1px solid #e6e6e0; border-top: 2px solid var(--ink); }
+.plan-tag { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.14em; color: var(--ink); text-transform: uppercase; }
 .plan-card h3 { font-family: var(--sans); font-size: 1.4rem; color: var(--ink); margin: 8px 0 4px; font-weight: 500; }
-.plan-sub { font-size: 0.85rem; color: var(--text); margin-bottom: 14px; }
+.plan-sub { font-size: 0.85rem; color: var(--text-dim); margin-bottom: 14px; }
 .plan-price { font-family: var(--sans); color: var(--ink); font-size: 1.55rem; font-weight: 500; line-height: 1.2; margin: 10px 0 2px; }
 .plan-price small { font-size: 0.75rem; color: var(--text-dim); font-family: var(--mono); letter-spacing: 0.06em; }
 .plan-tax { font-size: 0.7rem; color: var(--text-dim); margin-bottom: 18px; }
-.plan-best { padding: 10px 12px; background: var(--ink); border-left: 0; font-size: 0.78rem; line-height: 1.65; color: #fff; margin-bottom: 16px; }
-.plan-best strong { color: #fff; display: block; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; font-family: var(--mono); font-weight: 600; }
+.plan-best { padding: 12px 14px; background: rgba(26,42,74,0.06); border-left: 3px solid var(--ink); font-size: 0.78rem; line-height: 1.65; color: var(--ink); margin-bottom: 16px; }
+.plan-best strong { color: var(--ink); display: block; font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 4px; font-family: var(--mono); font-weight: 600; }
+.plan-badge { position: absolute; top: -14px; right: 24px; background: var(--ink); color: #fff; font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 10px; }
 .plan-list { list-style: none; margin: 8px 0 22px; }
 .plan-list li { font-size: 0.78rem; line-height: 1.7; padding: 6px 0 6px 16px; position: relative; color: var(--text); border-bottom: 1px solid var(--rule); }
 .plan-list li:last-child { border-bottom: none; }
-.plan-list li::before { content: '+'; position: absolute; left: 0; color: var(--ink-soft); top: 6px; font-size: 0.85rem; }
+.plan-list li::before { content: '+'; position: absolute; left: 0; color: var(--ink); top: 6px; font-size: 0.85rem; }
 .plan-card .btn { margin-top: auto; align-self: flex-start; }
 
 /* CASES */
@@ -333,14 +340,16 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
 
 /* ABOUT */
 #about { background: var(--bg-mid); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
-.about-grid { display: grid; grid-template-columns: 220px 1fr; gap: 44px; align-items: start; }
+.about-grid { display: grid; grid-template-columns: 220px 1fr; gap: 44px; align-items: stretch; }
 @media (max-width: 760px) { .about-grid { grid-template-columns: 1fr; } }
 .about-photo { width: 100%; aspect-ratio: 3/4; object-fit: cover; filter: grayscale(0.1) contrast(1.02); border: 1px solid var(--rule); }
 .about-content h3 { font-family: var(--sans); font-size: 1.25rem; color: var(--ink); margin-bottom: 4px; font-weight: 500; }
 .about-content .role { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; margin-bottom: 20px; }
+.about-content { display: flex; flex-direction: column; }
 .about-content p { font-size: 0.86rem; line-height: 1.85; margin-bottom: 14px; }
-.proof-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--rule); margin-top: 26px; }
-@media (max-width: 700px) { .proof-row { grid-template-columns: 1fr 1fr; } }
+.proof-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--rule); margin-top: auto; }
+@media (max-width: 760px) { .about-content { display: block; } .proof-row { margin-top: 26px; } }
+@media (max-width: 700px) { .proof-row { grid-template-columns: 1fr; } }
 .proof-cell { background: #fff; padding: 18px 16px; }
 .proof-num { font-family: var(--serif); font-size: 1.5rem; color: var(--ink); font-weight: 300; line-height: 1; }
 .proof-num em { color: var(--ink); font-weight: 600; }
@@ -382,10 +391,19 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
 .contact-side li { font-size: 0.82rem; line-height: 1.75; padding: 8px 0 8px 18px; position: relative; border-bottom: 1px solid var(--rule); }
 .contact-side li::before { content: '—'; color: var(--ink-soft); position: absolute; left: 0; }
 .contact-side li:last-child { border-bottom: none; }
+.contact-info-grid { margin-top: 22px; }
+.contact-info-grid h4 { margin-bottom: 10px; }
+.contact-info-grid dl { font-size: 0.82rem; line-height: 1.75; }
+.contact-info-grid dt { color: var(--ink); font-weight: 500; display: inline; margin-right: 10px; }
+.contact-info-grid dd { display: inline; color: var(--text-dim); }
+.contact-info-grid dd::after { content: ""; display: block; height: 6px; }
+.contact-info-grid a { color: var(--text); text-decoration: none; }
+.contact-info-grid a:hover { color: var(--ink-soft); }
+
 
 /* FOOTER */
 footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rule); color: var(--text-mid); }
-.footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 36px; margin-bottom: 38px; }
+.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 36px; margin-bottom: 38px; }
 @media (max-width: 860px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; } }
 @media (max-width: 540px) { .footer-grid { grid-template-columns: 1fr; } }
 .footer-brand h3 { font-family: var(--sans); color: var(--ink); font-size: 1.05rem; font-weight: 500; margin-bottom: 12px; }
@@ -395,7 +413,16 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
 .footer-col li { padding: 5px 0; }
 .footer-col a { color: var(--text); text-decoration: none; font-size: 0.8rem; }
 .footer-col a:hover { color: var(--ink-soft); }
-.footer-addr { font-size: 0.72rem; color: var(--text-dim); line-height: 1.7; margin-top: 14px; }
+
+.company-info-band { background: var(--bg-mid); border: 1px solid var(--rule-soft); padding: 22px 24px; margin: 8px 0 28px; }
+.company-info-band h5 { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; margin-bottom: 16px; }
+.company-info-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px 28px; }
+.company-info-item { min-width: 0; }
+.company-info-item--wide { grid-column: span 2; }
+.company-info-item dt { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.12em; color: var(--ink); margin-bottom: 4px; }
+.company-info-value { color: var(--text-dim); font-size: 0.78rem; line-height: 1.65; word-break: keep-all; overflow-wrap: anywhere; }
+@media (max-width: 900px) { .company-info-list { grid-template-columns: 1fr 1fr; } .company-info-item--wide { grid-column: span 2; } }
+@media (max-width: 540px) { .company-info-band { padding: 20px 18px; } .company-info-list { grid-template-columns: 1fr; } .company-info-item--wide { grid-column: auto; } }
 .footer-bottom { padding-top: 22px; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 14px; font-size: 0.7rem; color: var(--text-dim); }
 
 </style>
@@ -405,8 +432,8 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
 <nav id="main-nav" role="navigation" aria-label="メインナビゲーション">
   <div class="wrap nav-inner">
     <a href="#top" class="nav-logo" aria-label="JII トップページへ">
-      <span class="nav-logo-abbr">JII</span>
-      <span class="nav-logo-sub">Japan Investor Interface</span>
+      <img class="nav-logo-img nav-logo-img--desktop" src="/assets/logo-jii-wordmark.svg" alt="Japan Investor Interface logo" width="282" height="40">
+      <img class="nav-logo-img nav-logo-img--mobile" src="/assets/logo-jii-monogram.svg" alt="Japan Investor Interface logo" width="32" height="32">
     </a>
     <div class="nav-center">
       <ul class="nav-links" role="list">
@@ -418,7 +445,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
       </ul>
     </div>
     <div class="nav-right">
-      <a href="#contact" class="btn btn-primary nav-cta" onclick="presetInquiry('30分無料相談（プランを決める前）')">30分無料相談</a>
+      <a href="#contact" class="btn btn-primary nav-cta" onclick="presetInquiry('30分無料相談')">30分無料相談</a>
       <a href="/en/" class="nav-en-link">EN</a>
     </div>
     <button class="hamburger" onclick="toggleMenu()" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobileMenu">
@@ -448,7 +475,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
       <p class="hero-sub">英文として正確でも、海外投資家にうまく届いていないことがあります。診断カードは、いま伝わっている点・伝わっていない点を、項目ごとに整理した一枚です。</p>
       <div class="hero-ctas">
         <a href="#card" class="btn btn-primary">診断カードを見る</a>
-        <a href="#contact" class="btn btn-outline" onclick="presetInquiry('30分無料相談（プランを決める前）')">30分無料相談</a>
+        <a href="#contact" class="btn btn-primary" onclick="presetInquiry('30分無料相談')">30分無料相談</a>
       </div>
     </div>
   </div>
@@ -458,7 +485,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
 <section id="card" aria-label="診断カードとは">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="label">中核プロダクト</span>
+      <span class="label">主要サービス</span>
       <div class="rule-accent"></div>
       <h2 class="mincho-lg">診断カードとは</h2>
       <p>御社のIR資料と面談の様子を12項目・24点で点検し、海外投資家からどう見えているか・どこで理解が止まっているかを整理した一枚です。IR・CFO室・経営企画でそのまま社内資料として使えます。</p>
@@ -589,7 +616,6 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
       <div class="receive-card"><span class="num">05</span><h4>社内ウォークスルー</h4><p>IR部・CFO室・経営企画と、診断結果を読み合わせる60分のセッション。</p></div>
       <div class="receive-card"><span class="num">06</span><h4>次の一手のご提案</h4><p>翻訳・通訳・開示見直しなど、診断結果を実際にどう動かすかの選択肢を整理してお渡しします。</p></div>
     </div>
-    <p class="receive-foot reveal">翻訳・英文レビュー・面談通訳は、診断を踏まえたうえでお引き受けする運用です。文字単価での単発翻訳は、本サイトの対象外です。</p>
   </div>
 </section>
 
@@ -634,9 +660,10 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
           <li>改善優先順位の提示</li>
           <li>社内ウォークスルー（60分）</li>
         </ul>
-        <a href="#contact" class="btn btn-outline" onclick="presetInquiry('Light — 初回診断')">Lightで相談する</a>
+        <a href="#contact" class="btn btn-primary" onclick="presetInquiry('Light — 初回診断（¥200,000／回）')">Lightで相談する</a>
       </div>
       <div class="plan-card is-mid">
+        <span class="plan-badge">Recommended</span>
         <span class="plan-tag">Standard</span>
         <h3>四半期開示改善</h3>
         <div class="plan-sub">四半期ごとに診断を更新する</div>
@@ -649,7 +676,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
           <li>決算開示・英文資料の点検</li>
           <li>診断結果に沿った翻訳・英文レビュー</li>
         </ul>
-        <a href="#contact" class="btn btn-primary" onclick="presetInquiry('Standard — 四半期開示改善')">Standardで相談する</a>
+        <a href="#contact" class="btn btn-primary" onclick="presetInquiry('Standard — 四半期開示改善（¥100,000／月）')">Standardで相談する</a>
       </div>
       <div class="plan-card">
         <span class="plan-tag">Pro</span>
@@ -664,7 +691,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
           <li>立ち会い通訳 / 面談観察</li>
           <li>面談後の上位3反応をまとめたレポート</li>
         </ul>
-        <a href="#contact" class="btn btn-outline" onclick="presetInquiry('Pro — 面談まで含めたIR改善ループ')">Proで相談する</a>
+        <a href="#contact" class="btn btn-primary" onclick="presetInquiry('Pro — 面談まで含めたIR改善ループ（¥200,000／月）')">Proで相談する</a>
       </div>
     </div>
   </div>
@@ -695,7 +722,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
     <div class="section-head reveal">
       <span class="label">JIIについて</span>
       <div class="rule-accent"></div>
-      <h2 class="mincho-lg">海外投資家との面談を、最も近くで観察してきた</h2>
+      <h2 class="mincho-lg about-heading"><span>海外投資家との面談を、</span><span>最も近くで観察してきた</span></h2>
     </div>
     <div class="about-grid reveal">
       <div>
@@ -711,9 +738,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
           <div class="proof-cell"><div class="proof-num">300<em>+</em></div><div class="proof-label">海外投資家面談 立ち会い</div></div>
           <div class="proof-cell"><div class="proof-num">80<em>+</em></div><div class="proof-label">CFO・経営幹部クラス面談</div></div>
           <div class="proof-cell"><div class="proof-num">40<em>+</em></div><div class="proof-label">対応した海外ファンド</div></div>
-          <div class="proof-cell"><div class="proof-num">12<em>+</em></div><div class="proof-label">海外ファンドの拠点カバー地域</div></div>
         </div>
-        <div class="entity-line">Japan Investor Interface Co., Ltd. / 株式会社ジャパン・インベスター・インターフェース · 設立 2023年9月 · 大阪</div>
       </div>
     </div>
   </div>
@@ -750,7 +775,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">単発の翻訳・通訳だけ依頼できますか？</button>
-        <div class="faq-a"><div class="faq-a-inner">本サイトでは単発でのお受けはしておりません。翻訳・通訳は、診断を踏まえたうえで Standard / Pro プランの一部としてお引き受けしています。文字単価での発注をお探しの場合は、本サイトの対象外です。</div></div>
+        <div class="faq-a"><div class="faq-a-inner">本サイトでは単発でのお受けはしておりません。翻訳・通訳は、診断を踏まえたうえで Standard / Pro プランの一部としてお引き受けしています。</div></div>
       </div>
     </div>
   </div>
@@ -784,11 +809,10 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
           <div class="form-row">
             <label for="form-type">ご相談の種類</label>
             <select id="form-type" name="inquiry_type" required>
-              <option value="">お選びください</option>
+              <option selected>30分無料相談</option>
               <option>Light — 初回診断（¥200,000／回）</option>
               <option>Standard — 四半期開示改善（¥100,000／月）</option>
               <option>Pro — 面談まで含めたIR改善ループ（¥200,000／月）</option>
-              <option>30分無料相談（プランを決める前）</option>
               <option>その他 / 未定</option>
             </select>
           </div>
@@ -813,12 +837,14 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
           <li>30分無料相談で論点を整理</li>
           <li>診断またはプランのご提案</li>
         </ul>
-        <h4>連絡先</h4>
-        <ul>
-          <li>info@jpinv.com</li>
-          <li>jpinv.com</li>
-          <li><a href="/en/">English Site</a></li>
-        </ul>
+        <div class="contact-info-grid">
+          <div>
+            <h4>連絡先</h4>
+            <dl>
+              <dt>メール</dt><dd><a href="mailto:info@jpinv.com">info@jpinv.com</a></dd>
+            </dl>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -851,15 +877,24 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
         </ul>
       </div>
       <div class="footer-col">
-        <h5>連絡</h5>
+        <h5>連絡先</h5>
         <ul>
-          <li><a href="mailto:info@jpinv.com">info@jpinv.com</a></li>
-          <li><a href="/en/">English Site</a></li>
-          <li><a href="https://substack.com/home/post/p-193128721" target="_blank" rel="noopener">Substack</a></li>
+          <li>メール <a href="mailto:info@jpinv.com">info@jpinv.com</a></li>
         </ul>
-        <div class="footer-addr">大阪・梅田オフィス<br>〒530-0001<br>大阪市北区梅田1丁目2番2号<br>大阪駅前第2ビル12-12<br>東京・海外案件対応可</div>
       </div>
     </div>
+    <section class="company-info-band" aria-label="会社情報">
+      <h5>会社情報</h5>
+      <dl class="company-info-list">
+        <div class="company-info-item company-info-item--wide"><dt>社名</dt><dd class="company-info-value">株式会社ジャパン・<wbr>インベスター・<wbr>インターフェース</dd></div>
+        <div class="company-info-item"><dt>英文社名</dt><dd class="company-info-value">Japan Investor Interface Co., Ltd.</dd></div>
+        <div class="company-info-item"><dt>代表者</dt><dd class="company-info-value">屋山 テディ（代表取締役）</dd></div>
+        <div class="company-info-item"><dt>設立</dt><dd class="company-info-value">2023年9月</dd></div>
+        <div class="company-info-item"><dt>所在地</dt><dd class="company-info-value">大阪</dd></div>
+        <div class="company-info-item"><dt>法人番号</dt><dd class="company-info-value">9012701017825</dd></div>
+        <div class="company-info-item company-info-item--wide"><dt>事業内容</dt><dd class="company-info-value">日本の上場企業向け海外IR診断・英文IRレビュー・面談通訳</dd></div>
+      </dl>
+    </section>
     <div class="footer-bottom">
       <p>© 2026 Japan Investor Interface Co., Ltd. · All rights reserved.</p>
       <p>English: <a href="/en/">jpinv.com/en/</a></p>
