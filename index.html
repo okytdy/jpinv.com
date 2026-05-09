@@ -34,10 +34,11 @@
       "foundingDate": "2023-09",
       "email": "info@jpinv.com",
       "telephone": "+81-80-5804-8760",
+      "taxID": "9012701017825",
       "priceRange": "Light ¥200,000/diagnostic; Standard ¥100,000/month; Pro ¥200,000/month",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "北区梅田1丁目2番2号 大阪駅前第2ビル12-12",
+        "streetAddress": "大阪府大阪市北区梅田1丁目2番2号 大阪駅前第2ビル 12-12",
         "addressLocality": "大阪市",
         "addressRegion": "大阪府",
         "postalCode": "530-0001",
@@ -413,14 +414,15 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
 .footer-col a:hover { color: var(--ink-soft); }
 
 .company-info-band { background: var(--bg-mid); border: 1px solid var(--rule-soft); padding: 22px 24px; margin: 8px 0 28px; }
-.company-info-band h5 { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; margin-bottom: 16px; }
-.company-info-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px 28px; }
-.company-info-item { min-width: 0; }
-.company-info-item--wide { grid-column: span 2; }
-.company-info-item dt { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.12em; color: var(--ink); margin-bottom: 4px; }
-.company-info-value { color: var(--text-dim); font-size: 0.78rem; line-height: 1.65; word-break: keep-all; overflow-wrap: anywhere; }
-@media (max-width: 900px) { .company-info-list { grid-template-columns: 1fr 1fr; } .company-info-item--wide { grid-column: span 2; } }
-@media (max-width: 540px) { .company-info-band { padding: 20px 18px; } .company-info-list { grid-template-columns: 1fr; } .company-info-item--wide { grid-column: auto; } }
+.company-info-band h5 { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; color: var(--ink-soft); margin-bottom: 16px; }
+.company-info-list { display: flex; flex-direction: column; gap: 18px; }
+.company-info-row--paired { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px 28px; }
+.company-info-item { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 16px; align-items: start; min-width: 0; }
+.company-info-item dt { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em; color: var(--ink-soft); padding-top: 0.18em; }
+.company-info-value { color: var(--text); font-size: 0.82rem; line-height: 1.7; word-break: keep-all; overflow-wrap: break-word; }
+.company-info-subline { display: block; margin-top: 3px; color: var(--text-dim); font-size: 0.78rem; line-height: 1.6; }
+@media (max-width: 900px) { .company-info-row--paired { grid-template-columns: 1fr; } }
+@media (max-width: 540px) { .company-info-band { padding: 20px 18px; } .company-info-list { gap: 16px; } .company-info-item { grid-template-columns: 1fr; gap: 6px; } .company-info-item dt { padding-top: 0; } }
 .footer-bottom { padding-top: 22px; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 14px; font-size: 0.7rem; color: var(--text-dim); }
 
 </style>
@@ -884,13 +886,14 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
     <section class="company-info-band" aria-label="会社情報">
       <h5>会社情報</h5>
       <dl class="company-info-list">
-        <div class="company-info-item company-info-item--wide"><dt>社名</dt><dd class="company-info-value">株式会社ジャパン・<wbr>インベスター・<wbr>インターフェース</dd></div>
-        <div class="company-info-item"><dt>英文社名</dt><dd class="company-info-value">Japan Investor Interface Co., Ltd.</dd></div>
-        <div class="company-info-item"><dt>代表者</dt><dd class="company-info-value">屋山 テディ（代表取締役）</dd></div>
-        <div class="company-info-item"><dt>設立</dt><dd class="company-info-value">2023年9月</dd></div>
-        <div class="company-info-item"><dt>所在地</dt><dd class="company-info-value">大阪</dd></div>
-        <div class="company-info-item"><dt>法人番号</dt><dd class="company-info-value">[法人番号を入力]</dd></div>
-        <div class="company-info-item company-info-item--wide"><dt>事業内容</dt><dd class="company-info-value">日本の上場企業向け海外IR診断・英文IRレビュー・面談通訳</dd></div>
+        <div class="company-info-item"><dt>社名</dt><dd class="company-info-value">株式会社ジャパン・<wbr>インベスター・<wbr>インターフェース<span class="company-info-subline">Japan Investor Interface Co., Ltd.</span></dd></div>
+        <div class="company-info-item"><dt>所在地</dt><dd class="company-info-value">〒530-0001<br>大阪府大阪市北区梅田1丁目2番2号 大阪駅前第2ビル 12-12</dd></div>
+        <div class="company-info-row company-info-row--paired">
+          <div class="company-info-item"><dt>代表者</dt><dd class="company-info-value">屋山 テディ（代表取締役）</dd></div>
+          <div class="company-info-item"><dt>設立</dt><dd class="company-info-value">2023年9月</dd></div>
+        </div>
+        <div class="company-info-item"><dt>法人番号</dt><dd class="company-info-value">9012701017825</dd></div>
+        <div class="company-info-item"><dt>事業内容</dt><dd class="company-info-value">日本の上場企業向け海外IR診断・英文IRレビュー・面談通訳</dd></div>
       </dl>
     </section>
     <div class="footer-bottom">
