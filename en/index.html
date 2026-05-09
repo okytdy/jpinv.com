@@ -379,7 +379,7 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
 .contact-side li { font-size: 0.86rem; line-height: 1.55; padding: 8px 0 8px 18px; position: relative; border-bottom: 1px solid var(--rule); }
 .contact-side li::before { content: '—'; color: var(--ink-soft); position: absolute; left: 0; }
 .contact-side li:last-child { border-bottom: none; }
-.contact-info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 22px; }
+.contact-info-grid { margin-top: 22px; }
 .contact-info-grid h4 { margin-bottom: 10px; }
 .contact-info-grid dl { font-size: 0.86rem; line-height: 1.55; }
 .contact-info-grid dt { color: var(--ink); font-weight: 500; display: inline; margin-right: 10px; }
@@ -387,11 +387,11 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
 .contact-info-grid dd::after { content: ""; display: block; height: 6px; }
 .contact-info-grid a { color: var(--text); text-decoration: none; }
 .contact-info-grid a:hover { color: var(--ink-soft); }
-@media (max-width: 540px) { .contact-info-grid { grid-template-columns: 1fr; gap: 18px; } }
+
 
 /* FOOTER */
 footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rule); color: var(--text-mid); }
-.footer-grid { display: grid; grid-template-columns: 1.3fr 0.9fr 0.9fr 2fr; gap: 36px; margin-bottom: 38px; }
+.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 36px; margin-bottom: 38px; }
 @media (max-width: 860px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; } }
 @media (max-width: 540px) { .footer-grid { grid-template-columns: 1fr; } }
 .footer-brand h3 { font-family: var(--sans); color: var(--ink); font-size: 1.1rem; font-weight: 500; margin-bottom: 12px; }
@@ -401,11 +401,16 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
 .footer-col li { padding: 5px 0; }
 .footer-col a { color: var(--text); text-decoration: none; font-size: 0.84rem; }
 .footer-col a:hover { color: var(--ink-soft); }
-.footer-info-grid { display: grid; grid-template-columns: 0.85fr 1.35fr; gap: 28px; }
-@media (max-width: 540px) { .footer-info-grid { grid-template-columns: 1fr; gap: 18px; } }
-.footer-meta { font-size: 0.74rem; color: var(--text-dim); line-height: 1.6; }
-.footer-meta-row { display: grid; grid-template-columns: 5em 1fr; gap: 10px; margin-top: 6px; }
-.footer-meta-label { color: var(--ink); font-weight: 500; }
+
+.company-info-band { background: var(--bg-mid); border: 1px solid var(--rule-soft); padding: 22px 24px; margin: 8px 0 28px; }
+.company-info-band h5 { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; margin-bottom: 16px; }
+.company-info-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px 28px; }
+.company-info-item { min-width: 0; }
+.company-info-item--wide { grid-column: span 2; }
+.company-info-item dt { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.12em; color: var(--ink); margin-bottom: 4px; }
+.company-info-value { color: var(--text-dim); font-size: 0.8rem; line-height: 1.6; word-break: keep-all; overflow-wrap: anywhere; }
+@media (max-width: 900px) { .company-info-list { grid-template-columns: 1fr 1fr; } .company-info-item--wide { grid-column: span 2; } }
+@media (max-width: 540px) { .company-info-band { padding: 20px 18px; } .company-info-list { grid-template-columns: 1fr; } .company-info-item--wide { grid-column: auto; } }
 .footer-bottom { padding-top: 22px; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 14px; font-size: 0.72rem; color: var(--text-dim); }
 
 </style>
@@ -826,15 +831,6 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
               <dt>Email</dt><dd><a href="mailto:info@jpinv.com">info@jpinv.com</a></dd>
             </dl>
           </div>
-          <div>
-            <h4>Company info</h4>
-            <dl>
-              <dt>Name</dt><dd>Japan Investor Interface Co., Ltd.</dd>
-              <dt>Japanese name</dt><dd>株式会社ジャパン・インベスター・インターフェース</dd>
-              <dt>Founded</dt><dd>September 2023</dd>
-              <dt>Location</dt><dd>Osaka</dd>
-            </dl>
-          </div>
         </div>
       </div>
     </div>
@@ -867,24 +863,25 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
           <li><a href="#faq">FAQ</a></li>
         </ul>
       </div>
-      <div class="footer-col footer-info-grid">
-        <div>
-          <h5>Contact</h5>
-          <ul>
-            <li>Email <a href="mailto:info@jpinv.com">info@jpinv.com</a></li>
-          </ul>
-        </div>
-        <div>
-          <h5>Company info</h5>
-          <div class="footer-meta">
-            <div>Japan Investor Interface Co., Ltd.</div>
-            <div>株式会社ジャパン・インベスター・インターフェース</div>
-            <div class="footer-meta-row"><span class="footer-meta-label">Founded</span><span>September 2023</span></div>
-            <div class="footer-meta-row"><span class="footer-meta-label">Location</span><span>Osaka</span></div>
-          </div>
-        </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+          <li>Email <a href="mailto:info@jpinv.com">info@jpinv.com</a></li>
+        </ul>
       </div>
     </div>
+    <section class="company-info-band" aria-label="Company information">
+      <h5>Company information</h5>
+      <dl class="company-info-list">
+        <div class="company-info-item company-info-item--wide"><dt>Japanese name</dt><dd class="company-info-value">株式会社ジャパン・<wbr>インベスター・<wbr>インターフェース</dd></div>
+        <div class="company-info-item"><dt>English name</dt><dd class="company-info-value">Japan Investor Interface Co., Ltd.</dd></div>
+        <div class="company-info-item"><dt>Representative</dt><dd class="company-info-value">Teddy Yama (Representative Director)</dd></div>
+        <div class="company-info-item"><dt>Founded</dt><dd class="company-info-value">September 2023</dd></div>
+        <div class="company-info-item"><dt>Location</dt><dd class="company-info-value">Osaka</dd></div>
+        <div class="company-info-item"><dt>Corporate number</dt><dd class="company-info-value">[法人番号を入力]</dd></div>
+        <div class="company-info-item company-info-item--wide"><dt>Business</dt><dd class="company-info-value">日本の上場企業向け海外IR診断・英文IRレビュー・面談通訳</dd></div>
+      </dl>
+    </section>
     <div class="footer-bottom">
       <p>© 2026 Japan Investor Interface Co., Ltd. · All rights reserved.</p>
       <p>日本語: <a href="/">jpinv.com</a></p>
