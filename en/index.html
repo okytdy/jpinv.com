@@ -151,8 +151,8 @@ section { padding: var(--pad) 0; }
 nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: var(--nav-h); background: rgba(255,255,255,0.96); backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule); display: flex; align-items: center; transition: box-shadow 0.3s; }
 nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; }
-.nav-logo { text-decoration: none; display: flex; align-items: center; min-width: 0; flex-shrink: 1; }
-.nav-logo-img { display: block; width: 236px; height: 40px; object-fit: contain; object-position: left center; }
+.nav-logo { text-decoration: none; display: inline-flex; align-items: center; flex: 0 0 auto; min-width: max-content; white-space: nowrap; }
+.nav-logo-img { display: block; width: auto; height: 40px; max-width: none; object-fit: contain; object-position: left center; }
 .nav-logo-img--mobile { display: none; width: 32px; height: 32px; object-fit: contain; }
 .nav-center { flex: 1; display: flex; justify-content: center; }
 .nav-links { display: flex; gap: 22px; list-style: none; flex-wrap: nowrap; white-space: nowrap; }
@@ -288,7 +288,6 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
 .receive-card .num { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.16em; color: var(--ink-soft); }
 .receive-card h4 { font-family: var(--sans); font-size: 1rem; color: var(--ink); margin: 8px 0 8px; font-weight: 500; line-height: 1.35; }
 .receive-card p { font-size: 0.84rem; line-height: 1.55; }
-.receive-foot { font-size: 0.84rem; color: var(--text-dim); margin-top: 22px; line-height: 1.6; max-width: 720px; padding: 14px 18px; background: var(--bg-mid); border-left: 2px solid var(--rule); }
 
 /* PROCESS */
 .process-flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; counter-reset: step; align-items: stretch; }
@@ -380,10 +379,19 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
 .contact-side li { font-size: 0.86rem; line-height: 1.55; padding: 8px 0 8px 18px; position: relative; border-bottom: 1px solid var(--rule); }
 .contact-side li::before { content: '—'; color: var(--ink-soft); position: absolute; left: 0; }
 .contact-side li:last-child { border-bottom: none; }
+.contact-info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 22px; }
+.contact-info-grid h4 { margin-bottom: 10px; }
+.contact-info-grid dl { font-size: 0.86rem; line-height: 1.55; }
+.contact-info-grid dt { color: var(--ink); font-weight: 500; display: inline; margin-right: 10px; }
+.contact-info-grid dd { display: inline; color: var(--text-dim); }
+.contact-info-grid dd::after { content: ""; display: block; height: 6px; }
+.contact-info-grid a { color: var(--text); text-decoration: none; }
+.contact-info-grid a:hover { color: var(--ink-soft); }
+@media (max-width: 540px) { .contact-info-grid { grid-template-columns: 1fr; gap: 18px; } }
 
 /* FOOTER */
 footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rule); color: var(--text-mid); }
-.footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 36px; margin-bottom: 38px; }
+.footer-grid { display: grid; grid-template-columns: 1.3fr 0.9fr 0.9fr 2fr; gap: 36px; margin-bottom: 38px; }
 @media (max-width: 860px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; } }
 @media (max-width: 540px) { .footer-grid { grid-template-columns: 1fr; } }
 .footer-brand h3 { font-family: var(--sans); color: var(--ink); font-size: 1.1rem; font-weight: 500; margin-bottom: 12px; }
@@ -393,7 +401,11 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
 .footer-col li { padding: 5px 0; }
 .footer-col a { color: var(--text); text-decoration: none; font-size: 0.84rem; }
 .footer-col a:hover { color: var(--ink-soft); }
-.footer-addr { font-size: 0.74rem; color: var(--text-dim); line-height: 1.6; margin-top: 14px; }
+.footer-info-grid { display: grid; grid-template-columns: 0.85fr 1.35fr; gap: 28px; }
+@media (max-width: 540px) { .footer-info-grid { grid-template-columns: 1fr; gap: 18px; } }
+.footer-meta { font-size: 0.74rem; color: var(--text-dim); line-height: 1.6; }
+.footer-meta-row { display: grid; grid-template-columns: 5em 1fr; gap: 10px; margin-top: 6px; }
+.footer-meta-label { color: var(--ink); font-weight: 500; }
 .footer-bottom { padding-top: 22px; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 14px; font-size: 0.72rem; color: var(--text-dim); }
 
 </style>
@@ -403,7 +415,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
 <nav id="main-nav" role="navigation" aria-label="Main navigation">
   <div class="wrap nav-inner">
     <a href="#top" class="nav-logo" aria-label="JII home">
-      <img class="nav-logo-img nav-logo-img--desktop" src="/assets/logo-jii-wordmark.svg" alt="Japan Investor Interface logo" width="236" height="40">
+      <img class="nav-logo-img nav-logo-img--desktop" src="/assets/logo-jii-wordmark.svg" alt="Japan Investor Interface logo" width="282" height="40">
       <img class="nav-logo-img nav-logo-img--mobile" src="/assets/logo-jii-monogram.svg" alt="Japan Investor Interface logo" width="32" height="32">
     </a>
     <div class="nav-center">
@@ -586,7 +598,6 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
       <div class="receive-card"><span class="num">05</span><h4>Internal walkthrough session</h4><p>A 60-minute working session to read the card with IR / CFO / Corporate Planning and align on next steps.</p></div>
       <div class="receive-card"><span class="num">06</span><h4>Optional implementation path</h4><p>If you want to act on the findings — translation, review, interpretation, meeting prep — scoped against the diagnostic.</p></div>
     </div>
-    <p class="receive-foot reveal">Translation, English review and interpretation are offered only as implementation layers of a diagnostic engagement. Per-character / per-document translation is outside the scope of this site.</p>
   </div>
 </section>
 
@@ -615,7 +626,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
       <span class="label">Plans</span>
       <div class="rule-accent"></div>
       <h2 class="mincho-lg">Three plans</h2>
-      <p>All work is delivered directly by the founder. Pricing is plan-based and tax-exclusive — not per-character.</p>
+      <p>All work is delivered directly by the founder. Pricing is plan-based and tax-exclusive.</p>
     </div>
     <div class="plan-grid reveal">
       <div class="plan-card">
@@ -746,7 +757,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Can I just buy translation or interpretation on its own?</button>
-        <div class="faq-a"><div class="faq-a-inner">Not from this site. Translation and interpretation are offered only as implementation layers inside a diagnostic engagement. If you are looking for per-character translation procurement, this is not the right vendor.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Not from this site. Translation and interpretation are offered only as implementation layers inside a diagnostic engagement.</div></div>
       </div>
     </div>
   </div>
@@ -808,12 +819,23 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
           <li>Free 30-minute call to scope</li>
           <li>Diagnostic or plan proposal</li>
         </ul>
-        <h4>Reach us</h4>
-        <ul>
-          <li>info@jpinv.com</li>
-          <li>jpinv.com</li>
-          <li><a href="/">日本語サイト</a></li>
-        </ul>
+        <div class="contact-info-grid">
+          <div>
+            <h4>Contact</h4>
+            <dl>
+              <dt>Email</dt><dd><a href="mailto:info@jpinv.com">info@jpinv.com</a></dd>
+            </dl>
+          </div>
+          <div>
+            <h4>Company info</h4>
+            <dl>
+              <dt>Name</dt><dd>Japan Investor Interface Co., Ltd.</dd>
+              <dt>Japanese name</dt><dd>株式会社ジャパン・インベスター・インターフェース</dd>
+              <dt>Founded</dt><dd>September 2023</dd>
+              <dt>Location</dt><dd>Osaka</dd>
+            </dl>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -845,14 +867,22 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
           <li><a href="#faq">FAQ</a></li>
         </ul>
       </div>
-      <div class="footer-col">
-        <h5>Reach us</h5>
-        <ul>
-          <li><a href="mailto:info@jpinv.com">info@jpinv.com</a></li>
-          <li><a href="/">日本語サイト</a></li>
-          <li><a href="https://substack.com/home/post/p-193128721" target="_blank" rel="noopener">Substack</a></li>
-        </ul>
-        <div class="footer-addr">Osaka — Umeda office<br>Osaka Ekimae 2 Bldg. 12-12<br>1-2-2 Umeda, Kita-ku, Osaka 530-0001<br>Tokyo and overseas engagements available</div>
+      <div class="footer-col footer-info-grid">
+        <div>
+          <h5>Contact</h5>
+          <ul>
+            <li>Email <a href="mailto:info@jpinv.com">info@jpinv.com</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Company info</h5>
+          <div class="footer-meta">
+            <div>Japan Investor Interface Co., Ltd.</div>
+            <div>株式会社ジャパン・インベスター・インターフェース</div>
+            <div class="footer-meta-row"><span class="footer-meta-label">Founded</span><span>September 2023</span></div>
+            <div class="footer-meta-row"><span class="footer-meta-label">Location</span><span>Osaka</span></div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="footer-bottom">
