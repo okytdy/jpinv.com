@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1240">
+<title>4194 Visional · JII Compounder Profile</title>
+<meta name="description" content="JII Compounder Profile · 4194 Visional · price-regime decoding, investor debates, capital-efficiency levers, scenario pathways.">
+<meta property="og:title" content="JII Compounders · 4194 Visional">
+<meta property="og:description" content="Visional declined 7% over 24 months while TOPIX returned +49%. A study in single-stock narrative compression — and what the next two disclosures could reweight.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://jpinv.com/compounders/4194/">
+<link rel="canonical" href="https://jpinv.com/compounders/4194/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     JII Compounders · v7
+     Methodology: see JII/3 Pipeline/_JII_COMPOUNDERS_STANDARD.md
+     Palette: lifted from jpinv.com.
+     Font sizes bumped vs v6 for readability.
+     ============================================================ */
+  :root {
+    --ink:        #1a2a4a;
+    --ink-mid:    #172641;
+    --ink-soft:   #304466;
+    --rule:       #d6dee8;
+    --rule-soft:  #e8edf3;
+    --bg:         #ffffff;
+    --bg-mid:    #f5f7fa;
+    --bg-soft:   #fafbfc;
+    --text:       #1f2937;
+    --text-mid:  #4a5566;
+    --text-dim:  #7a8290;
+    --accent:    #b08a4a;
+    --accent-deep:#9a7838;
+    --accent-soft:#f4eee4;
+    --bad:       #b91c1c;
+    --warn:      #b88a3a;
+    --ok:        #2f6f4f;
+    --serif: 'Noto Serif JP', 'Yu Mincho', serif;
+    --sans:  'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+    --mono:  'DM Mono', monospace;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg-mid); }
+  body { display: flex; justify-content: center; padding: 30px 0; font-family: var(--sans); color: var(--text); font-size: 14px; line-height: 1.65; }
+
+  .card {
+    background: var(--bg); color: var(--text); width: 1200px; margin: 0 auto;
+    box-shadow: 0 30px 80px rgba(15,31,58,0.10), 0 1px 3px rgba(15,31,58,0.06);
+    border: 1px solid var(--rule);
+  }
+
+  /* ---- MASTHEAD ---- */
+  .masthead { position: relative; overflow: hidden; background: var(--bg); border-bottom: 1px solid var(--rule); }
+  .masthead::before {
+    content:''; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(15,31,58,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(15,31,58,0.04) 1px, transparent 1px);
+    background-size: 64px 64px;
+    -webkit-mask-image: linear-gradient(180deg, transparent, black 12%, black 88%, transparent);
+            mask-image: linear-gradient(180deg, transparent, black 12%, black 88%, transparent);
+    pointer-events: none;
+  }
+  .masthead::after {
+    content:''; position: absolute; width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(15,31,58,0.045) 0%, transparent 70%);
+    top: -160px; right: -200px; pointer-events: none;
+  }
+  .masthead-inner { position: relative; z-index: 2; padding: 32px 56px 28px; display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: end; }
+
+  .brand { display: flex; flex-direction: column; gap: 4px; align-items: flex-start; }
+  .brand-mono { font-family: var(--serif); font-size: 28px; font-weight: 300; letter-spacing: 0.04em; color: var(--ink-mid); line-height: 1; }
+  .brand-mono .pipe { color: var(--accent); font-weight: 200; margin: 0 4px; }
+  .brand-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; color: var(--accent-deep); text-transform: uppercase; margin-top: 12px; font-weight: 500; }
+
+  .head-main { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; text-align: right; }
+  .head-ticker-row { display: flex; align-items: baseline; gap: 16px; }
+  .head-ticker { font-family: var(--mono); font-size: 12px; color: var(--ink-soft); letter-spacing: 0.18em; }
+  .head-co-jp { font-family: var(--serif); font-size: 14.5px; color: var(--text-mid); letter-spacing: 0.04em; }
+  .head-co { font-family: var(--serif); font-size: 40px; font-weight: 300; color: var(--ink-mid); line-height: 1.05; letter-spacing: 0.01em; margin-top: 4px; }
+  .head-industry { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-top: 6px; }
+
+  /* Stat strip (font sizes bumped) */
+  .stat-strip { display: grid; grid-template-columns: 1.05fr 1.05fr 1.1fr 1.05fr 1.1fr 1.1fr; gap: 0; border-top: 1px solid var(--rule); position: relative; z-index: 2; background: var(--bg-soft); }
+  .stat { padding: 15px 18px; border-right: 1px solid var(--rule); text-align: left; }
+  .stat:last-child { border-right: none; }
+  .stat-label { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 7px; font-weight: 500; }
+  .stat-val { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--ink-mid); line-height: 1.05; }
+  .stat-val small { font-family: var(--mono); font-size: 11px; color: var(--text-dim); margin-left: 4px; font-weight: 400; letter-spacing: 0.04em; }
+  .stat-ctx { font-family: var(--mono); font-size: 10.5px; color: var(--text-mid); margin-top: 6px; letter-spacing: 0.04em; line-height: 1.45; }
+  .stat-ctx .dn { color: var(--bad); font-weight: 500; }
+  .stat-ctx .up { color: var(--ok); font-weight: 500; }
+  .stat-ctx b { color: var(--ink-mid); font-weight: 500; }
+
+  /* ---- SECTIONS (font sizes bumped) ---- */
+  .section { padding: 36px 56px 36px; border-bottom: 1px solid var(--rule); }
+  .section.gem { background: linear-gradient(180deg, rgba(176,138,74,0.055) 0%, rgba(176,138,74,0.01) 60%); }
+  .section-head { margin-bottom: 22px; display: flex; flex-direction: column; gap: 8px; max-width: 1080px; }
+  .section-num { font-family: var(--mono); font-size: 10px; letter-spacing: 0.26em; color: var(--accent-deep); font-weight: 500; }
+  .section-title { font-family: var(--serif); font-size: 30px; font-weight: 300; color: var(--ink-mid); margin: 0; letter-spacing: 0.01em; line-height: 1.2; }
+  .section-sub { font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--text-mid); line-height: 1.55; margin: 0; }
+  .section-sub b { color: var(--ink-mid); font-weight: 500; font-style: normal; }
+
+  /* ---- CHART (TradingView widget) ---- */
+  .chart-wrap { background: var(--bg-soft); border: 1px solid var(--rule); padding: 0; }
+  .chart-meta { display: flex; justify-content: space-between; align-items: baseline; padding: 16px 22px 14px; border-bottom: 1px solid var(--rule); flex-wrap: wrap; gap: 10px; }
+  .chart-title { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; }
+  .chart-key-levels { display: flex; gap: 22px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; }
+  .chart-key-levels span { color: var(--text-mid); }
+  .chart-key-levels b { color: var(--ink-mid); font-weight: 500; }
+  .chart-key-levels .peak b { color: var(--ok); }
+  .chart-key-levels .trough b { color: var(--bad); }
+  .tv-container { position: relative; height: 540px; }
+
+  /* ---- REGIME narrative ---- */
+  .regime-narr { font-family: var(--serif); font-size: 15px; color: var(--text); line-height: 1.85; max-width: 1080px; margin-top: 26px; }
+  .regime-narr p { margin: 0 0 16px; }
+  .regime-narr p:last-child { margin-bottom: 0; }
+  .regime-narr b { color: var(--ink-mid); font-weight: 500; }
+  .regime-narr .pin { font-family: var(--mono); font-size: 10.5px; font-weight: 500; letter-spacing: 0.16em; color: var(--accent-deep); margin-right: 8px; }
+  .regime-narr .up { color: var(--ok); font-weight: 500; }
+  .regime-narr .dn { color: var(--bad); font-weight: 500; }
+  .regime-narr .neutral { color: var(--ink-soft); font-weight: 500; }
+
+  /* ---- CONTENTION (font sizes bumped) ---- */
+  .ct-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px; }
+  .ct-card { background: var(--bg-mid); border: 1px solid var(--rule); border-left: 2px solid var(--accent); padding: 22px 22px 18px; }
+  .ct-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--accent-deep); text-transform: uppercase; margin-bottom: 10px; font-weight: 500; }
+  .ct-q { font-family: var(--serif); font-size: 16px; color: var(--ink-mid); line-height: 1.35; margin-bottom: 14px; font-weight: 400; }
+  .ct-side { display: flex; gap: 11px; margin-bottom: 11px; align-items: flex-start; }
+  .ct-side-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; padding: 2px 7px; border: 1px solid; flex: none; min-width: 42px; text-align: center; line-height: 1.4; font-weight: 500; }
+  .ct-side-tag.bull { color: var(--ok); border-color: var(--ok); }
+  .ct-side-tag.bear { color: var(--bad); border-color: var(--bad); }
+  .ct-side-text { font-family: var(--sans); font-size: 13px; color: var(--text); line-height: 1.55; }
+  .ct-side-text b { color: var(--ink-mid); font-weight: 500; }
+  .ct-proof { font-family: var(--mono); font-size: 10px; letter-spacing: 0.05em; color: var(--text-mid); margin-top: 14px; padding-top: 11px; border-top: 1px solid var(--rule); }
+  .ct-proof span { color: var(--accent-deep); text-transform: uppercase; letter-spacing: 0.14em; font-weight: 500; }
+
+  /* ---- CATALYST (font sizes bumped) ---- */
+  .cat-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px; }
+  .cat-card { background: var(--bg); border: 1px solid var(--rule); border-top: 2px solid var(--accent); padding: 22px; }
+  .cat-num { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--accent-deep); margin-bottom: 10px; font-weight: 500; }
+  .cat-title { font-family: var(--serif); font-size: 16.5px; color: var(--ink-mid); line-height: 1.3; font-weight: 400; margin-bottom: 14px; }
+  .cat-viz { background: var(--bg-mid); border: 1px solid var(--rule-soft); padding: 13px 15px; margin: 10px 0 14px; }
+  .cat-viz-label { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 9px; font-weight: 500; }
+  .cat-viz-bar-row { display: flex; align-items: center; gap: 9px; margin: 6px 0; font-family: var(--mono); font-size: 11px; }
+  .cat-viz-bar-label { width: 100px; color: var(--text-mid); font-size: 11px; }
+  .cat-viz-bar-track { flex: 1; height: 16px; background: var(--bg); border: 1px solid var(--rule-soft); position: relative; }
+  .cat-viz-bar-fill { height: 100%; }
+  .cat-viz-bar-val { width: 64px; text-align: right; color: var(--ink-mid); font-size: 11px; font-weight: 500; }
+  .cat-viz-cap { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; color: var(--accent-deep); text-transform: uppercase; margin-top: 9px; padding-top: 7px; border-top: 1px dashed var(--rule); font-weight: 500; }
+  .cat-takeaway { font-family: var(--sans); font-size: 13px; color: var(--text); line-height: 1.65; margin-top: 4px; }
+  .cat-takeaway b { color: var(--ink-mid); font-weight: 500; }
+  .cat-meta { display: flex; gap: 16px; margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--rule); }
+  .cat-meta div { flex: 1; }
+  .cat-meta dt { font-family: var(--mono); font-size: 9px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 4px; font-weight: 500; }
+  .cat-meta dd { margin: 0; font-family: var(--sans); font-size: 12.5px; color: var(--ink-mid); font-weight: 500; }
+
+  /* ---- VALUATION as 3 scenario cards ---- */
+  .scn-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px; }
+  .scn-card { padding: 24px 22px 20px; border: 1px solid var(--rule); position: relative; display: flex; flex-direction: column; }
+  .scn-card.bear { background: linear-gradient(180deg, rgba(185,28,28,0.045) 0%, rgba(185,28,28,0.01) 100%); border-top: 3px solid var(--bad); }
+  .scn-card.base { background: linear-gradient(180deg, rgba(15,31,58,0.04) 0%, rgba(15,31,58,0.005) 100%); border-top: 3px solid var(--ink-soft); }
+  .scn-card.bull { background: linear-gradient(180deg, rgba(47,111,79,0.045) 0%, rgba(47,111,79,0.01) 100%); border-top: 3px solid var(--ok); }
+  .scn-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500; }
+  .scn-tag.bear { color: var(--bad); }
+  .scn-tag.base { color: var(--ink-soft); }
+  .scn-tag.bull { color: var(--ok); }
+  .scn-price { font-family: var(--serif); font-size: 30px; font-weight: 300; color: var(--ink-mid); line-height: 1.1; margin: 8px 0 4px; letter-spacing: 0.01em; }
+  .scn-delta { font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: 0.04em; margin-bottom: 4px; }
+  .scn-delta.dn { color: var(--bad); }
+  .scn-delta.flat { color: var(--text-mid); }
+  .scn-delta.up { color: var(--ok); }
+  .scn-mult { font-family: var(--mono); font-size: 11px; color: var(--text-dim); letter-spacing: 0.06em; margin-bottom: 16px; }
+  .scn-prem { font-family: var(--serif); font-size: 14px; color: var(--ink-mid); line-height: 1.55; padding: 12px 14px; background: rgba(255,255,255,0.65); border: 1px solid var(--rule-soft); margin-bottom: 14px; }
+  .scn-prem b { color: var(--ink-mid); font-weight: 500; }
+  .scn-driver-head { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 8px; font-weight: 500; padding-top: 4px; }
+  .scn-drivers { list-style: none; margin: 0; padding: 0; }
+  .scn-drivers li { font-family: var(--sans); font-size: 12.5px; color: var(--text); line-height: 1.5; padding: 6px 0 6px 18px; position: relative; }
+  .scn-drivers li::before { content:''; position: absolute; left: 0; top: 12px; width: 8px; height: 1px; background: var(--text-dim); }
+  .scn-drivers li b { color: var(--ink-mid); font-weight: 500; }
+
+  /* SOTP */
+  .sotp { margin-top: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .sotp-card { background: var(--bg); border: 1px solid var(--rule); border-top: 2px solid var(--ink-soft); padding: 20px 22px; }
+  .sotp-head { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; }
+  .sotp-name { font-family: var(--serif); font-size: 18px; color: var(--ink-mid); margin-top: 6px; font-weight: 400; margin-bottom: 10px; }
+  .sotp-row { display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px dashed var(--rule-soft); font-size: 13px; }
+  .sotp-row:last-of-type { border: none; }
+  .sotp-row .k { color: var(--text-mid); }
+  .sotp-row .v { color: var(--ink-mid); font-family: var(--mono); font-weight: 500; }
+  .sotp-foot { margin-top: 12px; padding-top: 11px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; letter-spacing: 0.05em; color: var(--ink-mid); }
+  .sotp-foot b { color: var(--accent-deep); font-weight: 500; }
+
+  /* ---- DISCLAIMER ---- */
+  .disclaimer { padding: 32px 56px 30px; background: var(--bg-soft); border-top: 2px solid var(--rule); }
+  .disclaimer-head { margin-bottom: 16px; }
+  .d-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; color: var(--text-dim); text-transform: uppercase; font-weight: 500; }
+  .d-title { font-family: var(--serif); font-size: 22px; font-weight: 300; color: var(--ink-mid); margin: 6px 0 0; letter-spacing: 0.01em; }
+  .disclaimer-body { font-family: var(--sans); font-size: 11.5px; color: var(--text-mid); line-height: 1.75; max-width: 1080px; }
+  .disclaimer-body p { margin: 0 0 11px; }
+  .disclaimer-body b { color: var(--ink-mid); font-weight: 500; }
+  .d-jp-note { font-family: var(--serif); font-size: 11px; color: var(--text-dim); line-height: 1.8; padding-top: 8px; margin-top: 12px; border-top: 1px solid var(--rule); }
+
+  /* Methodology link (small footer) */
+  .meth { padding: 16px 56px; background: var(--bg); border-top: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: center; font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
+  .meth a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  .meth a:hover { color: var(--ink); }
+</style>
+</head>
+<body>
+
+<article class="card">
+
+  <!-- ============================== MASTHEAD ============================== -->
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div class="brand">
+        <span class="brand-mono">J<span class="pipe">|</span>I</span>
+        <span class="brand-eyebrow">Japan Investor Interface · Compounder Profile</span>
+      </div>
+      <div class="head-main">
+        <div class="head-ticker-row">
+          <span class="head-ticker">TSE PRIME · 4194 · FY end JUL</span>
+          <span class="head-co-jp">株式会社ビジョナル</span>
+        </div>
+        <div class="head-co">Visional, Inc.</div>
+        <div class="head-industry">HR Tech · Recruiting Platform &amp; HCM SaaS</div>
+      </div>
+    </div>
+
+    <div class="stat-strip">
+      <div class="stat">
+        <div class="stat-label">Last Close</div>
+        <div class="stat-val">¥7,337<small>May 12, 2026</small></div>
+        <div class="stat-ctx"><span class="dn">−40%</span> from Aug-25 peak · <span class="up">+16%</span> off Feb low</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Market Cap / EV</div>
+        <div class="stat-val">¥294<small>bn / ¥229bn EV</small></div>
+        <div class="stat-ctx">net cash <b>¥70bn</b> (24% of cap)</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">EV / EBIT · forward</div>
+        <div class="stat-val">9.8<small>x</small></div>
+        <div class="stat-ctx">vs 3yr median <b>~13x</b> · peer median <b>~12x</b></div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">ROCE · trailing</div>
+        <div class="stat-val">~35<small>%</small></div>
+        <div class="stat-ctx">FY7/22 27% → FY7/24 35% · <b>3yr avg 32%</b></div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Op Margin · group</div>
+        <div class="stat-val">29<small>% · grp / 33% HR Tech</small></div>
+        <div class="stat-ctx">segment OPM peer-leading</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Shares · Float</div>
+        <div class="stat-val">40.2<small>M sh · 64% free float</small></div>
+        <div class="stat-ctx">average daily turnover <b>¥2.3bn</b></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================== 1 · REGIME ============================== -->
+  <section class="section">
+    <div class="section-head">
+      <div class="section-num">01 · REGIME</div>
+      <h2 class="section-title">Price Action · 24 Months</h2>
+      <p class="section-sub">Visional declined <b>−7%</b> while TOPIX returned <b>+49%</b> over the same period. This drawdown is alpha, not beta — the question is what the market repriced and why.</p>
+    </div>
+
+    <div class="chart-wrap">
+      <div class="chart-meta">
+        <div class="chart-title">4194 vs TOPIX · 24 months · daily candles + volume</div>
+        <div class="chart-key-levels">
+          <span class="peak">Peak <b>¥12,310</b> · 2025-08-21</span>
+          <span class="trough">Trough <b>¥6,347</b> · 2026-02-24</span>
+          <span>Today <b>¥7,337</b></span>
+        </div>
+      </div>
+      <!-- TradingView Widget BEGIN -->
+      <div class="tv-container">
+        <div class="tradingview-widget-container" style="height:100%;width:100%">
+          <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+          {
+            "autosize": true,
+            "symbol": "TSE:4194",
+            "interval": "D",
+            "timezone": "Asia/Tokyo",
+            "theme": "light",
+            "style": "1",
+            "locale": "en",
+            "backgroundColor": "#ffffff",
+            "gridColor": "rgba(15,31,58,0.06)",
+            "withdateranges": true,
+            "range": "24M",
+            "hide_side_toolbar": false,
+            "allow_symbol_change": false,
+            "details": false,
+            "hotlist": false,
+            "calendar": false,
+            "show_popup_button": true,
+            "popup_width": "1200",
+            "popup_height": "720",
+            "studies": [
+              "Volume@tv-basicstudies",
+              "MASimple@tv-basicstudies"
+            ],
+            "compareSymbols": [
+              { "symbol": "TSE:1308", "position": "NewPriceScale" }
+            ],
+            "support_host": "https://www.tradingview.com"
+          }
+          </script>
+        </div>
+      </div>
+      <!-- TradingView Widget END -->
+    </div>
+
+    <div class="regime-narr">
+      <p>
+        <span class="pin">A · APR–AUG 2025 · +67%</span>
+        The rally was a regime change in narrative, not a single print. Q3 FY7/25 results (June 2025) showed BizReach scaling at <b>+19% YoY with 42.7% segment OPM</b> while HRMOS — three years of investment with no profit — crossed into the black on a YTD basis with ARR through <b>¥8.95bn</b>. That is the textbook moment a platform compounder gets re-rated: the profit engine is still working, and a second engine has just started turning. The August peak at ¥12,310 anchored a <b>~14x forward EV/EBIT</b> — a multiple Visional had never previously sustained, paid in anticipation of the FY7/25 full-year print.
+      </p>
+      <p>
+        <span class="pin">B · AUG 2025 – FEB 2026 · −48%</span>
+        The unwind was not a missed result. The September full-year FY7/25 print landed solidly and FY7/26 guidance was raised. What broke the rally was the <b>composition of that guide</b>: management was explicit that operating profit would grow slower than the top-line because reinvestment in Internal BizReach, the Thinkings/sonar ATS integration, and Incubation businesses was being front-loaded. By the Q1 FY7/26 release in December, the worst case was being confirmed — the chart had priced accelerating margin, the disclosures showed compressing margin. <span class="dn">Two cycles then compounded the de-rate.</span> Cycle one: consensus could not separate organic HRMOS profitability from the sonar ATS consolidation effect — a single decimal of disclosure was missing, and the market priced the worst case. Cycle two: Japan domestic hiring sentiment turned cautious through Q4-CY25 on the BOJ rate path; BizReach correlates positively with enterprise hiring confidence, and that beta got repriced.
+      </p>
+      <p>
+        <span class="pin">ALPHA vs BETA</span>
+        Critically, this drawdown is <b>company-specific, not sector-driven</b>. Over the same 24 months Visional declined <span class="dn">−7%</span> while TOPIX returned <span class="up">+49%</span> — an implied 56-percentage-point underperformance against the broad market. The "this is the cycle" framing does not hold; HR Tech sector betas explain almost none of the move. What was repriced is the <b>multiple investors are willing to pay for disclosed-but-ambiguous capital efficiency</b>.
+      </p>
+      <p>
+        <span class="pin">C · MAR 2026 · +16% OFF FLOOR</span>
+        The Q2 FY7/26 release on 17 March reset the worst case: 2Q YTD sales <b>¥46.61bn (+26.2% YoY)</b>, HR Tech segment OPM held at <b>33%</b>, HRMOS profitable on both YTD and quarterly bases, ARR through ¥8.95bn, full-year guidance unchanged. The market answered with +16% off the ¥6,347 floor. The recovery has restored confidence in the engine but not in the multiple. <span class="neutral">The gap from today's ¥7,337 to the August peak is no longer an earnings question — it is a disclosure question.</span> Until investors can separate organic HRMOS profitability from M&amp;A-driven uplift, the multiple stays in the 8x EV/EBIT zone, not the 14x zone.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================== 2 · CONTENTION ============================== -->
+  <section class="section">
+    <div class="section-head">
+      <div class="section-num">02 · CONTENTION</div>
+      <h2 class="section-title">Live Investor Debates</h2>
+      <p class="section-sub">Three open debates currently visible in sell-side reports, IR Q&amp;A, and price action. Each settles a different part of the multiple.</p>
+    </div>
+
+    <div class="ct-grid">
+
+      <div class="ct-card">
+        <div class="ct-tag">DEBATE 01 · MARGIN QUALITY</div>
+        <div class="ct-q">Is HRMOS profitability organic, or is most of it the sonar ATS consolidation effect?</div>
+        <div class="ct-side">
+          <span class="ct-side-tag bull">BULL</span>
+          <span class="ct-side-text">Bulls point to ARR <b>¥8.95bn</b> with disciplined churn, <b>9,974 paid customers</b>, and YTD profitability on a fully-allocated cost basis. The bull observation: organic ARR growth would need to reach <b>≥ 25% YoY</b> at Q3 to confirm.</span>
+        </div>
+        <div class="ct-side">
+          <span class="ct-side-tag bear">BEAR</span>
+          <span class="ct-side-text">Bears note that sonar ATS consolidated for the full three months in 2Q without organic disclosure. The bear observation: organic ARR growth tracking <b>≤ 12% YoY</b> at Q3 would confirm the optical-uplift case.</span>
+        </div>
+      </div>
+
+      <div class="ct-card">
+        <div class="ct-tag">DEBATE 02 · INVESTMENT PACING</div>
+        <div class="ct-q">Is &ldquo;investment-heavy&rdquo; a single year, or a posture that has now been institutionalised?</div>
+        <div class="ct-side">
+          <span class="ct-side-tag bull">BULL</span>
+          <span class="ct-side-text">Bulls cite sales <b>+26.2% YoY</b> while self-funding three investment programmes and FY26/7 D&amp;A of only <b>¥2.9bn</b>. The bull observation: group OPM holding <b>≥ 26%</b> for FY7/26 would confirm pacing discipline.</span>
+        </div>
+        <div class="ct-side">
+          <span class="ct-side-tag bear">BEAR</span>
+          <span class="ct-side-text">Bears note the absence of explicit IRR hurdles for Incubation or Internal BizReach. The bear observation: group OPM revising to <b>≤ 22%</b> for FY7/26 would confirm structural overhang.</span>
+        </div>
+      </div>
+
+      <div class="ct-card">
+        <div class="ct-tag">DEBATE 03 · HIRING-CYCLE BETA</div>
+        <div class="ct-q">How much of BizReach is structural network effect, how much is enterprise-hiring-cycle beta?</div>
+        <div class="ct-side">
+          <span class="ct-side-tag bull">BULL</span>
+          <span class="ct-side-text">Bulls cite a two-sided network of <b>41,800+ employers</b> and 9,700+ headhunters with 16 years of compounding data. The bull observation: BizReach sales holding <b>≥ +15% YoY</b> through a domestic hiring trough.</span>
+        </div>
+        <div class="ct-side">
+          <span class="ct-side-tag bear">BEAR</span>
+          <span class="ct-side-text">Bears note that the YUHO itself flags hiring-demand sensitivity as a primary risk. The bear observation: BizReach growth slipping <b>≤ +8% YoY</b> if Japan PMI hits 47.</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================== 3 · CATALYST ============================== -->
+  <section class="section gem">
+    <div class="section-head">
+      <div class="section-num">03 · CATALYST</div>
+      <h2 class="section-title">Capital-Efficiency Levers</h2>
+      <p class="section-sub">Three disclosure or capital-policy levers visible in the filings. Each could reweight the multiple <b>without</b> requiring higher earnings.</p>
+    </div>
+
+    <div class="cat-grid">
+
+      <div class="cat-card">
+        <div class="cat-num">LEVER 01 · DISCLOSURE</div>
+        <div class="cat-title">Organic vs. consolidated HRMOS ARR split</div>
+        <div class="cat-viz">
+          <div class="cat-viz-label">ARR Compositional Ambiguity (¥bn)</div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">Reported ARR</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:100%;background:#1a2a4a"></div></div>
+            <div class="cat-viz-bar-val">¥8.95</div>
+          </div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">Organic est.</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:78%;background:#2f6f4f"></div></div>
+            <div class="cat-viz-bar-val">~¥7.0</div>
+          </div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">sonar ATS lift</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:22%;background:#b88a3a"></div></div>
+            <div class="cat-viz-bar-val">~¥1.95</div>
+          </div>
+          <div class="cat-viz-cap">disclosing this decimal reprices the segment</div>
+        </div>
+        <div class="cat-takeaway">
+          The single missing disclosure that broke the multiple. Splitting reported ARR into organic vs. sonar contribution would either validate the platform thesis or force a strategic pivot — either outcome compresses the opacity discount investors currently apply.
+        </div>
+        <div class="cat-meta">
+          <div><dt>Cost to mgmt</dt><dd>One footnote</dd></div>
+          <div><dt>Earliest trigger</dt><dd>Q3 release · Jun 2026</dd></div>
+        </div>
+      </div>
+
+      <div class="cat-card">
+        <div class="cat-num">LEVER 02 · DISCLOSURE</div>
+        <div class="cat-title">Internal BizReach attach &amp; pipeline metrics</div>
+        <div class="cat-viz">
+          <div class="cat-viz-label">Pilot → Live Funnel (illustrative)</div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">Year-1 pilots</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:100%;background:#b88a3a"></div></div>
+            <div class="cat-viz-bar-val">opaque</div>
+          </div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">Convert to live</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:60%;background:#b88a3a"></div></div>
+            <div class="cat-viz-bar-val">opaque</div>
+          </div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">Time-to-live</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:75%;background:#b88a3a"></div></div>
+            <div class="cat-viz-bar-val">~12 mo</div>
+          </div>
+          <div class="cat-viz-cap">capital tied up before revenue contribution</div>
+        </div>
+        <div class="cat-takeaway">
+          Large-enterprise Internal BizReach pilots run roughly twelve months before go-live. Publishing pilot count, conversion-to-live, and attach rate per quarter would convert a black-box investment programme into a forward indicator the market can underwrite.
+        </div>
+        <div class="cat-meta">
+          <div><dt>Cost to mgmt</dt><dd>KPI table</dd></div>
+          <div><dt>Earliest trigger</dt><dd>Q4 release · Sep 2026</dd></div>
+        </div>
+      </div>
+
+      <div class="cat-card">
+        <div class="cat-num">LEVER 03 · CAPITAL POLICY</div>
+        <div class="cat-title">¥70bn cash position · explicit return policy</div>
+        <div class="cat-viz">
+          <div class="cat-viz-label">Net Cash Stack (¥bn)</div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">Total cash</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:100%;background:#2f6f4f"></div></div>
+            <div class="cat-viz-bar-val">¥69.9</div>
+          </div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">Total debt</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:1%;background:#b91c1c"></div></div>
+            <div class="cat-viz-bar-val">¥0.3</div>
+          </div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">Net cash / MC</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:24%;background:#b08a4a"></div></div>
+            <div class="cat-viz-bar-val">24%</div>
+          </div>
+          <div class="cat-viz-cap">no buyback, no dividend, no policy yet</div>
+        </div>
+        <div class="cat-takeaway">
+          Net cash equals <b>24% of market capitalisation</b> with no stated return policy. A modest, formula-based buyback authorisation — even ¥10bn over two years — would compress the gap between EV and market cap and signal hurdle discipline on Incubation spend.
+        </div>
+        <div class="cat-meta">
+          <div><dt>Cost to mgmt</dt><dd>Board resolution</dd></div>
+          <div><dt>Earliest trigger</dt><dd>FY7/26 result · Sep 2026</dd></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================== 4 · VALUATION ============================== -->
+  <section class="section">
+    <div class="section-head">
+      <div class="section-num">04 · VALUATION</div>
+      <h2 class="section-title">Scenario Pathways</h2>
+      <p class="section-sub">Three internally-consistent scenarios across the next four quarters. Each describes a different set of disclosure and operating outcomes — no single scenario is forecast; they are <b>analytical bookends</b>.</p>
+    </div>
+
+    <div class="scn-grid">
+
+      <div class="scn-card bear">
+        <div class="scn-tag bear">BEAR SCENARIO</div>
+        <div class="scn-price">¥6,000 – ¥7,000</div>
+        <div class="scn-delta dn">−18% to −5%</div>
+        <div class="scn-mult">implied multiple · ~7–8x EV/EBIT</div>
+        <div class="scn-prem">
+          The opacity discount becomes permanent. <b>Aggregated ARR disclosure continues</b>, hiring beta repriced sharply, no return-policy signal.
+        </div>
+        <div class="scn-driver-head">What would have to happen</div>
+        <ul class="scn-drivers">
+          <li>Organic HRMOS ARR growth at Q3 lands <b>below 12% YoY</b> after consolidation back-out.</li>
+          <li>FY7/26 guidance revised to <b>group OPM ≤ 22%</b> on Incubation spend.</li>
+          <li>BizReach revenue growth <b>below +10% YoY</b> for two consecutive quarters.</li>
+          <li>No buyback signal at Q4 / full-year release.</li>
+        </ul>
+      </div>
+
+      <div class="scn-card base">
+        <div class="scn-tag base">BASE SCENARIO</div>
+        <div class="scn-price">¥8,500 – ¥10,500</div>
+        <div class="scn-delta up">+16% to +43%</div>
+        <div class="scn-mult">implied multiple · ~10–12x EV/EBIT</div>
+        <div class="scn-prem">
+          One or two of the three levers play out favourably. <b>Organic ARR disclosure</b> confirms a healthy split, attach metrics begin to appear.
+        </div>
+        <div class="scn-driver-head">What would have to happen</div>
+        <ul class="scn-drivers">
+          <li>Q3 release includes <b>organic HRMOS ARR growth in the 18–25% YoY range</b>.</li>
+          <li>Group OPM holds at <b>24–26%</b> for FY7/26 with the engine still funded.</li>
+          <li>At least one quarter of <b>Internal BizReach KPI disclosure</b> by year-end.</li>
+          <li>Net cash position acknowledged in capital-allocation language at full-year result.</li>
+        </ul>
+      </div>
+
+      <div class="scn-card bull">
+        <div class="scn-tag bull">BULL SCENARIO</div>
+        <div class="scn-price">¥11,500 – ¥12,500</div>
+        <div class="scn-delta up">+57% to +70%</div>
+        <div class="scn-mult">implied multiple · ~12–13x EV/EBIT</div>
+        <div class="scn-prem">
+          All three levers play favourably and the multiple resets to <b>platform-peer median</b>. The August 2025 peak comes back within reach.
+        </div>
+        <div class="scn-driver-head">What would have to happen</div>
+        <ul class="scn-drivers">
+          <li>Organic HRMOS ARR growth disclosed at <b>≥ 25% YoY</b>, sonar consolidation broken out.</li>
+          <li>Group OPM holds <b>≥ 26%</b> for FY7/26 with KPI table for Internal BizReach.</li>
+          <li>Buyback authorisation <b>≥ ¥10bn over 24 months</b> or formula-based return policy.</li>
+          <li>BizReach revenue <b>≥ +15% YoY</b> through any domestic hiring dip.</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- SOTP -->
+    <div class="sotp">
+      <div class="sotp-card">
+        <div class="sotp-head">SUM-OF-PARTS · BIZREACH</div>
+        <div class="sotp-name">Recruiting platform · profitable scale</div>
+        <div class="sotp-row"><span class="k">2Q YTD revenue (run-rate)</span><span class="v">¥77bn</span></div>
+        <div class="sotp-row"><span class="k">Segment OPM</span><span class="v">42.7%</span></div>
+        <div class="sotp-row"><span class="k">Implied EBIT</span><span class="v">~¥33bn</span></div>
+        <div class="sotp-row"><span class="k">Peer multiple (6098, 2379)</span><span class="v">11–18x EV/EBIT</span></div>
+        <div class="sotp-foot">Mid-case implied EV: <b>~¥430bn</b> at 13x EV/EBIT</div>
+      </div>
+      <div class="sotp-card">
+        <div class="sotp-head">SUM-OF-PARTS · HRMOS + INCUBATION</div>
+        <div class="sotp-name">HCM SaaS · early profitability</div>
+        <div class="sotp-row"><span class="k">HRMOS ARR (reported)</span><span class="v">¥8.95bn</span></div>
+        <div class="sotp-row"><span class="k">Incubation 2Q YTD</span><span class="v">¥2.5bn</span></div>
+        <div class="sotp-row"><span class="k">Peer multiple (4435, 4478)</span><span class="v">6–10x EV/Sales</span></div>
+        <div class="sotp-row"><span class="k">Incubation carry</span><span class="v">at cost</span></div>
+        <div class="sotp-foot">Mid-case implied EV: <b>~¥75bn</b> at 8x sales</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ============================== DISCLAIMER ============================== -->
+  <section class="disclaimer">
+    <div class="disclaimer-head">
+      <span class="d-eyebrow">Important Disclaimer · 重要なご注意</span>
+      <h2 class="d-title">This is not investment advice.</h2>
+    </div>
+    <div class="disclaimer-body">
+      <p>
+        <b>Japan Investor Interface Co., Ltd. ("JII")</b> is an investor-relations (IR) consultancy. JII is <b>not</b> a registered investment advisor, financial advisor, broker-dealer, or securities firm in any jurisdiction. JII is <b>not</b> registered as a Financial Instruments Business Operator (金融商品取引業者) under Japan's Financial Instruments and Exchange Act. JII does not have a 投資助言・代理業 registration and does not provide investment advice or solicit the purchase, sale, or holding of any security.
+      </p>
+      <p>
+        <b>JII Compounders is an editorial publication.</b> Each profile is an analytical study of how publicly disclosed information about a Japanese listed company has been received by the market. It is intended for educational and research purposes for IR professionals, finance students, journalists, and other readers interested in corporate disclosure practice. <b>Nothing in this publication constitutes a recommendation, opinion, suggestion, or solicitation to buy, sell, or hold any security, derivative, or other financial instrument.</b> Price targets, scenario ranges, multiples, and comparable-company references are illustrative of analytical method only and must not be interpreted as JII's investment opinion. JII does not have an investment opinion on any security discussed.
+      </p>
+      <p>
+        <b>No reliance.</b> The information presented may be incomplete, out of date, or incorrect. Forward-looking statements are inherently uncertain. Past price performance does not indicate future results. Estimates and scenario figures are not predictions and may not be achieved. JII makes no representation or warranty, express or implied, regarding the accuracy, completeness, timeliness, or reliability of any information in this publication.
+      </p>
+      <p>
+        <b>No fiduciary or advisory relationship.</b> Reading this publication does not create any advisory, fiduciary, or professional relationship between you and JII. Before making any investment, tax, accounting, legal, or other decision, you should consult qualified, licensed advisors in your jurisdiction and conduct your own independent due diligence based on primary disclosures issued by the company concerned.
+      </p>
+      <p>
+        <b>Conflicts &amp; positions.</b> JII may provide paid IR diagnostic, translation, or interpretation services to Japanese listed companies, including companies discussed in this publication. JII does not trade in or hold positions in the securities of companies profiled. Where a JII engagement exists with a profiled company, that fact will be disclosed at the top of the profile.
+      </p>
+      <p>
+        <b>Trademarks &amp; data.</b> Company names, logos, tickers, and product names referenced are the property of their respective owners. Share-price data is licensed from third-party providers. TradingView is a trademark of TradingView, Inc. All rights reserved.
+      </p>
+      <p class="d-jp-note">
+        本資料は、日本の金融商品取引法に基づく投資助言・代理業ではなく、特定の有価証券の売買その他の取引の勧誘・推奨を目的とするものではありません。本資料は教育・研究を目的とした分析記事であり、JII（株式会社ジャパン・インベスター・インターフェース）は、本資料の内容に基づく投資判断について一切の責任を負いません。投資の判断はご自身の責任と独立した調査に基づいて行ってください。
+      </p>
+    </div>
+  </section>
+
+  <div class="meth">
+    <span><a href="/compounders/">All Compounder Profiles</a> · <a href="/compounders/methodology/">Methodology</a></span>
+    <span>Japan Investor Interface Co., Ltd.</span>
+  </
