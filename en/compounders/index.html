@@ -46,6 +46,9 @@
   .hero-brand .mark { font-family: var(--serif); font-size: 28px; font-weight: 300; color: var(--ink-mid); letter-spacing: 0.04em; line-height: 1; }
   .hero-brand .mark .pipe { color: var(--accent); font-weight: 200; margin: 0 4px; }
   .hero-brand .sub { font-family: var(--sans); font-size: 12.5px; color: var(--ink-soft); letter-spacing: 0.04em; line-height: 1.4; }
+  .hero-lang { margin-left: auto; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; }
+  .hero-lang a { color: var(--ink-soft); padding: 5px 10px; border: 1px solid var(--rule); margin-left: 6px; }
+  .hero-lang a.current { background: var(--bg-soft); border-color: var(--ink-mid); color: var(--ink-mid); }
   .hero-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.32em; color: var(--accent-deep); text-transform: uppercase; margin-bottom: 18px; font-weight: 500; }
   /* Both h1 and lede share the same max-width so the line breaks align */
   .hero-text { max-width: 880px; }
@@ -129,11 +132,12 @@
     <div class="hero-brand">
       <span class="mark">J<span class="pipe">|</span>I</span>
       <span class="sub">Japan Investor Interface Co., Ltd.<br>株式会社ジャパン・インベスター・インターフェース</span>
+      <span class="hero-lang"><a href="/en/compounders/" class="current">EN</a><a href="/compounders/">JP</a></span>
     </div>
     <div class="hero-text">
       <div class="hero-eyebrow">JII Compounders</div>
       <h1>Capital efficiency, <em>compounded further</em>.</h1>
-      <p class="lede">A curated repository of editorial profiles on Japanese listed companies. Each profile decodes <b>why a stock has traded the way it has</b>, <b>what investors are debating</b>, <b>which capital-efficiency levers are visible in the disclosures</b>, and <b>what scenario pathways look like</b> — one company at a time.</p>
+      <p class="lede">A curated repository of editorial profiles on Japanese listed companies. Each profile decodes <b>why a stock has traded the way it has</b>, <b>what investors are debating</b>, <b>which capital-efficiency levers are visible in the disclosures</b>, and <b>what scenario pathways look like</b> — one company at a time.<br><br>For more detail, read the <a href="/en/compounders/methodology/" style="color:var(--ink-mid); border-bottom:1px solid var(--accent);">Methodology</a>.</p>
     </div>
   </div>
 </section>
@@ -238,8 +242,8 @@
 
 <footer>
   <div class="wrap foot-row">
-    <span>Japan Investor Interface Co., Ltd.</span>
-    <span><a href="/">jpinv.com</a></span>
+    <span><a href="/en/compounders/methodology/">Methodology</a> · Japan Investor Interface Co., Ltd.</span>
+    <span><a href="/en/">jpinv.com</a></span>
   </div>
 </footer>
 
