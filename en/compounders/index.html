@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>JII Compounders — 資本効率を、さらに複利で。</title>
-<meta name="description" content="JII Compoundersは、日本上場企業の編集記事を集めたリポジトリ。海外機関投資家の視点で資本効率を読み解く、IRリテラシーのためのプロファイル集。">
-<link rel="canonical" href="https://jpinv.com/compounders/">
-<link rel="alternate" hreflang="ja" href="https://jpinv.com/compounders/">
-<link rel="alternate" hreflang="en" href="https://jpinv.com/en/compounders/">
+<title>JII Compounders — Capital efficiency, compounded further</title>
+<meta name="description" content="JII Compounders is an editorial repository of profiles on Japanese listed companies — capital-efficiency decoding for the IR-aware reader.">
+<link rel="canonical" href="https://jpinv.com/en/compounders/">
 <link rel="icon" href="/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,11 +25,12 @@
   }
   *,*::before,*::after { box-sizing: border-box; }
   html,body { margin:0; padding:0; background: var(--bg); color: var(--text); font-family: var(--sans); }
-  body { font-size: 15px; line-height: 1.85; }
+  body { font-size: 15px; line-height: 1.7; }
   a { color: var(--ink-soft); text-decoration: none; }
   a:hover { color: var(--ink); }
   .wrap { max-width: var(--max); margin: 0 auto; padding: 0 28px; }
 
+  /* Hero */
   .hero { position: relative; padding: 90px 0 64px; border-bottom: 1px solid var(--rule); overflow: hidden; }
   .hero::before {
     content:''; position: absolute; inset: 0;
@@ -47,19 +46,20 @@
   .hero-brand .mark { font-family: var(--serif); font-size: 28px; font-weight: 300; color: var(--ink-mid); letter-spacing: 0.04em; line-height: 1; }
   .hero-brand .mark .pipe { color: var(--accent); font-weight: 200; margin: 0 4px; }
   .hero-brand .sub { font-family: var(--sans); font-size: 12.5px; color: var(--ink-soft); letter-spacing: 0.04em; line-height: 1.4; }
-  .hero-lang { margin-left: auto; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; }
-  .hero-lang a { color: var(--ink-soft); padding: 5px 10px; border: 1px solid var(--rule); margin-left: 6px; }
-  .hero-lang a.current { background: var(--bg-soft); border-color: var(--ink-mid); color: var(--ink-mid); }
-  .hero-text { max-width: 880px; }
   .hero-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.32em; color: var(--accent-deep); text-transform: uppercase; margin-bottom: 18px; font-weight: 500; }
-  .hero h1 { font-family: var(--serif); font-size: clamp(1.85rem, 4.4vw, 3.2rem); font-weight: 300; color: var(--ink-mid); line-height: 1.5; letter-spacing: 0.03em; margin: 0 0 22px; }
+  /* Both h1 and lede share the same max-width so the line breaks align */
+  .hero-text { max-width: 880px; }
+  .hero h1 { font-family: var(--serif); font-size: clamp(1.85rem, 4.4vw, 3.2rem); font-weight: 300; color: var(--ink-mid); line-height: 1.35; letter-spacing: 0.02em; margin: 0 0 22px; }
   .hero h1 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-  .hero p.lede { font-size: 1.02rem; line-height: 1.95; color: var(--text); margin: 0; }
+  .hero p.lede { font-size: 1.02rem; line-height: 1.85; color: var(--text); margin: 0; }
   .hero p.lede b { color: var(--ink-mid); font-weight: 500; }
 
+  /* Gallery controls */
   .gallery { padding: 56px 0 80px; }
   .gallery-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 28px; flex-wrap: wrap; gap: 18px; padding-bottom: 14px; border-bottom: 1px solid var(--rule); }
-  .gallery-title { font-family: var(--serif); font-size: 1.7rem; font-weight: 300; color: var(--ink-mid); margin: 0; letter-spacing: 0.03em; }
+  .gallery-title { font-family: var(--serif); font-size: 1.7rem; font-weight: 300; color: var(--ink-mid); margin: 0; letter-spacing: 0.02em; }
+  .gallery-meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; }
+
   .gallery-controls { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
   .sort-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; color: var(--text-dim); text-transform: uppercase; margin-right: 4px; font-weight: 500; }
   .sort-btn { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; color: var(--text-mid); text-transform: uppercase; padding: 7px 14px; border: 1px solid var(--rule); background: var(--bg); cursor: pointer; transition: all 0.18s; font-weight: 500; }
@@ -78,9 +78,9 @@
   .card-head { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 12px; border-bottom: 1px solid var(--rule-soft); margin-bottom: 14px; }
   .card-ticker { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--ink-soft); }
   .card-sector { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; }
-  .card-name { font-family: var(--serif); font-size: 1.45rem; color: var(--ink-mid); font-weight: 300; line-height: 1.35; letter-spacing: 0.03em; margin: 0; }
+  .card-name { font-family: var(--serif); font-size: 1.45rem; color: var(--ink-mid); font-weight: 300; line-height: 1.25; letter-spacing: 0.01em; margin: 0; }
   .card-jp { font-family: var(--serif); font-size: 0.92rem; color: var(--text-dim); margin: 4px 0 14px; letter-spacing: 0.04em; }
-  .card-hook { font-family: var(--serif); font-size: 0.96rem; color: var(--text); line-height: 1.85; margin-bottom: 14px; letter-spacing: 0.02em; }
+  .card-hook { font-family: var(--serif); font-size: 0.96rem; color: var(--text); line-height: 1.7; margin-bottom: 14px; }
   .card-hook b { color: var(--ink-mid); font-weight: 500; }
   .card-stats { display: flex; gap: 22px; padding-top: 12px; border-top: 1px solid var(--rule-soft); margin-top: auto; flex-wrap: wrap; }
   .card-stat-label { font-family: var(--mono); font-size: 8.5px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 3px; }
@@ -94,26 +94,29 @@
     text-align: center; min-height: 200px;
   }
   .placeholder .label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 8px; }
-  .placeholder .msg { font-family: var(--serif); font-size: 1rem; color: var(--text-mid); line-height: 1.75; max-width: 320px; }
+  .placeholder .msg { font-family: var(--serif); font-size: 1rem; color: var(--text-mid); line-height: 1.55; max-width: 320px; }
 
+  /* Substack CTA */
   .substack-cta { margin-top: 50px; padding: 32px 36px; background: var(--bg-soft); border: 1px solid var(--rule); border-left: 3px solid var(--accent); display: flex; gap: 28px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
   .substack-cta-text { flex: 1; min-width: 280px; }
   .substack-cta-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; color: var(--accent-deep); text-transform: uppercase; margin-bottom: 8px; font-weight: 500; }
-  .substack-cta-title { font-family: var(--serif); font-size: 1.3rem; font-weight: 300; color: var(--ink-mid); line-height: 1.5; margin: 0 0 10px; letter-spacing: 0.03em; }
-  .substack-cta-body { font-family: var(--sans); font-size: 13.5px; line-height: 1.85; color: var(--text-mid); margin: 0; }
+  .substack-cta-title { font-family: var(--serif); font-size: 1.3rem; font-weight: 300; color: var(--ink-mid); line-height: 1.35; margin: 0 0 10px; letter-spacing: 0.02em; }
+  .substack-cta-body { font-family: var(--sans); font-size: 13.5px; line-height: 1.7; color: var(--text-mid); margin: 0; }
   .substack-cta-body b { color: var(--ink-mid); font-weight: 500; }
   .substack-btn { display: inline-flex; align-items: center; gap: 10px; padding: 13px 24px; background: var(--ink-mid); color: #fff; font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: 0.06em; text-decoration: none; transition: background 0.18s; flex: none; }
   .substack-btn:hover { background: var(--ink); color: #fff; }
 
+  /* Disclaimer (same as on each profile) */
   .disclaimer { padding: 56px 0 64px; background: var(--bg-soft); border-top: 1px solid var(--rule); margin-top: 56px; }
   .disclaimer-head { margin-bottom: 18px; }
   .d-eyebrow { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.22em; color: var(--text-dim); text-transform: uppercase; font-weight: 500; }
-  .d-title { font-family: var(--serif); font-size: 24px; font-weight: 300; color: var(--ink-mid); margin: 6px 0 0; letter-spacing: 0.03em; }
-  .disclaimer-body { font-family: var(--sans); font-size: 12px; color: var(--text-mid); line-height: 2.0; }
+  .d-title { font-family: var(--serif); font-size: 24px; font-weight: 300; color: var(--ink-mid); margin: 6px 0 0; letter-spacing: 0.01em; }
+  .disclaimer-body { font-family: var(--sans); font-size: 12px; color: var(--text-mid); line-height: 1.78; }
   .disclaimer-body p { margin: 0 0 12px; }
   .disclaimer-body b { color: var(--ink-mid); font-weight: 500; }
-  .d-en-note { font-family: var(--sans); font-size: 11px; color: var(--text-dim); line-height: 1.78; padding-top: 10px; margin-top: 14px; border-top: 1px solid var(--rule); }
+  .d-jp-note { font-family: var(--serif); font-size: 11.5px; color: var(--text-dim); line-height: 1.85; padding-top: 10px; margin-top: 14px; border-top: 1px solid var(--rule); }
 
+  /* Footer */
   footer { padding: 22px 0; border-top: 1px solid var(--rule); background: var(--bg); }
   .foot-row { display: flex; justify-content: space-between; align-items: baseline; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; }
   .foot-row a { color: var(--ink-soft); border-bottom: 1px solid var(--rule); }
@@ -125,13 +128,12 @@
   <div class="wrap hero-inner">
     <div class="hero-brand">
       <span class="mark">J<span class="pipe">|</span>I</span>
-      <span class="sub">株式会社ジャパン・インベスター・インターフェース<br>Japan Investor Interface Co., Ltd.</span>
-      <span class="hero-lang"><a href="/en/compounders/">EN</a><a href="/compounders/" class="current">JP</a></span>
+      <span class="sub">Japan Investor Interface Co., Ltd.<br>株式会社ジャパン・インベスター・インターフェース</span>
     </div>
     <div class="hero-text">
       <div class="hero-eyebrow">JII Compounders</div>
-      <h1>資本効率を、<em>さらに複利で</em>。</h1>
-      <p class="lede">日本上場企業の編集記事を集めたリポジトリ。各プロファイルは、<b>株価がなぜそう動いてきたか</b>、<b>投資家がいま何を論じているか</b>、<b>開示の中に潜む資本効率レバーは何か</b>、そして<b>シナリオ・パスウェイはどうなるか</b>を、1銘柄ずつ1枚にまとめている。<br><br>はじめての方は、まず<a href="/compounders/methodology/" style="color:var(--ink-mid); border-bottom:1px solid var(--accent);">方法論</a>からどうぞ。</p>
+      <h1>Capital efficiency, <em>compounded further</em>.</h1>
+      <p class="lede">A curated repository of editorial profiles on Japanese listed companies. Each profile decodes <b>why a stock has traded the way it has</b>, <b>what investors are debating</b>, <b>which capital-efficiency levers are visible in the disclosures</b>, and <b>what scenario pathways look like</b> — one company at a time.</p>
     </div>
   </div>
 </section>
@@ -140,90 +142,95 @@
   <div class="wrap">
 
     <div class="gallery-head">
-      <h2 class="gallery-title">プロファイル一覧</h2>
+      <h2 class="gallery-title">Profiles</h2>
       <div class="gallery-controls">
-        <span class="sort-label">並べ替え</span>
-        <button class="sort-btn active" data-sort="date" id="sort-date">公開日順</button>
-        <button class="sort-btn" data-sort="ticker" id="sort-ticker">証券コード順</button>
+        <span class="sort-label">Sort by</span>
+        <button class="sort-btn active" data-sort="date" id="sort-date">Latest</button>
+        <button class="sort-btn" data-sort="ticker" id="sort-ticker">Ticker</button>
       </div>
     </div>
 
     <div class="grid" id="profile-grid">
 
-      <a class="card" href="/compounders/4194/" data-date="2026-05-12" data-ticker="4194">
+      <a class="card" href="/en/compounders/4194/" data-date="2026-05-12" data-ticker="4194">
         <div class="card-head">
           <span class="card-ticker">TSE PRIME · 4194</span>
-          <span class="card-sector">HR Tech · 採用プラットフォーム</span>
+          <span class="card-sector">HR Tech · Recruiting Platform</span>
         </div>
         <h3 class="card-name">Visional, Inc.</h3>
         <p class="card-jp">株式会社ビジョナル</p>
-        <p class="card-hook">同24ヶ月でTOPIXが<b>+49%</b>のなか、ビジョナルは<b>−7%</b>。物語の圧縮による単独株の典型例 — そして、次の2回の決算開示が織り直しの起点になる。</p>
+        <p class="card-hook">Visional declined <b>−7%</b> while TOPIX returned <b>+49%</b> over the same 24 months. A study in single-stock narrative compression — and what the next two disclosures could reweight.</p>
         <div class="card-stats">
           <div>
-            <div class="card-stat-label">直近終値</div>
+            <div class="card-stat-label">Last Close</div>
             <div class="card-stat-val">¥7,337</div>
           </div>
           <div>
             <div class="card-stat-label">EV / EBIT</div>
-            <div class="card-stat-val">9.8<small>倍</small></div>
+            <div class="card-stat-val">9.8<small>x</small></div>
           </div>
           <div>
             <div class="card-stat-label">ROCE</div>
             <div class="card-stat-val">~35<small>%</small></div>
           </div>
           <div>
-            <div class="card-stat-label">純現金 / 時価総額</div>
+            <div class="card-stat-label">Net Cash / MC</div>
             <div class="card-stat-val">24<small>%</small></div>
           </div>
         </div>
         <div class="card-meta-row">
-          <span>2026年5月12日 公開</span>
+          <span>Published 12 May 2026</span>
         </div>
       </a>
 
       <div class="placeholder">
-        <div class="label">次のプロファイル</div>
-        <div class="msg">日本上場企業のコンパウンダーを順次公開していきます。Substackで購読いただくと、新規プロファイルがメールで届きます。</div>
+        <div class="label">Next profile</div>
+        <div class="msg">More Japanese listed compounders in queue. Subscribe via Substack below to be notified when each profile lands.</div>
       </div>
 
     </div>
 
+    <!-- Substack CTA replaces the contact-form subscription path -->
     <div class="substack-cta">
       <div class="substack-cta-text">
-        <div class="substack-cta-eyebrow">配信 · Substack</div>
-        <h3 class="substack-cta-title">新しいプロファイルが出るたびに、メールで。</h3>
-        <p class="substack-cta-body">JIIのSubstackで配信しています — 編集的で、広告がなく、投資推奨を含まない。<b>勧誘もなく、課金プランもありません。</b>日本上場企業を題材にした教育・調査目的の長文分析を、英語で配信します。</p>
+        <div class="substack-cta-eyebrow">Distribution · Substack</div>
+        <h3 class="substack-cta-title">Get each Compounder Profile in your inbox.</h3>
+        <p class="substack-cta-body">Profiles are published via JII's Substack — an editorial, ad-free distribution channel. <b>No solicitation. No paid tier. No trading recommendations.</b> Educational long-form analysis of Japanese listed companies, in English.</p>
       </div>
-      <a class="substack-btn" href="https://japaninterface.substack.com/" rel="noopener" target="_blank">Substackで購読する →</a>
+      <a class="substack-btn" href="https://japaninterface.substack.com/" rel="noopener" target="_blank">Subscribe on Substack →</a>
     </div>
 
   </div>
 </section>
 
+<!-- ============================== DISCLAIMER ============================== -->
 <section class="disclaimer">
   <div class="wrap">
     <div class="disclaimer-head">
-      <span class="d-eyebrow">重要なご注意 · Important Disclaimer</span>
-      <h2 class="d-title">本資料は投資助言ではありません。</h2>
+      <span class="d-eyebrow">Important Disclaimer · 重要なご注意</span>
+      <h2 class="d-title">This is not investment advice.</h2>
     </div>
     <div class="disclaimer-body">
       <p>
-        <b>株式会社ジャパン・インベスター・インターフェース（以下「JII」）</b>はIRコンサルティング事業を行う会社であり、いかなる管轄においても投資助言業者、金融アドバイザー、証券会社、または証券業者として登録されていません。JIIは、日本の金融商品取引法に基づく<b>金融商品取引業者</b>ではなく、投資助言・代理業の登録も保有しておりません。JIIは、投資助言を行うものでも、特定の有価証券の取得・売却・保有を勧誘するものでもありません。
+        <b>Japan Investor Interface Co., Ltd. ("JII")</b> is an investor-relations (IR) consultancy. JII is <b>not</b> a registered investment advisor, financial advisor, broker-dealer, or securities firm in any jurisdiction. JII is <b>not</b> registered as a Financial Instruments Business Operator (金融商品取引業者) under Japan's Financial Instruments and Exchange Act. JII does not have a 投資助言・代理業 registration and does not provide investment advice or solicit the purchase, sale, or holding of any security.
       </p>
       <p>
-        <b>JII Compoundersは編集的パブリケーションです。</b>各プロファイルは、ある日本上場企業について公に開示された情報が、市場にどう受け取られてきたかを分析した記事であり、IR実務家、ファイナンスの学生、ジャーナリスト、その他企業開示実務に関心を持つ読者を対象とした、教育・調査目的のものです。<b>本パブリケーションの内容は、いかなる有価証券・派生商品・その他金融商品の取得・売却・保有に関する推奨、意見、提案、勧誘を構成するものではありません。</b>目標株価、シナリオレンジ、倍率、類似企業比較などは分析手法の例示であり、JIIの投資意見と解釈してはなりません。
+        <b>JII Compounders is an editorial publication.</b> Each profile is an analytical study of how publicly disclosed information about a Japanese listed company has been received by the market. It is intended for educational and research purposes for IR professionals, finance students, journalists, and other readers interested in corporate disclosure practice. <b>Nothing in this publication constitutes a recommendation, opinion, suggestion, or solicitation to buy, sell, or hold any security, derivative, or other financial instrument.</b> Price targets, scenario ranges, multiples, and comparable-company references are illustrative of analytical method only and must not be interpreted as JII's investment opinion. JII does not have an investment opinion on any security discussed.
       </p>
       <p>
-        <b>依拠の不可。</b>記載情報は不完全、古い、または不正確な可能性があります。過去の株価パフォーマンスは将来の結果を示しません。投資・税務・会計・法務その他の意思決定の前に、資格を有する専門家にご相談ください。
+        <b>No reliance.</b> The information presented may be incomplete, out of date, or incorrect. Forward-looking statements are inherently uncertain. Past price performance does not indicate future results. Estimates and scenario figures are not predictions and may not be achieved. JII makes no representation or warranty, express or implied, regarding the accuracy, completeness, timeliness, or reliability of any information in this publication.
       </p>
       <p>
-        <b>利益相反およびポジション。</b>JIIは日本上場企業に対し有償でIR診断、翻訳、通訳サービスを提供する場合があります。JIIはプロファイル対象企業の有価証券を売買せず、ポジションを保有しません。プロファイル対象企業との間に有償契約が存在する場合は、その事実をプロファイル冒頭に開示します。
+        <b>No fiduciary or advisory relationship.</b> Reading this publication does not create any advisory, fiduciary, or professional relationship between you and JII. Before making any investment, tax, accounting, legal, or other decision, you should consult qualified, licensed advisors in your jurisdiction and conduct your own independent due diligence based on primary disclosures issued by the company concerned.
       </p>
       <p>
-        <b>商標およびデータ。</b>本資料中で言及される企業名、ロゴ、ティッカー、製品名は、各々の所有者に帰属します。株価データは第三者プロバイダーからライセンスを受けています。TradingViewはTradingView, Inc.の商標です。
+        <b>Conflicts &amp; positions.</b> JII may provide paid IR diagnostic, translation, or interpretation services to Japanese listed companies, including companies discussed in this publication. JII does not trade in or hold positions in the securities of companies profiled. Where a JII engagement exists with a profiled company, that fact will be disclosed at the top of the profile.
       </p>
-      <p class="d-en-note">
-        Japan Investor Interface Co., Ltd. ("JII") is an investor-relations consultancy and is not registered as a Financial Instruments Business Operator under Japan's Financial Instruments and Exchange Act. JII does not provide investment advice. JII Compounders is an editorial publication for educational and research purposes. Nothing herein constitutes a recommendation. Consult qualified, licensed advisors before any investment decision.
+      <p>
+        <b>Trademarks &amp; data.</b> Company names, logos, tickers, and product names referenced are the property of their respective owners. Share-price data is licensed from third-party providers. TradingView is a trademark of TradingView, Inc. All rights reserved.
+      </p>
+      <p class="d-jp-note">
+        本資料は、日本の金融商品取引法に基づく投資助言・代理業ではなく、特定の有価証券の売買その他の取引の勧誘・推奨を目的とするものではありません。本資料は教育・研究を目的とした分析記事であり、JII（株式会社ジャパン・インベスター・インターフェース）は、本資料の内容に基づく投資判断について一切の責任を負いません。投資の判断はご自身の責任と独立した調査に基づいて行ってください。
       </p>
     </div>
   </div>
@@ -231,36 +238,45 @@
 
 <footer>
   <div class="wrap foot-row">
-    <span><a href="/compounders/methodology/">方法論</a> · <a href="/">jpinv.com トップ</a></span>
     <span>Japan Investor Interface Co., Ltd.</span>
+    <span><a href="/">jpinv.com</a></span>
   </div>
 </footer>
 
 <script>
+  // Gallery sort: by date (latest first) or by ticker (ascending numeric).
+  // Persists choice in localStorage.
   (function () {
     var grid = document.getElementById('profile-grid');
     if (!grid) return;
     var btnDate = document.getElementById('sort-date');
     var btnTicker = document.getElementById('sort-ticker');
+
     function applySort(mode) {
       var cards = Array.prototype.slice.call(grid.querySelectorAll('a.card'));
       var placeholders = Array.prototype.slice.call(grid.querySelectorAll('.placeholder'));
       cards.sort(function (a, b) {
-        if (mode === 'ticker') return parseInt(a.dataset.ticker, 10) - parseInt(b.dataset.ticker, 10);
+        if (mode === 'ticker') {
+          return parseInt(a.dataset.ticker, 10) - parseInt(b.dataset.ticker, 10);
+        }
+        // default: date desc
         return (b.dataset.date || '').localeCompare(a.dataset.date || '');
       });
+      // Re-append cards in sort order, then placeholders at the end
       cards.concat(placeholders).forEach(function (el) { grid.appendChild(el); });
       btnDate.classList.toggle('active', mode === 'date');
       btnTicker.classList.toggle('active', mode === 'ticker');
       try { localStorage.setItem('jii_compounders_sort', mode); } catch (e) {}
     }
+
     var saved;
     try { saved = localStorage.getItem('jii_compounders_sort'); } catch (e) { saved = null; }
     applySort(saved === 'ticker' ? 'ticker' : 'date');
+
     btnDate.addEventListener('click', function () { applySort('date'); });
     btnTicker.addEventListener('click', function () { applySort('ticker'); });
   })();
 </script>
 
 </body>
-</html>
+<

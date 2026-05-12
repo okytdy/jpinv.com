@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Methodology — JII Compounders</title>
-<meta name="description" content="Six principles for reading Japanese listed compounders — drawn from hundreds of conversations between global PMs and Japanese listed companies. The framework behind every JII Compounder Profile.">
-<meta property="og:title" content="JII Compounders · Methodology">
-<meta property="og:description" content="Six principles drawn from hundreds of PM–issuer meetings: enterprise value over price, cheap-first quality-within, the singular Japanese moat, the private-buyer bid, and IR improvement as a re-rating lever.">
+<title>方法論 — JII Compounders</title>
+<meta name="description" content="日本株コンパウンダーを読み解く6つの視点。海外機関投資家と日本上場企業の現場対話から導かれた、JII独自の編集フレームワーク。">
+<meta property="og:title" content="JII Compounders · 方法論">
+<meta property="og:description" content="日本株を割安かどうか判断する第一歩はPERではない。EV/EBITだ。海外スモールキャップ運用の現場で見えてきた、6つの視点。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jpinv.com/compounders/methodology/">
 <link rel="canonical" href="https://jpinv.com/compounders/methodology/">
-<link rel="alternate" hreflang="en" href="https://jpinv.com/compounders/methodology/">
-<link rel="alternate" hreflang="ja" href="https://jpinv.com/compounders/methodology/ja/">
+<link rel="alternate" hreflang="ja" href="https://jpinv.com/compounders/methodology/">
+<link rel="alternate" hreflang="en" href="https://jpinv.com/en/compounders/methodology/">
 <link rel="icon" href="/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,19 +27,17 @@
     --serif: 'Noto Serif JP', 'Yu Mincho', serif;
     --sans: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
     --mono: 'DM Mono', monospace;
-    --max: 1080px;
-    --read: 760px;
+    --max: 1080px; --read: 760px;
   }
   *,*::before,*::after { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   html,body { margin:0; padding:0; background: var(--bg); color: var(--text); font-family: var(--sans); }
-  body { font-size: 15.5px; line-height: 1.75; }
+  body { font-size: 15.5px; line-height: 1.95; }
   a { color: var(--ink-soft); text-decoration: none; }
   a:hover { color: var(--ink); }
   .wrap { max-width: var(--max); margin: 0 auto; padding: 0 28px; }
   .read { max-width: var(--read); margin: 0 auto; padding: 0 28px; }
 
-  /* HERO */
   .hero { position: relative; padding: 96px 0 72px; border-bottom: 1px solid var(--rule); overflow: hidden; }
   .hero::before {
     content:''; position: absolute; inset: 0;
@@ -60,90 +58,82 @@
   .hero-lang a.current { background: var(--bg-soft); border-color: var(--ink-mid); color: var(--ink-mid); }
   .hero-text { max-width: 880px; }
   .hero-eyebrow { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.32em; color: var(--accent-deep); text-transform: uppercase; margin-bottom: 22px; font-weight: 500; }
-  .hero h1 { font-family: var(--serif); font-size: clamp(1.95rem, 4.6vw, 3.4rem); font-weight: 300; color: var(--ink-mid); line-height: 1.3; letter-spacing: 0.01em; margin: 0 0 26px; }
+  .hero h1 { font-family: var(--serif); font-size: clamp(1.85rem, 4.2vw, 3rem); font-weight: 300; color: var(--ink-mid); line-height: 1.55; letter-spacing: 0.04em; margin: 0 0 26px; }
   .hero h1 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-  .hero p.lede { font-size: 1.08rem; line-height: 1.85; color: var(--text); margin: 0 0 18px; }
+  .hero p.lede { font-size: 1.02rem; line-height: 2.0; color: var(--text); margin: 0 0 18px; }
   .hero p.lede b { color: var(--ink-mid); font-weight: 500; }
   .hero-by { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-top: 28px; }
 
-  /* TOC */
   .toc { padding: 36px 0 24px; background: var(--bg-soft); border-bottom: 1px solid var(--rule); }
   .toc-head { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.24em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 18px; font-weight: 500; }
   .toc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px 28px; }
   @media (max-width: 760px) { .toc-grid { grid-template-columns: 1fr; } }
   .toc-item { display: flex; gap: 14px; align-items: baseline; padding: 8px 0; border-bottom: 1px solid var(--rule-soft); }
   .toc-num { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--accent-deep); font-weight: 500; flex: none; }
-  .toc-title { font-family: var(--serif); font-size: 14.5px; color: var(--ink-mid); font-weight: 400; line-height: 1.4; }
+  .toc-title { font-family: var(--serif); font-size: 14.5px; color: var(--ink-mid); font-weight: 400; line-height: 1.65; letter-spacing: 0.03em; }
   .toc-item:hover .toc-title { color: var(--accent-deep); }
 
-  /* PRINCIPLE SECTIONS */
   .principle { padding: 64px 0 56px; border-bottom: 1px solid var(--rule); }
   .principle.gem { background: linear-gradient(180deg, rgba(176,138,74,0.05) 0%, rgba(176,138,74,0.005) 60%); }
   .principle-head { max-width: 760px; margin: 0 auto 32px; padding: 0 28px; }
   .principle-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.28em; color: var(--accent-deep); font-weight: 500; }
   .principle-tag { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-top: 6px; font-weight: 500; }
-  .principle h2 { font-family: var(--serif); font-size: clamp(1.7rem, 3.6vw, 2.4rem); font-weight: 300; color: var(--ink-mid); line-height: 1.25; margin: 10px 0 14px; letter-spacing: 0.01em; }
-  .principle-sub { font-family: var(--serif); font-style: italic; font-size: 16.5px; color: var(--text-mid); line-height: 1.6; margin: 0; }
-  .principle-sub b { color: var(--ink-mid); font-weight: 500; font-style: normal; }
-
-  .principle-body { font-family: var(--serif); font-size: 16px; color: var(--text); line-height: 1.9; max-width: 760px; margin: 0 auto; padding: 0 28px; }
-  .principle-body p { margin: 0 0 18px; }
+  .principle h2 { font-family: var(--serif); font-size: clamp(1.55rem, 3.4vw, 2.2rem); font-weight: 300; color: var(--ink-mid); line-height: 1.5; margin: 10px 0 14px; letter-spacing: 0.04em; }
+  .principle-sub { font-family: var(--serif); font-size: 16px; color: var(--text-mid); line-height: 1.95; margin: 0; letter-spacing: 0.03em; }
+  .principle-sub b { color: var(--ink-mid); font-weight: 500; }
+  .principle-body { font-family: var(--serif); font-size: 15.5px; color: var(--text); line-height: 2.1; max-width: 760px; margin: 0 auto; padding: 0 28px; letter-spacing: 0.03em; }
+  .principle-body p { margin: 0 0 20px; }
   .principle-body p:last-of-type { margin-bottom: 0; }
   .principle-body b { color: var(--ink-mid); font-weight: 500; }
 
-  /* Pull quote — visual anchor for skim readers */
   .pullquote { max-width: 760px; margin: 28px auto; padding: 22px 28px; border-top: 1px solid var(--accent); border-bottom: 1px solid var(--accent); text-align: center; }
-  .pullquote p { font-family: var(--serif); font-size: 19px; font-style: italic; font-weight: 300; color: var(--ink-mid); line-height: 1.55; margin: 0; letter-spacing: 0.005em; }
-  .pullquote p b { color: var(--accent-deep); font-weight: 500; font-style: normal; }
+  .pullquote p { font-family: var(--serif); font-size: 17.5px; font-weight: 300; color: var(--ink-mid); line-height: 1.95; margin: 0; letter-spacing: 0.06em; }
+  .pullquote p b { color: var(--accent-deep); font-weight: 500; }
 
-  /* SYNTHESIS */
   .synth { padding: 64px 0 56px; background: var(--bg-soft); border-bottom: 1px solid var(--rule); }
   .synth-head { max-width: 760px; margin: 0 auto 36px; padding: 0 28px; }
   .synth-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.28em; color: var(--accent-deep); font-weight: 500; }
-  .synth h2 { font-family: var(--serif); font-size: clamp(1.7rem, 3.6vw, 2.4rem); font-weight: 300; color: var(--ink-mid); line-height: 1.25; margin: 10px 0 12px; letter-spacing: 0.01em; }
-  .synth-sub { font-family: var(--serif); font-style: italic; font-size: 16.5px; color: var(--text-mid); line-height: 1.6; margin: 0; }
+  .synth h2 { font-family: var(--serif); font-size: clamp(1.55rem, 3.4vw, 2.2rem); font-weight: 300; color: var(--ink-mid); line-height: 1.5; margin: 10px 0 12px; letter-spacing: 0.04em; }
+  .synth-sub { font-family: var(--serif); font-size: 16px; color: var(--text-mid); line-height: 1.95; margin: 0; }
   .synth-grid { max-width: 1000px; margin: 0 auto; padding: 0 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
   @media (max-width: 760px) { .synth-grid { grid-template-columns: 1fr; } }
   .synth-card { background: var(--bg); border: 1px solid var(--rule); padding: 22px 24px; }
   .synth-card .num { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.22em; color: var(--accent-deep); font-weight: 500; }
-  .synth-card h3 { font-family: var(--serif); font-size: 18px; color: var(--ink-mid); font-weight: 400; margin: 8px 0 10px; letter-spacing: 0.01em; }
+  .synth-card h3 { font-family: var(--serif); font-size: 17.5px; color: var(--ink-mid); font-weight: 400; margin: 8px 0 10px; letter-spacing: 0.04em; }
   .synth-card .anchors { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 14px; }
   .synth-card .anchors b { color: var(--accent-deep); font-weight: 500; }
-  .synth-card p { font-family: var(--serif); font-size: 14.5px; color: var(--text); line-height: 1.75; margin: 0; }
+  .synth-card p { font-family: var(--serif); font-size: 14px; color: var(--text); line-height: 2.0; margin: 0; letter-spacing: 0.02em; }
   .synth-card p b { color: var(--ink-mid); font-weight: 500; }
 
-  /* UNIVERSE */
   .universe { padding: 64px 0 56px; border-bottom: 1px solid var(--rule); }
   .universe-head { max-width: 760px; margin: 0 auto 32px; padding: 0 28px; }
-  .universe h2 { font-family: var(--serif); font-size: clamp(1.7rem, 3.6vw, 2.4rem); font-weight: 300; color: var(--ink-mid); line-height: 1.25; margin: 10px 0 12px; letter-spacing: 0.01em; }
+  .universe h2 { font-family: var(--serif); font-size: clamp(1.55rem, 3.4vw, 2.2rem); font-weight: 300; color: var(--ink-mid); line-height: 1.5; margin: 10px 0 12px; letter-spacing: 0.04em; }
   .universe-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.28em; color: var(--accent-deep); font-weight: 500; }
-  .universe-sub { font-family: var(--serif); font-style: italic; font-size: 16.5px; color: var(--text-mid); line-height: 1.6; margin: 0; }
+  .universe-sub { font-family: var(--serif); font-size: 16px; color: var(--text-mid); line-height: 1.95; margin: 0; }
   .screen-table { max-width: 760px; margin: 0 auto; padding: 0 28px; }
   .screen-row { display: grid; grid-template-columns: 1fr 130px; gap: 16px; padding: 12px 0; border-bottom: 1px dashed var(--rule-soft); font-family: var(--serif); font-size: 15px; }
   .screen-row.head { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; color: var(--text-dim); text-transform: uppercase; border-bottom: 1px solid var(--rule); padding-bottom: 10px; margin-bottom: 6px; font-weight: 500; }
   .screen-row .metric { color: var(--text); }
   .screen-row .metric b { color: var(--ink-mid); font-weight: 500; }
   .screen-row .threshold { color: var(--ink-mid); font-family: var(--mono); font-size: 13px; text-align: right; font-weight: 500; }
-  .universe-note { max-width: 760px; margin: 26px auto 0; padding: 0 28px; font-family: var(--serif); font-size: 14.5px; color: var(--text-mid); line-height: 1.8; }
+  .universe-note { max-width: 760px; margin: 26px auto 0; padding: 0 28px; font-family: var(--serif); font-size: 14.5px; color: var(--text-mid); line-height: 2.0; }
   .universe-note b { color: var(--ink-mid); font-weight: 500; }
 
-  /* STANCE */
   .stance { padding: 56px 0 40px; }
   .stance-inner { max-width: 760px; margin: 0 auto; padding: 0 28px; }
-  .stance h2 { font-family: var(--serif); font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 300; color: var(--ink-mid); line-height: 1.3; margin: 0 0 16px; letter-spacing: 0.01em; }
+  .stance h2 { font-family: var(--serif); font-size: clamp(1.3rem, 2.8vw, 1.75rem); font-weight: 300; color: var(--ink-mid); line-height: 1.5; margin: 0 0 16px; letter-spacing: 0.04em; }
   .stance-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.28em; color: var(--accent-deep); font-weight: 500; }
-  .stance p { font-family: var(--serif); font-size: 15.5px; color: var(--text); line-height: 1.85; margin: 0 0 14px; }
+  .stance p { font-family: var(--serif); font-size: 15px; color: var(--text); line-height: 2.05; margin: 0 0 14px; }
   .stance p b { color: var(--ink-mid); font-weight: 500; }
 
-  /* DISCLAIMER */
   .disclaimer { padding: 56px 0 64px; background: var(--bg-soft); border-top: 1px solid var(--rule); }
   .disclaimer-head { margin-bottom: 18px; }
   .d-eyebrow { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.22em; color: var(--text-dim); text-transform: uppercase; font-weight: 500; }
-  .d-title { font-family: var(--serif); font-size: 24px; font-weight: 300; color: var(--ink-mid); margin: 6px 0 0; letter-spacing: 0.01em; }
-  .disclaimer-body { font-family: var(--sans); font-size: 12px; color: var(--text-mid); line-height: 1.78; }
+  .d-title { font-family: var(--serif); font-size: 22px; font-weight: 300; color: var(--ink-mid); margin: 6px 0 0; letter-spacing: 0.04em; }
+  .disclaimer-body { font-family: var(--sans); font-size: 12px; color: var(--text-mid); line-height: 2.0; }
   .disclaimer-body p { margin: 0 0 12px; }
   .disclaimer-body b { color: var(--ink-mid); font-weight: 500; }
-  .d-jp-note { font-family: var(--serif); font-size: 11.5px; color: var(--text-dim); line-height: 1.85; padding-top: 10px; margin-top: 14px; border-top: 1px solid var(--rule); }
+  .d-en-note { font-family: var(--sans); font-size: 11px; color: var(--text-dim); line-height: 1.78; padding-top: 10px; margin-top: 14px; border-top: 1px solid var(--rule); }
 
   footer { padding: 22px 0; border-top: 1px solid var(--rule); background: var(--bg); }
   .foot-row { display: flex; justify-content: space-between; align-items: baseline; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; }
@@ -152,317 +142,274 @@
 </head>
 <body>
 
-<!-- HERO -->
 <section class="hero">
   <div class="wrap hero-inner">
     <div class="hero-brand">
       <span class="mark">J<span class="pipe">|</span>I</span>
-      <span class="sub">Japan Investor Interface Co., Ltd.<br>株式会社ジャパン・インベスター・インターフェース</span>
-      <span class="hero-lang"><a href="/compounders/methodology/" class="current">EN</a><a href="/compounders/methodology/ja/">JP</a></span>
+      <span class="sub">株式会社ジャパン・インベスター・インターフェース<br>Japan Investor Interface Co., Ltd.</span>
+      <span class="hero-lang"><a href="/en/compounders/methodology/">EN</a><a href="/compounders/methodology/" class="current">JP</a></span>
     </div>
     <div class="hero-text">
-      <div class="hero-eyebrow">JII Compounders · Methodology</div>
-      <h1>Six principles for reading <em>Japanese compounders</em>.</h1>
-      <p class="lede">Drawn from hundreds of conversations between global small-caps PMs and Japanese listed companies. This is the framework behind every JII Compounder Profile — written for the analysts who read them, not for the issuers who feature in them.</p>
-      <p class="lede">The frame is institutional, not retail. The voice is diagnostic, not advocational. <b>If you run a small-caps book and Japan is on your map, what follows should sharpen the way you scan the universe.</b></p>
-      <div class="hero-by">Editorial framework · 2026</div>
+      <div class="hero-eyebrow">JII Compounders · 方法論</div>
+      <h1>日本株コンパウンダーを<em>読み解く</em>6つの視点。</h1>
+      <p class="lede">海外スモールキャップ運用の現場で見えてきたもの。海外機関投資家と日本上場企業の数百回の対話を通じて、外から日本株を読むときに繰り返し現れた「視点のセット」を、6つに整理した。</p>
+      <p class="lede">本稿は発行体ではなく、運用の現場でこれを読む側に向けて書いている。<b>日本株が運用ユニバースに入っているなら、以下の6つは銘柄の見え方を一段深くするはずである。</b></p>
+      <div class="hero-by">編集フレームワーク · 2026</div>
     </div>
   </div>
 </section>
 
-<!-- TOC -->
 <section class="toc">
   <div class="wrap">
-    <div class="toc-head">Six principles · the framework</div>
+    <div class="toc-head">6つの視点 · フレームワーク</div>
     <div class="toc-grid">
-      <a class="toc-item" href="#p1"><span class="toc-num">01</span><span class="toc-title">Enterprise value, not price. EBIT, not earnings.</span></a>
-      <a class="toc-item" href="#p2"><span class="toc-num">02</span><span class="toc-title">Cheap first. Quality within the cheap.</span></a>
-      <a class="toc-item" href="#p3"><span class="toc-num">03</span><span class="toc-title">Low P/B is the retail thesis.</span></a>
-      <a class="toc-item" href="#p4"><span class="toc-num">04</span><span class="toc-title">The singular Japanese moat.</span></a>
-      <a class="toc-item" href="#p5"><span class="toc-num">05</span><span class="toc-title">The private-buyer bid.</span></a>
-      <a class="toc-item" href="#p6"><span class="toc-num">06</span><span class="toc-title">IR improvement is a re-rating lever.</span></a>
+      <a class="toc-item" href="#p1"><span class="toc-num">01</span><span class="toc-title">PERではなく、EV/EBIT。</span></a>
+      <a class="toc-item" href="#p2"><span class="toc-num">02</span><span class="toc-title">まず割安、その先で投資効率。</span></a>
+      <a class="toc-item" href="#p3"><span class="toc-num">03</span><span class="toc-title">低PBRはリテールのテーマ。</span></a>
+      <a class="toc-item" href="#p4"><span class="toc-num">04</span><span class="toc-title">日本特有のモートを探す。</span></a>
+      <a class="toc-item" href="#p5"><span class="toc-num">05</span><span class="toc-title">プライベート・バイヤーの提示水準。</span></a>
+      <a class="toc-item" href="#p6"><span class="toc-num">06</span><span class="toc-title">IR改善はリレーティングのレバー。</span></a>
     </div>
   </div>
 </section>
 
-<!-- P1 -->
 <section class="principle" id="p1">
   <div class="principle-head">
-    <div class="principle-num">PRINCIPLE 01</div>
-    <div class="principle-tag">CAPITAL STRUCTURE</div>
-    <h2>Enterprise value, not price. EBIT, not earnings.</h2>
-    <p class="principle-sub">Japanese balance sheets carry meaningful idle cash. The right multiple discounts that cash out — and the right operating measure isolates the engine, not the noise.</p>
+    <div class="principle-num">視点 01</div>
+    <div class="principle-tag">資本構造</div>
+    <h2>PERではなく、EV/EBIT。</h2>
+    <p class="principle-sub">日本企業のバランスシートには内部留保が積み上がっている。それを差し引いてから本業を測る、というのが第一歩である。</p>
   </div>
   <div class="principle-body">
     <p>
-      <b>P/E flatters Japanese names because it does not see the cash on the balance sheet.</b> Net cash positions of 20–40% of market cap are common among the more conservative mid-caps — exactly the segment where the most interesting compounders sit. A multiple applied directly to the share price says nothing about how much of that price is the operating business and how much is a savings account the shareholder owns indirectly.
+      上場日本企業のバランスシートを並べると、ある特徴がすぐに見えてくる。時価総額の3割前後を純現金が占めるケースが少なくない、ということだ。保守経営の中堅企業ほど、この傾向は強い。コンパウンダー候補が最も多く生息するのも、まさにこの層である。
     </p>
     <p>
-      Enterprise value — market cap plus debt, less cash — strips the savings account out. EV divided by EBIT is what the operating business is actually valued at. Earnings is downstream of tax rate, one-time items, FX-translation noise, and equity-method accounting that varies by company. EBIT isolates the operating engine. EBITDA over-flatters capital-intensive businesses by hiding depreciation. <b>EV / EBIT is the most honest single read of what the market is paying for operating profit, and it is what we display on every Compounder Profile.</b>
+      こうした企業に対して、PERという物差しを使うのは無理がある。<b>株価には「預金口座の評価」が含まれているのに、PERはそれを区別しない。</b>表面PERは15倍、しかし本業ベースでは22倍 — そんな事態が日常的に起きる。あるいはその逆も。
+    </p>
+    <p>
+      そこでEV/EBITの出番になる。時価総額に有利子負債を足し、現金を引いたEV。これを本業の利益EBITで割れば、市場が本業に対して実際に支払っている倍率が見える。<b>純利益ではなくEBIT、株価ではなくEV</b> — その2つを基準にする。EBITDAは減価償却を見えなくするため設備集約型を過大評価しがち、純利益は税率・特損・為替・持分法損益の下流にある。EBITは本業の利益力だけを取り出す。コンパウンダー・プロファイルがEV/EBITを採用する理由はそこにある。
     </p>
   </div>
   <div class="pullquote">
-    <p>For a Japanese compounder with 25% net cash, <b>EV/EBIT reads 30–40% cheaper than P/E suggests.</b> Same business. Two different stories.</p>
+    <p>純現金が時価総額の25%を占める企業は、<b>EV/EBITで見るとPERより30〜40%安く映る。</b>同じ事業、まったく異なる物語である。</p>
   </div>
 </section>
 
-<!-- P2 -->
 <section class="principle" id="p2">
   <div class="principle-head">
-    <div class="principle-num">PRINCIPLE 02</div>
-    <div class="principle-tag">VALUATION DISCIPLINE</div>
-    <h2>Cheap first. Quality within the cheap.</h2>
-    <p class="principle-sub">PMs scan sub-10x EV/EBIT first. Then they filter for capital efficiency within. Quality at any price is a thesis, not a strategy.</p>
+    <div class="principle-num">視点 02</div>
+    <div class="principle-tag">バリュエーション規律</div>
+    <h2>まず割安、その先で投資効率。</h2>
+    <p class="principle-sub">バイサイドは「割安」を先に切る。投資効率は割安ユニバースの中で見る。「質ならいくらでも」というのは戦略ではなく、ひとつのテーゼに過ぎない。</p>
   </div>
   <div class="principle-body">
     <p>
-      The pattern across the small-caps PMs we have spoken with is consistent: <b>cheap before everything else</b>. The screen has a single anchor — sub-10x EV/EBIT, or thereabouts — and the rest of the analysis is performed on the names that pass that gate. Quality at any price is the framework of the largest endowments and a few concentrated long-duration funds. For most small-cap mandates, valuation is the entry filter and quality is the within-universe filter. The starting valuation is the buffer.
+      対話してきたスモールキャップ運用者のスクリーンには、ある共通点がある。<b>何よりも先に、割安を切る。</b>EV/EBIT 10倍前後を基準線として、そこを通過した銘柄群だけが、定性分析の対象になる。「質ならいくらでも払う」というスタンスは、ごく一部の超大型エンダウメントや長期集中型ファンドのもの。大半のスモールキャップ・マンデートは、バリュエーションをエントリーフィルターに、投資効率をユニバース内フィルターに置く。<b>入口の倍率そのものが、安全余裕として効いてくる。</b>
     </p>
     <p>
-      Within the cheap universe, the filter is <b>capital efficiency</b> — measured as Return on Capital Employed (ROCE), EBIT over total assets less current liabilities. We use ROCE rather than ROE because leverage distorts ROE, and rather than ROIC because invested-capital denominators go negative for cash-rich asset-light businesses. ROCE is robust across the structures we actually encounter. The threshold is 15% sustained, with a three-year trend that is at least flat.
+      割安ユニバースの中での定性フィルターは、投資効率である。指標としてはROCE（使用資本利益率、EBIT ÷（総資産−流動負債））を採用する。ROEはレバレッジで歪み、ROICは現金過多企業で投下資本が負になる。日本上場企業の実態に対しては、ROCEがいちばん安定した指標だ。基準は<b>15%以上を継続、3年トレンドが横ばい以上</b>であること。
     </p>
   </div>
   <div class="pullquote">
-    <p>A 20%-ROCE business bought at 8x EV/EBIT <b>can absorb a multiple compression and still deliver the compounding rate.</b> At 25x, the multiple has to hold for the position to earn anything at all.</p>
+    <p>ROCE 20%の事業をEV/EBIT 8倍で買えば、<b>倍率が縮んでも複利成長分でリターンが取れる。</b>25倍で買えば、倍率が維持されない限り、リターンはほぼゼロ。</p>
   </div>
 </section>
 
-<!-- P3 -->
 <section class="principle" id="p3">
   <div class="principle-head">
-    <div class="principle-num">PRINCIPLE 03</div>
-    <div class="principle-tag">QUALITY OVER ARBITRAGE</div>
-    <h2>Low P/B is the retail thesis. The PM thesis is compounding.</h2>
-    <p class="principle-sub">A capital-intensive business at 0.6x book that earns 5% on equity is correctly priced. Pros look at the longer arc.</p>
+    <div class="principle-num">視点 03</div>
+    <div class="principle-tag">質 vs. アービトラージ</div>
+    <h2>低PBRはリテールのテーマ、プロは長い時間軸を見る。</h2>
+    <p class="principle-sub">PBR 0.6倍・ROE 5%の設備集約型は、安いのではない。<b>正しい値段がついている</b>のだ。</p>
   </div>
   <div class="principle-body">
     <p>
-      <b>Japanese deep value at sub-book has been over-told for a decade.</b> Retail flows have absorbed most of the obvious candidates. The TSE PBR-reform program, while genuine, has already accelerated the re-rating of the more egregious cases. What remains in the low-P/B universe is increasingly a population of businesses that are correctly priced — capital-intensive, low-returning, cyclical, and structurally unable to compound equity at meaningful rates.
+      日本のディープバリュー — PBR1倍割れの是正テーマ — は、過去10年で語り尽くされた感がある。リテール資金が、わかりやすい候補をすでに吸収しきっている。東証のPBR改革は本物ではあるが、目立つケースの是正をさらに加速させた。<b>残された低PBR銘柄群は、設備集約・低リターン・循環的で、構造的に複利成長ができない「適正水準」が増えている。</b>
     </p>
     <p>
-      The institutional position is different. Compounding equity at 20% for five years roughly doubles book value before any multiple expansion. Compounding at 5% barely moves it; the value to the patient holder is whatever the multiple does, not what the business does. The first situation is the one a small-caps PM wants on the book; the second is a trade on a re-rating that may or may not occur, and that pays no compounding in the meantime.
+      機関投資家の視点はここで分かれる。ROE 20%を5年回せば、倍率の動きを抜きにしてもBPSは約2倍になる。ROE 5%だと、ほぼ動かない。後者にとってのリターン源は「市場が倍率を上げてくれるかどうか」だけ。事業そのものの複利成長ではない。前者は機関の長期マンデートが保有したい状況、後者は来るか分からない是正に賭けるトレードだ。
     </p>
     <p>
-      The practical consequence is exclusionary: <b>capital-intensive low-returning businesses are filtered out of the compounder universe even when their P/B looks attractive</b>. The universe tilts toward asset-light, owner-led, niche-dominant businesses where reinvestment translates directly into book-value growth and where the absence of physical-asset drag keeps ROCE high through cycles. That tilt is a deliberate consequence of taking the long arc seriously.
+      実務的には、これは排他的なフィルターになる。<b>設備集約・低リターン銘柄は、PBRがいかに低くてもユニバースから外す。</b>結果としてコンパウンダー・ユニバースは、アセットライト、創業家主導、ニッチ・ドミナント型の企業に構造的に偏る。再投資がそのままBPS成長につながり、有形資産のドラッグがないからサイクルを通じてROCEが高水準で維持される — そうした業態である。長い時間軸を真剣に取った結果としての、意図的な偏りだ。
     </p>
   </div>
   <div class="pullquote">
-    <p>Compounding equity at 20% for five years <b>roughly doubles book value</b>. Compounding at 5% barely moves it. The first business compounds; the second waits for a multiple that may never come.</p>
+    <p>ROE 20%を5年続ければ、<b>BPSはおよそ2倍になる。</b>5%ではほぼ動かない。前者は事業が複利成長する。後者は、来るか分からない是正を待つだけだ。</p>
   </div>
 </section>
 
-<!-- P4 -->
 <section class="principle" id="p4">
   <div class="principle-head">
-    <div class="principle-num">PRINCIPLE 04</div>
-    <div class="principle-tag">MOAT</div>
-    <h2>The singular Japanese moat.</h2>
-    <p class="principle-sub">The most interesting compounders have a moat that does not have a global comparable. Foreign screens cluster by sector and miss them.</p>
+    <div class="principle-num">視点 04</div>
+    <div class="principle-tag">モート</div>
+    <h2>日本特有のモートを探す。</h2>
+    <p class="principle-sub">10年保有する価値のある銘柄は、たいてい<b>グローバルに比較対象を持たない</b>。海外スクリーンは構造上これを拾えない。</p>
   </div>
   <div class="principle-body">
     <p>
-      The compounders worth holding for ten years are not usually the ones with global counterparts. They are the ones whose structural advantage is <b>specifically Japanese</b> — a niche category dominance, a regulatory or geographic monopoly, an owner-led brand authority — and that, precisely because the moat has no obvious global comparable, does not appear on most foreign screens.
+      最も興味深いコンパウンダーは、グローバルに見つけやすい比較対象を持たないことが多い。優位の源泉が日本固有のもの — ニッチカテゴリーの寡占、規制または地理的な独占、創業家主導のブランド力 — であって、明確な海外コンパラブルがない。<b>だからこそ、海外投資家の多くがスクリーンで拾えていない。</b>
     </p>
     <p>
-      Buffett's understandability test, applied to a foreign investor looking at Japan, has an unintended consequence. It filters toward names that look like things the investor already knows: a semiconductor equipment company, a global pharma, a megabank — readable, screenable, and competing in a global market with global comparators. The most distinctive Japanese compounders fail that test on first glance — not because they are unintelligible, but because they have no template.
+      バフェットの「自分が理解できる事業」というフィルターは、外国人投資家が日本を見るときに副作用を持つ。投資家がすでに知っている類型に似た銘柄ばかりが残る — 半導体製造装置、グローバル製薬、メガバンクのように、世界の同業と並べて理解できる銘柄である。最も独自性の高い日本のコンパウンダーは、初見ではこのフィルターをすり抜けない。理解不能だからではなく、世界に対応する「型」がないからだ。
     </p>
     <p>
-      The pattern, generalized: <b>the moat does not have to be technological or globally famous. It only has to be structural, durable, and locally underwritten.</b> What unifies the most interesting cases is insulation from global commodity-style competition — the precise dynamic that erodes returns elsewhere is the one these businesses have structurally exempted themselves from.
+      ここから一般化すると、<b>モートは技術的でなくていい。世界的に有名でなくてもいい。構造的で、持続的で、日本国内で固定されていれば、それで十分である。</b>これらの企業に共通するのは、グローバルなコモディティ的競争からの隔離だ。他のセクターで利益を侵食する競争力学が、この企業群には構造的に届かない。
     </p>
     <p>
-      This principle informs both the Compounder Profile's CONTENTION section, where moat durability is consistently among the three debates surfaced, and the editorial selection of which companies receive a Profile at all. A name without a recognizable moat does not enter coverage regardless of how it screens on valuation.
+      この視点は、コンパウンダー・プロファイルの「論点」セクションを支えている。モートの持続性は、3つの論点のうち最も頻繁に登場する。同時に、編集的にどの銘柄をカバーするかの選別軸でもある。認識可能なモートを持たない銘柄は、バリュエーション基準を通過してもカバレッジには入らない。
     </p>
   </div>
   <div class="pullquote">
-    <p>The moat does not have to be technological or globally famous. It only has to be <b>structural, durable, and locally underwritten.</b></p>
+    <p>モートは技術的でなくていい。世界的に有名でなくていい。<b>構造的で、持続的で、日本国内で固定されていれば、十分である。</b></p>
   </div>
 </section>
 
-<!-- P5 -->
 <section class="principle" id="p5">
   <div class="principle-head">
-    <div class="principle-num">PRINCIPLE 05</div>
-    <div class="principle-tag">INTRINSIC VALUE</div>
-    <h2>The private-buyer bid.</h2>
-    <p class="principle-sub">In modern Japan, intrinsic value has two anchors — the public-market quote and the price a private buyer would pay. The second has become a live valuation input.</p>
+    <div class="principle-num">視点 05</div>
+    <div class="principle-tag">本質的価値</div>
+    <h2>プライベート・バイヤーの提示水準。</h2>
+    <p class="principle-sub">現代の日本では、本質的価値には2つのアンカーがある。公開市場の株価と、<b>PE・戦略買収者が出すであろう価格</b>。後者はすでに実務的な評価軸になっている。</p>
   </div>
   <div class="principle-body">
     <p>
-      The take-private channel in Japan has moved from incidental to structural over the past several years. Activists with explicit privatization theses, domestic and global private-equity buyers with capital allocated to Japan specifically, and management buyout transactions have become routine pricing instruments at the small- and mid-cap end of the market. A recent vintage of high-profile transactions has established a real benchmark range.
+      日本の非公開化チャネルは、この数年で偶発的なものから構造的なものへと変わった。明確な非公開化テーゼを持つアクティビスト、日本専用のキャピタル配分を持つ国内外のPEファンド、そしてMBO案件 — これらが、スモール・ミッドキャップ市場における日常的な価格決定要因になっている。直近数年の高プロファイル案件が、現実的なベンチマーク・レンジを作った。
     </p>
     <p>
-      The practical implication for valuation work is that <b>a PM's intrinsic-value estimate now has two anchors</b>. The first is the conventional public-market exit, modeled at peer-median multiples. The second is the private-buyer bid — what a strategic acquirer or a PE buyer would pay for the business if it were taken private. The two anchors diverge most for compounders, where private buyers can underwrite strategic optionality that the public market discounts.
+      バリュエーション分析への含意ははっきりしている。<b>本質的価値には、2つのアンカーが並存する。</b>ひとつは、ピア中央値倍率で組み立てる伝統的な公開市場エグジットの想定。もうひとつは、戦略買収者またはPEファンドが、その企業を非公開化する際に提示するであろう価格 — プライベート・バイヤーの提示水準だ。2つのアンカーが最も乖離するのはコンパウンダーである。公開市場が割り引いてしまう戦略的オプション価値を、プライベート・バイヤーは織り込むことができる。
     </p>
     <p>
-      Recent transaction multiples have tended to cluster in the <b>7–10x EV/EBIT range</b> for stable cash-generative mid-caps, with premia to public quotes that have routinely reached 30–50%. Where a compounder trades below 8x EV/EBIT in the public market, the private-buyer anchor is essentially the floor: the deal is mechanically attractive to a PE buyer with cost of capital and operating discipline. Where it trades above 12x, the public-market multiple is doing the work and the private-buyer anchor recedes.
+      直近のTOB成立水準は、安定したキャッシュ創出力を持つミッドキャップで<b>EV/EBIT 7〜10倍前後</b>にクラスターしている。公開市場価格へのプレミアムは30〜50%に達するケースが珍しくない。コンパウンダーが公開市場でEV/EBIT 8倍を下回って取引されているとき、プライベート・バイヤーの想定提示水準が、事実上のフロアになる。資本コストと事業改善ノウハウを持つPE買収者にとって、自動的にIRR要件を満たす案件になるからだ。12倍を上回っていれば、公開市場の倍率が機能しており、プライベート・バイヤーのアンカーは後退する。
     </p>
     <p>
-      The VALUATION section of every Compounder Profile is anchored in scenarios, not in a price target. Where the private-buyer bid is mechanically relevant — typically in the bear and base scenarios — it appears as one of the implied floor levels. This is not a take-private forecast. It is the second anchor of intrinsic value, surfaced where it materially constrains the downside.
+      コンパウンダー・プロファイルの「バリュエーション」欄は、目標株価ではなくシナリオを基軸にしている。プライベート・バイヤーの想定価格が機械的に効いてくる場合 — 主にベアシナリオとベースシナリオ — 暗黙のフロア水準のひとつとして登場する。これはTOB予測ではない。本質的価値のもうひとつのアンカーであり、ダウンサイドを実質的に制約する場合に明示する。
     </p>
   </div>
   <div class="pullquote">
-    <p>Where a compounder trades below 8x EV/EBIT in the public market, <b>the private-buyer bid is essentially the floor.</b> The deal is mechanically attractive to a PE buyer with cost of capital and operating discipline.</p>
+    <p>公開市場でEV/EBIT 8倍を下回るコンパウンダーは、<b>プライベート・バイヤーの想定価格が実質的なフロアになる。</b>資本コストと事業改善ノウハウを持つPE買収者にとって、自動的にIRRを満たすディールだからだ。</p>
   </div>
 </section>
 
-<!-- P6 (gem) -->
 <section class="principle gem" id="p6">
   <div class="principle-head">
-    <div class="principle-num">PRINCIPLE 06</div>
-    <div class="principle-tag">IR IMPROVEMENT · WHERE JII SITS</div>
-    <h2>IR improvement is a re-rating lever — and consultivist capital is in motion.</h2>
-    <p class="principle-sub">When disclosure ambiguity is the source of the discount, closing the gap is the catalyst. A class of funds in Japan now invests on this premise. JII is the interpreter they choose.</p>
+    <div class="principle-num">視点 06</div>
+    <div class="principle-tag">IR改善 · JIIの立ち位置</div>
+    <h2>IR改善はリレーティングのレバー — コンサルティビスト資本は動いている。</h2>
+    <p class="principle-sub">開示の曖昧さがディスカウントの源泉である場合、それを潰すことが触媒になる。日本ではこの前提で動く投資家層が育っている。JIIは、そのファンドが選ぶ「現場の通訳者」である。</p>
   </div>
   <div class="principle-body">
     <p>
-      <b>The most consistently over-discounted Japanese names share a single feature.</b> Their disclosure leaves the market unable to back out the answer to a question the market then prices at the worst case. The discount is not on the operating business; it is on the ambiguity in the description of the operating business. Once the ambiguity is closed, the multiple re-weights. Earnings do not need to grow; the company simply needs to disclose what it already knows.
+      慢性的に過剰に割り引かれている日本企業には、共通する特徴がある。<b>開示が、市場に「最悪のケース」で値付けせざるを得ない問いを残している。</b>ディスカウントは本業そのものについてではなく、本業の「説明の曖昧さ」についている。曖昧さを潰せば、倍率はリレーティングする。利益は伸びなくていい。会社がすでに知っていることを、市場が読める形で開示すれば、それで十分なのだ。
     </p>
     <p>
-      A distinct class of investors in Japan now operates on this premise. <b>Consultivist funds</b> — distinct from traditional activists — pursue re-ratings by encouraging companies to improve disclosure and capital allocation rather than by pressing for governance changes or asset sales. Their thesis: the opacity discount is real, identifiable, and closable. Their method: sit across from the IR team and the management team, and propose what specifically to change.
+      日本にはいま、この前提で運用する投資家層がはっきり存在している。<b>コンサルティビスト・ファンドは、伝統的なアクティビストとは違う。</b>ガバナンス改革や資産売却を迫るのではなく、開示と資本配分の改善を通じてリレーティングを取りに行く。テーゼは「不透明性ディスカウントは実在し、特定でき、潰せる」。手法は、IR部門と経営陣に対峙し、何を具体的に変えるべきかを示す、というものだ。
     </p>
     <p>
-      These funds need a counterpart on the Japan side. The work requires both deep familiarity with Japanese disclosure conventions and fluency in the way global capital reads them — a translation problem at least as much as an analytical one. <b>JII is often the firm that consultivist funds choose to work with</b>: not because we share their book, but because we are able to identify the specific delta in disclosure that, if closed, would close the specific delta in fair value. That diagnostic is the same diagnostic that produces a Compounder Profile.
+      こうしたファンドには、日本側に立つカウンターパートが必要になる。仕事には、日本の開示慣行への深い理解と、海外資本がそれをどう読むかへの感度の両方が要る — <b>分析の問題であると同時に、翻訳の問題でもある。</b>JIIは、コンサルティビスト・ファンドが「現場の通訳者」として選ぶことの多い相手だ。彼らのブックをシェアしているからではない。<b>開示の具体的なデルタ — 潰すことで本質的価値とのデルタが閉じる、その差分 — を特定できるからである。</b>この診断は、コンパウンダー・プロファイルを生み出している診断と、まったく同じものだ。
     </p>
     <p>
-      The Profile is the editorial face of that work. It identifies, in public, the disclosure and capital-policy levers that JII would otherwise propose in private engagements with an issuer's IR or management team. The act of publishing is the test: a diagnostic that does not survive public review is one that should not be sold privately either.
+      プロファイルは、その仕事の編集的な顔である。発行体のIR・経営陣とのクローズドな対話で提示する開示や資本政策のレバーを、公開の場で同定する。「公開する」という行為そのものが規律でもある。<b>公開のレビューに耐えない診断は、クローズドな場でも売るべきではない。</b>
     </p>
   </div>
   <div class="pullquote">
-    <p>The opacity discount is the difference between what management knows and what the market knows. <b>Closing that difference is the catalyst — and it is a catalyst the company controls.</b></p>
+    <p>不透明性ディスカウントとは、<b>経営が知っていることと、市場が知っていることの差分</b>である。その差分を潰すことが触媒であり、しかも、その触媒は会社自身がコントロールできるレバーだ。</p>
   </div>
 </section>
 
-<!-- SYNTHESIS -->
 <section class="synth">
   <div class="synth-head">
-    <div class="synth-num">SYNTHESIS</div>
-    <h2>How this becomes a Compounder Profile.</h2>
-    <p class="synth-sub">The six principles compress into four sections on a single page. Each section is anchored in the principles above — here is the map.</p>
+    <div class="synth-num">統合</div>
+    <h2>6つの視点が、どう1枚のプロファイルになるか。</h2>
+    <p class="synth-sub">6つの視点は、1ページ4セクションに集約される。各セクションがどの視点を軸にしているかは下表のとおり。</p>
   </div>
   <div class="synth-grid">
     <div class="synth-card">
       <div class="num">01 · REGIME</div>
-      <h3>Price Action · 24 Months</h3>
-      <div class="anchors">Anchored in · <b>P1, P2</b></div>
-      <p>The 24-month chart is read as the record of how the market has priced the operating business on an EV basis, against the capital efficiency the company has produced. Each major move is anchored to a disclosure event. The TOPIX overlay is non-negotiable: alpha versus beta is always the first question.</p>
+      <h3>24ヶ月の株価アクション</h3>
+      <div class="anchors">視点 · <b>P1, P2</b></div>
+      <p>24ヶ月チャートを、市場が本業をEVベースで、企業の生み出してきた投資効率に対してどう値付けしてきたかの記録として読む。主要な値動きを開示イベントに紐付け、TOPIXのオーバーレイを必ず重ねる。アルファかベータか — それが常に最初の問いだ。</p>
     </div>
     <div class="synth-card">
       <div class="num">02 · CONTENTION</div>
-      <h3>Live Investor Debates</h3>
-      <div class="anchors">Anchored in · <b>P3, P4</b></div>
-      <p>Three open debates the market is currently pricing. Each is presented in observational voice — what bulls point to, what bears note — with symmetric numeric tripwires. The most frequent debate is moat durability and compounding runway; the next is the quality of the disclosed numbers.</p>
+      <h3>投資家の論点</h3>
+      <div class="anchors">視点 · <b>P3, P4</b></div>
+      <p>市場が現在値付けしている3つの論点を、観察的なトーンで提示する。強気側が指摘するもの、弱気側が懸念するもの、それぞれに対称的な数値トリップワイヤーを付ける。最も頻出するのはモートの持続性、次に開示数値の質である。</p>
     </div>
     <div class="synth-card">
       <div class="num">03 · CATALYST</div>
-      <h3>Capital-Efficiency Levers</h3>
-      <div class="anchors">Anchored in · <b>P6</b></div>
-      <p>The primary site of JII's distinctive view. Three disclosure or capital-policy changes the company could make that would reweight the multiple without higher earnings. Each lever names the cost to management (often a footnote) and the earliest trigger (next quarterly release).</p>
+      <h3>資本効率レバー</h3>
+      <div class="anchors">視点 · <b>P6</b></div>
+      <p>JIIの独自視点が最も濃く出る場所。利益成長を必要とせず、倍率をリレーティングできる開示または資本政策の変更案を3つ。各レバーには、経営にとってのコスト（多くは脚注ひとつ分）と、最早の発動タイミング（次の決算発表）を併記する。</p>
     </div>
     <div class="synth-card">
       <div class="num">04 · VALUATION</div>
-      <h3>Scenario Pathways</h3>
-      <div class="anchors">Anchored in · <b>P2, P5</b></div>
-      <p>Three internally-consistent scenarios — bear, base, bull — each describing a coherent bundle of disclosure and operating outcomes. The bear scenario typically anchors near the private-buyer floor; the bull near the platform-peer median. A sum-of-parts cross-check ensures the scenarios reconcile to the business mix.</p>
+      <h3>シナリオ・パスウェイ</h3>
+      <div class="anchors">視点 · <b>P2, P5</b></div>
+      <p>整合した3シナリオ — ベア・ベース・ブル — のそれぞれが、開示と業績のアウトカムの組み合わせを記述する。ベアシナリオは通常プライベート・バイヤーのフロア近傍に、ブルはピア・プラットフォームの中央値倍率にアンカーする。SOTPが整合性のクロスチェックになる。</p>
     </div>
   </div>
 </section>
 
-<!-- UNIVERSE -->
 <section class="universe">
   <div class="universe-head">
-    <div class="universe-num">THE UNIVERSE</div>
-    <h2>The standing screen.</h2>
-    <p class="universe-sub">Names that pass these criteria enter the watch universe. Names that enter active coverage meet additional editorial criteria.</p>
+    <div class="universe-num">ユニバース</div>
+    <h2>スタンディング・スクリーン。</h2>
+    <p class="universe-sub">下記基準を通過する銘柄がウォッチユニバースに入り、その中から編集的なフィルターを経たものがアクティブカバレッジに進む。</p>
   </div>
   <div class="screen-table">
-    <div class="screen-row head">
-      <div>Metric</div>
-      <div>Threshold</div>
-    </div>
-    <div class="screen-row">
-      <div class="metric"><b>ROCE</b> · trailing 12 months</div>
-      <div class="threshold">≥ 15%</div>
-    </div>
-    <div class="screen-row">
-      <div class="metric"><b>EV / EBIT</b> · forward 12 months</div>
-      <div class="threshold">2 – 12x</div>
-    </div>
-    <div class="screen-row">
-      <div class="metric"><b>Operating margin</b> · group, trailing</div>
-      <div class="threshold">≥ 15%</div>
-    </div>
-    <div class="screen-row">
-      <div class="metric"><b>Equity ratio</b> · most recent fiscal year-end</div>
-      <div class="threshold">≥ 40%</div>
-    </div>
-    <div class="screen-row">
-      <div class="metric"><b>3-year revenue CAGR</b></div>
-      <div class="threshold">≥ 5%</div>
-    </div>
-    <div class="screen-row">
-      <div class="metric"><b>P/B</b> · trailing</div>
-      <div class="threshold">≥ 1.0x</div>
-    </div>
-    <div class="screen-row">
-      <div class="metric"><b>FCF yield</b> · trailing</div>
-      <div class="threshold">≥ 4%</div>
-    </div>
+    <div class="screen-row head"><div>指標</div><div>基準</div></div>
+    <div class="screen-row"><div class="metric"><b>ROCE</b> · TTM</div><div class="threshold">≥ 15%</div></div>
+    <div class="screen-row"><div class="metric"><b>EV / EBIT</b> · 翌12ヶ月</div><div class="threshold">2 – 12倍</div></div>
+    <div class="screen-row"><div class="metric"><b>営業利益率</b> · 連結、TTM</div><div class="threshold">≥ 15%</div></div>
+    <div class="screen-row"><div class="metric"><b>自己資本比率</b> · 直近期末</div><div class="threshold">≥ 40%</div></div>
+    <div class="screen-row"><div class="metric"><b>3年売上CAGR</b></div><div class="threshold">≥ 5%</div></div>
+    <div class="screen-row"><div class="metric"><b>PBR</b> · TTM</div><div class="threshold">≥ 1.0倍</div></div>
+    <div class="screen-row"><div class="metric"><b>FCF利回り</b> · TTM</div><div class="threshold">≥ 4%</div></div>
   </div>
   <div class="universe-note">
-    <p>
-      Approximately <b>80 active names</b> currently pass the standing screen. From that watch universe, an editorial filter narrows the set that enters active coverage. Three additional criteria apply: a recognizable singular moat (<b>Principle 4</b>), a visible disclosure or capital-policy lever (<b>Principle 6</b>), and disclosed financial detail sufficient to build a defensible scenario set.
-    </p>
-    <p>
-      Coverage is added at JII's editorial discretion. Companies cannot pay to be featured. Where a JII engagement exists with a profiled company, that fact is disclosed in writing at the top of the Profile. Where a paid engagement is active, JII does not produce a new Profile or revise an existing one until either the engagement closes or sufficient time has passed for the relationship to be reflected publicly.
-    </p>
+    <p>現時点で<b>約80銘柄</b>がスタンディング・スクリーンを通過している。このウォッチユニバースから、編集的なフィルターを通してアクティブカバレッジ対象を絞り込む。追加基準は3点 — 認識可能な独自モート（<b>視点04</b>）、可視化された開示または資本政策のレバー（<b>視点06</b>）、そして頑健なシナリオセットを構築できるだけの財務情報の開示。</p>
+    <p>カバレッジ追加はJIIの編集的裁量で行う。企業側がスポンサーシップ等で取り上げを依頼することはできない。プロファイル対象企業とJIIとの間に有償契約が存在する場合、その事実をプロファイル冒頭に明記する。有償契約が継続中の期間、当該企業に関する新規プロファイルの発行や既存プロファイルの改訂は行わない。</p>
   </div>
 </section>
 
-<!-- STANCE -->
 <section class="stance">
   <div class="stance-inner">
-    <div class="stance-num">EDITORIAL STANCE</div>
-    <h2>Why JII publishes this.</h2>
-    <p>
-      JII Compounders exists because the work of diagnosing what a Japanese listed company should disclose differently is the same work as understanding why the share price has done what it has done. The diagnostic discipline that produces a paid IR engagement and the analytic discipline that produces a Compounder Profile are the same discipline.
-    </p>
-    <p>
-      The Profile is the public face of that work. <b>We publish it because the act of publishing is the only credible test of the diagnosis.</b> Readers can verify the reasoning against primary disclosures, against subsequent quarterly releases, and against the eventual price action. A diagnosis that does not survive that test is a diagnosis that should not be sold privately either.
-    </p>
-    <p>
-      The publication is therefore both editorial and operational. It is editorial in that readers benefit from the framework, can dispute the reasoning, and can take what they need for their own analysis. It is operational in that the firm submits its analytical work to public review as a continuous accountability discipline.
-    </p>
+    <div class="stance-num">編集姿勢</div>
+    <h2>なぜJIIは、これを公開するのか。</h2>
+    <p>JII Compoundersが存在するのは、「日本の上場企業が、何を、どう違う形で開示するべきかを診断する仕事」と「株価がなぜ、そう動いてきたかを理解する仕事」が、まったく同じ作業だからである。有償のIR診断を生む診断的規律と、コンパウンダー・プロファイルを生む分析的規律は、同一の規律だ。</p>
+    <p>プロファイルは、その仕事の公の顔である。<b>「公開する」という行為自体が、診断の信頼性に対する唯一の信頼できるテストだから、公開する。</b>読者は、一次開示、後続四半期の決算発表、そしてその後の株価アクションに照らして、論理を検証できる。そのテストに耐えない診断は、クローズドな場でも売るべきではない。</p>
+    <p>本パブリケーションは、編集的であると同時に運営的でもある。編集的というのは、読者がフレームワークから何かを得て、論理に反論し、自分の分析に必要なものを持ち帰れるという意味で。運営的というのは、JIIが自社の分析的仕事を、継続的なアカウンタビリティ規律として公的レビューに付すという意味でだ。</p>
   </div>
 </section>
 
-<!-- DISCLAIMER -->
 <section class="disclaimer">
   <div class="read">
     <div class="disclaimer-head">
-      <span class="d-eyebrow">Important Disclaimer · 重要なご注意</span>
-      <h2 class="d-title">This is not investment advice.</h2>
+      <span class="d-eyebrow">重要なご注意 · Important Disclaimer</span>
+      <h2 class="d-title">本資料は投資助言ではありません。</h2>
     </div>
     <div class="disclaimer-body">
       <p>
-        <b>Japan Investor Interface Co., Ltd. ("JII")</b> is an investor-relations (IR) consultancy. JII is <b>not</b> a registered investment advisor, financial advisor, broker-dealer, or securities firm in any jurisdiction. JII is <b>not</b> registered as a Financial Instruments Business Operator (金融商品取引業者) under Japan's Financial Instruments and Exchange Act. JII does not have a 投資助言・代理業 registration and does not provide investment advice or solicit the purchase, sale, or holding of any security.
+        <b>株式会社ジャパン・インベスター・インターフェース（以下「JII」）</b>はIRコンサルティング事業を行う会社であり、いかなる管轄においても、投資助言業者、金融アドバイザー、証券会社、または証券業者として登録されていません。JIIは、日本の金融商品取引法に基づく<b>金融商品取引業者</b>ではなく、投資助言・代理業の登録も保有しておりません。JIIは、投資助言を行うものでも、特定の有価証券の取得・売却・保有を勧誘するものでもありません。
       </p>
       <p>
-        <b>JII Compounders is an editorial publication.</b> Each profile is an analytical study of how publicly disclosed information about a Japanese listed company has been received by the market. It is intended for educational and research purposes for IR professionals, finance students, journalists, and other readers interested in corporate disclosure practice. <b>Nothing in this publication constitutes a recommendation, opinion, suggestion, or solicitation to buy, sell, or hold any security, derivative, or other financial instrument.</b> Price targets, scenario ranges, multiples, and comparable-company references are illustrative of analytical method only and must not be interpreted as JII's investment opinion. JII does not have an investment opinion on any security discussed.
+        <b>JII Compoundersは編集的パブリケーションです。</b>各プロファイルは、ある日本上場企業について公に開示された情報が、市場にどう受け取られてきたかを分析した記事であり、IR実務家、ファイナンスの学生、ジャーナリスト、その他企業開示実務に関心を持つ読者を対象とした、教育・調査目的のものです。<b>本パブリケーションの内容は、いかなる有価証券・派生商品・その他金融商品の取得・売却・保有に関する推奨、意見、提案、勧誘を構成するものではありません。</b>目標株価、シナリオレンジ、倍率、類似企業比較などは分析手法の例示であり、JIIの投資意見と解釈してはなりません。JIIは、本資料で論じられたいかなる有価証券についても投資意見を有しません。
       </p>
       <p>
-        <b>No reliance.</b> The information presented may be incomplete, out of date, or incorrect. Forward-looking statements are inherently uncertain. Past price performance does not indicate future results. Estimates and scenario figures are not predictions and may not be achieved. JII makes no representation or warranty, express or implied, regarding the accuracy, completeness, timeliness, or reliability of any information in this publication.
+        <b>依拠の不可。</b>記載された情報は不完全、古い、または不正確である可能性があります。将来予測に関する記述には本質的な不確実性が伴います。過去の株価パフォーマンスは将来の結果を示すものではありません。推計値やシナリオ値は予測ではなく、実現しない可能性があります。JIIは、本パブリケーションのいかなる情報の正確性、完全性、最新性、信頼性についても、明示的・黙示的を問わず、いかなる表明または保証も行いません。
       </p>
       <p>
-        <b>No fiduciary or advisory relationship.</b> Reading this publication does not create any advisory, fiduciary, or professional relationship between you and JII. Before making any investment, tax, accounting, legal, or other decision, you should consult qualified, licensed advisors in your jurisdiction and conduct your own independent due diligence based on primary disclosures issued by the company concerned.
+        <b>受託または助言関係の不存在。</b>本パブリケーションを閲覧することによって、読者とJIIとの間に助言、受託、または専門職としての関係が発生することは一切ありません。投資・税務・会計・法務その他の意思決定を行う前に、お住まいの管轄において資格を有する専門家にご相談いただき、対象企業の一次開示資料に基づき、ご自身で独立した調査を実施してください。
       </p>
       <p>
-        <b>Conflicts &amp; positions.</b> JII may provide paid IR diagnostic, translation, or interpretation services to Japanese listed companies, including companies discussed in this publication. JII does not trade in or hold positions in the securities of companies profiled. Where a JII engagement exists with a profiled company, that fact will be disclosed at the top of the profile.
+        <b>利益相反およびポジション。</b>JIIは、本パブリケーションで言及される企業を含め、日本上場企業に対して有償でIR診断、翻訳、または通訳サービスを提供する場合があります。JIIは、プロファイル対象企業の有価証券を売買せず、ポジションを保有しません。プロファイル対象企業との間にJII有償契約が存在する場合、その事実をプロファイル冒頭に開示します。
       </p>
       <p>
-        <b>Trademarks &amp; data.</b> Company names, logos, tickers, and product names referenced are the property of their respective owners. Share-price data is licensed from third-party providers. TradingView is a trademark of TradingView, Inc. All rights reserved.
+        <b>商標およびデータ。</b>本資料中で言及される企業名、ロゴ、ティッカー、製品名は、各々の所有者に帰属します。株価データは第三者プロバイダーからライセンスを受けています。TradingViewはTradingView, Inc.の商標です。
       </p>
-      <p class="d-jp-note">
-        本資料は、日本の金融商品取引法に基づく投資助言・代理業ではなく、特定の有価証券の売買その他の取引の勧誘・推奨を目的とするものではありません。本資料は教育・研究を目的とした分析記事であり、JII（株式会社ジャパン・インベスター・インターフェース）は、本資料の内容に基づく投資判断について一切の責任を負いません。投資の判断はご自身の責任と独立した調査に基づいて行ってください。
+      <p class="d-en-note">
+        Japan Investor Interface Co., Ltd. ("JII") is an investor-relations consultancy and is not registered as a Financial Instruments Business Operator under Japan's Financial Instruments and Exchange Act. JII does not provide investment advice or solicit the purchase, sale, or holding of any security. JII Compounders is an editorial publication for educational and research purposes. Nothing herein constitutes a recommendation. Consult qualified, licensed advisors before any investment decision.
       </p>
     </div>
   </div>
@@ -470,7 +417,7 @@
 
 <footer>
   <div class="wrap foot-row">
-    <span><a href="/compounders/">All Compounder Profiles</a></span>
+    <span><a href="/compounders/">すべてのコンパウンダー・プロファイル</a></span>
     <span><a href="/">jpinv.com</a></span>
   </div>
 </footer>
