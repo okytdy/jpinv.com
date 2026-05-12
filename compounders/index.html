@@ -67,7 +67,25 @@
   .sort-btn.active { color: var(--ink-mid); border-color: var(--ink-mid); background: var(--bg-soft); }
 
   .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-  @media (max-width: 760px) { .grid { grid-template-columns: 1fr; } }
+  @media (max-width: 760px) {
+    .grid { grid-template-columns: 1fr; }
+    .wrap { padding: 0 20px; }
+    .hero { padding: 60px 0 44px; }
+    .hero-brand { margin-bottom: 24px; flex-wrap: wrap; }
+    .hero-lang { margin-left: 0; }
+    .hero p.lede { font-size: 1rem; line-height: 1.85; }
+    .gallery { padding: 40px 0 56px; }
+    .gallery-head { gap: 12px; }
+    .card { padding: 22px 20px 18px; }
+    .card-stats { gap: 16px; }
+    .substack-cta { padding: 24px 22px; gap: 18px; }
+    .substack-cta-title { font-size: 1.18rem; }
+    .substack-btn { width: 100%; justify-content: center; }
+    .disclaimer { padding: 40px 0 48px; margin-top: 40px; }
+    .d-title { font-size: 20px; }
+    .disclaimer-body { font-size: 13px; line-height: 1.85; }
+    .foot-row { flex-direction: column; gap: 8px; text-align: center; }
+  }
 
   .card {
     display: flex; flex-direction: column;
