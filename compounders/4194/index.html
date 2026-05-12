@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=1240">
-<title>4194 Visional · JII Compounder Profile</title>
-<meta name="description" content="JII Compounder Profile · 4194 Visional · price-regime decoding, investor debates, capital-efficiency levers, scenario pathways.">
-<meta property="og:title" content="JII Compounders · 4194 Visional">
-<meta property="og:description" content="Visional declined 7% over 24 months while TOPIX returned +49%. A study in single-stock narrative compression — and what the next two disclosures could reweight.">
+<title>4194 ビジョナル · JII Compounders 銘柄レポート</title>
+<meta name="description" content="JII Compounders 銘柄レポート · 4194 ビジョナル。過去24ヶ月の株価、投資家の論点、開示・資本政策の打ち手、株価シナリオを整理します。">
+<meta property="og:title" content="JII Compounders · 4194 ビジョナル">
+<meta property="og:description" content="過去24ヶ月でTOPIXが+49%となる一方、ビジョナルは−7%。成長ストーリーへの見方が縮んだ理由と、今後の開示で評価が変わり得る点を整理します。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://jpinv.com/compounders/4194/">
 <link rel="canonical" href="https://jpinv.com/compounders/4194/">
@@ -228,15 +228,15 @@
     <div class="masthead-inner">
       <div class="brand">
         <span class="brand-mono">J<span class="pipe">|</span>I</span>
-        <span class="brand-eyebrow">JII Compounders · プロファイル</span>
+        <span class="brand-eyebrow">JII Compounders · 銘柄レポート</span>
       </div>
       <div class="head-main">
         <div class="head-ticker-row">
-          <span class="head-ticker">TSE プライム · 4194 · 7月期</span>
+          <span class="head-ticker">東証プライム · 4194 · 7月期</span>
           <span class="head-co-jp">株式会社ビジョナル</span>
         </div>
         <div class="head-co">Visional, Inc.</div>
-        <div class="head-industry">HRテック · 採用プラットフォーム + HCM SaaS</div>
+        <div class="head-industry">人材・採用支援 · HCM SaaS</div>
       </div>
     </div>
 
@@ -253,7 +253,7 @@
       </div>
       <div class="stat">
         <div class="stat-label">EV / EBIT · 翌12ヶ月</div>
-        <div class="stat-val">9.8<small>x</small></div>
+        <div class="stat-val">9.8<small>倍</small></div>
         <div class="stat-ctx">3年中央値 <b>~13倍</b> / 同業中央値 <b>~12倍</b></div>
       </div>
       <div class="stat">
@@ -263,7 +263,7 @@
       </div>
       <div class="stat">
         <div class="stat-label">営業利益率 · 連結</div>
-        <div class="stat-val">29<small>% · 連結 / 33% HRテック</small></div>
+        <div class="stat-val">29<small>% · 連結 / 33% HR事業</small></div>
         <div class="stat-ctx">セグメント利益率は業界トップ水準</div>
       </div>
       <div class="stat">
@@ -278,13 +278,13 @@
   <section class="section">
     <div class="section-head">
       <div class="section-num">01 · 株価動向</div>
-      <h2 class="section-title">24ヶ月の株価アクション</h2>
-      <p class="section-sub">同期間でTOPIXが<b>+49%</b>のなか、Visionalは<b>−7%</b>。この下落はアルファであって、ベータではない — 問いは、市場が何を、なぜリプライシングしたか、である。</p>
+      <h2 class="section-title">過去24ヶ月の株価</h2>
+      <p class="section-sub">同じ期間にTOPIXが<b>+49%</b>となる一方、ビジョナルは<b>−7%</b>。市場全体や人材関連株の動きだけでは説明しにくい下落です。何が見直され、どこに評価差が残っているのかを整理します。</p>
     </div>
 
     <div class="chart-wrap">
       <div class="chart-meta">
-        <div class="chart-title">4194 vs TOPIX · 24ヶ月 · 日次ローソク + 出来高</div>
+        <div class="chart-title">4194 vs TOPIX · 24ヶ月 · 日次ローソク足 + 出来高</div>
         <div class="chart-key-levels">
           <span class="peak">高値 <b>¥12,310</b> · 2025-08-21</span>
           <span class="trough">安値 <b>¥6,347</b> · 2026-02-24</span>
@@ -294,7 +294,7 @@
       <!-- CHART · self-hosted Lightweight Charts + Yahoo Finance JP data -->
       <div class="tv-container" id="chart-4194"></div>
       <div class="chart-legend">
-        <span class="leg-item"><span class="leg-swatch candle"></span>Visional · 日次ローソク</span>
+        <span class="leg-item"><span class="leg-swatch candle"></span>ビジョナル · 日次ローソク足</span>
         <span class="leg-item"><span class="leg-swatch dashed"></span>60日移動平均</span>
         <span class="leg-item"><span class="leg-swatch" style="background:rgba(122,130,144,0.85)"></span>TOPIX 連動 ETF（1308.T、基準合わせ）</span>
         <span class="leg-item"><span class="leg-swatch hist"></span>出来高</span>
@@ -356,8 +356,8 @@
         });
         candleSeries.setData(CHART_DATA.candles);
         candleSeries.setMarkers([
-          { time: CHART_DATA.peak.time,   position: 'aboveBar', color: '#2f6f4f', shape: 'arrowDown', text: '\u00A5' + '12,310 peak' },
-          { time: CHART_DATA.trough.time, position: 'belowBar', color: '#b91c1c', shape: 'arrowUp',   text: '\u00A5' + '6,347 trough' },
+          { time: CHART_DATA.peak.time,   position: 'aboveBar', color: '#2f6f4f', shape: 'arrowDown', text: '\u00A5' + '12,310 高値' },
+          { time: CHART_DATA.trough.time, position: 'belowBar', color: '#b91c1c', shape: 'arrowUp',   text: '\u00A5' + '6,347 安値' },
         ]);
         // Volume histogram on a separate scale
         var volumeSeries = chart.addHistogramSeries({
@@ -379,19 +379,19 @@
     <div class="regime-narr">
       <p>
         <span class="pin">A · 2025年4月〜8月 · +67%</span>
-        このラリーは単一の決算で起きたものではなく、ナラティブのレジームチェンジだ。2025年6月開示のFY7/25 第3四半期で、BizReachが<b>YoY +19%、セグメント営業利益率 42.7%</b>で拡大を続ける一方、3年間赤字だったHRMOSがYTDベースで黒字転換し、ARRは<b>¥89.5億</b>に乗せた。プラットフォーム型コンパウンダーが教科書どおりにリレーティングする瞬間である — 既存のエンジンは回っており、2基目のエンジンが回り始めた。8月の高値¥12,310は<b>翌12ヶ月 EV/EBIT ~14倍</b>を織り込んだ水準で、Visionalがこれまで維持したことのない倍率だった。FY7/25 通期の織り込みだ。
+        この上昇は、単一の決算に対する反応というより、会社の見方が変わった局面でした。2025年6月発表のFY7/25第3四半期では、BizReachが<b>前年同期比+19%、セグメント営業利益率42.7%</b>で成長を続ける一方、3年間赤字だったHRMOSが年度累計で黒字化し、ARRは<b>89.5億円</b>に達しました。既存事業が高収益を維持し、次の成長事業も黒字化に近づいたことで、投資家は「採用支援の単一事業」ではなく、複数の収益源を持つ人材事業群として見始めました。8月の高値12,310円は、<b>翌12ヶ月EV/EBITで約14倍</b>を織り込む水準で、ビジョナルが継続的に維持してきた倍率を上回っていました。
       </p>
       <p>
         <span class="pin">B · 2025年8月〜2026年2月 · −48%</span>
-        巻き戻しは決算ミスによるものではない。9月のFY7/25 通期決算は堅調に着地し、FY7/26会社計画も増額された。ラリーを壊したのは<b>その計画の中身</b>だった。営業利益の成長率が売上の成長率を下回る — 社内版BizReach、Thinkings/sonar ATSの統合、Incubation事業への再投資が前倒し、と経営側が明確化したのだ。12月のFY7/26 Q1決算で、最悪シナリオが裏取りされた — チャートは利益率拡大を織り込み、開示は利益率圧縮を示した。<span class="dn">そこから2つのサイクルがディレーティングを加速させた。</span>第1のサイクル: HRMOSのオーガニックな黒字化を、sonar ATS連結効果から市場が分離できなかった — 開示の小数点ひとつが欠けていたため、最悪シナリオが値付けされた。第2のサイクル: 25年第4四半期にかけて日銀の利上げパスを背景に国内の採用意欲が慎重化し、BizReachと企業の採用マインドの正の相関を通じて、そのベータがリプライシングされた。
+        その後の下落は、決算が大きく外れたからではありません。9月発表のFY7/25通期決算は堅調で、FY7/26の会社計画も増収増益でした。問題は、増益幅よりも投資負担の見え方でした。社内版BizReach、Thinkings/sonar ATSの統合、Incubation事業への再投資が前倒しされ、売上成長ほどには営業利益が伸びない計画になったためです。12月のFY7/26第1四半期では、利益率拡大を期待していた株価に対し、開示はむしろ利益率の低下を示しました。<span class="dn">そこから評価倍率の低下が進みました。</span>一つは、HRMOSの黒字化が既存事業の成長によるものなのか、sonar ATSの連結効果によるものなのか、市場が切り分けられなかったこと。もう一つは、金利上昇観測を背景に国内企業の採用意欲が慎重化し、BizReachの景気感応度が意識されたことです。
       </p>
       <p>
-        <span class="pin">アルファ vs ベータ</span>
-        重要なのは、この下落は<b>個別株要因であって、セクター要因ではない</b>ということだ。同24ヶ月でVisionalは<span class="dn">−7%</span>、TOPIXは<span class="up">+49%</span>。市場対比で56ポイントのアンダーパフォームである。「これはサイクルだ」という整理は成立しない。HRテックのセクターベータでは、この動きはほぼ説明できない。リプライシングされたのは、<b>開示はされているが曖昧な資本効率に対して、投資家が払う倍率</b>だ。
+        <span class="pin">個別要因か、市場要因か</span>
+        重要なのは、この下落が<b>市場全体の動きだけでは説明できない</b>ことです。同じ24ヶ月でビジョナルは<span class="dn">−7%</span>、TOPIXは<span class="up">+49%</span>。市場対比では56ポイントの差があります。単に景気循環や人材関連株の弱さで片付けるには大きすぎます。見直されたのは、成長投資と資本効率の関係が十分に読み取れない会社に対して、投資家が払う倍率でした。
       </p>
       <p>
-        <span class="pin">C · 2026年3月 · 底から+16%</span>
-        3月17日のFY7/26 Q2決算が最悪シナリオをリセットした。Q2 YTD売上 <b>¥466億（YoY +26.2%）</b>、HRテックセグメント営業利益率<b>33%維持</b>、HRMOSはYTD・四半期ともに黒字、ARR ¥89.5億、通期会社計画は据え置き。市場は¥6,347の底値から+16%で応えた。回復はエンジンへの信頼を戻したが、倍率は戻していない。<span class="neutral">直近¥7,337から8月高値までのギャップは、もはや利益の問題ではない — 開示の問題である。</span>HRMOSのオーガニックな収益力を、M&A連結効果から市場が分離できるようになるまで、倍率は EV/EBIT 8倍ゾーンに留まり、14倍ゾーンには戻らない。
+        <span class="pin">C · 2026年3月 · 底値から+16%</span>
+        3月17日のFY7/26第2四半期決算で、最悪ケースへの懸念はいったん後退しました。第2四半期累計売上は<b>466億円（前年同期比+26.2%）</b>、HR事業の営業利益率は<b>33%</b>を維持し、HRMOSは累計・四半期ともに黒字でした。ARRは89.5億円、通期会社計画も据え置かれました。株価は6,347円の安値から+16%戻しましたが、評価倍率はまだ戻っていません。<span class="neutral">直近7,337円から2025年8月高値までの差は、業績そのものよりも開示の問題です。</span>HRMOSの既存事業ベースの収益力を、市場がM&A連結効果と切り分けて確認できるまで、EV/EBITは8倍前後にとどまり、14倍近辺には戻りにくいと考えられます。
       </p>
     </div>
   </section>
@@ -400,48 +400,48 @@
   <section class="section">
     <div class="section-head">
       <div class="section-num">02 · 論点</div>
-      <h2 class="section-title">投資家のライブ論点</h2>
-      <p class="section-sub">セルサイド・レポート、IR Q&amp;A、株価アクションに現在見える3つの論点。それぞれが倍率の別の部分を決定する。</p>
+      <h2 class="section-title">投資家が見ている論点</h2>
+      <p class="section-sub">足元の株価、会社説明、セルサイドの見方から浮かぶ論点は3つです。いずれも、ビジョナルにどの程度の評価倍率を付けるべきかに直結します。</p>
     </div>
 
     <div class="ct-grid">
 
       <div class="ct-card">
         <div class="ct-tag">論点 01 · 利益の質</div>
-        <div class="ct-q">HRMOSの黒字化はオーガニックか、それともsonar ATS連結効果が主因か？</div>
+        <div class="ct-q">HRMOSの黒字化は、既存事業の成長によるものか、sonar ATSの連結効果によるものか。</div>
         <div class="ct-side">
           <span class="ct-side-tag bull">強気</span>
-          <span class="ct-side-text">強気側はARR <b>¥89.5億</b>、解約率の規律、有料顧客 <b>9,974社</b>、コスト全部配賦ベースでもYTDで黒字、を指摘する。確認指標としては <b>Q3でオーガニックARR成長率 ≥ YoY +25%</b>。</span>
+          <span class="ct-side-text">強気側は、ARR<b>89.5億円</b>、低い解約率、有料顧客<b>9,974社</b>、費用を全配賦しても累計で黒字という点を評価します。確認したいのは、<b>第3四半期の既存事業ベースARR成長率が前年同期比+25%以上</b>かどうかです。</span>
         </div>
         <div class="ct-side">
           <span class="ct-side-tag bear">弱気</span>
-          <span class="ct-side-text">弱気側はsonar ATSがQ2に3ヶ月通期連結された一方、オーガニック開示がないことを指摘する。確認指標としては <b>Q3でオーガニックARR成長率 ≤ YoY +12%</b> なら、見かけ上の押し上げが裏取りされる。</span>
+          <span class="ct-side-text">弱気側は、第2四半期からsonar ATSが3ヶ月分連結された一方、既存事業ベースのARRが開示されていない点を懸念します。<b>第3四半期の既存事業ベースARR成長率が前年同期比+12%以下</b>であれば、連結効果による見かけ上の押し上げが大きかったことになります。</span>
         </div>
       </div>
 
       <div class="ct-card">
         <div class="ct-tag">論点 02 · 投資ペース</div>
-        <div class="ct-q">「投資年度」は単年なのか、それとも姿勢として定着したのか？</div>
+        <div class="ct-q">今期の投資負担は一時的なものか、それとも今後も続く前提なのか。</div>
         <div class="ct-side">
           <span class="ct-side-tag bull">強気</span>
-          <span class="ct-side-text">強気側は、3つの投資プログラムを自己資金で回しながら売上 <b>YoY +26.2%</b>、FY7/26の減価償却費がわずか<b>¥29億</b>であることを挙げる。確認指標は <b>FY7/26 連結営業利益率 ≥ 26%</b>。</span>
+          <span class="ct-side-text">強気側は、複数の投資を自己資金で進めながら売上が<b>前年同期比+26.2%</b>で伸び、FY7/26の減価償却費も<b>29億円</b>にとどまる点を評価します。確認したいのは、<b>FY7/26の連結営業利益率が26%以上</b>で着地するかどうかです。</span>
         </div>
         <div class="ct-side">
           <span class="ct-side-tag bear">弱気</span>
-          <span class="ct-side-text">弱気側は、IncubationおよびInternal BizReachに対する明示的なIRRハードルがないことを指摘する。確認指標は <b>FY7/26 連結営業利益率を ≤ 22%</b> に下方修正なら、構造的なマージン重しが裏取りされる。</span>
+          <span class="ct-side-text">弱気側は、Incubationや社内版BizReachへの投資について、回収基準や投資判断のハードルが明確に示されていない点を問題にします。<b>FY7/26の連結営業利益率が22%以下に下方修正</b>されれば、利益率の重しが一時的ではないとの見方が強まります。</span>
         </div>
       </div>
 
       <div class="ct-card">
-        <div class="ct-tag">論点 03 · 採用循環ベータ</div>
-        <div class="ct-q">BizReachのどこまでが構造的ネットワーク効果で、どこからが企業採用サイクルのベータか？</div>
+        <div class="ct-tag">論点 03 · 採用市況への感応度</div>
+        <div class="ct-q">BizReachの成長は、どこまで構造的な強さで、どこからが採用市況の追い風なのか。</div>
         <div class="ct-side">
           <span class="ct-side-tag bull">強気</span>
-          <span class="ct-side-text">強気側は、直接採用企業 <b>41,800社超</b>、アクティブヘッドハンター 9,700人超、16年分のデータ蓄積による双方向ネットワークを挙げる。確認指標は <b>国内採用ボトムでもBizReach売上が YoY +15%以上を維持</b>。</span>
+          <span class="ct-side-text">強気側は、直接採用企業<b>41,800社超</b>、稼働ヘッドハンター9,700人超、16年分のデータ蓄積によるネットワーク効果を評価します。確認したいのは、<b>国内採用が弱い局面でもBizReach売上が前年同期比+15%以上を維持</b>できるかです。</span>
         </div>
         <div class="ct-side">
           <span class="ct-side-tag bear">弱気</span>
-          <span class="ct-side-text">弱気側は、有報自身が採用需要への感応度を主要リスクとしていることを指摘する。確認指標は <b>日本のPMIが47に下がる局面でBizReach成長率が YoY +8%以下</b>。</span>
+          <span class="ct-side-text">弱気側は、会社自身が有価証券報告書で採用需要の変動を主要リスクとして挙げている点を重視します。<b>日本のPMIが47程度まで低下する局面でBizReachの成長率が前年同期比+8%以下</b>に落ちるなら、市況感応度の高さが意識されます。</span>
         </div>
       </div>
 
@@ -451,25 +451,25 @@
   <!-- ============================== 3 · CATALYST ============================== -->
   <section class="section gem">
     <div class="section-head">
-      <div class="section-num">03 · 触媒</div>
-      <h2 class="section-title">資本効率レバー</h2>
-      <p class="section-sub">開示資料中に見える3つの開示または資本政策レバー。それぞれが利益成長を<b>必要とせずに</b>倍率をリレーティングしうる。</p>
+      <div class="section-num">03 · 評価改善</div>
+      <h2 class="section-title">評価を変え得る開示・資本政策</h2>
+      <p class="section-sub">利益成長を待たなくても、市場の理解が進めば評価倍率が変わり得る点はあります。ビジョナルの場合、打ち手は主に3つです。</p>
     </div>
 
     <div class="cat-grid">
 
       <div class="cat-card">
-        <div class="cat-num">レバー 01 · 開示</div>
-        <div class="cat-title">HRMOS ARR のオーガニック vs. 連結効果の内訳</div>
+        <div class="cat-num">打ち手 01 · 開示</div>
+        <div class="cat-title">HRMOS ARRの既存事業成長と連結効果の内訳</div>
         <div class="cat-viz">
-          <div class="cat-viz-label">ARR 構成の不透明性（¥億）</div>
+          <div class="cat-viz-label">ARR構成の見えにくさ（億円）</div>
           <div class="cat-viz-bar-row">
             <div class="cat-viz-bar-label">開示ARR</div>
             <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:100%;background:#1a2a4a"></div></div>
             <div class="cat-viz-bar-val">¥89.5</div>
           </div>
           <div class="cat-viz-bar-row">
-            <div class="cat-viz-bar-label">オーガニック推計</div>
+            <div class="cat-viz-bar-label">既存事業ベース推計</div>
             <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:78%;background:#2f6f4f"></div></div>
             <div class="cat-viz-bar-val">~¥70.0</div>
           </div>
@@ -478,29 +478,29 @@
             <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:22%;background:#b88a3a"></div></div>
             <div class="cat-viz-bar-val">~¥19.5</div>
           </div>
-          <div class="cat-viz-cap">この内訳の開示がセグメントをリプライシングする</div>
+          <div class="cat-viz-cap">この内訳が分かれば、HRMOSの評価は大きく変わる</div>
         </div>
         <div class="cat-takeaway">
-          倍率を壊したのは、この1つの欠けた開示である。開示ARRをオーガニックとsonar連結効果に分解すれば、プラットフォーム仮説が立証されるか、戦略の軌道修正が促されるか — どちらの結果でも、現在投資家がかけている不透明性ディスカウントは圧縮される。
+          評価倍率を押し下げた大きな要因は、この内訳が見えないことです。開示ARRを既存事業の成長分とsonar ATSの連結効果に分ければ、HRMOSが自力で伸びているのか、M&Aによる押し上げが大きいのかを投資家が判断できます。どちらの結果であっても、不明確さに対する割引は小さくなります。
         </div>
         <div class="cat-meta">
           <div><dt>経営側のコスト</dt><dd>脚注ひとつ</dd></div>
-          <div><dt>最早の発動タイミング</dt><dd>Q3決算 · 2026年6月</dd></div>
+          <div><dt>最短の実行時期</dt><dd>Q3決算 · 2026年6月</dd></div>
         </div>
       </div>
 
       <div class="cat-card">
-        <div class="cat-num">レバー 02 · 開示</div>
-        <div class="cat-title">社内版BizReach のアタッチ・パイプライン指標</div>
+        <div class="cat-num">打ち手 02 · 開示</div>
+        <div class="cat-title">社内版BizReachの導入・本稼働指標</div>
         <div class="cat-viz">
-          <div class="cat-viz-label">パイロット → 本稼働 ファネル（イメージ）</div>
+          <div class="cat-viz-label">試験導入から本稼働まで（イメージ）</div>
           <div class="cat-viz-bar-row">
-            <div class="cat-viz-bar-label">1年目パイロット</div>
+            <div class="cat-viz-bar-label">1年目の試験導入</div>
             <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:100%;background:#b88a3a"></div></div>
             <div class="cat-viz-bar-val">未開示</div>
           </div>
           <div class="cat-viz-bar-row">
-            <div class="cat-viz-bar-label">本稼働への転換</div>
+            <div class="cat-viz-bar-label">本稼働への移行</div>
             <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:60%;background:#b88a3a"></div></div>
             <div class="cat-viz-bar-val">未開示</div>
           </div>
@@ -509,22 +509,22 @@
             <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:75%;background:#b88a3a"></div></div>
             <div class="cat-viz-bar-val">~12ヶ月</div>
           </div>
-          <div class="cat-viz-cap">売上計上前に資本が固定されている</div>
+          <div class="cat-viz-cap">売上化する前に投資が先行する</div>
         </div>
         <div class="cat-takeaway">
-          大企業向け社内版BizReachのパイロットは、本稼働までおよそ12ヶ月。四半期ごとにパイロット件数、本稼働への転換率、アタッチ率を開示すれば、ブラックボックスだった投資プログラムが、市場がアンダーライトできる先行指標に変わる。
+          大企業向けの社内版BizReachは、試験導入から本稼働までおよそ12ヶ月を要します。四半期ごとに試験導入件数、本稼働への移行率、既存顧客への導入率を示せば、先行投資として見えにくかった取り組みが、投資家にとって追跡可能な先行指標に変わります。
         </div>
         <div class="cat-meta">
-          <div><dt>経営側のコスト</dt><dd>KPI 表</dd></div>
-          <div><dt>最早の発動タイミング</dt><dd>Q4決算 · 2026年9月</dd></div>
+          <div><dt>経営側のコスト</dt><dd>KPI表</dd></div>
+          <div><dt>最短の実行時期</dt><dd>Q4決算 · 2026年9月</dd></div>
         </div>
       </div>
 
       <div class="cat-card">
-        <div class="cat-num">レバー 03 · 資本政策</div>
-        <div class="cat-title">¥700億の現金 · 明示的な株主還元方針</div>
+        <div class="cat-num">打ち手 03 · 資本政策</div>
+        <div class="cat-title">約700億円の純現金と株主還元方針</div>
         <div class="cat-viz">
-          <div class="cat-viz-label">純現金の構成（¥億）</div>
+          <div class="cat-viz-label">純現金の構成（億円）</div>
           <div class="cat-viz-bar-row">
             <div class="cat-viz-bar-label">総現金</div>
             <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:100%;background:#2f6f4f"></div></div>
@@ -540,14 +540,14 @@
             <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:24%;background:#b08a4a"></div></div>
             <div class="cat-viz-bar-val">24%</div>
           </div>
-          <div class="cat-viz-cap">自社株買い無、配当無、方針未開示</div>
+          <div class="cat-viz-cap">自社株買い・配当なし、方針も未開示</div>
         </div>
         <div class="cat-takeaway">
-          純現金は<b>時価総額の24%</b>に達しているが、株主還元方針は明示されていない。控えめでも、たとえば<b>2年で¥100億規模の自社株買い枠</b>といったフォーミュラベースの設定があれば、EVと時価総額の乖離を圧縮し、Incubation投資に対するハードル規律のシグナルにもなる。
+          純現金は<b>時価総額の24%</b>に達していますが、株主還元方針は明示されていません。たとえば<b>2年間で100億円規模の自社株買い枠</b>や、一定の現金水準を超えた分を還元に回す方針が示されれば、EVと時価総額の差が縮まります。同時に、Incubation投資にも明確な投資規律を置いているというメッセージになります。
         </div>
         <div class="cat-meta">
           <div><dt>経営側のコスト</dt><dd>取締役会決議</dd></div>
-          <div><dt>最早の発動タイミング</dt><dd>FY7/26通期決算 · 2026年9月</dd></div>
+          <div><dt>最短の実行時期</dt><dd>FY7/26通期決算 · 2026年9月</dd></div>
         </div>
       </div>
 
@@ -557,61 +557,61 @@
   <!-- ============================== 4 · VALUATION ============================== -->
   <section class="section">
     <div class="section-head">
-      <div class="section-num">04 · バリュエーション</div>
-      <h2 class="section-title">シナリオ・パスウェイ</h2>
-      <p class="section-sub">今後4四半期に向けた、内部整合的な3つのシナリオ。それぞれが異なる開示・業績アウトカムの組み合わせを描く — どのシナリオも予想ではなく、<b>分析上のブックエンド</b>である。</p>
+      <div class="section-num">04 · 価値評価</div>
+      <h2 class="section-title">株価シナリオ</h2>
+      <p class="section-sub">今後4四半期について、弱気・中立・強気の3ケースを置きます。いずれも予想ではなく、業績と開示の組み合わせで株価の見え方がどう変わるかを整理するための分析上の幅です。</p>
     </div>
 
     <div class="scn-grid">
 
       <div class="scn-card bear">
-        <div class="scn-tag bear">ベアシナリオ</div>
+        <div class="scn-tag bear">弱気ケース</div>
         <div class="scn-price">¥6,000 – ¥7,000</div>
         <div class="scn-delta dn">−18% 〜 −5%</div>
-        <div class="scn-mult">想定倍率 · EV/EBIT ~7–8倍</div>
+        <div class="scn-mult">想定倍率 · EV/EBIT 約7–8倍</div>
         <div class="scn-prem">
-          不透明性ディスカウントが恒久化する。<b>集計ベースのARR開示が継続</b>、採用ベータが急激にリプライシング、株主還元シグナルなし。
+          不明確さへの割引が残るケースです。<b>ARRが合算ベースのまま開示され</b>、採用市況への感応度が意識され、株主還元方針も示されない場合を想定します。
         </div>
         <div class="scn-driver-head">これが起こる条件</div>
         <ul class="scn-drivers">
-          <li>Q3でHRMOSのオーガニックARR成長率が連結効果を除いて <b>YoY +12%以下</b>に着地。</li>
-          <li>Incubation投資負担増を理由に、FY7/26会社計画が <b>連結営業利益率 ≤ 22%</b> に下方修正。</li>
-          <li>BizReachの売上成長率が <b>2四半期連続で YoY +10%以下</b>。</li>
-          <li>Q4/通期決算時点で自社株買いのシグナルなし。</li>
+          <li>第3四半期のHRMOS既存事業ベースARR成長率が、連結効果を除いて<b>前年同期比+12%以下</b>にとどまる。</li>
+          <li>Incubation投資の負担増を理由に、FY7/26会社計画が<b>連結営業利益率22%以下</b>へ下方修正される。</li>
+          <li>BizReachの売上成長率が<b>2四半期連続で前年同期比+10%以下</b>となる。</li>
+          <li>第4四半期または通期決算時点でも、自社株買い等の資本政策が示されない。</li>
         </ul>
       </div>
 
       <div class="scn-card base">
-        <div class="scn-tag base">ベースシナリオ</div>
+        <div class="scn-tag base">中立ケース</div>
         <div class="scn-price">¥8,500 – ¥10,500</div>
         <div class="scn-delta up">+16% 〜 +43%</div>
-        <div class="scn-mult">想定倍率 · EV/EBIT ~10–12倍</div>
+        <div class="scn-mult">想定倍率 · EV/EBIT 約10–12倍</div>
         <div class="scn-prem">
-          3つのレバーのうち1〜2つが好転。<b>オーガニックARR開示</b>が健全な内訳を裏取りし、社内版BizReachのアタッチ指標が表に出始める。
+          3つの打ち手のうち1〜2つが前進するケースです。<b>既存事業ベースのARR</b>によってHRMOSの成長が確認され、社内版BizReachの導入指標も一部開示され始める場合を想定します。
         </div>
         <div class="scn-driver-head">これが起こる条件</div>
         <ul class="scn-drivers">
-          <li>Q3決算で <b>オーガニックHRMOS ARR成長率が YoY +18〜25%</b> レンジで開示。</li>
-          <li>3つの投資プログラムを維持しつつ、FY7/26 連結営業利益率が <b>24〜26%</b> で着地。</li>
-          <li>通期までに <b>社内版BizReachのKPI開示</b> が少なくとも1四半期分。</li>
-          <li>通期決算の資本配分方針の中で、純現金ポジションへの言及あり。</li>
+          <li>第3四半期決算で、<b>HRMOSの既存事業ベースARR成長率が前年同期比+18〜25%</b>程度と示される。</li>
+          <li>複数の成長投資を継続しつつ、FY7/26の連結営業利益率が<b>24〜26%</b>で着地する。</li>
+          <li>通期までに、<b>社内版BizReachの導入・本稼働に関するKPI</b>が少なくとも1四半期分開示される。</li>
+          <li>通期決算の資本配分方針で、純現金の水準や使い道に言及がある。</li>
         </ul>
       </div>
 
       <div class="scn-card bull">
-        <div class="scn-tag bull">ブルシナリオ</div>
+        <div class="scn-tag bull">強気ケース</div>
         <div class="scn-price">¥11,500 – ¥12,500</div>
         <div class="scn-delta up">+57% 〜 +70%</div>
-        <div class="scn-mult">想定倍率 · EV/EBIT ~12–13倍</div>
+        <div class="scn-mult">想定倍率 · EV/EBIT 約12–13倍</div>
         <div class="scn-prem">
-          3つのレバーすべてが好転し、倍率が<b>プラットフォーム同業の中央値</b>にリセット。2025年8月の高値が射程に入る。
+          3つの打ち手がすべて前進し、評価倍率が<b>同業の中位水準</b>に近づくケースです。2025年8月高値の水準が再び視野に入ります。
         </div>
         <div class="scn-driver-head">これが起こる条件</div>
         <ul class="scn-drivers">
-          <li>HRMOSのオーガニックARR成長率が <b>YoY +25%以上</b> で開示、sonar連結効果が分離。</li>
-          <li>FY7/26 連結営業利益率が <b>26%以上</b> で着地、社内版BizReachのKPI表も併出。</li>
-          <li>自社株買い枠 <b>2年で¥100億以上</b>、またはフォーミュラベースの株主還元方針開示。</li>
-          <li>国内採用が冷え込む局面でも、BizReach売上が <b>YoY +15%以上</b>。</li>
+          <li>HRMOSの既存事業ベースARR成長率が<b>前年同期比+25%以上</b>で開示され、sonar ATSの連結効果も分離される。</li>
+          <li>FY7/26の連結営業利益率が<b>26%以上</b>で着地し、社内版BizReachのKPIも併せて開示される。</li>
+          <li><b>2年間で100億円以上</b>の自社株買い枠、または一定の基準に基づく株主還元方針が示される。</li>
+          <li>国内採用が弱い局面でも、BizReach売上が<b>前年同期比+15%以上</b>を維持する。</li>
         </ul>
       </div>
 
@@ -620,22 +620,22 @@
     <!-- SOTP -->
     <div class="sotp">
       <div class="sotp-card">
-        <div class="sotp-head">事業別合算評価 · BIZREACH</div>
-        <div class="sotp-name">採用プラットフォーム · 黒字スケール</div>
-        <div class="sotp-row"><span class="k">2Q YTD売上（ランレート換算）</span><span class="v">¥770億</span></div>
+        <div class="sotp-head">事業別評価 · BIZREACH</div>
+        <div class="sotp-name">採用支援事業 · 高収益フェーズ</div>
+        <div class="sotp-row"><span class="k">第2四半期累計売上（年換算）</span><span class="v">770億円</span></div>
         <div class="sotp-row"><span class="k">セグメント営業利益率</span><span class="v">42.7%</span></div>
-        <div class="sotp-row"><span class="k">想定EBIT</span><span class="v">~¥330億</span></div>
+        <div class="sotp-row"><span class="k">想定EBIT</span><span class="v">約330億円</span></div>
         <div class="sotp-row"><span class="k">同業倍率（6098, 2379）</span><span class="v">EV/EBIT 11–18倍</span></div>
-        <div class="sotp-foot">中位想定EV: <b>~¥4,300億</b>（EV/EBIT 13倍）</div>
+        <div class="sotp-foot">中位想定EV: <b>約4,300億円</b>（EV/EBIT 13倍）</div>
       </div>
       <div class="sotp-card">
-        <div class="sotp-head">事業別合算評価 · HRMOS + INCUBATION</div>
+        <div class="sotp-head">事業別評価 · HRMOS + INCUBATION</div>
         <div class="sotp-name">HCM SaaS · 黒字化初期</div>
-        <div class="sotp-row"><span class="k">HRMOS ARR（開示ベース）</span><span class="v">¥89.5億</span></div>
-        <div class="sotp-row"><span class="k">Incubation 2Q YTD売上</span><span class="v">¥25億</span></div>
+        <div class="sotp-row"><span class="k">HRMOS ARR（開示ベース）</span><span class="v">89.5億円</span></div>
+        <div class="sotp-row"><span class="k">Incubation 第2四半期累計売上</span><span class="v">25億円</span></div>
         <div class="sotp-row"><span class="k">同業倍率（4435, 4478）</span><span class="v">EV/Sales 6–10倍</span></div>
         <div class="sotp-row"><span class="k">Incubation評価</span><span class="v">簿価</span></div>
-        <div class="sotp-foot">中位想定EV: <b>~¥750億</b>（EV/Sales 8倍）</div>
+        <div class="sotp-foot">中位想定EV: <b>約750億円</b>（EV/Sales 8倍）</div>
       </div>
     </div>
 
@@ -652,16 +652,16 @@
         <b>株式会社ジャパン・インベスター・インターフェース（以下「JII」）</b>はIRコンサルティング事業を行う会社であり、いかなる管轄においても投資助言業者、金融アドバイザー、証券会社、または証券業者として登録されていません。JIIは、日本の金融商品取引法に基づく<b>金融商品取引業者</b>ではなく、投資助言・代理業の登録も保有しておりません。JIIは、投資助言を行うものでも、特定の有価証券の取得・売却・保有を勧誘するものでもありません。
       </p>
       <p>
-        <b>JII Compoundersは編集的パブリケーションです。</b>各プロファイルは、ある日本上場企業について公に開示された情報が、市場にどう受け取られてきたかを分析した記事であり、IR実務家、ファイナンスの学生、ジャーナリスト、その他企業開示実務に関心を持つ読者を対象とした、教育・調査目的のものです。<b>本パブリケーションの内容は、いかなる有価証券・派生商品・その他金融商品の取得・売却・保有に関する推奨、意見、提案、勧誘を構成するものではありません。</b>目標株価、シナリオレンジ、倍率、類似企業比較などは分析手法の例示であり、JIIの投資意見と解釈してはなりません。
+        <b>JII Compoundersは、教育・調査を目的とする編集コンテンツです。</b>各銘柄レポートは、日本の上場企業が公表している情報をもとに、その情報が市場でどのように受け止められてきたかを考察するものです。想定読者は、IR実務者、金融を学ぶ方、報道関係者、企業開示に関心のある方です。<b>掲載内容は、いかなる有価証券、デリバティブその他の金融商品の取得・売却・保有を推奨、提案、勧誘するものではありません。</b>株価水準、シナリオ、倍率、類似企業比較は分析方法を示すための例であり、JIIの投資判断を示すものではありません。
       </p>
       <p>
-        <b>依拠の不可。</b>記載情報は不完全、古い、または不正確な可能性があります。将来予測に関する記述には本質的な不確実性が伴います。過去の株価パフォーマンスは将来の結果を示しません。推計値やシナリオ値は予測ではなく、実現しない可能性があります。
+        <b>ご利用にあたって。</b>記載情報は不完全であったり、古くなっていたり、誤りを含んでいたりする可能性があります。将来に関する記述には不確実性があります。過去の株価推移は将来の成果を示すものではありません。推計値やシナリオ値は予測ではなく、実現しない可能性があります。
       </p>
       <p>
-        <b>受託または助言関係の不存在。</b>本パブリケーションを閲覧することによって、読者とJIIとの間に助言、受託、または専門職としての関係が発生することは一切ありません。投資・税務・会計・法務その他の意思決定の前に、資格を有する専門家にご相談ください。
+        <b>助言関係等は生じません。</b>本コンテンツを閲覧しても、読者とJIIとの間に助言、受託、その他専門職としての関係は生じません。投資、税務、会計、法務その他の判断を行う前に、資格を有する専門家にご相談ください。
       </p>
       <p>
-        <b>利益相反およびポジション。</b>JIIは、本パブリケーションで言及される企業を含め、日本上場企業に対して有償でIR診断、翻訳、または通訳サービスを提供する場合があります。JIIは、プロファイル対象企業の有価証券を売買せず、ポジションを保有しません。プロファイル対象企業との間にJII有償契約が存在する場合、その事実をプロファイル冒頭に開示します。
+        <b>利益相反および保有状況。</b>JIIは、本コンテンツで言及する企業を含め、日本の上場企業に対して有償でIR診断、翻訳、通訳等のサービスを提供する場合があります。JIIは、銘柄レポートの対象企業の有価証券を売買せず、保有もしません。対象企業との間に有償契約がある場合は、銘柄レポートの冒頭で開示します。
       </p>
       <p>
         <b>商標およびデータ。</b>本資料中で言及される企業名、ロゴ、ティッカー、製品名は、各々の所有者に帰属します。株価データは第三者プロバイダーからライセンスを受けています。TradingViewはTradingView, Inc.の商標です。
@@ -673,7 +673,7 @@
   </section>
 
   <div class="meth">
-    <span><a href="/compounders/">すべてのプロファイル</a> · <a href="/compounders/methodology/">方法論</a></span>
+    <span><a href="/compounders/">すべての銘柄レポート</a> · <a href="/compounders/methodology/">6つの考え方</a></span>
     <span>Japan Investor Interface Co., Ltd.</span>
   </div>
 
