@@ -75,6 +75,34 @@
   .sort-btn { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; color: var(--text-mid); text-transform: uppercase; padding: 7px 14px; border: 1px solid var(--rule); background: var(--bg); cursor: pointer; transition: all 0.18s; font-weight: 500; }
   .sort-btn:hover { color: var(--ink); border-color: var(--ink-soft); }
   .sort-btn.active { color: var(--ink-mid); border-color: var(--ink-mid); background: var(--bg-soft); }
+  /* Universe callout — the gem of the page */
+  .universe-band { position: relative; padding: 56px 0; border-bottom: 1px solid var(--rule); background: var(--bg-soft); overflow: hidden; }
+  .universe-band::before {
+    content:''; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(15,31,58,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(15,31,58,0.025) 1px, transparent 1px);
+    background-size: 48px 48px;
+    -webkit-mask-image: linear-gradient(180deg, transparent, black 20%, black 80%, transparent);
+            mask-image: linear-gradient(180deg, transparent, black 20%, black 80%, transparent);
+    pointer-events: none;
+  }
+  .universe-band-inner { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center; }
+  .universe-band-text { max-width: 720px; }
+  .universe-band-eyebrow { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.32em; color: var(--accent-deep); text-transform: uppercase; margin-bottom: 12px; font-weight: 500; }
+  .universe-band-title { font-family: var(--serif); font-size: 1.7rem; font-weight: 300; color: var(--ink-mid); line-height: 1.3; margin: 0 0 12px; letter-spacing: 0.01em; }
+  .universe-band-title em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
+  .universe-band-body { font-size: 0.97rem; line-height: 1.75; color: var(--text); margin: 0; }
+  .universe-cta { display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--bg); background: var(--ink-mid); padding: 16px 26px; border: 1px solid var(--ink-mid); white-space: nowrap; transition: all 0.18s; font-weight: 500; }
+  .universe-cta:hover { background: var(--ink); border-color: var(--ink); color: var(--accent-soft); }
+  .universe-cta-arrow { font-family: var(--serif); font-size: 14px; }
+  @media (max-width: 760px) {
+    .universe-band { padding: 40px 0; }
+    .universe-band-inner { grid-template-columns: 1fr; gap: 22px; }
+    .universe-band-title { font-size: 1.35rem; }
+    .universe-cta { width: 100%; justify-content: center; padding: 14px 20px; }
+  }
+
 
   .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
   @media (max-width: 760px) {
@@ -165,6 +193,19 @@
       <div class="hero-eyebrow">JII Compounders</div>
       <h1>Capital efficiency, <em>compounded further</em>.</h1>
       <p class="lede">A curated repository of editorial profiles on Japanese listed companies. Each profile decodes <b>why a stock has traded the way it has</b>, <b>what investors are debating</b>, <b>which capital-efficiency levers are visible in the disclosures</b>, and <b>what scenario pathways look like</b> — one company at a time.<br><br>For more detail, read the <a href="/en/compounders/methodology/" style="color:var(--ink-mid); border-bottom:1px solid var(--accent);">Methodology</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="universe-band">
+  <div class="wrap">
+    <div class="universe-band-inner">
+      <div class="universe-band-text">
+        <div class="universe-band-eyebrow">The standing universe</div>
+        <h2 class="universe-band-title">71 Japanese listed companies that meet — or narrowly miss — <em>our screen</em>.</h2>
+        <p class="universe-band-body">Sortable by market cap, valuation, capital efficiency, and free-cash-flow yield. Refreshed against the most recent close. The starting point for every Profile we publish.</p>
+      </div>
+      <a class="universe-cta" href="/en/compounders/universe/">View the watch universe <span class="universe-cta-arrow">→</span></a>
     </div>
   </div>
 </section>
