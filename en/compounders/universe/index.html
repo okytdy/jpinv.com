@@ -19,7 +19,7 @@
     --text-dim:#7a8290; --accent:#b08a4a; --accent-deep:#9a7838; --accent-soft:#f4eee4;
     --ok:#2f6f4f; --bad:#b91c1c; --warn:#b88a3a;
     --serif:'Noto Serif JP','Yu Mincho',serif; --sans:'Noto Sans JP','Hiragino Kaku Gothic ProN',sans-serif;
-    --mono:'DM Mono',monospace; --max:1280px; }
+    --mono:'DM Mono',monospace; --max:1320px; }
   *,*::before,*::after { box-sizing:border-box; }
   html,body { margin:0; padding:0; background:var(--bg); color:var(--text); font-family:var(--sans); font-size:14px; line-height:1.6; }
   a { color:var(--ink-soft); text-decoration:none; }
@@ -31,24 +31,24 @@
   .hero p { font-size:15px; color:var(--text); max-width:820px; line-height:1.75; margin:0; }
   .hero p a { color:var(--accent-deep); border-bottom:1px solid var(--accent); }
   .controls { display:flex; gap:24px; padding:18px 0; border-bottom:1px solid var(--rule); flex-wrap:wrap; align-items:center; }
-  .ctrl-group { display:flex; align-items:center; gap:10px; }
+  .ctrl-group { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
   .ctrl-label { font-family:var(--mono); font-size:10px; letter-spacing:0.2em; color:var(--text-dim); text-transform:uppercase; }
   .btn { font-family:var(--mono); font-size:11px; letter-spacing:0.14em; color:var(--text-mid); text-transform:uppercase; padding:6px 12px; border:1px solid var(--rule); background:var(--bg); cursor:pointer; transition:all 0.15s; }
   .btn:hover { color:var(--ink); border-color:var(--ink-soft); }
   .btn.active { color:var(--ink-mid); border-color:var(--ink-mid); background:var(--bg-soft); }
-  table { width:100%; border-collapse:collapse; margin-top:0; font-size:12.5px; }
-  thead th { font-family:var(--mono); font-size:10px; letter-spacing:0.14em; color:var(--text-dim); text-transform:uppercase; padding:12px 10px; border-bottom:1px solid var(--rule); text-align:left; cursor:pointer; user-select:none; white-space:nowrap; }
+  table { width:100%; border-collapse:collapse; margin-top:0; font-size:12px; }
+  thead th { font-family:var(--mono); font-size:10px; letter-spacing:0.14em; color:var(--text-dim); text-transform:uppercase; padding:12px 8px; border-bottom:1px solid var(--rule); text-align:left; cursor:pointer; user-select:none; white-space:nowrap; }
   thead th:hover { color:var(--ink); }
   thead th.cell-num, td.cell-num { text-align:right; font-variant-numeric:tabular-nums; font-family:var(--mono); }
   tbody tr { border-bottom:1px solid var(--rule-soft); transition:background 0.1s; }
   tbody tr:hover { background:var(--bg-soft); }
   tbody tr.row-hidden { display:none; }
-  td { padding:9px 10px; vertical-align:middle; }
-  .cell-rank { font-family:var(--mono); color:var(--text-dim); font-size:11px; width:40px; }
-  .cell-tk { font-family:var(--mono); font-weight:500; color:var(--ink-soft); white-space:nowrap; width:80px; }
+  td { padding:9px 8px; vertical-align:middle; }
+  .cell-rank { font-family:var(--mono); color:var(--text-dim); font-size:11px; width:36px; }
+  .cell-tk { font-family:var(--mono); font-weight:500; color:var(--ink-soft); white-space:nowrap; width:64px; }
   .cell-tk a { color:var(--accent-deep); border-bottom:1px solid var(--accent); }
   .cell-name { font-family:var(--serif); color:var(--ink-mid); }
-  .cell-ind { font-family:var(--mono); font-size:10px; letter-spacing:0.08em; color:var(--text-dim); text-transform:uppercase; }
+  .cell-ind { font-family:var(--mono); font-size:10px; letter-spacing:0.04em; color:var(--text-dim); white-space:nowrap; }
   .cell-status { font-family:var(--mono); font-size:10px; letter-spacing:0.12em; text-transform:uppercase; white-space:nowrap; }
   .status-active { color:var(--ok); }
   .status-near_miss_1 { color:var(--warn); }
@@ -57,8 +57,8 @@
   .footer a { color:var(--ink-soft); border-bottom:1px solid var(--rule); padding-bottom:1px; }
   @media (max-width:760px) {
     .wrap { padding:0 16px; } .hero { padding:40px 0 24px; }
-    table { font-size:11.5px; } .cell-name { font-size:12px; }
-    thead th { padding:10px 6px; } td { padding:8px 6px; }
+    table { font-size:11px; } .cell-name { font-size:11.5px; }
+    thead th { padding:10px 5px; } td { padding:8px 5px; }
   }
 </style>
 </head>
@@ -78,7 +78,8 @@
     </div>
     <div class="ctrl-group" style="margin-left:auto;">
       <span class="ctrl-label">Sort:</span>
-      <button class="btn sort-trigger active" data-sort="score" data-dir="desc">Composite</button>
+      <button class="btn sort-trigger active" data-sort="mc" data-dir="desc">Market Cap</button>
+      <button class="btn sort-trigger" data-sort="score" data-dir="desc">Composite</button>
       <button class="btn sort-trigger" data-sort="roce" data-dir="desc">ROCE</button>
       <button class="btn sort-trigger" data-sort="evebit" data-dir="asc">EV/EBIT</button>
       <button class="btn sort-trigger" data-sort="fcfy" data-dir="desc">FCF Yield</button>
@@ -86,994 +87,15 @@
   </div>
   <table id="universe">
     <thead>
-      <tr><th>#</th><th>Ticker</th><th>Name</th><th>Industry</th><th class="cell-num">ROCE</th><th class="cell-num">EV/EBIT (fwd)</th><th class="cell-num">Op Margin</th><th class="cell-num">Equity Ratio</th><th class="cell-num">Rev CAGR 3y</th><th class="cell-num">FCF Yield</th><th class="cell-num">Composite</th><th>Status</th></tr>
+      <tr><th>#</th><th>Ticker</th><th>Name</th><th>Sector</th><th class="cell-num">Market Cap</th><th class="cell-num">ROCE</th><th class="cell-num">EV/EBIT (fwd)</th><th class="cell-num">Op Margin</th><th class="cell-num">Equity Ratio</th><th class="cell-num">Rev CAGR 3y</th><th class="cell-num">FCF Yield</th><th class="cell-num">Composite</th><th>Status</th></tr>
     </thead>
     <tbody>
-    <tr data-status="active" data-roce="42.39" data-evebit="3.08" data-fcfy="9.56" data-score="13.74" data-sec="73730">
-      <td class="cell-rank">1</td>
-      <td class="cell-tk">7373</td>
-      <td class="cell-name">Aidma Holdings,Inc.</td>
-      <td class="cell-ind">サービス業</td>
-      <td class="cell-num">42.4%</td>
-      <td class="cell-num">3.1x</td>
-      <td class="cell-num">23.4%</td>
-      <td class="cell-num">66.1%</td>
-      <td class="cell-num">28.9%</td>
-      <td class="cell-num">9.6%</td>
-      <td class="cell-num">13.7</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="48.88" data-evebit="4.01" data-fcfy="8.10" data-score="12.18" data-sec="95600">
-      <td class="cell-rank">2</td>
-      <td class="cell-tk">9560</td>
-      <td class="cell-name">PROGRIT Inc.</td>
-      <td class="cell-ind">サービス業</td>
-      <td class="cell-num">48.9%</td>
-      <td class="cell-num">4.0x</td>
-      <td class="cell-num">20.9%</td>
-      <td class="cell-num">50.8%</td>
-      <td class="cell-num">36.6%</td>
-      <td class="cell-num">8.1%</td>
-      <td class="cell-num">12.2</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="47.29" data-evebit="5.89" data-fcfy="8.25" data-score="8.02" data-sec="421A0">
-      <td class="cell-rank">3</td>
-      <td class="cell-tk">421A</td>
-      <td class="cell-name">ムービン/ストラテジック/キャリア</td>
-      <td class="cell-ind">サービス業</td>
-      <td class="cell-num">47.3%</td>
-      <td class="cell-num">5.9x</td>
-      <td class="cell-num">46.4%</td>
-      <td class="cell-num">76.9%</td>
-      <td class="cell-num">12.5%</td>
-      <td class="cell-num">8.2%</td>
-      <td class="cell-num">8.0</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="40.81" data-evebit="6.05" data-fcfy="8.27" data-score="6.74" data-sec="92720">
-      <td class="cell-rank">4</td>
-      <td class="cell-tk">9272</td>
-      <td class="cell-name">Boutiques,Inc.</td>
-      <td class="cell-ind">小売業</td>
-      <td class="cell-num">40.8%</td>
-      <td class="cell-num">6.0x</td>
-      <td class="cell-num">23.8%</td>
-      <td class="cell-num">43.9%</td>
-      <td class="cell-num">35.2%</td>
-      <td class="cell-num">8.3%</td>
-      <td class="cell-num">6.7</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="33.47" data-evebit="5.06" data-fcfy="4.65" data-score="6.61" data-sec="62260">
-      <td class="cell-rank">5</td>
-      <td class="cell-tk">6226</td>
-      <td class="cell-name">Moriya Transportation Engineering and Manufacturing Co.,Ltd.</td>
-      <td class="cell-ind">機械</td>
-      <td class="cell-num">33.5%</td>
-      <td class="cell-num">5.1x</td>
-      <td class="cell-num">21.1%</td>
-      <td class="cell-num">66.8%</td>
-      <td class="cell-num">11.9%</td>
-      <td class="cell-num">4.7%</td>
-      <td class="cell-num">6.6</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="49.87" data-evebit="7.82" data-fcfy="6.56" data-score="6.38" data-sec="44820">
-      <td class="cell-rank">6</td>
-      <td class="cell-tk">4482</td>
-      <td class="cell-name">WILLs Inc.</td>
-      <td class="cell-ind">情報・通信業</td>
-      <td class="cell-num">49.9%</td>
-      <td class="cell-num">7.8x</td>
-      <td class="cell-num">21.5%</td>
-      <td class="cell-num">53.8%</td>
-      <td class="cell-num">16.6%</td>
-      <td class="cell-num">6.6%</td>
-      <td class="cell-num">6.4</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="47.61" data-evebit="7.52" data-fcfy="7.42" data-score="6.33" data-sec="62000">
-      <td class="cell-rank">7</td>
-      <td class="cell-tk">6200</td>
-      <td class="cell-name">Insource Co.,Ltd.</td>
-      <td class="cell-ind">サービス業</td>
-      <td class="cell-num">47.6%</td>
-      <td class="cell-num">7.5x</td>
-      <td class="cell-num">41.2%</td>
-      <td class="cell-num">77.3%</td>
-      <td class="cell-num">15.5%</td>
-      <td class="cell-num">7.4%</td>
-      <td class="cell-num">6.3</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="37.69" data-evebit="6.06" data-fcfy="8.21" data-score="6.22" data-sec="60880">
-      <td class="cell-rank">8</td>
-      <td class="cell-tk">6088</td>
-      <td class="cell-name">SIGMAXYZ Holdings Inc.</td>
-      <td class="cell-ind">サービス業</td>
-      <td class="cell-num">37.7%</td>
-      <td class="cell-num">6.1x</td>
-      <td class="cell-num">21.4%</td>
-      <td class="cell-num">72.3%</td>
-      <td class="cell-num">18.9%</td>
-      <td class="cell-num">8.2%</td>
-      <td class="cell-num">6.2</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="28.63" data-evebit="4.74" data-fcfy="6.25" data-score="6.03" data-sec="340A0">
-      <td class="cell-rank">9</td>
-      <td class="cell-tk">340A</td>
-      <td class="cell-name">zig-zag,Inc.</td>
-      <td class="cell-ind">情報・通信業</td>
-      <td class="cell-num">28.6%</td>
-      <td class="cell-num">4.7x</td>
-      <td class="cell-num">22.9%</td>
-      <td class="cell-num">52.4%</td>
-      <td class="cell-num">36.1%</td>
-      <td class="cell-num">6.2%</td>
-      <td class="cell-num">6.0</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="56.02" data-evebit="8.29" data-fcfy="7.66" data-score="6.03" data-sec="47760">
-      <td class="cell-rank">10</td>
-      <td class="cell-tk">4776</td>
-      <td class="cell-name">Cybozu,Inc.</td>
-      <td class="cell-ind">情報・通信業</td>
-      <td class="cell-num">56.0%</td>
-      <td class="cell-num">8.3x</td>
-      <td class="cell-num">27.0%</td>
-      <td class="cell-num">59.1%</td>
-      <td class="cell-num">19.3%</td>
-      <td class="cell-num">7.7%</td>
-      <td class="cell-num">6.0</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="29.05" data-evebit="4.90" data-fcfy="4.84" data-score="5.93" data-sec="58430">
-      <td class="cell-rank">11</td>
-      <td class="cell-tk">5843</td>
-      <td class="cell-name">Nippon Insure Co.,Ltd.</td>
-      <td class="cell-ind">その他金融業</td>
-      <td class="cell-num">29.1%</td>
-      <td class="cell-num">4.9x</td>
-      <td class="cell-num">20.3%</td>
-      <td class="cell-num">46.7%</td>
-      <td class="cell-num">12.8%</td>
-      <td class="cell-num">4.8%</td>
-      <td class="cell-num">5.9</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="39.29" data-evebit="7.16" data-fcfy="7.73" data-score="5.49" data-sec="44810">
-      <td class="cell-rank">12</td>
-      <td class="cell-tk">4481</td>
-      <td class="cell-name">BASE CO.,LTD.</td>
-      <td class="cell-ind">情報・通信業</td>
-      <td class="cell-num">39.3%</td>
-      <td class="cell-num">7.2x</td>
-      <td class="cell-num">26.4%</td>
-      <td class="cell-num">77.3%</td>
-      <td class="cell-num">8.5%</td>
-      <td class="cell-num">7.7%</td>
-      <td class="cell-num">5.5</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="74.10" data-evebit="9.16" data-fcfy="5.40" data-score="5.46" data-sec="50320">
-      <td class="cell-rank">13</td>
-      <td class="cell-tk">5032</td>
-      <td class="cell-name">ANYCOLOR Inc.</td>
-      <td class="cell-ind">サービス業</td>
-      <td class="cell-num">74.1%</td>
-      <td class="cell-num">9.2x</td>
-      <td class="cell-num">38.0%</td>
-      <td class="cell-num">75.4%</td>
-      <td class="cell-num">44.7%</td>
-      <td class="cell-num">5.4%</td>
-      <td class="cell-num">5.5</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="28.90" data-evebit="5.32" data-fcfy="10.11" data-score="5.44" data-sec="38360">
-      <td class="cell-rank">14</td>
-      <td class="cell-tk">3836</td>
-      <td class="cell-name">AVANT GROUP CORPORATION</td>
-      <td class="cell-ind">情報・通信業</td>
-      <td class="cell-num">28.9%</td>
-      <td class="cell-num">5.3x</td>
-      <td class="cell-num">16.3%</td>
-      <td class="cell-num">64.0%</td>
-      <td class="cell-num">14.7%</td>
-      <td class="cell-num">10.1%</td>
-      <td class="cell-num">5.4</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="39.73" data-evebit="7.39" data-fcfy="8.04" data-score="5.38" data-sec="92710">
-      <td class="cell-rank">15</td>
-      <td class="cell-tk">9271</td>
-      <td class="cell-name">Wagokoro co.,ltd.</td>
-      <td class="cell-ind">小売業</td>
-      <td class="cell-num">39.7%</td>
-      <td class="cell-num">7.4x</td>
-      <td class="cell-num">20.4%</td>
-      <td class="cell-num">67.9%</td>
-      <td class="cell-num">40.8%</td>
-      <td class="cell-num">8.0%</td>
-      <td class="cell-num">5.4</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="36.41" data-evebit="7.07" data-fcfy="14.64" data-score="5.15" data-sec="43930">
-      <td class="cell-rank">16</td>
-      <td class="cell-tk">4393</td>
-      <td class="cell-name">Bank of Innovation,Inc.</td>
-      <td class="cell-ind">情報・通信業</td>
-      <td class="cell-num">36.4%</td>
-      <td class="cell-num">7.1x</td>
-      <td class="cell-num">17.4%</td>
-      <td class="cell-num">73.2%</td>
-      <td class="cell-num">72.0%</td>
-      <td class="cell-num">14.6%</td>
-      <td class="cell-num">5.2</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="31.43" data-evebit="6.34" data-fcfy="10.61" data-score="4.96" data-sec="48110">
-      <td class="cell-rank">17</td>
-      <td class="cell-tk">4811</td>
-      <td class="cell-name">DreamArts Corporation</td>
-      <td class="cell-ind">情報・通信業</td>
-      <td class="cell-num">31.4%</td>
-      <td class="cell-num">6.3x</td>
-      <td class="cell-num">17.2%</td>
-      <td class="cell-num">54.9%</td>
-      <td class="cell-num">15.5%</td>
-      <td class="cell-num">10.6%</td>
-      <td class="cell-num">5.0</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="59.97" data-evebit="10.94" data-fcfy="6.08" data-score="4.57" data-sec="30920">
-      <td class="cell-rank">18</td>
-      <td class="cell-tk">3092</td>
-      <td class="cell-name">ZOZO,Inc.</td>
-      <td class="cell-ind">小売業</td>
-      <td class="cell-num">60.0%</td>
-      <td class="cell-num">10.9x</td>
-      <td class="cell-num">30.4%</td>
-      <td class="cell-num">52.6%</td>
-      <td class="cell-num">8.6%</td>
-      <td class="cell-num">6.1%</td>
-      <td class="cell-num">4.6</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="23.77" data-evebit="5.28" data-fcfy="6.93" data-score="4.50" data-sec="24770">
-      <td class="cell-rank">19</td>
-      <td class="cell-tk">2477</td>
-      <td class="cell-name">Temairazu,Inc.</td>
-      <td class="cell-ind">サービス業</td>
-      <td class="cell-num">23.8%</td>
-      <td class="cell-num">5.3x</td>
-      <td class="cell-num">73.6%</td>
-      <td class="cell-num">93.8%</td>
-      <td class="cell-num">10.2%</td>
-      <td class="cell-num">6.9%</td>
-      <td class="cell-num">4.5</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="25.03" data-evebit="5.71" data-fcfy="4.82" data-score="4.38" data-sec="37980">
-      <td class="cell-rank">20</td>
-      <td class="cell-tk">3798</td>
-      <td class="cell-name">ULS Group,Inc.</td>
-      <td class="cell-ind">情報・通信業</td>
-      <td class="cell-num">25.0%</td>
-      <td class="cell-num">5.7x</td>
-      <td class="cell-num">19.9%</td>
-      <td class="cell-num">77.2%</td>
-      <td class="cell-num">21.5%</td>
-      <td class="cell-num">4.8%</td>
-      <td class="cell-num">4.4</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="31.43" data-evebit="7.23" data-fcfy="10.09" data-score="4.35" data-sec="137A0">
-      <td class="cell-rank">21</td>
-      <td class="cell-tk">137A</td>
-      <td class="cell-name">Cocolive,Inc.</td>
-      <td class="cell-ind">情報・通信業</td>
-      <td class="cell-num">31.4%</td>
-      <td class="cell-num">7.2x</td>
-      <td class="cell-num">21.5%</td>
-      <td class="cell-num">84.1%</td>
-      <td class="cell-num">32.7%</td>
-      <td class="cell-num">10.1%</td>
-      <td class="cell-num">4.3</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="38.42" data-evebit="8.94" data-fcfy="5.74" data-score="4.30" data-sec="43770">
-      <td class="cell-rank">22</td>
-      <td class="cell-tk">4377</td>
-      <td class="cell-name">ONE CAREER Inc.</td>
-      <td class="cell-ind">情報・通信業</td>
-      <td class="cell-num">38.4%</td>
-      <td class="cell-num">8.9x</td>
-      <td class="cell-num">28.1%</td>
-      <td class="cell-num">69.1%</td>
-      <td class="cell-num">38.7%</td>
-      <td class="cell-num">5.7%</td>
-      <td class="cell-num">4.3</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="53.05" data-evebit="11.93" data-fcfy="5.86" data-score="4.19" data-sec="47160">
-      <td class="cell-rank">23</td>
-      <td class="cell-tk">4716</td>
-      <td class="cell-name">ORACLE CORPORATION JAPAN</td>
-      <td class="cell-ind">情報・通信業</td>
-      <td class="cell-num">53.0%</td>
-      <td class="cell-num">11.9x</td>
-      <td class="cell-num">33.0%</td>
-      <td class="cell-num">51.7%</td>
-      <td class="cell-num">7.1%</td>
-      <td class="cell-num">5.9%</td>
-      <td class="cell-num">4.2</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="38.32" data-evebit="9.17" data-fcfy="6.06" data-score="4.18" data-sec="39890">
-      <td class="cell-rank">24</td>
-      <td class="cell-tk">3989</td>
-      <td class="cell-name">SHARINGTECHNOLOGY.INC</td>
-      <td class="cell-ind">情報・通信業</td>
-      <td class="cell-num">38.3%</td>
-      <td class="cell-num">9.2x</td>
-      <td class="cell-num">24.2%</td>
-      <td class="cell-num">69.3%</td>
-      <td class="cell-num">24.7%</td>
-      <td class="cell-num">6.1%</td>
-      <td class="cell-num">4.2</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="29.60" data-evebit="7.21" data-fcfy="85.62" data-score="4.10" data-sec="71480">
-      <td class="cell-rank">25</td>
-      <td class="cell-tk">7148</td>
-      <td class="cell-name">Financial Partners Group Co.,Ltd.</td>
-      <td class="cell-ind">証券、商品先物取引業</td>
-      <td class="cell-num">29.6%</td>
-      <td class="cell-num">7.2x</td>
-      <td class="cell-num">19.6%</td>
-      <td class="cell-num">45.1%</td>
-      <td class="cell-num">29.9%</td>
-      <td class="cell-num">85.6%</td>
-      <td class="cell-num">4.1</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="23.42" data-evebit="5.83" data-fcfy="5.52" data-score="4.02" data-sec="94670">
-      <td class="cell-rank">26</td>
-      <td class="cell-tk">9467</td>
-      <td class="cell-name">AlphaPolis Co.,Ltd.</td>
-      <td class="cell-ind">情報・通信業</td>
-      <td class="cell-num">23.4%</td>
-      <td class="cell-num">5.8x</td>
-      <td class="cell-num">23.7%</td>
-      <td class="cell-num">81.2%</td>
-      <td class="cell-num">14.4%</td>
-      <td class="cell-num">5.5%</td>
-      <td class="cell-num">4.0</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="42.61" data-evebit="10.89" data-fcfy="5.19" data-score="3.91" data-sec="40710">
-      <td class="cell-rank">27</td>
-      <td class="cell-tk">4071</td>
-      <td class="cell-name">Plus Alpha Consulting Co.,LTD.</td>
-      <td class="cell-ind">サービス業</td>
-      <td class="cell-num">42.6%</td>
-      <td class="cell-num">10.9x</td>
-      <td class="cell-num">37.3%</td>
-      <td class="cell-num">79.5%</td>
-      <td class="cell-num">29.3%</td>
-      <td class="cell-num">5.2%</td>
-      <td class="cell-num">3.9</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="36.64" data-evebit="9.42" data-fcfy="4.76" data-score="3.89" data-sec="38540">
-      <td class="cell-rank">28</td>
-      <td class="cell-tk">3854</td>
-      <td class="cell-name">I&#x27;LL INC</td>
-      <td class="cell-ind">情報・通信業</td>
-      <td class="cell-num">36.6%</td>
-      <td class="cell-num">9.4x</td>
-      <td class="cell-num">25.0%</td>
-      <td class="cell-num">71.6%</td>
-      <td class="cell-num">14.2%</td>
-      <td class="cell-num">4.8%</td>
-      <td class="cell-num">3.9</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="29.15" data-evebit="7.75" data-fcfy="5.10" data-score="3.76" data-sec="61960">
-      <td class="cell-rank">29</td>
-      <td class="cell-tk">6196</td>
-      <td class="cell-name">Strike Company,Limited</td>
-      <td class="cell-ind">サービス業</td>
-      <td class="cell-num">29.1%</td>
-      <td class="cell-num">7.8x</td>
-      <td class="cell-num">31.2%</td>
-      <td class="cell-num">86.7%</td>
-      <td class="cell-num">23.7%</td>
-      <td class="cell-num">5.1%</td>
-      <td class="cell-num">3.8</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="33.93" data-evebit="9.63" data-fcfy="9.80" data-score="3.52" data-sec="97570">
-      <td class="cell-rank">30</td>
-      <td class="cell-tk">9757</td>
-      <td class="cell-name">Funai Soken Holdings Incorporated</td>
-      <td class="cell-ind">サービス業</td>
-      <td class="cell-num">33.9%</td>
-      <td class="cell-num">9.6x</td>
-      <td class="cell-num">26.4%</td>
-      <td class="cell-num">74.8%</td>
-      <td class="cell-num">9.1%</td>
-      <td class="cell-num">9.8%</td>
-      <td class="cell-num">3.5</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="24.29" data-evebit="7.41" data-fcfy="6.15" data-score="3.28" data-sec="39830">
-      <td class="cell-rank">31</td>
-      <td class="cell-tk">3983</td>
-      <td class="cell-name">ORO Co.,Ltd.</td>
-      <td class="cell-ind">情報・通信業</td>
-      <td class="cell-num">24.3%</td>
-      <td class="cell-num">7.4x</td>
-      <td class="cell-num">31.9%</td>
-      <td class="cell-num">75.3%</td>
-      <td class="cell-num">10.2%</td>
-      <td class="cell-num">6.2%</td>
-      <td class="cell-num">3.3</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="22.84" data-evebit="6.98" data-fcfy="7.04" data-score="3.27" data-sec="324A0">
-      <td class="cell-rank">32</td>
-      <td class="cell-tk">324A</td>
-      <td class="cell-name">Booking Resort Co.,Ltd.</td>
-      <td class="cell-ind">サービス業</td>
-      <td class="cell-num">22.8%</td>
-      <td class="cell-num">7.0x</td>
-      <td class="cell-num">35.4%</td>
-      <td class="cell-num">74.5%</td>
-      <td class="cell-num">59.6%</td>
-      <td class="cell-num">7.0%</td>
-      <td class="cell-num">3.3</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="25.44" data-evebit="7.87" data-fcfy="5.41" data-score="3.23" data-sec="95540">
-      <td class="cell-rank">33</td>
-      <td class="cell-tk">9554</td>
-      <td class="cell-name">AViC Co.,Ltd.</td>
-      <td class="cell-ind">サービス業</td>
-      <td class="cell-num">25.4%</td>
-      <td class="cell-num">7.9x</td>
-      <td class="cell-num">27.0%</td>
-      <td class="cell-num">59.2%</td>
-      <td class="cell-num">29.1%</td>
-      <td class="cell-num">5.4%</td>
-      <td class="cell-num">3.2</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="30.81" data-evebit="9.58" data-fcfy="5.43" data-score="3.22" data-sec="41940">
-      <td class="cell-rank">34</td>
-      <td class="cell-tk"><a href="/en/compounders/4194/">4194</a></td>
-      <td class="cell-name">Visional,Inc.</td>
-      <td class="cell-ind">情報・通信業</td>
-      <td class="cell-num">30.8%</td>
-      <td class="cell-num">9.6x</td>
-      <td class="cell-num">26.8%</td>
-      <td class="cell-num">71.0%</td>
-      <td class="cell-num">22.2%</td>
-      <td class="cell-num">5.4%</td>
-      <td class="cell-num">3.2</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="30.96" data-evebit="9.64" data-fcfy="7.06" data-score="3.21" data-sec="36490">
-      <td class="cell-rank">35</td>
-      <td class="cell-tk">3649</td>
-      <td class="cell-name">FINDEX Inc.</td>
-      <td class="cell-ind">情報・通信業</td>
-      <td class="cell-num">31.0%</td>
-      <td class="cell-num">9.6x</td>
-      <td class="cell-num">29.3%</td>
-      <td class="cell-num">80.3%</td>
-      <td class="cell-num">10.4%</td>
-      <td class="cell-num">7.1%</td>
-      <td class="cell-num">3.2</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="23.50" data-evebit="7.55" data-fcfy="6.78" data-score="3.11" data-sec="38350">
-      <td class="cell-rank">36</td>
-      <td class="cell-tk">3835</td>
-      <td class="cell-name">eBASE Co.,Ltd.</td>
-      <td class="cell-ind">情報・通信業</td>
-      <td class="cell-num">23.5%</td>
-      <td class="cell-num">7.5x</td>
-      <td class="cell-num">31.7%</td>
-      <td class="cell-num">90.7%</td>
-      <td class="cell-num">7.9%</td>
-      <td class="cell-num">6.8%</td>
-      <td class="cell-num">3.1</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="28.08" data-evebit="9.17" data-fcfy="5.78" data-score="3.06" data-sec="78180">
-      <td class="cell-rank">37</td>
-      <td class="cell-tk">7818</td>
-      <td class="cell-name">TRANSACTION CO.,Ltd.</td>
-      <td class="cell-ind">その他製品</td>
-      <td class="cell-num">28.1%</td>
-      <td class="cell-num">9.2x</td>
-      <td class="cell-num">20.8%</td>
-      <td class="cell-num">82.6%</td>
-      <td class="cell-num">14.5%</td>
-      <td class="cell-num">5.8%</td>
-      <td class="cell-num">3.1</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="29.12" data-evebit="9.67" data-fcfy="7.40" data-score="3.01" data-sec="60370">
-      <td class="cell-rank">38</td>
-      <td class="cell-tk">6037</td>
-      <td class="cell-name">RAKUMACHI,INC.</td>
-      <td class="cell-ind">サービス業</td>
-      <td class="cell-num">29.1%</td>
-      <td class="cell-num">9.7x</td>
-      <td class="cell-num">48.9%</td>
-      <td class="cell-num">86.6%</td>
-      <td class="cell-num">19.0%</td>
-      <td class="cell-num">7.4%</td>
-      <td class="cell-num">3.0</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="15.41" data-evebit="5.14" data-fcfy="10.59" data-score="3.00" data-sec="23010">
-      <td class="cell-rank">39</td>
-      <td class="cell-tk">2301</td>
-      <td class="cell-name">GAKUJO CO.,Ltd.</td>
-      <td class="cell-ind">サービス業</td>
-      <td class="cell-num">15.4%</td>
-      <td class="cell-num">5.1x</td>
-      <td class="cell-num">21.2%</td>
-      <td class="cell-num">87.0%</td>
-      <td class="cell-num">17.6%</td>
-      <td class="cell-num">10.6%</td>
-      <td class="cell-num">3.0</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="20.11" data-evebit="6.88" data-fcfy="5.26" data-score="2.92" data-sec="47220">
-      <td class="cell-rank">40</td>
-      <td class="cell-tk">4722</td>
-      <td class="cell-name">Future Corporation</td>
-      <td class="cell-ind">情報・通信業</td>
-      <td class="cell-num">20.1%</td>
-      <td class="cell-num">6.9x</td>
-      <td class="cell-num">21.3%</td>
-      <td class="cell-num">64.4%</td>
-      <td class="cell-num">12.2%</td>
-      <td class="cell-num">5.3%</td>
-      <td class="cell-num">2.9</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="22.66" data-evebit="8.54" data-fcfy="5.64" data-score="2.65" data-sec="39840">
-      <td class="cell-rank">41</td>
-      <td class="cell-tk">3984</td>
-      <td class="cell-name">User Local,Inc.</td>
-      <td class="cell-ind">情報・通信業</td>
-      <td class="cell-num">22.7%</td>
-      <td class="cell-num">8.5x</td>
-      <td class="cell-num">43.0%</td>
-      <td class="cell-num">87.2%</td>
-      <td class="cell-num">19.5%</td>
-      <td class="cell-num">5.6%</td>
-      <td class="cell-num">2.6</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="21.01" data-evebit="8.28" data-fcfy="5.41" data-score="2.54" data-sec="56210">
-      <td class="cell-rank">42</td>
-      <td class="cell-tk">5621</td>
-      <td class="cell-name">Human Technologies,Inc.</td>
-      <td class="cell-ind">情報・通信業</td>
-      <td class="cell-num">21.0%</td>
-      <td class="cell-num">8.3x</td>
-      <td class="cell-num">15.4%</td>
-      <td class="cell-num">75.3%</td>
-      <td class="cell-num">19.1%</td>
-      <td class="cell-num">5.4%</td>
-      <td class="cell-num">2.5</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="22.24" data-evebit="8.78" data-fcfy="6.62" data-score="2.53" data-sec="97590">
-      <td class="cell-rank">43</td>
-      <td class="cell-tk">9759</td>
-      <td class="cell-name">NSD CO.,LTD.</td>
-      <td class="cell-ind">情報・通信業</td>
-      <td class="cell-num">22.2%</td>
-      <td class="cell-num">8.8x</td>
-      <td class="cell-num">15.6%</td>
-      <td class="cell-num">75.4%</td>
-      <td class="cell-num">14.8%</td>
-      <td class="cell-num">6.6%</td>
-      <td class="cell-num">2.5</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="22.85" data-evebit="9.39" data-fcfy="7.28" data-score="2.43" data-sec="70850">
-      <td class="cell-rank">44</td>
-      <td class="cell-tk">7085</td>
-      <td class="cell-name">CURVES HOLDINGS Co.,Ltd.</td>
-      <td class="cell-ind">サービス業</td>
-      <td class="cell-num">22.9%</td>
-      <td class="cell-num">9.4x</td>
-      <td class="cell-num">16.9%</td>
-      <td class="cell-num">51.4%</td>
-      <td class="cell-num">10.9%</td>
-      <td class="cell-num">7.3%</td>
-      <td class="cell-num">2.4</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="18.11" data-evebit="7.76" data-fcfy="7.51" data-score="2.33" data-sec="77750">
-      <td class="cell-rank">45</td>
-      <td class="cell-tk">7775</td>
-      <td class="cell-name">DAIKEN MEDICAL CO.,LTD.</td>
-      <td class="cell-ind">精密機器</td>
-      <td class="cell-num">18.1%</td>
-      <td class="cell-num">7.8x</td>
-      <td class="cell-num">15.2%</td>
-      <td class="cell-num">67.2%</td>
-      <td class="cell-num">5.2%</td>
-      <td class="cell-num">7.5%</td>
-      <td class="cell-num">2.3</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="18.80" data-evebit="8.95" data-fcfy="4.18" data-score="2.10" data-sec="23530">
-      <td class="cell-rank">46</td>
-      <td class="cell-tk">2353</td>
-      <td class="cell-name">NIPPON PARKING DEVELOPMENT Co.,Ltd.</td>
-      <td class="cell-ind">不動産業</td>
-      <td class="cell-num">18.8%</td>
-      <td class="cell-num">8.9x</td>
-      <td class="cell-num">20.8%</td>
-      <td class="cell-num">45.8%</td>
-      <td class="cell-num">11.9%</td>
-      <td class="cell-num">4.2%</td>
-      <td class="cell-num">2.1</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="19.30" data-evebit="9.50" data-fcfy="8.35" data-score="2.03" data-sec="81110">
-      <td class="cell-rank">47</td>
-      <td class="cell-tk">8111</td>
-      <td class="cell-name">Goldwin Inc.</td>
-      <td class="cell-ind">繊維製品</td>
-      <td class="cell-num">19.3%</td>
-      <td class="cell-num">9.5x</td>
-      <td class="cell-num">16.6%</td>
-      <td class="cell-num">73.7%</td>
-      <td class="cell-num">10.4%</td>
-      <td class="cell-num">8.3%</td>
-      <td class="cell-num">2.0</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="15.33" data-evebit="7.63" data-fcfy="7.39" data-score="2.01" data-sec="44320">
-      <td class="cell-rank">48</td>
-      <td class="cell-tk">4432</td>
-      <td class="cell-name">WingArc1st Inc.</td>
-      <td class="cell-ind">情報・通信業</td>
-      <td class="cell-num">15.3%</td>
-      <td class="cell-num">7.6x</td>
-      <td class="cell-num">28.6%</td>
-      <td class="cell-num">61.1%</td>
-      <td class="cell-num">13.1%</td>
-      <td class="cell-num">7.4%</td>
-      <td class="cell-num">2.0</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="15.11" data-evebit="8.31" data-fcfy="4.16" data-score="1.82" data-sec="61760">
-      <td class="cell-rank">49</td>
-      <td class="cell-tk">6176</td>
-      <td class="cell-name">Brangista Inc.</td>
-      <td class="cell-ind">サービス業</td>
-      <td class="cell-num">15.1%</td>
-      <td class="cell-num">8.3x</td>
-      <td class="cell-num">22.2%</td>
-      <td class="cell-num">69.4%</td>
-      <td class="cell-num">15.6%</td>
-      <td class="cell-num">4.2%</td>
-      <td class="cell-num">1.8</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="16.25" data-evebit="8.95" data-fcfy="6.66" data-score="1.81" data-sec="44280">
-      <td class="cell-rank">50</td>
-      <td class="cell-tk">4428</td>
-      <td class="cell-name">sinops Inc.</td>
-      <td class="cell-ind">情報・通信業</td>
-      <td class="cell-num">16.2%</td>
-      <td class="cell-num">8.9x</td>
-      <td class="cell-num">15.2%</td>
-      <td class="cell-num">77.9%</td>
-      <td class="cell-num">11.9%</td>
-      <td class="cell-num">6.7%</td>
-      <td class="cell-num">1.8</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="16.13" data-evebit="10.30" data-fcfy="7.36" data-score="1.57" data-sec="77330">
-      <td class="cell-rank">51</td>
-      <td class="cell-tk">7733</td>
-      <td class="cell-name">OLYMPUS CORPORATION</td>
-      <td class="cell-ind">精密機器</td>
-      <td class="cell-num">16.1%</td>
-      <td class="cell-num">10.3x</td>
-      <td class="cell-num">16.3%</td>
-      <td class="cell-num">52.5%</td>
-      <td class="cell-num">10.0%</td>
-      <td class="cell-num">7.4%</td>
-      <td class="cell-num">1.6</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="active" data-roce="16.17" data-evebit="10.63" data-fcfy="5.19" data-score="1.52" data-sec="65390">
-      <td class="cell-rank">52</td>
-      <td class="cell-tk">6539</td>
-      <td class="cell-name">MATCHING SERVICE JAPAN CO.,LTD.</td>
-      <td class="cell-ind">サービス業</td>
-      <td class="cell-num">16.2%</td>
-      <td class="cell-num">10.6x</td>
-      <td class="cell-num">21.5%</td>
-      <td class="cell-num">90.2%</td>
-      <td class="cell-num">25.8%</td>
-      <td class="cell-num">5.2%</td>
-      <td class="cell-num">1.5</td>
-      <td class="cell-status status-active">Active</td>
-    </tr>
-    <tr data-status="near_miss_1" data-roce="38.54" data-evebit="8.66" data-fcfy="3.15" data-score="4.45" data-sec="40580">
-      <td class="cell-rank">NM1</td>
-      <td class="cell-tk">4058</td>
-      <td class="cell-name">Toyokumo,Inc.</td>
-      <td class="cell-ind">情報・通信業</td>
-      <td class="cell-num">38.5%</td>
-      <td class="cell-num">8.7x</td>
-      <td class="cell-num">33.0%</td>
-      <td class="cell-num">62.1%</td>
-      <td class="cell-num">35.9%</td>
-      <td class="cell-num">3.1%</td>
-      <td class="cell-num">4.5</td>
-      <td class="cell-status status-near_miss_1">Near-miss</td>
-    </tr>
-    <tr data-status="near_miss_2_editorial" data-roce="47.80" data-evebit="12.00" data-fcfy="3.54" data-score="3.98" data-sec="296A0">
-      <td class="cell-rank">NM2</td>
-      <td class="cell-tk">296A</td>
-      <td class="cell-name">Reiwa Accounting Holdings Co.,Ltd.</td>
-      <td class="cell-ind">サービス業</td>
-      <td class="cell-num">47.8%</td>
-      <td class="cell-num">12.0x</td>
-      <td class="cell-num">30.0%</td>
-      <td class="cell-num">66.3%</td>
-      <td class="cell-num">17.6%</td>
-      <td class="cell-num">3.5%</td>
-      <td class="cell-num">4.0</td>
-      <td class="cell-status status-near_miss_2_editorial">Near-miss · editorial</td>
-    </tr>
-    <tr data-status="near_miss_1" data-roce="42.40" data-evebit="10.90" data-fcfy="3.84" data-score="3.89" data-sec="65320">
-      <td class="cell-rank">NM3</td>
-      <td class="cell-tk">6532</td>
-      <td class="cell-name">BayCurrent,Inc.</td>
-      <td class="cell-ind">サービス業</td>
-      <td class="cell-num">42.4%</td>
-      <td class="cell-num">10.9x</td>
-      <td class="cell-num">36.7%</td>
-      <td class="cell-num">75.7%</td>
-      <td class="cell-num">26.3%</td>
-      <td class="cell-num">3.8%</td>
-      <td class="cell-num">3.9</td>
-      <td class="cell-status status-near_miss_1">Near-miss</td>
-    </tr>
-    <tr data-status="near_miss_2_editorial" data-roce="48.46" data-evebit="12.49" data-fcfy="8.02" data-score="3.88" data-sec="44750">
-      <td class="cell-rank">NM4</td>
-      <td class="cell-tk"><a href="/en/compounders/4475/">4475</a></td>
-      <td class="cell-name">HENNGE K.K.</td>
-      <td class="cell-ind">情報・通信業</td>
-      <td class="cell-num">48.5%</td>
-      <td class="cell-num">12.5x</td>
-      <td class="cell-num">16.4%</td>
-      <td class="cell-num">35.8%</td>
-      <td class="cell-num">24.6%</td>
-      <td class="cell-num">8.0%</td>
-      <td class="cell-num">3.9</td>
-      <td class="cell-status status-near_miss_2_editorial">Near-miss · editorial</td>
-    </tr>
-    <tr data-status="near_miss_1" data-roce="27.18" data-evebit="7.62" data-fcfy="3.49" data-score="3.57" data-sec="39220">
-      <td class="cell-rank">NM5</td>
-      <td class="cell-tk">3922</td>
-      <td class="cell-name">PR TIMES Corporation</td>
-      <td class="cell-ind">情報・通信業</td>
-      <td class="cell-num">27.2%</td>
-      <td class="cell-num">7.6x</td>
-      <td class="cell-num">23.5%</td>
-      <td class="cell-num">83.8%</td>
-      <td class="cell-num">18.1%</td>
-      <td class="cell-num">3.5%</td>
-      <td class="cell-num">3.6</td>
-      <td class="cell-status status-near_miss_1">Near-miss</td>
-    </tr>
-    <tr data-status="near_miss_1" data-roce="22.90" data-evebit="7.58" data-fcfy="3.54" data-score="3.02" data-sec="55700">
-      <td class="cell-rank">NM6</td>
-      <td class="cell-tk">5570</td>
-      <td class="cell-name">JENOBA CO.,LTD.</td>
-      <td class="cell-ind">情報・通信業</td>
-      <td class="cell-num">22.9%</td>
-      <td class="cell-num">7.6x</td>
-      <td class="cell-num">56.6%</td>
-      <td class="cell-num">88.2%</td>
-      <td class="cell-num">5.6%</td>
-      <td class="cell-num">3.5%</td>
-      <td class="cell-num">3.0</td>
-      <td class="cell-status status-near_miss_1">Near-miss</td>
-    </tr>
-    <tr data-status="near_miss_1" data-roce="21.61" data-evebit="8.08" data-fcfy="3.02" data-score="2.67" data-sec="37120">
-      <td class="cell-rank">NM7</td>
-      <td class="cell-tk">3712</td>
-      <td class="cell-name">Information Planning CO.,LTD.</td>
-      <td class="cell-ind">情報・通信業</td>
-      <td class="cell-num">21.6%</td>
-      <td class="cell-num">8.1x</td>
-      <td class="cell-num">40.0%</td>
-      <td class="cell-num">82.6%</td>
-      <td class="cell-num">6.0%</td>
-      <td class="cell-num">3.0%</td>
-      <td class="cell-num">2.7</td>
-      <td class="cell-status status-near_miss_1">Near-miss</td>
-    </tr>
-    <tr data-status="near_miss_1" data-roce="33.83" data-evebit="12.74" data-fcfy="4.71" data-score="2.66" data-sec="81360">
-      <td class="cell-rank">NM8</td>
-      <td class="cell-tk">8136</td>
-      <td class="cell-name">Sanrio Company,Ltd.</td>
-      <td class="cell-ind">卸売業</td>
-      <td class="cell-num">33.8%</td>
-      <td class="cell-num">12.7x</td>
-      <td class="cell-num">35.8%</td>
-      <td class="cell-num">53.2%</td>
-      <td class="cell-num">40.0%</td>
-      <td class="cell-num">4.7%</td>
-      <td class="cell-num">2.7</td>
-      <td class="cell-status status-near_miss_1">Near-miss</td>
-    </tr>
-    <tr data-status="near_miss_1" data-roce="25.13" data-evebit="10.53" data-fcfy="3.87" data-score="2.39" data-sec="299A0">
-      <td class="cell-rank">NM9</td>
-      <td class="cell-tk">299A</td>
-      <td class="cell-name">Kurashiru,Inc.</td>
-      <td class="cell-ind">情報・通信業</td>
-      <td class="cell-num">25.1%</td>
-      <td class="cell-num">10.5x</td>
-      <td class="cell-num">20.3%</td>
-      <td class="cell-num">80.5%</td>
-      <td class="cell-num">27.6%</td>
-      <td class="cell-num">3.9%</td>
-      <td class="cell-num">2.4</td>
-      <td class="cell-status status-near_miss_1">Near-miss</td>
-    </tr>
-    <tr data-status="near_miss_1" data-roce="17.27" data-evebit="7.41" data-fcfy="3.54" data-score="2.33" data-sec="38040">
-      <td class="cell-rank">NM10</td>
-      <td class="cell-tk">3804</td>
-      <td class="cell-name">System D Inc.</td>
-      <td class="cell-ind">情報・通信業</td>
-      <td class="cell-num">17.3%</td>
-      <td class="cell-num">7.4x</td>
-      <td class="cell-num">18.6%</td>
-      <td class="cell-num">68.0%</td>
-      <td class="cell-num">5.9%</td>
-      <td class="cell-num">3.5%</td>
-      <td class="cell-num">2.3</td>
-      <td class="cell-status status-near_miss_1">Near-miss</td>
-    </tr>
-    <tr data-status="near_miss_1" data-roce="25.07" data-evebit="11.58" data-fcfy="3.98" data-score="2.17" data-sec="47320">
-      <td class="cell-rank">NM11</td>
-      <td class="cell-tk">4732</td>
-      <td class="cell-name">USS Co.,Ltd.</td>
-      <td class="cell-ind">サービス業</td>
-      <td class="cell-num">25.1%</td>
-      <td class="cell-num">11.6x</td>
-      <td class="cell-num">52.1%</td>
-      <td class="cell-num">77.6%</td>
-      <td class="cell-num">8.5%</td>
-      <td class="cell-num">4.0%</td>
-      <td class="cell-num">2.2</td>
-      <td class="cell-status status-near_miss_1">Near-miss</td>
-    </tr>
-    <tr data-status="near_miss_1" data-roce="23.87" data-evebit="11.28" data-fcfy="3.35" data-score="2.12" data-sec="44930">
-      <td class="cell-rank">NM12</td>
-      <td class="cell-tk">4493</td>
-      <td class="cell-name">Cyber Security Cloud,Inc.</td>
-      <td class="cell-ind">情報・通信業</td>
-      <td class="cell-num">23.9%</td>
-      <td class="cell-num">11.3x</td>
-      <td class="cell-num">21.7%</td>
-      <td class="cell-num">75.8%</td>
-      <td class="cell-num">30.7%</td>
-      <td class="cell-num">3.4%</td>
-      <td class="cell-num">2.1</td>
-      <td class="cell-status status-near_miss_1">Near-miss</td>
-    </tr>
-    <tr data-status="near_miss_1" data-roce="20.48" data-evebit="9.77" data-fcfy="3.69" data-score="2.10" data-sec="39630">
-      <td class="cell-rank">NM13</td>
-      <td class="cell-tk">3963</td>
-      <td class="cell-name">Synchro Food Co.,Ltd.</td>
-      <td class="cell-ind">情報・通信業</td>
-      <td class="cell-num">20.5%</td>
-      <td class="cell-num">9.8x</td>
-      <td class="cell-num">27.8%</td>
-      <td class="cell-num">86.9%</td>
-      <td class="cell-num">26.4%</td>
-      <td class="cell-num">3.7%</td>
-      <td class="cell-num">2.1</td>
-      <td class="cell-status status-near_miss_1">Near-miss</td>
-    </tr>
-    <tr data-status="near_miss_1" data-roce="14.48" data-evebit="8.90" data-fcfy="6.86" data-score="1.63" data-sec="97460">
-      <td class="cell-rank">NM14</td>
-      <td class="cell-tk">9746</td>
-      <td class="cell-name">TKC Corporation</td>
-      <td class="cell-ind">情報・通信業</td>
-      <td class="cell-num">14.5%</td>
-      <td class="cell-num">8.9x</td>
-      <td class="cell-num">19.3%</td>
-      <td class="cell-num">83.6%</td>
-      <td class="cell-num">7.2%</td>
-      <td class="cell-num">6.9%</td>
-      <td class="cell-num">1.6</td>
-      <td class="cell-status status-near_miss_1">Near-miss</td>
-    </tr>
-    <tr data-status="near_miss_1" data-roce="19.25" data-evebit="12.09" data-fcfy="5.96" data-score="1.59" data-sec="87710">
-      <td class="cell-rank">NM15</td>
-      <td class="cell-tk">8771</td>
-      <td class="cell-name">eGuarantee,Inc.</td>
-      <td class="cell-ind">その他金融業</td>
-      <td class="cell-num">19.2%</td>
-      <td class="cell-num">12.1x</td>
-      <td class="cell-num">49.9%</td>
-      <td class="cell-num">79.9%</td>
-      <td class="cell-num">9.0%</td>
-      <td class="cell-num">6.0%</td>
-      <td class="cell-num">1.6</td>
-      <td class="cell-status status-near_miss_1">Near-miss</td>
-    </tr>
-    <tr data-status="near_miss_1" data-roce="19.98" data-evebit="13.45" data-fcfy="5.13" data-score="1.49" data-sec="60550">
-      <td class="cell-rank">NM16</td>
-      <td class="cell-tk">6055</td>
-      <td class="cell-name">JAPAN MATERIAL Co.,Ltd.</td>
-      <td class="cell-ind">サービス業</td>
-      <td class="cell-num">20.0%</td>
-      <td class="cell-num">13.4x</td>
-      <td class="cell-num">21.2%</td>
-      <td class="cell-num">83.1%</td>
-      <td class="cell-num">11.5%</td>
-      <td class="cell-num">5.1%</td>
-      <td class="cell-num">1.5</td>
-      <td class="cell-status status-near_miss_1">Near-miss</td>
-    </tr>
-    <tr data-status="near_miss_1" data-roce="12.96" data-evebit="9.24" data-fcfy="4.66" data-score="1.40" data-sec="60900">
-      <td class="cell-rank">NM17</td>
-      <td class="cell-tk">6090</td>
-      <td class="cell-name">Human Metabolome Technologies,Inc.</td>
-      <td class="cell-ind">サービス業</td>
-      <td class="cell-num">13.0%</td>
-      <td class="cell-num">9.2x</td>
-      <td class="cell-num">17.1%</td>
-      <td class="cell-num">80.4%</td>
-      <td class="cell-num">6.0%</td>
-      <td class="cell-num">4.7%</td>
-      <td class="cell-num">1.4</td>
-      <td class="cell-status status-near_miss_1">Near-miss</td>
-    </tr>
-    <tr data-status="near_miss_1" data-roce="16.15" data-evebit="12.70" data-fcfy="4.40" data-score="1.27" data-sec="68690">
-      <td class="cell-rank">NM18</td>
-      <td class="cell-tk">6869</td>
-      <td class="cell-name">SYSMEX CORPORATION</td>
-      <td class="cell-ind">電気機器</td>
-      <td class="cell-num">16.1%</td>
-      <td class="cell-num">12.7x</td>
-      <td class="cell-num">17.2%</td>
-      <td class="cell-num">69.7%</td>
-      <td class="cell-num">11.8%</td>
-      <td class="cell-num">4.4%</td>
-      <td class="cell-num">1.3</td>
-      <td class="cell-status status-near_miss_1">Near-miss</td>
-    </tr>
-    <tr data-status="near_miss_1" data-roce="13.90" data-evebit="11.45" data-fcfy="4.17" data-score="1.21" data-sec="45780">
+    <tr data-status="near_miss_1" data-mc="5795230" data-roce="13.90" data-evebit="11.45" data-fcfy="4.17" data-score="1.21" data-sec="45780">
       <td class="cell-rank">NM19</td>
       <td class="cell-tk">4578</td>
       <td class="cell-name">Otsuka Holdings Co.,Ltd.</td>
-      <td class="cell-ind">医薬品</td>
+      <td class="cell-ind">Pharmaceuticals</td>
+      <td class="cell-num">¥5,795bn</td>
       <td class="cell-num">13.9%</td>
       <td class="cell-num">11.4x</td>
       <td class="cell-num">19.4%</td>
@@ -1083,11 +105,12 @@
       <td class="cell-num">1.2</td>
       <td class="cell-status status-near_miss_1">Near-miss</td>
     </tr>
-    <tr data-status="near_miss_2_editorial" data-roce="12.28" data-evebit="13.39" data-fcfy="7.79" data-score="0.92" data-sec="45680">
+    <tr data-status="near_miss_2_editorial" data-mc="4982210" data-roce="12.28" data-evebit="13.39" data-fcfy="7.79" data-score="0.92" data-sec="45680">
       <td class="cell-rank">NM20</td>
       <td class="cell-tk">4568</td>
       <td class="cell-name">DAIICHI SANKYO COMPANY,LIMITED</td>
-      <td class="cell-ind">医薬品</td>
+      <td class="cell-ind">Pharmaceuticals</td>
+      <td class="cell-num">¥4,982bn</td>
       <td class="cell-num">12.3%</td>
       <td class="cell-num">13.4x</td>
       <td class="cell-num">17.6%</td>
@@ -1097,10 +120,1060 @@
       <td class="cell-num">0.9</td>
       <td class="cell-status status-near_miss_2_editorial">Near-miss · editorial</td>
     </tr>
+    <tr data-status="active" data-mc="1696248" data-roce="16.13" data-evebit="10.30" data-fcfy="7.36" data-score="1.57" data-sec="77330">
+      <td class="cell-rank">51</td>
+      <td class="cell-tk">7733</td>
+      <td class="cell-name">OLYMPUS CORPORATION</td>
+      <td class="cell-ind">Precision Instruments</td>
+      <td class="cell-num">¥1,696bn</td>
+      <td class="cell-num">16.1%</td>
+      <td class="cell-num">10.3x</td>
+      <td class="cell-num">16.3%</td>
+      <td class="cell-num">52.5%</td>
+      <td class="cell-num">10.0%</td>
+      <td class="cell-num">7.4%</td>
+      <td class="cell-num">1.6</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="active" data-mc="1102501" data-roce="53.05" data-evebit="11.93" data-fcfy="5.86" data-score="4.19" data-sec="47160">
+      <td class="cell-rank">23</td>
+      <td class="cell-tk">4716</td>
+      <td class="cell-name">ORACLE CORPORATION JAPAN</td>
+      <td class="cell-ind">Information &amp; Communication</td>
+      <td class="cell-num">¥1,103bn</td>
+      <td class="cell-num">53.0%</td>
+      <td class="cell-num">11.9x</td>
+      <td class="cell-num">33.0%</td>
+      <td class="cell-num">51.7%</td>
+      <td class="cell-num">7.1%</td>
+      <td class="cell-num">5.9%</td>
+      <td class="cell-num">4.2</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="near_miss_1" data-mc="1042225" data-roce="33.83" data-evebit="12.74" data-fcfy="4.71" data-score="2.66" data-sec="81360">
+      <td class="cell-rank">NM8</td>
+      <td class="cell-tk">8136</td>
+      <td class="cell-name">Sanrio Company,Ltd.</td>
+      <td class="cell-ind">Wholesale Trade</td>
+      <td class="cell-num">¥1,042bn</td>
+      <td class="cell-num">33.8%</td>
+      <td class="cell-num">12.7x</td>
+      <td class="cell-num">35.8%</td>
+      <td class="cell-num">53.2%</td>
+      <td class="cell-num">40.0%</td>
+      <td class="cell-num">4.7%</td>
+      <td class="cell-num">2.7</td>
+      <td class="cell-status status-near_miss_1">Near-miss</td>
+    </tr>
+    <tr data-status="active" data-mc="885209" data-roce="59.97" data-evebit="10.94" data-fcfy="6.08" data-score="4.57" data-sec="30920">
+      <td class="cell-rank">18</td>
+      <td class="cell-tk">3092</td>
+      <td class="cell-name">ZOZO,Inc.</td>
+      <td class="cell-ind">Retail Trade</td>
+      <td class="cell-num">¥885bn</td>
+      <td class="cell-num">60.0%</td>
+      <td class="cell-num">10.9x</td>
+      <td class="cell-num">30.4%</td>
+      <td class="cell-num">52.6%</td>
+      <td class="cell-num">8.6%</td>
+      <td class="cell-num">6.1%</td>
+      <td class="cell-num">4.6</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="near_miss_1" data-mc="812003" data-roce="16.15" data-evebit="12.70" data-fcfy="4.40" data-score="1.27" data-sec="68690">
+      <td class="cell-rank">NM18</td>
+      <td class="cell-tk">6869</td>
+      <td class="cell-name">SYSMEX CORPORATION</td>
+      <td class="cell-ind">Electric Appliances</td>
+      <td class="cell-num">¥812bn</td>
+      <td class="cell-num">16.1%</td>
+      <td class="cell-num">12.7x</td>
+      <td class="cell-num">17.2%</td>
+      <td class="cell-num">69.7%</td>
+      <td class="cell-num">11.8%</td>
+      <td class="cell-num">4.4%</td>
+      <td class="cell-num">1.3</td>
+      <td class="cell-status status-near_miss_1">Near-miss</td>
+    </tr>
+    <tr data-status="near_miss_1" data-mc="808751" data-roce="25.07" data-evebit="11.58" data-fcfy="3.98" data-score="2.17" data-sec="47320">
+      <td class="cell-rank">NM11</td>
+      <td class="cell-tk">4732</td>
+      <td class="cell-name">USS Co.,Ltd.</td>
+      <td class="cell-ind">Services</td>
+      <td class="cell-num">¥809bn</td>
+      <td class="cell-num">25.1%</td>
+      <td class="cell-num">11.6x</td>
+      <td class="cell-num">52.1%</td>
+      <td class="cell-num">77.6%</td>
+      <td class="cell-num">8.5%</td>
+      <td class="cell-num">4.0%</td>
+      <td class="cell-num">2.2</td>
+      <td class="cell-status status-near_miss_1">Near-miss</td>
+    </tr>
+    <tr data-status="near_miss_1" data-mc="758577" data-roce="42.40" data-evebit="10.90" data-fcfy="3.84" data-score="3.89" data-sec="65320">
+      <td class="cell-rank">NM3</td>
+      <td class="cell-tk">6532</td>
+      <td class="cell-name">BayCurrent,Inc.</td>
+      <td class="cell-ind">Services</td>
+      <td class="cell-num">¥759bn</td>
+      <td class="cell-num">42.4%</td>
+      <td class="cell-num">10.9x</td>
+      <td class="cell-num">36.7%</td>
+      <td class="cell-num">75.7%</td>
+      <td class="cell-num">26.3%</td>
+      <td class="cell-num">3.8%</td>
+      <td class="cell-num">3.9</td>
+      <td class="cell-status status-near_miss_1">Near-miss</td>
+    </tr>
+    <tr data-status="active" data-mc="295291" data-roce="19.30" data-evebit="9.50" data-fcfy="8.35" data-score="2.03" data-sec="81110">
+      <td class="cell-rank">47</td>
+      <td class="cell-tk">8111</td>
+      <td class="cell-name">Goldwin Inc.</td>
+      <td class="cell-ind">Textiles &amp; Apparel</td>
+      <td class="cell-num">¥295bn</td>
+      <td class="cell-num">19.3%</td>
+      <td class="cell-num">9.5x</td>
+      <td class="cell-num">16.6%</td>
+      <td class="cell-num">73.7%</td>
+      <td class="cell-num">10.4%</td>
+      <td class="cell-num">8.3%</td>
+      <td class="cell-num">2.0</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="active" data-mc="293963" data-roce="30.81" data-evebit="9.58" data-fcfy="5.43" data-score="3.22" data-sec="41940">
+      <td class="cell-rank">34</td>
+      <td class="cell-tk"><a href="/en/compounders/4194/">4194</a></td>
+      <td class="cell-name">Visional,Inc.</td>
+      <td class="cell-ind">Information &amp; Communication</td>
+      <td class="cell-num">¥294bn</td>
+      <td class="cell-num">30.8%</td>
+      <td class="cell-num">9.6x</td>
+      <td class="cell-num">26.8%</td>
+      <td class="cell-num">71.0%</td>
+      <td class="cell-num">22.2%</td>
+      <td class="cell-num">5.4%</td>
+      <td class="cell-num">3.2</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="near_miss_1" data-mc="223251" data-roce="19.98" data-evebit="13.45" data-fcfy="5.13" data-score="1.49" data-sec="60550">
+      <td class="cell-rank">NM16</td>
+      <td class="cell-tk">6055</td>
+      <td class="cell-name">JAPAN MATERIAL Co.,Ltd.</td>
+      <td class="cell-ind">Services</td>
+      <td class="cell-num">¥223bn</td>
+      <td class="cell-num">20.0%</td>
+      <td class="cell-num">13.4x</td>
+      <td class="cell-num">21.2%</td>
+      <td class="cell-num">83.1%</td>
+      <td class="cell-num">11.5%</td>
+      <td class="cell-num">5.1%</td>
+      <td class="cell-num">1.5</td>
+      <td class="cell-status status-near_miss_1">Near-miss</td>
+    </tr>
+    <tr data-status="active" data-mc="199296" data-roce="22.24" data-evebit="8.78" data-fcfy="6.62" data-score="2.53" data-sec="97590">
+      <td class="cell-rank">43</td>
+      <td class="cell-tk">9759</td>
+      <td class="cell-name">NSD CO.,LTD.</td>
+      <td class="cell-ind">Information &amp; Communication</td>
+      <td class="cell-num">¥199bn</td>
+      <td class="cell-num">22.2%</td>
+      <td class="cell-num">8.8x</td>
+      <td class="cell-num">15.6%</td>
+      <td class="cell-num">75.4%</td>
+      <td class="cell-num">14.8%</td>
+      <td class="cell-num">6.6%</td>
+      <td class="cell-num">2.5</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="near_miss_1" data-mc="177018" data-roce="14.48" data-evebit="8.90" data-fcfy="6.86" data-score="1.63" data-sec="97460">
+      <td class="cell-rank">NM14</td>
+      <td class="cell-tk">9746</td>
+      <td class="cell-name">TKC Corporation</td>
+      <td class="cell-ind">Information &amp; Communication</td>
+      <td class="cell-num">¥177bn</td>
+      <td class="cell-num">14.5%</td>
+      <td class="cell-num">8.9x</td>
+      <td class="cell-num">19.3%</td>
+      <td class="cell-num">83.6%</td>
+      <td class="cell-num">7.2%</td>
+      <td class="cell-num">6.9%</td>
+      <td class="cell-num">1.6</td>
+      <td class="cell-status status-near_miss_1">Near-miss</td>
+    </tr>
+    <tr data-status="active" data-mc="164907" data-roce="74.10" data-evebit="9.16" data-fcfy="5.40" data-score="5.46" data-sec="50320">
+      <td class="cell-rank">13</td>
+      <td class="cell-tk">5032</td>
+      <td class="cell-name">ANYCOLOR Inc.</td>
+      <td class="cell-ind">Services</td>
+      <td class="cell-num">¥165bn</td>
+      <td class="cell-num">74.1%</td>
+      <td class="cell-num">9.2x</td>
+      <td class="cell-num">38.0%</td>
+      <td class="cell-num">75.4%</td>
+      <td class="cell-num">44.7%</td>
+      <td class="cell-num">5.4%</td>
+      <td class="cell-num">5.5</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="active" data-mc="138245" data-roce="20.11" data-evebit="6.88" data-fcfy="5.26" data-score="2.92" data-sec="47220">
+      <td class="cell-rank">40</td>
+      <td class="cell-tk">4722</td>
+      <td class="cell-name">Future Corporation</td>
+      <td class="cell-ind">Information &amp; Communication</td>
+      <td class="cell-num">¥138bn</td>
+      <td class="cell-num">20.1%</td>
+      <td class="cell-num">6.9x</td>
+      <td class="cell-num">21.3%</td>
+      <td class="cell-num">64.4%</td>
+      <td class="cell-num">12.2%</td>
+      <td class="cell-num">5.3%</td>
+      <td class="cell-num">2.9</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="active" data-mc="127358" data-roce="29.60" data-evebit="7.21" data-fcfy="85.62" data-score="4.10" data-sec="71480">
+      <td class="cell-rank">25</td>
+      <td class="cell-tk">7148</td>
+      <td class="cell-name">Financial Partners Group Co.,Ltd.</td>
+      <td class="cell-ind">Securities &amp; Commodities</td>
+      <td class="cell-num">¥127bn</td>
+      <td class="cell-num">29.6%</td>
+      <td class="cell-num">7.2x</td>
+      <td class="cell-num">19.6%</td>
+      <td class="cell-num">45.1%</td>
+      <td class="cell-num">29.9%</td>
+      <td class="cell-num">85.6%</td>
+      <td class="cell-num">4.1</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="active" data-mc="100714" data-roce="33.93" data-evebit="9.63" data-fcfy="9.80" data-score="3.52" data-sec="97570">
+      <td class="cell-rank">30</td>
+      <td class="cell-tk">9757</td>
+      <td class="cell-name">Funai Soken Holdings Incorporated</td>
+      <td class="cell-ind">Services</td>
+      <td class="cell-num">¥101bn</td>
+      <td class="cell-num">33.9%</td>
+      <td class="cell-num">9.6x</td>
+      <td class="cell-num">26.4%</td>
+      <td class="cell-num">74.8%</td>
+      <td class="cell-num">9.1%</td>
+      <td class="cell-num">9.8%</td>
+      <td class="cell-num">3.5</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="active" data-mc="98777" data-roce="56.02" data-evebit="8.29" data-fcfy="7.66" data-score="6.03" data-sec="47760">
+      <td class="cell-rank">10</td>
+      <td class="cell-tk">4776</td>
+      <td class="cell-name">Cybozu,Inc.</td>
+      <td class="cell-ind">Information &amp; Communication</td>
+      <td class="cell-num">¥99bn</td>
+      <td class="cell-num">56.0%</td>
+      <td class="cell-num">8.3x</td>
+      <td class="cell-num">27.0%</td>
+      <td class="cell-num">59.1%</td>
+      <td class="cell-num">19.3%</td>
+      <td class="cell-num">7.7%</td>
+      <td class="cell-num">6.0</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="active" data-mc="96214" data-roce="42.61" data-evebit="10.89" data-fcfy="5.19" data-score="3.91" data-sec="40710">
+      <td class="cell-rank">27</td>
+      <td class="cell-tk">4071</td>
+      <td class="cell-name">Plus Alpha Consulting Co.,LTD.</td>
+      <td class="cell-ind">Services</td>
+      <td class="cell-num">¥96bn</td>
+      <td class="cell-num">42.6%</td>
+      <td class="cell-num">10.9x</td>
+      <td class="cell-num">37.3%</td>
+      <td class="cell-num">79.5%</td>
+      <td class="cell-num">29.3%</td>
+      <td class="cell-num">5.2%</td>
+      <td class="cell-num">3.9</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="active" data-mc="88478" data-roce="15.33" data-evebit="7.63" data-fcfy="7.39" data-score="2.01" data-sec="44320">
+      <td class="cell-rank">48</td>
+      <td class="cell-tk">4432</td>
+      <td class="cell-name">WingArc1st Inc.</td>
+      <td class="cell-ind">Information &amp; Communication</td>
+      <td class="cell-num">¥88bn</td>
+      <td class="cell-num">15.3%</td>
+      <td class="cell-num">7.6x</td>
+      <td class="cell-num">28.6%</td>
+      <td class="cell-num">61.1%</td>
+      <td class="cell-num">13.1%</td>
+      <td class="cell-num">7.4%</td>
+      <td class="cell-num">2.0</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="active" data-mc="78873" data-roce="18.80" data-evebit="8.95" data-fcfy="4.18" data-score="2.10" data-sec="23530">
+      <td class="cell-rank">46</td>
+      <td class="cell-tk">2353</td>
+      <td class="cell-name">NIPPON PARKING DEVELOPMENT Co.,Ltd.</td>
+      <td class="cell-ind">Real Estate</td>
+      <td class="cell-num">¥79bn</td>
+      <td class="cell-num">18.8%</td>
+      <td class="cell-num">8.9x</td>
+      <td class="cell-num">20.8%</td>
+      <td class="cell-num">45.8%</td>
+      <td class="cell-num">11.9%</td>
+      <td class="cell-num">4.2%</td>
+      <td class="cell-num">2.1</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="active" data-mc="75331" data-roce="22.85" data-evebit="9.39" data-fcfy="7.28" data-score="2.43" data-sec="70850">
+      <td class="cell-rank">44</td>
+      <td class="cell-tk">7085</td>
+      <td class="cell-name">CURVES HOLDINGS Co.,Ltd.</td>
+      <td class="cell-ind">Services</td>
+      <td class="cell-num">¥75bn</td>
+      <td class="cell-num">22.9%</td>
+      <td class="cell-num">9.4x</td>
+      <td class="cell-num">16.9%</td>
+      <td class="cell-num">51.4%</td>
+      <td class="cell-num">10.9%</td>
+      <td class="cell-num">7.3%</td>
+      <td class="cell-num">2.4</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="near_miss_1" data-mc="74087" data-roce="19.25" data-evebit="12.09" data-fcfy="5.96" data-score="1.59" data-sec="87710">
+      <td class="cell-rank">NM15</td>
+      <td class="cell-tk">8771</td>
+      <td class="cell-name">eGuarantee,Inc.</td>
+      <td class="cell-ind">Other Financials</td>
+      <td class="cell-num">¥74bn</td>
+      <td class="cell-num">19.2%</td>
+      <td class="cell-num">12.1x</td>
+      <td class="cell-num">49.9%</td>
+      <td class="cell-num">79.9%</td>
+      <td class="cell-num">9.0%</td>
+      <td class="cell-num">6.0%</td>
+      <td class="cell-num">1.6</td>
+      <td class="cell-status status-near_miss_1">Near-miss</td>
+    </tr>
+    <tr data-status="active" data-mc="69245" data-roce="29.15" data-evebit="7.75" data-fcfy="5.10" data-score="3.76" data-sec="61960">
+      <td class="cell-rank">29</td>
+      <td class="cell-tk">6196</td>
+      <td class="cell-name">Strike Company,Limited</td>
+      <td class="cell-ind">Services</td>
+      <td class="cell-num">¥69bn</td>
+      <td class="cell-num">29.1%</td>
+      <td class="cell-num">7.8x</td>
+      <td class="cell-num">31.2%</td>
+      <td class="cell-num">86.7%</td>
+      <td class="cell-num">23.7%</td>
+      <td class="cell-num">5.1%</td>
+      <td class="cell-num">3.8</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="active" data-mc="63950" data-roce="28.08" data-evebit="9.17" data-fcfy="5.78" data-score="3.06" data-sec="78180">
+      <td class="cell-rank">37</td>
+      <td class="cell-tk">7818</td>
+      <td class="cell-name">TRANSACTION CO.,Ltd.</td>
+      <td class="cell-ind">Other Products</td>
+      <td class="cell-num">¥64bn</td>
+      <td class="cell-num">28.1%</td>
+      <td class="cell-num">9.2x</td>
+      <td class="cell-num">20.8%</td>
+      <td class="cell-num">82.6%</td>
+      <td class="cell-num">14.5%</td>
+      <td class="cell-num">5.8%</td>
+      <td class="cell-num">3.1</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="active" data-mc="59224" data-roce="36.64" data-evebit="9.42" data-fcfy="4.76" data-score="3.89" data-sec="38540">
+      <td class="cell-rank">28</td>
+      <td class="cell-tk">3854</td>
+      <td class="cell-name">I&#x27;LL INC</td>
+      <td class="cell-ind">Information &amp; Communication</td>
+      <td class="cell-num">¥59bn</td>
+      <td class="cell-num">36.6%</td>
+      <td class="cell-num">9.4x</td>
+      <td class="cell-num">25.0%</td>
+      <td class="cell-num">71.6%</td>
+      <td class="cell-num">14.2%</td>
+      <td class="cell-num">4.8%</td>
+      <td class="cell-num">3.9</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="active" data-mc="58406" data-roce="39.29" data-evebit="7.16" data-fcfy="7.73" data-score="5.49" data-sec="44810">
+      <td class="cell-rank">12</td>
+      <td class="cell-tk">4481</td>
+      <td class="cell-name">BASE CO.,LTD.</td>
+      <td class="cell-ind">Information &amp; Communication</td>
+      <td class="cell-num">¥58bn</td>
+      <td class="cell-num">39.3%</td>
+      <td class="cell-num">7.2x</td>
+      <td class="cell-num">26.4%</td>
+      <td class="cell-num">77.3%</td>
+      <td class="cell-num">8.5%</td>
+      <td class="cell-num">7.7%</td>
+      <td class="cell-num">5.5</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="active" data-mc="56188" data-roce="47.61" data-evebit="7.52" data-fcfy="7.42" data-score="6.33" data-sec="62000">
+      <td class="cell-rank">7</td>
+      <td class="cell-tk">6200</td>
+      <td class="cell-name">Insource Co.,Ltd.</td>
+      <td class="cell-ind">Services</td>
+      <td class="cell-num">¥56bn</td>
+      <td class="cell-num">47.6%</td>
+      <td class="cell-num">7.5x</td>
+      <td class="cell-num">41.2%</td>
+      <td class="cell-num">77.3%</td>
+      <td class="cell-num">15.5%</td>
+      <td class="cell-num">7.4%</td>
+      <td class="cell-num">6.3</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="active" data-mc="46907" data-roce="37.69" data-evebit="6.06" data-fcfy="8.21" data-score="6.22" data-sec="60880">
+      <td class="cell-rank">8</td>
+      <td class="cell-tk">6088</td>
+      <td class="cell-name">SIGMAXYZ Holdings Inc.</td>
+      <td class="cell-ind">Services</td>
+      <td class="cell-num">¥47bn</td>
+      <td class="cell-num">37.7%</td>
+      <td class="cell-num">6.1x</td>
+      <td class="cell-num">21.4%</td>
+      <td class="cell-num">72.3%</td>
+      <td class="cell-num">18.9%</td>
+      <td class="cell-num">8.2%</td>
+      <td class="cell-num">6.2</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="near_miss_1" data-mc="46496" data-roce="25.13" data-evebit="10.53" data-fcfy="3.87" data-score="2.39" data-sec="299A0">
+      <td class="cell-rank">NM9</td>
+      <td class="cell-tk">299A</td>
+      <td class="cell-name">Kurashiru,Inc.</td>
+      <td class="cell-ind">Information &amp; Communication</td>
+      <td class="cell-num">¥46bn</td>
+      <td class="cell-num">25.1%</td>
+      <td class="cell-num">10.5x</td>
+      <td class="cell-num">20.3%</td>
+      <td class="cell-num">80.5%</td>
+      <td class="cell-num">27.6%</td>
+      <td class="cell-num">3.9%</td>
+      <td class="cell-num">2.4</td>
+      <td class="cell-status status-near_miss_1">Near-miss</td>
+    </tr>
+    <tr data-status="active" data-mc="42238" data-roce="28.90" data-evebit="5.32" data-fcfy="10.11" data-score="5.44" data-sec="38360">
+      <td class="cell-rank">14</td>
+      <td class="cell-tk">3836</td>
+      <td class="cell-name">AVANT GROUP CORPORATION</td>
+      <td class="cell-ind">Information &amp; Communication</td>
+      <td class="cell-num">¥42bn</td>
+      <td class="cell-num">28.9%</td>
+      <td class="cell-num">5.3x</td>
+      <td class="cell-num">16.3%</td>
+      <td class="cell-num">64.0%</td>
+      <td class="cell-num">14.7%</td>
+      <td class="cell-num">10.1%</td>
+      <td class="cell-num">5.4</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="active" data-mc="37343" data-roce="33.47" data-evebit="5.06" data-fcfy="4.65" data-score="6.61" data-sec="62260">
+      <td class="cell-rank">5</td>
+      <td class="cell-tk">6226</td>
+      <td class="cell-name">Moriya Transportation Engineering and Manufacturing Co.,Ltd.</td>
+      <td class="cell-ind">Machinery</td>
+      <td class="cell-num">¥37bn</td>
+      <td class="cell-num">33.5%</td>
+      <td class="cell-num">5.1x</td>
+      <td class="cell-num">21.1%</td>
+      <td class="cell-num">66.8%</td>
+      <td class="cell-num">11.9%</td>
+      <td class="cell-num">4.7%</td>
+      <td class="cell-num">6.6</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="active" data-mc="33187" data-roce="23.42" data-evebit="5.83" data-fcfy="5.52" data-score="4.02" data-sec="94670">
+      <td class="cell-rank">26</td>
+      <td class="cell-tk">9467</td>
+      <td class="cell-name">AlphaPolis Co.,Ltd.</td>
+      <td class="cell-ind">Information &amp; Communication</td>
+      <td class="cell-num">¥33bn</td>
+      <td class="cell-num">23.4%</td>
+      <td class="cell-num">5.8x</td>
+      <td class="cell-num">23.7%</td>
+      <td class="cell-num">81.2%</td>
+      <td class="cell-num">14.4%</td>
+      <td class="cell-num">5.5%</td>
+      <td class="cell-num">4.0</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="near_miss_2_editorial" data-mc="33021" data-roce="48.46" data-evebit="12.49" data-fcfy="8.02" data-score="3.88" data-sec="44750">
+      <td class="cell-rank">NM4</td>
+      <td class="cell-tk"><a href="/en/compounders/4475/">4475</a></td>
+      <td class="cell-name">HENNGE K.K.</td>
+      <td class="cell-ind">Information &amp; Communication</td>
+      <td class="cell-num">¥33bn</td>
+      <td class="cell-num">48.5%</td>
+      <td class="cell-num">12.5x</td>
+      <td class="cell-num">16.4%</td>
+      <td class="cell-num">35.8%</td>
+      <td class="cell-num">24.6%</td>
+      <td class="cell-num">8.0%</td>
+      <td class="cell-num">3.9</td>
+      <td class="cell-status status-near_miss_2_editorial">Near-miss · editorial</td>
+    </tr>
+    <tr data-status="active" data-mc="32795" data-roce="38.42" data-evebit="8.94" data-fcfy="5.74" data-score="4.30" data-sec="43770">
+      <td class="cell-rank">22</td>
+      <td class="cell-tk">4377</td>
+      <td class="cell-name">ONE CAREER Inc.</td>
+      <td class="cell-ind">Information &amp; Communication</td>
+      <td class="cell-num">¥33bn</td>
+      <td class="cell-num">38.4%</td>
+      <td class="cell-num">8.9x</td>
+      <td class="cell-num">28.1%</td>
+      <td class="cell-num">69.1%</td>
+      <td class="cell-num">38.7%</td>
+      <td class="cell-num">5.7%</td>
+      <td class="cell-num">4.3</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="active" data-mc="31134" data-roce="24.29" data-evebit="7.41" data-fcfy="6.15" data-score="3.28" data-sec="39830">
+      <td class="cell-rank">31</td>
+      <td class="cell-tk">3983</td>
+      <td class="cell-name">ORO Co.,Ltd.</td>
+      <td class="cell-ind">Information &amp; Communication</td>
+      <td class="cell-num">¥31bn</td>
+      <td class="cell-num">24.3%</td>
+      <td class="cell-num">7.4x</td>
+      <td class="cell-num">31.9%</td>
+      <td class="cell-num">75.3%</td>
+      <td class="cell-num">10.2%</td>
+      <td class="cell-num">6.2%</td>
+      <td class="cell-num">3.3</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="near_miss_1" data-mc="30352" data-roce="27.18" data-evebit="7.62" data-fcfy="3.49" data-score="3.57" data-sec="39220">
+      <td class="cell-rank">NM5</td>
+      <td class="cell-tk">3922</td>
+      <td class="cell-name">PR TIMES Corporation</td>
+      <td class="cell-ind">Information &amp; Communication</td>
+      <td class="cell-num">¥30bn</td>
+      <td class="cell-num">27.2%</td>
+      <td class="cell-num">7.6x</td>
+      <td class="cell-num">23.5%</td>
+      <td class="cell-num">83.8%</td>
+      <td class="cell-num">18.1%</td>
+      <td class="cell-num">3.5%</td>
+      <td class="cell-num">3.6</td>
+      <td class="cell-status status-near_miss_1">Near-miss</td>
+    </tr>
+    <tr data-status="near_miss_2_editorial" data-mc="28314" data-roce="47.80" data-evebit="12.00" data-fcfy="3.54" data-score="3.98" data-sec="296A0">
+      <td class="cell-rank">NM2</td>
+      <td class="cell-tk">296A</td>
+      <td class="cell-name">Reiwa Accounting Holdings Co.,Ltd.</td>
+      <td class="cell-ind">Services</td>
+      <td class="cell-num">¥28bn</td>
+      <td class="cell-num">47.8%</td>
+      <td class="cell-num">12.0x</td>
+      <td class="cell-num">30.0%</td>
+      <td class="cell-num">66.3%</td>
+      <td class="cell-num">17.6%</td>
+      <td class="cell-num">3.5%</td>
+      <td class="cell-num">4.0</td>
+      <td class="cell-status status-near_miss_2_editorial">Near-miss · editorial</td>
+    </tr>
+    <tr data-status="active" data-mc="28273" data-roce="25.03" data-evebit="5.71" data-fcfy="4.82" data-score="4.38" data-sec="37980">
+      <td class="cell-rank">20</td>
+      <td class="cell-tk">3798</td>
+      <td class="cell-name">ULS Group,Inc.</td>
+      <td class="cell-ind">Information &amp; Communication</td>
+      <td class="cell-num">¥28bn</td>
+      <td class="cell-num">25.0%</td>
+      <td class="cell-num">5.7x</td>
+      <td class="cell-num">19.9%</td>
+      <td class="cell-num">77.2%</td>
+      <td class="cell-num">21.5%</td>
+      <td class="cell-num">4.8%</td>
+      <td class="cell-num">4.4</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="active" data-mc="27401" data-roce="22.66" data-evebit="8.54" data-fcfy="5.64" data-score="2.65" data-sec="39840">
+      <td class="cell-rank">41</td>
+      <td class="cell-tk">3984</td>
+      <td class="cell-name">User Local,Inc.</td>
+      <td class="cell-ind">Information &amp; Communication</td>
+      <td class="cell-num">¥27bn</td>
+      <td class="cell-num">22.7%</td>
+      <td class="cell-num">8.5x</td>
+      <td class="cell-num">43.0%</td>
+      <td class="cell-num">87.2%</td>
+      <td class="cell-num">19.5%</td>
+      <td class="cell-num">5.6%</td>
+      <td class="cell-num">2.6</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="active" data-mc="26659" data-roce="38.32" data-evebit="9.17" data-fcfy="6.06" data-score="4.18" data-sec="39890">
+      <td class="cell-rank">24</td>
+      <td class="cell-tk">3989</td>
+      <td class="cell-name">SHARINGTECHNOLOGY.INC</td>
+      <td class="cell-ind">Information &amp; Communication</td>
+      <td class="cell-num">¥27bn</td>
+      <td class="cell-num">38.3%</td>
+      <td class="cell-num">9.2x</td>
+      <td class="cell-num">24.2%</td>
+      <td class="cell-num">69.3%</td>
+      <td class="cell-num">24.7%</td>
+      <td class="cell-num">6.1%</td>
+      <td class="cell-num">4.2</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="active" data-mc="23136" data-roce="16.17" data-evebit="10.63" data-fcfy="5.19" data-score="1.52" data-sec="65390">
+      <td class="cell-rank">52</td>
+      <td class="cell-tk">6539</td>
+      <td class="cell-name">MATCHING SERVICE JAPAN CO.,LTD.</td>
+      <td class="cell-ind">Services</td>
+      <td class="cell-num">¥23bn</td>
+      <td class="cell-num">16.2%</td>
+      <td class="cell-num">10.6x</td>
+      <td class="cell-num">21.5%</td>
+      <td class="cell-num">90.2%</td>
+      <td class="cell-num">25.8%</td>
+      <td class="cell-num">5.2%</td>
+      <td class="cell-num">1.5</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="active" data-mc="21404" data-roce="15.41" data-evebit="5.14" data-fcfy="10.59" data-score="3.00" data-sec="23010">
+      <td class="cell-rank">39</td>
+      <td class="cell-tk">2301</td>
+      <td class="cell-name">GAKUJO CO.,Ltd.</td>
+      <td class="cell-ind">Services</td>
+      <td class="cell-num">¥21bn</td>
+      <td class="cell-num">15.4%</td>
+      <td class="cell-num">5.1x</td>
+      <td class="cell-num">21.2%</td>
+      <td class="cell-num">87.0%</td>
+      <td class="cell-num">17.6%</td>
+      <td class="cell-num">10.6%</td>
+      <td class="cell-num">3.0</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="near_miss_1" data-mc="20867" data-roce="38.54" data-evebit="8.66" data-fcfy="3.15" data-score="4.45" data-sec="40580">
+      <td class="cell-rank">NM1</td>
+      <td class="cell-tk">4058</td>
+      <td class="cell-name">Toyokumo,Inc.</td>
+      <td class="cell-ind">Information &amp; Communication</td>
+      <td class="cell-num">¥21bn</td>
+      <td class="cell-num">38.5%</td>
+      <td class="cell-num">8.7x</td>
+      <td class="cell-num">33.0%</td>
+      <td class="cell-num">62.1%</td>
+      <td class="cell-num">35.9%</td>
+      <td class="cell-num">3.1%</td>
+      <td class="cell-num">4.5</td>
+      <td class="cell-status status-near_miss_1">Near-miss</td>
+    </tr>
+    <tr data-status="active" data-mc="20427" data-roce="36.41" data-evebit="7.07" data-fcfy="14.64" data-score="5.15" data-sec="43930">
+      <td class="cell-rank">16</td>
+      <td class="cell-tk">4393</td>
+      <td class="cell-name">Bank of Innovation,Inc.</td>
+      <td class="cell-ind">Information &amp; Communication</td>
+      <td class="cell-num">¥20bn</td>
+      <td class="cell-num">36.4%</td>
+      <td class="cell-num">7.1x</td>
+      <td class="cell-num">17.4%</td>
+      <td class="cell-num">73.2%</td>
+      <td class="cell-num">72.0%</td>
+      <td class="cell-num">14.6%</td>
+      <td class="cell-num">5.2</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="active" data-mc="19847" data-roce="47.29" data-evebit="5.89" data-fcfy="8.25" data-score="8.02" data-sec="421A0">
+      <td class="cell-rank">3</td>
+      <td class="cell-tk">421A</td>
+      <td class="cell-name">movin&#x27; Strategic Career, Inc.</td>
+      <td class="cell-ind">Services</td>
+      <td class="cell-num">¥20bn</td>
+      <td class="cell-num">47.3%</td>
+      <td class="cell-num">5.9x</td>
+      <td class="cell-num">46.4%</td>
+      <td class="cell-num">76.9%</td>
+      <td class="cell-num">12.5%</td>
+      <td class="cell-num">8.2%</td>
+      <td class="cell-num">8.0</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="active" data-mc="19185" data-roce="30.96" data-evebit="9.64" data-fcfy="7.06" data-score="3.21" data-sec="36490">
+      <td class="cell-rank">35</td>
+      <td class="cell-tk">3649</td>
+      <td class="cell-name">FINDEX Inc.</td>
+      <td class="cell-ind">Information &amp; Communication</td>
+      <td class="cell-num">¥19bn</td>
+      <td class="cell-num">31.0%</td>
+      <td class="cell-num">9.6x</td>
+      <td class="cell-num">29.3%</td>
+      <td class="cell-num">80.3%</td>
+      <td class="cell-num">10.4%</td>
+      <td class="cell-num">7.1%</td>
+      <td class="cell-num">3.2</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="active" data-mc="18590" data-roce="29.12" data-evebit="9.67" data-fcfy="7.40" data-score="3.01" data-sec="60370">
+      <td class="cell-rank">38</td>
+      <td class="cell-tk">6037</td>
+      <td class="cell-name">RAKUMACHI,INC.</td>
+      <td class="cell-ind">Services</td>
+      <td class="cell-num">¥19bn</td>
+      <td class="cell-num">29.1%</td>
+      <td class="cell-num">9.7x</td>
+      <td class="cell-num">48.9%</td>
+      <td class="cell-num">86.6%</td>
+      <td class="cell-num">19.0%</td>
+      <td class="cell-num">7.4%</td>
+      <td class="cell-num">3.0</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="active" data-mc="18500" data-roce="23.50" data-evebit="7.55" data-fcfy="6.78" data-score="3.11" data-sec="38350">
+      <td class="cell-rank">36</td>
+      <td class="cell-tk">3835</td>
+      <td class="cell-name">eBASE Co.,Ltd.</td>
+      <td class="cell-ind">Information &amp; Communication</td>
+      <td class="cell-num">¥18bn</td>
+      <td class="cell-num">23.5%</td>
+      <td class="cell-num">7.5x</td>
+      <td class="cell-num">31.7%</td>
+      <td class="cell-num">90.7%</td>
+      <td class="cell-num">7.9%</td>
+      <td class="cell-num">6.8%</td>
+      <td class="cell-num">3.1</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="active" data-mc="17553" data-roce="42.39" data-evebit="3.08" data-fcfy="9.56" data-score="13.74" data-sec="73730">
+      <td class="cell-rank">1</td>
+      <td class="cell-tk">7373</td>
+      <td class="cell-name">Aidma Holdings,Inc.</td>
+      <td class="cell-ind">Services</td>
+      <td class="cell-num">¥18bn</td>
+      <td class="cell-num">42.4%</td>
+      <td class="cell-num">3.1x</td>
+      <td class="cell-num">23.4%</td>
+      <td class="cell-num">66.1%</td>
+      <td class="cell-num">28.9%</td>
+      <td class="cell-num">9.6%</td>
+      <td class="cell-num">13.7</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="near_miss_1" data-mc="17246" data-roce="23.87" data-evebit="11.28" data-fcfy="3.35" data-score="2.12" data-sec="44930">
+      <td class="cell-rank">NM12</td>
+      <td class="cell-tk">4493</td>
+      <td class="cell-name">Cyber Security Cloud,Inc.</td>
+      <td class="cell-ind">Information &amp; Communication</td>
+      <td class="cell-num">¥17bn</td>
+      <td class="cell-num">23.9%</td>
+      <td class="cell-num">11.3x</td>
+      <td class="cell-num">21.7%</td>
+      <td class="cell-num">75.8%</td>
+      <td class="cell-num">30.7%</td>
+      <td class="cell-num">3.4%</td>
+      <td class="cell-num">2.1</td>
+      <td class="cell-status status-near_miss_1">Near-miss</td>
+    </tr>
+    <tr data-status="active" data-mc="16145" data-roce="40.81" data-evebit="6.05" data-fcfy="8.27" data-score="6.74" data-sec="92720">
+      <td class="cell-rank">4</td>
+      <td class="cell-tk">9272</td>
+      <td class="cell-name">Boutiques,Inc.</td>
+      <td class="cell-ind">Retail Trade</td>
+      <td class="cell-num">¥16bn</td>
+      <td class="cell-num">40.8%</td>
+      <td class="cell-num">6.0x</td>
+      <td class="cell-num">23.8%</td>
+      <td class="cell-num">43.9%</td>
+      <td class="cell-num">35.2%</td>
+      <td class="cell-num">8.3%</td>
+      <td class="cell-num">6.7</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="near_miss_1" data-mc="15291" data-roce="21.61" data-evebit="8.08" data-fcfy="3.02" data-score="2.67" data-sec="37120">
+      <td class="cell-rank">NM7</td>
+      <td class="cell-tk">3712</td>
+      <td class="cell-name">Information Planning CO.,LTD.</td>
+      <td class="cell-ind">Information &amp; Communication</td>
+      <td class="cell-num">¥15bn</td>
+      <td class="cell-num">21.6%</td>
+      <td class="cell-num">8.1x</td>
+      <td class="cell-num">40.0%</td>
+      <td class="cell-num">82.6%</td>
+      <td class="cell-num">6.0%</td>
+      <td class="cell-num">3.0%</td>
+      <td class="cell-num">2.7</td>
+      <td class="cell-status status-near_miss_1">Near-miss</td>
+    </tr>
+    <tr data-status="active" data-mc="15244" data-roce="23.77" data-evebit="5.28" data-fcfy="6.93" data-score="4.50" data-sec="24770">
+      <td class="cell-rank">19</td>
+      <td class="cell-tk">2477</td>
+      <td class="cell-name">Temairazu,Inc.</td>
+      <td class="cell-ind">Services</td>
+      <td class="cell-num">¥15bn</td>
+      <td class="cell-num">23.8%</td>
+      <td class="cell-num">5.3x</td>
+      <td class="cell-num">73.6%</td>
+      <td class="cell-num">93.8%</td>
+      <td class="cell-num">10.2%</td>
+      <td class="cell-num">6.9%</td>
+      <td class="cell-num">4.5</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="active" data-mc="14843" data-roce="49.87" data-evebit="7.82" data-fcfy="6.56" data-score="6.38" data-sec="44820">
+      <td class="cell-rank">6</td>
+      <td class="cell-tk">4482</td>
+      <td class="cell-name">WILLs Inc.</td>
+      <td class="cell-ind">Information &amp; Communication</td>
+      <td class="cell-num">¥15bn</td>
+      <td class="cell-num">49.9%</td>
+      <td class="cell-num">7.8x</td>
+      <td class="cell-num">21.5%</td>
+      <td class="cell-num">53.8%</td>
+      <td class="cell-num">16.6%</td>
+      <td class="cell-num">6.6%</td>
+      <td class="cell-num">6.4</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="active" data-mc="14619" data-roce="21.01" data-evebit="8.28" data-fcfy="5.41" data-score="2.54" data-sec="56210">
+      <td class="cell-rank">42</td>
+      <td class="cell-tk">5621</td>
+      <td class="cell-name">Human Technologies,Inc.</td>
+      <td class="cell-ind">Information &amp; Communication</td>
+      <td class="cell-num">¥15bn</td>
+      <td class="cell-num">21.0%</td>
+      <td class="cell-num">8.3x</td>
+      <td class="cell-num">15.4%</td>
+      <td class="cell-num">75.3%</td>
+      <td class="cell-num">19.1%</td>
+      <td class="cell-num">5.4%</td>
+      <td class="cell-num">2.5</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="active" data-mc="13052" data-roce="15.11" data-evebit="8.31" data-fcfy="4.16" data-score="1.82" data-sec="61760">
+      <td class="cell-rank">49</td>
+      <td class="cell-tk">6176</td>
+      <td class="cell-name">Brangista Inc.</td>
+      <td class="cell-ind">Services</td>
+      <td class="cell-num">¥13bn</td>
+      <td class="cell-num">15.1%</td>
+      <td class="cell-num">8.3x</td>
+      <td class="cell-num">22.2%</td>
+      <td class="cell-num">69.4%</td>
+      <td class="cell-num">15.6%</td>
+      <td class="cell-num">4.2%</td>
+      <td class="cell-num">1.8</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="active" data-mc="12697" data-roce="18.11" data-evebit="7.76" data-fcfy="7.51" data-score="2.33" data-sec="77750">
+      <td class="cell-rank">45</td>
+      <td class="cell-tk">7775</td>
+      <td class="cell-name">DAIKEN MEDICAL CO.,LTD.</td>
+      <td class="cell-ind">Precision Instruments</td>
+      <td class="cell-num">¥13bn</td>
+      <td class="cell-num">18.1%</td>
+      <td class="cell-num">7.8x</td>
+      <td class="cell-num">15.2%</td>
+      <td class="cell-num">67.2%</td>
+      <td class="cell-num">5.2%</td>
+      <td class="cell-num">7.5%</td>
+      <td class="cell-num">2.3</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="near_miss_1" data-mc="11637" data-roce="20.48" data-evebit="9.77" data-fcfy="3.69" data-score="2.10" data-sec="39630">
+      <td class="cell-rank">NM13</td>
+      <td class="cell-tk">3963</td>
+      <td class="cell-name">Synchro Food Co.,Ltd.</td>
+      <td class="cell-ind">Information &amp; Communication</td>
+      <td class="cell-num">¥12bn</td>
+      <td class="cell-num">20.5%</td>
+      <td class="cell-num">9.8x</td>
+      <td class="cell-num">27.8%</td>
+      <td class="cell-num">86.9%</td>
+      <td class="cell-num">26.4%</td>
+      <td class="cell-num">3.7%</td>
+      <td class="cell-num">2.1</td>
+      <td class="cell-status status-near_miss_1">Near-miss</td>
+    </tr>
+    <tr data-status="active" data-mc="9608" data-roce="31.43" data-evebit="6.34" data-fcfy="10.61" data-score="4.96" data-sec="48110">
+      <td class="cell-rank">17</td>
+      <td class="cell-tk">4811</td>
+      <td class="cell-name">DreamArts Corporation</td>
+      <td class="cell-ind">Information &amp; Communication</td>
+      <td class="cell-num">¥9.6bn</td>
+      <td class="cell-num">31.4%</td>
+      <td class="cell-num">6.3x</td>
+      <td class="cell-num">17.2%</td>
+      <td class="cell-num">54.9%</td>
+      <td class="cell-num">15.5%</td>
+      <td class="cell-num">10.6%</td>
+      <td class="cell-num">5.0</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="near_miss_1" data-mc="9523" data-roce="17.27" data-evebit="7.41" data-fcfy="3.54" data-score="2.33" data-sec="38040">
+      <td class="cell-rank">NM10</td>
+      <td class="cell-tk">3804</td>
+      <td class="cell-name">System D Inc.</td>
+      <td class="cell-ind">Information &amp; Communication</td>
+      <td class="cell-num">¥9.5bn</td>
+      <td class="cell-num">17.3%</td>
+      <td class="cell-num">7.4x</td>
+      <td class="cell-num">18.6%</td>
+      <td class="cell-num">68.0%</td>
+      <td class="cell-num">5.9%</td>
+      <td class="cell-num">3.5%</td>
+      <td class="cell-num">2.3</td>
+      <td class="cell-status status-near_miss_1">Near-miss</td>
+    </tr>
+    <tr data-status="active" data-mc="9116" data-roce="25.44" data-evebit="7.87" data-fcfy="5.41" data-score="3.23" data-sec="95540">
+      <td class="cell-rank">33</td>
+      <td class="cell-tk">9554</td>
+      <td class="cell-name">AViC Co.,Ltd.</td>
+      <td class="cell-ind">Services</td>
+      <td class="cell-num">¥9.1bn</td>
+      <td class="cell-num">25.4%</td>
+      <td class="cell-num">7.9x</td>
+      <td class="cell-num">27.0%</td>
+      <td class="cell-num">59.2%</td>
+      <td class="cell-num">29.1%</td>
+      <td class="cell-num">5.4%</td>
+      <td class="cell-num">3.2</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="near_miss_1" data-mc="8971" data-roce="22.90" data-evebit="7.58" data-fcfy="3.54" data-score="3.02" data-sec="55700">
+      <td class="cell-rank">NM6</td>
+      <td class="cell-tk">5570</td>
+      <td class="cell-name">JENOBA CO.,LTD.</td>
+      <td class="cell-ind">Information &amp; Communication</td>
+      <td class="cell-num">¥9.0bn</td>
+      <td class="cell-num">22.9%</td>
+      <td class="cell-num">7.6x</td>
+      <td class="cell-num">56.6%</td>
+      <td class="cell-num">88.2%</td>
+      <td class="cell-num">5.6%</td>
+      <td class="cell-num">3.5%</td>
+      <td class="cell-num">3.0</td>
+      <td class="cell-status status-near_miss_1">Near-miss</td>
+    </tr>
+    <tr data-status="active" data-mc="8865" data-roce="48.88" data-evebit="4.01" data-fcfy="8.10" data-score="12.18" data-sec="95600">
+      <td class="cell-rank">2</td>
+      <td class="cell-tk">9560</td>
+      <td class="cell-name">PROGRIT Inc.</td>
+      <td class="cell-ind">Services</td>
+      <td class="cell-num">¥8.9bn</td>
+      <td class="cell-num">48.9%</td>
+      <td class="cell-num">4.0x</td>
+      <td class="cell-num">20.9%</td>
+      <td class="cell-num">50.8%</td>
+      <td class="cell-num">36.6%</td>
+      <td class="cell-num">8.1%</td>
+      <td class="cell-num">12.2</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="active" data-mc="6588" data-roce="29.05" data-evebit="4.90" data-fcfy="4.84" data-score="5.93" data-sec="58430">
+      <td class="cell-rank">11</td>
+      <td class="cell-tk">5843</td>
+      <td class="cell-name">Nippon Insure Co.,Ltd.</td>
+      <td class="cell-ind">Other Financials</td>
+      <td class="cell-num">¥6.6bn</td>
+      <td class="cell-num">29.1%</td>
+      <td class="cell-num">4.9x</td>
+      <td class="cell-num">20.3%</td>
+      <td class="cell-num">46.7%</td>
+      <td class="cell-num">12.8%</td>
+      <td class="cell-num">4.8%</td>
+      <td class="cell-num">5.9</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="active" data-mc="5787" data-roce="39.73" data-evebit="7.39" data-fcfy="8.04" data-score="5.38" data-sec="92710">
+      <td class="cell-rank">15</td>
+      <td class="cell-tk">9271</td>
+      <td class="cell-name">Wagokoro co.,ltd.</td>
+      <td class="cell-ind">Retail Trade</td>
+      <td class="cell-num">¥5.8bn</td>
+      <td class="cell-num">39.7%</td>
+      <td class="cell-num">7.4x</td>
+      <td class="cell-num">20.4%</td>
+      <td class="cell-num">67.9%</td>
+      <td class="cell-num">40.8%</td>
+      <td class="cell-num">8.0%</td>
+      <td class="cell-num">5.4</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="active" data-mc="4716" data-roce="22.84" data-evebit="6.98" data-fcfy="7.04" data-score="3.27" data-sec="324A0">
+      <td class="cell-rank">32</td>
+      <td class="cell-tk">324A</td>
+      <td class="cell-name">Booking Resort Co.,Ltd.</td>
+      <td class="cell-ind">Services</td>
+      <td class="cell-num">¥4.7bn</td>
+      <td class="cell-num">22.8%</td>
+      <td class="cell-num">7.0x</td>
+      <td class="cell-num">35.4%</td>
+      <td class="cell-num">74.5%</td>
+      <td class="cell-num">59.6%</td>
+      <td class="cell-num">7.0%</td>
+      <td class="cell-num">3.3</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="active" data-mc="4291" data-roce="16.25" data-evebit="8.95" data-fcfy="6.66" data-score="1.81" data-sec="44280">
+      <td class="cell-rank">50</td>
+      <td class="cell-tk">4428</td>
+      <td class="cell-name">sinops Inc.</td>
+      <td class="cell-ind">Information &amp; Communication</td>
+      <td class="cell-num">¥4.3bn</td>
+      <td class="cell-num">16.2%</td>
+      <td class="cell-num">8.9x</td>
+      <td class="cell-num">15.2%</td>
+      <td class="cell-num">77.9%</td>
+      <td class="cell-num">11.9%</td>
+      <td class="cell-num">6.7%</td>
+      <td class="cell-num">1.8</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="near_miss_1" data-mc="3788" data-roce="12.96" data-evebit="9.24" data-fcfy="4.66" data-score="1.40" data-sec="60900">
+      <td class="cell-rank">NM17</td>
+      <td class="cell-tk">6090</td>
+      <td class="cell-name">Human Metabolome Technologies,Inc.</td>
+      <td class="cell-ind">Services</td>
+      <td class="cell-num">¥3.8bn</td>
+      <td class="cell-num">13.0%</td>
+      <td class="cell-num">9.2x</td>
+      <td class="cell-num">17.1%</td>
+      <td class="cell-num">80.4%</td>
+      <td class="cell-num">6.0%</td>
+      <td class="cell-num">4.7%</td>
+      <td class="cell-num">1.4</td>
+      <td class="cell-status status-near_miss_1">Near-miss</td>
+    </tr>
+    <tr data-status="active" data-mc="2992" data-roce="28.63" data-evebit="4.74" data-fcfy="6.25" data-score="6.03" data-sec="340A0">
+      <td class="cell-rank">9</td>
+      <td class="cell-tk">340A</td>
+      <td class="cell-name">zig-zag,Inc.</td>
+      <td class="cell-ind">Information &amp; Communication</td>
+      <td class="cell-num">¥3.0bn</td>
+      <td class="cell-num">28.6%</td>
+      <td class="cell-num">4.7x</td>
+      <td class="cell-num">22.9%</td>
+      <td class="cell-num">52.4%</td>
+      <td class="cell-num">36.1%</td>
+      <td class="cell-num">6.2%</td>
+      <td class="cell-num">6.0</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
+    <tr data-status="active" data-mc="2194" data-roce="31.43" data-evebit="7.23" data-fcfy="10.09" data-score="4.35" data-sec="137A0">
+      <td class="cell-rank">21</td>
+      <td class="cell-tk">137A</td>
+      <td class="cell-name">Cocolive,Inc.</td>
+      <td class="cell-ind">Information &amp; Communication</td>
+      <td class="cell-num">¥2.2bn</td>
+      <td class="cell-num">31.4%</td>
+      <td class="cell-num">7.2x</td>
+      <td class="cell-num">21.5%</td>
+      <td class="cell-num">84.1%</td>
+      <td class="cell-num">32.7%</td>
+      <td class="cell-num">10.1%</td>
+      <td class="cell-num">4.3</td>
+      <td class="cell-status status-active">Active</td>
+    </tr>
     </tbody>
   </table>
   <footer class="footer">
-    <span>Universe last regenerated 2026-05-13. Active = passes all seven thresholds strictly. Near-miss = admitted by editorial review per Standard §14, with the failed threshold disclosed on the Profile.</span>
+    <span>Universe last regenerated 2026-05-13. Market cap = current share price × shares outstanding (yfinance live + EDINET DB share count). Active = passes all seven thresholds strictly. Near-miss = admitted by editorial review per Standard §14, with the failed threshold disclosed on the Profile.</span>
     <span><a href="/en/compounders/">← All Compounder Profiles</a></span>
   </footer>
 </div>
@@ -1109,7 +1182,7 @@
   const tbody = document.querySelector("#universe tbody");
   const rows = Array.from(tbody.querySelectorAll("tr"));
   let curFilter = "all";
-  let curSort = {key:"score", dir:"desc"};
+  let curSort = {key:"mc", dir:"desc"};
   function applyFilter() {
     rows.forEach(r => {
       const s = r.dataset.status;
