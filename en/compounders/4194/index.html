@@ -521,7 +521,7 @@
     <div class="section-head">
       <div class="section-num">02 · CONTENTION</div>
       <h2 class="section-title">Live Investor Debates</h2>
-      <p class="section-sub">Three open debates currently visible in sell-side reports, IR Q&amp;A, and price action. Each settles a different part of the multiple.</p>
+      <p class="section-sub">Three open questions surface in the company&apos;s recent quarterly disclosures and in the IR briefing Q&amp;A. Each one settles a different part of the multiple.</p>
     </div>
 
     <div class="ct-grid">
@@ -844,29 +844,4 @@
   var em = root.querySelector('.share-em');
   if(em) em.href = 'mailto:?subject=' + e(subject) + '&body=' + e(text + '\n\n' + url);
 
-  var perm = document.getElementById('jii-share-url-display');
-  if(perm) perm.textContent = url;
-
-  var cp = root.querySelector('.share-cp');
-  if(cp) cp.addEventListener('click', function(){
-    var btn = this;
-    var lbl = btn.querySelector('.lbl');
-    var doFlash = function(){
-      lbl.textContent = copiedLabel;
-      btn.classList.add('copied');
-      setTimeout(function(){ lbl.textContent = copyLabel; btn.classList.remove('copied'); }, 2400);
-    };
-    if(navigator.clipboard && navigator.clipboard.writeText){
-      navigator.clipboard.writeText(url).then(doFlash, function(){});
-    } else {
-      var ta = document.createElement('textarea');
-      ta.value = url; document.body.appendChild(ta); ta.select();
-      try { document.execCommand('copy'); doFlash(); } catch(_){}
-      document.body.removeChild(ta);
-    }
-  });
-})();
-</script>
-
-</body>
-</html>
+  var perm = document.getEl
