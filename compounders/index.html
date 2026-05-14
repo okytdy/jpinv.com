@@ -218,6 +218,37 @@
 
     <div class="grid" id="profile-grid">
 
+      <a class="card" href="/compounders/4776/" data-date="2026-05-15" data-ticker="4776">
+        <div class="card-head">
+          <span class="card-ticker">東証スタンダード · 4776</span>
+          <span class="card-sector">グループウェア・ノーコードSaaS</span>
+        </div>
+        <h3 class="card-name">サイボウズ株式会社</h3>
+        <p class="card-jp">Cybozu, Inc.</p>
+        <p class="card-hook"><b>サイボウズの営業レバレッジは健在。市場が支払わなくなったのは、FY25を構造的ステップアップとして評価する対価である。</b><br><br>FY25 OP +106%は価格改定の一過性効果で、FY26計画はOP +4%へ調整。5/14のQ1決算は新コスト基盤でOP +15%（売上 +17%）を確保、同時に¥30億の自己株式取得を発表。ROCE 68%の事業を翌12ヶ月EV/EBIT 8.9倍まで押し下げた評価を動かし得るのは、3つの具体的な開示。</p>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">終値</div>
+            <div class="card-stat-val">¥2,197</div>
+          </div>
+          <div>
+            <div class="card-stat-label">EV / EBIT</div>
+            <div class="card-stat-val">8.9<small>x</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ROCE</div>
+            <div class="card-stat-val">68<small>%</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ネットキャッシュ / 時価総額</div>
+            <div class="card-stat-val">8<small>%</small></div>
+          </div>
+        </div>
+        <div class="card-meta-row">
+          <span>2026年5月15日公開</span>
+        </div>
+      </a>
+
       <a class="card" href="/compounders/4475/" data-date="2026-05-14" data-ticker="4475">
         <div class="card-head">
           <span class="card-ticker">東証グロース · 4475</span>
@@ -356,4 +387,10 @@
     var saved;
     try { saved = localStorage.getItem('jii_compounders_sort'); } catch (e) { saved = null; }
     applySort(saved === 'ticker' ? 'ticker' : 'date');
-    btnDate.addEventListener('click', function () { a
+    btnDate.addEventListener('click', function () { applySort('date'); });
+    btnTicker.addEventListener('click', function () { applySort('ticker'); });
+  })();
+</script>
+
+</body>
+</html>
