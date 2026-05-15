@@ -151,6 +151,19 @@ section { padding: var(--pad) 0; }
 .rule-accent { width: 32px; height: 2px; background: var(--accent); margin: 14px 0 22px; }
 .section-head { max-width: 640px; margin-bottom: 38px; }
 .section-head p { font-size: 0.92rem; line-height: 1.85; margin-top: 12px; color: var(--text); }
+
+.compounders-callout-inner { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 32px; align-items: center; }
+.compounders-callout-label { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.22em; color: var(--accent); text-transform: uppercase; font-weight: 500; white-space: nowrap; }
+.compounders-callout-title { font-family: var(--serif); font-size: clamp(1.05rem,2.2vw,1.4rem); color: var(--ink); font-weight: 400; line-height: 1.5; letter-spacing: 0.02em; }
+.compounders-callout-copy { font-family: var(--sans); font-size: 0.82rem; color: var(--text-dim); line-height: 1.6; margin-top: 6px; }
+.compounders-callout-link { white-space: nowrap; }
+@media (max-width: 640px) {
+  #compounders-callout { padding: 30px 0 !important; }
+  .compounders-callout-inner { grid-template-columns: minmax(0, 1fr); gap: 14px; align-items: start; }
+  .compounders-callout-label { white-space: normal; overflow-wrap: anywhere; }
+  .compounders-callout-title, .compounders-callout-copy { overflow-wrap: anywhere; }
+  .compounders-callout-link { width: 100%; text-align: center; }
+}
 #about .section-head { max-width: none; }
 .about-heading { white-space: nowrap; }
 .about-heading span { display: inline; }
@@ -493,13 +506,13 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
 
 <!-- JII COMPOUNDERS LAUNCH CALLOUT -->
 <section id="compounders-callout" aria-label="JII Compounders" style="background:var(--bg-mid); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); padding:40px 0;">
-  <div class="wrap" style="display:grid; grid-template-columns:auto 1fr auto; gap:32px; align-items:center;">
-    <div style="font-family:var(--mono); font-size:0.65rem; letter-spacing:0.22em; color:var(--accent); text-transform:uppercase; font-weight:500; white-space:nowrap;">新刊 · EDITORIAL</div>
+  <div class="wrap compounders-callout-inner">
+    <div class="compounders-callout-label">新刊 · EDITORIAL</div>
     <div>
-      <div style="font-family:var(--serif); font-size:clamp(1.05rem,2.2vw,1.4rem); color:var(--ink); font-weight:400; line-height:1.5; letter-spacing:0.02em;">JII Compounders — 海外投資家の視点で日本上場企業を読み解く編集記事。</div>
-      <div style="font-family:var(--sans); font-size:0.82rem; color:var(--text-dim); line-height:1.6; margin-top:6px;">私たちが日々の診断業務で使う6つの着眼点を、1社ずつ銘柄レポートに整理しています。</div>
+      <div class="compounders-callout-title">JII Compounders — 海外投資家の視点で日本上場企業を読み解く編集記事。</div>
+      <div class="compounders-callout-copy">私たちが日々の診断業務で使う6つの着眼点を、1社ずつ銘柄レポートに整理しています。</div>
     </div>
-    <a href="/compounders/" class="btn btn-outline" style="white-space:nowrap;">読む →</a>
+    <a href="/compounders/" class="btn btn-outline compounders-callout-link">読む →</a>
   </div>
 </section>
 

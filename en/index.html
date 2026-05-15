@@ -152,6 +152,19 @@ section { padding: var(--pad) 0; }
 .section-head { max-width: 640px; margin-bottom: 38px; }
 .section-head p { font-size: 0.95rem; line-height: 1.7; margin-top: 12px; color: var(--text); }
 
+.compounders-callout-inner { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 32px; align-items: center; }
+.compounders-callout-label { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.22em; color: var(--accent); text-transform: uppercase; font-weight: 500; white-space: nowrap; }
+.compounders-callout-title { font-family: var(--serif); font-size: clamp(1.05rem,2.2vw,1.4rem); color: var(--ink); font-weight: 400; line-height: 1.5; letter-spacing: 0.02em; }
+.compounders-callout-copy { font-family: var(--sans); font-size: 0.82rem; color: var(--text-dim); line-height: 1.6; margin-top: 6px; }
+.compounders-callout-link { white-space: nowrap; }
+@media (max-width: 640px) {
+  #compounders-callout { padding: 30px 0 !important; }
+  .compounders-callout-inner { grid-template-columns: minmax(0, 1fr); gap: 14px; align-items: start; }
+  .compounders-callout-label { white-space: normal; overflow-wrap: anywhere; }
+  .compounders-callout-title, .compounders-callout-copy { overflow-wrap: anywhere; }
+  .compounders-callout-link { width: 100%; text-align: center; }
+}
+
 /* NAV */
 nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: var(--nav-h); background: rgba(255,255,255,0.96); backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule); display: flex; align-items: center; transition: box-shadow 0.3s; }
 nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
@@ -478,13 +491,13 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
 
 <!-- JII COMPOUNDERS LAUNCH CALLOUT -->
 <section id="compounders-callout" aria-label="JII Compounders" style="background:var(--bg-mid); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); padding:40px 0;">
-  <div class="wrap" style="display:grid; grid-template-columns:auto 1fr auto; gap:32px; align-items:center;">
-    <div style="font-family:var(--mono); font-size:0.65rem; letter-spacing:0.22em; color:var(--accent); text-transform:uppercase; font-weight:500; white-space:nowrap;">NEW · EDITORIAL</div>
+  <div class="wrap compounders-callout-inner">
+    <div class="compounders-callout-label">NEW · EDITORIAL</div>
     <div>
-      <div style="font-family:var(--serif); font-size:clamp(1.05rem,2.2vw,1.4rem); color:var(--ink); font-weight:400; line-height:1.5; letter-spacing:0.02em;">JII Compounders — how foreign capital actually reads Japanese listed companies.</div>
-      <div style="font-family:var(--sans); font-size:0.82rem; color:var(--text-dim); line-height:1.6; margin-top:6px;">The six principles we use in our daily diagnostic work, crystallized into one profile per company.</div>
+      <div class="compounders-callout-title">JII Compounders — how foreign capital actually reads Japanese listed companies.</div>
+      <div class="compounders-callout-copy">The six principles we use in our daily diagnostic work, crystallized into one profile per company.</div>
     </div>
-    <a href="/en/compounders/" class="btn btn-outline" style="white-space:nowrap;">Read →</a>
+    <a href="/en/compounders/" class="btn btn-outline compounders-callout-link">Read →</a>
   </div>
 </section>
 
