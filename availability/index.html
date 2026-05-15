@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Availability — Teddy Okuyama</title>
+<style>
+  :root {
+    --navy: #1f3a5f;
+    --navy-light: #2c4f7c;
+    --slate: #5b7fa9;
+    --bg: #fafbfc;
+    --card: #ffffff;
+    --border: #e5e7eb;
+    --text: #1f2937;
+    --muted: #6b7280;
+
+    --available: #d4edda;
+    --available-edge: #84c195;
+    --booked: #f8d7da;
+    --booked-edge: #d98c92;
+    --tentative: #fff3cd;
+    --tentative-edge: #d9bf6a;
+    --ooo: #dddddd;
+    --ooo-edge: #a8a8a8;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.4;
+  }
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 32px 20px 60px;
+  }
+  header.page {
+    margin-bottom: 24px;
+  }
+  header.page h1 {
+    margin: 0 0 4px;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.01em;
+  }
+  header.page .sub {
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+  }
+  .toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border);
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .week-nav { display: flex; align-items: center; gap: 8px; }
+  .week-nav button {
+    background: white;
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.1s ease;
+  }
+  .week-nav button:hover { background: #f3f4f6; }
+  .week-nav button.today {
+    padding: 6px 12px;
+    border-color: var(--navy-light);
+    color: var(--navy);
+  }
+  .week-label {
+    font-weight: 600;
+    color: var(--navy);
+    min-width: 220px;
+    text-align: center;
+    font-size: 15px;
+  }
+  .legend {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 12px;
+    color: var(--muted);
+    flex-wrap: wrap;
+  }
+  .legend .item { display: inline-flex; align-items: center; gap: 5px; }
+  .legend .swatch {
+    width: 14px; height: 14px;
+    border-radius: 3px;
+    border: 1px solid rgba(0,0,0,0.08);
+  }
+  .swatch.available { background: var(--available); }
+  .swatch.booked { background: var(--booked); }
+  .swatch.tentative { background: var(--tentative); }
+  .swatch.ooo { background: var(--ooo); }
+
+  .grid-wrap { padding: 0; overflow-x: auto; }
+  .grid {
+    display: grid;
+    grid-template-columns: 92px repeat(5, 1fr);
+    min-width: 640px;
+    user-select: none;
+  }
+  .cell {
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 0;
+    height: 28px;
+    position: relative;
+  }
+  .cell:last-child { border-right: none; }
+  .col-time {
+    background: #f8fafc;
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 28px;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .col-time.on-hour { font-weight: 600; color: var(--text); }
+  .day-header {
+    background: var(--navy);
+    color: white;
+    text-align: center;
+    padding: 10px 6px;
+    border-right: 1px solid rgba(255,255,255,0.15);
+    border-bottom: 1px solid var(--border);
+  }
+  .day-header:last-child { border-right: none; }
+  .day-header .name { font-size: 12px; font-weight: 500; opacity: 0.85; letter-spacing: 0.04em; }
+  .day-header .date { font-size: 16px; font-weight: 600; margin-top: 2px; }
+  .corner {
+    background: var(--navy);
+    border-bottom: 1px solid var(--border);
+    border-right: 1px solid rgba(255,255,255,0.15);
+  }
+
+  .slot { transition: filter 0.08s ease; }
+  .slot.available { background: var(--available); }
+  .slot.booked { background: var(--booked); }
+  .slot.tentative { background: var(--tentative); }
+  .slot.ooo { background: var(--ooo); }
+  .slot.on-hour { border-top: 1px solid rgba(0,0,0,0.06); }
+
+  /* Admin */
+  body.admin .slot { cursor: pointer; }
+  body.admin .slot:hover { filter: brightness(0.92); }
+  .admin-bar {
+    display: none;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 18px;
+    background: #fff8e6;
+    border-bottom: 1px solid #f0d98a;
+    flex-wrap: wrap;
+    font-size: 13px;
+  }
+  body.admin .admin-bar { display: flex; }
+  .admin-bar .label { font-weight: 600; color: #6b5215; }
+  .paint-pick { display: flex; gap: 4px; }
+  .paint-pick button {
+    border: 2px solid transparent;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    color: #1f2937;
+    background: #eee;
+  }
+  .paint-pick button.available { background: var(--available); border-color: var(--available-edge); }
+  .paint-pick button.booked { background: var(--booked); border-color: var(--booked-edge); }
+  .paint-pick button.tentative { background: var(--tentative); border-color: var(--tentative-edge); }
+  .paint-pick button.ooo { background: var(--ooo); border-color: var(--ooo-edge); }
+  .paint-pick button[aria-pressed="true"] {
+    outline: 2px solid var(--navy);
+    outline-offset: 1px;
+  }
+  .admin-bar .spacer { flex: 1; }
+  .admin-bar .action {
+    background: var(--navy);
+    color: white;
+    border: none;
+    padding: 7px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .admin-bar .action:hover { background: var(--navy-light); }
+  .admin-bar .action.secondary {
+    background: white;
+    color: var(--navy);
+    border: 1px solid var(--border);
+  }
+  .admin-bar .action.danger {
+    background: white;
+    color: #b91c1c;
+    border: 1px solid #f3c9c9;
+  }
+  .dirty-badge {
+    display: none;
+    background: #fde68a;
+    color: #78350f;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  body.admin.dirty .dirty-badge { display: inline-block; }
+
+  footer.page {
+    margin-top: 20px;
+    color: var(--muted);
+    font-size: 12px;
+    text-align: center;
+    line-height: 1.6;
+  }
+  footer.page a { color: var(--slate); text-decoration: none; }
+  footer.page a:hover { text-decoration: underline; }
+
+  .toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #111827;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-size: 13px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+    z-index: 100;
+  }
+  .toast.show { opacity: 1; }
+
+  @media (max-width: 640px) {
+    .wrap { padding: 18px 10px 40px; }
+    header.page h1 { font-size: 22px; }
+    .toolbar { padding: 10px 12px; }
+    .week-label { min-width: 160px; font-size: 14px; }
+    .legend { font-size: 11px; gap: 8px; }
+    .day-header .date { font-size: 14px; }
+    .day-header .name { font-size: 10px; }
+    .grid { grid-template-columns: 60px repeat(5, 1fr); min-width: 480px; }
+    .col-time { font-size: 10px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="page">
+    <h1>Availability</h1>
+    <div class="sub">Teddy Okuyama &middot; All times JST (Asia/Tokyo) &middot; Mon–Fri, 30-minute slots</div>
+  </header>
+
+  <div class="card">
+    <div class="admin-bar" id="adminBar">
+      <span class="label">Admin mode</span>
+      <span class="dirty-badge" id="dirtyBadge">unsaved changes</span>
+      <div class="paint-pick" id="paintPick">
+        <button class="available" data-status="available" aria-pressed="true">Available</button>
+        <button class="booked" data-status="booked" aria-pressed="false">Booked</button>
+        <button class="tentative" data-status="tentative" aria-pressed="false">Tentative</button>
+        <button class="ooo" data-status="ooo" aria-pressed="false">Out of Office</button>
+      </div>
+      <span class="spacer"></span>
+      <button class="action" id="btnDownload">Download data.json</button>
+      <button class="action secondary" id="btnCopy">Copy JSON</button>
+      <button class="action danger" id="btnDiscard">Discard local edits</button>
+    </div>
+
+    <div class="toolbar">
+      <div class="week-nav">
+        <button id="btnPrev" aria-label="Previous week">&larr; Prev</button>
+        <span class="week-label" id="weekLabel">Loading…</span>
+        <button id="btnNext" aria-label="Next week">Next &rarr;</button>
+        <button class="today" id="btnToday">This week</button>
+      </div>
+      <div class="legend">
+        <span class="item"><span class="swatch available"></span>Available</span>
+        <span class="item"><span class="swatch booked"></span>Booked</span>
+        <span class="item"><span class="swatch tentative"></span>Tentative</span>
+        <span class="item"><span class="swatch ooo"></span>Out of Office</span>
+      </div>
+    </div>
+
+    <div class="grid-wrap">
+      <div class="grid" id="grid"></div>
+    </div>
+  </div>
+
+  <footer class="page">
+    Last updated <span id="lastUpdated">—</span><br>
+    To request a slot, please reach out by your usual channel.
+  </footer>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(() => {
+  const TZ = 'Asia/Tokyo';
+  const DAYS_PER_WEEK = 5; // Mon–Fri
+  const START_HOUR = 8;
+  const END_HOUR = 19; // last slot starts at 18:30
+  const STATUSES = ['available', 'booked', 'tentative', 'ooo'];
+  const DEFAULT_STATUS = 'available';
+  const LS_KEY = 'jpinv_availability_overlay_v1';
+
+  const adminMode = new URLSearchParams(location.search).has('admin');
+  let data = { default_status: DEFAULT_STATUS, slots: {}, updated: null, timezone: TZ };
+  let dirty = false;
+  let paintStatus = 'booked';
+  let currentMonday = null;
+  let isPainting = false;
+
+  // ---------- Date helpers (operate in JST regardless of viewer TZ) ----------
+  function nowInJST() {
+    // Get the wall-clock date/time in JST as a naive Date object.
+    const s = new Date().toLocaleString('en-US', { timeZone: TZ });
+    return new Date(s);
+  }
+  function mondayOf(date) {
+    const d = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+    const dow = d.getDay(); // 0 Sun .. 6 Sat
+    const offset = dow === 0 ? -6 : 1 - dow;
+    d.setDate(d.getDate() + offset);
+    return d;
+  }
+  function addDays(date, n) {
+    const d = new Date(date);
+    d.setDate(d.getDate() + n);
+    return d;
+  }
+  function dateKey(d) {
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    return `${y}-${m}-${day}`;
+  }
+  function fmtTime(mins) {
+    const h = Math.floor(mins / 60);
+    const m = mins % 60;
+    return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
+  }
+  function fmtMonthDay(d) {
+    return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  }
+  function fmtWeekLabel(monday) {
+    const friday = addDays(monday, 4);
+    const sameMonth = monday.getMonth() === friday.getMonth();
+    const sameYear = monday.getFullYear() === friday.getFullYear();
+    if (sameMonth) {
+      return `${monday.toLocaleDateString('en-US', { month: 'long' })} ${monday.getDate()}–${friday.getDate()}, ${monday.getFullYear()}`;
+    }
+    if (sameYear) {
+      return `${fmtMonthDay(monday)} – ${fmtMonthDay(friday)}, ${monday.getFullYear()}`;
+    }
+    return `${fmtMonthDay(monday)}, ${monday.getFullYear()} – ${fmtMonthDay(friday)}, ${friday.getFullYear()}`;
+  }
+  function fmtUpdated(iso) {
+    if (!iso) return '—';
+    try {
+      const d = new Date(iso);
+      return d.toLocaleString('en-US', {
+        timeZone: TZ,
+        year: 'numeric', month: 'short', day: 'numeric',
+        hour: '2-digit', minute: '2-digit'
+      }) + ' JST';
+    } catch (e) { return iso; }
+  }
+
+  // ---------- Data ----------
+  async function loadData() {
+    try {
+      const r = await fetch('data.json?t=' + Date.now(), { cache: 'no-store' });
+      if (r.ok) data = await r.json();
+    } catch (e) {
+      console.warn('Failed to load data.json', e);
+    }
+    if (!data.slots) data.slots = {};
+    if (!data.default_status) data.default_status = DEFAULT_STATUS;
+
+    if (adminMode) {
+      const raw = localStorage.getItem(LS_KEY);
+      if (raw) {
+        try {
+          const overlay = JSON.parse(raw);
+          // Overlay completely takes over slots if present (admin's working copy)
+          if (overlay.slots) {
+            data.slots = overlay.slots;
+            dirty = true;
+          }
+        } catch (e) { /* ignore */ }
+      }
+    }
+  }
+  function persistOverlay() {
+    if (!adminMode) return;
+    localStorage.setItem(LS_KEY, JSON.stringify({ slots: data.slots, savedAt: new Date().toISOString() }));
+    setDirty(true);
+  }
+  function statusOf(key) { return data.slots[key] || data.default_status; }
+  function applyStatus(key, status) {
+    if (status === data.default_status) delete data.slots[key];
+    else data.slots[key] = status;
+  }
+
+  // ---------- Render ----------
+  function render() {
+    document.getElementById('weekLabel').textContent = fmtWeekLabel(currentMonday);
+    document.getElementById('lastUpdated').textContent = fmtUpdated(data.updated);
+
+    const grid = document.getElementById('grid');
+    grid.innerHTML = '';
+
+    // Corner + day headers
+    const corner = document.createElement('div');
+    corner.className = 'corner';
+    grid.appendChild(corner);
+
+    const days = [];
+    for (let i = 0; i < DAYS_PER_WEEK; i++) {
+      const d = addDays(currentMonday, i);
+      days.push(d);
+      const h = document.createElement('div');
+      h.className = 'day-header';
+      const name = d.toLocaleDateString('en-US', { weekday: 'short' });
+      h.innerHTML = `<div class="name">${name.toUpperCase()}</div><div class="date">${fmtMonthDay(d)}</div>`;
+      grid.appendChild(h);
+    }
+
+    // Slot rows: 30-min increments
+    for (let mins = START_HOUR * 60; mins < END_HOUR * 60; mins += 30) {
+      const timeStr = fmtTime(mins);
+      const onHour = mins % 60 === 0;
+      const tc = document.createElement('div');
+      tc.className = 'col-time' + (onHour ? ' on-hour' : '');
+      tc.textContent = onHour ? timeStr : '';
+      grid.appendChild(tc);
+
+      for (let i = 0; i < DAYS_PER_WEEK; i++) {
+        const dk = dateKey(days[i]);
+        const sk = `${dk}T${timeStr}`;
+        const st = statusOf(sk);
+        const c = document.createElement('div');
+        c.className = 'cell slot ' + st + (onHour ? ' on-hour' : '');
+        c.dataset.slotKey = sk;
+        if (adminMode) {
+          c.addEventListener('mousedown', onCellDown);
+          c.addEventListener('mouseenter', onCellEnter);
+          c.addEventListener('touchstart', onCellTouch, { passive: false });
+        }
+        grid.appendChild(c);
+      }
+    }
+  }
+
+  function paintCell(cell) {
+    const sk = cell.dataset.slotKey;
+    if (!sk) return;
+    const cur = statusOf(sk);
+    if (cur === paintStatus) return;
+    applyStatus(sk, paintStatus);
+    STATUSES.forEach(s => cell.classList.remove(s));
+    cell.classList.add(paintStatus);
+    persistOverlay();
+  }
+
+  function onCellDown(e) {
+    e.preventDefault();
+    isPainting = true;
+    paintCell(e.currentTarget);
+  }
+  function onCellEnter(e) {
+    if (!isPainting) return;
+    paintCell(e.currentTarget);
+  }
+  function onCellTouch(e) {
+    e.preventDefault();
+    const t = e.touches[0];
+    const el = document.elementFromPoint(t.clientX, t.clientY);
+    if (el && el.classList.contains('slot')) paintCell(el);
+  }
+  document.addEventListener('mouseup', () => { isPainting = false; });
+  document.addEventListener('touchend', () => { isPainting = false; });
+  document.addEventListener('touchmove', (e) => {
+    if (!isPainting) return;
+    const t = e.touches[0];
+    const el = document.elementFromPoint(t.clientX, t.clientY);
+    if (el && el.classList.contains('slot')) paintCell(el);
+  }, { passive: true });
+
+  // ---------- Navigation ----------
+  document.getElementById('btnPrev').addEventListener('click', () => {
+    currentMonday = addDays(currentMonday, -7); render();
+  });
+  document.getElementById('btnNext').addEventListener('click', () => {
+    currentMonday = addDays(currentMonday, 7); render();
+  });
+  document.getElementById('btnToday').addEventListener('click', () => {
+    currentMonday = mondayOf(nowInJST()); render();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if (e.key === 'ArrowLeft') { currentMonday = addDays(currentMonday, -7); render(); }
+    else if (e.key === 'ArrowRight') { currentMonday = addDays(currentMonday, 7); render(); }
+    else if (e.key === 't' || e.key === 'T') { currentMonday = mondayOf(nowInJST()); render(); }
+  });
+
+  // ---------- Admin actions ----------
+  function setDirty(v) {
+    dirty = v;
+    document.body.classList.toggle('dirty', v);
+  }
+  function toast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 1800);
+  }
+  function buildExportJson() {
+    // Stable ordering: sort slot keys, only emit non-default values.
+    const sorted = {};
+    const keys = Object.keys(data.slots).sort();
+    for (const k of keys) {
+      if (data.slots[k] && data.slots[k] !== data.default_status) sorted[k] = data.slots[k];
+    }
+    const out = {
+      updated: new Date().toISOString(),
+      timezone: TZ,
+      default_status: data.default_status || DEFAULT_STATUS,
+      slots: sorted
+    };
+    return JSON.stringify(out, null, 2) + '\n';
+  }
+
+  if (adminMode) {
+    document.body.classList.add('admin');
+    // Paint picker
+    const pick = document.getElementById('paintPick');
+    pick.querySelectorAll('button').forEach(b => {
+      b.addEventListener('click', () => {
+        paintStatus = b.dataset.status;
+        pick.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b ? 'true' : 'false'));
+      });
+    });
+
+    document.getElementById('btnDownload').addEventListener('click', () => {
+      const json = buildExportJson();
+      const blob = new Blob([json], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'data.json';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+      toast('data.json downloaded — commit it to your repo');
+    });
+    document.getElementById('btnCopy').addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(buildExportJson());
+        toast('JSON copied to clipboard');
+      } catch (e) {
+        toast('Copy failed — use Download instead');
+      }
+    });
+    document.getElementById('btnDiscard').addEventListener('click', () => {
+      if (!confirm('Discard local edits and reload from the published data.json?')) return;
+      localStorage.removeItem(LS_KEY);
+      location.reload();
+    });
+    window.addEventListener('beforeunload', (e) => {
+      if (!dirty) return;
+      e.preventDefault();
+      e.returnValue = '';
+    });
+  }
+
+  // ---------- Boot ----------
+  (async () => {
+    await loadData();
+    currentMonday = mondayOf(nowInJST());
+    render();
+  })();
+})();
+</script>
+</body>
+</html>
