@@ -10,6 +10,7 @@ jobs:
   release-gates:
     name: Lighthouse and accessibility gates
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     env:
       BASE_URL: http://127.0.0.1:4173
       PORT: 4173
@@ -38,7 +39,34 @@ jobs:
           echo $! > /tmp/jpinv-preview.pid
 
       - name: Wait for preview server
-        run: npx wait-on "$BASE_URL/"
+        run: npx wait-on --timeout 30000 "$BASE_URL/"
+
+      - name: Debug preview server
+        run: |
+          test -s /tmp/jpinv-preview.pid
+          ps -p "$(cat /tmp/jpinv-preview.pid)" -o pid,cmd
+          curl --fail --show-error --head "$BASE_URL/"
+          curl --fail --show-error --head "$BASE_URL/en/"
+          find dist -maxdepth 2 -type f | sort | sed -n '1,80p'
 
       - name: Run deterministic release QA gates
+        env:
+          BASE_URL: ${{ env.BASE_URL }}
         run: npm run qa:ci
+
+      - name: Print preview server log
+        if: always()
+        run: cat /tmp/jpinv-preview.log || true
+
+      - name: Upload QA failure artifacts
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-qa-debug
+          if-no-files-found: ignore
+          path: |
+            /tmp/jpinv-preview.log
+            .lighthouseci/**
+            playwright-report/**
+            test-results/**
+            /home/runner/.npm/_logs/**
