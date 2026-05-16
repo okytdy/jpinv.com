@@ -40,11 +40,11 @@
   --bg-soft:    #fafbfc;
   --text:       #1f2937;
   --text-mid:   #4a5566;
-  --text-dim:   #7a8290;
-  --accent:     #b08a4a;
+  --text-dim:   #5f6875;
+  --accent:     #9a7838;
   --accent-soft:#f4eee4;
   --bad:        #b91c1c;
-  --warn:       #b88a3a;
+  --warn:       #8a682b;
   --ok:         #2f6f4f;
 
   --serif: 'Noto Serif JP', 'Yu Mincho', serif;
@@ -230,7 +230,7 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
 .selfcheck-result { margin-top: 22px; padding: 22px 24px; background: var(--bg-soft); border: 1px solid var(--rule); display: none; }
 .selfcheck-result.show { display: block; }
 .selfcheck-result .sr-tag { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; }
-.selfcheck-result h4 { font-family: var(--sans); color: var(--ink); font-size: 1.1rem; margin: 8px 0 10px; font-weight: 500; }
+.selfcheck-result h4, .selfcheck-result h3 { font-family: var(--sans); color: var(--ink); font-size: 1.1rem; margin: 8px 0 10px; font-weight: 500; }
 .selfcheck-result p { font-size: 0.9rem; line-height: 1.6; }
 .selfcheck-result a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink); margin-top: 12px; display: inline-block; font-size: 0.82rem; }
 
@@ -249,7 +249,7 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
 @media (max-width: 540px) { .receive-grid { grid-template-columns: 1fr; } }
 .receive-card { background: var(--bg-soft); padding: 24px 26px; min-height: 150px; }
 .receive-card .num { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.16em; color: var(--ink-soft); }
-.receive-card h4 { font-family: var(--sans); font-size: 1rem; color: var(--ink); margin: 8px 0 8px; font-weight: 500; line-height: 1.35; }
+.receive-card h4, .receive-card h3 { font-family: var(--sans); font-size: 1rem; color: var(--ink); margin: 8px 0 8px; font-weight: 500; line-height: 1.35; }
 .receive-card p { font-size: 0.84rem; line-height: 1.55; }
 
 /* PROCESS */
@@ -258,7 +258,7 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
 @media (max-width: 540px) { .process-flow { grid-template-columns: 1fr; } }
 .process-step { background: var(--bg-soft); padding: 22px 18px; border-top: 2px solid var(--rule); position: relative; counter-increment: step; }
 .process-step::before { content: counter(step, decimal-leading-zero); font-family: var(--mono); font-size: 0.6rem; color: var(--ink-soft); letter-spacing: 0.16em; }
-.process-step h5 { font-family: var(--sans); color: var(--ink); font-size: 0.95rem; margin: 6px 0 8px; font-weight: 500; line-height: 1.3; }
+.process-step h5, .process-step h3 { font-family: var(--sans); color: var(--ink); font-size: 0.95rem; margin: 6px 0 8px; font-weight: 500; line-height: 1.3; }
 .process-step p { font-size: 0.78rem; line-height: 1.5; color: var(--text); }
 
 /* PLANS */
@@ -287,7 +287,7 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
 @media (max-width: 540px) { .case-grid { grid-template-columns: 1fr; } }
 .case-card { background: var(--bg-soft); padding: 22px 24px; }
 .case-card .case-tag { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; }
-.case-card h4 { font-family: var(--sans); color: var(--ink); font-size: 1rem; margin: 6px 0 8px; font-weight: 500; line-height: 1.4; }
+.case-card h4, .case-card h3 { font-family: var(--sans); color: var(--ink); font-size: 1rem; margin: 6px 0 8px; font-weight: 500; line-height: 1.4; }
 .case-card p { font-size: 0.82rem; line-height: 1.55; }
 
 /* ABOUT */
@@ -346,7 +346,7 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
 .form-status { font-size: 0.78rem; color: var(--bad); margin-top: 10px; min-height: 18px; }
 .form-status[data-state="info"] { color: var(--text-dim); }
 .form-help { font-size: 0.78rem; color: var(--text-dim); line-height: 1.7; margin-top: 8px; }
-.contact-side h4 { font-family: var(--sans); color: var(--ink); font-size: 1.1rem; margin-bottom: 12px; font-weight: 500; }
+.contact-side h4, .contact-side h3 { font-family: var(--sans); color: var(--ink); font-size: 1.1rem; margin-bottom: 12px; font-weight: 500; }
 .contact-side ul { list-style: none; margin: 0 0 22px; }
 .contact-side li { font-size: 0.86rem; line-height: 1.55; padding: 8px 0 8px 18px; position: relative; border-bottom: 1px solid var(--rule); }
 .contact-side li::before { content: '—'; color: var(--ink-soft); position: absolute; left: 0; }
@@ -368,14 +368,14 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
 @media (max-width: 540px) { .footer-grid { grid-template-columns: 1fr; } }
 .footer-brand h3 { font-family: var(--sans); color: var(--ink); font-size: 1.1rem; font-weight: 500; margin-bottom: 12px; }
 .footer-brand p { font-size: 0.82rem; line-height: 1.6; color: var(--text-dim); max-width: 320px; }
-.footer-col h5 { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; margin-bottom: 14px; }
+.footer-col h5, .footer-col h2 { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; margin-bottom: 14px; }
 .footer-col ul { list-style: none; }
 .footer-col li { padding: 5px 0; }
 .footer-col a { color: var(--text); text-decoration: none; font-size: 0.84rem; }
 .footer-col a:hover { color: var(--ink-soft); }
 
 .company-info-band { background: var(--bg-mid); border: 1px solid var(--rule-soft); padding: 22px 24px; margin: 8px 0 28px; }
-.company-info-band h5 { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; color: var(--ink-soft); margin-bottom: 16px; }
+.company-info-band h5, .company-info-band h2 { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; color: var(--ink-soft); margin-bottom: 16px; }
 .company-info-list { display: flex; flex-direction: column; gap: 18px; }
 .company-info-row--paired { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px 28px; }
 .company-info-item { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 16px; align-items: start; min-width: 0; }
@@ -386,10 +386,50 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
 @media (max-width: 540px) { .company-info-band { padding: 20px 18px; } .company-info-list { gap: 16px; } .company-info-item { grid-template-columns: 1fr; gap: 6px; } .company-info-item dt { padding-top: 0; } }
 .footer-bottom { padding-top: 22px; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 14px; font-size: 0.72rem; color: var(--text-dim); }
 
+
+/* WCAG 2.1 AA accessibility helpers */
+.skip-link {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  transform: translateY(-150%);
+  padding: 10px 14px;
+  background: var(--ink, #1a2a4a);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(15,31,58,0.18);
+}
+.skip-link:focus, .skip-link:focus-visible { transform: translateY(0); outline: 3px solid var(--accent, #9a7838); outline-offset: 3px; }
+main:focus { outline: none; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, [tabindex]:focus-visible {
+  outline: 3px solid var(--accent, #9a7838);
+  outline-offset: 3px;
+}
+.form-row input:focus-visible, .form-row select:focus-visible, .form-row textarea:focus-visible { outline: 3px solid var(--accent, #9a7838); outline-offset: 2px; }
+.form-field-error:empty { min-height: 0; }
+.mobile-menu[hidden] { display: none !important; }
+.mobile-menu a:focus-visible { outline-offset: -2px; }
+@media (max-width: 360px) {
+  .wrap { padding-left: 16px; padding-right: 16px; }
+  .hero-ctas, .cta-row, .share-btns, .week-nav, .toolbar { align-items: stretch; flex-direction: column; }
+  .btn, .form-submit, .mobile-menu-cta, .share-btn { width: 100%; justify-content: center; text-align: center; }
+  .nav-logo-img--desktop { display: none !important; }
+  .nav-logo-img--mobile { display: block !important; }
+  .nav-inner { gap: 10px; }
+  .nav-right { gap: 6px; }
+  .locale-switcher a, .nav-locale-switcher a { min-width: 36px; min-height: 36px; display: inline-flex; align-items: center; justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+}
+
 </style>
 <script src="/assets/locale-switcher.js" defer></script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 <nav id="main-nav" role="navigation" aria-label="Main navigation">
   <div class="wrap nav-inner">
     <a href="/en/" class="nav-logo" aria-label="JII home">
@@ -407,7 +447,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
     </div>
     <div class="nav-right">
       <a href="#contact" class="btn btn-primary nav-cta" onclick="presetInquiry('Free 30-minute consultation')">Free 30-min call</a>
-      <span class="locale-switcher nav-locale-switcher" aria-label="Language switcher"><a href="/料金/" data-locale-route>JP</a><a href="/en/pricing/" class="current" aria-current="page">EN</a></span>
+      <span class="locale-switcher nav-locale-switcher" aria-label="Language switcher"><a href="/料金/" data-locale-route lang="ja">JP</a><a href="/en/pricing/" class="current" aria-current="page" lang="en">EN</a></span>
     </div>
     <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
       <span></span><span></span><span></span>
@@ -415,16 +455,17 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
   </div>
 </nav>
 
-<div class="mobile-menu" id="mobileMenu" role="menu">
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" hidden>
   <a href="/en/services/" onclick="toggleMenu()">Services</a>
   <a href="/en/pricing/" onclick="toggleMenu()">Pricing</a>
   <a href="/en/company/" onclick="toggleMenu()">Company</a>
   <a href="/en/faq/" onclick="toggleMenu()">FAQ</a>
   <a href="/en/compounders/" onclick="toggleMenu()">Compounders</a>
   <a href="#contact" onclick="toggleMenu()">Contact</a>
-  <a href="/料金/" data-locale-route onclick="toggleMenu()">JP</a>
+  <a href="/料金/" data-locale-route onclick="toggleMenu()" lang="ja">JP</a>
   <a href="#contact" class="btn btn-primary mobile-menu-cta" onclick="presetInquiry('Free 30-minute consultation'); toggleMenu()">Book a free 30-min call</a>
-</div>
+</nav>
+<main id="main-content" tabindex="-1">
 <!-- HERO -->
 <section id="top" aria-label="Pricing">
   <div class="hero-texture" aria-hidden="true"></div>
@@ -456,7 +497,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
       </div>
       <div class="selfcheck-result" id="selfcheck-result" role="status" aria-live="polite">
         <span class="sr-tag" id="sr-tag">Recommended</span>
-        <h4 id="sr-title">Light — start with the initial diagnostic</h4>
+        <h3 id="sr-title">Light — start with the initial diagnostic</h3>
         <p id="sr-body">Most companies in this situation should diagnose first, then choose what to fix. A one-time Light is the lowest-commitment way to settle that internally.</p>
         <a href="#plans" id="sr-link">See the Light plan →</a>
       </div>
@@ -545,7 +586,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
     </div>
     <div class="contact-grid">
       <div class="reveal">
-        <div class="form-success" id="form-success" hidden tabindex="-1">
+        <div class="form-success" id="form-success" hidden tabindex="-1" role="status" aria-live="polite">
           <h3>RFQ received</h3>
           <p>Thank you for sending the request. We will review the details and normally reply within one business day with an initial estimate, clarifying questions, and next steps.</p>
         </div>
@@ -557,18 +598,18 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
             <div class="form-row">
               <label for="company_name">Company name<span class="form-required" aria-hidden="true">*</span></label>
               <input id="company_name" name="company_name" type="text" autocomplete="organization" placeholder="Acme Co." required aria-describedby="company_name-error" aria-invalid="false">
-              <p class="form-field-error" id="company_name-error" aria-live="polite"></p>
+              <p class="form-field-error" id="company_name-error" role="alert" aria-live="assertive" aria-atomic="true"></p>
             </div>
             <div class="form-row">
               <label for="contact_name">Contact name<span class="form-required" aria-hidden="true">*</span></label>
               <input id="contact_name" name="contact_name" type="text" autocomplete="name" placeholder="Jane Smith" required aria-describedby="contact_name-error" aria-invalid="false">
-              <p class="form-field-error" id="contact_name-error" aria-live="polite"></p>
+              <p class="form-field-error" id="contact_name-error" role="alert" aria-live="assertive" aria-atomic="true"></p>
             </div>
             <div class="form-row full">
               <label for="work_email">Work email<span class="form-required" aria-hidden="true">*</span></label>
               <input id="work_email" name="work_email" type="email" autocomplete="email" placeholder="you@company.com" required aria-describedby="work_email-desc work_email-error" aria-invalid="false">
               <p class="form-description" id="work_email-desc">We will send the estimate and any scoping questions here.</p>
-              <p class="form-field-error" id="work_email-error" aria-live="polite"></p>
+              <p class="form-field-error" id="work_email-error" role="alert" aria-live="assertive" aria-atomic="true"></p>
             </div>
             <div class="form-row">
               <label for="service_type">Service type<span class="form-required" aria-hidden="true">*</span></label>
@@ -580,7 +621,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
                 <option value="diagnostic">Foreign IR diagnostic and recommendations</option>
                 <option value="other">Other / not sure yet</option>
               </select>
-              <p class="form-field-error" id="service_type-error" aria-live="polite"></p>
+              <p class="form-field-error" id="service_type-error" role="alert" aria-live="assertive" aria-atomic="true"></p>
             </div>
             <div class="form-row">
               <label for="document_type">Document type<span class="form-required" aria-hidden="true">*</span></label>
@@ -593,7 +634,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
                 <option value="website_disclosure">Website / timely disclosure</option>
                 <option value="other">Other / not sure yet</option>
               </select>
-              <p class="form-field-error" id="document_type-error" aria-live="polite"></p>
+              <p class="form-field-error" id="document_type-error" role="alert" aria-live="assertive" aria-atomic="true"></p>
             </div>
             <div class="form-row">
               <label for="source_language">Source language<span class="form-required" aria-hidden="true">*</span></label>
@@ -603,7 +644,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
                 <option value="en">English</option>
                 <option value="other">Other</option>
               </select>
-              <p class="form-field-error" id="source_language-error" aria-live="polite"></p>
+              <p class="form-field-error" id="source_language-error" role="alert" aria-live="assertive" aria-atomic="true"></p>
             </div>
             <div class="form-row">
               <label for="target_language">Target language<span class="form-required" aria-hidden="true">*</span></label>
@@ -614,33 +655,33 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
                 <option value="bilingual">Bilingual / both directions</option>
                 <option value="other">Other</option>
               </select>
-              <p class="form-field-error" id="target_language-error" aria-live="polite"></p>
+              <p class="form-field-error" id="target_language-error" role="alert" aria-live="assertive" aria-atomic="true"></p>
             </div>
             <div class="form-row">
               <label for="turnaround_date">Target turnaround date<span class="form-required" aria-hidden="true">*</span></label>
               <input id="turnaround_date" name="turnaround_date" type="date" required aria-describedby="turnaround_date-desc turnaround_date-error" aria-invalid="false">
               <p class="form-description" id="turnaround_date-desc">If the schedule is not final, enter your best target date.</p>
-              <p class="form-field-error" id="turnaround_date-error" aria-live="polite"></p>
+              <p class="form-field-error" id="turnaround_date-error" role="alert" aria-live="assertive" aria-atomic="true"></p>
             </div>
             <div class="form-row">
               <label for="estimated_volume">Estimated volume<span class="form-required" aria-hidden="true">*</span></label>
               <input id="estimated_volume" name="estimated_volume" type="text" placeholder="e.g. 20 pages / 8,000 words / 60-min meeting" required aria-describedby="estimated_volume-error" aria-invalid="false">
-              <p class="form-field-error" id="estimated_volume-error" aria-live="polite"></p>
+              <p class="form-field-error" id="estimated_volume-error" role="alert" aria-live="assertive" aria-atomic="true"></p>
             </div>
             <div class="form-row full">
               <label for="message">Notes and requirements<span class="form-required" aria-hidden="true">*</span></label>
               <textarea id="message" name="message" placeholder="Tell us the use case, target investors, document status, confidentiality needs, and desired deliverable." required minlength="20" aria-describedby="message-desc message-error" aria-invalid="false"></textarea>
               <p class="form-description" id="message-desc">If files need to be shared, send them as a reply to our acknowledgement email. We can also receive materials after an NDA.</p>
-              <p class="form-field-error" id="message-error" aria-live="polite"></p>
+              <p class="form-field-error" id="message-error" role="alert" aria-live="assertive" aria-atomic="true"></p>
             </div>
           </div>
           <button type="submit" class="form-submit" id="form-submit-btn">Send RFQ</button>
-          <p class="form-status" id="form-status" aria-live="polite"></p>
+          <p class="form-status" id="form-status" role="status" aria-live="polite" aria-atomic="true"></p>
           <p class="form-help">reCAPTCHA verification runs only when you submit. If submission does not work, email the same details to <a href="mailto:info@jpinv.com">info@jpinv.com</a>.</p>
         </form>
       </div>
       <div class="contact-side reveal">
-        <h4>What happens next</h4>
+        <h3>What happens next</h3>
         <ul>
           <li>Reply normally within one business day</li>
           <li>NDA on request</li>
@@ -649,7 +690,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
         </ul>
         <div class="contact-info-grid">
           <div>
-            <h4>Contact</h4>
+            <h3>Contact</h3>
             <dl>
               <dt>Email</dt><dd><a href="mailto:info@jpinv.com">info@jpinv.com</a></dd>
             </dl>
@@ -659,6 +700,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
     </div>
   </div>
 </section>
+</main>
 <!-- FOOTER -->
 <footer>
   <div class="wrap">
@@ -668,7 +710,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
         <p>Cross-border IR diagnostics for Japanese listed companies. The Foreign IR Diagnostic Card visualizes how foreign capital reads your IR. Translation and interpretation are implementation layers — not standalone services.</p>
       </div>
       <div class="footer-col">
-        <h5>The diagnostic & plans</h5>
+        <h2>The diagnostic & plans</h2>
         <ul>
           <li><a href="/en/services/">The Diagnostic Card</a></li>
           <li><a href="/en/pricing/">Light — Initial Diagnostic</a></li>
@@ -677,7 +719,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Information</h5>
+        <h2>Information</h2>
         <ul>
           <li><a href="/en/services/#cases">Use cases</a></li>
           <li><a href="/en/services/#process">From diagnosis to action</a></li>
@@ -686,7 +728,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
         </ul>
       </div>
       <div class="footer-col">
-        <h5>JII Compounders</h5>
+        <h2>JII Compounders</h2>
         <ul>
           <li><a href="/en/compounders/">All profiles</a></li>
           <li><a href="/en/compounders/methodology/">Methodology · six principles</a></li>
@@ -694,16 +736,16 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Contact</h5>
+        <h2>Contact</h2>
         <ul>
           <li>Email <a href="mailto:info@jpinv.com">info@jpinv.com</a></li>
         </ul>
       </div>
     </div>
     <section class="company-info-band" aria-label="Company information">
-      <h5>Company Information</h5>
+      <h2>Company Information</h2>
       <dl class="company-info-list">
-        <div class="company-info-item"><dt>Company</dt><dd class="company-info-value">Japan Investor Interface Co., Ltd.<span class="company-info-subline">株式会社ジャパン・インベスター・インターフェース</span></dd></div>
+        <div class="company-info-item"><dt>Company</dt><dd class="company-info-value">Japan Investor Interface Co., Ltd.<span class="company-info-subline" lang="ja">株式会社ジャパン・インベスター・インターフェース</span></dd></div>
         <div class="company-info-item"><dt>Address</dt><dd class="company-info-value">Osaka Ekimae Daini Bldg. 12-12, 1-2-2 Umeda, Kita-ku, Osaka 530-0001, Japan</dd></div>
         <div class="company-info-row company-info-row--paired">
           <div class="company-info-item"><dt>Representative</dt><dd class="company-info-value">Teddy Okuyama (Representative Director)</dd></div>
@@ -715,7 +757,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
     </section>
     <div class="footer-bottom">
       <p>© 2026 Japan Investor Interface Co., Ltd. · All rights reserved.</p>
-      <p class="footer-locale-switcher">Language: <a href="/en/" class="current" aria-current="page">EN</a> / <a href="/" data-locale-route>JP</a></p>
+      <p class="footer-locale-switcher">Language: <a href="/en/" class="current" aria-current="page" lang="en">EN</a> / <a href="/" data-locale-route lang="ja">JP</a></p>
     </div>
   </div>
 </footer>
@@ -727,17 +769,30 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 const hamburgerBtn = document.querySelector('.hamburger');
+function setMenuOpen(isOpen) {
+  const menu = document.getElementById('mobileMenu');
+  if (!menu || !hamburgerBtn) return;
+  menu.classList.toggle('open', isOpen);
+  menu.hidden = !isOpen;
+  hamburgerBtn.setAttribute('aria-expanded', isOpen.toString());
+  hamburgerBtn.setAttribute('aria-label', isOpen ? (document.documentElement.lang === 'ja' ? 'メニューを閉じる' : 'Close menu') : (document.documentElement.lang === 'ja' ? 'メニューを開く' : 'Open menu'));
+  if (isOpen) {
+    const firstLink = menu.querySelector('a, button');
+    if (firstLink) firstLink.focus({ preventScroll: true });
+  }
+}
 function toggleMenu() {
   const menu = document.getElementById('mobileMenu');
-  const isOpen = menu.classList.toggle('open');
-  hamburgerBtn.setAttribute('aria-expanded', isOpen.toString());
+  setMenuOpen(!(menu && menu.classList.contains('open')));
 }
 document.addEventListener('click', (e) => {
   const menu = document.getElementById('mobileMenu');
-  if (menu.classList.contains('open') && !menu.contains(e.target) && !hamburgerBtn.contains(e.target)) {
-    menu.classList.remove('open');
-    hamburgerBtn.setAttribute('aria-expanded', 'false');
+  if (menu && menu.classList.contains('open') && !menu.contains(e.target) && !hamburgerBtn.contains(e.target)) {
+    setMenuOpen(false);
   }
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') setMenuOpen(false);
 });
 
 function toggleFaq(btn) {
