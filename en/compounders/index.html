@@ -157,6 +157,32 @@
   .placeholder .label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 8px; }
   .placeholder .msg { font-family: var(--serif); font-size: 1rem; color: var(--text-mid); line-height: 1.55; max-width: 320px; }
 
+
+  /* Company-call CTA */
+  .company-call-cta { padding: 54px 0 0; }
+  .company-call-card { position: relative; overflow: hidden; background: linear-gradient(135deg, #ffffff 0%, var(--bg-soft) 100%); border: 1px solid var(--rule); border-left: 3px solid var(--accent); padding: 32px 36px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 28px; align-items: center; box-shadow: 0 12px 30px rgba(15,31,58,0.045); }
+  .company-call-card::before { content:''; position: absolute; right: -80px; top: -120px; width: 260px; height: 260px; border: 1px solid rgba(176,138,74,0.18); border-radius: 50%; pointer-events: none; }
+  .company-call-copy { position: relative; z-index: 2; }
+  .company-call-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.24em; color: var(--accent-deep); text-transform: uppercase; margin-bottom: 9px; font-weight: 500; }
+  .company-call-title { font-family: var(--serif); font-size: 1.42rem; font-weight: 300; color: var(--ink-mid); line-height: 1.45; margin: 0 0 10px; letter-spacing: 0.02em; }
+  .company-call-body { font-family: var(--sans); font-size: 13.8px; line-height: 1.8; color: var(--text-mid); margin: 0; max-width: 760px; }
+  .company-call-body b { color: var(--ink-mid); font-weight: 500; }
+  .company-call-terms { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .company-call-pill { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.13em; color: var(--ink-soft); text-transform: uppercase; border: 1px solid var(--rule); background: rgba(255,255,255,0.72); padding: 6px 9px; }
+  .company-call-actions { position: relative; z-index: 2; display: flex; flex-direction: column; gap: 10px; min-width: 250px; }
+  .company-call-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 22px; background: var(--ink-mid); border: 1px solid var(--ink-mid); color: #fff; font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: 0.06em; text-align: center; transition: all 0.18s; }
+  .company-call-btn:hover { background: var(--ink); border-color: var(--ink); color: #fff; }
+  .company-call-secondary { background: transparent; color: var(--ink-mid); }
+  .company-call-secondary:hover { background: var(--bg-soft); color: var(--ink); border-color: var(--accent); }
+
+  @media (max-width: 760px) {
+    .company-call-cta { padding-top: 38px; }
+    .company-call-card { grid-template-columns: 1fr; padding: 24px 22px; gap: 20px; }
+    .company-call-title { font-size: 1.2rem; }
+    .company-call-actions { min-width: 0; width: 100%; }
+    .company-call-btn { width: 100%; }
+  }
+
   /* Substack CTA */
   .substack-cta { margin-top: 50px; padding: 32px 36px; background: var(--bg-soft); border: 1px solid var(--rule); border-left: 3px solid var(--accent); display: flex; gap: 28px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
   .substack-cta-text { flex: 1; min-width: 280px; }
@@ -253,6 +279,28 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
         <p class="universe-band-body">Sortable by market cap, valuation, capital efficiency, and free-cash-flow yield. Refreshed against the most recent close. The starting point for every Profile we publish.</p>
       </div>
       <a class="universe-cta" href="/en/compounders/universe/">View the watch universe <span class="universe-cta-arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="company-call-cta" id="company-call-request" aria-label="Request a company call">
+  <div class="wrap">
+    <div class="company-call-card">
+      <div class="company-call-copy">
+        <div class="company-call-eyebrow">Company access · Institutional investors</div>
+        <h2 class="company-call-title">Found a Japanese company you want to speak with?</h2>
+        <p class="company-call-body">Tell us the ticker or company name — whether it is already in the Compounders universe or not. For eligible institutional investors, <b>arranging the introduction is free</b>. The interpreted company call itself is fee-based, and pricing depends on expected frequency and scope, so we first hold a <b>required 15-minute briefing call</b> to confirm fit, context, and next steps.</p>
+        <div class="company-call-terms" aria-label="How the request works">
+          <span class="company-call-pill">Any Japanese listed company</span>
+          <span class="company-call-pill">Free setup for institutions</span>
+          <span class="company-call-pill">Paid interpretation</span>
+          <span class="company-call-pill">15-min briefing first</span>
+        </div>
+      </div>
+      <div class="company-call-actions">
+        <a class="company-call-btn" href="mailto:info@jpinv.com?subject=Compounders%20company%20call%20request&body=Hello%20JII%2C%0A%0AI%20would%20like%20to%20request%20a%2015-minute%20briefing%20about%20setting%20up%20a%20company%20call.%0A%0AName%3A%0AInstitution%3A%0ARole%3A%0ACompany%20or%20ticker%20of%20interest%3A%0AIs%20this%20company%20in%20the%20Compounders%20universe%3F%3A%0APreferred%20times%20for%20the%2015-minute%20briefing%3A%0A%0AThank%20you.">Request the 15-min briefing →</a>
+        <a class="company-call-btn company-call-secondary" href="/en/compounders/universe/">Check the universe</a>
+      </div>
     </div>
   </div>
 </section>
