@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="JII 海外IR診断カード — 海外投資家から見た自社IRを、12項目・24点で点検した一枚にまとめます。Light（¥200,000／回）・Standard（¥100,000／月）・Pro（¥200,000／月）。翻訳・通訳は診断を踏まえたうえでお引き受けします。">
+<meta name="description" content="海外IR診断カードの概要。サービス、料金、会社概要、FAQの詳細は各ページに整理しています。">
 <meta name="keywords" content="海外IR診断, IR診断カード, 海外投資家 IR, 英文IR点検, 海外IR支援, 海外IR診断レポート">
-<meta property="og:title" content="JII 海外IR診断カード — Japan Investor Interface Co., Ltd.">
-<meta property="og:description" content="海外投資家から見た自社IRを、12項目・24点で点検した一枚にまとめます。翻訳の前に、まず点検する。">
+<meta property="og:title" content="JII 海外IR診断カード | Japan Investor Interface Co., Ltd.">
+<meta property="og:description" content="海外IR診断カードの概要。サービス、料金、会社概要、FAQの詳細は各ページに整理しています。">
 <meta property="og:url" content="https://jpinv.com/">
 <meta property="og:image" content="https://jpinv.com/assets/logo-jii-wordmark.svg">
 <meta property="og:image:type" content="image/svg+xml">
@@ -402,6 +402,7 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
 .faq-a-inner { padding: 0 0 22px; font-size: 0.86rem; line-height: 1.85; max-width: 720px; }
 
 /* CONTACT */
+.nowrap { white-space: nowrap; }
 #contact { background: var(--bg-mid); border-top: 1px solid var(--rule); }
 .contact-grid { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(260px, 0.85fr); gap: 56px; align-items: start; }
 @media (max-width: 880px) { .contact-grid { grid-template-columns: 1fr; gap: 32px; } }
@@ -473,20 +474,19 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
 <script src="/assets/locale-switcher.js" defer></script>
 </head>
 <body>
-
 <nav id="main-nav" role="navigation" aria-label="メインナビゲーション">
   <div class="wrap nav-inner">
-    <a href="#top" class="nav-logo" aria-label="JII トップページへ">
+    <a href="/" class="nav-logo" aria-label="JII トップページへ">
       <img class="nav-logo-img nav-logo-img--desktop" src="/assets/logo-jii-wordmark.svg" alt="Japan Investor Interface logo" width="282" height="40">
       <img class="nav-logo-img nav-logo-img--mobile" src="/assets/logo-jii-monogram.svg" alt="Japan Investor Interface logo" width="32" height="32">
     </a>
     <div class="nav-center">
       <ul class="nav-links" role="list">
-        <li><a href="#card">診断カード</a></li>
-        <li><a href="#plans">プラン</a></li>
-        <li><a href="#cases">ケース</a></li>
-        <li><a href="#about">会社概要</a></li>
-        <li><a href="#faq">よくある質問</a></li>
+        <li><a href="/サービス/">サービス</a></li>
+        <li><a href="/料金/">料金</a></li>
+        <li><a href="/会社概要/">会社概要</a></li>
+        <li><a href="/faq/">FAQ</a></li>
+        <li><a href="/compounders/">Compounders</a></li>
       </ul>
     </div>
     <div class="nav-right">
@@ -500,17 +500,15 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
 </nav>
 
 <div class="mobile-menu" id="mobileMenu" role="menu">
-  <a href="#card" onclick="toggleMenu()">診断カード</a>
-  <a href="#plans" onclick="toggleMenu()">プラン</a>
-  <a href="#cases" onclick="toggleMenu()">ケース</a>
-  <a href="#about" onclick="toggleMenu()">会社概要</a>
-  <a href="#faq" onclick="toggleMenu()">よくある質問</a>
-  <a href="#contact" onclick="toggleMenu()">お問い合わせ</a>
+  <a href="/サービス/" onclick="toggleMenu()">サービス</a>
+  <a href="/料金/" onclick="toggleMenu()">料金</a>
+  <a href="/会社概要/" onclick="toggleMenu()">会社概要</a>
+  <a href="/faq/" onclick="toggleMenu()">FAQ</a>
   <a href="/compounders/" onclick="toggleMenu()">Compounders</a>
+  <a href="#contact" onclick="toggleMenu()">お問い合わせ</a>
   <a href="/en/" data-locale-route onclick="toggleMenu()">EN</a>
   <a href="#contact" class="btn btn-primary mobile-menu-cta" onclick="presetInquiry('30分無料相談'); toggleMenu()">30分無料相談を予約する</a>
 </div>
-
 <!-- HERO -->
 <section id="top" aria-label="ヒーロー">
   <div class="hero-texture" aria-hidden="true"></div>
@@ -527,7 +525,6 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
     </div>
   </div>
 </section>
-
 <!-- JII COMPOUNDERS LAUNCH CALLOUT -->
 <section id="compounders-callout" aria-label="JII Compounders" style="background:var(--bg-mid); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); padding:40px 0;">
   <div class="wrap compounders-callout-inner">
@@ -693,22 +690,21 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
 <section id="process" aria-label="診断から実行へ">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="label">診断から実行へ</span>
+      <span class="label">Overview</span>
       <div class="rule-accent"></div>
-      <h2 class="mincho-lg">診断は、どう次の改善に繋がるか</h2>
+      <h2 class="mincho-lg">ホームは全体像だけを、詳細は各ページへ。</h2>
+      <p>JIIは、日本の上場企業が海外投資家に伝えるべき投資ストーリーを点検し、必要な改善を小さく実行していくための海外IR支援会社です。</p>
     </div>
-    <div class="process-flow reveal">
-      <div class="process-step"><h5>資料 / 面談観察</h5><p>IR資料・IRページ・直近面談を点検対象として収集。</p></div>
-      <div class="process-step"><h5>診断カード</h5><p>12項目・24点で点検し、伝わっていない上位3点を整理。</p></div>
-      <div class="process-step"><h5>優先順位</h5><p>次の決算で直す / 中期で整えるを切り分け、社内で合意。</p></div>
-      <div class="process-step"><h5>開示 / Q&A / 面談</h5><p>開示の見直し・面談準備・通訳など、実際の対応に落としていきます。</p></div>
-      <div class="process-step"><h5>翌四半期で再点検</h5><p>面談で得た反応を次回以降の診断に反映し、改善のサイクルを回します。</p></div>
+    <div class="cases-grid reveal">
+      <div class="case-card"><span>01</span><h3>診断</h3><p>IR資料・英文開示・面談を、海外投資家の読み方で確認します。</p></div>
+      <div class="case-card"><span>02</span><h3>改善</h3><p>見つかった論点を、開示構成・メッセージ・面談準備に落とし込みます。</p></div>
+      <div class="case-card"><span>03</span><h3>対話</h3><p>投資家面談の反応を次の開示改善につなげます。</p></div>
     </div>
   </div>
 </section>
 
-<!-- PLANS -->
-<section id="plans" aria-label="プラン">
+<!-- SERVICES TEASER -->
+<section id="services" aria-label="サービス概要">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="label">プラン</span>
@@ -778,27 +774,16 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
   </div>
 </section>
 
-<!-- CASES -->
-<section id="cases" aria-label="ご利用ケース">
+<!-- PRICING TEASER -->
+<section id="pricing" aria-label="料金概要">
   <div class="wrap">
-    <div class="section-head reveal">
-      <span class="label">ご利用ケース</span>
-      <div class="rule-accent"></div>
-      <h2 class="mincho-lg">こういう状況でご相談いただきます</h2>
-    </div>
-    <div class="case-grid reveal">
-      <div class="case-card"><span class="case-tag">Case A</span><h4>初めて本格的な海外投資家面談がある</h4><p>面談前に、自社IRが投資家にどう映るかを一度点検したい。</p></div>
-      <div class="case-card"><span class="case-tag">Case B</span><h4>海外IRを続けているが投資につながらない</h4><p>面談はあるが買い注文に至らない。どこで伝わっていないのかを整理したい。</p></div>
-      <div class="case-card"><span class="case-tag">Case C</span><h4>アクティビスト / 重要株主対応</h4><p>主要株主が変わり、論点を整理して説明軸を作り直す必要がある。</p></div>
-      <div class="case-card"><span class="case-tag">Case D</span><h4>中計・資本配分方針を説明する</h4><p>新中計の前提・ROIC目標・株主還元の考え方を、海外投資家にまっすぐ届ける。</p></div>
-      <div class="case-card"><span class="case-tag">Case E</span><h4>英文IRページ・決算資料を見直したい</h4><p>翻訳の前に、構成と論点の優先順位を整える。</p></div>
-      <div class="case-card"><span class="case-tag">Case F</span><h4>面談で得た反応を次回以降の開示に活かしたい</h4><p>個別面談の反応を、四半期開示の改善ループに乗せる。</p></div>
-    </div>
+    <div class="section-head reveal"><span class="label">Pricing</span><div class="rule-accent"></div><h2 class="mincho-lg">Light / Standard / Pro</h2><p>単発診断から継続支援まで、3つのプランを用意しています。金額・契約条件・向いているケースは料金ページで確認できます。</p></div>
+    <div class="hero-ctas reveal"><a href="/料金/" class="btn btn-outline">料金を見る</a><a href="#contact" class="btn btn-primary" data-rfq-service="diagnostic" data-rfq-document="earnings_presentation" data-rfq-source="home_pricing_teaser" data-rfq-message="ホームの料金概要CTA：Light / Standard / Pro の選び方を相談したいです。">プラン選定を相談</a></div>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about" aria-label="JIIについて">
+<!-- COMPANY TEASER -->
+<section id="company" aria-label="会社概要">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="label">JIIについて</span>
@@ -836,8 +821,8 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
   </div>
 </section>
 
-<!-- FAQ -->
-<section id="faq" aria-label="よくある質問">
+<!-- FAQ TEASER -->
+<section id="faq-teaser" aria-label="FAQ概要">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="label">よくある質問</span>
@@ -883,21 +868,20 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
     </div>
   </div>
 </section>
-
 <!-- CONTACT -->
-<section id="contact" aria-label="翻訳・IRコミュニケーションRFQ">
+<section id="contact" aria-label="翻訳・IRコミュニケーションのお見積り依頼">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="label">RFQ</span>
+      <span class="label">お見積り依頼</span>
       <div class="rule-accent"></div>
-      <h2 class="mincho-lg">翻訳・IRコミュニケーションの見積依頼</h2>
-      <p>必要な範囲・文書種別・言語・希望納期をお知らせください。内容を確認のうえ、通常1営業日以内に概算・次の確認事項をご返信します。</p>
+      <h2 class="mincho-lg">翻訳・IR支援の<span class="nowrap">お見積り依頼</span></h2>
+      <p>ご希望の内容、資料の種類、言語、納期の目安をお知らせください。内容を確認のうえ、通常1営業日以内にお見積りまたは確認事項をご連絡します。</p>
     </div>
     <div class="contact-grid">
       <div class="reveal">
         <div class="form-success" id="form-success" hidden tabindex="-1">
-          <h3>RFQを受け付けました</h3>
-          <p>見積依頼を送信いただきありがとうございます。内容を確認のうえ、通常1営業日以内に概算・確認事項・次の進め方をご返信します。</p>
+          <h3>お見積り依頼を受け付けました</h3>
+          <p>送信ありがとうございます。内容を確認のうえ、通常1営業日以内にお見積り、確認事項、今後の進め方をご連絡します。</p>
         </div>
         <form class="contact-form" id="inquiry-form" novalidate data-recaptcha-site-key="">
           <input type="hidden" name="form_type" value="rfq-ja">
@@ -917,38 +901,38 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
               <p class="form-field-error" id="contact_name-error" aria-live="polite"></p>
             </div>
             <div class="form-row full">
-              <label for="work_email">業務用メールアドレス<span class="form-required" aria-hidden="true">*</span></label>
+              <label for="work_email">メールアドレス（勤務先）<span class="form-required" aria-hidden="true">*</span></label>
               <input id="work_email" name="work_email" type="email" autocomplete="email" placeholder="your@company.com" required aria-describedby="work_email-desc work_email-error" aria-invalid="false">
-              <p class="form-description" id="work_email-desc">見積内容と確認事項のご返信先です。</p>
+              <p class="form-description" id="work_email-desc">お見積りや確認事項のご連絡先として使用します。</p>
               <p class="form-field-error" id="work_email-error" aria-live="polite"></p>
             </div>
             <div class="form-row">
-              <label for="service_type">サービス種別<span class="form-required" aria-hidden="true">*</span></label>
+              <label for="service_type">ご希望のサービス<span class="form-required" aria-hidden="true">*</span></label>
               <select id="service_type" name="service_type" required aria-describedby="service_type-error" aria-invalid="false">
                 <option value="">選択してください</option>
                 <option value="human_translation">IR・開示資料の翻訳</option>
                 <option value="editing_review">英文開示レビュー / 編集</option>
                 <option value="interpretation">投資家面談の通訳</option>
-                <option value="diagnostic">海外IR診断と改善提案</option>
-                <option value="other">その他 / 未定</option>
+                <option value="diagnostic">海外IR診断・改善提案</option>
+                <option value="other">その他・未定</option>
               </select>
               <p class="form-field-error" id="service_type-error" aria-live="polite"></p>
             </div>
             <div class="form-row">
-              <label for="document_type">文書種別<span class="form-required" aria-hidden="true">*</span></label>
+              <label for="document_type">資料の種類<span class="form-required" aria-hidden="true">*</span></label>
               <select id="document_type" name="document_type" required aria-describedby="document_type-error" aria-invalid="false">
                 <option value="">選択してください</option>
                 <option value="earnings_presentation">決算短信 / 決算説明資料</option>
                 <option value="annual_report">統合報告書 / 有価証券報告書</option>
                 <option value="presentation">投資家向けプレゼン</option>
-                <option value="meeting_script">面談スクリプト / Q&amp;A</option>
-                <option value="website_disclosure">Webサイト / 適時開示</option>
-                <option value="other">その他 / 未定</option>
+                <option value="meeting_script">面談スクリプト・Q&amp;A</option>
+                <option value="website_disclosure">Webサイト・適時開示</option>
+                <option value="other">その他・未定</option>
               </select>
               <p class="form-field-error" id="document_type-error" aria-live="polite"></p>
             </div>
             <div class="form-row">
-              <label for="source_language">原文言語<span class="form-required" aria-hidden="true">*</span></label>
+              <label for="source_language">翻訳元の言語<span class="form-required" aria-hidden="true">*</span></label>
               <select id="source_language" name="source_language" required aria-describedby="source_language-error" aria-invalid="false">
                 <option value="">選択してください</option>
                 <option value="ja">日本語</option>
@@ -958,46 +942,46 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
               <p class="form-field-error" id="source_language-error" aria-live="polite"></p>
             </div>
             <div class="form-row">
-              <label for="target_language">納品言語<span class="form-required" aria-hidden="true">*</span></label>
+              <label for="target_language">納品する言語<span class="form-required" aria-hidden="true">*</span></label>
               <select id="target_language" name="target_language" required aria-describedby="target_language-error" aria-invalid="false">
                 <option value="">選択してください</option>
                 <option value="en">英語</option>
                 <option value="ja">日本語</option>
-                <option value="bilingual">日英併記 / 双方向</option>
+                <option value="bilingual">日英併記・双方向</option>
                 <option value="other">その他</option>
               </select>
               <p class="form-field-error" id="target_language-error" aria-live="polite"></p>
             </div>
             <div class="form-row">
-              <label for="turnaround_date">希望納期<span class="form-required" aria-hidden="true">*</span></label>
+              <label for="turnaround_date">ご希望納期<span class="form-required" aria-hidden="true">*</span></label>
               <input id="turnaround_date" name="turnaround_date" type="date" required aria-describedby="turnaround_date-desc turnaround_date-error" aria-invalid="false">
-              <p class="form-description" id="turnaround_date-desc">未確定の場合は目安の日付をご入力ください。</p>
+              <p class="form-description" id="turnaround_date-desc">未確定の場合は、おおよその日付で構いません。</p>
               <p class="form-field-error" id="turnaround_date-error" aria-live="polite"></p>
             </div>
             <div class="form-row">
-              <label for="estimated_volume">想定ボリューム<span class="form-required" aria-hidden="true">*</span></label>
-              <input id="estimated_volume" name="estimated_volume" type="text" placeholder="例：20ページ / 8,000字 / 60分面談" required aria-describedby="estimated_volume-error" aria-invalid="false">
+              <label for="estimated_volume">分量の目安<span class="form-required" aria-hidden="true">*</span></label>
+              <input id="estimated_volume" name="estimated_volume" type="text" placeholder="例：20ページ、8,000字、60分の面談" required aria-describedby="estimated_volume-error" aria-invalid="false">
               <p class="form-field-error" id="estimated_volume-error" aria-live="polite"></p>
             </div>
             <div class="form-row full">
-              <label for="message">補足・ご要望<span class="form-required" aria-hidden="true">*</span></label>
-              <textarea id="message" name="message" placeholder="用途、対象投資家、資料の状態、機密性、希望する成果物などをご記入ください。" required minlength="20" aria-describedby="message-desc message-error" aria-invalid="false"></textarea>
-              <p class="form-description" id="message-desc">資料添付が必要な場合は、受付メールへの返信でお送りください。NDA締結後の共有にも対応します。</p>
+              <label for="message">ご相談内容・ご要望<span class="form-required" aria-hidden="true">*</span></label>
+              <textarea id="message" name="message" placeholder="用途、対象となる投資家、資料の状況、機密情報の有無、ご希望の成果物などをご記入ください。" required minlength="20" aria-describedby="message-desc message-error" aria-invalid="false"></textarea>
+              <p class="form-description" id="message-desc">資料の共有が必要な場合は、受付メールへの返信でお送りください。NDA締結後の共有にも対応します。</p>
               <p class="form-field-error" id="message-error" aria-live="polite"></p>
             </div>
           </div>
-          <button type="submit" class="form-submit" id="form-submit-btn">RFQを送信する</button>
+          <button type="submit" class="form-submit" id="form-submit-btn">お見積りを依頼する</button>
           <p class="form-status" id="form-status" aria-live="polite"></p>
-          <p class="form-help">reCAPTCHA確認は送信時にのみ実行します。送信できない場合は、<a href="mailto:info@jpinv.com">info@jpinv.com</a> へ同じ内容をお送りください。</p>
+          <p class="form-help">迷惑送信防止の確認は、送信時にのみ行います。送信できない場合は、同じ内容を <a href="mailto:info@jpinv.com">info@jpinv.com</a> までお送りください。</p>
         </form>
       </div>
       <div class="contact-side reveal">
-        <h4>送信後の流れ</h4>
+        <h4>ご依頼後の流れ</h4>
         <ul>
-          <li>通常1営業日以内に返信</li>
-          <li>必要に応じてNDA締結</li>
+          <li>通常1営業日以内にご連絡</li>
+          <li>必要に応じてNDAを締結</li>
           <li>範囲・納期・成果物を確認</li>
-          <li>概算見積または次の確認事項をご提示</li>
+          <li>お見積りまたは追加確認事項をご案内</li>
         </ul>
         <div class="contact-info-grid">
           <div>
@@ -1011,7 +995,6 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
     </div>
   </div>
 </section>
-
 <!-- FOOTER -->
 <footer>
   <div class="wrap">
@@ -1023,19 +1006,19 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
       <div class="footer-col">
         <h5>診断とプラン</h5>
         <ul>
-          <li><a href="#card">診断カードとは</a></li>
-          <li><a href="#plans">Light — 初回診断</a></li>
-          <li><a href="#plans">Standard — 開示改善</a></li>
-          <li><a href="#plans">Pro — IR改善ループ</a></li>
+          <li><a href="/サービス/">サービス</a></li>
+          <li><a href="/料金/">Light — 初回診断</a></li>
+          <li><a href="/料金/">Standard — 開示改善</a></li>
+          <li><a href="/料金/">Pro — IR改善ループ</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h5>情報</h5>
         <ul>
-          <li><a href="#cases">ご利用ケース</a></li>
-          <li><a href="#process">診断から実行へ</a></li>
-          <li><a href="#about">会社概要</a></li>
-          <li><a href="#faq">よくある質問</a></li>
+          <li><a href="/サービス/#cases">ご利用ケース</a></li>
+          <li><a href="/サービス/#process">診断から実行へ</a></li>
+          <li><a href="/会社概要/">会社概要</a></li>
+          <li><a href="/faq/">よくある質問</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -1231,17 +1214,17 @@ const fieldRules = {
 };
 const formMessages = {
   required: '必須項目です。',
-  email: '業務用メールアドレスを正しく入力してください。',
+  email: '勤務先のメールアドレスを正しく入力してください。',
   futureDate: '希望納期は今日以降の日付を入力してください。',
-  minLength: '補足・ご要望は20文字以上で入力してください。',
-  reviewFields: 'エラー項目をご確認ください。',
-  verifying: '送信前の確認を実行しています…',
+  minLength: 'ご相談内容・ご要望は20文字以上で入力してください。',
+  reviewFields: '入力内容をご確認ください。',
+  verifying: '迷惑送信防止の確認を行っています…',
   sending: '送信中…',
-  submit: 'RFQを送信する',
-  recaptchaFailed: 'reCAPTCHA確認を完了できませんでした。通信状況を確認して再度お試しください。',
-  serverValidation: '入力内容を確認できませんでした。表示されたエラーを修正して再度お試しください。',
-  failed: '送信に失敗しました。少し時間をおいて再度お試しください。',
-  network: 'ネットワークエラーが発生しました。少し時間をおいて再度お試しください。'
+  submit: 'お見積りを依頼する',
+  recaptchaFailed: '迷惑送信防止の確認を完了できませんでした。通信状況をご確認のうえ、もう一度お試しください。',
+  serverValidation: '入力内容を確認できませんでした。表示されたエラーをご確認のうえ、もう一度お試しください。',
+  failed: '送信できませんでした。少し時間をおいて、もう一度お試しください。',
+  network: '通信エラーが発生しました。少し時間をおいて、もう一度お試しください。'
 };
 
 function setStatus(message, state) {
