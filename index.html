@@ -186,6 +186,11 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
 .nav-cta { padding: 8px 14px; font-size: 0.7rem; }
 .nav-en-link { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; color: var(--text-dim); border: 1px solid var(--rule); padding: 6px 10px; text-decoration: none; transition: all 0.2s; }
 .nav-en-link:hover { color: var(--ink); border-color: var(--ink-mid); }
+.locale-switcher { display: inline-flex; align-items: center; gap: 0; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; }
+.locale-switcher a { color: var(--text-dim); border: 1px solid var(--rule); padding: 6px 9px; text-decoration: none; transition: all 0.2s; }
+.locale-switcher a + a { margin-left: -1px; }
+.locale-switcher a:hover, .locale-switcher a.current { color: var(--ink); border-color: var(--ink-mid); background: var(--bg-soft); position: relative; z-index: 1; }
+.footer-locale-switcher a.current { font-weight: 600; color: var(--ink); }
 .hamburger { display: none; flex-shrink: 0; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
 .hamburger span { display: block; width: 22px; height: 1px; background: var(--ink); transition: all 0.25s; }
 @media (max-width: 900px) {
@@ -449,6 +454,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
 .footer-bottom { padding-top: 22px; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 14px; font-size: 0.7rem; color: var(--text-dim); }
 
 </style>
+<script src="/assets/locale-switcher.js" defer></script>
 </head>
 <body>
 
@@ -469,7 +475,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
     </div>
     <div class="nav-right">
       <a href="#contact" class="btn btn-primary nav-cta" onclick="presetInquiry('30分無料相談')">30分無料相談</a>
-      <a href="/en/" class="nav-en-link">EN</a>
+      <span class="locale-switcher nav-locale-switcher" aria-label="言語切替"><a href="/" class="current" aria-current="page">JP</a><a href="/en/" data-locale-route>EN</a></span>
     </div>
     <button class="hamburger" onclick="toggleMenu()" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobileMenu">
       <span></span><span></span><span></span>
@@ -485,7 +491,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
   <a href="#faq" onclick="toggleMenu()">よくある質問</a>
   <a href="#contact" onclick="toggleMenu()">お問い合わせ</a>
   <a href="/compounders/" onclick="toggleMenu()">Compounders</a>
-  <a href="/en/" onclick="toggleMenu()">EN</a>
+  <a href="/en/" data-locale-route onclick="toggleMenu()">EN</a>
   <a href="#contact" class="btn btn-primary mobile-menu-cta" onclick="presetInquiry('30分無料相談'); toggleMenu()">30分無料相談を予約する</a>
 </div>
 
@@ -942,7 +948,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
     </section>
     <div class="footer-bottom">
       <p>© 2026 Japan Investor Interface Co., Ltd. · All rights reserved.</p>
-      <p>English: <a href="/en/">jpinv.com/en/</a></p>
+      <p class="footer-locale-switcher">言語: <a href="/" class="current" aria-current="page">JP</a> / <a href="/en/" data-locale-route>EN</a></p>
     </div>
   </div>
 </footer>

@@ -146,6 +146,7 @@
   .foot-row { display: flex; justify-content: space-between; align-items: baseline; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; }
   .foot-row a { color: var(--ink-soft); border-bottom: 1px solid var(--rule); }
 </style>
+<script src="/assets/locale-switcher.js" defer></script>
 </head>
 <body>
 
@@ -156,7 +157,7 @@
         <span class="mark">J<span class="pipe">|</span>I</span>
         <span class="sub">株式会社ジャパン・インベスター・インターフェース<br>Japan Investor Interface Co., Ltd.</span>
       </a>
-      <span class="hero-lang"><a href="/en/compounders/methodology/">EN</a><a href="/compounders/methodology/" class="current">JP</a></span>
+      <span class="hero-lang"><a href="/en/compounders/methodology/" data-locale-route>EN</a><a href="/compounders/methodology/" class="current">JP</a></span>
     </div>
     <div class="hero-text">
       <div class="hero-eyebrow">JII Compounders · 着眼点</div>
@@ -425,6 +426,7 @@
   <div class="wrap foot-row">
     <span><a href="/compounders/">すべての銘柄レポート</a></span>
     <span><a href="/">jpinv.com</a></span>
+    <span class="footer-locale-switcher">言語: <a href="/compounders/methodology/" class="current" aria-current="page">JP</a> · <a href="/en/compounders/methodology/" data-locale-route>EN</a></span>
   </div>
 </footer>
 
