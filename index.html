@@ -75,12 +75,14 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preload" as="image" href="/assets/logo-jii-wordmark.svg" fetchpriority="high" media="(min-width: 769px)">
+<link rel="preload" as="image" href="/assets/logo-jii-monogram.svg" fetchpriority="high" media="(max-width: 768px)">
 
 <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content">
 <script>(function(){if(location.protocol==="http:"&&/(^|\.)jpinv\.com$/i.test(location.hostname)){location.replace("https://"+location.host+location.pathname+location.search+location.hash);}})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
 <style>
 :root {
   --ink:        #1a2a4a;
@@ -495,6 +497,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
 }
 
+
+@supports (content-visibility: auto) {
+  body > section:not(#top):not(.hero), main > section:not(#top):not(.hero), footer { content-visibility: auto; contain-intrinsic-size: auto 720px; }
+}
 </style>
 <script src="/assets/locale-switcher.js" defer></script>
 </head>
@@ -503,8 +509,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 <nav id="main-nav" role="navigation" aria-label="メインナビゲーション">
   <div class="wrap nav-inner">
     <a href="/" class="nav-logo" aria-label="JII トップページへ">
-      <img class="nav-logo-img nav-logo-img--desktop" src="/assets/logo-jii-wordmark.svg" alt="Japan Investor Interface ロゴ" width="282" height="40">
-      <img class="nav-logo-img nav-logo-img--mobile" src="/assets/logo-jii-monogram.svg" alt="Japan Investor Interface ロゴ" width="32" height="32">
+      <img class="nav-logo-img nav-logo-img--desktop" src="/assets/logo-jii-wordmark.svg" decoding="async" fetchpriority="high" alt="Japan Investor Interface ロゴ" width="282" height="40">
+      <img class="nav-logo-img nav-logo-img--mobile" src="/assets/logo-jii-monogram.svg" decoding="async" fetchpriority="high" alt="Japan Investor Interface ロゴ" width="32" height="32">
     </a>
     <div class="nav-center">
       <ul class="nav-links" role="list">
@@ -804,7 +810,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     </div>
     <div class="about-grid reveal">
       <div>
-        <img class="about-photo" src="/assets/teddy.jpg" alt="屋山テディ" width="220" height="293" loading="lazy" decoding="async">
+        <img class="about-photo" src="/assets/teddy.jpg" alt="屋山テディ" width="220" height="293" loading="lazy" decoding="async" sizes="(max-width: 768px) 100vw, 220px">
       </div>
       <div class="about-content">
         <h3>屋山 テディ — 代表取締役</h3>
