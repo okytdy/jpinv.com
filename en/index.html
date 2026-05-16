@@ -219,6 +219,12 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
 .btn-primary:hover { background: var(--ink-mid); }
 .btn-outline { border: 1px solid var(--ink-mid); color: var(--ink); background: transparent; }
 .btn-outline:hover { border-color: var(--ink); color: var(--ink); }
+.section-cta { margin-top: 22px; display: flex; gap: 12px; flex-wrap: wrap; }
+.cta-band { margin-top: 42px; padding: 26px 28px; border: 1px solid var(--rule); background: #fff; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: center; }
+.cta-band h3 { font-family: var(--serif); color: var(--ink); font-size: clamp(1.05rem, 2vw, 1.35rem); font-weight: 400; line-height: 1.5; margin: 8px 0 6px; }
+.cta-band p { font-size: 0.84rem; line-height: 1.75; color: var(--text-mid); margin: 0; }
+.cta-actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+@media (max-width: 760px) { .cta-band { grid-template-columns: 1fr; align-items: start; } .cta-actions, .section-cta { width: 100%; } .cta-actions .btn, .section-cta .btn { width: 100%; text-align: center; } }
 
 /* SCROLL REVEAL */
 .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.6s ease, transform 0.6s ease; }
@@ -498,9 +504,9 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
       <div class="hero-eyebrow"><span class="label">JII Foreign IR Diagnostic Card</span></div>
       <div class="hero-title"><h1 class="mincho-xl">See your IR through<br>the eyes of foreign capital.</h1></div>
       <p class="hero-sub">English accuracy isn't the bottleneck. The diagnostic shows what foreign investors are — and aren't — taking away from your IR, before the next meeting or the next disclosure.</p>
-      <div class="hero-ctas">
-        <a href="#card" class="btn btn-primary">See the Diagnostic Card</a>
-        <a href="#contact" class="btn btn-primary" onclick="presetInquiry('Free 30-min introductory call')">Start a conversation</a>
+      <div class="hero-ctas" aria-label="Home next actions">
+        <a href="#contact" class="btn btn-primary" data-rfq-service="diagnostic" data-rfq-document="earnings_presentation" data-rfq-source="home_primary" data-rfq-message="Home hero CTA: I would like to discuss the Foreign IR Diagnostic Card, using our latest earnings presentation as the starting point for scope and estimate.">Start an RFQ</a>
+        <a href="#contact" class="btn btn-outline" data-rfq-service="diagnostic" data-rfq-document="earnings_presentation" data-rfq-source="home_secondary" data-rfq-message="Home secondary CTA: I would like a 30-minute scoping call about the Foreign IR Diagnostic Card and next steps.">Request a 30-min scoping call</a>
       </div>
     </div>
   </div>
@@ -526,6 +532,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
       <div class="rule-accent"></div>
       <h2 class="mincho-lg">What the Diagnostic Card is</h2>
       <p>A 12-item, 24-point review of how a Japanese listed company's IR actually reads and sounds to foreign capital. One document, written for the IR / CFO / corporate-planning desk.</p>
+      <div class="section-cta reveal"><a href="#contact" class="btn btn-primary" data-rfq-service="diagnostic" data-rfq-document="earnings_presentation" data-rfq-source="services_primary" data-rfq-message="Services primary CTA: I would like to discuss scope, timing, and estimate for the Foreign IR Diagnostic Card.">Start a services RFQ</a></div>
     </div>
 
     <div class="card-layout">
@@ -582,6 +589,16 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
           <span>Internal use: IR / CFO office / Corporate planning</span>
           <span>Confidential / NDA-ready</span>
         </div>
+      </div>
+    </div>
+    <div class="cta-band reveal" aria-label="Services next action">
+      <div>
+        <span class="label">Next action</span>
+        <h3>Start with the IR materials you want foreign investors to understand.</h3>
+        <p>Tell us whether the starting point is earnings materials, an English IR page, meeting Q&amp;A, or a specific disclosure cycle.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="#contact" class="btn btn-outline" data-rfq-service="diagnostic" data-rfq-document="earnings_presentation" data-rfq-source="services_secondary" data-rfq-message="Services secondary CTA: Please estimate a diagnostic based on our latest earnings presentation and related IR materials.">Put services context in RFQ</a>
       </div>
     </div>
   </div>
@@ -681,6 +698,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
       <div class="rule-accent"></div>
       <h2 class="mincho-lg">Three plans</h2>
       <p>All work is delivered directly by the founder. Pricing is plan-based and tax-exclusive.</p>
+      <div class="section-cta reveal"><a href="#contact" class="btn btn-primary" data-rfq-service="diagnostic" data-rfq-document="earnings_presentation" data-rfq-source="pricing_primary" data-rfq-message="Pricing primary CTA: Please help us choose between Light, Standard, and Pro based on our current IR cycle.">Ask which plan fits</a></div>
     </div>
     <div class="plan-grid reveal">
       <div class="plan-card">
@@ -696,7 +714,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
           <li>Recommended fix priority</li>
           <li>60-minute internal walkthrough</li>
         </ul>
-        <a href="#contact" class="btn btn-primary" onclick="presetInquiry('Light — Initial Diagnostic (¥200,000)')">Talk about Light</a>
+        <a href="#contact" class="btn btn-primary" data-rfq-service="diagnostic" data-rfq-document="earnings_presentation" data-rfq-source="pricing_light" data-rfq-message="I would like to discuss Light — Initial Diagnostic (¥200,000).">Talk about Light</a>
       </div>
       <div class="plan-card is-mid">
         <span class="plan-badge">Recommended</span>
@@ -712,7 +730,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
           <li>Disclosure / English IR review</li>
           <li>Diagnostic-aligned translation</li>
         </ul>
-        <a href="#contact" class="btn btn-primary" onclick="presetInquiry('Standard — Disclosure Improvement (¥100,000/mo)')">Talk about Standard</a>
+        <a href="#contact" class="btn btn-primary" data-rfq-service="diagnostic" data-rfq-document="earnings_presentation" data-rfq-source="pricing_standard" data-rfq-message="I would like to discuss Standard — Disclosure Improvement (¥100,000/mo).">Talk about Standard</a>
       </div>
       <div class="plan-card">
         <span class="plan-tag">Pro</span>
@@ -727,7 +745,17 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
           <li>In-room interpretation / observation</li>
           <li>Post-meeting Top 3 reaction note</li>
         </ul>
-        <a href="#contact" class="btn btn-primary" onclick="presetInquiry('Pro — Investor-Meeting Cycle (¥200,000/mo)')">Talk about Pro</a>
+        <a href="#contact" class="btn btn-primary" data-rfq-service="interpretation" data-rfq-document="meeting_script" data-rfq-source="pricing_pro" data-rfq-message="I would like to discuss Pro — Investor-Meeting Cycle (¥200,000/mo).">Talk about Pro</a>
+      </div>
+    </div>
+    <div class="cta-band reveal" aria-label="Pricing next action">
+      <div>
+        <span class="label">Plan selection</span>
+        <h3>If you are unsure, use Light as the baseline and scope upward only if needed.</h3>
+        <p>We will separate one-time diagnostic work from recurring disclosure or meeting-cycle support before quoting.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="#contact" class="btn btn-outline" data-rfq-service="diagnostic" data-rfq-document="earnings_presentation" data-rfq-source="pricing_secondary" data-rfq-message="Pricing secondary CTA: Please scope from Light first and advise whether Standard or Pro is necessary.">Add pricing context to RFQ</a>
       </div>
     </div>
   </div>
@@ -759,6 +787,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
       <span class="label">About JII</span>
       <div class="rule-accent"></div>
       <h2 class="mincho-lg">A diagnostics firm built on privileged observation in Japanese boardrooms</h2>
+      <div class="section-cta reveal"><a href="#contact" class="btn btn-primary" data-rfq-service="diagnostic" data-rfq-document="meeting_script" data-rfq-source="company_primary" data-rfq-message="Company primary CTA: I would like to discuss a founder-led diagnostic for our IR materials and investor-meeting context.">Talk to the founder via RFQ</a></div>
     </div>
     <div class="about-grid reveal">
       <div>
@@ -777,6 +806,16 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
         </div>
       </div>
     </div>
+    <div class="cta-band reveal" aria-label="Company next action">
+      <div>
+        <span class="label">Direct context</span>
+        <h3>The work starts from how foreign investors actually hear the story.</h3>
+        <p>If you have upcoming meetings, expected questions, or Q&amp;A scripts, route that context into the RFQ.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="#contact" class="btn btn-outline" data-rfq-service="interpretation" data-rfq-document="meeting_script" data-rfq-source="company_secondary" data-rfq-message="Company secondary CTA: Please scope meeting preparation, interpretation, and diagnostic feedback for foreign investor meetings.">Add meeting context to RFQ</a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -787,6 +826,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
       <span class="label">FAQ</span>
       <div class="rule-accent"></div>
       <h2 class="mincho-lg">Frequently asked</h2>
+      <div class="section-cta reveal"><a href="#contact" class="btn btn-primary" data-rfq-service="diagnostic" data-rfq-document="other" data-rfq-source="faq_primary" data-rfq-message="FAQ primary CTA: I reviewed the FAQ and would like advice on scope, confidentiality, timing, and estimate for our case.">Ask remaining questions</a></div>
     </div>
     <div class="faq-list reveal">
       <div class="faq-item">
@@ -814,6 +854,16 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
         <div class="faq-a"><div class="faq-a-inner">Not from this site. Translation and interpretation are offered only as implementation layers inside a diagnostic engagement.</div></div>
       </div>
     </div>
+    <div class="cta-band reveal" aria-label="FAQ next action">
+      <div>
+        <span class="label">Still unsure?</span>
+        <h3>You can send an RFQ even if the materials are not final.</h3>
+        <p>Share what is known: document type, timing, confidentiality needs, and whether investor meetings are already scheduled.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="#contact" class="btn btn-outline" data-rfq-service="diagnostic" data-rfq-document="other" data-rfq-source="faq_secondary" data-rfq-message="FAQ secondary CTA: Materials are not fully final, but we want to discuss diagnostic, translation, or interpretation support.">Put open questions in RFQ</a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -836,6 +886,8 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
           <input type="hidden" name="form_type" value="rfq-en">
           <input type="hidden" name="_subject" value="EN RFQ from jpinv.com">
           <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" value="">
+          <input type="hidden" id="cta_context" name="cta_context" value="">
+          <input type="hidden" id="cta_source" name="cta_source" value="">
           <div class="form-grid">
             <div class="form-row">
               <label for="company_name">Company name<span class="form-required" aria-hidden="true">*</span></label>
@@ -857,7 +909,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
               <label for="service_type">Service type<span class="form-required" aria-hidden="true">*</span></label>
               <select id="service_type" name="service_type" required aria-describedby="service_type-error" aria-invalid="false">
                 <option value="">Select one</option>
-                <option value="translation">IR / disclosure translation</option>
+                <option value="human_translation">IR / disclosure translation</option>
                 <option value="editing_review">English disclosure review / editing</option>
                 <option value="interpretation">Investor-meeting interpretation</option>
                 <option value="diagnostic">Foreign IR diagnostic and recommendations</option>
@@ -869,7 +921,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
               <label for="document_type">Document type<span class="form-required" aria-hidden="true">*</span></label>
               <select id="document_type" name="document_type" required aria-describedby="document_type-error" aria-invalid="false">
                 <option value="">Select one</option>
-                <option value="earnings_release">Earnings release / presentation</option>
+                <option value="earnings_presentation">Earnings release / presentation</option>
                 <option value="annual_report">Annual report / securities report</option>
                 <option value="presentation">Investor presentation</option>
                 <option value="meeting_script">Meeting script / Q&amp;A</option>
@@ -1069,9 +1121,70 @@ document.querySelectorAll('.selfcheck-opt').forEach(btn => {
   });
 });
 
+
+function setSelectIfValid(name, value) {
+  const field = inquiryForm && inquiryForm.elements[name];
+  if (!field || !value) return;
+  const option = Array.from(field.options || []).find(opt => opt.value === value);
+  if (option) field.value = value;
+}
+
+function appendMessageContext(message) {
+  const field = inquiryForm && inquiryForm.elements.message;
+  if (!field || !message) return;
+  if (!field.value.trim()) field.value = message;
+  else if (!field.value.includes(message)) field.value = `${field.value.trim()}
+
+${message}`;
+  field.dispatchEvent(new Event('input', { bubbles: true }));
+}
+
+function applyRfqContext(context = {}) {
+  if (!inquiryForm) return;
+  setSelectIfValid('service_type', context.service || context.service_type);
+  setSelectIfValid('document_type', context.document || context.document_type);
+  setSelectIfValid('source_language', context.source || context.source_language);
+  setSelectIfValid('target_language', context.target || context.target_language);
+  const ctaContext = document.getElementById('cta_context');
+  const ctaSource = document.getElementById('cta_source');
+  if (ctaContext && context.message) ctaContext.value = context.message;
+  if (ctaSource && context.source_id) ctaSource.value = context.source_id;
+  appendMessageContext(context.message || 'RFQ opened from a CTA. I would like to discuss scope, timing, confidentiality, and estimate.');
+}
+
+document.querySelectorAll('[data-rfq-service], [data-rfq-document], [data-rfq-message]').forEach((link) => {
+  link.addEventListener('click', () => {
+    applyRfqContext({
+      service: link.dataset.rfqService,
+      document: link.dataset.rfqDocument,
+      source: link.dataset.rfqSourceLanguage,
+      target: link.dataset.rfqTargetLanguage,
+      source_id: link.dataset.rfqSource,
+      message: link.dataset.rfqMessage
+    });
+  });
+});
+
+function applyRfqParams() {
+  const params = new URLSearchParams(window.location.search);
+  if (![...params.keys()].some(key => ['service_type', 'document_type', 'source_language', 'target_language', 'cta_context', 'cta_source'].includes(key))) return;
+  applyRfqContext({
+    service_type: params.get('service_type'),
+    document_type: params.get('document_type'),
+    source_language: params.get('source_language'),
+    target_language: params.get('target_language'),
+    source_id: params.get('cta_source') || 'url_param',
+    message: params.get('cta_context')
+  });
+}
+
 function presetInquiry(value) {
-  const sel = document.getElementById('service_type');
-  if (sel && value) sel.value = value.includes('interpret') ? 'interpretation' : 'diagnostic';
+  applyRfqContext({
+    service: value && /interpret|通訳|面談/i.test(value) ? 'interpretation' : 'diagnostic',
+    document: value && /interpret|通訳|面談/i.test(value) ? 'meeting_script' : 'earnings_presentation',
+    source_id: 'legacy_cta',
+    message: `I would like to discuss ${value || 'a 30-minute scoping call'} and confirm scope, timing, and estimate.`
+  });
 }
 
 // RFQ form submission
@@ -1081,6 +1194,7 @@ const submitBtn = document.getElementById('form-submit-btn');
 const statusEl = document.getElementById('form-status');
 const successBox = document.getElementById('form-success');
 const recaptchaField = document.getElementById('g-recaptcha-response');
+applyRfqParams();
 const fieldRules = {
   company_name: { required: true },
   contact_name: { required: true },
