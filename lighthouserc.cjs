@@ -1,22 +1,13 @@
+const { lighthouseRoutes } = require('./qa/routes.cjs');
+
 // Lighthouse CI target budgets for public JP/EN core routes.
-// Mobile-first targets: Performance >= 90, LCP <= 2.5s, CLS <= 0.10,
+// Mobile-first release gates: Performance >= 90, LCP <= 2.5s, CLS <= 0.10,
 // TBT <= 200ms, JS transfer <= 60 KiB, image transfer <= 70 KiB per route.
 module.exports = {
   ci: {
     collect: {
       staticDistDir: '.',
-      url: [
-        '/',
-        '/en/',
-        '/会社概要/',
-        '/en/company/',
-        '/サービス/',
-        '/en/services/',
-        '/料金/',
-        '/en/pricing/',
-        '/faq/',
-        '/en/faq/'
-      ],
+      url: lighthouseRoutes.map((route) => route.path),
       numberOfRuns: 3,
       settings: {
         formFactor: 'mobile',
@@ -43,7 +34,7 @@ module.exports = {
         'cumulative-layout-shift': ['error', { maxNumericValue: 0.1 }],
         'total-blocking-time': ['error', { maxNumericValue: 200 }],
         'speed-index': ['warn', { maxNumericValue: 3000 }],
-        'interactive': ['warn', { maxNumericValue: 3800 }],
+        interactive: ['warn', { maxNumericValue: 3800 }],
         'uses-responsive-images': 'error',
         'offscreen-images': 'error',
         'render-blocking-resources': 'warn',
