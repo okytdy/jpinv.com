@@ -886,8 +886,6 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
           <input type="hidden" name="form_type" value="rfq-en">
           <input type="hidden" name="_subject" value="EN RFQ from jpinv.com">
           <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" value="">
-          <input type="hidden" id="cta_context" name="cta_context" value="">
-          <input type="hidden" id="cta_source" name="cta_source" value="">
           <div class="form-grid">
             <div class="form-row">
               <label for="company_name">Company name<span class="form-required" aria-hidden="true">*</span></label>
@@ -909,7 +907,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
               <label for="service_type">Service type<span class="form-required" aria-hidden="true">*</span></label>
               <select id="service_type" name="service_type" required aria-describedby="service_type-error" aria-invalid="false">
                 <option value="">Select one</option>
-                <option value="human_translation">IR / disclosure translation</option>
+                <option value="translation">IR / disclosure translation</option>
                 <option value="editing_review">English disclosure review / editing</option>
                 <option value="interpretation">Investor-meeting interpretation</option>
                 <option value="diagnostic">Foreign IR diagnostic and recommendations</option>
@@ -921,7 +919,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
               <label for="document_type">Document type<span class="form-required" aria-hidden="true">*</span></label>
               <select id="document_type" name="document_type" required aria-describedby="document_type-error" aria-invalid="false">
                 <option value="">Select one</option>
-                <option value="earnings_presentation">Earnings release / presentation</option>
+                <option value="earnings_release">Earnings release / presentation</option>
                 <option value="annual_report">Annual report / securities report</option>
                 <option value="presentation">Investor presentation</option>
                 <option value="meeting_script">Meeting script / Q&amp;A</option>
@@ -1179,12 +1177,8 @@ function applyRfqParams() {
 }
 
 function presetInquiry(value) {
-  applyRfqContext({
-    service: value && /interpret|通訳|面談/i.test(value) ? 'interpretation' : 'diagnostic',
-    document: value && /interpret|通訳|面談/i.test(value) ? 'meeting_script' : 'earnings_presentation',
-    source_id: 'legacy_cta',
-    message: `I would like to discuss ${value || 'a 30-minute scoping call'} and confirm scope, timing, and estimate.`
-  });
+  const sel = document.getElementById('service_type');
+  if (sel && value) sel.value = value.includes('interpret') ? 'interpretation' : 'diagnostic';
 }
 
 // RFQ form submission
@@ -1194,7 +1188,6 @@ const submitBtn = document.getElementById('form-submit-btn');
 const statusEl = document.getElementById('form-status');
 const successBox = document.getElementById('form-success');
 const recaptchaField = document.getElementById('g-recaptcha-response');
-applyRfqParams();
 const fieldRules = {
   company_name: { required: true },
   contact_name: { required: true },

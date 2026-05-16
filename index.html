@@ -402,6 +402,7 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
 .faq-a-inner { padding: 0 0 22px; font-size: 0.86rem; line-height: 1.85; max-width: 720px; }
 
 /* CONTACT */
+.nowrap { white-space: nowrap; }
 #contact { background: var(--bg-mid); border-top: 1px solid var(--rule); }
 .contact-grid { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(260px, 0.85fr); gap: 56px; align-items: start; }
 @media (max-width: 880px) { .contact-grid { grid-template-columns: 1fr; gap: 32px; } }
@@ -885,26 +886,24 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
 </section>
 
 <!-- CONTACT -->
-<section id="contact" aria-label="翻訳・IRコミュニケーションRFQ">
+<section id="contact" aria-label="翻訳・IRコミュニケーションのお見積り依頼">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="label">RFQ</span>
+      <span class="label">お見積り依頼</span>
       <div class="rule-accent"></div>
-      <h2 class="mincho-lg">翻訳・IRコミュニケーションの見積依頼</h2>
-      <p>必要な範囲・文書種別・言語・希望納期をお知らせください。内容を確認のうえ、通常1営業日以内に概算・次の確認事項をご返信します。</p>
+      <h2 class="mincho-lg">翻訳・IR支援の<span class="nowrap">お見積り依頼</span></h2>
+      <p>ご希望の内容、資料の種類、言語、納期の目安をお知らせください。内容を確認のうえ、通常1営業日以内にお見積りまたは確認事項をご連絡します。</p>
     </div>
     <div class="contact-grid">
       <div class="reveal">
         <div class="form-success" id="form-success" hidden tabindex="-1">
-          <h3>RFQを受け付けました</h3>
-          <p>見積依頼を送信いただきありがとうございます。内容を確認のうえ、通常1営業日以内に概算・確認事項・次の進め方をご返信します。</p>
+          <h3>お見積り依頼を受け付けました</h3>
+          <p>送信ありがとうございます。内容を確認のうえ、通常1営業日以内にお見積り、確認事項、今後の進め方をご連絡します。</p>
         </div>
         <form class="contact-form" id="inquiry-form" novalidate data-recaptcha-site-key="">
           <input type="hidden" name="form_type" value="rfq-ja">
           <input type="hidden" name="_subject" value="JP RFQ from jpinv.com">
           <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" value="">
-          <input type="hidden" id="cta_context" name="cta_context" value="">
-          <input type="hidden" id="cta_source" name="cta_source" value="">
           <div class="form-grid">
             <div class="form-row">
               <label for="company_name">会社名<span class="form-required" aria-hidden="true">*</span></label>
@@ -917,38 +916,38 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
               <p class="form-field-error" id="contact_name-error" aria-live="polite"></p>
             </div>
             <div class="form-row full">
-              <label for="work_email">業務用メールアドレス<span class="form-required" aria-hidden="true">*</span></label>
+              <label for="work_email">メールアドレス（勤務先）<span class="form-required" aria-hidden="true">*</span></label>
               <input id="work_email" name="work_email" type="email" autocomplete="email" placeholder="your@company.com" required aria-describedby="work_email-desc work_email-error" aria-invalid="false">
-              <p class="form-description" id="work_email-desc">見積内容と確認事項のご返信先です。</p>
+              <p class="form-description" id="work_email-desc">お見積りや確認事項のご連絡先として使用します。</p>
               <p class="form-field-error" id="work_email-error" aria-live="polite"></p>
             </div>
             <div class="form-row">
-              <label for="service_type">サービス種別<span class="form-required" aria-hidden="true">*</span></label>
+              <label for="service_type">ご希望のサービス<span class="form-required" aria-hidden="true">*</span></label>
               <select id="service_type" name="service_type" required aria-describedby="service_type-error" aria-invalid="false">
                 <option value="">選択してください</option>
-                <option value="human_translation">IR・開示資料の翻訳</option>
-                <option value="editing_review">英文開示レビュー / 編集</option>
+                <option value="translation">IR・開示資料の翻訳</option>
+                <option value="editing_review">英文開示のレビュー・編集</option>
                 <option value="interpretation">投資家面談の通訳</option>
-                <option value="diagnostic">海外IR診断と改善提案</option>
-                <option value="other">その他 / 未定</option>
+                <option value="diagnostic">海外IR診断・改善提案</option>
+                <option value="other">その他・未定</option>
               </select>
               <p class="form-field-error" id="service_type-error" aria-live="polite"></p>
             </div>
             <div class="form-row">
-              <label for="document_type">文書種別<span class="form-required" aria-hidden="true">*</span></label>
+              <label for="document_type">資料の種類<span class="form-required" aria-hidden="true">*</span></label>
               <select id="document_type" name="document_type" required aria-describedby="document_type-error" aria-invalid="false">
                 <option value="">選択してください</option>
-                <option value="earnings_presentation">決算短信 / 決算説明資料</option>
-                <option value="annual_report">統合報告書 / 有価証券報告書</option>
+                <option value="earnings_release">決算短信・決算説明資料</option>
+                <option value="annual_report">統合報告書・有価証券報告書</option>
                 <option value="presentation">投資家向けプレゼン</option>
-                <option value="meeting_script">面談スクリプト / Q&amp;A</option>
-                <option value="website_disclosure">Webサイト / 適時開示</option>
-                <option value="other">その他 / 未定</option>
+                <option value="meeting_script">面談スクリプト・Q&amp;A</option>
+                <option value="website_disclosure">Webサイト・適時開示</option>
+                <option value="other">その他・未定</option>
               </select>
               <p class="form-field-error" id="document_type-error" aria-live="polite"></p>
             </div>
             <div class="form-row">
-              <label for="source_language">原文言語<span class="form-required" aria-hidden="true">*</span></label>
+              <label for="source_language">翻訳元の言語<span class="form-required" aria-hidden="true">*</span></label>
               <select id="source_language" name="source_language" required aria-describedby="source_language-error" aria-invalid="false">
                 <option value="">選択してください</option>
                 <option value="ja">日本語</option>
@@ -958,46 +957,46 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
               <p class="form-field-error" id="source_language-error" aria-live="polite"></p>
             </div>
             <div class="form-row">
-              <label for="target_language">納品言語<span class="form-required" aria-hidden="true">*</span></label>
+              <label for="target_language">納品する言語<span class="form-required" aria-hidden="true">*</span></label>
               <select id="target_language" name="target_language" required aria-describedby="target_language-error" aria-invalid="false">
                 <option value="">選択してください</option>
                 <option value="en">英語</option>
                 <option value="ja">日本語</option>
-                <option value="bilingual">日英併記 / 双方向</option>
+                <option value="bilingual">日英併記・双方向</option>
                 <option value="other">その他</option>
               </select>
               <p class="form-field-error" id="target_language-error" aria-live="polite"></p>
             </div>
             <div class="form-row">
-              <label for="turnaround_date">希望納期<span class="form-required" aria-hidden="true">*</span></label>
+              <label for="turnaround_date">ご希望納期<span class="form-required" aria-hidden="true">*</span></label>
               <input id="turnaround_date" name="turnaround_date" type="date" required aria-describedby="turnaround_date-desc turnaround_date-error" aria-invalid="false">
-              <p class="form-description" id="turnaround_date-desc">未確定の場合は目安の日付をご入力ください。</p>
+              <p class="form-description" id="turnaround_date-desc">未確定の場合は、おおよその日付で構いません。</p>
               <p class="form-field-error" id="turnaround_date-error" aria-live="polite"></p>
             </div>
             <div class="form-row">
-              <label for="estimated_volume">想定ボリューム<span class="form-required" aria-hidden="true">*</span></label>
-              <input id="estimated_volume" name="estimated_volume" type="text" placeholder="例：20ページ / 8,000字 / 60分面談" required aria-describedby="estimated_volume-error" aria-invalid="false">
+              <label for="estimated_volume">分量の目安<span class="form-required" aria-hidden="true">*</span></label>
+              <input id="estimated_volume" name="estimated_volume" type="text" placeholder="例：20ページ、8,000字、60分の面談" required aria-describedby="estimated_volume-error" aria-invalid="false">
               <p class="form-field-error" id="estimated_volume-error" aria-live="polite"></p>
             </div>
             <div class="form-row full">
-              <label for="message">補足・ご要望<span class="form-required" aria-hidden="true">*</span></label>
-              <textarea id="message" name="message" placeholder="用途、対象投資家、資料の状態、機密性、希望する成果物などをご記入ください。" required minlength="20" aria-describedby="message-desc message-error" aria-invalid="false"></textarea>
-              <p class="form-description" id="message-desc">資料添付が必要な場合は、受付メールへの返信でお送りください。NDA締結後の共有にも対応します。</p>
+              <label for="message">ご相談内容・ご要望<span class="form-required" aria-hidden="true">*</span></label>
+              <textarea id="message" name="message" placeholder="用途、対象となる投資家、資料の状況、機密情報の有無、ご希望の成果物などをご記入ください。" required minlength="20" aria-describedby="message-desc message-error" aria-invalid="false"></textarea>
+              <p class="form-description" id="message-desc">資料の共有が必要な場合は、受付メールへの返信でお送りください。NDA締結後の共有にも対応します。</p>
               <p class="form-field-error" id="message-error" aria-live="polite"></p>
             </div>
           </div>
-          <button type="submit" class="form-submit" id="form-submit-btn">RFQを送信する</button>
+          <button type="submit" class="form-submit" id="form-submit-btn">お見積りを依頼する</button>
           <p class="form-status" id="form-status" aria-live="polite"></p>
-          <p class="form-help">reCAPTCHA確認は送信時にのみ実行します。送信できない場合は、<a href="mailto:info@jpinv.com">info@jpinv.com</a> へ同じ内容をお送りください。</p>
+          <p class="form-help">迷惑送信防止の確認は、送信時にのみ行います。送信できない場合は、同じ内容を <a href="mailto:info@jpinv.com">info@jpinv.com</a> までお送りください。</p>
         </form>
       </div>
       <div class="contact-side reveal">
-        <h4>送信後の流れ</h4>
+        <h4>ご依頼後の流れ</h4>
         <ul>
-          <li>通常1営業日以内に返信</li>
-          <li>必要に応じてNDA締結</li>
+          <li>通常1営業日以内にご連絡</li>
+          <li>必要に応じてNDAを締結</li>
           <li>範囲・納期・成果物を確認</li>
-          <li>概算見積または次の確認事項をご提示</li>
+          <li>お見積りまたは追加確認事項をご案内</li>
         </ul>
         <div class="contact-info-grid">
           <div>
@@ -1201,12 +1200,8 @@ function applyRfqParams() {
 }
 
 function presetInquiry(value) {
-  applyRfqContext({
-    service: value && /interpret|通訳|面談/i.test(value) ? 'interpretation' : 'diagnostic',
-    document: value && /interpret|通訳|面談/i.test(value) ? 'meeting_script' : 'earnings_presentation',
-    source_id: 'legacy_cta',
-    message: `${value || '30分無料相談'}について相談したいです。対象資料・納期・見積の進め方を確認したいです。`
-  });
+  const sel = document.getElementById('service_type');
+  if (sel && value) sel.value = value.includes('interpret') ? 'interpretation' : 'diagnostic';
 }
 
 // RFQ form submission
@@ -1216,7 +1211,6 @@ const submitBtn = document.getElementById('form-submit-btn');
 const statusEl = document.getElementById('form-status');
 const successBox = document.getElementById('form-success');
 const recaptchaField = document.getElementById('g-recaptcha-response');
-applyRfqParams();
 const fieldRules = {
   company_name: { required: true },
   contact_name: { required: true },
@@ -1231,17 +1225,17 @@ const fieldRules = {
 };
 const formMessages = {
   required: '必須項目です。',
-  email: '業務用メールアドレスを正しく入力してください。',
+  email: '勤務先のメールアドレスを正しく入力してください。',
   futureDate: '希望納期は今日以降の日付を入力してください。',
-  minLength: '補足・ご要望は20文字以上で入力してください。',
-  reviewFields: 'エラー項目をご確認ください。',
-  verifying: '送信前の確認を実行しています…',
+  minLength: 'ご相談内容・ご要望は20文字以上で入力してください。',
+  reviewFields: '入力内容をご確認ください。',
+  verifying: '迷惑送信防止の確認を行っています…',
   sending: '送信中…',
-  submit: 'RFQを送信する',
-  recaptchaFailed: 'reCAPTCHA確認を完了できませんでした。通信状況を確認して再度お試しください。',
-  serverValidation: '入力内容を確認できませんでした。表示されたエラーを修正して再度お試しください。',
-  failed: '送信に失敗しました。少し時間をおいて再度お試しください。',
-  network: 'ネットワークエラーが発生しました。少し時間をおいて再度お試しください。'
+  submit: 'お見積りを依頼する',
+  recaptchaFailed: '迷惑送信防止の確認を完了できませんでした。通信状況をご確認のうえ、もう一度お試しください。',
+  serverValidation: '入力内容を確認できませんでした。表示されたエラーをご確認のうえ、もう一度お試しください。',
+  failed: '送信できませんでした。少し時間をおいて、もう一度お試しください。',
+  network: '通信エラーが発生しました。少し時間をおいて、もう一度お試しください。'
 };
 
 function setStatus(message, state) {
