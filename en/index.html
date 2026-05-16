@@ -206,6 +206,7 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
 .mobile-menu.open { display: flex; }
 .mobile-menu a { font-size: 0.88rem; color: var(--text); text-decoration: none; padding: 14px 0; border-bottom: 1px solid var(--rule); letter-spacing: 0.04em; }
 .mobile-menu a:last-child { border-bottom: none; }
+.mobile-menu .mobile-menu-cta { margin-top: 12px; padding: 13px 18px; text-align: center; color: #fff; border-bottom: none; }
 
 /* BUTTONS */
 .btn { display: inline-block; text-decoration: none; font-family: var(--sans); font-size: 0.84rem; font-weight: 400; letter-spacing: 0.06em; padding: 13px 28px; transition: all 0.2s; cursor: pointer; border: none; }
@@ -470,6 +471,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
   <a href="#contact" onclick="toggleMenu()">Contact</a>
   <a href="/en/compounders/" onclick="toggleMenu()">Compounders</a>
   <a href="/" onclick="toggleMenu()">JA</a>
+  <a href="#contact" class="btn btn-primary mobile-menu-cta" onclick="presetInquiry('Free 30-min introductory call'); toggleMenu()">Book a free 30-min call</a>
 </div>
 
 <!-- HERO -->
