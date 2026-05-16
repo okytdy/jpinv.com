@@ -489,10 +489,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   <div class="hero-glow" aria-hidden="true"></div>
   <div class="wrap">
     <div class="hero-body">
-      <div class="hero-eyebrow"><span class="label">Services / サービス</span></div>
-      <div class="hero-title"><h1 class="mincho-xl">海外IR診断カードの詳細</h1></div>
-      <p class="hero-sub">診断内容、成果物、進め方、代表的な利用ケースはこのページに集約しています。</p>
-      <div class="hero-ctas"><a href="#contact" class="btn btn-primary">RFQで相談する</a><a href="/" class="btn btn-outline">ホームへ戻る</a></div>
+      <div class="hero-eyebrow"><span class="label">サービス内容</span></div>
+      <div class="hero-title"><h1 class="mincho-xl">海外IR診断から翻訳・通訳まで</h1></div>
+      <p class="hero-sub">まずは御社のIR資料や面談予定を拝見し、海外投資家に伝わりにくい箇所を整理します。必要に応じて、英文レビュー、翻訳、通訳までご相談いただけます。</p>
+      <div class="hero-ctas"><a href="#contact" class="btn btn-primary">相談・見積を依頼する</a><a href="/" class="btn btn-outline">ホームへ戻る</a></div>
     </div>
   </div>
 </section>
@@ -504,7 +504,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
       <div class="rule-accent"></div>
       <h2 class="mincho-lg">診断カードとは</h2>
       <p>御社のIR資料と面談の様子を12項目・24点で点検し、海外投資家からどう見えているか・どこで理解が止まっているかを整理した一枚です。IR・CFO室・経営企画でそのまま社内資料として使えます。</p>
-      <div class="section-cta reveal"><a href="#contact" class="btn btn-primary" data-rfq-service="diagnostic" data-rfq-document="earnings_presentation" data-rfq-source="services_primary" data-rfq-message="サービスページ上部CTA：海外IR診断カードの対象資料・所要期間・見積を相談したいです。">診断カードをRFQで相談する</a></div>
+      <div class="section-cta reveal"><a href="#contact" class="btn btn-primary" data-rfq-service="diagnostic" data-rfq-document="earnings_presentation" data-rfq-source="services_primary" data-rfq-message="サービスページ上部CTA：海外IR診断カードの対象資料・所要期間・見積を相談したいです。">診断カードについて相談する</a></div>
     </div>
 
     <div class="card-layout">
@@ -568,10 +568,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
       <div>
         <span class="label">次のアクション</span>
         <h3>まずは直近のIR資料を前提に診断範囲を確認します。</h3>
-        <p>決算説明資料・英文IRページ・面談Q&amp;Aなど、いま見てほしい資料種別をRFQに入れてお送りください。</p>
+        <p>決算説明資料・英文IRページ・面談Q&amp;Aなど、いま見てほしい資料種別をフォームに入れてお送りください。</p>
       </div>
       <div class="cta-actions">
-        <a href="#contact" class="btn btn-outline" data-rfq-service="diagnostic" data-rfq-document="earnings_presentation" data-rfq-source="services_secondary" data-rfq-message="サービス詳細後CTA：直近の決算説明資料を対象に、海外IR診断カードの見積と進め方を相談したいです。">サービス内容をRFQに入れる</a>
+        <a href="#contact" class="btn btn-outline" data-rfq-service="diagnostic" data-rfq-document="earnings_presentation" data-rfq-source="services_secondary" data-rfq-message="サービス詳細後CTA：直近の決算説明資料を対象に、海外IR診断カードの見積と進め方を相談したいです。">サービス内容を相談する</a>
       </div>
     </div>
   </div>
@@ -668,7 +668,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
         </div>
         <form class="contact-form" id="inquiry-form" novalidate data-recaptcha-site-key="">
           <input type="hidden" name="form_type" value="rfq-ja">
-          <input type="hidden" name="_subject" value="JP RFQ from jpinv.com">
+          <input type="hidden" name="_subject" value="JP inquiry from jpinv.com">
           <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" value="">
           <div class="form-grid">
             <div class="form-row">
@@ -783,7 +783,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     <div class="footer-grid">
       <div class="footer-brand">
         <h3>Japan Investor Interface Co., Ltd.</h3>
-        <p>株式会社ジャパン・インベスター・インターフェース。海外投資家から見た自社IRを、12項目・24点の診断カード一枚に整理します。翻訳・通訳は診断を踏まえたうえでお引き受けしています。</p>
+        <p>株式会社ジャパン・インベスター・インターフェース。海外投資家から見た自社IRを、12項目・24点の診断カード一枚に整理します。英文IRレビュー、翻訳、投資家面談の通訳もご相談いただけます。</p>
       </div>
       <div class="footer-col">
         <h2>診断とプラン</h2>
@@ -983,7 +983,7 @@ function presetInquiry(value) {
   if (sel && value) sel.value = value.includes('interpret') ? 'interpretation' : 'diagnostic';
 }
 
-// RFQ form submission
+// Inquiry form submission
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mdayglyl';
 const inquiryForm = document.getElementById('inquiry-form');
 const submitBtn = document.getElementById('form-submit-btn');
