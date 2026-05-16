@@ -233,6 +233,13 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
 .btn-ghost { color: var(--ink); background: transparent; padding: 6px 0; border-bottom: 1px solid transparent; }
 .btn-ghost:hover { border-bottom-color: var(--ink); }
 
+.section-cta { margin-top: 22px; display: flex; gap: 12px; flex-wrap: wrap; }
+.cta-band { margin-top: 42px; padding: 26px 28px; border: 1px solid var(--rule); background: #fff; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: center; }
+.cta-band h3 { font-family: var(--serif); color: var(--ink); font-size: clamp(1.05rem, 2vw, 1.35rem); font-weight: 400; line-height: 1.5; margin: 8px 0 6px; }
+.cta-band p { font-size: 0.84rem; line-height: 1.75; color: var(--text-mid); margin: 0; }
+.cta-actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+@media (max-width: 760px) { .cta-band { grid-template-columns: 1fr; align-items: start; } .cta-actions, .section-cta { width: 100%; } .cta-actions .btn, .section-cta .btn { width: 100%; text-align: center; } }
+
 /* SCROLL REVEAL */
 .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .reveal.on { opacity: 1; transform: none; }
@@ -514,9 +521,9 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
       <div class="hero-eyebrow"><span class="label">JII Foreign IR Diagnostic Card / 海外IR診断カード</span></div>
       <div class="hero-title"><h1 class="mincho-xl">海外投資家から見た御社IRを、<br>診断カード一枚に整理する。</h1></div>
       <p class="hero-sub">英文として正確でも、海外投資家にうまく届いていないことがあります。診断カードは、いま伝わっている点・伝わっていない点を、項目ごとに整理した一枚です。</p>
-      <div class="hero-ctas">
-        <a href="#card" class="btn btn-primary">診断カードを見る</a>
-        <a href="#contact" class="btn btn-primary" onclick="presetInquiry('30分無料相談')">30分無料相談</a>
+      <div class="hero-ctas" aria-label="ホームの次のアクション">
+        <a href="#contact" class="btn btn-primary" data-rfq-service="diagnostic" data-rfq-document="earnings_presentation" data-rfq-source="home_primary" data-rfq-message="ホーム上部CTA：海外IR診断カードについて相談したい。直近の決算説明資料を前提に、診断範囲と見積を確認したいです。">RFQで相談する</a>
+        <a href="#contact" class="btn btn-outline" data-rfq-service="diagnostic" data-rfq-document="earnings_presentation" data-rfq-source="home_secondary" data-rfq-message="ホーム上部セカンダリCTA：30分無料相談で、海外IR診断カードの対象資料と進め方を確認したいです。">30分無料相談をRFQで依頼</a>
       </div>
     </div>
   </div>
@@ -542,6 +549,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
       <div class="rule-accent"></div>
       <h2 class="mincho-lg">診断カードとは</h2>
       <p>御社のIR資料と面談の様子を12項目・24点で点検し、海外投資家からどう見えているか・どこで理解が止まっているかを整理した一枚です。IR・CFO室・経営企画でそのまま社内資料として使えます。</p>
+      <div class="section-cta reveal"><a href="#contact" class="btn btn-primary" data-rfq-service="diagnostic" data-rfq-document="earnings_presentation" data-rfq-source="services_primary" data-rfq-message="サービスページ上部CTA：海外IR診断カードの対象資料・所要期間・見積を相談したいです。">診断カードをRFQで相談する</a></div>
     </div>
 
     <div class="card-layout">
@@ -599,6 +607,16 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
           <span>社内利用: IR部 / CFO室 / 経営企画</span>
           <span>機密 / NDA可</span>
         </div>
+      </div>
+    </div>
+    <div class="cta-band reveal" aria-label="サービスの次のアクション">
+      <div>
+        <span class="label">次のアクション</span>
+        <h3>まずは直近のIR資料を前提に診断範囲を確認します。</h3>
+        <p>決算説明資料・英文IRページ・面談Q&amp;Aなど、いま見てほしい資料種別をRFQに入れてお送りください。</p>
+      </div>
+      <div class="cta-actions">
+        <a href="#contact" class="btn btn-outline" data-rfq-service="diagnostic" data-rfq-document="earnings_presentation" data-rfq-source="services_secondary" data-rfq-message="サービス詳細後CTA：直近の決算説明資料を対象に、海外IR診断カードの見積と進め方を相談したいです。">サービス内容をRFQに入れる</a>
       </div>
     </div>
   </div>
@@ -697,6 +715,8 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
       <span class="label">プラン</span>
       <div class="rule-accent"></div>
       <h2 class="mincho-lg">3つのプラン</h2>
+      <p>すべて代表が直接担当します。価格は税別です。</p>
+      <div class="section-cta reveal"><a href="#contact" class="btn btn-primary" data-rfq-service="diagnostic" data-rfq-document="earnings_presentation" data-rfq-source="pricing_primary" data-rfq-message="料金ページ上部CTA：Light / Standard / Pro のどれが合うか、直近の決算説明資料を前提に相談したいです。">プラン選定をRFQで相談する</a></div>
     </div>
     <div class="plan-grid reveal">
       <div class="plan-card">
@@ -712,7 +732,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
           <li>改善優先順位の提示</li>
           <li>社内ウォークスルー（60分）</li>
         </ul>
-        <a href="#contact" class="btn btn-primary" onclick="presetInquiry('Light — 初回診断（¥200,000／回）')">Lightで相談する</a>
+        <a href="#contact" class="btn btn-primary" data-rfq-service="diagnostic" data-rfq-document="earnings_presentation" data-rfq-source="pricing_light" data-rfq-message="Light — 初回診断（¥200,000／回）について相談したいです。">Lightで相談する</a>
       </div>
       <div class="plan-card is-mid">
         <span class="plan-badge">Recommended</span>
@@ -728,7 +748,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
           <li>決算開示・英文資料の点検</li>
           <li>診断結果に沿った翻訳・英文レビュー</li>
         </ul>
-        <a href="#contact" class="btn btn-primary" onclick="presetInquiry('Standard — 四半期開示改善（¥100,000／月）')">Standardで相談する</a>
+        <a href="#contact" class="btn btn-primary" data-rfq-service="diagnostic" data-rfq-document="earnings_presentation" data-rfq-source="pricing_standard" data-rfq-message="Standard — 四半期開示改善（¥100,000／月）について相談したいです。">Standardで相談する</a>
       </div>
       <div class="plan-card">
         <span class="plan-tag">Pro</span>
@@ -743,7 +763,17 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
           <li>立ち会い通訳 / 面談観察</li>
           <li>面談後の上位3反応をまとめたレポート</li>
         </ul>
-        <a href="#contact" class="btn btn-primary" onclick="presetInquiry('Pro — 面談まで含めたIR改善ループ（¥200,000／月）')">Proで相談する</a>
+        <a href="#contact" class="btn btn-primary" data-rfq-service="interpretation" data-rfq-document="meeting_script" data-rfq-source="pricing_pro" data-rfq-message="Pro — 面談まで含めたIR改善ループ（¥200,000／月）について相談したいです。">Proで相談する</a>
+      </div>
+    </div>
+    <div class="cta-band reveal" aria-label="料金の次のアクション">
+      <div>
+        <span class="label">プラン選定</span>
+        <h3>迷う場合は、Lightを基準に必要範囲を確認します。</h3>
+        <p>継続支援が必要か、単発診断で十分かを、資料種別・面談予定・希望納期から切り分けます。</p>
+      </div>
+      <div class="cta-actions">
+        <a href="#contact" class="btn btn-outline" data-rfq-service="diagnostic" data-rfq-document="earnings_presentation" data-rfq-source="pricing_secondary" data-rfq-message="料金詳細後CTA：Lightを基準に、Standard / Pro が必要かを見積前に相談したいです。">料金条件をRFQに入れる</a>
       </div>
     </div>
   </div>
@@ -775,6 +805,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
       <span class="label">JIIについて</span>
       <div class="rule-accent"></div>
       <h2 class="mincho-lg about-heading"><span>海外投資家との面談を、</span><span>最も近くで観察してきた</span></h2>
+      <div class="section-cta reveal"><a href="#contact" class="btn btn-primary" data-rfq-service="diagnostic" data-rfq-document="meeting_script" data-rfq-source="company_primary" data-rfq-message="会社概要ページ上部CTA：代表者が直接担当する前提で、面談・資料診断の進め方を相談したいです。">代表にRFQで相談する</a></div>
     </div>
     <div class="about-grid reveal">
       <div>
@@ -793,6 +824,16 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
         </div>
       </div>
     </div>
+    <div class="cta-band reveal" aria-label="会社概要の次のアクション">
+      <div>
+        <span class="label">直接相談</span>
+        <h3>海外投資家との実際の対話文脈から診断します。</h3>
+        <p>面談予定・想定質問・既存Q&amp;Aがあれば、文書種別を「面談スクリプト / Q&amp;A」にしてお送りください。</p>
+      </div>
+      <div class="cta-actions">
+        <a href="#contact" class="btn btn-outline" data-rfq-service="interpretation" data-rfq-document="meeting_script" data-rfq-source="company_secondary" data-rfq-message="会社概要後CTA：海外投資家面談の準備・通訳・診断後フィードバックについて相談したいです。">面談文脈をRFQに入れる</a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -803,6 +844,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
       <span class="label">よくある質問</span>
       <div class="rule-accent"></div>
       <h2 class="mincho-lg">FAQ</h2>
+      <div class="section-cta reveal"><a href="#contact" class="btn btn-primary" data-rfq-service="diagnostic" data-rfq-document="other" data-rfq-source="faq_primary" data-rfq-message="FAQ上部CTA：FAQを確認したうえで、自社ケースに当てはまる進め方と見積を相談したいです。">不明点をRFQで相談する</a></div>
     </div>
     <div class="faq-list reveal">
       <div class="faq-item">
@@ -828,6 +870,16 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">単発の翻訳・通訳だけ依頼できますか？</button>
         <div class="faq-a"><div class="faq-a-inner">本サイトでは単発でのお受けはしておりません。翻訳・通訳は、診断を踏まえたうえで Standard / Pro プランの一部としてお引き受けしています。</div></div>
+      </div>
+    </div>
+    <div class="cta-band reveal" aria-label="FAQの次のアクション">
+      <div>
+        <span class="label">まだ迷う場合</span>
+        <h3>資料が未確定でも、まずはRFQで論点を共有してください。</h3>
+        <p>対象資料・納期・機密性・面談予定のうち、決まっている範囲だけで構いません。</p>
+      </div>
+      <div class="cta-actions">
+        <a href="#contact" class="btn btn-outline" data-rfq-service="diagnostic" data-rfq-document="other" data-rfq-source="faq_secondary" data-rfq-message="FAQ後CTA：対象資料は未確定ですが、海外IR診断または翻訳・通訳支援の進め方を相談したいです。">質問内容をRFQに入れる</a>
       </div>
     </div>
   </div>
@@ -1089,6 +1141,63 @@ document.querySelectorAll('.selfcheck-opt').forEach(btn => {
     document.getElementById('service_type').value = 'diagnostic';
   });
 });
+
+
+function setSelectIfValid(name, value) {
+  const field = inquiryForm && inquiryForm.elements[name];
+  if (!field || !value) return;
+  const option = Array.from(field.options || []).find(opt => opt.value === value);
+  if (option) field.value = value;
+}
+
+function appendMessageContext(message) {
+  const field = inquiryForm && inquiryForm.elements.message;
+  if (!field || !message) return;
+  if (!field.value.trim()) field.value = message;
+  else if (!field.value.includes(message)) field.value = `${field.value.trim()}
+
+${message}`;
+  field.dispatchEvent(new Event('input', { bubbles: true }));
+}
+
+function applyRfqContext(context = {}) {
+  if (!inquiryForm) return;
+  setSelectIfValid('service_type', context.service || context.service_type);
+  setSelectIfValid('document_type', context.document || context.document_type);
+  setSelectIfValid('source_language', context.source || context.source_language);
+  setSelectIfValid('target_language', context.target || context.target_language);
+  const ctaContext = document.getElementById('cta_context');
+  const ctaSource = document.getElementById('cta_source');
+  if (ctaContext && context.message) ctaContext.value = context.message;
+  if (ctaSource && context.source_id) ctaSource.value = context.source_id;
+  appendMessageContext(context.message || 'CTAからの見積依頼です。対象資料・納期・機密性について相談したいです。');
+}
+
+document.querySelectorAll('[data-rfq-service], [data-rfq-document], [data-rfq-message]').forEach((link) => {
+  link.addEventListener('click', () => {
+    applyRfqContext({
+      service: link.dataset.rfqService,
+      document: link.dataset.rfqDocument,
+      source: link.dataset.rfqSourceLanguage,
+      target: link.dataset.rfqTargetLanguage,
+      source_id: link.dataset.rfqSource,
+      message: link.dataset.rfqMessage
+    });
+  });
+});
+
+function applyRfqParams() {
+  const params = new URLSearchParams(window.location.search);
+  if (![...params.keys()].some(key => ['service_type', 'document_type', 'source_language', 'target_language', 'cta_context', 'cta_source'].includes(key))) return;
+  applyRfqContext({
+    service_type: params.get('service_type'),
+    document_type: params.get('document_type'),
+    source_language: params.get('source_language'),
+    target_language: params.get('target_language'),
+    source_id: params.get('cta_source') || 'url_param',
+    message: params.get('cta_context')
+  });
+}
 
 function presetInquiry(value) {
   const sel = document.getElementById('service_type');
