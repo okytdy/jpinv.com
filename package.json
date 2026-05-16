@@ -1,14 +1,18 @@
 {
   "scripts": {
+    "build": "node qa/build-site.cjs",
+    "preview": "python3 -m http.server ${PORT:-4173} --bind 127.0.0.1 --directory dist",
     "lhci": "lhci autorun --config=./lighthouserc.cjs",
     "test:a11y": "playwright test tests/accessibility.spec.cjs",
-    "test:visual": "playwright test tests/visual.spec.cjs",
-    "test:visual:update": "playwright test tests/visual.spec.cjs --update-snapshots",
-    "qa": "npm run lhci && npm run test:a11y && npm run test:visual"
+    "qa:ci": "npm run test:a11y && npm run lhci",
+    "qa:visual": "playwright test tests/visual.spec.cjs",
+    "qa:visual:update": "playwright test tests/visual.spec.cjs --update-snapshots",
+    "qa": "npm run qa:ci"
   },
   "devDependencies": {
     "@lhci/cli": "^0.14.0",
     "@playwright/test": "^1.53.0",
-    "axe-core": "^4.10.3"
+    "axe-core": "^4.10.3",
+    "wait-on": "^8.0.3"
   }
 }

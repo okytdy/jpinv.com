@@ -1,13 +1,17 @@
 const { lighthouseRoutes } = require('./qa/routes.cjs');
 
+const baseUrl = process.env.BASE_URL ? process.env.BASE_URL.replace(/\/$/, '') : '';
+const lighthouseUrls = lighthouseRoutes.map((route) => (baseUrl ? `${baseUrl}${route.path}` : route.path));
+const collectTarget = baseUrl ? {} : { staticDistDir: 'dist' };
+
 // Lighthouse CI target budgets for public JP/EN core routes.
 // Mobile-first release gates: Performance >= 90, LCP <= 2.5s, CLS <= 0.10,
 // TBT <= 200ms, JS transfer <= 60 KiB, image transfer <= 70 KiB per route.
 module.exports = {
   ci: {
     collect: {
-      staticDistDir: '.',
-      url: lighthouseRoutes.map((route) => route.path),
+      ...collectTarget,
+      url: lighthouseUrls,
       numberOfRuns: 3,
       settings: {
         formFactor: 'mobile',

@@ -8,8 +8,11 @@ on:
 
 jobs:
   release-gates:
-    name: Lighthouse, accessibility, and visual gates
+    name: Lighthouse and accessibility gates
     runs-on: ubuntu-latest
+    env:
+      BASE_URL: http://127.0.0.1:4173
+      PORT: 4173
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -18,12 +21,24 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: npm
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Install Playwright browsers
+      - name: Install Chromium
         run: npx playwright install --with-deps chromium
 
-      - name: Run release QA gates
-        run: npm run qa
+      - name: Build site
+        run: npm run build
+
+      - name: Start preview server
+        run: |
+          nohup npm run preview > /tmp/jpinv-preview.log 2>&1 &
+          echo $! > /tmp/jpinv-preview.pid
+
+      - name: Wait for preview server
+        run: npx wait-on "$BASE_URL/"
+
+      - name: Run deterministic release QA gates
+        run: npm run qa:ci

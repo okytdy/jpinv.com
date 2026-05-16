@@ -1,7 +1,8 @@
 const { defineConfig, devices } = require('@playwright/test');
 
 const PORT = process.env.PORT || 4173;
-const baseURL = process.env.PLAYWRIGHT_BASE_URL || `http://127.0.0.1:${PORT}`;
+const externalBaseURL = process.env.BASE_URL || process.env.PLAYWRIGHT_BASE_URL;
+const baseURL = externalBaseURL || `http://127.0.0.1:${PORT}`;
 
 module.exports = defineConfig({
   testDir: './tests',
@@ -25,12 +26,16 @@ module.exports = defineConfig({
     video: 'retain-on-failure',
     bypassCSP: true
   },
-  webServer: {
-    command: `python3 -m http.server ${PORT} --bind 127.0.0.1`,
-    url: baseURL,
-    reuseExistingServer: !process.env.CI,
-    timeout: 10_000
-  },
+  ...(externalBaseURL
+    ? {}
+    : {
+        webServer: {
+          command: `npm run build && python3 -m http.server ${PORT} --bind 127.0.0.1 --directory dist`,
+          url: baseURL,
+          reuseExistingServer: !process.env.CI,
+          timeout: 10_000
+        }
+      }),
   projects: [
     {
       name: 'chromium-desktop',

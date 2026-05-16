@@ -8,7 +8,7 @@ The tested route list lives in `qa/routes.cjs`.
 
 - `publicRoutes`: content routes covered by axe smoke tests.
 - `lighthouseRoutes`: core JP/EN routes that fail CI on agreed Lighthouse regressions.
-- `visualRoutes`: key pages covered by Playwright `toHaveScreenshot()` baselines.
+- `visualRoutes`: key pages prepared for Playwright `toHaveScreenshot()` baselines. These run through `npm run qa:visual` after baselines are committed.
 - `rfqRoutes`: pricing pages covered by the RFQ pre-fill visual flow.
 - `redirectRoutes`: redirect-only contact URLs checked for accessible fallback links.
 
@@ -22,11 +22,12 @@ Run before WAVE review:
 npm run qa
 ```
 
-The release must not ship with failures in these gates:
+The required PR gate must not ship with failures in these checks:
 
 - Lighthouse CI performance budget regressions on core JP/EN pages.
 - Serious or critical axe violations on public content routes.
-- Playwright visual screenshot diffs for key pages or the RFQ flow.
+
+Visual regression tests live in `npm run qa:visual` and should become blocking only after approved baseline snapshots are committed. WAVE remains a manual release checklist and is not an automated CI gate.
 
 ## Manual WAVE pass
 
