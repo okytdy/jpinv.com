@@ -170,19 +170,60 @@
   footer { padding: 22px 0; border-top: 1px solid var(--rule); background: var(--bg); }
   .foot-row { display: flex; justify-content: space-between; align-items: baseline; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; }
   .foot-row a { color: var(--ink-soft); border-bottom: 1px solid var(--rule); }
+
+/* WCAG 2.1 AA accessibility helpers */
+.skip-link {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  transform: translateY(-150%);
+  padding: 10px 14px;
+  background: var(--ink, #1a2a4a);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(15,31,58,0.18);
+}
+.skip-link:focus, .skip-link:focus-visible { transform: translateY(0); outline: 3px solid var(--accent, #9a7838); outline-offset: 3px; }
+main:focus { outline: none; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, [tabindex]:focus-visible {
+  outline: 3px solid var(--accent, #9a7838);
+  outline-offset: 3px;
+}
+.form-row input:focus-visible, .form-row select:focus-visible, .form-row textarea:focus-visible { outline: 3px solid var(--accent, #9a7838); outline-offset: 2px; }
+.form-field-error:empty { min-height: 0; }
+.mobile-menu[hidden] { display: none !important; }
+.mobile-menu a:focus-visible { outline-offset: -2px; }
+@media (max-width: 360px) {
+  .wrap { padding-left: 16px; padding-right: 16px; }
+  .hero-ctas, .cta-row, .share-btns, .week-nav, .toolbar { align-items: stretch; flex-direction: column; }
+  .btn, .form-submit, .mobile-menu-cta, .share-btn { width: 100%; justify-content: center; text-align: center; }
+  .nav-logo-img--desktop { display: none !important; }
+  .nav-logo-img--mobile { display: block !important; }
+  .nav-inner { gap: 10px; }
+  .nav-right { gap: 6px; }
+  .locale-switcher a, .nav-locale-switcher a { min-width: 36px; min-height: 36px; display: inline-flex; align-items: center; justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+}
+
 </style>
 <script src="/assets/locale-switcher.js" defer></script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">本文へ移動</a>
 
+<main id="main-content" tabindex="-1">
 <section class="hero">
   <div class="wrap hero-inner">
     <div class="hero-brand">
       <a class="hero-home-link" href="/" aria-label="JIIホームへ戻る">
         <span class="mark">J<span class="pipe">|</span>I</span>
-        <span class="sub">株式会社ジャパン・インベスター・インターフェース<br>Japan Investor Interface Co., Ltd.</span>
+        <span class="sub"><span lang="ja">株式会社ジャパン・インベスター・インターフェース</span><br><span lang="en">Japan Investor Interface Co., Ltd.</span></span>
       </a>
-      <span class="hero-lang"><a href="/en/compounders/" data-locale-route>EN</a><a href="/compounders/" class="current">JP</a></span>
+      <span class="hero-lang"><a href="/en/compounders/" data-locale-route lang="en">EN</a><a href="/compounders/" class="current" lang="ja">JP</a></span>
     </div>
     <div class="hero-text">
       <div class="hero-eyebrow">JII Compounders</div>
@@ -353,18 +394,19 @@
       <p>
         <b>商標およびデータ。</b>本資料中で言及される企業名、ロゴ、ティッカー、製品名は、各々の所有者に帰属します。株価データは第三者プロバイダーからライセンスを受けています。TradingViewはTradingView, Inc.の商標です。
       </p>
-      <p class="d-en-note">
+      <p class="d-en-note" lang="en">
         Japan Investor Interface Co., Ltd. ("JII") is an investor-relations consultancy and is not registered as a Financial Instruments Business Operator under Japan's Financial Instruments and Exchange Act. JII does not provide investment advice. JII Compounders is an editorial publication for educational and research purposes. Nothing herein constitutes a recommendation. Consult qualified, licensed advisors before any investment decision.
       </p>
     </div>
   </div>
 </section>
 
+</main>
 <footer>
   <div class="wrap foot-row">
     <span><a href="/compounders/methodology/">6つの着眼点</a> · <a href="/">jpinv.com トップ</a></span>
     <span>Japan Investor Interface Co., Ltd.</span>
-    <span class="footer-locale-switcher">言語: <a href="/compounders/" class="current" aria-current="page">JP</a> · <a href="/en/compounders/" data-locale-route>EN</a></span>
+    <span class="footer-locale-switcher">言語: <a href="/compounders/" class="current" aria-current="page" lang="ja">JP</a> · <a href="/en/compounders/" data-locale-route lang="en">EN</a></span>
   </div>
 </footer>
 

@@ -44,12 +44,12 @@
     --bg-soft:   #fafbfc;
     --text:       #1f2937;
     --text-mid:  #4a5566;
-    --text-dim:  #7a8290;
-    --accent:    #b08a4a;
+    --text-dim:  #5f6875;
+    --accent:    #9a7838;
     --accent-deep:#9a7838;
     --accent-soft:#f4eee4;
     --bad:       #b91c1c;
-    --warn:      #b88a3a;
+    --warn:      #8a682b;
     --ok:        #2f6f4f;
     --serif: 'Noto Serif JP', 'Yu Mincho', serif;
     --sans:  'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
@@ -340,11 +340,52 @@
     /* Meth footer */
     .meth { padding: 14px 18px; flex-direction: column; gap: 6px; text-align: center; letter-spacing: 0.12em; }
   }
+
+/* WCAG 2.1 AA accessibility helpers */
+.skip-link {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  transform: translateY(-150%);
+  padding: 10px 14px;
+  background: var(--ink, #1a2a4a);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(15,31,58,0.18);
+}
+.skip-link:focus, .skip-link:focus-visible { transform: translateY(0); outline: 3px solid var(--accent, #9a7838); outline-offset: 3px; }
+main:focus { outline: none; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, [tabindex]:focus-visible {
+  outline: 3px solid var(--accent, #9a7838);
+  outline-offset: 3px;
+}
+.form-row input:focus-visible, .form-row select:focus-visible, .form-row textarea:focus-visible { outline: 3px solid var(--accent, #9a7838); outline-offset: 2px; }
+.form-field-error:empty { min-height: 0; }
+.mobile-menu[hidden] { display: none !important; }
+.mobile-menu a:focus-visible { outline-offset: -2px; }
+@media (max-width: 360px) {
+  .wrap { padding-left: 16px; padding-right: 16px; }
+  .hero-ctas, .cta-row, .share-btns, .week-nav, .toolbar { align-items: stretch; flex-direction: column; }
+  .btn, .form-submit, .mobile-menu-cta, .share-btn { width: 100%; justify-content: center; text-align: center; }
+  .nav-logo-img--desktop { display: none !important; }
+  .nav-logo-img--mobile { display: block !important; }
+  .nav-inner { gap: 10px; }
+  .nav-right { gap: 6px; }
+  .locale-switcher a, .nav-locale-switcher a { min-width: 36px; min-height: 36px; display: inline-flex; align-items: center; justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+}
+
 </style>
 <script src="/assets/locale-switcher.js" defer></script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">本文へ移動</a>
 
+<main id="main-content" tabindex="-1">
 <article class="card">
 
   <!-- ============================== MASTHEAD ============================== -->
@@ -357,12 +398,12 @@
         </a>
       </div>
       <div class="head-main">
-        <div class="report-locale" aria-label="言語切替"><a href="/compounders/4475/" class="current" aria-current="page">JP</a><a href="/en/compounders/4475/" data-locale-route>EN</a></div>
+        <div class="report-locale" aria-label="言語切替"><a href="/compounders/4475/" class="current" aria-current="page" lang="ja">JP</a><a href="/en/compounders/4475/" data-locale-route lang="en">EN</a></div>
         <div class="head-ticker-row">
           <span class="head-ticker">東証グロース · 4475 · 9月期</span>
           <span class="head-co-jp">ＨＥＮＮＧＥ株式会社</span>
         </div>
-        <div class="head-co">HENNGE K.K.</div>
+        <h1 class="head-co">HENNGE K.K.</h1>
         <div class="head-industry">情報・通信業 · クラウドセキュリティ SaaS</div>
       </div>
     </div>
@@ -827,11 +868,12 @@
 
   <div class="meth">
     <span><a href="/compounders/">すべての銘柄レポート</a> · <a href="/compounders/methodology/">6つの着眼点</a></span>
-    <span class="report-footer-locale">言語: <a href="/compounders/4475/" class="current" aria-current="page">JP</a> · <a href="/en/compounders/4475/" data-locale-route>EN</a></span>
+    <span class="report-footer-locale">言語: <a href="/compounders/4475/" class="current" aria-current="page" lang="ja">JP</a> · <a href="/en/compounders/4475/" data-locale-route lang="en">EN</a></span>
     <span>Japan Investor Interface Co., Ltd.</span>
   </div>
 
 </article>
+</main>
 
 <!-- ============================== SHARE BAR · WIRING ============================== -->
 <script>

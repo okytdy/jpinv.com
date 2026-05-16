@@ -40,11 +40,11 @@
   --bg-soft:    #fafbfc;
   --text:       #1f2937;
   --text-mid:   #4a5566;
-  --text-dim:   #7a8290;
-  --accent:     #b08a4a;
+  --text-dim:   #5f6875;
+  --accent:     #9a7838;
   --accent-soft:#f4eee4;
   --bad:        #b91c1c;
-  --warn:       #b88a3a;
+  --warn:       #8a682b;
   --ok:         #2f6f4f;
 
   --serif: 'Noto Serif JP', 'Yu Mincho', serif;
@@ -245,7 +245,7 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
 .selfcheck-result { margin-top: 22px; padding: 22px 24px; background: var(--bg-soft); border: 1px solid var(--rule); display: none; }
 .selfcheck-result.show { display: block; }
 .selfcheck-result .sr-tag { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; }
-.selfcheck-result h4 { font-family: var(--sans); color: var(--ink); font-size: 1.1rem; margin: 8px 0 10px; font-weight: 500; }
+.selfcheck-result h4, .selfcheck-result h3 { font-family: var(--sans); color: var(--ink); font-size: 1.1rem; margin: 8px 0 10px; font-weight: 500; }
 .selfcheck-result p { font-size: 0.86rem; line-height: 1.75; }
 .selfcheck-result a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink); margin-top: 12px; display: inline-block; font-size: 0.8rem; }
 
@@ -264,7 +264,7 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
 @media (max-width: 540px) { .receive-grid { grid-template-columns: 1fr; } }
 .receive-card { background: var(--bg-soft); padding: 24px 26px; min-height: 150px; }
 .receive-card .num { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.16em; color: var(--ink-soft); }
-.receive-card h4 { font-family: var(--sans); font-size: 0.98rem; color: var(--ink); margin: 8px 0 8px; font-weight: 500; line-height: 1.45; }
+.receive-card h4, .receive-card h3 { font-family: var(--sans); font-size: 0.98rem; color: var(--ink); margin: 8px 0 8px; font-weight: 500; line-height: 1.45; }
 .receive-card p { font-size: 0.78rem; line-height: 1.7; }
 
 /* PROCESS */
@@ -273,7 +273,7 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
 @media (max-width: 540px) { .process-flow { grid-template-columns: 1fr; } }
 .process-step { background: var(--bg-soft); padding: 22px 18px; border-top: 2px solid var(--rule); position: relative; counter-increment: step; }
 .process-step::before { content: counter(step, decimal-leading-zero); font-family: var(--mono); font-size: 0.6rem; color: var(--ink-soft); letter-spacing: 0.16em; }
-.process-step h5 { font-family: var(--sans); color: var(--ink); font-size: 0.92rem; margin: 6px 0 8px; font-weight: 500; line-height: 1.4; }
+.process-step h5, .process-step h3 { font-family: var(--sans); color: var(--ink); font-size: 0.92rem; margin: 6px 0 8px; font-weight: 500; line-height: 1.4; }
 .process-step p { font-size: 0.74rem; line-height: 1.65; color: var(--text); }
 
 /* PLANS */
@@ -302,7 +302,7 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
 @media (max-width: 540px) { .case-grid { grid-template-columns: 1fr; } }
 .case-card { background: var(--bg-soft); padding: 22px 24px; }
 .case-card .case-tag { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; }
-.case-card h4 { font-family: var(--sans); color: var(--ink); font-size: 0.95rem; margin: 6px 0 8px; font-weight: 500; line-height: 1.5; }
+.case-card h4, .case-card h3 { font-family: var(--sans); color: var(--ink); font-size: 0.95rem; margin: 6px 0 8px; font-weight: 500; line-height: 1.5; }
 .case-card p { font-size: 0.78rem; line-height: 1.7; }
 
 /* ABOUT */
@@ -363,7 +363,7 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
 .form-status { font-size: 0.78rem; color: var(--bad); margin-top: 10px; min-height: 18px; }
 .form-status[data-state="info"] { color: var(--text-dim); }
 .form-help { font-size: 0.78rem; color: var(--text-dim); line-height: 1.7; margin-top: 8px; }
-.contact-side h4 { font-family: var(--sans); color: var(--ink); font-size: 1.05rem; margin-bottom: 12px; font-weight: 500; }
+.contact-side h4, .contact-side h3 { font-family: var(--sans); color: var(--ink); font-size: 1.05rem; margin-bottom: 12px; font-weight: 500; }
 .contact-side ul { list-style: none; margin: 0 0 22px; }
 .contact-side li { font-size: 0.82rem; line-height: 1.75; padding: 8px 0 8px 18px; position: relative; border-bottom: 1px solid var(--rule); }
 .contact-side li::before { content: '—'; color: var(--ink-soft); position: absolute; left: 0; }
@@ -385,14 +385,14 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
 @media (max-width: 540px) { .footer-grid { grid-template-columns: 1fr; } }
 .footer-brand h3 { font-family: var(--sans); color: var(--ink); font-size: 1.05rem; font-weight: 500; margin-bottom: 12px; }
 .footer-brand p { font-size: 0.78rem; line-height: 1.75; color: var(--text-dim); max-width: 320px; }
-.footer-col h5 { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; margin-bottom: 14px; }
+.footer-col h5, .footer-col h2 { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; margin-bottom: 14px; }
 .footer-col ul { list-style: none; }
 .footer-col li { padding: 5px 0; }
 .footer-col a { color: var(--text); text-decoration: none; font-size: 0.8rem; }
 .footer-col a:hover { color: var(--ink-soft); }
 
 .company-info-band { background: var(--bg-mid); border: 1px solid var(--rule-soft); padding: 22px 24px; margin: 8px 0 28px; }
-.company-info-band h5 { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; color: var(--ink-soft); margin-bottom: 16px; }
+.company-info-band h5, .company-info-band h2 { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; color: var(--ink-soft); margin-bottom: 16px; }
 .company-info-list { display: flex; flex-direction: column; gap: 18px; }
 .company-info-row--paired { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px 28px; }
 .company-info-item { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 16px; align-items: start; min-width: 0; }
@@ -403,10 +403,50 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
 @media (max-width: 540px) { .company-info-band { padding: 20px 18px; } .company-info-list { gap: 16px; } .company-info-item { grid-template-columns: 1fr; gap: 6px; } .company-info-item dt { padding-top: 0; } }
 .footer-bottom { padding-top: 22px; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 14px; font-size: 0.7rem; color: var(--text-dim); }
 
+
+/* WCAG 2.1 AA accessibility helpers */
+.skip-link {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  transform: translateY(-150%);
+  padding: 10px 14px;
+  background: var(--ink, #1a2a4a);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(15,31,58,0.18);
+}
+.skip-link:focus, .skip-link:focus-visible { transform: translateY(0); outline: 3px solid var(--accent, #9a7838); outline-offset: 3px; }
+main:focus { outline: none; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, [tabindex]:focus-visible {
+  outline: 3px solid var(--accent, #9a7838);
+  outline-offset: 3px;
+}
+.form-row input:focus-visible, .form-row select:focus-visible, .form-row textarea:focus-visible { outline: 3px solid var(--accent, #9a7838); outline-offset: 2px; }
+.form-field-error:empty { min-height: 0; }
+.mobile-menu[hidden] { display: none !important; }
+.mobile-menu a:focus-visible { outline-offset: -2px; }
+@media (max-width: 360px) {
+  .wrap { padding-left: 16px; padding-right: 16px; }
+  .hero-ctas, .cta-row, .share-btns, .week-nav, .toolbar { align-items: stretch; flex-direction: column; }
+  .btn, .form-submit, .mobile-menu-cta, .share-btn { width: 100%; justify-content: center; text-align: center; }
+  .nav-logo-img--desktop { display: none !important; }
+  .nav-logo-img--mobile { display: block !important; }
+  .nav-inner { gap: 10px; }
+  .nav-right { gap: 6px; }
+  .locale-switcher a, .nav-locale-switcher a { min-width: 36px; min-height: 36px; display: inline-flex; align-items: center; justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+}
+
 </style>
 <script src="/assets/locale-switcher.js" defer></script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">本文へ移動</a>
 <nav id="main-nav" role="navigation" aria-label="メインナビゲーション">
   <div class="wrap nav-inner">
     <a href="/" class="nav-logo" aria-label="JII トップページへ">
@@ -424,7 +464,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
     </div>
     <div class="nav-right">
       <a href="#contact" class="btn btn-primary nav-cta" onclick="presetInquiry('30分無料相談')">30分無料相談</a>
-      <span class="locale-switcher nav-locale-switcher" aria-label="言語切替"><a href="/会社概要/" class="current" aria-current="page">JP</a><a href="/en/company/" data-locale-route>EN</a></span>
+      <span class="locale-switcher nav-locale-switcher" aria-label="言語切替"><a href="/会社概要/" class="current" aria-current="page" lang="ja">JP</a><a href="/en/company/" data-locale-route lang="en">EN</a></span>
     </div>
     <button class="hamburger" onclick="toggleMenu()" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobileMenu">
       <span></span><span></span><span></span>
@@ -432,16 +472,17 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
   </div>
 </nav>
 
-<div class="mobile-menu" id="mobileMenu" role="menu">
+<nav class="mobile-menu" id="mobileMenu" aria-label="モバイルナビゲーション" hidden>
   <a href="/サービス/" onclick="toggleMenu()">サービス</a>
   <a href="/料金/" onclick="toggleMenu()">料金</a>
   <a href="/会社概要/" onclick="toggleMenu()">会社概要</a>
   <a href="/faq/" onclick="toggleMenu()">FAQ</a>
   <a href="/compounders/" onclick="toggleMenu()">Compounders</a>
   <a href="#contact" onclick="toggleMenu()">お問い合わせ</a>
-  <a href="/en/company/" data-locale-route onclick="toggleMenu()">EN</a>
+  <a href="/en/company/" data-locale-route onclick="toggleMenu()" lang="en">EN</a>
   <a href="#contact" class="btn btn-primary mobile-menu-cta" onclick="presetInquiry('30分無料相談'); toggleMenu()">30分無料相談を予約する</a>
-</div>
+</nav>
+<main id="main-content" tabindex="-1">
 <!-- HERO -->
 <section id="top" aria-label="Company / 会社概要">
   <div class="hero-texture" aria-hidden="true"></div>
@@ -504,7 +545,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
     </div>
     <div class="contact-grid">
       <div class="reveal">
-        <div class="form-success" id="form-success" hidden tabindex="-1">
+        <div class="form-success" id="form-success" hidden tabindex="-1" role="status" aria-live="polite">
           <h3>お見積り依頼を受け付けました</h3>
           <p>送信ありがとうございます。内容を確認のうえ、通常1営業日以内にお見積り、確認事項、今後の進め方をご連絡します。</p>
         </div>
@@ -516,18 +557,18 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
             <div class="form-row">
               <label for="company_name">会社名<span class="form-required" aria-hidden="true">*</span></label>
               <input id="company_name" name="company_name" type="text" autocomplete="organization" placeholder="株式会社◯◯" required aria-describedby="company_name-error" aria-invalid="false">
-              <p class="form-field-error" id="company_name-error" aria-live="polite"></p>
+              <p class="form-field-error" id="company_name-error" role="alert" aria-live="assertive" aria-atomic="true"></p>
             </div>
             <div class="form-row">
               <label for="contact_name">ご担当者名<span class="form-required" aria-hidden="true">*</span></label>
               <input id="contact_name" name="contact_name" type="text" autocomplete="name" placeholder="山田 太郎" required aria-describedby="contact_name-error" aria-invalid="false">
-              <p class="form-field-error" id="contact_name-error" aria-live="polite"></p>
+              <p class="form-field-error" id="contact_name-error" role="alert" aria-live="assertive" aria-atomic="true"></p>
             </div>
             <div class="form-row full">
               <label for="work_email">メールアドレス（勤務先）<span class="form-required" aria-hidden="true">*</span></label>
               <input id="work_email" name="work_email" type="email" autocomplete="email" placeholder="your@company.com" required aria-describedby="work_email-desc work_email-error" aria-invalid="false">
               <p class="form-description" id="work_email-desc">お見積りや確認事項のご連絡先として使用します。</p>
-              <p class="form-field-error" id="work_email-error" aria-live="polite"></p>
+              <p class="form-field-error" id="work_email-error" role="alert" aria-live="assertive" aria-atomic="true"></p>
             </div>
             <div class="form-row">
               <label for="service_type">ご希望のサービス<span class="form-required" aria-hidden="true">*</span></label>
@@ -539,7 +580,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
                 <option value="diagnostic">海外IR診断・改善提案</option>
                 <option value="other">その他・未定</option>
               </select>
-              <p class="form-field-error" id="service_type-error" aria-live="polite"></p>
+              <p class="form-field-error" id="service_type-error" role="alert" aria-live="assertive" aria-atomic="true"></p>
             </div>
             <div class="form-row">
               <label for="document_type">資料の種類<span class="form-required" aria-hidden="true">*</span></label>
@@ -552,7 +593,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
                 <option value="website_disclosure">Webサイト・適時開示</option>
                 <option value="other">その他・未定</option>
               </select>
-              <p class="form-field-error" id="document_type-error" aria-live="polite"></p>
+              <p class="form-field-error" id="document_type-error" role="alert" aria-live="assertive" aria-atomic="true"></p>
             </div>
             <div class="form-row">
               <label for="source_language">翻訳元の言語<span class="form-required" aria-hidden="true">*</span></label>
@@ -562,7 +603,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
                 <option value="en">英語</option>
                 <option value="other">その他</option>
               </select>
-              <p class="form-field-error" id="source_language-error" aria-live="polite"></p>
+              <p class="form-field-error" id="source_language-error" role="alert" aria-live="assertive" aria-atomic="true"></p>
             </div>
             <div class="form-row">
               <label for="target_language">納品する言語<span class="form-required" aria-hidden="true">*</span></label>
@@ -573,33 +614,33 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
                 <option value="bilingual">日英併記・双方向</option>
                 <option value="other">その他</option>
               </select>
-              <p class="form-field-error" id="target_language-error" aria-live="polite"></p>
+              <p class="form-field-error" id="target_language-error" role="alert" aria-live="assertive" aria-atomic="true"></p>
             </div>
             <div class="form-row">
               <label for="turnaround_date">ご希望納期<span class="form-required" aria-hidden="true">*</span></label>
               <input id="turnaround_date" name="turnaround_date" type="date" required aria-describedby="turnaround_date-desc turnaround_date-error" aria-invalid="false">
               <p class="form-description" id="turnaround_date-desc">未確定の場合は、おおよその日付で構いません。</p>
-              <p class="form-field-error" id="turnaround_date-error" aria-live="polite"></p>
+              <p class="form-field-error" id="turnaround_date-error" role="alert" aria-live="assertive" aria-atomic="true"></p>
             </div>
             <div class="form-row">
               <label for="estimated_volume">分量の目安<span class="form-required" aria-hidden="true">*</span></label>
               <input id="estimated_volume" name="estimated_volume" type="text" placeholder="例：20ページ、8,000字、60分の面談" required aria-describedby="estimated_volume-error" aria-invalid="false">
-              <p class="form-field-error" id="estimated_volume-error" aria-live="polite"></p>
+              <p class="form-field-error" id="estimated_volume-error" role="alert" aria-live="assertive" aria-atomic="true"></p>
             </div>
             <div class="form-row full">
               <label for="message">ご相談内容・ご要望<span class="form-required" aria-hidden="true">*</span></label>
               <textarea id="message" name="message" placeholder="用途、対象となる投資家、資料の状況、機密情報の有無、ご希望の成果物などをご記入ください。" required minlength="20" aria-describedby="message-desc message-error" aria-invalid="false"></textarea>
               <p class="form-description" id="message-desc">資料の共有が必要な場合は、受付メールへの返信でお送りください。NDA締結後の共有にも対応します。</p>
-              <p class="form-field-error" id="message-error" aria-live="polite"></p>
+              <p class="form-field-error" id="message-error" role="alert" aria-live="assertive" aria-atomic="true"></p>
             </div>
           </div>
           <button type="submit" class="form-submit" id="form-submit-btn">お見積りを依頼する</button>
-          <p class="form-status" id="form-status" aria-live="polite"></p>
+          <p class="form-status" id="form-status" role="status" aria-live="polite" aria-atomic="true"></p>
           <p class="form-help">迷惑送信防止の確認は、送信時にのみ行います。送信できない場合は、同じ内容を <a href="mailto:info@jpinv.com">info@jpinv.com</a> までお送りください。</p>
         </form>
       </div>
       <div class="contact-side reveal">
-        <h4>ご依頼後の流れ</h4>
+        <h3>ご依頼後の流れ</h3>
         <ul>
           <li>通常1営業日以内にご連絡</li>
           <li>必要に応じてNDAを締結</li>
@@ -608,7 +649,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
         </ul>
         <div class="contact-info-grid">
           <div>
-            <h4>連絡先</h4>
+            <h3>連絡先</h3>
             <dl>
               <dt>メール</dt><dd><a href="mailto:info@jpinv.com">info@jpinv.com</a></dd>
             </dl>
@@ -618,6 +659,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
     </div>
   </div>
 </section>
+</main>
 <!-- FOOTER -->
 <footer>
   <div class="wrap">
@@ -627,7 +669,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
         <p>株式会社ジャパン・インベスター・インターフェース。海外投資家から見た自社IRを、12項目・24点の診断カード一枚に整理します。翻訳・通訳は診断を踏まえたうえでお引き受けしています。</p>
       </div>
       <div class="footer-col">
-        <h5>診断とプラン</h5>
+        <h2>診断とプラン</h2>
         <ul>
           <li><a href="/サービス/">サービス</a></li>
           <li><a href="/料金/">Light — 初回診断</a></li>
@@ -636,7 +678,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
         </ul>
       </div>
       <div class="footer-col">
-        <h5>情報</h5>
+        <h2>情報</h2>
         <ul>
           <li><a href="/サービス/#cases">ご利用ケース</a></li>
           <li><a href="/サービス/#process">診断から実行へ</a></li>
@@ -645,7 +687,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
         </ul>
       </div>
       <div class="footer-col">
-        <h5>JII Compounders</h5>
+        <h2>JII Compounders</h2>
         <ul>
           <li><a href="/compounders/">銘柄レポート一覧</a></li>
           <li><a href="/compounders/methodology/">6つの着眼点</a></li>
@@ -653,16 +695,16 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
         </ul>
       </div>
       <div class="footer-col">
-        <h5>連絡先</h5>
+        <h2>連絡先</h2>
         <ul>
           <li>メール <a href="mailto:info@jpinv.com">info@jpinv.com</a></li>
         </ul>
       </div>
     </div>
     <section class="company-info-band" aria-label="会社情報">
-      <h5>会社情報</h5>
+      <h2>会社情報</h2>
       <dl class="company-info-list">
-        <div class="company-info-item"><dt>社名</dt><dd class="company-info-value">株式会社ジャパン・<wbr>インベスター・<wbr>インターフェース<span class="company-info-subline">Japan Investor Interface Co., Ltd.</span></dd></div>
+        <div class="company-info-item"><dt>社名</dt><dd class="company-info-value">株式会社ジャパン・<wbr>インベスター・<wbr>インターフェース<span class="company-info-subline" lang="en">Japan Investor Interface Co., Ltd.</span></dd></div>
         <div class="company-info-item"><dt>所在地</dt><dd class="company-info-value">〒530-0001<br>大阪府大阪市北区梅田1丁目2番2号 大阪駅前第2ビル 12-12</dd></div>
         <div class="company-info-row company-info-row--paired">
           <div class="company-info-item"><dt>代表者</dt><dd class="company-info-value">屋山 テディ（代表取締役）</dd></div>
@@ -674,7 +716,7 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
     </section>
     <div class="footer-bottom">
       <p>© 2026 Japan Investor Interface Co., Ltd. · All rights reserved.</p>
-      <p class="footer-locale-switcher">言語: <a href="/" class="current" aria-current="page">JP</a> / <a href="/en/" data-locale-route>EN</a></p>
+      <p class="footer-locale-switcher">言語: <a href="/" class="current" aria-current="page" lang="ja">JP</a> / <a href="/en/" data-locale-route lang="en">EN</a></p>
     </div>
   </div>
 </footer>
@@ -688,17 +730,30 @@ window.addEventListener('scroll', () => {
 
 // Mobile menu
 const hamburgerBtn = document.querySelector('.hamburger');
+function setMenuOpen(isOpen) {
+  const menu = document.getElementById('mobileMenu');
+  if (!menu || !hamburgerBtn) return;
+  menu.classList.toggle('open', isOpen);
+  menu.hidden = !isOpen;
+  hamburgerBtn.setAttribute('aria-expanded', isOpen.toString());
+  hamburgerBtn.setAttribute('aria-label', isOpen ? (document.documentElement.lang === 'ja' ? 'メニューを閉じる' : 'Close menu') : (document.documentElement.lang === 'ja' ? 'メニューを開く' : 'Open menu'));
+  if (isOpen) {
+    const firstLink = menu.querySelector('a, button');
+    if (firstLink) firstLink.focus({ preventScroll: true });
+  }
+}
 function toggleMenu() {
   const menu = document.getElementById('mobileMenu');
-  const isOpen = menu.classList.toggle('open');
-  hamburgerBtn.setAttribute('aria-expanded', isOpen.toString());
+  setMenuOpen(!(menu && menu.classList.contains('open')));
 }
 document.addEventListener('click', (e) => {
   const menu = document.getElementById('mobileMenu');
-  if (menu.classList.contains('open') && !menu.contains(e.target) && !hamburgerBtn.contains(e.target)) {
-    menu.classList.remove('open');
-    hamburgerBtn.setAttribute('aria-expanded', 'false');
+  if (menu && menu.classList.contains('open') && !menu.contains(e.target) && !hamburgerBtn.contains(e.target)) {
+    setMenuOpen(false);
   }
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') setMenuOpen(false);
 });
 
 // FAQ accordion

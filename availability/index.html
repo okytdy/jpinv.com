@@ -267,9 +267,50 @@
     .grid { grid-template-columns: 60px repeat(5, 1fr); min-width: 480px; }
     .col-time { font-size: 10px; }
   }
+
+/* WCAG 2.1 AA accessibility helpers */
+.skip-link {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  transform: translateY(-150%);
+  padding: 10px 14px;
+  background: var(--ink, #1a2a4a);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(15,31,58,0.18);
+}
+.skip-link:focus, .skip-link:focus-visible { transform: translateY(0); outline: 3px solid var(--accent, #9a7838); outline-offset: 3px; }
+main:focus { outline: none; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, [tabindex]:focus-visible {
+  outline: 3px solid var(--accent, #9a7838);
+  outline-offset: 3px;
+}
+.form-row input:focus-visible, .form-row select:focus-visible, .form-row textarea:focus-visible { outline: 3px solid var(--accent, #9a7838); outline-offset: 2px; }
+.form-field-error:empty { min-height: 0; }
+.mobile-menu[hidden] { display: none !important; }
+.mobile-menu a:focus-visible { outline-offset: -2px; }
+@media (max-width: 360px) {
+  .wrap { padding-left: 16px; padding-right: 16px; }
+  .hero-ctas, .cta-row, .share-btns, .week-nav, .toolbar { align-items: stretch; flex-direction: column; }
+  .btn, .form-submit, .mobile-menu-cta, .share-btn { width: 100%; justify-content: center; text-align: center; }
+  .nav-logo-img--desktop { display: none !important; }
+  .nav-logo-img--mobile { display: block !important; }
+  .nav-inner { gap: 10px; }
+  .nav-right { gap: 6px; }
+  .locale-switcher a, .nav-locale-switcher a { min-width: 36px; min-height: 36px; display: inline-flex; align-items: center; justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+}
+
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<main id="main-content" tabindex="-1">
 <div class="wrap">
   <header class="page">
     <h1>Availability</h1>
@@ -308,7 +349,7 @@
     </div>
 
     <div class="grid-wrap">
-      <div class="grid" id="grid"></div>
+      <div class="grid" id="grid" role="grid" aria-label="Weekly availability grid"></div>
     </div>
   </div>
 
@@ -317,6 +358,7 @@
     To request a slot, please reach out by your usual channel.
   </footer>
 </div>
+</main>
 
 <div class="toast" id="toast"></div>
 
@@ -440,6 +482,8 @@
     // Corner + day headers
     const corner = document.createElement('div');
     corner.className = 'corner';
+    corner.setAttribute('role', 'columnheader');
+    corner.setAttribute('aria-label', 'Time');
     grid.appendChild(corner);
 
     const days = [];
@@ -448,6 +492,7 @@
       days.push(d);
       const h = document.createElement('div');
       h.className = 'day-header';
+      h.setAttribute('role', 'columnheader');
       const name = d.toLocaleDateString('en-US', { weekday: 'short' });
       h.innerHTML = `<div class="name">${name.toUpperCase()}</div><div class="date">${fmtMonthDay(d)}</div>`;
       grid.appendChild(h);
@@ -459,7 +504,9 @@
       const onHour = mins % 60 === 0;
       const tc = document.createElement('div');
       tc.className = 'col-time' + (onHour ? ' on-hour' : '');
+      tc.setAttribute('role', 'rowheader');
       tc.textContent = onHour ? timeStr : '';
+      tc.setAttribute('aria-label', timeStr);
       grid.appendChild(tc);
 
       for (let i = 0; i < DAYS_PER_WEEK; i++) {
@@ -469,7 +516,11 @@
         const c = document.createElement('div');
         c.className = 'cell slot ' + st + (onHour ? ' on-hour' : '');
         c.dataset.slotKey = sk;
+        c.setAttribute('role', adminMode ? 'button' : 'gridcell');
+        c.setAttribute('aria-label', `${days[i].toLocaleDateString('en-US', { weekday: 'long', month: 'short', day: 'numeric' })} ${timeStr}: ${st.replace('_', ' ')}`);
         if (adminMode) {
+          c.tabIndex = 0;
+          c.addEventListener('keydown', onCellKeyDown);
           c.addEventListener('mousedown', onCellDown);
           c.addEventListener('mouseenter', onCellEnter);
           c.addEventListener('touchstart', onCellTouch, { passive: false });
@@ -487,9 +538,15 @@
     applyStatus(sk, paintStatus);
     STATUSES.forEach(s => cell.classList.remove(s));
     cell.classList.add(paintStatus);
+    cell.setAttribute('aria-label', cell.getAttribute('aria-label').replace(/: .+$/, `: ${paintStatus.replace('_', ' ')}`));
     persistOverlay();
   }
 
+  function onCellKeyDown(e) {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    e.preventDefault();
+    paintCell(e.currentTarget);
+  }
   function onCellDown(e) {
     e.preventDefault();
     isPainting = true;

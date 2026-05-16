@@ -155,20 +155,61 @@
   footer { padding: 22px 0; border-top: 1px solid var(--rule); background: var(--bg); }
   .foot-row { display: flex; justify-content: space-between; align-items: baseline; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; }
   .foot-row a { color: var(--ink-soft); border-bottom: 1px solid var(--rule); }
+
+/* WCAG 2.1 AA accessibility helpers */
+.skip-link {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  transform: translateY(-150%);
+  padding: 10px 14px;
+  background: var(--ink, #1a2a4a);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(15,31,58,0.18);
+}
+.skip-link:focus, .skip-link:focus-visible { transform: translateY(0); outline: 3px solid var(--accent, #9a7838); outline-offset: 3px; }
+main:focus { outline: none; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, [tabindex]:focus-visible {
+  outline: 3px solid var(--accent, #9a7838);
+  outline-offset: 3px;
+}
+.form-row input:focus-visible, .form-row select:focus-visible, .form-row textarea:focus-visible { outline: 3px solid var(--accent, #9a7838); outline-offset: 2px; }
+.form-field-error:empty { min-height: 0; }
+.mobile-menu[hidden] { display: none !important; }
+.mobile-menu a:focus-visible { outline-offset: -2px; }
+@media (max-width: 360px) {
+  .wrap { padding-left: 16px; padding-right: 16px; }
+  .hero-ctas, .cta-row, .share-btns, .week-nav, .toolbar { align-items: stretch; flex-direction: column; }
+  .btn, .form-submit, .mobile-menu-cta, .share-btn { width: 100%; justify-content: center; text-align: center; }
+  .nav-logo-img--desktop { display: none !important; }
+  .nav-logo-img--mobile { display: block !important; }
+  .nav-inner { gap: 10px; }
+  .nav-right { gap: 6px; }
+  .locale-switcher a, .nav-locale-switcher a { min-width: 36px; min-height: 36px; display: inline-flex; align-items: center; justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+}
+
 </style>
 <script src="/assets/locale-switcher.js" defer></script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
+<main id="main-content" tabindex="-1">
 <!-- HERO -->
 <section class="hero">
   <div class="wrap hero-inner">
     <div class="hero-brand">
       <a class="hero-home-link" href="/en/compounders/" aria-label="Return to JII Compounders home">
         <span class="mark">J<span class="pipe">|</span>I</span>
-        <span class="sub">Japan Investor Interface Co., Ltd.<br>株式会社ジャパン・インベスター・インターフェース</span>
+        <span class="sub"><span lang="en">Japan Investor Interface Co., Ltd.</span><br><span lang="ja">株式会社ジャパン・インベスター・インターフェース</span></span>
       </a>
-      <span class="hero-lang"><a href="/en/compounders/methodology/" class="current">EN</a><a href="/compounders/methodology/" data-locale-route>JP</a></span>
+      <span class="hero-lang"><a href="/en/compounders/methodology/" class="current" lang="en">EN</a><a href="/compounders/methodology/" data-locale-route lang="ja">JP</a></span>
     </div>
     <div class="hero-text">
       <div class="hero-eyebrow">JII Compounders · Methodology</div>
@@ -471,21 +512,21 @@
       <p>
         <b>Trademarks &amp; data.</b> Company names, logos, tickers, and product names referenced are the property of their respective owners. Share-price data is licensed from third-party providers. TradingView is a trademark of TradingView, Inc. All rights reserved.
       </p>
-      <p class="d-jp-note">
+      <p class="d-jp-note" lang="ja">
         本資料は、日本の金融商品取引法に基づく投資助言・代理業ではなく、特定の有価証券の売買その他の取引の勧誘・推奨を目的とするものではありません。本資料は教育・研究を目的とした分析記事であり、JII（株式会社ジャパン・インベスター・インターフェース）は、本資料の内容に基づく投資判断について一切の責任を負いません。投資の判断はご自身の責任と独立した調査に基づいて行ってください。
       </p>
     </div>
   </div>
 </section>
 
+</main>
 <footer>
   <div class="wrap foot-row">
     <span><a href="/en/compounders/">All Compounder Profiles</a></span>
     <span><a href="/">jpinv.com</a></span>
-    <span class="footer-locale-switcher">Language: <a href="/en/compounders/methodology/" class="current" aria-current="page">EN</a> · <a href="/compounders/methodology/" data-locale-route>JP</a></span>
+    <span class="footer-locale-switcher">Language: <a href="/en/compounders/methodology/" class="current" aria-current="page" lang="en">EN</a> · <a href="/compounders/methodology/" data-locale-route lang="ja">JP</a></span>
   </div>
 </footer>
 
 </body>
 </html>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
