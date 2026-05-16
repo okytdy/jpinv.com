@@ -1,5 +1,5 @@
 (function(){
-  var samePageHashes = {top:1, card:1, process:1, plans:1, cases:1, about:1, faq:1, contact:1};
+  var samePageHashes = {top:1, overview:1, services:1, pricing:1, company:1, contact:1};
   function withHash(href){
     if(!location.hash) return href;
     var key = location.hash.slice(1);
