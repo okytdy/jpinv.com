@@ -396,22 +396,31 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
 
 /* CONTACT */
 #contact { background: var(--bg-mid); border-top: 1px solid var(--rule); }
-.contact-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 56px; align-items: start; }
+.contact-grid { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(260px, 0.85fr); gap: 56px; align-items: start; }
 @media (max-width: 880px) { .contact-grid { grid-template-columns: 1fr; gap: 32px; } }
 .contact-form { background: #fff; padding: 32px 30px; border: 1px solid var(--rule); }
 .form-success { background: #fff; padding: 32px 30px; border: 1px solid var(--rule); }
 .form-success h3 { font-family: var(--sans); color: var(--ink); font-size: 1.2rem; margin-bottom: 10px; font-weight: 500; }
 .form-success p { font-size: 0.85rem; line-height: 1.75; }
+.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 16px; }
+@media (max-width: 640px) { .form-grid { grid-template-columns: 1fr; } }
 .form-row { margin-bottom: 18px; }
+.form-grid .form-row { margin-bottom: 0; }
+.form-row.full { grid-column: 1 / -1; }
 .form-row label { display: block; font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 7px; }
-.form-row input, .form-row select, .form-row textarea { width: 100%; background: var(--bg-soft); color: var(--text); border: 1px solid var(--rule); padding: 12px 14px; font-family: var(--sans); font-size: 0.88rem; line-height: 1.5; transition: border-color 0.2s; font-weight: 400; }
-.form-row input:focus, .form-row select:focus, .form-row textarea:focus { outline: none; border-color: var(--ink-soft); }
-.form-row textarea { min-height: 120px; resize: vertical; }
+.form-required { color: var(--bad); letter-spacing: 0; margin-left: 3px; }
+.form-row input, .form-row select, .form-row textarea { width: 100%; background: var(--bg-soft); color: var(--text); border: 1px solid var(--rule); padding: 12px 14px; font-family: var(--sans); font-size: 0.88rem; line-height: 1.5; transition: border-color 0.2s, box-shadow 0.2s; font-weight: 400; }
+.form-row input:focus, .form-row select:focus, .form-row textarea:focus { outline: none; border-color: var(--ink-soft); box-shadow: 0 0 0 3px rgba(59, 77, 91, 0.08); }
+.form-row input[aria-invalid="true"], .form-row select[aria-invalid="true"], .form-row textarea[aria-invalid="true"] { border-color: var(--bad); }
+.form-row textarea { min-height: 140px; resize: vertical; }
 .form-row select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--ink) 50%), linear-gradient(135deg, var(--ink) 50%, transparent 50%); background-position: calc(100% - 18px) 50%, calc(100% - 13px) 50%; background-size: 5px 5px, 5px 5px; background-repeat: no-repeat; padding-right: 32px; }
-.form-submit { width: 100%; background: var(--ink); color: #fff; padding: 14px; font-family: var(--sans); font-size: 0.86rem; font-weight: 500; letter-spacing: 0.06em; border: none; cursor: pointer; transition: background 0.2s; margin-top: 4px; }
+.form-description { font-size: 0.75rem; color: var(--text-dim); line-height: 1.6; margin: 6px 0 0; }
+.form-field-error { color: var(--bad); font-size: 0.75rem; line-height: 1.55; margin: 6px 0 0; min-height: 1.2em; }
+.form-submit { width: 100%; background: var(--ink); color: #fff; padding: 14px; font-family: var(--sans); font-size: 0.86rem; font-weight: 500; letter-spacing: 0.06em; border: none; cursor: pointer; transition: background 0.2s; margin-top: 22px; }
 .form-submit:hover { background: var(--ink-mid); }
 .form-submit:disabled { opacity: 0.6; cursor: not-allowed; }
 .form-status { font-size: 0.78rem; color: var(--bad); margin-top: 10px; min-height: 18px; }
+.form-status[data-state="info"] { color: var(--text-dim); }
 .form-help { font-size: 0.78rem; color: var(--text-dim); line-height: 1.7; margin-top: 8px; }
 .contact-side h4 { font-family: var(--sans); color: var(--ink); font-size: 1.05rem; margin-bottom: 12px; font-weight: 500; }
 .contact-side ul { list-style: none; margin: 0 0 22px; }
@@ -824,60 +833,117 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
 </section>
 
 <!-- CONTACT -->
-<section id="contact" aria-label="お問い合わせ">
+<section id="contact" aria-label="翻訳・IRコミュニケーションRFQ">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="label">お問い合わせ</span>
+      <span class="label">RFQ</span>
       <div class="rule-accent"></div>
-      <h2 class="mincho-lg">まず30分、状況をお聞きします</h2>
-      <p>1営業日以内にご返信します。お問い合わせ内容はすべて機密として扱います。NDAが必要な場合は事前にお申し付けください。</p>
+      <h2 class="mincho-lg">翻訳・IRコミュニケーションの見積依頼</h2>
+      <p>必要な範囲・文書種別・言語・希望納期をお知らせください。内容を確認のうえ、通常1営業日以内に概算・次の確認事項をご返信します。</p>
     </div>
     <div class="contact-grid">
       <div class="reveal">
-        <div class="form-success" id="form-success" hidden>
-          <h3>送信ありがとうございました</h3>
-          <p>お問い合わせを受け付けました。内容を確認のうえ、1営業日以内にご返信します。</p>
+        <div class="form-success" id="form-success" hidden tabindex="-1">
+          <h3>RFQを受け付けました</h3>
+          <p>見積依頼を送信いただきありがとうございます。内容を確認のうえ、通常1営業日以内に概算・確認事項・次の進め方をご返信します。</p>
         </div>
-        <form class="contact-form" id="inquiry-form" novalidate>
-          <input type="hidden" name="form_type" value="contact">
-          <div class="form-row">
-            <label for="form-name">会社名・ご担当者名</label>
-            <input id="form-name" name="name" type="text" placeholder="株式会社◯◯ / 山田 様" required>
+        <form class="contact-form" id="inquiry-form" novalidate data-recaptcha-site-key="">
+          <input type="hidden" name="form_type" value="rfq-ja">
+          <input type="hidden" name="_subject" value="JP RFQ from jpinv.com">
+          <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" value="">
+          <div class="form-grid">
+            <div class="form-row">
+              <label for="company_name">会社名<span class="form-required" aria-hidden="true">*</span></label>
+              <input id="company_name" name="company_name" type="text" autocomplete="organization" placeholder="株式会社◯◯" required aria-describedby="company_name-error" aria-invalid="false">
+              <p class="form-field-error" id="company_name-error" aria-live="polite"></p>
+            </div>
+            <div class="form-row">
+              <label for="contact_name">ご担当者名<span class="form-required" aria-hidden="true">*</span></label>
+              <input id="contact_name" name="contact_name" type="text" autocomplete="name" placeholder="山田 太郎" required aria-describedby="contact_name-error" aria-invalid="false">
+              <p class="form-field-error" id="contact_name-error" aria-live="polite"></p>
+            </div>
+            <div class="form-row full">
+              <label for="work_email">業務用メールアドレス<span class="form-required" aria-hidden="true">*</span></label>
+              <input id="work_email" name="work_email" type="email" autocomplete="email" placeholder="your@company.com" required aria-describedby="work_email-desc work_email-error" aria-invalid="false">
+              <p class="form-description" id="work_email-desc">見積内容と確認事項のご返信先です。</p>
+              <p class="form-field-error" id="work_email-error" aria-live="polite"></p>
+            </div>
+            <div class="form-row">
+              <label for="service_type">サービス種別<span class="form-required" aria-hidden="true">*</span></label>
+              <select id="service_type" name="service_type" required aria-describedby="service_type-error" aria-invalid="false">
+                <option value="">選択してください</option>
+                <option value="translation">IR・開示資料の翻訳</option>
+                <option value="editing_review">英文開示レビュー / 編集</option>
+                <option value="interpretation">投資家面談の通訳</option>
+                <option value="diagnostic">海外IR診断と改善提案</option>
+                <option value="other">その他 / 未定</option>
+              </select>
+              <p class="form-field-error" id="service_type-error" aria-live="polite"></p>
+            </div>
+            <div class="form-row">
+              <label for="document_type">文書種別<span class="form-required" aria-hidden="true">*</span></label>
+              <select id="document_type" name="document_type" required aria-describedby="document_type-error" aria-invalid="false">
+                <option value="">選択してください</option>
+                <option value="earnings_release">決算短信 / 決算説明資料</option>
+                <option value="annual_report">統合報告書 / 有価証券報告書</option>
+                <option value="presentation">投資家向けプレゼン</option>
+                <option value="meeting_script">面談スクリプト / Q&amp;A</option>
+                <option value="website_disclosure">Webサイト / 適時開示</option>
+                <option value="other">その他 / 未定</option>
+              </select>
+              <p class="form-field-error" id="document_type-error" aria-live="polite"></p>
+            </div>
+            <div class="form-row">
+              <label for="source_language">原文言語<span class="form-required" aria-hidden="true">*</span></label>
+              <select id="source_language" name="source_language" required aria-describedby="source_language-error" aria-invalid="false">
+                <option value="">選択してください</option>
+                <option value="ja">日本語</option>
+                <option value="en">英語</option>
+                <option value="other">その他</option>
+              </select>
+              <p class="form-field-error" id="source_language-error" aria-live="polite"></p>
+            </div>
+            <div class="form-row">
+              <label for="target_language">納品言語<span class="form-required" aria-hidden="true">*</span></label>
+              <select id="target_language" name="target_language" required aria-describedby="target_language-error" aria-invalid="false">
+                <option value="">選択してください</option>
+                <option value="en">英語</option>
+                <option value="ja">日本語</option>
+                <option value="bilingual">日英併記 / 双方向</option>
+                <option value="other">その他</option>
+              </select>
+              <p class="form-field-error" id="target_language-error" aria-live="polite"></p>
+            </div>
+            <div class="form-row">
+              <label for="turnaround_date">希望納期<span class="form-required" aria-hidden="true">*</span></label>
+              <input id="turnaround_date" name="turnaround_date" type="date" required aria-describedby="turnaround_date-desc turnaround_date-error" aria-invalid="false">
+              <p class="form-description" id="turnaround_date-desc">未確定の場合は目安の日付をご入力ください。</p>
+              <p class="form-field-error" id="turnaround_date-error" aria-live="polite"></p>
+            </div>
+            <div class="form-row">
+              <label for="estimated_volume">想定ボリューム<span class="form-required" aria-hidden="true">*</span></label>
+              <input id="estimated_volume" name="estimated_volume" type="text" placeholder="例：20ページ / 8,000字 / 60分面談" required aria-describedby="estimated_volume-error" aria-invalid="false">
+              <p class="form-field-error" id="estimated_volume-error" aria-live="polite"></p>
+            </div>
+            <div class="form-row full">
+              <label for="message">補足・ご要望<span class="form-required" aria-hidden="true">*</span></label>
+              <textarea id="message" name="message" placeholder="用途、対象投資家、資料の状態、機密性、希望する成果物などをご記入ください。" required minlength="20" aria-describedby="message-desc message-error" aria-invalid="false"></textarea>
+              <p class="form-description" id="message-desc">資料添付が必要な場合は、受付メールへの返信でお送りください。NDA締結後の共有にも対応します。</p>
+              <p class="form-field-error" id="message-error" aria-live="polite"></p>
+            </div>
           </div>
-          <div class="form-row">
-            <label for="form-email">メールアドレス</label>
-            <input id="form-email" name="email" type="email" placeholder="your@company.com" required>
-          </div>
-          <div class="form-row">
-            <label for="form-type">ご相談の種類</label>
-            <select id="form-type" name="inquiry_type" required>
-              <option selected>30分無料相談</option>
-              <option>Light — 初回診断（¥200,000／回）</option>
-              <option>Standard — 四半期開示改善（¥100,000／月）</option>
-              <option>Pro — 面談まで含めたIR改善ループ（¥200,000／月）</option>
-              <option>その他 / 未定</option>
-            </select>
-          </div>
-          <div class="form-row">
-            <label for="form-message">ご状況・ご相談内容</label>
-            <textarea id="form-message" name="message" placeholder="現状とご相談したい内容をご記入ください" required></textarea>
-          </div>
-          <div class="form-row">
-            <label for="form-timing">面談予定 / 希望時期（任意）</label>
-            <input id="form-timing" name="timing" type="text" placeholder="例：2026/06 海外投資家面談 / 6月までに整えたい">
-          </div>
-          <button type="submit" class="form-submit" id="form-submit-btn">送信する</button>
+          <button type="submit" class="form-submit" id="form-submit-btn">RFQを送信する</button>
           <p class="form-status" id="form-status" aria-live="polite"></p>
-          <p class="form-help">機密情報を含む場合は、NDA締結後のやり取りも可能です。資料添付が必要な場合は、送信後の返信メールにご返信ください。</p>
+          <p class="form-help">reCAPTCHA確認は送信時にのみ実行します。送信できない場合は、<a href="mailto:info@jpinv.com">info@jpinv.com</a> へ同じ内容をお送りください。</p>
         </form>
       </div>
       <div class="contact-side reveal">
-        <h4>お問い合わせ後の流れ</h4>
+        <h4>送信後の流れ</h4>
         <ul>
-          <li>1営業日以内にご返信</li>
+          <li>通常1営業日以内に返信</li>
           <li>必要に応じてNDA締結</li>
-          <li>30分無料相談で論点を整理</li>
-          <li>診断またはプランのご提案</li>
+          <li>範囲・納期・成果物を確認</li>
+          <li>概算見積または次の確認事項をご提示</li>
         </ul>
         <div class="contact-info-grid">
           <div>
@@ -1019,34 +1085,158 @@ document.querySelectorAll('.selfcheck-opt').forEach(btn => {
     link.href = rec.link;
     link.textContent = (rec.tag.includes('Light') ? 'Lightプランを見る →' : rec.tag.includes('Standard') ? 'Standardプランを見る →' : 'Proプランを見る →');
     document.getElementById('selfcheck-result').classList.add('show');
-    document.getElementById('form-type').value =
-      rec.tag.includes('Light') ? 'Light — 初回診断（¥200,000／回）' :
-      rec.tag.includes('Standard') ? 'Standard — 四半期開示改善（¥100,000／月）' :
-      'Pro — 面談まで含めたIR改善ループ（¥200,000／月）';
+    document.getElementById('service_type').value = 'diagnostic';
   });
 });
 
 function presetInquiry(value) {
-  const sel = document.getElementById('form-type');
-  if (sel && value) sel.value = value;
+  const sel = document.getElementById('service_type');
+  if (sel && value) sel.value = value.includes('interpret') ? 'interpretation' : 'diagnostic';
 }
 
-// Form submission
+// RFQ form submission
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mdayglyl';
 const inquiryForm = document.getElementById('inquiry-form');
 const submitBtn = document.getElementById('form-submit-btn');
 const statusEl = document.getElementById('form-status');
 const successBox = document.getElementById('form-success');
+const recaptchaField = document.getElementById('g-recaptcha-response');
+const fieldRules = {
+  company_name: { required: true },
+  contact_name: { required: true },
+  work_email: { required: true, email: true },
+  service_type: { required: true },
+  document_type: { required: true },
+  source_language: { required: true },
+  target_language: { required: true },
+  turnaround_date: { required: true, futureDate: true },
+  estimated_volume: { required: true },
+  message: { required: true, minLength: 20 }
+};
+const formMessages = {
+  required: '必須項目です。',
+  email: '業務用メールアドレスを正しく入力してください。',
+  futureDate: '希望納期は今日以降の日付を入力してください。',
+  minLength: '補足・ご要望は20文字以上で入力してください。',
+  reviewFields: 'エラー項目をご確認ください。',
+  verifying: '送信前の確認を実行しています…',
+  sending: '送信中…',
+  submit: 'RFQを送信する',
+  recaptchaFailed: 'reCAPTCHA確認を完了できませんでした。通信状況を確認して再度お試しください。',
+  serverValidation: '入力内容を確認できませんでした。表示されたエラーを修正して再度お試しください。',
+  failed: '送信に失敗しました。少し時間をおいて再度お試しください。',
+  network: 'ネットワークエラーが発生しました。少し時間をおいて再度お試しください。'
+};
+
+function setStatus(message, state) {
+  statusEl.textContent = message || '';
+  if (state) statusEl.dataset.state = state;
+  else delete statusEl.dataset.state;
+}
+
+function setFieldError(field, message) {
+  const error = document.getElementById(`${field.name}-error`);
+  field.setAttribute('aria-invalid', message ? 'true' : 'false');
+  if (error) error.textContent = message || '';
+}
+
+function validateField(field) {
+  const rules = fieldRules[field.name];
+  if (!rules) return true;
+  const value = field.value.trim();
+  let message = '';
+  if (rules.required && !value) message = formMessages.required;
+  else if (rules.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) message = formMessages.email;
+  else if (rules.futureDate && value) {
+    const selected = new Date(`${value}T00:00:00`);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    if (Number.isNaN(selected.getTime()) || selected < today) message = formMessages.futureDate;
+  } else if (rules.minLength && value.length < rules.minLength) message = formMessages.minLength;
+  setFieldError(field, message);
+  return !message;
+}
+
+function validateForm() {
+  let firstInvalid = null;
+  Object.keys(fieldRules).forEach((name) => {
+    const field = inquiryForm.elements[name];
+    if (field && !validateField(field) && !firstInvalid) firstInvalid = field;
+  });
+  if (firstInvalid) {
+    firstInvalid.focus();
+    setStatus(formMessages.reviewFields);
+    return false;
+  }
+  setStatus('');
+  return true;
+}
+
+function loadRecaptchaScript(siteKey) {
+  if (window.grecaptcha && window.grecaptcha.ready) return Promise.resolve();
+  const existing = document.querySelector('script[data-rfq-recaptcha]');
+  if (existing) return new Promise((resolve, reject) => { existing.addEventListener('load', resolve, { once: true }); existing.addEventListener('error', reject, { once: true }); });
+  return new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = `https://www.google.com/recaptcha/api.js?render=${encodeURIComponent(siteKey)}`;
+    script.async = true;
+    script.defer = true;
+    script.dataset.rfqRecaptcha = 'true';
+    script.onload = resolve;
+    script.onerror = reject;
+    document.head.appendChild(script);
+  });
+}
+
+async function getRecaptchaToken() {
+  const siteKey = inquiryForm.dataset.recaptchaSiteKey;
+  if (!siteKey) return '';
+  setStatus(formMessages.verifying, 'info');
+  await loadRecaptchaScript(siteKey);
+  return new Promise((resolve, reject) => {
+    window.grecaptcha.ready(() => {
+      window.grecaptcha.execute(siteKey, { action: 'rfq_ja' }).then(resolve).catch(reject);
+    });
+  });
+}
+
+function applyServerErrors(errors) {
+  if (!Array.isArray(errors)) return false;
+  let applied = false;
+  errors.forEach((err) => {
+    const name = err.field || err.name || err.code;
+    const field = name && inquiryForm.elements[name];
+    if (field) {
+      setFieldError(field, err.message || formMessages.serverValidation);
+      applied = true;
+    }
+  });
+  return applied;
+}
+
+Object.keys(fieldRules).forEach((name) => {
+  const field = inquiryForm.elements[name];
+  if (!field) return;
+  field.addEventListener('blur', () => validateField(field));
+  field.addEventListener('input', () => { if (field.getAttribute('aria-invalid') === 'true') validateField(field); });
+  field.addEventListener('change', () => validateField(field));
+});
+
 inquiryForm.addEventListener('submit', async (e) => {
   e.preventDefault();
-  statusEl.textContent = '';
-  if (!inquiryForm.checkValidity()) {
-    statusEl.textContent = '必須項目をご確認ください。';
-    inquiryForm.reportValidity();
+  if (!validateForm()) return;
+  submitBtn.disabled = true;
+  submitBtn.textContent = formMessages.sending;
+  try {
+    const token = await getRecaptchaToken();
+    if (recaptchaField) recaptchaField.value = token;
+  } catch (err) {
+    setStatus(formMessages.recaptchaFailed);
+    submitBtn.disabled = false;
+    submitBtn.textContent = formMessages.submit;
     return;
   }
-  submitBtn.disabled = true;
-  submitBtn.textContent = '送信中…';
+  setStatus(formMessages.sending, 'info');
   try {
     const data = new FormData(inquiryForm);
     const res = await fetch(FORMSPREE_ENDPOINT, {
@@ -1055,18 +1245,22 @@ inquiryForm.addEventListener('submit', async (e) => {
       headers: { 'Accept': 'application/json' }
     });
     if (res.ok) {
+      inquiryForm.reset();
+      Object.keys(fieldRules).forEach((name) => { const field = inquiryForm.elements[name]; if (field) setFieldError(field, ''); });
       inquiryForm.style.display = 'none';
       successBox.hidden = false;
+      successBox.focus();
     } else {
       const json = await res.json().catch(() => ({}));
-      statusEl.textContent = (json.errors && json.errors[0] && json.errors[0].message) || '送信に失敗しました。少し時間をおいて再度お試しください。';
+      const hasFieldErrors = applyServerErrors(json.errors);
+      setStatus(hasFieldErrors ? formMessages.serverValidation : ((json.errors && json.errors[0] && json.errors[0].message) || formMessages.failed));
       submitBtn.disabled = false;
-      submitBtn.textContent = '送信する';
+      submitBtn.textContent = formMessages.submit;
     }
   } catch (err) {
-    statusEl.textContent = 'ネットワークエラーが発生しました。少し時間をおいて再度お試しください。';
+    setStatus(formMessages.network);
     submitBtn.disabled = false;
-    submitBtn.textContent = '送信する';
+    submitBtn.textContent = formMessages.submit;
   }
 });
 </script>
