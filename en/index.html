@@ -381,23 +381,32 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
 
 /* CONTACT */
 #contact { background: var(--bg-mid); border-top: 1px solid var(--rule); }
-.contact-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 56px; align-items: start; }
+.contact-grid { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(260px, 0.85fr); gap: 56px; align-items: start; }
 @media (max-width: 880px) { .contact-grid { grid-template-columns: 1fr; gap: 32px; } }
 .contact-form { background: #fff; padding: 32px 30px; border: 1px solid var(--rule); }
 .form-success { background: #fff; padding: 32px 30px; border: 1px solid var(--rule); }
 .form-success h3 { font-family: var(--sans); color: var(--ink); font-size: 1.2rem; margin-bottom: 10px; font-weight: 500; }
-.form-success p { font-size: 0.92rem; line-height: 1.6; }
+.form-success p { font-size: 0.85rem; line-height: 1.75; }
+.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 16px; }
+@media (max-width: 640px) { .form-grid { grid-template-columns: 1fr; } }
 .form-row { margin-bottom: 18px; }
+.form-grid .form-row { margin-bottom: 0; }
+.form-row.full { grid-column: 1 / -1; }
 .form-row label { display: block; font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 7px; }
-.form-row input, .form-row select, .form-row textarea { width: 100%; background: var(--bg-soft); color: var(--text); border: 1px solid var(--rule); padding: 12px 14px; font-family: var(--sans); font-size: 0.9rem; line-height: 1.5; transition: border-color 0.2s; font-weight: 400; }
-.form-row input:focus, .form-row select:focus, .form-row textarea:focus { outline: none; border-color: var(--ink-soft); }
-.form-row textarea { min-height: 120px; resize: vertical; }
+.form-required { color: var(--bad); letter-spacing: 0; margin-left: 3px; }
+.form-row input, .form-row select, .form-row textarea { width: 100%; background: var(--bg-soft); color: var(--text); border: 1px solid var(--rule); padding: 12px 14px; font-family: var(--sans); font-size: 0.88rem; line-height: 1.5; transition: border-color 0.2s, box-shadow 0.2s; font-weight: 400; }
+.form-row input:focus, .form-row select:focus, .form-row textarea:focus { outline: none; border-color: var(--ink-soft); box-shadow: 0 0 0 3px rgba(59, 77, 91, 0.08); }
+.form-row input[aria-invalid="true"], .form-row select[aria-invalid="true"], .form-row textarea[aria-invalid="true"] { border-color: var(--bad); }
+.form-row textarea { min-height: 140px; resize: vertical; }
 .form-row select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--ink) 50%), linear-gradient(135deg, var(--ink) 50%, transparent 50%); background-position: calc(100% - 18px) 50%, calc(100% - 13px) 50%; background-size: 5px 5px, 5px 5px; background-repeat: no-repeat; padding-right: 32px; }
-.form-submit { width: 100%; background: var(--ink); color: #fff; padding: 14px; font-family: var(--sans); font-size: 0.88rem; font-weight: 500; letter-spacing: 0.06em; border: none; cursor: pointer; transition: background 0.2s; margin-top: 4px; }
+.form-description { font-size: 0.75rem; color: var(--text-dim); line-height: 1.6; margin: 6px 0 0; }
+.form-field-error { color: var(--bad); font-size: 0.75rem; line-height: 1.55; margin: 6px 0 0; min-height: 1.2em; }
+.form-submit { width: 100%; background: var(--ink); color: #fff; padding: 14px; font-family: var(--sans); font-size: 0.86rem; font-weight: 500; letter-spacing: 0.06em; border: none; cursor: pointer; transition: background 0.2s; margin-top: 22px; }
 .form-submit:hover { background: var(--ink-mid); }
 .form-submit:disabled { opacity: 0.6; cursor: not-allowed; }
-.form-status { font-size: 0.8rem; color: var(--bad); margin-top: 10px; min-height: 18px; }
-.form-help { font-size: 0.8rem; color: var(--text-dim); line-height: 1.6; margin-top: 8px; }
+.form-status { font-size: 0.78rem; color: var(--bad); margin-top: 10px; min-height: 18px; }
+.form-status[data-state="info"] { color: var(--text-dim); }
+.form-help { font-size: 0.78rem; color: var(--text-dim); line-height: 1.7; margin-top: 8px; }
 .contact-side h4 { font-family: var(--sans); color: var(--ink); font-size: 1.1rem; margin-bottom: 12px; font-weight: 500; }
 .contact-side ul { list-style: none; margin: 0 0 22px; }
 .contact-side li { font-size: 0.86rem; line-height: 1.55; padding: 8px 0 8px 18px; position: relative; border-bottom: 1px solid var(--rule); }
@@ -809,60 +818,117 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
 </section>
 
 <!-- CONTACT -->
-<section id="contact" aria-label="Contact">
+<section id="contact" aria-label="Request a quote">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="label">Contact</span>
+      <span class="label">RFQ</span>
       <div class="rule-accent"></div>
-      <h2 class="mincho-lg">Start with a free 30-minute call</h2>
-      <p>One inquiry form, replied to within one business day. NDA can be signed before any materials change hands.</p>
+      <h2 class="mincho-lg">Request a quote for translation or IR communication support</h2>
+      <p>Share the scope, document type, languages, and target deadline. We normally reply within one business day with a first estimate or the next scoping questions.</p>
     </div>
     <div class="contact-grid">
       <div class="reveal">
-        <div class="form-success" id="form-success" hidden>
-          <h3>Thank you — your message is in.</h3>
-          <p>We've received your inquiry and will reply within one business day.</p>
+        <div class="form-success" id="form-success" hidden tabindex="-1">
+          <h3>RFQ received</h3>
+          <p>Thank you for sending the request. We will review the details and normally reply within one business day with an initial estimate, clarifying questions, and next steps.</p>
         </div>
-        <form class="contact-form" id="inquiry-form" novalidate>
-          <input type="hidden" name="form_type" value="contact-en">
-          <div class="form-row">
-            <label for="form-name">Company / your name</label>
-            <input id="form-name" name="name" type="text" placeholder="Acme Co. / Jane Smith" required>
+        <form class="contact-form" id="inquiry-form" novalidate data-recaptcha-site-key="">
+          <input type="hidden" name="form_type" value="rfq-en">
+          <input type="hidden" name="_subject" value="EN RFQ from jpinv.com">
+          <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" value="">
+          <div class="form-grid">
+            <div class="form-row">
+              <label for="company_name">Company name<span class="form-required" aria-hidden="true">*</span></label>
+              <input id="company_name" name="company_name" type="text" autocomplete="organization" placeholder="Acme Co." required aria-describedby="company_name-error" aria-invalid="false">
+              <p class="form-field-error" id="company_name-error" aria-live="polite"></p>
+            </div>
+            <div class="form-row">
+              <label for="contact_name">Contact name<span class="form-required" aria-hidden="true">*</span></label>
+              <input id="contact_name" name="contact_name" type="text" autocomplete="name" placeholder="Jane Smith" required aria-describedby="contact_name-error" aria-invalid="false">
+              <p class="form-field-error" id="contact_name-error" aria-live="polite"></p>
+            </div>
+            <div class="form-row full">
+              <label for="work_email">Work email<span class="form-required" aria-hidden="true">*</span></label>
+              <input id="work_email" name="work_email" type="email" autocomplete="email" placeholder="you@company.com" required aria-describedby="work_email-desc work_email-error" aria-invalid="false">
+              <p class="form-description" id="work_email-desc">We will send the estimate and any scoping questions here.</p>
+              <p class="form-field-error" id="work_email-error" aria-live="polite"></p>
+            </div>
+            <div class="form-row">
+              <label for="service_type">Service type<span class="form-required" aria-hidden="true">*</span></label>
+              <select id="service_type" name="service_type" required aria-describedby="service_type-error" aria-invalid="false">
+                <option value="">Select one</option>
+                <option value="translation">IR / disclosure translation</option>
+                <option value="editing_review">English disclosure review / editing</option>
+                <option value="interpretation">Investor-meeting interpretation</option>
+                <option value="diagnostic">Foreign IR diagnostic and recommendations</option>
+                <option value="other">Other / not sure yet</option>
+              </select>
+              <p class="form-field-error" id="service_type-error" aria-live="polite"></p>
+            </div>
+            <div class="form-row">
+              <label for="document_type">Document type<span class="form-required" aria-hidden="true">*</span></label>
+              <select id="document_type" name="document_type" required aria-describedby="document_type-error" aria-invalid="false">
+                <option value="">Select one</option>
+                <option value="earnings_release">Earnings release / presentation</option>
+                <option value="annual_report">Annual report / securities report</option>
+                <option value="presentation">Investor presentation</option>
+                <option value="meeting_script">Meeting script / Q&amp;A</option>
+                <option value="website_disclosure">Website / timely disclosure</option>
+                <option value="other">Other / not sure yet</option>
+              </select>
+              <p class="form-field-error" id="document_type-error" aria-live="polite"></p>
+            </div>
+            <div class="form-row">
+              <label for="source_language">Source language<span class="form-required" aria-hidden="true">*</span></label>
+              <select id="source_language" name="source_language" required aria-describedby="source_language-error" aria-invalid="false">
+                <option value="">Select one</option>
+                <option value="ja">Japanese</option>
+                <option value="en">English</option>
+                <option value="other">Other</option>
+              </select>
+              <p class="form-field-error" id="source_language-error" aria-live="polite"></p>
+            </div>
+            <div class="form-row">
+              <label for="target_language">Target language<span class="form-required" aria-hidden="true">*</span></label>
+              <select id="target_language" name="target_language" required aria-describedby="target_language-error" aria-invalid="false">
+                <option value="">Select one</option>
+                <option value="en">English</option>
+                <option value="ja">Japanese</option>
+                <option value="bilingual">Bilingual / both directions</option>
+                <option value="other">Other</option>
+              </select>
+              <p class="form-field-error" id="target_language-error" aria-live="polite"></p>
+            </div>
+            <div class="form-row">
+              <label for="turnaround_date">Target turnaround date<span class="form-required" aria-hidden="true">*</span></label>
+              <input id="turnaround_date" name="turnaround_date" type="date" required aria-describedby="turnaround_date-desc turnaround_date-error" aria-invalid="false">
+              <p class="form-description" id="turnaround_date-desc">If the schedule is not final, enter your best target date.</p>
+              <p class="form-field-error" id="turnaround_date-error" aria-live="polite"></p>
+            </div>
+            <div class="form-row">
+              <label for="estimated_volume">Estimated volume<span class="form-required" aria-hidden="true">*</span></label>
+              <input id="estimated_volume" name="estimated_volume" type="text" placeholder="e.g. 20 pages / 8,000 words / 60-min meeting" required aria-describedby="estimated_volume-error" aria-invalid="false">
+              <p class="form-field-error" id="estimated_volume-error" aria-live="polite"></p>
+            </div>
+            <div class="form-row full">
+              <label for="message">Notes and requirements<span class="form-required" aria-hidden="true">*</span></label>
+              <textarea id="message" name="message" placeholder="Tell us the use case, target investors, document status, confidentiality needs, and desired deliverable." required minlength="20" aria-describedby="message-desc message-error" aria-invalid="false"></textarea>
+              <p class="form-description" id="message-desc">If files need to be shared, send them as a reply to our acknowledgement email. We can also receive materials after an NDA.</p>
+              <p class="form-field-error" id="message-error" aria-live="polite"></p>
+            </div>
           </div>
-          <div class="form-row">
-            <label for="form-email">Email</label>
-            <input id="form-email" name="email" type="email" placeholder="you@company.com" required>
-          </div>
-          <div class="form-row">
-            <label for="form-type">Inquiry type</label>
-            <select id="form-type" name="inquiry_type" required>
-              <option selected>Free 30-min introductory call</option>
-              <option>Light — Initial Diagnostic (¥200,000)</option>
-              <option>Standard — Disclosure Improvement (¥100,000/mo)</option>
-              <option>Pro — Investor-Meeting Cycle (¥200,000/mo)</option>
-              <option>Other / not sure yet</option>
-            </select>
-          </div>
-          <div class="form-row">
-            <label for="form-message">Brief context</label>
-            <textarea id="form-message" name="message" placeholder="A few lines on the situation and what you want to fix" required></textarea>
-          </div>
-          <div class="form-row">
-            <label for="form-timing">Target timing or upcoming meeting (optional)</label>
-            <input id="form-timing" name="timing" type="text" placeholder="e.g. roadshow June 2026 / earnings May 14">
-          </div>
-          <button type="submit" class="form-submit" id="form-submit-btn">Send</button>
+          <button type="submit" class="form-submit" id="form-submit-btn">Send RFQ</button>
           <p class="form-status" id="form-status" aria-live="polite"></p>
-          <p class="form-help">If materials need to be shared, NDA can be signed first. Attachments can be sent in reply to our acknowledgement email.</p>
+          <p class="form-help">reCAPTCHA verification runs only when you submit. If submission does not work, email the same details to <a href="mailto:info@jpinv.com">info@jpinv.com</a>.</p>
         </form>
       </div>
       <div class="contact-side reveal">
         <h4>What happens next</h4>
         <ul>
-          <li>Reply within one business day</li>
+          <li>Reply normally within one business day</li>
           <li>NDA on request</li>
-          <li>Free 30-minute call to scope</li>
-          <li>Diagnostic or plan proposal</li>
+          <li>Confirm scope, deadline, and deliverables</li>
+          <li>Receive an estimate or next scoping questions</li>
         </ul>
         <div class="contact-info-grid">
           <div>
@@ -999,30 +1065,158 @@ document.querySelectorAll('.selfcheck-opt').forEach(btn => {
     link.href = '#plans';
     link.textContent = rec.tag.includes('Light') ? 'See the Light plan →' : rec.tag.includes('Standard') ? 'See the Standard plan →' : 'See the Pro plan →';
     document.getElementById('selfcheck-result').classList.add('show');
-    document.getElementById('form-type').value = rec.value;
+    document.getElementById('service_type').value = 'diagnostic';
   });
 });
 
 function presetInquiry(value) {
-  const sel = document.getElementById('form-type');
-  if (sel && value) sel.value = value;
+  const sel = document.getElementById('service_type');
+  if (sel && value) sel.value = value.includes('interpret') ? 'interpretation' : 'diagnostic';
 }
 
+// RFQ form submission
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mdayglyl';
 const inquiryForm = document.getElementById('inquiry-form');
 const submitBtn = document.getElementById('form-submit-btn');
 const statusEl = document.getElementById('form-status');
 const successBox = document.getElementById('form-success');
+const recaptchaField = document.getElementById('g-recaptcha-response');
+const fieldRules = {
+  company_name: { required: true },
+  contact_name: { required: true },
+  work_email: { required: true, email: true },
+  service_type: { required: true },
+  document_type: { required: true },
+  source_language: { required: true },
+  target_language: { required: true },
+  turnaround_date: { required: true, futureDate: true },
+  estimated_volume: { required: true },
+  message: { required: true, minLength: 20 }
+};
+const formMessages = {
+  required: 'This field is required.',
+  email: 'Enter a valid work email address.',
+  futureDate: 'Enter a target date from today onward.',
+  minLength: 'Please enter at least 20 characters in the notes field.',
+  reviewFields: 'Please review the highlighted fields.',
+  verifying: 'Running verification before sending…',
+  sending: 'Sending…',
+  submit: 'Send RFQ',
+  recaptchaFailed: 'reCAPTCHA verification could not be completed. Check your connection and try again.',
+  serverValidation: 'The server could not validate the submission. Please fix any errors and try again.',
+  failed: 'Submission failed. Please try again in a moment.',
+  network: 'Network error. Please try again in a moment.'
+};
+
+function setStatus(message, state) {
+  statusEl.textContent = message || '';
+  if (state) statusEl.dataset.state = state;
+  else delete statusEl.dataset.state;
+}
+
+function setFieldError(field, message) {
+  const error = document.getElementById(`${field.name}-error`);
+  field.setAttribute('aria-invalid', message ? 'true' : 'false');
+  if (error) error.textContent = message || '';
+}
+
+function validateField(field) {
+  const rules = fieldRules[field.name];
+  if (!rules) return true;
+  const value = field.value.trim();
+  let message = '';
+  if (rules.required && !value) message = formMessages.required;
+  else if (rules.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) message = formMessages.email;
+  else if (rules.futureDate && value) {
+    const selected = new Date(`${value}T00:00:00`);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    if (Number.isNaN(selected.getTime()) || selected < today) message = formMessages.futureDate;
+  } else if (rules.minLength && value.length < rules.minLength) message = formMessages.minLength;
+  setFieldError(field, message);
+  return !message;
+}
+
+function validateForm() {
+  let firstInvalid = null;
+  Object.keys(fieldRules).forEach((name) => {
+    const field = inquiryForm.elements[name];
+    if (field && !validateField(field) && !firstInvalid) firstInvalid = field;
+  });
+  if (firstInvalid) {
+    firstInvalid.focus();
+    setStatus(formMessages.reviewFields);
+    return false;
+  }
+  setStatus('');
+  return true;
+}
+
+function loadRecaptchaScript(siteKey) {
+  if (window.grecaptcha && window.grecaptcha.ready) return Promise.resolve();
+  const existing = document.querySelector('script[data-rfq-recaptcha]');
+  if (existing) return new Promise((resolve, reject) => { existing.addEventListener('load', resolve, { once: true }); existing.addEventListener('error', reject, { once: true }); });
+  return new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = `https://www.google.com/recaptcha/api.js?render=${encodeURIComponent(siteKey)}`;
+    script.async = true;
+    script.defer = true;
+    script.dataset.rfqRecaptcha = 'true';
+    script.onload = resolve;
+    script.onerror = reject;
+    document.head.appendChild(script);
+  });
+}
+
+async function getRecaptchaToken() {
+  const siteKey = inquiryForm.dataset.recaptchaSiteKey;
+  if (!siteKey) return '';
+  setStatus(formMessages.verifying, 'info');
+  await loadRecaptchaScript(siteKey);
+  return new Promise((resolve, reject) => {
+    window.grecaptcha.ready(() => {
+      window.grecaptcha.execute(siteKey, { action: 'rfq_en' }).then(resolve).catch(reject);
+    });
+  });
+}
+
+function applyServerErrors(errors) {
+  if (!Array.isArray(errors)) return false;
+  let applied = false;
+  errors.forEach((err) => {
+    const name = err.field || err.name || err.code;
+    const field = name && inquiryForm.elements[name];
+    if (field) {
+      setFieldError(field, err.message || formMessages.serverValidation);
+      applied = true;
+    }
+  });
+  return applied;
+}
+
+Object.keys(fieldRules).forEach((name) => {
+  const field = inquiryForm.elements[name];
+  if (!field) return;
+  field.addEventListener('blur', () => validateField(field));
+  field.addEventListener('input', () => { if (field.getAttribute('aria-invalid') === 'true') validateField(field); });
+  field.addEventListener('change', () => validateField(field));
+});
+
 inquiryForm.addEventListener('submit', async (e) => {
   e.preventDefault();
-  statusEl.textContent = '';
-  if (!inquiryForm.checkValidity()) {
-    statusEl.textContent = 'Please complete the required fields.';
-    inquiryForm.reportValidity();
+  if (!validateForm()) return;
+  submitBtn.disabled = true;
+  submitBtn.textContent = formMessages.sending;
+  try {
+    const token = await getRecaptchaToken();
+    if (recaptchaField) recaptchaField.value = token;
+  } catch (err) {
+    setStatus(formMessages.recaptchaFailed);
+    submitBtn.disabled = false;
+    submitBtn.textContent = formMessages.submit;
     return;
   }
-  submitBtn.disabled = true;
-  submitBtn.textContent = 'Sending…';
+  setStatus(formMessages.sending, 'info');
   try {
     const data = new FormData(inquiryForm);
     const res = await fetch(FORMSPREE_ENDPOINT, {
@@ -1031,18 +1225,22 @@ inquiryForm.addEventListener('submit', async (e) => {
       headers: { 'Accept': 'application/json' }
     });
     if (res.ok) {
+      inquiryForm.reset();
+      Object.keys(fieldRules).forEach((name) => { const field = inquiryForm.elements[name]; if (field) setFieldError(field, ''); });
       inquiryForm.style.display = 'none';
       successBox.hidden = false;
+      successBox.focus();
     } else {
       const json = await res.json().catch(() => ({}));
-      statusEl.textContent = (json.errors && json.errors[0] && json.errors[0].message) || 'Submission failed. Please try again in a moment.';
+      const hasFieldErrors = applyServerErrors(json.errors);
+      setStatus(hasFieldErrors ? formMessages.serverValidation : ((json.errors && json.errors[0] && json.errors[0].message) || formMessages.failed));
       submitBtn.disabled = false;
-      submitBtn.textContent = 'Send';
+      submitBtn.textContent = formMessages.submit;
     }
   } catch (err) {
-    statusEl.textContent = 'Network error. Please try again in a moment.';
+    setStatus(formMessages.network);
     submitBtn.disabled = false;
-    submitBtn.textContent = 'Send';
+    submitBtn.textContent = formMessages.submit;
   }
 });
 </script>
