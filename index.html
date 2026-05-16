@@ -372,7 +372,7 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
 @media (max-width: 700px) { .proof-row { grid-template-columns: 1fr; } }
 .proof-cell { background: #fff; padding: 18px 16px; }
 .proof-num { font-family: var(--serif); font-size: 1.5rem; color: var(--ink); font-weight: 300; line-height: 1; }
-.proof-num em { color: var(--ink); font-weight: 600; }
+.proof-num em { color: var(--ink); font-size: 0.58em; font-style: normal; font-weight: 400; margin-left: 2px; }
 .proof-label { font-size: 0.7rem; color: var(--text-dim); margin-top: 6px; line-height: 1.45; }
 .entity-line { font-size: 0.74rem; color: var(--text-dim); margin-top: 22px; font-family: var(--mono); letter-spacing: 0.05em; }
 
@@ -810,20 +810,20 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
         <h3>屋山 テディ — 代表取締役</h3>
         <div class="role">Founder · Japan Investor Interface Co., Ltd.</div>
         <p>米国出身、日本拠点。2023年に Japan Investor Interface Co., Ltd. を設立。日本の上場企業と海外投資家の面談に300件以上立ち会い、両者の話をその場で同時に理解できる立場から、IR部・CFO室・経営企画に <strong>「いま海外投資家から自社がどう見えているか」</strong> を返してきました。</p>
-        <p>JIIは、その観察を一枚の診断書としてまとめてお渡しする会社です。翻訳・通訳は単発でお請けするものではなく、診断を踏まえたうえで必要な部分だけお引き受けしています。</p>
+        <p>JIIは、その観察を一枚の診断書としてまとめる「海外IR診断カード」を中心に、英文IRレビュー、翻訳、投資家面談の通訳まで必要な形で支援します。診断カードだけでなく、翻訳・通訳単体のご相談も承ります。</p>
 
         <div class="proof-row">
-          <div class="proof-cell"><div class="proof-num">300<em>+</em></div><div class="proof-label">海外投資家面談 立ち会い</div></div>
-          <div class="proof-cell"><div class="proof-num">80<em>+</em></div><div class="proof-label">CFO・経営幹部クラス面談</div></div>
-          <div class="proof-cell"><div class="proof-num">40<em>+</em></div><div class="proof-label">対応した海外ファンド</div></div>
+          <div class="proof-cell"><div class="proof-num">300<em>件以上</em></div><div class="proof-label">海外投資家面談 立ち会い</div></div>
+          <div class="proof-cell"><div class="proof-num">80<em>件以上</em></div><div class="proof-label">CFO・経営幹部クラス面談</div></div>
+          <div class="proof-cell"><div class="proof-num">40<em>社以上</em></div><div class="proof-label">対応した海外ファンド</div></div>
         </div>
       </div>
     </div>
     <div class="cta-band reveal" aria-label="会社概要の次にできること">
       <div>
         <span class="label">直接相談</span>
-        <h3>投資家面談で実際に何が伝わるかを起点に見ます。</h3>
-        <p>面談予定、想定質問、既存のQ&amp;Aがあれば、その内容もあわせてお知らせください。</p>
+        <h3>面談の場で投資家にどう受け止められるかを、代表が直接確認します。</h3>
+        <p>面談予定や想定質問、既存のQ&amp;Aがあれば、資料の見せ方・答え方・通訳の要否まで含めて整理します。</p>
       </div>
       <div class="cta-actions">
         <a href="#contact" class="btn btn-outline" data-rfq-service="interpretation" data-rfq-document="meeting_script" data-rfq-source="company_secondary" data-rfq-message="海外投資家面談の準備、通訳、診断後のフィードバックについて相談したいです。">面談準備について相談する</a>
@@ -863,8 +863,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
         <div class="faq-a"><div class="faq-a-inner">お問い合わせ → 30分無料相談 → NDA → 資料受領 → 診断作成（通常2〜3週間）→ 社内ウォークスルー（60分）→ 次の一手のご提案。面談予定がある場合は、その日程に間に合うよう組み立てます。</div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">単発の翻訳・通訳だけ依頼できますか？</button>
-        <div class="faq-a"><div class="faq-a-inner">本サイトでは単発でのお受けはしておりません。翻訳・通訳は、診断を踏まえたうえで Standard / Pro プランの一部としてお引き受けしています。</div></div>
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">翻訳・通訳だけでも依頼できますか？</button>
+        <div class="faq-a"><div class="faq-a-inner">はい。診断カードがJIIの中心サービスですが、IR・開示資料の翻訳、英文レビュー、投資家面談の通訳だけのご相談も承ります。目的や資料の状態を確認し、必要に応じて診断と組み合わせる選択肢もご提案します。</div></div>
       </div>
     </div>
     <div class="cta-band reveal" aria-label="FAQの次にできること">
@@ -896,7 +896,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
         </div>
         <form class="contact-form" id="inquiry-form" novalidate data-recaptcha-site-key="">
           <input type="hidden" name="form_type" value="rfq-ja">
-          <input type="hidden" name="_subject" value="JP RFQ from jpinv.com">
+          <input type="hidden" name="_subject" value="JP inquiry from jpinv.com">
           <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" value="">
           <input type="hidden" id="cta_context" name="cta_context" value="">
           <input type="hidden" id="cta_source" name="cta_source" value="">
@@ -1013,7 +1013,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     <div class="footer-grid">
       <div class="footer-brand">
         <h3>Japan Investor Interface Co., Ltd.</h3>
-        <p>株式会社ジャパン・インベスター・インターフェース。海外投資家から見た自社IRを、12項目・24点の診断カード一枚に整理します。翻訳・通訳は診断を踏まえたうえでお引き受けしています。</p>
+        <p>株式会社ジャパン・インベスター・インターフェース。海外投資家から見た自社IRを、12項目・24点の診断カード一枚に整理します。英文IRレビュー、翻訳、投資家面談の通訳もご相談いただけます。</p>
       </div>
       <div class="footer-col">
         <h2>診断とプラン</h2>
@@ -1217,7 +1217,7 @@ function presetInquiry(value) {
   });
 }
 
-// RFQ form submission
+// Inquiry form submission
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mdayglyl';
 const inquiryForm = document.getElementById('inquiry-form');
 const submitBtn = document.getElementById('form-submit-btn');

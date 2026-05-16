@@ -489,10 +489,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   <div class="hero-glow" aria-hidden="true"></div>
   <div class="wrap">
     <div class="hero-body">
-      <div class="hero-eyebrow"><span class="label">Pricing / 料金</span></div>
-      <div class="hero-title"><h1 class="mincho-xl">Light / Standard / Pro</h1></div>
-      <p class="hero-sub">料金、契約条件、各プランに向いている状況はこのページに集約しています。</p>
-      <div class="hero-ctas"><a href="#contact" class="btn btn-primary">RFQで相談する</a><a href="/" class="btn btn-outline">ホームへ戻る</a></div>
+      <div class="hero-eyebrow"><span class="label">料金の目安</span></div>
+      <div class="hero-title"><h1 class="mincho-xl">目的に合わせて選べる3つのプラン</h1></div>
+      <p class="hero-sub">初回診断、四半期ごとの改善支援、面談前後まで含めた伴走支援。御社の状況に合う進め方と費用感を確認できます。</p>
+      <div class="hero-ctas"><a href="#contact" class="btn btn-primary">相談・見積を依頼する</a><a href="/" class="btn btn-outline">ホームへ戻る</a></div>
     </div>
   </div>
 </section>
@@ -530,7 +530,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
       <div class="rule-accent"></div>
       <h2 class="mincho-lg">3つのプラン</h2>
       <p>すべて代表が直接担当します。価格は税別です。</p>
-      <div class="section-cta reveal"><a href="#contact" class="btn btn-primary" data-rfq-service="diagnostic" data-rfq-document="earnings_presentation" data-rfq-source="pricing_primary" data-rfq-message="料金ページ上部CTA：Light / Standard / Pro のどれが合うか、直近の決算説明資料を前提に相談したいです。">プラン選定をRFQで相談する</a></div>
+      <div class="section-cta reveal"><a href="#contact" class="btn btn-primary" data-rfq-service="diagnostic" data-rfq-document="earnings_presentation" data-rfq-source="pricing_primary" data-rfq-message="料金ページ上部CTA：Light / Standard / Pro のどれが合うか、直近の決算説明資料を前提に相談したいです。">プラン選定を相談する</a></div>
     </div>
     <div class="plan-grid reveal">
       <div class="plan-card">
@@ -587,7 +587,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
         <p>継続支援が必要か、単発診断で十分かを、資料種別・面談予定・希望納期から切り分けます。</p>
       </div>
       <div class="cta-actions">
-        <a href="#contact" class="btn btn-outline" data-rfq-service="diagnostic" data-rfq-document="earnings_presentation" data-rfq-source="pricing_secondary" data-rfq-message="料金詳細後CTA：Lightを基準に、Standard / Pro が必要かを見積前に相談したいです。">料金条件をRFQに入れる</a>
+        <a href="#contact" class="btn btn-outline" data-rfq-service="diagnostic" data-rfq-document="earnings_presentation" data-rfq-source="pricing_secondary" data-rfq-message="料金詳細後CTA：Lightを基準に、Standard / Pro が必要かを見積前に相談したいです。">料金条件を相談する</a>
       </div>
     </div>
   </div>
@@ -609,7 +609,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
         </div>
         <form class="contact-form" id="inquiry-form" novalidate data-recaptcha-site-key="">
           <input type="hidden" name="form_type" value="rfq-ja">
-          <input type="hidden" name="_subject" value="JP RFQ from jpinv.com">
+          <input type="hidden" name="_subject" value="JP inquiry from jpinv.com">
           <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" value="">
           <div class="form-grid">
             <div class="form-row">
@@ -724,7 +724,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     <div class="footer-grid">
       <div class="footer-brand">
         <h3>Japan Investor Interface Co., Ltd.</h3>
-        <p>株式会社ジャパン・インベスター・インターフェース。海外投資家から見た自社IRを、12項目・24点の診断カード一枚に整理します。翻訳・通訳は診断を踏まえたうえでお引き受けしています。</p>
+        <p>株式会社ジャパン・インベスター・インターフェース。海外投資家から見た自社IRを、12項目・24点の診断カード一枚に整理します。英文IRレビュー、翻訳、投資家面談の通訳もご相談いただけます。</p>
       </div>
       <div class="footer-col">
         <h2>診断とプラン</h2>
@@ -924,7 +924,7 @@ function presetInquiry(value) {
   if (sel && value) sel.value = value.includes('interpret') ? 'interpretation' : 'diagnostic';
 }
 
-// RFQ form submission
+// Inquiry form submission
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mdayglyl';
 const inquiryForm = document.getElementById('inquiry-form');
 const submitBtn = document.getElementById('form-submit-btn');
