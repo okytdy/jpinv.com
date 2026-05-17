@@ -227,6 +227,52 @@ main.curriculum { padding-top: var(--nav-h); }
 .stat-num { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 300; color: var(--ink-mid); line-height: 1; margin-bottom: 8px; }
 .stat-num em { color: var(--accent-deep); font-weight: 400; font-style: normal; }
 .stat-label { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; }
+
+/* Reader-facing governance redesign */
+.issue-card[aria-current="true"] { border-color: var(--accent); background:#fff; box-shadow: inset 0 0 0 2px var(--accent-soft); }
+.issue-card[aria-current="true"] .issue-card-title::after { content:" 選択中"; font-family:var(--mono); font-size:10px; letter-spacing:.12em; color:var(--accent-deep); }
+.reader-hero { padding: 86px 0 52px; background: linear-gradient(180deg, #fff 0%, var(--bg-soft) 100%); border-bottom: 1px solid var(--rule); }
+.reader-hero .lede { max-width: 760px; }
+.issue-menu { padding: 46px 0 28px; background: #fff; }
+.issue-menu-head { display:flex; justify-content:space-between; gap:24px; align-items:end; margin-bottom:22px; }
+.issue-menu h2, .screen-roll h2, .practical-section h2 { font-family:var(--serif); font-size:clamp(1.45rem,2.6vw,2rem); font-weight:300; color:var(--ink-mid); line-height:1.35; }
+.issue-menu p, .screen-roll p, .practical-section p { color:var(--text-mid); line-height:1.8; }
+.issue-grid { display:grid; grid-template-columns: repeat(5, minmax(180px, 1fr)); gap:14px; }
+.issue-card { display:flex; flex-direction:column; gap:9px; min-height:178px; padding:18px 18px 16px; border:1px solid var(--rule); background:var(--bg-soft); color:inherit; text-decoration:none; border-radius:0; transition:transform .18s, box-shadow .18s, border-color .18s, background .18s; }
+.issue-card:hover, .issue-card:focus-visible { transform:translateY(-2px); border-color:var(--ink-soft); box-shadow:0 12px 28px rgba(15,31,58,.08); background:#fff; outline:3px solid transparent; }
+.issue-card:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
+.issue-card-num { font-family:var(--mono); font-size:10px; letter-spacing:.16em; color:var(--accent-deep); }
+.issue-card-title { font-family:var(--serif); font-size:1.06rem; line-height:1.45; color:var(--ink); }
+.issue-card-desc { font-size:.84rem; color:var(--text-mid); line-height:1.65; }
+.screen-roll { padding:70px 0; border-top:1px solid var(--rule-soft); scroll-margin-top:calc(var(--nav-h) + 18px); }
+.screen-roll:nth-of-type(even) { background:var(--bg-soft); }
+.screen-roll:target { box-shadow: inset 5px 0 0 var(--accent); }
+.screen-head { display:grid; grid-template-columns:minmax(0, .85fr) minmax(260px, .45fr); gap:34px; align-items:start; margin-bottom:28px; }
+.theme-chip { display:inline-block; font-family:var(--mono); font-size:10px; letter-spacing:.16em; color:var(--accent-deep); margin-bottom:10px; }
+.know-box { border:1px solid var(--rule); background:#fff; padding:20px 22px; }
+.know-box strong { display:block; margin-bottom:6px; }
+.article-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px; }
+.article-card { display:flex; flex-direction:column; gap:10px; padding:22px; border:1px solid var(--rule); background:#fff; color:inherit; text-decoration:none; min-height:230px; }
+.article-card:hover, .article-card:focus-visible { border-color:var(--ink-soft); box-shadow:0 10px 26px rgba(15,31,58,.07); }
+.article-card:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
+.article-num { font-family:var(--mono); font-size:11px; color:var(--accent-deep); letter-spacing:.12em; }
+.article-title { font-family:var(--serif); font-size:1.08rem; line-height:1.5; color:var(--ink-mid); }
+.article-summary { font-size:.9rem; line-height:1.75; color:var(--text-mid); flex:1; }
+.article-cta { font-family:var(--mono); font-size:10px; letter-spacing:.14em; color:var(--ink-soft); text-transform:uppercase; border-top:1px solid var(--rule-soft); padding-top:12px; }
+.toolbox-panel { display:grid; grid-template-columns:minmax(0,.85fr) minmax(280px,.6fr); gap:32px; align-items:start; }
+.toolbox-cats { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; list-style:none; }
+.toolbox-cats li { background:#fff; border:1px solid var(--rule); padding:12px 14px; font-size:.9rem; color:var(--ink-mid); }
+.path-list { display:grid; gap:12px; margin-top:18px; }
+.path-list a { display:block; border:1px solid var(--rule); background:#fff; padding:16px 18px; color:inherit; }
+.theme-overview { padding:52px 0 76px; }
+.theme-overview-grid { display:grid; grid-template-columns:minmax(0,.8fr) minmax(280px,.45fr); gap:28px; align-items:start; }
+.info-card { background:#fff; border:1px solid var(--rule); padding:22px; margin-bottom:16px; }
+.info-card h2, .info-card h3 { font-family:var(--serif); color:var(--ink-mid); font-weight:400; margin-bottom:10px; line-height:1.4; }
+.info-card p { color:var(--text-mid); line-height:1.8; }
+.source-note { font-size:.9rem; color:var(--text-mid); }
+@media (max-width: 980px) { .issue-grid { display:flex; overflow-x:auto; padding-bottom:10px; scroll-snap-type:x proximity; } .issue-card { flex:0 0 78%; max-width:360px; scroll-snap-align:start; } .screen-head, .toolbox-panel, .theme-overview-grid { grid-template-columns:1fr; } }
+@media (max-width: 620px) { .issue-menu-head { display:block; } .toolbox-cats { grid-template-columns:1fr; } .article-cards { grid-template-columns:1fr; } }
+
 </style>
 </head>
 <body>
@@ -268,7 +314,7 @@ main.curriculum { padding-top: var(--nav-h); }
 <main id="main-content" class="curriculum" tabindex="-1">
 <div class="wrap crumbs">
   <a href="/">JII</a> <span class="sep">/</span>
-  <a href="/governance/">ガバナンス・カリキュラム</a> <span class="sep">/</span>
+  <a href="/governance/">ガバナンス解説</a> <span class="sep">/</span>
   <a href="/governance/cg-code/">コードの時代</a> <span class="sep">/</span>
   記事 2.5
 </div>
@@ -290,42 +336,49 @@ main.curriculum { padding-top: var(--nav-h); }
   <div class="wrap">
     <article class="post-content">
 <blockquote>
-<p><strong>要点</strong></p>
+<p><strong>IR実務での読みどころ</strong></p>
 <ul>
-<li>経済産業省のCGSガイドライン、公正なM&Aの在り方に関する指針、グループ・ガバナンス実務指針などは、コードを実務に落とすための詳細な補助線として機能する。</li>
-<li>本稿では、公式資料・市場制度・投資家との対話実務を結び付け、IR担当者が社内説明に使える論点として整理する。</li>
-<li>重要なのは、制度名を覚えることではなく、取締役会、資本配分、開示、エンゲージメントのどこに実務上の対応が求められているかを把握することである。</li>
+<li>経済産業省のCGSガイドライン、公正なM&amp;Aの在り方に関する指針、グループ・ガバナンス実務指針などは、コードを実務に落とすための詳細な補助線として機能する。</li>
+<li>制度対応の有無だけでなく、背景、投資家が見るポイント、自社開示への反映を分けて確認します。</li>
+<li>記事番号2.5として、テーマ「会社と投資家の対話ルールを押さえる」の中で前後の論点と合わせて読める構成です。</li>
 </ul>
 </blockquote>
+<h2>この論点をIRでどう説明するか</h2>
+<p>経済産業省のCGSガイドライン、公正なM&amp;Aの在り方に関する指針、グループ・ガバナンス実務指針などは、コードを実務に落とすための詳細な補助線として機能する。 このページでは、投資家面談、CG報告書、統合報告書、取締役会向け説明で使いやすいよう、制度の背景と実務上の意味を分けて整理します。</p>
+<p>最初に確認すべきなのは、当該論点がどの政策文書や市場制度に由来し、企業にどのような行動変化を求めているかです。そのうえで、自社の開示、資本配分、取締役会の関与、投資家との対話にどう接続するかを確認します。</p>
 <h2>主要論点</h2>
-<p>経済産業省のCGSガイドライン、公正なM&Aの在り方に関する指針、グループ・ガバナンス実務指針などは、コードを実務に落とすための詳細な補助線として機能する。</p>
-<h2>主要論点</h2>
-<p>この論点では、制度の文言そのものよりも、なぜその制度が導入され、どの企業行動を変えようとしているのかを読む必要がある。日本のガバナンス改革は、コード、上場制度、開示要請、投資家側のスチュワードシップ責任が段階的に積み上げられてきたため、単独のルールだけを見ても全体像はつかみにくい。</p>
-<p>実務上は、対象となる市場区分、適用開始日、経過措置、開示媒体、取締役会での関与、投資家との対話で問われるポイントを分けて整理する。これにより、法務・経営企画・IR・サステナビリティ部門の役割分担も明確になる。</p>
-<h2>主要論点</h2>
-<p>この論点では、制度の文言そのものよりも、なぜその制度が導入され、どの企業行動を変えようとしているのかを読む必要がある。日本のガバナンス改革は、コード、上場制度、開示要請、投資家側のスチュワードシップ責任が段階的に積み上げられてきたため、単独のルールだけを見ても全体像はつかみにくい。</p>
-<p>実務上は、対象となる市場区分、適用開始日、経過措置、開示媒体、取締役会での関与、投資家との対話で問われるポイントを分けて整理する。これにより、法務・経営企画・IR・サステナビリティ部門の役割分担も明確になる。</p>
-<h2>主要論点</h2>
-<p>この論点では、制度の文言そのものよりも、なぜその制度が導入され、どの企業行動を変えようとしているのかを読む必要がある。日本のガバナンス改革は、コード、上場制度、開示要請、投資家側のスチュワードシップ責任が段階的に積み上げられてきたため、単独のルールだけを見ても全体像はつかみにくい。</p>
-<p>実務上は、対象となる市場区分、適用開始日、経過措置、開示媒体、取締役会での関与、投資家との対話で問われるポイントを分けて整理する。これにより、法務・経営企画・IR・サステナビリティ部門の役割分担も明確になる。</p>
+<p>主要論点は、この論点を制度対応だけで終わらせないための出発点です。経済産業省のCGSガイドライン、公正なM&amp;Aの在り方に関する指針、グループ・ガバナンス実務指針などは、コードを実務に落とすための詳細な補助線として機能する。 IRでは、背景にある政策目的と自社の対応状況を切り分けて説明すると、投資家との会話がかみ合いやすくなります。</p>
+<p>社内向けには、関連する公式資料、適用時期、取締役会で確認すべき事項を一枚で整理しておくと実務に落とし込みやすくなります。会社と投資家の対話ルールを押さえるという観点では、単なるルール確認ではなく、企業価値や少数株主保護、開示の質にどう関係するかまで示すことが重要です。</p>
 <h2>IR実務への示唆</h2>
-<p>IR実務では、制度対応を単なるチェックリストにせず、投資家が知りたい判断材料として提示することが重要である。背景、現状認識、取締役会での議論、定量目標、実行施策、進捗確認、次回更新の予定を一つの説明線にまとめると、対話の質が大きく変わる。</p>
-<ul><li>投資家が比較できる指標と時間軸を明示する。</li><li>「検討中」で終わらせず、誰が、いつ、何を決めるのかを説明する。</li><li>社内の経営会議・取締役会で使う言葉と、対外開示の言葉をそろえる。</li></ul>
+<p>IR実務への示唆を見るときは、制度の文言と市場からの受け止めを分けて考える必要があります。経済産業省のCGSガイドライン、公正なM&amp;Aの在り方に関する指針、グループ・ガバナンス実務指針などは、コードを実務に落とすための詳細な補助線として機能する。 投資家は、形式的な遵守状況よりも、その制度を踏まえて経営が何を変えたのかを確認しようとします。</p>
+<p>説明資料では、現状認識、課題、対応方針、進捗確認の順に並べると、IR・経営企画・法務・サステナビリティ部門の役割分担も明確になります。</p>
 <h2>出典・参考資料</h2>
-<p>本文で参照する一次資料は、金融庁、東京証券取引所、日本取引所グループ、経済産業省、法務省、SSBJ等の公表資料を中心とする。制度の適用時期、数値基準、対象市場、資料名は原資料に合わせて確認する必要がある。</p>
+<p>出典・参考資料は、投資家面談で質問が具体化しやすい部分です。経済産業省のCGSガイドライン、公正なM&amp;Aの在り方に関する指針、グループ・ガバナンス実務指針などは、コードを実務に落とすための詳細な補助線として機能する。 数値や期限がある場合は、その数字だけを示すのではなく、なぜその基準が導入され、どの企業行動を促しているのかを説明する必要があります。</p>
+<p>自社の開示では、過去の経緯、現在の対応、次に改善する点を分けて書くと、単発の制度対応ではなく継続的な改善として伝わります。</p>
 <h2>関連する講義</h2>
-<p>この論点では、制度の文言そのものよりも、なぜその制度が導入され、どの企業行動を変えようとしているのかを読む必要がある。日本のガバナンス改革は、コード、上場制度、開示要請、投資家側のスチュワードシップ責任が段階的に積み上げられてきたため、単独のルールだけを見ても全体像はつかみにくい。</p>
-<p>実務上は、対象となる市場区分、適用開始日、経過措置、開示媒体、取締役会での関与、投資家との対話で問われるポイントを分けて整理する。これにより、法務・経営企画・IR・サステナビリティ部門の役割分担も明確になる。</p>
-<h2>確認ポイント</h2>
+<p>関連する講義を整理する目的は、投資家からの問いにその場で答えられる状態をつくることです。経済産業省のCGSガイドライン、公正なM&amp;Aの在り方に関する指針、グループ・ガバナンス実務指針などは、コードを実務に落とすための詳細な補助線として機能する。 特に海外投資家は、制度名よりも、資本配分、取締役会の監督、情報開示にどのような変化があったかを重視します。</p>
+<p>IR担当者は、社内で使う説明と外部向けの説明を分けず、同じ論理でつながるように準備しておくと、面談後のフォローアップもしやすくなります。</p>
+<h2>IR担当者が確認しておきたいこと</h2>
 <ul>
-<li>記事番号2.5として、前後の講義とのつながりを意識して読む。</li>
-<li>数値基準や期限は、開示資料・CG報告書・有価証券報告書・統合報告書にそのまま反映できる形で管理する。</li>
-<li>投資家説明では、制度対応の有無だけでなく、資本効率、少数株主保護、取締役会の実効性、情報開示の質にどう結び付くかを説明する。</li>
+<li>公式資料のどの文書・どの時点の改訂に基づく論点かを確認する。</li>
+<li>自社の開示媒体では、CG報告書、有価証券報告書、統合報告書、決算説明資料のどこで説明しているかを整理する。</li>
+<li>投資家からの質問に対して、数値、方針、取締役会での議論、今後の改善策を分けて答えられるようにする。</li>
 </ul>
-    </article>
+<h2>公式資料・参考資料</h2>
+<p class="source-note">以下は英語版記事で参照している一次資料・参考資料です。URLは確認用に残しています。</p>
+<ul>
+<li>METI — Corporate Governance landing (English): https://www.meti.go.jp/english/policy/economy/corporate_governance/index.html</li>
+<li>METI — CGS Guidelines revision (July 2022 announcement): https://www.meti.go.jp/english/press/2022/0719_002.html</li>
+<li>METI — CGS Study Group Interim Report (2018): https://www.meti.go.jp/english/press/2018/0518_002.html</li>
+<li>METI — Fair M&amp;A Guidelines (English PDF, 2019): https://www.meti.go.jp/policy/economy/keiei_innovation/keizaihousei/pdf/fairmaguidelines_english.pdf</li>
+<li>METI — Guidelines for Corporate Takeovers (August 2023 announcement): https://www.meti.go.jp/english/press/2023/0831_001.html</li>
+<li>METI — Original Takeover Defense Guidelines (2005, Japanese): https://www.meti.go.jp/policy/economy/keiei_innovation/keizaihousei/pdf/shishin_hontai.pdf</li>
+<li>METI — Takeover Defense Measures in Light of Recent Environmental Changes (June 2008): https://www.meti.go.jp/policy/economy/keiei_innovation/keizaihousei/pdf/080630TakeoverDefenseMeasures.pdf</li>
+</ul>
+</article>
     <div class="post-nav">
       <a href="/governance/cg-code/" class="post-nav-link prev"><div class="post-nav-dir">← テーマ概要</div><div class="post-nav-title">テーマの一覧に戻る</div></a>
-      <a href="/governance/" class="post-nav-link next"><div class="post-nav-dir">カリキュラム →</div><div class="post-nav-title">全体の読み順を確認する</div></a>
+      <a href="/governance/" class="post-nav-link next"><div class="post-nav-dir">ガバナンス →</div><div class="post-nav-title">ガバナンス解説に戻る</div></a>
     </div>
   </div>
 </section>
@@ -347,12 +400,12 @@ main.curriculum { padding-top: var(--nav-h); }
         </ul>
       </div>
       <div class="footer-col">
-        <h2>ガバナンス・カリキュラム</h2>
+        <h2>ガバナンス解説</h2>
         <ul>
-          <li><a href="/governance/">カリキュラム・ホーム</a></li>
+          <li><a href="/governance/">ガバナンス・ホーム</a></li>
           <li><a href="/governance/foundations/">テーマ1 ― 基礎</a></li>
           <li><a href="/governance/capital-efficiency/">テーマ4 ― 資本効率</a></li>
-          <li><a href="/governance/toolbox/">IRツールボックス</a></li>
+          <li><a href="/governance/toolbox/">資料室</a></li>
         </ul>
       </div>
       <div class="footer-col">

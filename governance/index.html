@@ -12,10 +12,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 
-<title>日本ガバナンス改革カリキュラム | JII</title>
-<meta name="description" content="日本のガバナンス改革の全体像を、IR担当者向けに5テーマ・全27記事でカバーするカリキュラム。FSA・JPX・経済産業省・SSBJ等の一次資料に基づいて執筆。無料公開。">
-<meta property="og:title" content="日本ガバナンス改革カリキュラム | JII">
-<meta property="og:description" content="日本のガバナンス改革の全体像を、IR担当者向けに5テーマ・全27記事でカバーするカリキュラム。FSA・JPX・経済産業省・SSBJ等の一次資料に基づいて執筆。無料公開。">
+<title>IR実務で読む日本のガバナンス改革 | JII</title>
+<meta name="description" content="PBR、資本コスト、英文開示、政策保有株など、投資家との対話で聞かれるガバナンス論点をIR実務の観点で整理します。">
+<meta property="og:title" content="IR実務で読む日本のガバナンス改革 | JII">
+<meta property="og:description" content="PBR、資本コスト、英文開示、政策保有株など、投資家との対話で聞かれるガバナンス論点をIR実務の観点で整理します。">
 <meta property="og:url" content="https://jpinv.com/governance/">
 <link rel="canonical" href="https://jpinv.com/governance/">
 <link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/">
@@ -227,6 +227,52 @@ main.curriculum { padding-top: var(--nav-h); }
 .stat-num { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 300; color: var(--ink-mid); line-height: 1; margin-bottom: 8px; }
 .stat-num em { color: var(--accent-deep); font-weight: 400; font-style: normal; }
 .stat-label { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; }
+
+/* Reader-facing governance redesign */
+.issue-card[aria-current="true"] { border-color: var(--accent); background:#fff; box-shadow: inset 0 0 0 2px var(--accent-soft); }
+.issue-card[aria-current="true"] .issue-card-title::after { content:" 選択中"; font-family:var(--mono); font-size:10px; letter-spacing:.12em; color:var(--accent-deep); }
+.reader-hero { padding: 86px 0 52px; background: linear-gradient(180deg, #fff 0%, var(--bg-soft) 100%); border-bottom: 1px solid var(--rule); }
+.reader-hero .lede { max-width: 760px; }
+.issue-menu { padding: 46px 0 28px; background: #fff; }
+.issue-menu-head { display:flex; justify-content:space-between; gap:24px; align-items:end; margin-bottom:22px; }
+.issue-menu h2, .screen-roll h2, .practical-section h2 { font-family:var(--serif); font-size:clamp(1.45rem,2.6vw,2rem); font-weight:300; color:var(--ink-mid); line-height:1.35; }
+.issue-menu p, .screen-roll p, .practical-section p { color:var(--text-mid); line-height:1.8; }
+.issue-grid { display:grid; grid-template-columns: repeat(5, minmax(180px, 1fr)); gap:14px; }
+.issue-card { display:flex; flex-direction:column; gap:9px; min-height:178px; padding:18px 18px 16px; border:1px solid var(--rule); background:var(--bg-soft); color:inherit; text-decoration:none; border-radius:0; transition:transform .18s, box-shadow .18s, border-color .18s, background .18s; }
+.issue-card:hover, .issue-card:focus-visible { transform:translateY(-2px); border-color:var(--ink-soft); box-shadow:0 12px 28px rgba(15,31,58,.08); background:#fff; outline:3px solid transparent; }
+.issue-card:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
+.issue-card-num { font-family:var(--mono); font-size:10px; letter-spacing:.16em; color:var(--accent-deep); }
+.issue-card-title { font-family:var(--serif); font-size:1.06rem; line-height:1.45; color:var(--ink); }
+.issue-card-desc { font-size:.84rem; color:var(--text-mid); line-height:1.65; }
+.screen-roll { padding:70px 0; border-top:1px solid var(--rule-soft); scroll-margin-top:calc(var(--nav-h) + 18px); }
+.screen-roll:nth-of-type(even) { background:var(--bg-soft); }
+.screen-roll:target { box-shadow: inset 5px 0 0 var(--accent); }
+.screen-head { display:grid; grid-template-columns:minmax(0, .85fr) minmax(260px, .45fr); gap:34px; align-items:start; margin-bottom:28px; }
+.theme-chip { display:inline-block; font-family:var(--mono); font-size:10px; letter-spacing:.16em; color:var(--accent-deep); margin-bottom:10px; }
+.know-box { border:1px solid var(--rule); background:#fff; padding:20px 22px; }
+.know-box strong { display:block; margin-bottom:6px; }
+.article-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px; }
+.article-card { display:flex; flex-direction:column; gap:10px; padding:22px; border:1px solid var(--rule); background:#fff; color:inherit; text-decoration:none; min-height:230px; }
+.article-card:hover, .article-card:focus-visible { border-color:var(--ink-soft); box-shadow:0 10px 26px rgba(15,31,58,.07); }
+.article-card:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
+.article-num { font-family:var(--mono); font-size:11px; color:var(--accent-deep); letter-spacing:.12em; }
+.article-title { font-family:var(--serif); font-size:1.08rem; line-height:1.5; color:var(--ink-mid); }
+.article-summary { font-size:.9rem; line-height:1.75; color:var(--text-mid); flex:1; }
+.article-cta { font-family:var(--mono); font-size:10px; letter-spacing:.14em; color:var(--ink-soft); text-transform:uppercase; border-top:1px solid var(--rule-soft); padding-top:12px; }
+.toolbox-panel { display:grid; grid-template-columns:minmax(0,.85fr) minmax(280px,.6fr); gap:32px; align-items:start; }
+.toolbox-cats { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; list-style:none; }
+.toolbox-cats li { background:#fff; border:1px solid var(--rule); padding:12px 14px; font-size:.9rem; color:var(--ink-mid); }
+.path-list { display:grid; gap:12px; margin-top:18px; }
+.path-list a { display:block; border:1px solid var(--rule); background:#fff; padding:16px 18px; color:inherit; }
+.theme-overview { padding:52px 0 76px; }
+.theme-overview-grid { display:grid; grid-template-columns:minmax(0,.8fr) minmax(280px,.45fr); gap:28px; align-items:start; }
+.info-card { background:#fff; border:1px solid var(--rule); padding:22px; margin-bottom:16px; }
+.info-card h2, .info-card h3 { font-family:var(--serif); color:var(--ink-mid); font-weight:400; margin-bottom:10px; line-height:1.4; }
+.info-card p { color:var(--text-mid); line-height:1.8; }
+.source-note { font-size:.9rem; color:var(--text-mid); }
+@media (max-width: 980px) { .issue-grid { display:flex; overflow-x:auto; padding-bottom:10px; scroll-snap-type:x proximity; } .issue-card { flex:0 0 78%; max-width:360px; scroll-snap-align:start; } .screen-head, .toolbox-panel, .theme-overview-grid { grid-template-columns:1fr; } }
+@media (max-width: 620px) { .issue-menu-head { display:block; } .toolbox-cats { grid-template-columns:1fr; } .article-cards { grid-template-columns:1fr; } }
+
 </style>
 </head>
 <body>
@@ -266,119 +312,265 @@ main.curriculum { padding-top: var(--nav-h); }
   <a href="/#contact" class="btn btn-primary mobile-menu-cta" onclick="toggleMenu()">30分の無料相談</a>
 </nav>
 <main id="main-content" class="curriculum" tabindex="-1">
-<div class="wrap crumbs">
-  <a href="/">JII</a> <span class="sep">/</span>
-  ガバナンス・カリキュラム
-</div>
-<section class="curr-hero">
+<div class="wrap crumbs"><a href="/">JII</a> <span class="sep">/</span> ガバナンス</div>
+<section class="reader-hero">
   <div class="wrap">
     <div class="curr-hero-inner">
-      <div class="curr-eyebrow">JII 編集 · ガバナンス改革</div>
-      <h1>日本の<em>ガバナンス改革</em>の歴史を学ぶ。</h1>
-      <p class="lede">「失われた数十年」の資本効率ギャップから、次期コーポレートガバナンス・コード改訂を議論している現役ワーキング・グループまで ― 日本のガバナンス改革の全体像を、IR担当者が一気通貫で把握できる全27記事のカリキュラム。</p>
-      <p class="lede" style="font-size:0.95rem; color:var(--text-mid);">FSA・JPX・経済産業省・SSBJ・法務省・GPIF等の一次資料に基づいて執筆。5テーマ・約63,000語。無料公開。</p>
-      <div class="curr-hero-meta">
-        <span>テーマ: <strong>5</strong></span>
-        <span>記事: <strong>27 + ツールボックス</strong></span>
-        <span>所要時間: <strong>~8〜12時間</strong></span>
-        <span>対象: <strong>IR担当者・アナリスト・取締役会事務局</strong></span>
-      </div>
+      <div class="curr-eyebrow">IR実務で読むガバナンス改革</div>
+      <h1>PBR、資本コスト、英文開示、政策保有株。IRで聞かれる論点を、背景から整理する。</h1>
+      <p class="lede">PBR1倍割れ、資本コスト、英文開示、政策保有株、市場区分の見直し。投資家との面談で出やすい論点を、制度改正の流れと実務上の意味に分けて整理します。</p>
+      <p class="lede" style="font-size:.98rem;color:var(--text-mid);">必要な論点から読み始められるよう、テーマごとに記事を並べています。社内説明、投資家面談、CG報告書や統合報告書の確認に使う前提知識として参照してください。</p>
     </div>
   </div>
 </section>
-
-<section class="stat-band">
-  <div class="wrap" style="display: contents;">
-    <div class="stat-item"><div class="stat-num"><em>5</em></div><div class="stat-label">35年の改革を網羅する5テーマ</div></div>
-    <div class="stat-item"><div class="stat-num"><em>27</em></div><div class="stat-label">一次資料リンク付きの詳細記事</div></div>
-    <div class="stat-item"><div class="stat-num"><em>~63k</em></div><div class="stat-label">語数の編集された実務カリキュラム</div></div>
-    <div class="stat-item"><div class="stat-num"><em>50+</em></div><div class="stat-label">JPX・FSA・経済産業省の資料をツールボックスに整理</div></div>
-  </div>
-</section>
-
-<section style="padding: 72px 0 16px;">
+<section class="issue-menu" aria-labelledby="issue-menu-title">
   <div class="wrap">
-    <div style="max-width:780px; margin-bottom:36px;">
-      <div class="curr-eyebrow">5つのテーマ · 一連の流れ</div>
-      <h2 style="font-family:var(--serif); font-size:clamp(1.7rem, 3.4vw, 2.4rem); font-weight:300; color:var(--ink-mid); line-height:1.3; margin:0 0 16px;">日本のガバナンス改革は、段階的に積み上げられてきた「資本効率を軸にした改革の流れ」である。</h2>
-      <p style="font-size:1rem; line-height:1.8; color:var(--text);">各テーマは前のテーマを前提としています。テーマ5まで読み終えたIR担当者は、FSAのアクション・プログラム、東証のフォローアップ文書、経済産業省の研究会報告書のどれを読んでも、すべての段落を地図上に位置づけられるようになります。</p>
-    </div>
-    <div class="theme-grid">
-      <a href="/governance/foundations/" class="theme-card">
-  <div class="theme-card-num">テーマ 1</div>
-  <div class="theme-card-name">基礎 ― 改革の起源</div>
-  <div class="theme-card-period">1990年代 → 2014年</div>
-  <div class="theme-card-desc">改革の起源 ― 失われた数十年の資本効率ギャップ、改革前の構造、アベノミクスの第三の矢、創設文書としての2014年スチュワードシップ・コード。</div>
-  <ul class="theme-card-list"><li>1. 「8%」が日本を変えた理由</li><li>2. メインバンクから水野氏まで ― 改革前の日本のガバナンス構造</li><li>3. アベノミクスの第三の矢 ― ガバナンスが成長政策になった経緯</li><li>4. 車の両輪 ― スチュワードシップ・コード(2014/2017/2020/2025)</li></ul>
-  <div class="theme-card-foot"><span>4 記事</span><span class="arrow">テーマへ →</span></div>
-</a><a href="/governance/cg-code/" class="theme-card">
-  <div class="theme-card-num">テーマ 2</div>
-  <div class="theme-card-name">コードの時代</div>
-  <div class="theme-card-period">2015年 → 2021年</div>
-  <div class="theme-card-desc">対話のルール ― 2015年CGコードとその2018年・2021年改訂、CG報告書の読み方、経済産業省のCGS・GGS・公正M&amp;A・買収防衛ガイドライン体系。</div>
-  <ul class="theme-card-list"><li>1. 2015年コーポレートガバナンス・コード ― コンプライ・オア・エクスプレインの基礎</li><li>2. 2018年改訂 ― 資本効率がコードに入った瞬間</li><li>3. 2021年改訂 ― プライム市場・サステナビリティ・多様性</li><li>4. コーポレートガバナンス報告書を15分で読む方法</li><li style="color:var(--text-dim); font-style:italic;">+ 他 1 記事 …</li></ul>
-  <div class="theme-card-foot"><span>5 記事</span><span class="arrow">テーマへ →</span></div>
-</a><a href="/governance/market-restructuring/" class="theme-card">
-  <div class="theme-card-num">テーマ 3</div>
-  <div class="theme-card-name">市場区分の見直し</div>
-  <div class="theme-card-period">2022年 → 2025年</div>
-  <div class="theme-card-desc">4区分からプライム・スタンダード・グロースへ、流通株式比率の仕組み、2025年3月の経過措置の崖、TOPIX 2.0、2030年グロース市場改革。</div>
-  <ul class="theme-card-list"><li>1. 4区分から3区分へ ― 2022年4月の市場再編</li><li>2. 流通株式比率 ― 政策保有株を動かした一つの数値</li><li>3. 2025年3月の崖 ― 経過措置の終了と改善期間</li><li>4. TOPIX 2.0 ― 全銘柄インデックスから選別インデックスへ</li><li style="color:var(--text-dim); font-style:italic;">+ 他 1 記事 …</li></ul>
-  <div class="theme-card-foot"><span>5 記事</span><span class="arrow">テーマへ →</span></div>
-</a><a href="/governance/capital-efficiency/" class="theme-card">
-  <div class="theme-card-num">テーマ 4</div>
-  <div class="theme-card-name">資本効率革命</div>
-  <div class="theme-card-period">2023年3月 → 現在</div>
-  <div class="theme-card-desc">2023年3月の東証要請、新しい用語、月次開示リスト、投資家視点との乖離7類型、2026年4月の「形式から実質へ」転換。</div>
-  <ul class="theme-card-list"><li>1. PBR&lt;1は目標ではなく、市場の評決</li><li>2. WACC・ROIC・エクイティ・スプレッド ― IR担当が押さえるべき新語</li><li>3. 開示企業リスト ― 公表を通じた外部規律と優良事例の可視化</li><li>4. 資本コスト開示の7つの落とし穴 ― 「投資家視点との乖離」事例集</li><li style="color:var(--text-dim); font-style:italic;">+ 他 1 記事 …</li></ul>
-  <div class="theme-card-foot"><span>5 記事</span><span class="arrow">テーマへ →</span></div>
-</a><a href="/governance/frontier/" class="theme-card">
-  <div class="theme-card-num">テーマ 5</div>
-  <div class="theme-card-name">最前線 ― 現在の論点</div>
-  <div class="theme-card-period">2024年 → 2027年</div>
-  <div class="theme-card-desc">英文開示義務化、政策保有株のエンドゲーム、上場子会社の解消、買収ガイドライン、SSBJサステナビリティ、取締役多様性、アクティビズム、そして次のルールを書いているワーキング・グループ群。</div>
-  <ul class="theme-card-list"><li>1. 2025年4月は通過点、終着点ではない ― 英文開示義務化</li><li>2. 政策保有株のエンドゲーム ― 「個別検証」開示の時代</li><li>3. 豊田自動織機ディールが終わらせた系列構造</li><li>4. 敵対的買収はもうタブーではない ― 2023年公正なM&amp;Aガイドライン</li><li style="color:var(--text-dim); font-style:italic;">+ 他 4 記事 …</li></ul>
-  <div class="theme-card-foot"><span>8 記事</span><span class="arrow">テーマへ →</span></div>
-</a>
-    </div>
+    <div class="issue-menu-head"><div><div class="curr-eyebrow">論点を選ぶ</div><h2 id="issue-menu-title">まずは必要な論点を選んでください。</h2></div><p>クリックすると該当テーマの記事一覧へ移動します。</p></div>
+    <div class="issue-grid"><a class="issue-card" href="#theme-1" data-theme-link>
+  <span class="issue-card-num">テーマ 1 · 基礎 ― 改革の起点</span>
+  <strong class="issue-card-title">制度改革はなぜ始まったのか</strong>
+  <span class="issue-card-desc">ROE8%、伊藤レポート、アベノミクス、スチュワードシップ・コードまで、現在の議論の前提を押さえる。</span>
+</a><a class="issue-card" href="#theme-2" data-theme-link>
+  <span class="issue-card-num">テーマ 2 · コーポレートガバナンス・コード</span>
+  <strong class="issue-card-title">会社と投資家の対話ルールを押さえる</strong>
+  <span class="issue-card-desc">コーポレートガバナンス・コード、CG報告書、取締役会、サステナビリティ、多様性など、対話の土台を整理する。</span>
+</a><a class="issue-card" href="#theme-3" data-theme-link>
+  <span class="issue-card-num">テーマ 3 · 市場区分の見直し</span>
+  <strong class="issue-card-title">市場区分と上場維持基準を理解する</strong>
+  <span class="issue-card-desc">プライム・スタンダード・グロース、市場再編、流通株式比率、TOPIX見直しをIR実務の観点で読む。</span>
+</a><a class="issue-card" href="#theme-4" data-theme-link>
+  <span class="issue-card-num">テーマ 4 · 資本効率と企業価値</span>
+  <strong class="issue-card-title">資本コスト・PBR・ROEを説明する</strong>
+  <span class="issue-card-desc">東証の資本コスト要請、PBR1倍割れ、ROIC、WACC、エクイティ・スプレッド、開示改善を整理する。</span>
+</a><a class="issue-card" href="#theme-5" data-theme-link>
+  <span class="issue-card-num">テーマ 5 · 現在の主要論点</span>
+  <strong class="issue-card-title">これからのガバナンス実務に備える</strong>
+  <span class="issue-card-desc">英文開示、政策保有株、上場子会社、買収対応、SSBJ、取締役会多様性、アクティビズムを確認する。</span>
+</a></div>
   </div>
 </section>
-
-<section style="padding: 56px 0 72px; background:var(--bg-soft); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule);">
+<section id="theme-1" class="screen-roll" aria-labelledby="theme-1-title">
   <div class="wrap">
-    <div style="display:grid; grid-template-columns:auto 1fr auto; gap:32px; align-items:center;">
-      <div class="curr-eyebrow" style="margin:0;">★ 中核</div>
+    <div class="screen-head">
       <div>
-        <div style="font-family:var(--serif); font-size:1.3rem; color:var(--ink); font-weight:400; line-height:1.5; letter-spacing:0.02em;">IRツールボックス ― JPX・FSA・経済産業省・SSBJの全資料を索引化。</div>
-        <div style="font-size:0.92rem; color:var(--text-mid); line-height:1.7; margin-top:6px;">コード、開示企業リスト、ベストプラクティス集、ワーキング・グループ報告書、FAQ、データ・ダッシュボードを9カテゴリに整理。</div>
+        <span class="theme-chip">テーマ 1 · 基礎 ― 改革の起点 · 1990年代 → 2014年</span>
+        <h2 id="theme-1-title">制度改革はなぜ始まったのか</h2>
+        <p>ROE8%、伊藤レポート、アベノミクス、スチュワードシップ・コードまで、現在の議論の前提を押さえる。</p>
       </div>
-      <a href="/governance/toolbox/" class="btn btn-outline">ツールボックスを開く →</a>
+      <div class="know-box"><strong>このテーマで分かること</strong><p>日本企業の資本効率がなぜ投資家の主要論点になったのか、メインバンク・政策保有株・株主軽視といった改革前の構造が、2014年以降の制度改革へどうつながったのかを整理します。</p><p><a href="/governance/foundations/">テーマ概要を見る →</a></p></div>
     </div>
+    <div class="article-cards"><a href="/governance/foundations/1.1-lost-decades-roe-gap/" class="article-card">
+  <span class="article-num">記事 1.1</span>
+  <strong class="article-title">「8%」が日本を変えた理由</strong>
+  <span class="article-summary">1989年12月29日のNikkei 225 38,915.87、TOPIX 2,881.37から、2024年に至る長い停滞を、景気循環ではなく資本効率とガバナンスの問題として捉え直す。伊藤レポートが提示したROE8%という基準は、投資家が想定する資本コストを上回るための最低線として、以後の政策議論の共通言語になった。</span>
+  <span class="article-cta">この記事を読む →</span>
+</a><a href="/governance/foundations/1.2-pre-reform-architecture/" class="article-card">
+  <span class="article-num">記事 1.2</span>
+  <strong class="article-title">メインバンクから水野氏まで ― 改革前の日本のガバナンス構造</strong>
+  <span class="article-summary">メインバンク、系列、政策保有株式、社内昇進中心の取締役会という改革前の構造を、単なる慣行ではなく資本市場からの規律を弱める制度的な組み合わせとして読む。</span>
+  <span class="article-cta">この記事を読む →</span>
+</a><a href="/governance/foundations/1.3-abenomics-third-arrow/" class="article-card">
+  <span class="article-num">記事 1.3</span>
+  <strong class="article-title">アベノミクスの第三の矢 ― ガバナンスが成長政策になった経緯</strong>
+  <span class="article-summary">アベノミクスの第三の矢は、金融緩和や財政政策だけではなく、企業の稼ぐ力と資本配分を変える成長戦略としてガバナンス改革を位置づけた。</span>
+  <span class="article-cta">この記事を読む →</span>
+</a><a href="/governance/foundations/1.4-stewardship-code-2014/" class="article-card">
+  <span class="article-num">記事 1.4</span>
+  <strong class="article-title">車の両輪 ― スチュワードシップ・コード(2014/2017/2020/2025)</strong>
+  <span class="article-summary">スチュワードシップ・コードは、上場会社だけでなく機関投資家にも説明責任を求め、企業統治改革を「会社側」と「投資家側」の両輪で動かす仕組みにした。</span>
+  <span class="article-cta">この記事を読む →</span>
+</a></div>
   </div>
-</section>
-
-<section style="padding: 64px 0 80px;">
+</section><section id="theme-2" class="screen-roll" aria-labelledby="theme-2-title">
   <div class="wrap">
-    <div style="max-width:660px; margin:0 auto; text-align:center;">
-      <div class="curr-eyebrow">読み始める</div>
-      <h2 style="font-family:var(--serif); font-size:clamp(1.5rem, 2.8vw, 2rem); font-weight:300; color:var(--ink-mid); line-height:1.3; margin:0 0 22px;">3つの読み方。</h2>
-      <div style="text-align:left; padding:18px 22px; background:var(--bg-mid); border:1px solid var(--rule); margin-bottom:14px;">
-        <strong style="font-family:var(--serif); font-size:1.05rem;">通読</strong><br>
-        <span style="font-size:0.92rem; color:var(--text-mid);">新人IR担当者向け。テーマ1 → 2 → 3 → 4 → 5 → ツールボックスの順。所要約8〜12時間。</span>
+    <div class="screen-head">
+      <div>
+        <span class="theme-chip">テーマ 2 · コーポレートガバナンス・コード · 2015年 → 2021年</span>
+        <h2 id="theme-2-title">会社と投資家の対話ルールを押さえる</h2>
+        <p>コーポレートガバナンス・コード、CG報告書、取締役会、サステナビリティ、多様性など、対話の土台を整理する。</p>
       </div>
-      <div style="text-align:left; padding:18px 22px; background:var(--bg-mid); border:1px solid var(--rule); margin-bottom:14px;">
-        <strong style="font-family:var(--serif); font-size:1.05rem;">テーマ別</strong><br>
-        <span style="font-size:0.92rem; color:var(--text-mid);">必要なテーマに直接アクセス。各記事のフロントマターに前提記事が記載されています。</span>
+      <div class="know-box"><strong>このテーマで分かること</strong><p>2015年コードの構造、2018年改訂で入った資本コスト、2021年改訂で強まったプライム市場・サステナビリティ・多様性の要請を、CG報告書の読み方と合わせて確認します。</p><p><a href="/governance/cg-code/">テーマ概要を見る →</a></p></div>
+    </div>
+    <div class="article-cards"><a href="/governance/cg-code/2.1-cg-code-2015-primer/" class="article-card">
+  <span class="article-num">記事 2.1</span>
+  <strong class="article-title">2015年コーポレートガバナンス・コード ― コンプライ・オア・エクスプレインの基礎</strong>
+  <span class="article-summary">2015年コードの要点は、5つの基本原則、30の原則、38の補充原則という構造と、コンプライ・オア・エクスプレインによるソフトロー運用にある。</span>
+  <span class="article-cta">この記事を読む →</span>
+</a><a href="/governance/cg-code/2.2-cg-code-2018-revision/" class="article-card">
+  <span class="article-num">記事 2.2</span>
+  <strong class="article-title">2018年改訂 ― 資本効率がコードに入った瞬間</strong>
+  <span class="article-summary">2018年改訂では資本コスト、政策保有株式、CEO後継者計画、企業年金のアセットオーナー機能が前面に出た。</span>
+  <span class="article-cta">この記事を読む →</span>
+</a><a href="/governance/cg-code/2.3-cg-code-2021-revision/" class="article-card">
+  <span class="article-num">記事 2.3</span>
+  <strong class="article-title">2021年改訂 ― プライム市場・サステナビリティ・多様性</strong>
+  <span class="article-summary">2021年改訂は、2022年4月の市場区分見直しを背景に、プライム市場上場会社への独立社外取締役、スキル・マトリックス、TCFD相当の気候開示、英文開示、電子議決権行使などを強めた。</span>
+  <span class="article-cta">この記事を読む →</span>
+</a><a href="/governance/cg-code/2.4-reading-a-cg-report/" class="article-card">
+  <span class="article-num">記事 2.4</span>
+  <strong class="article-title">コーポレートガバナンス報告書を15分で読む方法</strong>
+  <span class="article-summary">コーポレートガバナンス報告書は、コードへの対応状況、取締役会構成、政策保有株式、関連当事者、株主・ステークホルダー対応を短時間で読むための最重要資料である。</span>
+  <span class="article-cta">この記事を読む →</span>
+</a><a href="/governance/cg-code/2.5-meti-guideline-family/" class="article-card">
+  <span class="article-num">記事 2.5</span>
+  <strong class="article-title">コード vs ガイドライン ― 経済産業省の体系</strong>
+  <span class="article-summary">経済産業省のCGSガイドライン、公正なM&amp;Aの在り方に関する指針、グループ・ガバナンス実務指針などは、コードを実務に落とすための詳細な補助線として機能する。</span>
+  <span class="article-cta">この記事を読む →</span>
+</a></div>
+  </div>
+</section><section id="theme-3" class="screen-roll" aria-labelledby="theme-3-title">
+  <div class="wrap">
+    <div class="screen-head">
+      <div>
+        <span class="theme-chip">テーマ 3 · 市場区分の見直し · 2022年 → 2025年</span>
+        <h2 id="theme-3-title">市場区分と上場維持基準を理解する</h2>
+        <p>プライム・スタンダード・グロース、市場再編、流通株式比率、TOPIX見直しをIR実務の観点で読む。</p>
       </div>
-      <div style="text-align:left; padding:18px 22px; background:var(--bg-mid); border:1px solid var(--rule);">
-        <strong style="font-family:var(--serif); font-size:1.05rem;">リファレンス</strong><br>
-        <span style="font-size:0.92rem; color:var(--text-mid);">ツールボックスをブックマークし、日々の業務で各記事と相互参照。</span>
+      <div class="know-box"><strong>このテーマで分かること</strong><p>市場再編の狙い、プライム・スタンダード・グロースの違い、流通株式比率、経過措置の終了、TOPIX見直しが企業行動と投資家説明に与える影響を整理します。</p><p><a href="/governance/market-restructuring/">テーマ概要を見る →</a></p></div>
+    </div>
+    <div class="article-cards"><a href="/governance/market-restructuring/3.1-four-segments-to-three/" class="article-card">
+  <span class="article-num">記事 3.1</span>
+  <strong class="article-title">4区分から3区分へ ― 2022年4月の市場再編</strong>
+  <span class="article-summary">2022年4月4日の市場再編は、市場第一部・第二部・マザーズ・JASDAQという4区分を、プライム、スタンダード、グロースの3市場へ整理した。</span>
+  <span class="article-cta">この記事を読む →</span>
+</a><a href="/governance/market-restructuring/3.2-tradable-share-ratio/" class="article-card">
+  <span class="article-num">記事 3.2</span>
+  <strong class="article-title">流通株式比率 ― 政策保有株を動かした一つの数値</strong>
+  <span class="article-summary">流通株式比率は、固定的な大株主や政策保有株式を除いた実質的な市場流通性を測る指標であり、上場維持基準の中でも行動変容を促す力が大きい。</span>
+  <span class="article-cta">この記事を読む →</span>
+</a><a href="/governance/market-restructuring/3.3-transitional-measures-cliff/" class="article-card">
+  <span class="article-num">記事 3.3</span>
+  <strong class="article-title">2025年3月の崖 ― 経過措置の終了と改善期間</strong>
+  <span class="article-summary">2025年3月の経過措置終了は、形式的な先送りを認めず、基準未達企業に改善期間と上場廃止リスクを具体的に意識させる転換点となった。</span>
+  <span class="article-cta">この記事を読む →</span>
+</a><a href="/governance/market-restructuring/3.4-topix-reform/" class="article-card">
+  <span class="article-num">記事 3.4</span>
+  <strong class="article-title">TOPIX 2.0 ― 全銘柄インデックスから選別インデックスへ</strong>
+  <span class="article-summary">TOPIX改革は、市場区分改革と並ぶ構造改革であり、単なる全上場銘柄指数から、流動性と市場評価を反映する選別的なユニバースへ移行する。</span>
+  <span class="article-cta">この記事を読む →</span>
+</a><a href="/governance/market-restructuring/3.5-growth-market-2030/" class="article-card">
+  <span class="article-num">記事 3.5</span>
+  <strong class="article-title">グロース市場2030年の崖 ― 100億円基準の意味</strong>
+  <span class="article-summary">グロース市場改革では、2030年を見据えて時価総額100億円基準が焦点となり、上場後も成長を継続できる市場設計が問われている。</span>
+  <span class="article-cta">この記事を読む →</span>
+</a></div>
+  </div>
+</section><section id="theme-4" class="screen-roll" aria-labelledby="theme-4-title">
+  <div class="wrap">
+    <div class="screen-head">
+      <div>
+        <span class="theme-chip">テーマ 4 · 資本効率と企業価値 · 2023年3月 → 現在</span>
+        <h2 id="theme-4-title">資本コスト・PBR・ROEを説明する</h2>
+        <p>東証の資本コスト要請、PBR1倍割れ、ROIC、WACC、エクイティ・スプレッド、開示改善を整理する。</p>
       </div>
-      <a href="/governance/foundations/" class="btn btn-primary" style="margin-top:30px; padding:16px 32px;">テーマ1から始める →</a>
+      <div class="know-box"><strong>このテーマで分かること</strong><p>2023年3月の東証要請を起点に、PBR1倍割れ、資本コスト、ROE・ROIC、WACC、エクイティ・スプレッド、開示企業リスト、投資家目線とのずれを実務の言葉で整理します。</p><p><a href="/governance/capital-efficiency/">テーマ概要を見る →</a></p></div>
+    </div>
+    <div class="article-cards"><a href="/governance/capital-efficiency/4.1-march-2023-request-anatomy/" class="article-card">
+  <span class="article-num">記事 4.1</span>
+  <strong class="article-title">PBR1倍割れは目標ではなく、市場の評決</strong>
+  <span class="article-summary">2023年3月の東証要請は、PBR1倍割れを目標ではなく市場からの評価として捉え、資本コストや株価を意識した経営の実行を求めた。</span>
+  <span class="article-cta">この記事を読む →</span>
+</a><a href="/governance/capital-efficiency/4.2-cost-of-capital-vocabulary/" class="article-card">
+  <span class="article-num">記事 4.2</span>
+  <strong class="article-title">WACC・ROIC・エクイティ・スプレッド ― IR担当が押さえるべき新語</strong>
+  <span class="article-summary">WACC、ROIC、ROE、エクイティ・スプレッド、残余利益といった語彙は、投資家との対話だけでなく、社内の資本配分を説明するための実務言語である。</span>
+  <span class="article-cta">この記事を読む →</span>
+</a><a href="/governance/capital-efficiency/4.3-the-disclosure-list/" class="article-card">
+  <span class="article-num">記事 4.3</span>
+  <strong class="article-title">開示企業リスト ― 公表を通じた外部規律と優良事例の可視化</strong>
+  <span class="article-summary">東証の開示企業リストは、罰則ではなく公表を通じて参加状況を可視化し、外部規律と優良事例の横展開を同時に進める仕組みである。</span>
+  <span class="article-cta">この記事を読む →</span>
+</a><a href="/governance/capital-efficiency/4.4-seven-sins-misalignment/" class="article-card">
+  <span class="article-num">記事 4.4</span>
+  <strong class="article-title">資本コスト開示の7つの落とし穴 ― 「投資家視点との乖離」事例集</strong>
+  <span class="article-summary">東証の「投資者の視点を踏まえた対応のポイントと事例」は、良い事例だけでなく、投資家目線とずれる典型的な開示を明示している点に実務上の価値がある。</span>
+  <span class="article-cta">この記事を読む →</span>
+</a><a href="/governance/capital-efficiency/4.5-action-plan-2-update/" class="article-card">
+  <span class="article-num">記事 4.5</span>
+  <strong class="article-title">開示から実行へ ― 2026年4月「アップデート」が変えたもの</strong>
+  <span class="article-summary">2026年4月のアップデートは、開示の有無から、取締役会での議論、施策の実行、進捗検証、投資家との対話へ焦点を移した。</span>
+  <span class="article-cta">この記事を読む →</span>
+</a></div>
+  </div>
+</section><section id="theme-5" class="screen-roll" aria-labelledby="theme-5-title">
+  <div class="wrap">
+    <div class="screen-head">
+      <div>
+        <span class="theme-chip">テーマ 5 · 現在の主要論点 · 2024年 → 2027年</span>
+        <h2 id="theme-5-title">これからのガバナンス実務に備える</h2>
+        <p>英文開示、政策保有株、上場子会社、買収対応、SSBJ、取締役会多様性、アクティビズムを確認する。</p>
+      </div>
+      <div class="know-box"><strong>このテーマで分かること</strong><p>英文開示、政策保有株、上場子会社、買収対応、サステナビリティ基準、取締役会多様性、アクティビズム、政策形成の場を、今後のIR実務に関係する論点として整理します。</p><p><a href="/governance/frontier/">テーマ概要を見る →</a></p></div>
+    </div>
+    <div class="article-cards"><a href="/governance/frontier/5.1-english-disclosure-mandate/" class="article-card">
+  <span class="article-num">記事 5.1</span>
+  <strong class="article-title">2025年4月は通過点、終着点ではない ― 英文開示義務化</strong>
+  <span class="article-summary">2025年4月からの英文開示義務化は終着点ではなく、プライム市場上場会社が海外投資家に同時・同質の情報を届ける運用開始の節目である。</span>
+  <span class="article-cta">この記事を読む →</span>
+</a><a href="/governance/frontier/5.2-cross-shareholdings-end-game/" class="article-card">
+  <span class="article-num">記事 5.2</span>
+  <strong class="article-title">政策保有株のエンドゲーム ― 「個別検証」開示の時代</strong>
+  <span class="article-summary">政策保有株式を総額だけで説明する時代は終わり、個別銘柄ごとの保有合理性、縮減方針、資本効率への影響を説明する段階に入った。</span>
+  <span class="article-cta">この記事を読む →</span>
+</a><a href="/governance/frontier/5.3-listed-subsidiaries/" class="article-card">
+  <span class="article-num">記事 5.3</span>
+  <strong class="article-title">豊田自動織機ディールが終わらせた系列構造</strong>
+  <span class="article-summary">上場子会社をめぐる議論は、親子上場そのものの是非だけでなく、少数株主保護、利益相反、グループ資本配分の説明責任を問うものになっている。</span>
+  <span class="article-cta">この記事を読む →</span>
+</a><a href="/governance/frontier/5.4-mbo-takeover-guidelines/" class="article-card">
+  <span class="article-num">記事 5.4</span>
+  <strong class="article-title"></strong>
+  <span class="article-summary">2023年の買収行動指針は、敵対的買収を例外視せず、企業価値と株主共同の利益を基準に、取締役会の対応を透明化する枠組みを示した。</span>
+  <span class="article-cta">この記事を読む →</span>
+</a><a href="/governance/frontier/5.5-ssbj-sustainability/" class="article-card">
+  <span class="article-num">記事 5.5</span>
+  <strong class="article-title">SSBJ実務 ― 3段階のサステナビリティ開示ロードマップ</strong>
+  <span class="article-summary">SSBJ基準は、サステナビリティ情報を任意のCSR説明ではなく、投資判断に必要な制度開示へ移行させるロードマップである。</span>
+  <span class="article-cta">この記事を読む →</span>
+</a><a href="/governance/frontier/5.6-board-diversity-30-by-30/" class="article-card">
+  <span class="article-num">記事 5.6</span>
+  <strong class="article-title">「30 by 30」はパイプライン問題である</strong>
+  <span class="article-summary">女性役員比率30%という目標は、任命時点の数字だけでなく、候補者育成、執行経験、指名プロセスを含むパイプラインの問題として捉える必要がある。</span>
+  <span class="article-cta">この記事を読む →</span>
+</a><a href="/governance/frontier/5.7-activism-engagement-2025/" class="article-card">
+  <span class="article-num">記事 5.7</span>
+  <strong class="article-title">スチュワードシップ・コード3.0以後の協働エンゲージメント</strong>
+  <span class="article-summary">2025年のスチュワードシップ・コード改訂と大量保有報告制度の見直しは、協働エンゲージメントを市場の通常機能として位置づけ直した。</span>
+  <span class="article-cta">この記事を読む →</span>
+</a><a href="/governance/frontier/5.8-working-groups-landscape/" class="article-card">
+  <span class="article-num">記事 5.8</span>
+  <strong class="article-title">次のガバナンス・ルールを書いているワーキング・グループ群</strong>
+  <span class="article-summary">金融庁、東証、経済産業省、法務省、SSBJなどの審議会・研究会は、次の制度変更を先取りするための一次情報源である。</span>
+  <span class="article-cta">この記事を読む →</span>
+</a></div>
+  </div>
+</section>
+<section class="practical-section" style="padding:64px 0;background:var(--bg-soft);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);">
+  <div class="wrap toolbox-panel">
+    <div><div class="curr-eyebrow">資料室</div><h2>公式資料を探す</h2><p>東証の要請文、金融庁のコード、経済産業省のガイドライン、英文開示や資本コスト開示の実務資料を、論点別に確認できます。</p><a href="/governance/toolbox/" class="btn btn-outline" style="margin-top:18px;">資料室を見る →</a></div>
+    <ul class="toolbox-cats"><li>コード・原則を確認する</li><li>市場区分・上場基準を確認する</li><li>資本コスト開示を確認する</li><li>英文開示を確認する</li><li>政策保有株・上場子会社を確認する</li><li>買収対応・M&amp;Aを確認する</li><li>サステナビリティ開示を確認する</li><li>投資家向け説明資料を確認する</li></ul>
+  </div>
+</section>
+<section class="practical-section" style="padding:64px 0 80px;">
+  <div class="wrap" style="max-width:820px;">
+    <div class="curr-eyebrow">迷ったらここから</div><h2>いま説明したい論点から読む</h2>
+    <div class="path-list">
+      <a href="#theme-4"><strong>PBRや資本コストを説明したい</strong><br><span>→ 資本コスト・PBR・ROEを説明する</span></a>
+      <a href="#theme-5"><strong>英文開示や同時開示の対応を確認したい</strong><br><span>→ これからのガバナンス実務に備える</span></a>
+      <a href="#theme-2"><strong>CG報告書やコード改訂の背景を押さえたい</strong><br><span>→ 会社と投資家の対話ルールを押さえる</span></a>
+      <a href="#theme-3"><strong>市場区分、流通株式比率、TOPIXを確認したい</strong><br><span>→ 市場区分と上場維持基準を理解する</span></a>
     </div>
   </div>
 </section>
-
+<script>
+(function() {
+  const links = Array.from(document.querySelectorAll('[data-theme-link]'));
+  const sections = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  function setActive(id) { links.forEach(a => { const on = a.getAttribute('href') === '#' + id; a.toggleAttribute('aria-current', on); if (on) a.setAttribute('aria-label', a.textContent.trim() + '（選択中）'); }); }
+  links.forEach(a => a.addEventListener('click', () => setActive(a.getAttribute('href').slice(1))));
+  if ('IntersectionObserver' in window) { const io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) setActive(e.target.id); }), { rootMargin:'-35% 0px -55% 0px', threshold:0 }); sections.forEach(s => io.observe(s)); }
+})();
+</script>
 </main>
 <footer>
   <div class="wrap">
@@ -397,12 +589,12 @@ main.curriculum { padding-top: var(--nav-h); }
         </ul>
       </div>
       <div class="footer-col">
-        <h2>ガバナンス・カリキュラム</h2>
+        <h2>ガバナンス解説</h2>
         <ul>
-          <li><a href="/governance/">カリキュラム・ホーム</a></li>
+          <li><a href="/governance/">ガバナンス・ホーム</a></li>
           <li><a href="/governance/foundations/">テーマ1 ― 基礎</a></li>
           <li><a href="/governance/capital-efficiency/">テーマ4 ― 資本効率</a></li>
-          <li><a href="/governance/toolbox/">IRツールボックス</a></li>
+          <li><a href="/governance/toolbox/">資料室</a></li>
         </ul>
       </div>
       <div class="footer-col">
