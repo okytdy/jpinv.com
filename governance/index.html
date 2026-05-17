@@ -261,7 +261,8 @@ main.curriculum { padding-top: var(--nav-h); }
 .article-cta { font-family:var(--mono); font-size:10px; letter-spacing:.14em; color:var(--ink-soft); text-transform:uppercase; border-top:1px solid var(--rule-soft); padding-top:12px; }
 .toolbox-panel { display:grid; grid-template-columns:minmax(0,.85fr) minmax(280px,.6fr); gap:32px; align-items:start; }
 .toolbox-cats { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; list-style:none; }
-.toolbox-cats li { background:#fff; border:1px solid var(--rule); padding:12px 14px; font-size:.9rem; color:var(--ink-mid); }
+.toolbox-cats a, .toolbox-cats li { display:block; background:#fff; border:1px solid var(--rule); padding:12px 14px; font-size:.9rem; color:var(--ink-mid); }
+.toolbox-cats a:hover, .toolbox-cats a:focus-visible { border-color:var(--ink-soft); outline:3px solid var(--accent); outline-offset:2px; }
 .path-list { display:grid; gap:12px; margin-top:18px; }
 .path-list a { display:block; border:1px solid var(--rule); background:#fff; padding:16px 18px; color:inherit; }
 .theme-overview { padding:52px 0 76px; }
@@ -270,6 +271,9 @@ main.curriculum { padding-top: var(--nav-h); }
 .info-card h2, .info-card h3 { font-family:var(--serif); color:var(--ink-mid); font-weight:400; margin-bottom:10px; line-height:1.4; }
 .info-card p { color:var(--text-mid); line-height:1.8; }
 .source-note { font-size:.9rem; color:var(--text-mid); }
+.source-section { background:#fff; border:1px solid var(--rule); padding:22px; margin:18px 0; scroll-margin-top:calc(var(--nav-h) + 18px); }
+.source-section h2 { font-family:var(--serif); color:var(--ink-mid); font-weight:400; margin-bottom:8px; }
+.source-section ul { padding-left:22px; margin-top:10px; }
 @media (max-width: 980px) { .issue-grid { display:flex; overflow-x:auto; padding-bottom:10px; scroll-snap-type:x proximity; } .issue-card { flex:0 0 78%; max-width:360px; scroll-snap-align:start; } .screen-head, .toolbox-panel, .theme-overview-grid { grid-template-columns:1fr; } }
 @media (max-width: 620px) { .issue-menu-head { display:block; } .toolbox-cats { grid-template-columns:1fr; } .article-cards { grid-template-columns:1fr; } }
 
@@ -548,7 +552,7 @@ main.curriculum { padding-top: var(--nav-h); }
 <section class="practical-section" style="padding:64px 0;background:var(--bg-soft);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);">
   <div class="wrap toolbox-panel">
     <div><div class="curr-eyebrow">資料室</div><h2>公式資料を探す</h2><p>東証の要請文、金融庁のコード、経済産業省のガイドライン、英文開示や資本コスト開示の実務資料を、論点別に確認できます。</p><a href="/governance/toolbox/" class="btn btn-outline" style="margin-top:18px;">資料室を見る →</a></div>
-    <ul class="toolbox-cats"><li>コード・原則を確認する</li><li>市場区分・上場基準を確認する</li><li>資本コスト開示を確認する</li><li>英文開示を確認する</li><li>政策保有株・上場子会社を確認する</li><li>買収対応・M&amp;Aを確認する</li><li>サステナビリティ開示を確認する</li><li>投資家向け説明資料を確認する</li></ul>
+    <ul class="toolbox-cats"><li><a href="/governance/toolbox/#codes">コード・原則を確認する</a></li><li><a href="/governance/toolbox/#markets">市場区分・上場基準を確認する</a></li><li><a href="/governance/toolbox/#capital">資本コスト開示を確認する</a></li><li><a href="/governance/toolbox/#english-disclosure">英文開示を確認する</a></li><li><a href="/governance/toolbox/#holdings">政策保有株・上場子会社を確認する</a></li><li><a href="/governance/toolbox/#ma">買収対応・M&amp;Aを確認する</a></li><li><a href="/governance/toolbox/#sustainability">サステナビリティ開示を確認する</a></li><li><a href="/governance/toolbox/#investor-materials">投資家向け説明資料を確認する</a></li></ul>
   </div>
 </section>
 <section class="practical-section" style="padding:64px 0 80px;">

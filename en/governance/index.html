@@ -12,10 +12,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 
-<title>Japan Governance Reform Curriculum | JII</title>
-<meta name="description" content="A 27-post curriculum that brings IR representatives up to speed with Japan&#x27;s governance-reform arc — from the lost-decade capital-efficiency gap to current working-group debates. Free, primary-source-anchored, by JII.">
-<meta property="og:title" content="Japan Governance Reform Curriculum | JII">
-<meta property="og:description" content="A 27-post curriculum that brings IR representatives up to speed with Japan&#x27;s governance-reform arc — from the lost-decade capital-efficiency gap to current working-group debates. Free, primary-source-anchored, by JII.">
+<title>Japan Governance Reform for IR Teams | JII</title>
+<meta name="description" content="A practical English guide to the Japan governance questions investors ask IR teams: PBR, cost of capital, English disclosure, cross-shareholdings, market segments, and the Corporate Governance Code.">
+<meta property="og:title" content="Japan Governance Reform for IR Teams | JII">
+<meta property="og:description" content="A practical English guide to the Japan governance questions investors ask IR teams: PBR, cost of capital, English disclosure, cross-shareholdings, market segments, and the Corporate Governance Code.">
 <meta property="og:url" content="https://jpinv.com/en/governance/">
 <link rel="canonical" href="https://jpinv.com/en/governance/">
 <link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/">
@@ -227,6 +227,47 @@ main.curriculum { padding-top: var(--nav-h); }
 .stat-num { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 300; color: var(--ink-mid); line-height: 1; margin-bottom: 8px; }
 .stat-num em { color: var(--accent-deep); font-weight: 400; font-style: normal; }
 .stat-label { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; }
+
+/* Reader-facing governance redesign */
+.issue-card[aria-current="true"] { border-color: var(--accent); background:#fff; box-shadow: inset 0 0 0 2px var(--accent-soft); }
+.issue-card[aria-current="true"] .issue-card-title::after { content:" Selected"; font-family:var(--mono); font-size:10px; letter-spacing:.12em; color:var(--accent-deep); }
+.reader-hero { padding: 86px 0 52px; background: linear-gradient(180deg, #fff 0%, var(--bg-soft) 100%); border-bottom: 1px solid var(--rule); }
+.reader-hero .lede { max-width: 760px; }
+.issue-menu { padding: 46px 0 28px; background: #fff; }
+.issue-menu-head { display:flex; justify-content:space-between; gap:24px; align-items:end; margin-bottom:22px; }
+.issue-menu h2, .screen-roll h2, .practical-section h2 { font-family:var(--serif); font-size:clamp(1.45rem,2.6vw,2rem); font-weight:300; color:var(--ink-mid); line-height:1.35; }
+.issue-menu p, .screen-roll p, .practical-section p { color:var(--text-mid); line-height:1.8; }
+.issue-grid { display:grid; grid-template-columns: repeat(5, minmax(180px, 1fr)); gap:14px; }
+.issue-card { display:flex; flex-direction:column; gap:9px; min-height:178px; padding:18px 18px 16px; border:1px solid var(--rule); background:var(--bg-soft); color:inherit; text-decoration:none; border-radius:0; transition:transform .18s, box-shadow .18s, border-color .18s, background .18s; }
+.issue-card:hover, .issue-card:focus-visible { transform:translateY(-2px); border-color:var(--ink-soft); box-shadow:0 12px 28px rgba(15,31,58,.08); background:#fff; outline:3px solid transparent; }
+.issue-card:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
+.issue-card-num { font-family:var(--mono); font-size:10px; letter-spacing:.16em; color:var(--accent-deep); text-transform:uppercase; }
+.issue-card-title { font-family:var(--serif); font-size:1.06rem; line-height:1.45; color:var(--ink); }
+.issue-card-desc { font-size:.84rem; color:var(--text-mid); line-height:1.65; }
+.screen-roll { padding:70px 0; border-top:1px solid var(--rule-soft); scroll-margin-top:calc(var(--nav-h) + 18px); }
+.screen-roll:nth-of-type(even) { background:var(--bg-soft); }
+.screen-roll:target { box-shadow: inset 5px 0 0 var(--accent); }
+.screen-head { display:grid; grid-template-columns:minmax(0, .85fr) minmax(260px, .45fr); gap:34px; align-items:start; margin-bottom:28px; }
+.theme-chip { display:inline-block; font-family:var(--mono); font-size:10px; letter-spacing:.16em; color:var(--accent-deep); margin-bottom:10px; text-transform:uppercase; }
+.know-box { border:1px solid var(--rule); background:#fff; padding:20px 22px; }
+.know-box strong { display:block; margin-bottom:6px; }
+.article-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px; }
+.article-card { display:flex; flex-direction:column; gap:10px; padding:22px; border:1px solid var(--rule); background:#fff; color:inherit; text-decoration:none; min-height:230px; }
+.article-card:hover, .article-card:focus-visible { border-color:var(--ink-soft); box-shadow:0 10px 26px rgba(15,31,58,.07); }
+.article-card:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
+.article-num { font-family:var(--mono); font-size:11px; color:var(--accent-deep); letter-spacing:.12em; text-transform:uppercase; }
+.article-title { font-family:var(--serif); font-size:1.08rem; line-height:1.5; color:var(--ink-mid); }
+.article-summary { font-size:.9rem; line-height:1.75; color:var(--text-mid); flex:1; }
+.article-cta { font-family:var(--mono); font-size:10px; letter-spacing:.14em; color:var(--ink-soft); text-transform:uppercase; border-top:1px solid var(--rule-soft); padding-top:12px; }
+.toolbox-panel { display:grid; grid-template-columns:minmax(0,.85fr) minmax(280px,.6fr); gap:32px; align-items:start; }
+.toolbox-cats { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; list-style:none; }
+.toolbox-cats a, .toolbox-cats li { display:block; background:#fff; border:1px solid var(--rule); padding:12px 14px; font-size:.9rem; color:var(--ink-mid); }
+.toolbox-cats a:hover, .toolbox-cats a:focus-visible { border-color:var(--ink-soft); outline:3px solid var(--accent); outline-offset:2px; }
+.path-list { display:grid; gap:12px; margin-top:18px; }
+.path-list a { display:block; border:1px solid var(--rule); background:#fff; padding:16px 18px; color:inherit; }
+@media (max-width: 980px) { .issue-grid { display:flex; overflow-x:auto; padding-bottom:10px; scroll-snap-type:x proximity; } .issue-card { flex:0 0 78%; max-width:360px; scroll-snap-align:start; } .screen-head, .toolbox-panel { grid-template-columns:1fr; } }
+@media (max-width: 620px) { .issue-menu-head { display:block; } .toolbox-cats { grid-template-columns:1fr; } .article-cards { grid-template-columns:1fr; } }
+
 </style>
 </head>
 <body>
@@ -266,207 +307,238 @@ main.curriculum { padding-top: var(--nav-h); }
   <a href="/en/#contact" class="btn btn-primary mobile-menu-cta" onclick="toggleMenu()">Book a free 30-min call</a>
 </nav>
 <main id="main-content" class="curriculum" tabindex="-1">
-<div class="wrap crumbs">
-  <a href="/en/">JII</a> <span class="sep">/</span>
-  Governance Curriculum
-</div>
-<section class="curr-hero">
-  <div class="wrap">
-    <div class="curr-hero-inner">
-      <div class="curr-eyebrow">JII Editorial · Governance Reform</div>
-      <h1>Learn the history of Japan's <em>governance reforms</em>.</h1>
-      <p class="lede">A complete 27-post curriculum that brings an IR representative up to speed with where Japan stands today in its governance-reform arc — from the lost-decade capital-efficiency gap through the working-group debates shaping the next Corporate Governance Code revision.</p>
-      <p class="lede" style="font-size:0.95rem; color:var(--text-mid);">Built from primary FSA, JPX, METI, SSBJ, MoJ, and GPIF sources. Five themes. ~63,000 words. Free to read.</p>
-      <div class="curr-hero-meta">
-        <span>Themes: <strong>5</strong></span>
-        <span>Posts: <strong>27 + Toolbox</strong></span>
-        <span>Reading time: <strong>~8–12 hrs</strong></span>
-        <span>Audience: <strong>IR reps, analysts, board secretariats</strong></span>
-      </div>
-    </div>
-  </div>
+<div class="wrap crumbs"><a href="/en/">JII</a> <span class="sep">/</span> Governance</div>
+<section class="reader-hero">
+  <div class="wrap"><div class="curr-hero-inner"><div class="curr-eyebrow">Governance reform for IR work</div><h1>PBR, cost of capital, English disclosure, cross-shareholdings: understand the governance questions investors ask.</h1><p class="lede">PBR below 1x, cost of capital, English disclosure, cross-shareholdings, and market restructuring. This guide separates the policy background from the practical IR implications so you can explain the issues in investor meetings and internal briefings.</p><p class="lede" style="font-size:.98rem;color:var(--text-mid);">Start with the issue you need. Each theme groups the relevant articles, official terminology, and practical explanation points for listed-company IR and governance teams.</p></div></div>
 </section>
-
-<section class="stat-band">
-  <div class="wrap" style="display: contents;">
-    <div class="stat-item"><div class="stat-num"><em>5</em></div><div class="stat-label">Themes covering 35 years of reform</div></div>
-    <div class="stat-item"><div class="stat-num"><em>27</em></div><div class="stat-label">In-depth posts, all primary-source linked</div></div>
-    <div class="stat-item"><div class="stat-num"><em>~63k</em></div><div class="stat-label">Words of curated curriculum</div></div>
-    <div class="stat-item"><div class="stat-num"><em>50+</em></div><div class="stat-label">JPX / FSA / METI artifacts indexed in the Toolbox</div></div>
-  </div>
-</section>
-
-<section style="padding: 72px 0 16px;">
+<section class="issue-menu" aria-labelledby="issue-menu-title"><div class="wrap"><div class="issue-menu-head"><div><div class="curr-eyebrow">Choose an issue</div><h2 id="issue-menu-title">Go directly to the governance topic you need.</h2></div><p>Each card jumps to the matching article group below.</p></div><div class="issue-grid"><a class="issue-card" href="#theme-1" data-theme-link>
+  <span class="issue-card-num">Theme 1 · Foundations</span>
+  <strong class="issue-card-title">Understand why the reform started</strong>
+  <span class="issue-card-desc">ROE 8%, the Ito Review, Abenomics, and the Stewardship Code: the policy background behind today’s governance questions.</span>
+</a><a class="issue-card" href="#theme-2" data-theme-link>
+  <span class="issue-card-num">Theme 2 · Corporate Governance Code</span>
+  <strong class="issue-card-title">Understand the company–investor dialogue rules</strong>
+  <span class="issue-card-desc">The Corporate Governance Code, CG Reports, boards, sustainability, diversity, and METI guidelines: the rules investors use when they engage.</span>
+</a><a class="issue-card" href="#theme-3" data-theme-link>
+  <span class="issue-card-num">Theme 3 · Market Restructuring</span>
+  <strong class="issue-card-title">Understand market segments and listing standards</strong>
+  <span class="issue-card-desc">Prime, Standard, Growth, market restructuring, tradable-share ratios, continued-listing standards, and TOPIX reform from the IR perspective.</span>
+</a><a class="issue-card" href="#theme-4" data-theme-link>
+  <span class="issue-card-num">Theme 4 · Capital Efficiency and Corporate Value</span>
+  <strong class="issue-card-title">Explain cost of capital, PBR, and ROE</strong>
+  <span class="issue-card-desc">TSE’s capital-cost request, PBR below 1x, ROIC, WACC, equity spread, disclosure lists, and the shift from disclosure to implementation.</span>
+</a><a class="issue-card" href="#theme-5" data-theme-link>
+  <span class="issue-card-num">Theme 5 · Current Governance Agenda</span>
+  <strong class="issue-card-title">Prepare for the next governance agenda</strong>
+  <span class="issue-card-desc">English disclosure, cross-shareholdings, listed subsidiaries, takeover response, SSBJ, board diversity, activism, and active policy working groups.</span>
+</a></div></div></section>
+<section id="theme-1" class="screen-roll" aria-labelledby="theme-1-title">
   <div class="wrap">
-    <div style="max-width:780px; margin-bottom:36px;">
-      <div class="curr-eyebrow">Five themes · one continuous arc</div>
-      <h2 style="font-family:var(--serif); font-size:clamp(1.7rem, 3.4vw, 2.4rem); font-weight:300; color:var(--ink-mid); line-height:1.3; margin:0 0 16px;">Japan's governance reform is one continuous capital-efficiency narrative — built in layers.</h2>
-      <p style="font-size:1rem; line-height:1.8; color:var(--text);">Each theme presupposes the previous one. An IR representative who finishes Theme 5 should be able to read any FSA Action Programme, TSE follow-up document, or METI study-group report and place every paragraph on the map.</p>
-    </div>
-    <div class="theme-grid">
-      <a href="/en/governance/foundations/" class="theme-card">
-  <div class="theme-card-num">THEME 1</div>
-  <div class="theme-card-name">Foundations</div>
-  <div class="theme-card-period">pre-1990s → 2014</div>
-  <div class="theme-card-desc">Why reform happened — the lost-decade capital-efficiency gap, pre-reform architecture, Abenomics&#x27; Third Arrow, and the 2014 Stewardship Code as the founding instrument.</div>
-  <ul class="theme-card-list"><li>1. Why 8% Was the Number That Changed Japan</li><li>2. From Main Bank to Mizuno: Japan&#x27;s pre-reform governance architecture</li><li>3. Abenomics&#x27; Third Arrow: how governance became growth policy</li><li>4. The Two Wheels of the Cart: Japan&#x27;s Stewardship Code (2014, 2017, 2020, 2025)</li></ul>
-  <div class="theme-card-foot"><span>4 posts</span><span class="arrow">Read theme →</span></div>
-</a><a href="/en/governance/cg-code/" class="theme-card">
-  <div class="theme-card-num">THEME 2</div>
-  <div class="theme-card-name">The Code Era</div>
-  <div class="theme-card-period">2015 → 2021</div>
-  <div class="theme-card-desc">The rules of dialogue — the 2015 CG Code and its 2018/2021 revisions, how to read a Japanese CG Report, and METI&#x27;s parallel CGS/GGS/Fair M&amp;A/Takeover guideline family.</div>
-  <ul class="theme-card-list"><li>1. The 2015 Corporate Governance Code: a comply-or-explain primer</li><li>2. The 2018 Revision: capital efficiency enters the Code</li><li>3. The 2021 Revision: Prime, sustainability, diversity</li><li>4. How to Read a Japanese CG Report in 15 Minutes</li><li style="color:var(--text-dim); font-style:italic;">+ 1 more …</li></ul>
-  <div class="theme-card-foot"><span>5 posts</span><span class="arrow">Read theme →</span></div>
-</a><a href="/en/governance/market-restructuring/" class="theme-card">
-  <div class="theme-card-num">THEME 3</div>
-  <div class="theme-card-name">Market Restructuring</div>
-  <div class="theme-card-period">2022 → 2025</div>
-  <div class="theme-card-desc">From four legacy segments to Prime/Standard/Growth, the tradable-share-ratio mechanic, the March 2025 transitional-measures cliff, TOPIX 2.0, and the 2030 Growth-Market cliff.</div>
-  <ul class="theme-card-list"><li>1. From Four Segments to Three: the April 2022 restructuring</li><li>2. The Tradable-Share Ratio: the one number that reshaped Japanese cross-shareholdings</li><li>3. The March 2025 Cliff: end of transitional measures and the new improvement period</li><li>4. TOPIX 2.0: from census index to selected universe</li><li style="color:var(--text-dim); font-style:italic;">+ 1 more …</li></ul>
-  <div class="theme-card-foot"><span>5 posts</span><span class="arrow">Read theme →</span></div>
-</a><a href="/en/governance/capital-efficiency/" class="theme-card">
-  <div class="theme-card-num">THEME 4</div>
-  <div class="theme-card-name">Capital Efficiency</div>
-  <div class="theme-card-period">Mar 2023 → present</div>
-  <div class="theme-card-desc">The TSE March 2023 cost-of-capital request, the new vocabulary, the monthly disclosure list, the seven sins of misalignment, and the April 2026 &#x27;from form to substance&#x27; pivot.</div>
-  <ul class="theme-card-list"><li>1. PBR &lt; 1 Is Not a Target — It&#x27;s a Verdict</li><li>2. WACC, ROIC, Equity Spread: the new vocabulary every Japanese IR rep must own</li><li>3. The Shame-and-Showcase List: how TSE polices participation through publication</li><li>4. The Seven Sins of Cost-of-Capital Disclosure: read TSE&#x27;s &#x27;misalignment&#x27; booklet</li><li style="color:var(--text-dim); font-style:italic;">+ 1 more …</li></ul>
-  <div class="theme-card-foot"><span>5 posts</span><span class="arrow">Read theme →</span></div>
-</a><a href="/en/governance/frontier/" class="theme-card">
-  <div class="theme-card-num">THEME 5</div>
-  <div class="theme-card-name">The Frontier</div>
-  <div class="theme-card-period">2024 → 2027</div>
-  <div class="theme-card-desc">English-disclosure mandate, cross-shareholding end-game, listed-subsidiary resolution, takeover guidelines, SSBJ sustainability, board diversity, activism, and the working groups writing what&#x27;s next.</div>
-  <ul class="theme-card-list"><li>1. April 2025 Was a Switch, Not a Finish Line: the English Disclosure Mandate</li><li>2. The End-Game of Cross-Shareholdings: from comply-or-explain to per-stock verification</li><li>3. The Toyota Industries Deal Is the End of Keiretsu, in One Transaction</li><li>4. Hostile Is No Longer a Slur: METI&#x27;s 2023 Guidelines for Corporate Takeovers</li><li style="color:var(--text-dim); font-style:italic;">+ 4 more …</li></ul>
-  <div class="theme-card-foot"><span>8 posts</span><span class="arrow">Read theme →</span></div>
-</a>
-    </div>
-  </div>
-</section>
-
-<section style="padding: 56px 0 72px; background:var(--bg-soft); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule);">
-  <div class="wrap">
-    <div style="display:grid; grid-template-columns:auto 1fr auto; gap:32px; align-items:center;">
-      <div class="curr-eyebrow" style="margin:0;">★ Keystone</div>
+    <div class="screen-head">
       <div>
-        <div style="font-family:var(--serif); font-size:1.3rem; color:var(--ink); font-weight:400; line-height:1.5; letter-spacing:0.02em;">The IR Toolbox — every JPX / FSA / METI / SSBJ artifact, indexed.</div>
-        <div style="font-size:0.92rem; color:var(--text-mid); line-height:1.7; margin-top:6px;">Codes, disclosure lists, good-practice collections, working-group reports, FAQs, and data dashboards — organised into nine categories.</div>
+        <span class="theme-chip">Theme 1 · Foundations · pre-1990s → 2014</span>
+        <h2 id="theme-1-title">Understand why the reform started</h2>
+        <p>ROE 8%, the Ito Review, Abenomics, and the Stewardship Code: the policy background behind today’s governance questions.</p>
       </div>
-      <a href="/en/governance/toolbox/" class="btn btn-outline">Open the Toolbox →</a>
+      <div class="know-box"><strong>What this theme helps you explain</strong><p>This theme explains why capital efficiency became a central investor question for Japanese companies, and how the pre-reform architecture — main banks, cross-shareholdings, insider boards, and weak shareholder discipline — led into the post-2014 reform agenda.</p><p><a href="/en/governance/foundations/">Open the theme overview →</a></p></div>
     </div>
+    <div class="article-cards"><a href="/en/governance/foundations/1.1-lost-decades-roe-gap/" class="article-card">
+  <span class="article-num">Post 1.1</span>
+  <strong class="article-title">Why 8% Was the Number That Changed Japan</strong>
+  <span class="article-summary">How a single ROE benchmark in a 2014 METI report converted three decades of weak Japanese equity returns into a tractable, measurable governance problem.</span>
+  <span class="article-cta">Read this post →</span>
+</a><a href="/en/governance/foundations/1.2-pre-reform-architecture/" class="article-card">
+  <span class="article-num">Post 1.2</span>
+  <strong class="article-title">From Main Bank to Mizuno: Japan&#x27;s pre-reform governance architecture</strong>
+  <span class="article-summary">The five reinforcing institutions of postwar Japanese corporate governance — keiretsu, main bank, cross-shareholdings, insider boards, lifetime employment — and how their slow disassembly between 1990 and 2014 created the policy vacuum the Stewardship Code was designed to fill.</span>
+  <span class="article-cta">Read this post →</span>
+</a><a href="/en/governance/foundations/1.3-abenomics-third-arrow/" class="article-card">
+  <span class="article-num">Post 1.3</span>
+  <strong class="article-title">Abenomics&#x27; Third Arrow: how governance became growth policy</strong>
+  <span class="article-summary">The Japan Revitalization Strategy of 14 June 2013 made corporate governance — for the first time in Japanese policy history — a macroeconomic growth lever. This is how the political authorisation was built, and how the Stewardship Code and Corporate Governance Code emerged from it on a six-to-eighteen-month timeline.</span>
+  <span class="article-cta">Read this post →</span>
+</a><a href="/en/governance/foundations/1.4-stewardship-code-2014/" class="article-card">
+  <span class="article-num">Post 1.4</span>
+  <strong class="article-title">The Two Wheels of the Cart: Japan&#x27;s Stewardship Code (2014, 2017, 2020, 2025)</strong>
+  <span class="article-summary">Japan&#x27;s Stewardship Code is half of the two-wheel cart of governance reform; the Corporate Governance Code is the other. This post traces the Code from its February 2014 inception through three revisions — 2017 (Principle 8 and proxy advisors), 2020 (ESG and asset-class expansion) and 2025 — and explains what changed in each.</span>
+  <span class="article-cta">Read this post →</span>
+</a></div>
   </div>
-</section>
-
-<section class="kcheck">
+</section><section id="theme-2" class="screen-roll" aria-labelledby="theme-2-title">
   <div class="wrap">
-    <div class="kcheck-head">
-      <div class="curr-eyebrow">Quick check</div>
-      <h2>Test your <em>governance fluency</em>.</h2>
-      <p class="lede">Five quick questions covering the spine of the curriculum. Honest measure of where you are before you start reading.</p>
+    <div class="screen-head">
+      <div>
+        <span class="theme-chip">Theme 2 · Corporate Governance Code · 2015 → 2021</span>
+        <h2 id="theme-2-title">Understand the company–investor dialogue rules</h2>
+        <p>The Corporate Governance Code, CG Reports, boards, sustainability, diversity, and METI guidelines: the rules investors use when they engage.</p>
+      </div>
+      <div class="know-box"><strong>What this theme helps you explain</strong><p>This theme covers the 2015 Code, the 2018 cost-of-capital turn, the 2021 Prime/sustainability/diversity revision, and how to read the CG Report as an investor-facing document.</p><p><a href="/en/governance/cg-code/">Open the theme overview →</a></p></div>
     </div>
-    <div id="kcheck-quiz">
-      <div class="kcheck-q" data-correct="b">
-        <div class="kcheck-q-num">Q1 · Theme 1</div>
-        <div class="kcheck-q-text">Which document first stated the "8% ROE" benchmark that has shaped Japanese capital-efficiency discourse for a decade?</div>
-        <div class="kcheck-opts">
-          <button class="kcheck-opt" data-opt="a">The 2014 Stewardship Code (FSA, February 2014)</button>
-          <button class="kcheck-opt" data-opt="b">The Ito Review (METI, August 2014)</button>
-          <button class="kcheck-opt" data-opt="c">The 2015 Corporate Governance Code (FSA/JPX, June 2015)</button>
-          <button class="kcheck-opt" data-opt="d">The TSE March 2023 request</button>
-        </div>
-        <div class="kcheck-explain">The Ito Review — chaired by Prof. Kunio Ito at Hitotsubashi University and published by METI in August 2014 — argued that an 8% ROE would exceed the expected cost of capital of 90% of global investors. The benchmark has been the single most-cited number in Japanese capital markets ever since.</div>
-      </div>
-      <div class="kcheck-q" data-correct="c">
-        <div class="kcheck-q-num">Q2 · Theme 3</div>
-        <div class="kcheck-q-text">On 4 April 2022, the Tokyo Stock Exchange consolidated its segments. How many companies launched on the Prime Market that day?</div>
-        <div class="kcheck-opts">
-          <button class="kcheck-opt" data-opt="a">~1,200</button>
-          <button class="kcheck-opt" data-opt="b">~1,500</button>
-          <button class="kcheck-opt" data-opt="c">~1,839</button>
-          <button class="kcheck-opt" data-opt="d">~2,200</button>
-        </div>
-        <div class="kcheck-explain">Exactly 1,839 companies launched on the Prime Market on 4 April 2022, alongside 1,466 on Standard and 466 on Growth — total 3,771. The Prime number drifted lower through 2024-2025 due to transitional-measures demotions and M&A.</div>
-      </div>
-      <div class="kcheck-q" data-correct="d">
-        <div class="kcheck-q-num">Q3 · Theme 4</div>
-        <div class="kcheck-q-text">TSE's March 2023 request asks Prime and Standard Market companies to "Implement Management Conscious of Cost of Capital and Stock Price." Which of the following is NOT one of the request's 5 steps?</div>
-        <div class="kcheck-opts">
-          <button class="kcheck-opt" data-opt="a">Analyse cost of capital and profitability</button>
-          <button class="kcheck-opt" data-opt="b">Identify issues</button>
-          <button class="kcheck-opt" data-opt="c">Develop and disclose policies and initiatives</button>
-          <button class="kcheck-opt" data-opt="d">Set a PBR target above 1.0</button>
-        </div>
-        <div class="kcheck-explain">PBR is the verdict, not the target. The request's 5 steps are: analyse, identify, develop & disclose, implement, revise. JPX CEO Yamaji has been explicit that managing PBR directly misses the point — the right targets are cost of capital, ROE, and equity spread.</div>
-      </div>
-      <div class="kcheck-q" data-correct="a">
-        <div class="kcheck-q-num">Q4 · Theme 5</div>
-        <div class="kcheck-q-text">From which date are Prime Market companies required to disclose timely-disclosure materials simultaneously in Japanese and English?</div>
-        <div class="kcheck-opts">
-          <button class="kcheck-opt" data-opt="a">1 April 2025</button>
-          <button class="kcheck-opt" data-opt="b">1 April 2024</button>
-          <button class="kcheck-opt" data-opt="c">1 January 2026</button>
-          <button class="kcheck-opt" data-opt="d">1 April 2026</button>
-        </div>
-        <div class="kcheck-explain">The TSE rule took effect on 1 April 2025. Pre-effective baseline was ~30% simultaneous; coverage rose to ~99% by late 2025. A grace period of up to one year is available for companies that submit a transition plan.</div>
-      </div>
-      <div class="kcheck-q" data-correct="b">
-        <div class="kcheck-q-num">Q5 · Theme 5</div>
-        <div class="kcheck-q-text">SSBJ published Japan's first sustainability disclosure standards on 5 March 2025. Which issuers must report under Phase 1, with the first fiscal year ending March 2027?</div>
-        <div class="kcheck-opts">
-          <button class="kcheck-opt" data-opt="a">All Prime Market companies</button>
-          <button class="kcheck-opt" data-opt="b">Prime issuers with market cap ≥ JPY 3 trillion</button>
-          <button class="kcheck-opt" data-opt="c">All listed companies above JPY 500 billion</button>
-          <button class="kcheck-opt" data-opt="d">Only TOPIX 100 constituents</button>
-        </div>
-        <div class="kcheck-explain">Phase 1 applies to Prime issuers above JPY 3 trillion market cap (first reporting FY ending March 2027). Phase 2 adds the ≥ JPY 1 trillion tier (FY ending March 2028). Phase 3 brings in ≥ JPY 500 billion (FY ending March 2029). All standards align with IFRS S1/S2.</div>
-      </div>
-    </div>
-    <div class="kcheck-score">Score: <strong><span id="kc-score">0</span> / 5</strong> · <a href="/en/governance/foundations/" style="color:var(--accent-deep); margin-left:8px;">Start the curriculum →</a></div>
+    <div class="article-cards"><a href="/en/governance/cg-code/2.1-cg-code-2015-primer/" class="article-card">
+  <span class="article-num">Post 2.1</span>
+  <strong class="article-title">The 2015 Corporate Governance Code: a comply-or-explain primer</strong>
+  <span class="article-summary">How Japan&#x27;s first Corporate Governance Code arrived in June 2015, what its 5+30+38 architecture actually contains, and why the comply-or-explain mechanic — borrowed from the UK&#x27;s Cadbury template — is the single most important thing for an IR rep to understand about Japanese soft law.</span>
+  <span class="article-cta">Read this post →</span>
+</a><a href="/en/governance/cg-code/2.2-cg-code-2018-revision/" class="article-card">
+  <span class="article-num">Post 2.2</span>
+  <strong class="article-title">The 2018 Revision: capital efficiency enters the Code</strong>
+  <span class="article-summary">The June 2018 revision was the moment &#x27;cost of capital&#x27; became a comply-or-explain expectation, cross-shareholdings moved from accepted practice to defended exception, CEO succession became a board responsibility, and corporate pension funds were drawn into the stewardship loop.</span>
+  <span class="article-cta">Read this post →</span>
+</a><a href="/en/governance/cg-code/2.3-cg-code-2021-revision/" class="article-card">
+  <span class="article-num">Post 2.3</span>
+  <strong class="article-title">The 2021 Revision: Prime, sustainability, diversity</strong>
+  <span class="article-summary">The June 2021 revision aligned the Code with the April 2022 Prime/Standard/Growth market restructuring. It introduced Prime-only obligations on independence, skills matrix, TCFD-aligned climate disclosure, English disclosure and electronic voting, and tightened the comply-or-explain regime around sustainability, diversity and human capital.</span>
+  <span class="article-cta">Read this post →</span>
+</a><a href="/en/governance/cg-code/2.4-reading-a-cg-report/" class="article-card">
+  <span class="article-num">Post 2.4</span>
+  <strong class="article-title">How to Read a Japanese CG Report in 15 Minutes</strong>
+  <span class="article-summary">A section-by-section walkthrough of the four-part TSE Corporate Governance Report template — what each section contains, what to read first, and what separates a strong comply-or-explain narrative from a weak one.</span>
+  <span class="article-cta">Read this post →</span>
+</a><a href="/en/governance/cg-code/2.5-meti-guideline-family/" class="article-card">
+  <span class="article-num">Post 2.5</span>
+  <strong class="article-title">Code vs Guideline: when METI&#x27;s CGS, GGS, Fair-M&amp;A and Takeover Guidelines override the Code</strong>
+  <span class="article-summary">Four METI guideline families — CGS, GGS, Fair M&amp;A and the 2023 Guidelines for Corporate Takeovers — sit alongside the FSA/JPX Corporate Governance Code as the operational interpretive layer. They are not comply-or-explain, but proxy advisers, engagement investors and D&amp;O insurers treat them as authoritative.</span>
+  <span class="article-cta">Read this post →</span>
+</a></div>
   </div>
-</section>
-
-<section style="padding: 64px 0 80px;">
+</section><section id="theme-3" class="screen-roll" aria-labelledby="theme-3-title">
   <div class="wrap">
-    <div style="max-width:660px; margin:0 auto; text-align:center;">
-      <div class="curr-eyebrow">Get started</div>
-      <h2 style="font-family:var(--serif); font-size:clamp(1.5rem, 2.8vw, 2rem); font-weight:300; color:var(--ink-mid); line-height:1.3; margin:0 0 22px;">Three ways to read this curriculum.</h2>
-      <div style="text-align:left; padding:18px 22px; background:var(--bg-mid); border:1px solid var(--rule); margin-bottom:14px;">
-        <strong style="font-family:var(--serif); font-size:1.05rem;">Linear</strong><br>
-        <span style="font-size:0.92rem; color:var(--text-mid);">Recommended for new IR reps. Theme 1 → 2 → 3 → 4 → 5 → Toolbox. ~8 to 12 hours.</span>
+    <div class="screen-head">
+      <div>
+        <span class="theme-chip">Theme 3 · Market Restructuring · 2022 → 2025</span>
+        <h2 id="theme-3-title">Understand market segments and listing standards</h2>
+        <p>Prime, Standard, Growth, market restructuring, tradable-share ratios, continued-listing standards, and TOPIX reform from the IR perspective.</p>
       </div>
-      <div style="text-align:left; padding:18px 22px; background:var(--bg-mid); border:1px solid var(--rule); margin-bottom:14px;">
-        <strong style="font-family:var(--serif); font-size:1.05rem;">By theme</strong><br>
-        <span style="font-size:0.92rem; color:var(--text-mid);">Jump to the relevant theme. Each post lists its prerequisites in the front matter.</span>
-      </div>
-      <div style="text-align:left; padding:18px 22px; background:var(--bg-mid); border:1px solid var(--rule);">
-        <strong style="font-family:var(--serif); font-size:1.05rem;">As reference</strong><br>
-        <span style="font-size:0.92rem; color:var(--text-mid);">Bookmark the Toolbox and cross-link from each curriculum post during ongoing work.</span>
-      </div>
-      <a href="/en/governance/foundations/" class="btn btn-primary" style="margin-top:30px; padding:16px 32px;">Begin with Theme 1 →</a>
+      <div class="know-box"><strong>What this theme helps you explain</strong><p>This theme explains how the 2022 market restructuring, tradable-share-ratio rules, transitional-measure deadlines, and TOPIX reform changed the practical expectations placed on listed companies.</p><p><a href="/en/governance/market-restructuring/">Open the theme overview →</a></p></div>
     </div>
+    <div class="article-cards"><a href="/en/governance/market-restructuring/3.1-four-segments-to-three/" class="article-card">
+  <span class="article-num">Post 3.1</span>
+  <strong class="article-title">From Four Segments to Three: the April 2022 restructuring</strong>
+  <span class="article-summary">The April 2022 market restructuring replaced the old four-section structure with Prime, Standard, and Growth, and reset the language of listing quality.</span>
+  <span class="article-cta">Read this post →</span>
+</a><a href="/en/governance/market-restructuring/3.2-tradable-share-ratio/" class="article-card">
+  <span class="article-num">Post 3.2</span>
+  <strong class="article-title">The Tradable-Share Ratio: the one number that reshaped Japanese cross-shareholdings</strong>
+  <span class="article-summary">The tradable-share-ratio definition turned cross-shareholdings and stable shareholders into a practical listing-standard issue.</span>
+  <span class="article-cta">Read this post →</span>
+</a><a href="/en/governance/market-restructuring/3.3-transitional-measures-cliff/" class="article-card">
+  <span class="article-num">Post 3.3</span>
+  <strong class="article-title">The March 2025 Cliff: end of transitional measures and the new improvement period</strong>
+  <span class="article-summary">The end of transitional measures in March 2025 made continued-listing standards a live IR and management issue rather than a relabelling exercise.</span>
+  <span class="article-cta">Read this post →</span>
+</a><a href="/en/governance/market-restructuring/3.4-topix-reform/" class="article-card">
+  <span class="article-num">Post 3.4</span>
+  <strong class="article-title">TOPIX 2.0: from census index to selected universe</strong>
+  <span class="article-summary">TOPIX reform moved the index away from an all-company census toward a selected universe, changing the passive-investor implications of listing status.</span>
+  <span class="article-cta">Read this post →</span>
+</a><a href="/en/governance/market-restructuring/3.5-growth-market-2030/" class="article-card">
+  <span class="article-num">Post 3.5</span>
+  <strong class="article-title">The Growth Market&#x27;s 2030 Cliff: why ~200 listed startups must cross JPY 10 bn</strong>
+  <span class="article-summary">Growth Market reform gives listed startups until 2030 to show scale, liquidity, or a credible route to a different market position.</span>
+  <span class="article-cta">Read this post →</span>
+</a></div>
+  </div>
+</section><section id="theme-4" class="screen-roll" aria-labelledby="theme-4-title">
+  <div class="wrap">
+    <div class="screen-head">
+      <div>
+        <span class="theme-chip">Theme 4 · Capital Efficiency and Corporate Value · March 2023 → present</span>
+        <h2 id="theme-4-title">Explain cost of capital, PBR, and ROE</h2>
+        <p>TSE’s capital-cost request, PBR below 1x, ROIC, WACC, equity spread, disclosure lists, and the shift from disclosure to implementation.</p>
+      </div>
+      <div class="know-box"><strong>What this theme helps you explain</strong><p>This theme turns the March 2023 TSE request into practical IR language: what investors mean by cost of capital, why PBR below 1x is treated as a market verdict, and how companies are expected to explain capital allocation and progress.</p><p><a href="/en/governance/capital-efficiency/">Open the theme overview →</a></p></div>
+    </div>
+    <div class="article-cards"><a href="/en/governance/capital-efficiency/4.1-march-2023-request-anatomy/" class="article-card">
+  <span class="article-num">Post 4.1</span>
+  <strong class="article-title">PBR &lt; 1 Is Not a Target — It&#x27;s a Verdict</strong>
+  <span class="article-summary">TSE’s March 2023 request treated PBR below 1x not as a target but as a market signal, and asked companies to manage with cost of capital and share price in mind.</span>
+  <span class="article-cta">Read this post →</span>
+</a><a href="/en/governance/capital-efficiency/4.2-cost-of-capital-vocabulary/" class="article-card">
+  <span class="article-num">Post 4.2</span>
+  <strong class="article-title">WACC, ROIC, Equity Spread: the new vocabulary every Japanese IR rep must own</strong>
+  <span class="article-summary">WACC, ROIC, ROE, equity spread, and residual income are now IR working vocabulary, not finance-theory decoration.</span>
+  <span class="article-cta">Read this post →</span>
+</a><a href="/en/governance/capital-efficiency/4.3-the-disclosure-list/" class="article-card">
+  <span class="article-num">Post 4.3</span>
+  <strong class="article-title">The Disclosure List: how publication changes issuer behaviour</strong>
+  <span class="article-summary">TSE’s disclosure list makes participation visible: not as a fine, but as a public mechanism that reinforces investor discipline and spreads examples.</span>
+  <span class="article-cta">Read this post →</span>
+</a><a href="/en/governance/capital-efficiency/4.4-seven-sins-misalignment/" class="article-card">
+  <span class="article-num">Post 4.4</span>
+  <strong class="article-title">The Seven Sins of Cost-of-Capital Disclosure: read TSE&#x27;s &#x27;misalignment&#x27; booklet</strong>
+  <span class="article-summary">TSE’s “investor perspective” materials are useful because they show not only good examples but also the disclosure patterns investors see as misaligned.</span>
+  <span class="article-cta">Read this post →</span>
+</a><a href="/en/governance/capital-efficiency/4.5-action-plan-2-update/" class="article-card">
+  <span class="article-num">Post 4.5</span>
+  <strong class="article-title">From Disclosure to Implementation: how the April 2026 Update rewrote the rules</strong>
+  <span class="article-summary">The April 2026 update shifted the emphasis from whether a company disclosed to whether boards discuss, execute, monitor progress, and engage with investors.</span>
+  <span class="article-cta">Read this post →</span>
+</a></div>
+  </div>
+</section><section id="theme-5" class="screen-roll" aria-labelledby="theme-5-title">
+  <div class="wrap">
+    <div class="screen-head">
+      <div>
+        <span class="theme-chip">Theme 5 · Current Governance Agenda · 2024 → 2027</span>
+        <h2 id="theme-5-title">Prepare for the next governance agenda</h2>
+        <p>English disclosure, cross-shareholdings, listed subsidiaries, takeover response, SSBJ, board diversity, activism, and active policy working groups.</p>
+      </div>
+      <div class="know-box"><strong>What this theme helps you explain</strong><p>This theme covers the topics that now come up in investor meetings: simultaneous English disclosure, cross-shareholding reduction, parent–subsidiary listings, takeover guidelines, sustainability standards, board diversity, activism, and the councils writing the next rules.</p><p><a href="/en/governance/frontier/">Open the theme overview →</a></p></div>
+    </div>
+    <div class="article-cards"><a href="/en/governance/frontier/5.1-english-disclosure-mandate/" class="article-card">
+  <span class="article-num">Post 5.1</span>
+  <strong class="article-title">English Disclosure: April 2025 was the starting point, not the finish line</strong>
+  <span class="article-summary">Why simultaneous Japanese/English disclosure for Prime-Market issuers became binding on 1 April 2025, what the FAQ carve-outs say, and how YUHO and convocation notices are queued up as the next two extensions.</span>
+  <span class="article-cta">Read this post →</span>
+</a><a href="/en/governance/frontier/5.2-cross-shareholdings-end-game/" class="article-card">
+  <span class="article-num">Post 5.2</span>
+  <strong class="article-title">The End-Game of Cross-Shareholdings: from comply-or-explain to per-stock verification</strong>
+  <span class="article-summary">From the 1988 peak of mochiai at &gt;50% of TSE market cap to per-stock rationale disclosure in the YUHO today: how cross-shareholding reform moved from soft-law guidance to a board-level annual verification regime, with Toyota Industries as the symbolic dissolution event.</span>
+  <span class="article-cta">Read this post →</span>
+</a><a href="/en/governance/frontier/5.3-listed-subsidiaries/" class="article-card">
+  <span class="article-num">Post 5.3</span>
+  <strong class="article-title">The Toyota Industries Deal Is the End of Keiretsu, in One Transaction</strong>
+  <span class="article-summary">How Japan&#x27;s listed-subsidiary problem was reframed as a minority-protection problem, why the 2019 METI Group Guidelines and 2021 CGC Supplementary Principle 4-8 ③ are the operative texts, and how the Toyota Industries take-private is the template every group-affiliate IR team will now be measured against.</span>
+  <span class="article-cta">Read this post →</span>
+</a><a href="/en/governance/frontier/5.4-mbo-takeover-guidelines/" class="article-card">
+  <span class="article-num">Post 5.4</span>
+  <strong class="article-title">Hostile Is No Longer a Slur: METI&#x27;s 2023 Guidelines for Corporate Takeovers</strong>
+  <span class="article-summary">How METI&#x27;s August 2023 Guidelines for Corporate Takeovers reframed the Japanese M&amp;A market by introducing the &#x27;bona-fide offer&#x27; doctrine, codifying the special-committee/MoM architecture for controlled deals, and triggering a wave of mega-MBOs from Toshiba to Benesse to Taisho to Outsourcing to Infocom.</span>
+  <span class="article-cta">Read this post →</span>
+</a><a href="/en/governance/frontier/5.5-ssbj-sustainability/" class="article-card">
+  <span class="article-num">Post 5.5</span>
+  <strong class="article-title">SSBJ in Action: the three-phase sustainability disclosure roll-out</strong>
+  <span class="article-summary">Japan&#x27;s Sustainability Standards Board issued its three inaugural standards on 5 March 2025, the FSA built a roadmap, and the largest Prime issuers are now operating against a March 2027 first-mandatory-filing deadline. The framework is structurally IFRS S1/S2 with Japan-specific transition reliefs; the rollout is phased; the bridge from Code 3-1 ③ TCFD disclosure to SSBJ statutory disclosure is the operative challenge.</span>
+  <span class="article-cta">Read this post →</span>
+</a><a href="/en/governance/frontier/5.6-board-diversity-30-by-30/" class="article-card">
+  <span class="article-num">Post 5.6</span>
+  <strong class="article-title">&#x27;30% by 2030&#x27; Is a Pipeline Problem</strong>
+  <span class="article-summary">The Japanese government&#x27;s 30%-female-directors-by-2030 target for Prime issuers is a board-composition number resting on a deeper executive-pipeline problem. CGC Supplementary Principle 2-4 ① named the three diversity axes — women, foreign nationals, mid-career hires — in 2021; the 16 June 2023 KPI announcement put a hard date on the headline number; the actual constraint is the talent pool behind it.</span>
+  <span class="article-cta">Read this post →</span>
+</a><a href="/en/governance/frontier/5.7-activism-engagement-2025/" class="article-card">
+  <span class="article-num">Post 5.7</span>
+  <strong class="article-title">Collaborative Engagement After Stewardship Code 3.0</strong>
+  <span class="article-summary">Shareholder proposals broke records in 2024 (453) and again in 2025 (399 at 114 companies). Capital allocation drives half of activist campaigns. The June 2025 Stewardship Code v3.0 explicitly encourages collective engagement and rewrites the 5%-rule expectations; the 2024 FIEA amendments narrow the chilling effect. Foreign and domestic activism are now operating as a coordinated, institutional, normalised feature of the Japanese market.</span>
+  <span class="article-cta">Read this post →</span>
+</a><a href="/en/governance/frontier/5.8-working-groups-landscape/" class="article-card">
+  <span class="article-num">Post 5.8</span>
+  <strong class="article-title">The Working Groups That Are Writing Japan&#x27;s Next Governance Rules</strong>
+  <span class="article-summary">A practical map of the ten active working groups and councils that produce Japanese governance policy. Each entry covers the Japanese and English names, host ministry, chair, mandate, current docket and expected output. This is the file IR teams should bookmark — the next surprise will come from one of these tables.</span>
+  <span class="article-cta">Read this post →</span>
+</a></div>
   </div>
 </section>
-
+<section class="practical-section" style="padding:64px 0;background:var(--bg-soft);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);"><div class="wrap toolbox-panel"><div><div class="curr-eyebrow">Official materials</div><h2>Find the source document</h2><p>Use the source room to check TSE requests, FSA codes, METI guidelines, English-disclosure materials, cost-of-capital disclosure references, and other official documents by topic.</p><a href="/en/governance/toolbox/" class="btn btn-outline" style="margin-top:18px;">Open the source room →</a></div><ul class="toolbox-cats"><li><a href="/en/governance/toolbox/#codes">Check codes and principles</a></li><li><a href="/en/governance/toolbox/#markets">Check market segments and listing standards</a></li><li><a href="/en/governance/toolbox/#capital">Check cost-of-capital disclosure</a></li><li><a href="/en/governance/toolbox/#english-disclosure">Check English disclosure</a></li><li><a href="/en/governance/toolbox/#holdings">Check cross-shareholdings and listed subsidiaries</a></li><li><a href="/en/governance/toolbox/#ma">Check takeover response and M&amp;A</a></li><li><a href="/en/governance/toolbox/#sustainability">Check sustainability disclosure</a></li><li><a href="/en/governance/toolbox/#investor-materials">Check investor-facing materials</a></li></ul></div></section>
+<section class="practical-section" style="padding:64px 0 80px;"><div class="wrap" style="max-width:820px;"><div class="curr-eyebrow">If you are not sure where to start</div><h2>Start with the question you need to answer</h2><div class="path-list"><a href="#theme-4"><strong>I need to explain PBR or cost of capital</strong><br><span>→ Explain cost of capital, PBR, and ROE</span></a><a href="#theme-5"><strong>I need to check English disclosure or simultaneous disclosure</strong><br><span>→ Prepare for the next governance agenda</span></a><a href="#theme-2"><strong>I need to understand CG Reports or Code revisions</strong><br><span>→ Understand the company–investor dialogue rules</span></a><a href="#theme-3"><strong>I need to explain market segments, tradable shares, or TOPIX</strong><br><span>→ Understand market segments and listing standards</span></a></div></div></section>
 <script>
-document.querySelectorAll('.kcheck-q').forEach(q => {
-  const correct = q.dataset.correct;
-  q.querySelectorAll('.kcheck-opt').forEach(btn => {
-    btn.addEventListener('click', () => {
-      if (q.classList.contains('answered')) return;
-      q.classList.add('answered');
-      q.querySelectorAll('.kcheck-opt').forEach(b => {
-        if (b.dataset.opt === correct) b.classList.add('correct');
-        else if (b === btn) b.classList.add('incorrect');
-      });
-      if (btn.dataset.opt === correct) {
-        const scoreEl = document.getElementById('kc-score');
-        scoreEl.textContent = String(parseInt(scoreEl.textContent, 10) + 1);
-      }
-    });
-  });
-});
+(function() {
+  const links = Array.from(document.querySelectorAll('[data-theme-link]'));
+  const sections = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  function setActive(id) { links.forEach(a => { const on = a.getAttribute('href') === '#' + id; a.toggleAttribute('aria-current', on); if (on) a.setAttribute('aria-label', a.textContent.trim() + ' (selected)'); }); }
+  links.forEach(a => a.addEventListener('click', () => setActive(a.getAttribute('href').slice(1))));
+  if ('IntersectionObserver' in window) { const io = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) setActive(e.target.id); }), { rootMargin:'-35% 0px -55% 0px', threshold:0 }); sections.forEach(s => io.observe(s)); }
+})();
 </script>
-
 </main>
 <footer>
   <div class="wrap">
@@ -485,12 +557,12 @@ document.querySelectorAll('.kcheck-q').forEach(q => {
         </ul>
       </div>
       <div class="footer-col">
-        <h2>Governance curriculum</h2>
+        <h2>Governance guide</h2>
         <ul>
-          <li><a href="/en/governance/">Curriculum home</a></li>
+          <li><a href="/en/governance/">Governance home</a></li>
           <li><a href="/en/governance/foundations/">Theme 1 · Foundations</a></li>
           <li><a href="/en/governance/capital-efficiency/">Theme 4 · Capital Efficiency</a></li>
-          <li><a href="/en/governance/toolbox/">IR Toolbox</a></li>
+          <li><a href="/en/governance/toolbox/">Source room</a></li>
         </ul>
       </div>
       <div class="footer-col">

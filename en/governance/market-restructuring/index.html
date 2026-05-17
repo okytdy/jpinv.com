@@ -12,10 +12,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 
-<title>Market Restructuring (Theme 3) | JII Governance Curriculum</title>
-<meta name="description" content="Market Restructuring (April 2022 → 2030 (rolling)) — 5 posts covering this theme of Japan&#x27;s governance reform.">
-<meta property="og:title" content="Market Restructuring (Theme 3) | JII Governance Curriculum">
-<meta property="og:description" content="Market Restructuring (April 2022 → 2030 (rolling)) — 5 posts covering this theme of Japan&#x27;s governance reform.">
+<title>Understand market segments and listing standards | JII</title>
+<meta name="description" content="Prime, Standard, Growth, market restructuring, tradable-share ratios, continued-listing standards, and TOPIX reform from the IR perspective.">
+<meta property="og:title" content="Understand market segments and listing standards | JII">
+<meta property="og:description" content="Prime, Standard, Growth, market restructuring, tradable-share ratios, continued-listing standards, and TOPIX reform from the IR perspective.">
 <meta property="og:url" content="https://jpinv.com/en/governance/market-restructuring/">
 <link rel="canonical" href="https://jpinv.com/en/governance/market-restructuring/">
 <link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/market-restructuring/">
@@ -227,6 +227,23 @@ main.curriculum { padding-top: var(--nav-h); }
 .stat-num { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 300; color: var(--ink-mid); line-height: 1; margin-bottom: 8px; }
 .stat-num em { color: var(--accent-deep); font-weight: 400; font-style: normal; }
 .stat-label { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; }
+
+/* Reader-facing governance redesign */
+.reader-hero { padding: 86px 0 52px; background: linear-gradient(180deg, #fff 0%, var(--bg-soft) 100%); border-bottom: 1px solid var(--rule); }
+.article-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px; }
+.article-card { display:flex; flex-direction:column; gap:10px; padding:22px; border:1px solid var(--rule); background:#fff; color:inherit; text-decoration:none; min-height:230px; }
+.article-card:hover,.article-card:focus-visible{border-color:var(--ink-soft);box-shadow:0 10px 26px rgba(15,31,58,.07);outline:3px solid transparent;}
+.article-card:focus-visible{outline:3px solid var(--accent);outline-offset:3px;}
+.article-num{font-family:var(--mono);font-size:11px;color:var(--accent-deep);letter-spacing:.12em;text-transform:uppercase;}
+.article-title{font-family:var(--serif);font-size:1.08rem;line-height:1.5;color:var(--ink-mid);}
+.article-summary{font-size:.9rem;line-height:1.75;color:var(--text-mid);flex:1;}
+.article-cta{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-soft);text-transform:uppercase;border-top:1px solid var(--rule-soft);padding-top:12px;}
+.theme-overview{padding:52px 0 76px;}
+.theme-overview-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(280px,.45fr);gap:28px;align-items:start;}
+.info-card{background:#fff;border:1px solid var(--rule);padding:22px;margin-bottom:16px;}
+.info-card h2,.info-card h3{font-family:var(--serif);color:var(--ink-mid);font-weight:400;margin-bottom:10px;line-height:1.4;}
+.info-card p{color:var(--text-mid);line-height:1.8;}
+@media(max-width:980px){.theme-overview-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -266,135 +283,34 @@ main.curriculum { padding-top: var(--nav-h); }
   <a href="/en/#contact" class="btn btn-primary mobile-menu-cta" onclick="toggleMenu()">Book a free 30-min call</a>
 </nav>
 <main id="main-content" class="curriculum" tabindex="-1">
-<div class="wrap crumbs">
-  <a href="/en/">JII</a> <span class="sep">/</span>
-  <a href="/en/governance/">Governance Curriculum</a> <span class="sep">/</span>
-  Market Restructuring
-</div>
-<section class="curr-hero">
-  <div class="wrap">
-    <div class="curr-hero-inner">
-      <div class="curr-eyebrow">Theme 3 · April 2022 → 2030 (rolling)</div>
-      <h1>Market Restructuring</h1>
-      <p class="lede">5 posts. Read in order, or jump to whichever post is most relevant to today's work.</p>
-      <div class="curr-hero-meta">
-        <span>Posts: <strong>5</strong></span>
-        <span>Reading time: <strong>~40 min</strong></span>
-        <span>Period: <strong>April 2022 → 2030 (rolling)</strong></span>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="post-body">
-  <div class="wrap">
-    <article class="post-content">
-<h1>Theme 3 · Market Restructuring</h1>
-<h2>Why this theme exists</h2>
-<p>On 4 April 2022, the Tokyo Stock Exchange replaced its four legacy segments (1st Section, 2nd Section, Mothers, JASDAQ) with three new ones (Prime, Standard, Growth). The reform was not cosmetic — it converted Code obligations from "applies to anyone listed" to "applies most stringently to Prime." From that moment, an IR rep's strategic options have been shaped by which segment the company lists on, what the <em>tradable‑share ratio</em> says about the cap table, and what the transitional measures or improvement period mean for the IR programme.</p>
-<p>Theme 3 makes the segment architecture intuitive. By the end you will:</p>
-<ul>
-<li><strong>Know each segment's criteria</strong> — market cap, tradable share threshold, governance, English disclosure.</li>
-<li><strong>Understand the tradable‑share ratio</strong> — the one mechanic that has reshaped Japanese cross‑shareholding strategy more than any other.</li>
-<li><strong>Read the March 2025 transitional‑measures cliff correctly</strong> — including the improvement‑period decision tree.</li>
-<li><strong>Decode TOPIX 2.0</strong> — Phase 1 (Oct 2022 to Jan 2025) and Phase 2 (Oct 2026 to Jul 2028) — and what it means that index inclusion is now decoupled from segment.</li>
-<li><strong>See the 2030 Growth Market cliff coming</strong> — and the three exit options (M&amp;A, transfer to Standard, voluntary delisting) for the ~200 affected companies.</li>
-</ul>
-<h2>The arc in one sentence</h2>
-<blockquote>
-<p>April 2022 created the segments; March 2025 was the first enforcement cliff; October 2026 starts the TOPIX selectivity Phase 2; and 2030 closes the Growth Market loophole — so a competent IR rep should treat the reform as a five‑phase programme, not a one‑off relabel.</p>
-</blockquote>
-<h2>Posts in this theme</h2>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Title</th>
-<th>Visual</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>3.1</td>
-<td><a href="/en/governance/market-restructuring/3.1-four-segments-to-three/">From Four Segments to Three: the April 2022 restructuring</a></td>
-<td>Segment migration sankey</td>
-</tr>
-<tr>
-<td>3.2</td>
-<td><a href="/en/governance/market-restructuring/3.2-tradable-share-ratio/">The Tradable‑Share Ratio</a></td>
-<td>Old vs new tradable‑share definition table</td>
-</tr>
-<tr>
-<td>3.3</td>
-<td><a href="/en/governance/market-restructuring/3.3-transitional-measures-cliff/">The March 2025 Cliff</a></td>
-<td>Improvement‑period decision tree</td>
-</tr>
-<tr>
-<td>3.4</td>
-<td><a href="/en/governance/market-restructuring/3.4-topix-reform/">TOPIX 2.0: from census index to selected universe</a></td>
-<td>Phase 1 / Phase 2 timeline</td>
-</tr>
-<tr>
-<td>3.5</td>
-<td><a href="/en/governance/market-restructuring/3.5-growth-market-2030/">The Growth Market's 2030 Cliff</a></td>
-<td>Old vs new criteria + three exit options</td>
-</tr>
-</tbody>
-</table>
-<h2>Reading order</h2>
-<p>Linear (3.1 → 3.2 → 3.3 → 3.4 → 3.5) is recommended. 3.1 sets the architecture; 3.2 zooms in on the binding criterion that surprises most IR teams; 3.3 explains the first cliff; 3.4 explains the index consequence; 3.5 looks at the next cliff.</p>
-<h2>What you carry into Theme 4</h2>
-<ul>
-<li>A clear mental model of who is on Prime / Standard / Growth and why.</li>
-<li>Sensitivity to <em>tradable‑share ratio</em> as the most pressure‑creating number for IR teams with founder, family, or cross‑held stakes.</li>
-<li>The realisation that <em>the reform is not over</em> — every IR strategy from here on must anticipate ongoing structural change.</li>
-<li>An entry point to Theme 4: the March 2023 cost‑of‑capital request was the Follow‑up Council's first big follow‑on enforcement after the April 2022 segment launch.</li>
-</ul>
-<hr>
-<p><a href="/en/governance/">← Back to Theme 2</a> · <a href="/en/governance/">Continue to Theme 4 →</a> · <a href="/en/governance/">Curriculum index</a></p>
-    </article>
-  </div>
-</section>
-<section class="post-list" style="border-top:1px solid var(--rule); padding-top:48px;">
-  <div class="wrap">
-    <h2 style="font-family:var(--serif); font-size:1.6rem; font-weight:300; color:var(--ink-mid); margin-bottom:24px;">Posts in this theme</h2>
-    <a href="/en/governance/market-restructuring/3.1-four-segments-to-three/" class="post-list-row" style="display:grid; color:inherit; text-decoration:none;">
-  <div class="post-list-num">3.1</div>
-  <div>
-    <div class="post-list-title">From Four Segments to Three: the April 2022 restructuring</div>
-    <div class="post-list-meta" style="margin-top:6px; text-transform:none; letter-spacing:0.04em; color:var(--text-dim);"></div>
-  </div>
-  <div class="post-list-meta">8 min →</div>
-</a><a href="/en/governance/market-restructuring/3.2-tradable-share-ratio/" class="post-list-row" style="display:grid; color:inherit; text-decoration:none;">
-  <div class="post-list-num">3.2</div>
-  <div>
-    <div class="post-list-title">The Tradable-Share Ratio: the one number that reshaped Japanese cross-shareholdings</div>
-    <div class="post-list-meta" style="margin-top:6px; text-transform:none; letter-spacing:0.04em; color:var(--text-dim);"></div>
-  </div>
-  <div class="post-list-meta">8 min →</div>
-</a><a href="/en/governance/market-restructuring/3.3-transitional-measures-cliff/" class="post-list-row" style="display:grid; color:inherit; text-decoration:none;">
-  <div class="post-list-num">3.3</div>
-  <div>
-    <div class="post-list-title">The March 2025 Cliff: end of transitional measures and the new improvement period</div>
-    <div class="post-list-meta" style="margin-top:6px; text-transform:none; letter-spacing:0.04em; color:var(--text-dim);"></div>
-  </div>
-  <div class="post-list-meta">8 min →</div>
-</a><a href="/en/governance/market-restructuring/3.4-topix-reform/" class="post-list-row" style="display:grid; color:inherit; text-decoration:none;">
-  <div class="post-list-num">3.4</div>
-  <div>
-    <div class="post-list-title">TOPIX 2.0: from census index to selected universe</div>
-    <div class="post-list-meta" style="margin-top:6px; text-transform:none; letter-spacing:0.04em; color:var(--text-dim);"></div>
-  </div>
-  <div class="post-list-meta">8 min →</div>
-</a><a href="/en/governance/market-restructuring/3.5-growth-market-2030/" class="post-list-row" style="display:grid; color:inherit; text-decoration:none;">
-  <div class="post-list-num">3.5</div>
-  <div>
-    <div class="post-list-title">The Growth Market&#x27;s 2030 Cliff: why ~200 listed startups must cross JPY 10 bn</div>
-    <div class="post-list-meta" style="margin-top:6px; text-transform:none; letter-spacing:0.04em; color:var(--text-dim);"></div>
-  </div>
-  <div class="post-list-meta">8 min →</div>
-</a>
-  </div>
-</section>
+<div class="wrap crumbs"><a href="/en/">JII</a> <span class="sep">/</span> <a href="/en/governance/">Governance</a> <span class="sep">/</span> Theme 3</div>
+<section class="reader-hero"><div class="wrap"><div class="curr-hero-inner"><div class="curr-eyebrow">Theme 3 · Market Restructuring · 2022 → 2025</div><h1>Understand market segments and listing standards</h1><p class="lede">Prime, Standard, Growth, market restructuring, tradable-share ratios, continued-listing standards, and TOPIX reform from the IR perspective.</p><p class="lede" style="font-size:.98rem;color:var(--text-mid);">This theme explains how market restructuring, tradable-share-ratio rules, transitional-measure deadlines, and TOPIX reform changed listed-company expectations.</p></div></div></section>
+<section class="theme-overview"><div class="wrap theme-overview-grid"><div><div class="info-card"><h2>What this theme helps you explain</h2><p>This theme explains how market restructuring, tradable-share-ratio rules, transitional-measure deadlines, and TOPIX reform changed listed-company expectations.</p></div><div class="info-card"><h2>Where this comes up in IR work</h2><p>Use this theme when briefing management or investors on market segment choice, continued-listing standards, tradable shares, or index implications.</p></div><div class="info-card"><h2>Articles</h2><div class="article-cards"><a href="/en/governance/market-restructuring/3.1-four-segments-to-three/" class="article-card">
+  <span class="article-num">Post 3.1</span>
+  <strong class="article-title">From Four Segments to Three: the April 2022 restructuring</strong>
+  <span class="article-summary">The April 2022 market restructuring replaced the old four-section structure with Prime, Standard, and Growth, and reset the language of listing quality.</span>
+  <span class="article-cta">Read this post →</span>
+</a><a href="/en/governance/market-restructuring/3.2-tradable-share-ratio/" class="article-card">
+  <span class="article-num">Post 3.2</span>
+  <strong class="article-title">The Tradable-Share Ratio: the one number that reshaped Japanese cross-shareholdings</strong>
+  <span class="article-summary">The tradable-share-ratio definition turned cross-shareholdings and stable shareholders into a practical listing-standard issue.</span>
+  <span class="article-cta">Read this post →</span>
+</a><a href="/en/governance/market-restructuring/3.3-transitional-measures-cliff/" class="article-card">
+  <span class="article-num">Post 3.3</span>
+  <strong class="article-title">The March 2025 Cliff: end of transitional measures and the new improvement period</strong>
+  <span class="article-summary">The end of transitional measures in March 2025 made continued-listing standards a live IR and management issue rather than a relabelling exercise.</span>
+  <span class="article-cta">Read this post →</span>
+</a><a href="/en/governance/market-restructuring/3.4-topix-reform/" class="article-card">
+  <span class="article-num">Post 3.4</span>
+  <strong class="article-title">TOPIX 2.0: from census index to selected universe</strong>
+  <span class="article-summary">TOPIX reform moved the index away from an all-company census toward a selected universe, changing the passive-investor implications of listing status.</span>
+  <span class="article-cta">Read this post →</span>
+</a><a href="/en/governance/market-restructuring/3.5-growth-market-2030/" class="article-card">
+  <span class="article-num">Post 3.5</span>
+  <strong class="article-title">The Growth Market&#x27;s 2030 Cliff: why ~200 listed startups must cross JPY 10 bn</strong>
+  <span class="article-summary">Growth Market reform gives listed startups until 2030 to show scale, liquidity, or a credible route to a different market position.</span>
+  <span class="article-cta">Read this post →</span>
+</a></div></div></div><aside><div class="info-card"><h3>If you read one first</h3><p>Start with 3.1 for the overall restructuring, then read 3.2 for the tradable-share-ratio definition.</p></div><div class="info-card"><h3>Related official materials</h3><p>TSE market restructuring materials, continued-listing standards, tradable-share-ratio guidance, and TOPIX reform materials.</p><p><a href="/en/governance/toolbox/">Check the source room →</a></p></div><div class="info-card"><h3>Theme information</h3><p>Post range: 3.1–3.5<br>Period: 2022 → 2025<br>Official theme name: Market Restructuring</p></div></aside></div></section>
 </main>
 <footer>
   <div class="wrap">
@@ -413,12 +329,12 @@ main.curriculum { padding-top: var(--nav-h); }
         </ul>
       </div>
       <div class="footer-col">
-        <h2>Governance curriculum</h2>
+        <h2>Governance guide</h2>
         <ul>
-          <li><a href="/en/governance/">Curriculum home</a></li>
+          <li><a href="/en/governance/">Governance home</a></li>
           <li><a href="/en/governance/foundations/">Theme 1 · Foundations</a></li>
           <li><a href="/en/governance/capital-efficiency/">Theme 4 · Capital Efficiency</a></li>
-          <li><a href="/en/governance/toolbox/">IR Toolbox</a></li>
+          <li><a href="/en/governance/toolbox/">Source room</a></li>
         </ul>
       </div>
       <div class="footer-col">
