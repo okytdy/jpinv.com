@@ -152,29 +152,43 @@
   .placeholder .label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 8px; }
   .placeholder .msg { font-family: var(--serif); font-size: 1rem; color: var(--text-mid); line-height: 1.75; max-width: 320px; }
 
-  /* Company-call CTA */
-  .company-call-cta { padding: 54px 0 0; }
-  .company-call-card { position: relative; overflow: hidden; background: linear-gradient(135deg, #ffffff 0%, var(--bg-soft) 100%); border: 1px solid var(--rule); border-left: 3px solid var(--accent); padding: 32px 36px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 28px; align-items: center; box-shadow: 0 12px 30px rgba(15,31,58,0.045); }
+  /* Company-call request form */
+  .company-call-cta { margin-top: 42px; }
+  .company-call-card { position: relative; overflow: hidden; background: linear-gradient(135deg, #ffffff 0%, var(--bg-soft) 100%); border: 1px solid var(--rule); border-left: 3px solid var(--accent); padding: 32px 36px; display: grid; grid-template-columns: minmax(260px, 0.78fr) minmax(0, 1.22fr); gap: 32px; align-items: start; box-shadow: 0 12px 30px rgba(15,31,58,0.045); }
   .company-call-card::before { content:''; position: absolute; right: -80px; top: -120px; width: 260px; height: 260px; border: 1px solid rgba(176,138,74,0.18); border-radius: 50%; pointer-events: none; }
-  .company-call-copy { position: relative; z-index: 2; }
+  .company-call-copy, .company-call-form-wrap { position: relative; z-index: 2; }
   .company-call-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.24em; color: var(--accent-deep); text-transform: uppercase; margin-bottom: 9px; font-weight: 500; }
   .company-call-title { font-family: var(--serif); font-size: 1.42rem; font-weight: 300; color: var(--ink-mid); line-height: 1.45; margin: 0 0 10px; letter-spacing: 0.02em; }
-  .company-call-body { font-family: var(--sans); font-size: 13.8px; line-height: 1.8; color: var(--text-mid); margin: 0; max-width: 760px; }
+  .company-call-body { font-family: var(--sans); font-size: 13.8px; line-height: 1.8; color: var(--text-mid); margin: 0; }
   .company-call-body b { color: var(--ink-mid); font-weight: 500; }
   .company-call-terms { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
   .company-call-pill { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.13em; color: var(--ink-soft); text-transform: uppercase; border: 1px solid var(--rule); background: rgba(255,255,255,0.72); padding: 6px 9px; }
-  .company-call-actions { position: relative; z-index: 2; display: flex; flex-direction: column; gap: 10px; min-width: 250px; }
-  .company-call-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 22px; background: var(--ink-mid); border: 1px solid var(--ink-mid); color: #fff; font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: 0.06em; text-align: center; transition: all 0.18s; }
-  .company-call-btn:hover { background: var(--ink); border-color: var(--ink); color: #fff; }
-  .company-call-secondary { background: transparent; color: var(--ink-mid); }
-  .company-call-secondary:hover { background: var(--bg-soft); color: var(--ink); border-color: var(--accent); }
+  .company-call-form { background: rgba(255,255,255,0.84); border: 1px solid var(--rule-soft); padding: 22px; }
+  .company-call-form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  .company-call-field.full { grid-column: 1 / -1; }
+  .company-call-field label { display: block; font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px; }
+  .company-call-required { color: var(--bad); letter-spacing: 0; margin-left: 3px; }
+  .company-call-field input, .company-call-field select, .company-call-field textarea { width: 100%; background: var(--bg-soft); color: var(--text); border: 1px solid var(--rule); padding: 10px 12px; font-family: var(--sans); font-size: 13px; line-height: 1.45; border-radius: 0; }
+  .company-call-field textarea { min-height: 92px; resize: vertical; }
+  .company-call-field select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--ink-mid) 50%), linear-gradient(135deg, var(--ink-mid) 50%, transparent 50%); background-position: calc(100% - 17px) 50%, calc(100% - 12px) 50%; background-size: 5px 5px, 5px 5px; background-repeat: no-repeat; padding-right: 32px; }
+  .company-call-submit { width: 100%; margin-top: 16px; display: inline-flex; align-items: center; justify-content: center; padding: 13px 22px; background: var(--ink-mid); border: 1px solid var(--ink-mid); color: #fff; font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: 0.06em; cursor: pointer; transition: all 0.18s; }
+  .company-call-submit:hover { background: var(--ink); border-color: var(--ink); }
+  .company-call-submit:disabled { opacity: 0.65; cursor: wait; }
+  .company-call-status { min-height: 1.5em; margin: 10px 0 0; font-size: 12px; line-height: 1.6; color: var(--text-dim); }
+  .company-call-status[data-state="error"] { color: var(--bad); }
+  .company-call-status[data-state="success"] { color: var(--ok); }
+  .company-call-help { margin: 8px 0 0; font-size: 11.5px; line-height: 1.6; color: var(--text-dim); }
+  .company-call-help a { border-bottom: 1px solid var(--rule); }
+  .company-call-success { background: rgba(255,255,255,0.84); border: 1px solid var(--rule-soft); padding: 22px; }
+  .company-call-success h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 300; color: var(--ink-mid); margin: 0 0 8px; }
+  .company-call-success p { margin: 0; color: var(--text-mid); font-size: 13px; line-height: 1.7; }
 
-  @media (max-width: 760px) {
-    .company-call-cta { padding-top: 38px; }
-    .company-call-card { grid-template-columns: 1fr; padding: 24px 22px; gap: 20px; }
+  @media (max-width: 860px) {
+    .company-call-card { grid-template-columns: 1fr; padding: 24px 22px; gap: 22px; }
     .company-call-title { font-size: 1.2rem; }
-    .company-call-actions { min-width: 0; width: 100%; }
-    .company-call-btn { width: 100%; }
+  }
+  @media (max-width: 560px) {
+    .company-call-form-grid { grid-template-columns: 1fr; }
   }
 
   .substack-cta { margin-top: 50px; padding: 32px 36px; background: var(--bg-soft); border: 1px solid var(--rule); border-left: 3px solid var(--accent); display: flex; gap: 28px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
@@ -274,27 +288,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   </div>
 </section>
 
-<section class="company-call-cta" id="company-call-request" aria-label="企業面談リクエスト">
-  <div class="wrap">
-    <div class="company-call-card">
-      <div class="company-call-copy">
-        <div class="company-call-eyebrow">Company access · Institutional investors</div>
-        <h2 class="company-call-title">話を聞きたい日本企業が見つかったら。</h2>
-        <p class="company-call-body">銘柄コードまたは会社名をお知らせください。JII Compoundersのユニバース掲載企業でも、未掲載企業でも受け付けます。機関投資家からのご依頼であれば、<b>面談設定そのものは無料</b>です。通訳を伴う企業面談は有料で、料金はご依頼頻度・範囲により変わるため、まずは必須の<b>15分ブリーフィング</b>で対象企業、目的、進め方を確認します。</p>
-        <div class="company-call-terms" aria-label="リクエストの流れ">
-          <span class="company-call-pill">日本上場企業全般</span>
-          <span class="company-call-pill">機関投資家は設定無料</span>
-          <span class="company-call-pill">通訳は有料</span>
-          <span class="company-call-pill">初回15分確認</span>
-        </div>
-      </div>
-      <div class="company-call-actions">
-        <a class="company-call-btn" href="mailto:info@jpinv.com?subject=Compounders%20company%20call%20request&body=JII%E5%BE%A1%E4%B8%AD%0A%0A%E4%BC%81%E6%A5%AD%E9%9D%A2%E8%AB%87%E8%A8%AD%E5%AE%9A%E3%81%AB%E9%96%A2%E3%81%99%E3%82%8B15%E5%88%86%E3%83%96%E3%83%AA%E3%83%BC%E3%83%95%E3%82%A3%E3%83%B3%E3%82%B0%E3%82%92%E5%B8%8C%E6%9C%9B%E3%81%97%E3%81%BE%E3%81%99%E3%80%82%0A%0A%E3%81%94%E6%B0%8F%E5%90%8D%EF%BC%9A%0A%E6%A9%9F%E9%96%A2%E5%90%8D%EF%BC%9A%0A%E5%BD%B9%E8%81%B7%EF%BC%9A%0A%E9%9D%A2%E8%AB%87%E5%B8%8C%E6%9C%9B%E4%BC%81%E6%A5%AD%E3%83%BB%E9%8A%98%E6%9F%84%E3%82%B3%E3%83%BC%E3%83%89%EF%BC%9A%0ACompounders%E3%83%A6%E3%83%8B%E3%83%90%E3%83%BC%E3%82%B9%E6%8E%B2%E8%BC%89%E6%9C%89%E7%84%A1%EF%BC%9A%0A15%E5%88%86%E3%83%96%E3%83%AA%E3%83%BC%E3%83%95%E3%82%A3%E3%83%B3%E3%82%B0%E5%80%99%E8%A3%9C%E6%97%A5%E6%99%82%EF%BC%9A%0A%0A%E3%82%88%E3%82%8D%E3%81%97%E3%81%8F%E3%81%8A%E9%A1%98%E3%81%84%E3%81%84%E3%81%9F%E3%81%97%E3%81%BE%E3%81%99%E3%80%82">15分ブリーフィングを依頼 →</a>
-        <a class="company-call-btn company-call-secondary" href="/compounders/universe/">ユニバースを見る</a>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <section class="gallery">
   <div class="wrap">
@@ -410,6 +404,75 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
     </div>
 
+
+    <section class="company-call-cta" id="company-call-request" aria-label="企業面談リクエスト">
+      <div class="company-call-card">
+        <div class="company-call-copy">
+          <div class="company-call-eyebrow">Company access · Institutional investors</div>
+          <h2 class="company-call-title">面談したい日本企業がありますか。</h2>
+          <p class="company-call-body">銘柄コードまたは会社名をお知らせください。ユニバース内外を問わず確認します。機関投資家の面談設定は<b>無料</b>、通訳・同席は有料です。料金は頻度と範囲で変わるため、まず<b>15分の事前確認</b>をお願いします。</p>
+          <div class="company-call-terms" aria-label="リクエストの流れ">
+            <span class="company-call-pill">ユニバース内外可</span>
+            <span class="company-call-pill">機関投資家は設定無料</span>
+            <span class="company-call-pill">通訳・同席は有料</span>
+            <span class="company-call-pill">初回15分確認</span>
+          </div>
+        </div>
+        <div class="company-call-form-wrap">
+          <form class="company-call-form" id="company-call-form" action="https://formspree.io/f/mdayglyl" method="POST">
+            <input type="hidden" name="_subject" value="Compounders company call request">
+            <input type="hidden" name="service_type" value="company_call">
+            <input type="hidden" name="form_source" value="compounders_ja">
+            <div class="company-call-form-grid">
+              <div class="company-call-field">
+                <label for="cc_fund_name">ファンド名 / 機関名<span class="company-call-required" aria-hidden="true">*</span></label>
+                <input id="cc_fund_name" name="fund_name" type="text" autocomplete="organization" required>
+              </div>
+              <div class="company-call-field">
+                <label for="cc_contact_name">お名前<span class="company-call-required" aria-hidden="true">*</span></label>
+                <input id="cc_contact_name" name="contact_name" type="text" autocomplete="name" required>
+              </div>
+              <div class="company-call-field">
+                <label for="cc_email">メール<span class="company-call-required" aria-hidden="true">*</span></label>
+                <input id="cc_email" name="email" type="email" autocomplete="email" required>
+              </div>
+              <div class="company-call-field">
+                <label for="cc_role">役職</label>
+                <input id="cc_role" name="role" type="text" autocomplete="organization-title">
+              </div>
+              <div class="company-call-field">
+                <label for="cc_company">面談希望企業 / コード<span class="company-call-required" aria-hidden="true">*</span></label>
+                <input id="cc_company" name="target_company" type="text" placeholder="例：4776 / サイボウズ" required>
+              </div>
+              <div class="company-call-field">
+                <label for="cc_universe">ユニバース掲載</label>
+                <select id="cc_universe" name="compounders_universe_status">
+                  <option value="not_sure">不明</option>
+                  <option value="yes">掲載あり</option>
+                  <option value="no">掲載なし</option>
+                </select>
+              </div>
+              <div class="company-call-field full">
+                <label for="cc_times">15分確認の候補日時<span class="company-call-required" aria-hidden="true">*</span></label>
+                <input id="cc_times" name="preferred_briefing_times" type="text" placeholder="タイムゾーンもご記入ください" required>
+              </div>
+              <div class="company-call-field full">
+                <label for="cc_context">補足</label>
+                <textarea id="cc_context" name="message" placeholder="投資背景、想定頻度、通訳の要否、企業に聞きたい論点など。"></textarea>
+              </div>
+            </div>
+            <button class="company-call-submit" id="company-call-submit" type="submit">15分確認を依頼する →</button>
+            <p class="company-call-status" id="company-call-status" role="status" aria-live="polite" aria-atomic="true"></p>
+            <p class="company-call-help">送信できない場合は、同じ内容を <a href="mailto:info@jpinv.com">info@jpinv.com</a> までお送りください。</p>
+          </form>
+          <div class="company-call-success" id="company-call-success" hidden tabindex="-1">
+            <h3>リクエストを受け付けました。</h3>
+            <p>ありがとうございます。15分の事前確認について、折り返しご連絡します。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <div class="substack-cta">
       <div class="substack-cta-text">
         <div class="substack-cta-eyebrow">英語配信 · Substack</div>
@@ -461,6 +524,52 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 </footer>
 
 <script>
+  // Company-call request form: submit to the same Formspree inbox used by the main contact form.
+  (function () {
+    var form = document.getElementById('company-call-form');
+    if (!form || !window.FormData || !window.fetch) return;
+    var submit = document.getElementById('company-call-submit');
+    var status = document.getElementById('company-call-status');
+    var success = document.getElementById('company-call-success');
+    var isJa = document.documentElement.lang === 'ja';
+    var defaultLabel = submit ? submit.textContent : '';
+    var messages = isJa ? {
+      sending: '送信しています…',
+      success: '送信しました。折り返しご連絡します。',
+      failed: '送信できませんでした。時間をおいて再度お試しください。',
+      network: 'ネットワークエラーです。送信できない場合はメールでお送りください。'
+    } : {
+      sending: 'Sending…',
+      success: 'Sent. We will reply with next steps.',
+      failed: 'Submission failed. Please try again in a moment.',
+      network: 'Network error. If the form does not work, please email us directly.'
+    };
+    function setStatus(message, state) {
+      if (!status) return;
+      status.textContent = message || '';
+      if (state) status.dataset.state = state;
+      else delete status.dataset.state;
+    }
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (form.reportValidity && !form.reportValidity()) return;
+      if (submit) { submit.disabled = true; submit.textContent = messages.sending; }
+      setStatus(messages.sending);
+      fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+        .then(function (res) {
+          if (!res.ok) throw new Error('Form submission failed');
+          form.reset();
+          form.hidden = true;
+          if (success) { success.hidden = false; success.focus(); }
+          setStatus(messages.success, 'success');
+        })
+        .catch(function (err) {
+          setStatus(err && err.message ? messages.failed : messages.network, 'error');
+          if (submit) { submit.disabled = false; submit.textContent = defaultLabel; }
+        });
+    });
+  })();
+
   (function () {
     var grid = document.getElementById('profile-grid');
     if (!grid) return;

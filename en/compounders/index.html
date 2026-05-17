@@ -158,29 +158,43 @@
   .placeholder .msg { font-family: var(--serif); font-size: 1rem; color: var(--text-mid); line-height: 1.55; max-width: 320px; }
 
 
-  /* Company-call CTA */
-  .company-call-cta { padding: 54px 0 0; }
-  .company-call-card { position: relative; overflow: hidden; background: linear-gradient(135deg, #ffffff 0%, var(--bg-soft) 100%); border: 1px solid var(--rule); border-left: 3px solid var(--accent); padding: 32px 36px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 28px; align-items: center; box-shadow: 0 12px 30px rgba(15,31,58,0.045); }
+  /* Company-call request form */
+  .company-call-cta { margin-top: 42px; }
+  .company-call-card { position: relative; overflow: hidden; background: linear-gradient(135deg, #ffffff 0%, var(--bg-soft) 100%); border: 1px solid var(--rule); border-left: 3px solid var(--accent); padding: 32px 36px; display: grid; grid-template-columns: minmax(260px, 0.78fr) minmax(0, 1.22fr); gap: 32px; align-items: start; box-shadow: 0 12px 30px rgba(15,31,58,0.045); }
   .company-call-card::before { content:''; position: absolute; right: -80px; top: -120px; width: 260px; height: 260px; border: 1px solid rgba(176,138,74,0.18); border-radius: 50%; pointer-events: none; }
-  .company-call-copy { position: relative; z-index: 2; }
+  .company-call-copy, .company-call-form-wrap { position: relative; z-index: 2; }
   .company-call-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.24em; color: var(--accent-deep); text-transform: uppercase; margin-bottom: 9px; font-weight: 500; }
   .company-call-title { font-family: var(--serif); font-size: 1.42rem; font-weight: 300; color: var(--ink-mid); line-height: 1.45; margin: 0 0 10px; letter-spacing: 0.02em; }
-  .company-call-body { font-family: var(--sans); font-size: 13.8px; line-height: 1.8; color: var(--text-mid); margin: 0; max-width: 760px; }
+  .company-call-body { font-family: var(--sans); font-size: 13.8px; line-height: 1.8; color: var(--text-mid); margin: 0; }
   .company-call-body b { color: var(--ink-mid); font-weight: 500; }
   .company-call-terms { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
   .company-call-pill { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.13em; color: var(--ink-soft); text-transform: uppercase; border: 1px solid var(--rule); background: rgba(255,255,255,0.72); padding: 6px 9px; }
-  .company-call-actions { position: relative; z-index: 2; display: flex; flex-direction: column; gap: 10px; min-width: 250px; }
-  .company-call-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 22px; background: var(--ink-mid); border: 1px solid var(--ink-mid); color: #fff; font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: 0.06em; text-align: center; transition: all 0.18s; }
-  .company-call-btn:hover { background: var(--ink); border-color: var(--ink); color: #fff; }
-  .company-call-secondary { background: transparent; color: var(--ink-mid); }
-  .company-call-secondary:hover { background: var(--bg-soft); color: var(--ink); border-color: var(--accent); }
+  .company-call-form { background: rgba(255,255,255,0.84); border: 1px solid var(--rule-soft); padding: 22px; }
+  .company-call-form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  .company-call-field.full { grid-column: 1 / -1; }
+  .company-call-field label { display: block; font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px; }
+  .company-call-required { color: var(--bad); letter-spacing: 0; margin-left: 3px; }
+  .company-call-field input, .company-call-field select, .company-call-field textarea { width: 100%; background: var(--bg-soft); color: var(--text); border: 1px solid var(--rule); padding: 10px 12px; font-family: var(--sans); font-size: 13px; line-height: 1.45; border-radius: 0; }
+  .company-call-field textarea { min-height: 92px; resize: vertical; }
+  .company-call-field select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--ink-mid) 50%), linear-gradient(135deg, var(--ink-mid) 50%, transparent 50%); background-position: calc(100% - 17px) 50%, calc(100% - 12px) 50%; background-size: 5px 5px, 5px 5px; background-repeat: no-repeat; padding-right: 32px; }
+  .company-call-submit { width: 100%; margin-top: 16px; display: inline-flex; align-items: center; justify-content: center; padding: 13px 22px; background: var(--ink-mid); border: 1px solid var(--ink-mid); color: #fff; font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: 0.06em; cursor: pointer; transition: all 0.18s; }
+  .company-call-submit:hover { background: var(--ink); border-color: var(--ink); }
+  .company-call-submit:disabled { opacity: 0.65; cursor: wait; }
+  .company-call-status { min-height: 1.5em; margin: 10px 0 0; font-size: 12px; line-height: 1.6; color: var(--text-dim); }
+  .company-call-status[data-state="error"] { color: var(--bad); }
+  .company-call-status[data-state="success"] { color: var(--ok); }
+  .company-call-help { margin: 8px 0 0; font-size: 11.5px; line-height: 1.6; color: var(--text-dim); }
+  .company-call-help a { border-bottom: 1px solid var(--rule); }
+  .company-call-success { background: rgba(255,255,255,0.84); border: 1px solid var(--rule-soft); padding: 22px; }
+  .company-call-success h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 300; color: var(--ink-mid); margin: 0 0 8px; }
+  .company-call-success p { margin: 0; color: var(--text-mid); font-size: 13px; line-height: 1.7; }
 
-  @media (max-width: 760px) {
-    .company-call-cta { padding-top: 38px; }
-    .company-call-card { grid-template-columns: 1fr; padding: 24px 22px; gap: 20px; }
+  @media (max-width: 860px) {
+    .company-call-card { grid-template-columns: 1fr; padding: 24px 22px; gap: 22px; }
     .company-call-title { font-size: 1.2rem; }
-    .company-call-actions { min-width: 0; width: 100%; }
-    .company-call-btn { width: 100%; }
+  }
+  @media (max-width: 560px) {
+    .company-call-form-grid { grid-template-columns: 1fr; }
   }
 
   /* Substack CTA */
@@ -283,27 +297,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   </div>
 </section>
 
-<section class="company-call-cta" id="company-call-request" aria-label="Request a company call">
-  <div class="wrap">
-    <div class="company-call-card">
-      <div class="company-call-copy">
-        <div class="company-call-eyebrow">Company access · Institutional investors</div>
-        <h2 class="company-call-title">Found a Japanese company you want to speak with?</h2>
-        <p class="company-call-body">Tell us the ticker or company name — whether it is already in the Compounders universe or not. For eligible institutional investors, <b>arranging the introduction is free</b>. The interpreted company call itself is fee-based, and pricing depends on expected frequency and scope, so we first hold a <b>required 15-minute briefing call</b> to confirm fit, context, and next steps.</p>
-        <div class="company-call-terms" aria-label="How the request works">
-          <span class="company-call-pill">Any Japanese listed company</span>
-          <span class="company-call-pill">Free setup for institutions</span>
-          <span class="company-call-pill">Paid interpretation</span>
-          <span class="company-call-pill">15-min briefing first</span>
-        </div>
-      </div>
-      <div class="company-call-actions">
-        <a class="company-call-btn" href="mailto:info@jpinv.com?subject=Compounders%20company%20call%20request&body=Hello%20JII%2C%0A%0AI%20would%20like%20to%20request%20a%2015-minute%20briefing%20about%20setting%20up%20a%20company%20call.%0A%0AName%3A%0AInstitution%3A%0ARole%3A%0ACompany%20or%20ticker%20of%20interest%3A%0AIs%20this%20company%20in%20the%20Compounders%20universe%3F%3A%0APreferred%20times%20for%20the%2015-minute%20briefing%3A%0A%0AThank%20you.">Request the 15-min briefing →</a>
-        <a class="company-call-btn company-call-secondary" href="/en/compounders/universe/">Check the universe</a>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <section class="gallery">
   <div class="wrap">
@@ -419,6 +413,75 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
     </div>
 
+
+    <section class="company-call-cta" id="company-call-request" aria-label="Request a company call">
+      <div class="company-call-card">
+        <div class="company-call-copy">
+          <div class="company-call-eyebrow">Company access · Institutional investors</div>
+          <h2 class="company-call-title">Request a company call.</h2>
+          <p class="company-call-body">Want to speak with a Japanese listed company after reviewing our profiles, methodology, or universe? Send the company name or ticker — in our universe or not. For eligible institutional investors, <b>setup is free</b>. Interpretation / attendance is fee-based, so we first confirm context, scope, and frequency in a <b>required 15-minute briefing</b>.</p>
+          <div class="company-call-terms" aria-label="How the request works">
+            <span class="company-call-pill">Universe or off-universe</span>
+            <span class="company-call-pill">Free setup for institutions</span>
+            <span class="company-call-pill">Paid interpretation</span>
+            <span class="company-call-pill">15-min briefing first</span>
+          </div>
+        </div>
+        <div class="company-call-form-wrap">
+          <form class="company-call-form" id="company-call-form" action="https://formspree.io/f/mdayglyl" method="POST">
+            <input type="hidden" name="_subject" value="Compounders company call request">
+            <input type="hidden" name="service_type" value="company_call">
+            <input type="hidden" name="form_source" value="compounders_en">
+            <div class="company-call-form-grid">
+              <div class="company-call-field">
+                <label for="cc_fund_name">Fund / institution<span class="company-call-required" aria-hidden="true">*</span></label>
+                <input id="cc_fund_name" name="fund_name" type="text" autocomplete="organization" required>
+              </div>
+              <div class="company-call-field">
+                <label for="cc_contact_name">Your name<span class="company-call-required" aria-hidden="true">*</span></label>
+                <input id="cc_contact_name" name="contact_name" type="text" autocomplete="name" required>
+              </div>
+              <div class="company-call-field">
+                <label for="cc_email">Email<span class="company-call-required" aria-hidden="true">*</span></label>
+                <input id="cc_email" name="email" type="email" autocomplete="email" required>
+              </div>
+              <div class="company-call-field">
+                <label for="cc_role">Role</label>
+                <input id="cc_role" name="role" type="text" autocomplete="organization-title">
+              </div>
+              <div class="company-call-field">
+                <label for="cc_company">Company / ticker<span class="company-call-required" aria-hidden="true">*</span></label>
+                <input id="cc_company" name="target_company" type="text" placeholder="e.g. 4776 / Cybozu" required>
+              </div>
+              <div class="company-call-field">
+                <label for="cc_universe">In our universe?</label>
+                <select id="cc_universe" name="compounders_universe_status">
+                  <option value="not_sure">Not sure</option>
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
+                </select>
+              </div>
+              <div class="company-call-field full">
+                <label for="cc_times">Preferred 15-min briefing times<span class="company-call-required" aria-hidden="true">*</span></label>
+                <input id="cc_times" name="preferred_briefing_times" type="text" placeholder="Include timezone" required>
+              </div>
+              <div class="company-call-field full">
+                <label for="cc_context">Context</label>
+                <textarea id="cc_context" name="message" placeholder="Investment context, desired frequency, interpretation needs, or questions for the company."></textarea>
+              </div>
+            </div>
+            <button class="company-call-submit" id="company-call-submit" type="submit">Request the 15-minute briefing →</button>
+            <p class="company-call-status" id="company-call-status" role="status" aria-live="polite" aria-atomic="true"></p>
+            <p class="company-call-help">If the form does not work, email the same details to <a href="mailto:info@jpinv.com">info@jpinv.com</a>.</p>
+          </form>
+          <div class="company-call-success" id="company-call-success" hidden tabindex="-1">
+            <h3>Request received.</h3>
+            <p>Thank you. We will reply with next steps for the 15-minute briefing.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Substack CTA replaces the contact-form subscription path -->
     <div class="substack-cta">
       <div class="substack-cta-text">
@@ -475,6 +538,52 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 </footer>
 
 <script>
+  // Company-call request form: submit to the same Formspree inbox used by the main contact form.
+  (function () {
+    var form = document.getElementById('company-call-form');
+    if (!form || !window.FormData || !window.fetch) return;
+    var submit = document.getElementById('company-call-submit');
+    var status = document.getElementById('company-call-status');
+    var success = document.getElementById('company-call-success');
+    var isJa = document.documentElement.lang === 'ja';
+    var defaultLabel = submit ? submit.textContent : '';
+    var messages = isJa ? {
+      sending: '送信しています…',
+      success: '送信しました。折り返しご連絡します。',
+      failed: '送信できませんでした。時間をおいて再度お試しください。',
+      network: 'ネットワークエラーです。送信できない場合はメールでお送りください。'
+    } : {
+      sending: 'Sending…',
+      success: 'Sent. We will reply with next steps.',
+      failed: 'Submission failed. Please try again in a moment.',
+      network: 'Network error. If the form does not work, please email us directly.'
+    };
+    function setStatus(message, state) {
+      if (!status) return;
+      status.textContent = message || '';
+      if (state) status.dataset.state = state;
+      else delete status.dataset.state;
+    }
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (form.reportValidity && !form.reportValidity()) return;
+      if (submit) { submit.disabled = true; submit.textContent = messages.sending; }
+      setStatus(messages.sending);
+      fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+        .then(function (res) {
+          if (!res.ok) throw new Error('Form submission failed');
+          form.reset();
+          form.hidden = true;
+          if (success) { success.hidden = false; success.focus(); }
+          setStatus(messages.success, 'success');
+        })
+        .catch(function (err) {
+          setStatus(err && err.message ? messages.failed : messages.network, 'error');
+          if (submit) { submit.disabled = false; submit.textContent = defaultLabel; }
+        });
+    });
+  })();
+
   // Gallery sort: by date (latest first) or by ticker (ascending numeric).
   // Persists choice in localStorage.
   (function () {
