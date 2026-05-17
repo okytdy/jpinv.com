@@ -70,7 +70,7 @@ jobs:
             echo "changed=true" >> "$GITHUB_OUTPUT"
             # Best-effort count of newly-added rows in feed.json for the run summary.
             # Counts lines starting with the row id sentinel; tolerates missing files.
-            added=$(git diff --unified=0 -- compounders/feed/data/feed.json 2>/dev/null                     | grep -E '^\+\s*"id":' | wc -l | tr -d ' ')
+            added=$(git diff --unified=0 -- compounders/feed/data/feed.json 2>/dev/null | grep -cE '^\+\s*"id":' || true)
             echo "added=${added:-0}" >> "$GITHUB_OUTPUT"
           else
             echo "changed=false" >> "$GITHUB_OUTPUT"
