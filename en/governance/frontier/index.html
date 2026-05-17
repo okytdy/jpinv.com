@@ -12,10 +12,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 
-<title>The Frontier (Theme 5) | JII Governance Curriculum</title>
-<meta name="description" content="The Frontier (2024 → 2027) — 8 posts covering this theme of Japan&#x27;s governance reform.">
-<meta property="og:title" content="The Frontier (Theme 5) | JII Governance Curriculum">
-<meta property="og:description" content="The Frontier (2024 → 2027) — 8 posts covering this theme of Japan&#x27;s governance reform.">
+<title>Prepare for the next governance agenda | JII</title>
+<meta name="description" content="English disclosure, cross-shareholdings, listed subsidiaries, takeover response, SSBJ, board diversity, activism, and active policy working groups.">
+<meta property="og:title" content="Prepare for the next governance agenda | JII">
+<meta property="og:description" content="English disclosure, cross-shareholdings, listed subsidiaries, takeover response, SSBJ, board diversity, activism, and active policy working groups.">
 <meta property="og:url" content="https://jpinv.com/en/governance/frontier/">
 <link rel="canonical" href="https://jpinv.com/en/governance/frontier/">
 <link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/frontier/">
@@ -227,6 +227,23 @@ main.curriculum { padding-top: var(--nav-h); }
 .stat-num { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 300; color: var(--ink-mid); line-height: 1; margin-bottom: 8px; }
 .stat-num em { color: var(--accent-deep); font-weight: 400; font-style: normal; }
 .stat-label { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; }
+
+/* Reader-facing governance redesign */
+.reader-hero { padding: 86px 0 52px; background: linear-gradient(180deg, #fff 0%, var(--bg-soft) 100%); border-bottom: 1px solid var(--rule); }
+.article-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px; }
+.article-card { display:flex; flex-direction:column; gap:10px; padding:22px; border:1px solid var(--rule); background:#fff; color:inherit; text-decoration:none; min-height:230px; }
+.article-card:hover,.article-card:focus-visible{border-color:var(--ink-soft);box-shadow:0 10px 26px rgba(15,31,58,.07);outline:3px solid transparent;}
+.article-card:focus-visible{outline:3px solid var(--accent);outline-offset:3px;}
+.article-num{font-family:var(--mono);font-size:11px;color:var(--accent-deep);letter-spacing:.12em;text-transform:uppercase;}
+.article-title{font-family:var(--serif);font-size:1.08rem;line-height:1.5;color:var(--ink-mid);}
+.article-summary{font-size:.9rem;line-height:1.75;color:var(--text-mid);flex:1;}
+.article-cta{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-soft);text-transform:uppercase;border-top:1px solid var(--rule-soft);padding-top:12px;}
+.theme-overview{padding:52px 0 76px;}
+.theme-overview-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(280px,.45fr);gap:28px;align-items:start;}
+.info-card{background:#fff;border:1px solid var(--rule);padding:22px;margin-bottom:16px;}
+.info-card h2,.info-card h3{font-family:var(--serif);color:var(--ink-mid);font-weight:400;margin-bottom:10px;line-height:1.4;}
+.info-card p{color:var(--text-mid);line-height:1.8;}
+@media(max-width:980px){.theme-overview-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -266,179 +283,49 @@ main.curriculum { padding-top: var(--nav-h); }
   <a href="/en/#contact" class="btn btn-primary mobile-menu-cta" onclick="toggleMenu()">Book a free 30-min call</a>
 </nav>
 <main id="main-content" class="curriculum" tabindex="-1">
-<div class="wrap crumbs">
-  <a href="/en/">JII</a> <span class="sep">/</span>
-  <a href="/en/governance/">Governance Curriculum</a> <span class="sep">/</span>
-  The Frontier
-</div>
-<section class="curr-hero">
-  <div class="wrap">
-    <div class="curr-hero-inner">
-      <div class="curr-eyebrow">Theme 5 · 2024 → 2027</div>
-      <h1>The Frontier</h1>
-      <p class="lede">8 posts. Read in order, or jump to whichever post is most relevant to today's work.</p>
-      <div class="curr-hero-meta">
-        <span>Posts: <strong>8</strong></span>
-        <span>Reading time: <strong>~123 min</strong></span>
-        <span>Period: <strong>2024 → 2027</strong></span>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="post-body">
-  <div class="wrap">
-    <article class="post-content">
-<h1>Theme 5 · The Frontier</h1>
-<h2>Why this theme exists</h2>
-<p>The four themes that precede this one are about a policy arc that is <em>done</em> — instruments have been published, deadlines have hit, and the consequences are reasonably predictable. Theme 5 is different. Every topic here is being actively debated in an FSA, JPX/TSE, METI, MoJ, or SSBJ working group right now. An IR rep who finishes Theme 5 should be able to brief a CEO not only on what is in force but on what is in draft — which is where the surprises come from.</p>
-<p>By the end you will:</p>
-<ul>
-<li><strong>Know the English disclosure mandate</strong> — what was switched on 1 April 2025 and the likely 2026‑27 extensions to YUHO and convocation notices.</li>
-<li><strong>Trace the end‑game of cross‑shareholdings</strong> — from comply‑or‑explain to per‑stock verification, with Toyota Industries as the canonical dissolution case.</li>
-<li><strong>See the listed‑subsidiary resolution playing out</strong> — the 2019 METI Group Guidelines, the 2021 CG Code 4‑8 ③, and the wave of MBOs.</li>
-<li><strong>Read the METI 2023 Guidelines for Corporate Takeovers</strong> — including the bona‑fide offer doctrine, the special‑committee architecture, and the 2024 FIEA amendments that lowered the TOB trigger.</li>
-<li><strong>Plan for SSBJ sustainability disclosure</strong> — phased March 2027 / 2028 / 2029 effective dates and the IFRS S1/S2 bridge.</li>
-<li><strong>Read "30 % by 2030" as a pipeline problem</strong>, not a target.</li>
-<li><strong>Recognise the new activism dynamic</strong> — Stewardship Code v3.0 collaborative engagement, 5 %‑rule chilling effect, and the foreign + domestic activist universe.</li>
-<li><strong>Map every active working group</strong> — FSA Follow‑up Council, Expert Panel on CGC Revision, TSE Follow‑up Council on Market Restructuring, FSA Disclosure WG, FSA Sustainability WG, METI Fair Acquisition Study Group, METI CGS Study Group, MoJ Companies Act subcommittee.</li>
-</ul>
-<h2>The arc in one sentence</h2>
-<blockquote>
-<p>The next CG Code revision is being drafted right now by the FSA Expert Panel; the canonical "frontier transaction" of the year is the Toyota Industries dissolution that braids cross‑shareholdings, listed‑subsidiary, and MBO into one deal; and every IR rep should treat the eight working groups in post 5.8 as a watchlist.</p>
-</blockquote>
-<h2>Posts in this theme</h2>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Title</th>
-<th>Visual</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>5.1</td>
-<td><a href="/en/governance/frontier/5.1-english-disclosure-mandate/">April 2025 Was a Switch, Not a Finish Line: English disclosure</a></td>
-<td>Coverage rollout table</td>
-</tr>
-<tr>
-<td>5.2</td>
-<td><a href="/en/governance/frontier/5.2-cross-shareholdings-end-game/">The End‑Game of Cross‑Shareholdings</a></td>
-<td>1988 → 2025 ratio time‑series</td>
-</tr>
-<tr>
-<td>5.3</td>
-<td><a href="/en/governance/frontier/5.3-listed-subsidiaries/">The Toyota Industries Deal Is the End of Keiretsu</a></td>
-<td>Listed‑subsidiary decision tree</td>
-</tr>
-<tr>
-<td>5.4</td>
-<td><a href="/en/governance/frontier/5.4-mbo-takeover-guidelines/">Hostile Is No Longer a Slur: METI's 2023 Takeover Guidelines</a></td>
-<td>Takeover process timeline</td>
-</tr>
-<tr>
-<td>5.5</td>
-<td><a href="/en/governance/frontier/5.5-ssbj-sustainability/">SSBJ in Action: the three‑phase sustainability rollout</a></td>
-<td>Phase 1/2/3 rollout table</td>
-</tr>
-<tr>
-<td>5.6</td>
-<td><a href="/en/governance/frontier/5.6-board-diversity-30-by-30/">"30 % by 2030" Is a Pipeline Problem</a></td>
-<td>Female‑director ratio time‑series</td>
-</tr>
-<tr>
-<td>5.7</td>
-<td><a href="/en/governance/frontier/5.7-activism-engagement-2025/">Collaborative Engagement After Stewardship Code 3.0</a></td>
-<td>Shareholder‑proposal count 2018‑2025</td>
-</tr>
-<tr>
-<td>5.8</td>
-<td><a href="/en/governance/frontier/5.8-working-groups-landscape/">The Working Groups Writing Japan's Next Governance Rules</a></td>
-<td>Working‑group map</td>
-</tr>
-</tbody>
-</table>
-<h2>Reading order</h2>
-<p>There is no strict prerequisite chain within Theme 5 — the posts can be read in any order. But the <strong>recommended sequence is by relevance to your portfolio of upcoming IR work</strong>:</p>
-<ul>
-<li>If you're about to file an English earnings release: start with 5.1.</li>
-<li>If a major shareholder is asking about cross‑shareholdings: start with 5.2.</li>
-<li>If your company has a listed parent or subsidiary: start with 5.3.</li>
-<li>If you've received an unsolicited approach: start with 5.4.</li>
-<li>If your CSR / sustainability team is gearing up for SSBJ: start with 5.5.</li>
-<li>If you're preparing the board diversity narrative for AGM season: start with 5.6.</li>
-<li>If you're getting calls from activists: start with 5.7.</li>
-<li>If you want to see what is coming next: read 5.8 first.</li>
-</ul>
-<h2>What you carry forward</h2>
-<p>You are now current with where Japan's governance reform stands as of May 2026. Set a calendar reminder to revisit post 5.8 (the working groups landscape) every quarter — the working groups are the leading indicator. The next CG Code revision (CG Code 4.0) is expected in 2026 to 2027 from the FSA Expert Panel; when it lands, this curriculum will be updated and a Theme 6 may be added.</p>
-<hr>
-<p><a href="/en/governance/">← Back to Theme 4</a> · <a href="/en/governance/toolbox/">The IR Toolbox →</a> · <a href="/en/governance/">Curriculum index</a></p>
-    </article>
-  </div>
-</section>
-<section class="post-list" style="border-top:1px solid var(--rule); padding-top:48px;">
-  <div class="wrap">
-    <h2 style="font-family:var(--serif); font-size:1.6rem; font-weight:300; color:var(--ink-mid); margin-bottom:24px;">Posts in this theme</h2>
-    <a href="/en/governance/frontier/5.1-english-disclosure-mandate/" class="post-list-row" style="display:grid; color:inherit; text-decoration:none;">
-  <div class="post-list-num">5.1</div>
-  <div>
-    <div class="post-list-title">April 2025 Was a Switch, Not a Finish Line: the English Disclosure Mandate</div>
-    <div class="post-list-meta" style="margin-top:6px; text-transform:none; letter-spacing:0.04em; color:var(--text-dim);">Why simultaneous Japanese/English disclosure for Prime-Market issuers became binding on 1 April 2025, what the FAQ carve-outs say, and how YUHO and convocation notices are queued up as the next two extensions.</div>
-  </div>
-  <div class="post-list-meta">14 minutes min →</div>
-</a><a href="/en/governance/frontier/5.2-cross-shareholdings-end-game/" class="post-list-row" style="display:grid; color:inherit; text-decoration:none;">
-  <div class="post-list-num">5.2</div>
-  <div>
-    <div class="post-list-title">The End-Game of Cross-Shareholdings: from comply-or-explain to per-stock verification</div>
-    <div class="post-list-meta" style="margin-top:6px; text-transform:none; letter-spacing:0.04em; color:var(--text-dim);">From the 1988 peak of mochiai at &gt;50% of TSE market cap to per-stock rationale disclosure in the YUHO today: how cross-shareholding reform moved from soft-law guidance to a board-level annual verification regime, with Toyota Industries as the symbolic dissolution event.</div>
-  </div>
-  <div class="post-list-meta">16 minutes min →</div>
-</a><a href="/en/governance/frontier/5.3-listed-subsidiaries/" class="post-list-row" style="display:grid; color:inherit; text-decoration:none;">
-  <div class="post-list-num">5.3</div>
-  <div>
-    <div class="post-list-title">The Toyota Industries Deal Is the End of Keiretsu, in One Transaction</div>
-    <div class="post-list-meta" style="margin-top:6px; text-transform:none; letter-spacing:0.04em; color:var(--text-dim);">How Japan&#x27;s listed-subsidiary problem was reframed as a minority-protection problem, why the 2019 METI Group Guidelines and 2021 CGC Supplementary Principle 4-8 ③ are the operative texts, and how the Toyota Industries take-private is the template every group-affiliate IR team will now be measured against.</div>
-  </div>
-  <div class="post-list-meta">15 minutes min →</div>
-</a><a href="/en/governance/frontier/5.4-mbo-takeover-guidelines/" class="post-list-row" style="display:grid; color:inherit; text-decoration:none;">
-  <div class="post-list-num">5.4</div>
-  <div>
-    <div class="post-list-title">Hostile Is No Longer a Slur: METI&#x27;s 2023 Guidelines for Corporate Takeovers</div>
-    <div class="post-list-meta" style="margin-top:6px; text-transform:none; letter-spacing:0.04em; color:var(--text-dim);">How METI&#x27;s August 2023 Guidelines for Corporate Takeovers reframed the Japanese M&amp;A market by introducing the &#x27;bona-fide offer&#x27; doctrine, codifying the special-committee/MoM architecture for controlled deals, and triggering a wave of mega-MBOs from Toshiba to Benesse to Taisho to Outsourcing to Infocom.</div>
-  </div>
-  <div class="post-list-meta">16 minutes min →</div>
-</a><a href="/en/governance/frontier/5.5-ssbj-sustainability/" class="post-list-row" style="display:grid; color:inherit; text-decoration:none;">
-  <div class="post-list-num">5.5</div>
-  <div>
-    <div class="post-list-title">SSBJ in Action: the three-phase sustainability disclosure roll-out</div>
-    <div class="post-list-meta" style="margin-top:6px; text-transform:none; letter-spacing:0.04em; color:var(--text-dim);">Japan&#x27;s Sustainability Standards Board issued its three inaugural standards on 5 March 2025, the FSA built a roadmap, and the largest Prime issuers are now operating against a March 2027 first-mandatory-filing deadline. The framework is structurally IFRS S1/S2 with Japan-specific transition reliefs; the rollout is phased; the bridge from Code 3-1 ③ TCFD disclosure to SSBJ statutory disclosure is the operative challenge.</div>
-  </div>
-  <div class="post-list-meta">15 minutes min →</div>
-</a><a href="/en/governance/frontier/5.6-board-diversity-30-by-30/" class="post-list-row" style="display:grid; color:inherit; text-decoration:none;">
-  <div class="post-list-num">5.6</div>
-  <div>
-    <div class="post-list-title">&#x27;30% by 2030&#x27; Is a Pipeline Problem</div>
-    <div class="post-list-meta" style="margin-top:6px; text-transform:none; letter-spacing:0.04em; color:var(--text-dim);">The Japanese government&#x27;s 30%-female-directors-by-2030 target for Prime issuers is a board-composition number resting on a deeper executive-pipeline problem. CGC Supplementary Principle 2-4 ① named the three diversity axes — women, foreign nationals, mid-career hires — in 2021; the 16 June 2023 KPI announcement put a hard date on the headline number; the actual constraint is the talent pool behind it.</div>
-  </div>
-  <div class="post-list-meta">13 minutes min →</div>
-</a><a href="/en/governance/frontier/5.7-activism-engagement-2025/" class="post-list-row" style="display:grid; color:inherit; text-decoration:none;">
-  <div class="post-list-num">5.7</div>
-  <div>
-    <div class="post-list-title">Collaborative Engagement After Stewardship Code 3.0</div>
-    <div class="post-list-meta" style="margin-top:6px; text-transform:none; letter-spacing:0.04em; color:var(--text-dim);">Shareholder proposals broke records in 2024 (453) and again in 2025 (399 at 114 companies). Capital allocation drives half of activist campaigns. The June 2025 Stewardship Code v3.0 explicitly encourages collective engagement and rewrites the 5%-rule expectations; the 2024 FIEA amendments narrow the chilling effect. Foreign and domestic activism are now operating as a coordinated, institutional, normalised feature of the Japanese market.</div>
-  </div>
-  <div class="post-list-meta">16 minutes min →</div>
-</a><a href="/en/governance/frontier/5.8-working-groups-landscape/" class="post-list-row" style="display:grid; color:inherit; text-decoration:none;">
-  <div class="post-list-num">5.8</div>
-  <div>
-    <div class="post-list-title">The Working Groups That Are Writing Japan&#x27;s Next Governance Rules</div>
-    <div class="post-list-meta" style="margin-top:6px; text-transform:none; letter-spacing:0.04em; color:var(--text-dim);">A practical map of the ten active working groups and councils that produce Japanese governance policy. Each entry covers the Japanese and English names, host ministry, chair, mandate, current docket and expected output. This is the file IR teams should bookmark — the next surprise will come from one of these tables.</div>
-  </div>
-  <div class="post-list-meta">18 minutes min →</div>
-</a>
-  </div>
-</section>
+<div class="wrap crumbs"><a href="/en/">JII</a> <span class="sep">/</span> <a href="/en/governance/">Governance</a> <span class="sep">/</span> Theme 5</div>
+<section class="reader-hero"><div class="wrap"><div class="curr-hero-inner"><div class="curr-eyebrow">Theme 5 · Current Governance Agenda · 2024 → 2027</div><h1>Prepare for the next governance agenda</h1><p class="lede">English disclosure, cross-shareholdings, listed subsidiaries, takeover response, SSBJ, board diversity, activism, and active policy working groups.</p><p class="lede" style="font-size:.98rem;color:var(--text-mid);">This theme covers the issues now appearing in investor meetings: English disclosure, cross-shareholding reduction, listed subsidiaries, takeover guidelines, SSBJ, diversity, activism, and active councils.</p></div></div></section>
+<section class="theme-overview"><div class="wrap theme-overview-grid"><div><div class="info-card"><h2>What this theme helps you explain</h2><p>This theme covers the issues now appearing in investor meetings: English disclosure, cross-shareholding reduction, listed subsidiaries, takeover guidelines, SSBJ, diversity, activism, and active councils.</p></div><div class="info-card"><h2>Where this comes up in IR work</h2><p>Use this theme when the question is about upcoming or fast-moving governance practice rather than an already-settled Code item.</p></div><div class="info-card"><h2>Articles</h2><div class="article-cards"><a href="/en/governance/frontier/5.1-english-disclosure-mandate/" class="article-card">
+  <span class="article-num">Post 5.1</span>
+  <strong class="article-title">English Disclosure: April 2025 was the starting point, not the finish line</strong>
+  <span class="article-summary">Why simultaneous Japanese/English disclosure for Prime-Market issuers became binding on 1 April 2025, what the FAQ carve-outs say, and how YUHO and convocation notices are queued up as the next two extensions.</span>
+  <span class="article-cta">Read this post →</span>
+</a><a href="/en/governance/frontier/5.2-cross-shareholdings-end-game/" class="article-card">
+  <span class="article-num">Post 5.2</span>
+  <strong class="article-title">The End-Game of Cross-Shareholdings: from comply-or-explain to per-stock verification</strong>
+  <span class="article-summary">From the 1988 peak of mochiai at &gt;50% of TSE market cap to per-stock rationale disclosure in the YUHO today: how cross-shareholding reform moved from soft-law guidance to a board-level annual verification regime, with Toyota Industries as the symbolic dissolution event.</span>
+  <span class="article-cta">Read this post →</span>
+</a><a href="/en/governance/frontier/5.3-listed-subsidiaries/" class="article-card">
+  <span class="article-num">Post 5.3</span>
+  <strong class="article-title">The Toyota Industries Deal Is the End of Keiretsu, in One Transaction</strong>
+  <span class="article-summary">How Japan&#x27;s listed-subsidiary problem was reframed as a minority-protection problem, why the 2019 METI Group Guidelines and 2021 CGC Supplementary Principle 4-8 ③ are the operative texts, and how the Toyota Industries take-private is the template every group-affiliate IR team will now be measured against.</span>
+  <span class="article-cta">Read this post →</span>
+</a><a href="/en/governance/frontier/5.4-mbo-takeover-guidelines/" class="article-card">
+  <span class="article-num">Post 5.4</span>
+  <strong class="article-title">Hostile Is No Longer a Slur: METI&#x27;s 2023 Guidelines for Corporate Takeovers</strong>
+  <span class="article-summary">How METI&#x27;s August 2023 Guidelines for Corporate Takeovers reframed the Japanese M&amp;A market by introducing the &#x27;bona-fide offer&#x27; doctrine, codifying the special-committee/MoM architecture for controlled deals, and triggering a wave of mega-MBOs from Toshiba to Benesse to Taisho to Outsourcing to Infocom.</span>
+  <span class="article-cta">Read this post →</span>
+</a><a href="/en/governance/frontier/5.5-ssbj-sustainability/" class="article-card">
+  <span class="article-num">Post 5.5</span>
+  <strong class="article-title">SSBJ in Action: the three-phase sustainability disclosure roll-out</strong>
+  <span class="article-summary">Japan&#x27;s Sustainability Standards Board issued its three inaugural standards on 5 March 2025, the FSA built a roadmap, and the largest Prime issuers are now operating against a March 2027 first-mandatory-filing deadline. The framework is structurally IFRS S1/S2 with Japan-specific transition reliefs; the rollout is phased; the bridge from Code 3-1 ③ TCFD disclosure to SSBJ statutory disclosure is the operative challenge.</span>
+  <span class="article-cta">Read this post →</span>
+</a><a href="/en/governance/frontier/5.6-board-diversity-30-by-30/" class="article-card">
+  <span class="article-num">Post 5.6</span>
+  <strong class="article-title">&#x27;30% by 2030&#x27; Is a Pipeline Problem</strong>
+  <span class="article-summary">The Japanese government&#x27;s 30%-female-directors-by-2030 target for Prime issuers is a board-composition number resting on a deeper executive-pipeline problem. CGC Supplementary Principle 2-4 ① named the three diversity axes — women, foreign nationals, mid-career hires — in 2021; the 16 June 2023 KPI announcement put a hard date on the headline number; the actual constraint is the talent pool behind it.</span>
+  <span class="article-cta">Read this post →</span>
+</a><a href="/en/governance/frontier/5.7-activism-engagement-2025/" class="article-card">
+  <span class="article-num">Post 5.7</span>
+  <strong class="article-title">Collaborative Engagement After Stewardship Code 3.0</strong>
+  <span class="article-summary">Shareholder proposals broke records in 2024 (453) and again in 2025 (399 at 114 companies). Capital allocation drives half of activist campaigns. The June 2025 Stewardship Code v3.0 explicitly encourages collective engagement and rewrites the 5%-rule expectations; the 2024 FIEA amendments narrow the chilling effect. Foreign and domestic activism are now operating as a coordinated, institutional, normalised feature of the Japanese market.</span>
+  <span class="article-cta">Read this post →</span>
+</a><a href="/en/governance/frontier/5.8-working-groups-landscape/" class="article-card">
+  <span class="article-num">Post 5.8</span>
+  <strong class="article-title">The Working Groups That Are Writing Japan&#x27;s Next Governance Rules</strong>
+  <span class="article-summary">A practical map of the ten active working groups and councils that produce Japanese governance policy. Each entry covers the Japanese and English names, host ministry, chair, mandate, current docket and expected output. This is the file IR teams should bookmark — the next surprise will come from one of these tables.</span>
+  <span class="article-cta">Read this post →</span>
+</a></div></div></div><aside><div class="info-card"><h3>If you read one first</h3><p>Start with 5.1 for English disclosure, then choose the individual issue most relevant to your next meeting.</p></div><div class="info-card"><h3>Related official materials</h3><p>TSE English-disclosure materials, FSA/METI guidelines, SSBJ standards, MoJ materials, and GPIF/stewardship references.</p><p><a href="/en/governance/toolbox/">Check the source room →</a></p></div><div class="info-card"><h3>Theme information</h3><p>Post range: 5.1–5.8<br>Period: 2024 → 2027<br>Official theme name: Current Governance Agenda</p></div></aside></div></section>
 </main>
 <footer>
   <div class="wrap">
@@ -457,12 +344,12 @@ main.curriculum { padding-top: var(--nav-h); }
         </ul>
       </div>
       <div class="footer-col">
-        <h2>Governance curriculum</h2>
+        <h2>Governance guide</h2>
         <ul>
-          <li><a href="/en/governance/">Curriculum home</a></li>
+          <li><a href="/en/governance/">Governance home</a></li>
           <li><a href="/en/governance/foundations/">Theme 1 · Foundations</a></li>
           <li><a href="/en/governance/capital-efficiency/">Theme 4 · Capital Efficiency</a></li>
-          <li><a href="/en/governance/toolbox/">IR Toolbox</a></li>
+          <li><a href="/en/governance/toolbox/">Source room</a></li>
         </ul>
       </div>
       <div class="footer-col">

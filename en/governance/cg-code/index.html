@@ -12,10 +12,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 
-<title>The Code Era (Theme 2) | JII Governance Curriculum</title>
-<meta name="description" content="The Code Era (June 2015 → June 2021) — 5 posts covering this theme of Japan&#x27;s governance reform.">
-<meta property="og:title" content="The Code Era (Theme 2) | JII Governance Curriculum">
-<meta property="og:description" content="The Code Era (June 2015 → June 2021) — 5 posts covering this theme of Japan&#x27;s governance reform.">
+<title>Understand the company–investor dialogue rules | JII</title>
+<meta name="description" content="The Corporate Governance Code, CG Reports, boards, sustainability, diversity, and METI guidelines: the rules investors use when they engage.">
+<meta property="og:title" content="Understand the company–investor dialogue rules | JII">
+<meta property="og:description" content="The Corporate Governance Code, CG Reports, boards, sustainability, diversity, and METI guidelines: the rules investors use when they engage.">
 <meta property="og:url" content="https://jpinv.com/en/governance/cg-code/">
 <link rel="canonical" href="https://jpinv.com/en/governance/cg-code/">
 <link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/cg-code/">
@@ -227,6 +227,23 @@ main.curriculum { padding-top: var(--nav-h); }
 .stat-num { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 300; color: var(--ink-mid); line-height: 1; margin-bottom: 8px; }
 .stat-num em { color: var(--accent-deep); font-weight: 400; font-style: normal; }
 .stat-label { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; }
+
+/* Reader-facing governance redesign */
+.reader-hero { padding: 86px 0 52px; background: linear-gradient(180deg, #fff 0%, var(--bg-soft) 100%); border-bottom: 1px solid var(--rule); }
+.article-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px; }
+.article-card { display:flex; flex-direction:column; gap:10px; padding:22px; border:1px solid var(--rule); background:#fff; color:inherit; text-decoration:none; min-height:230px; }
+.article-card:hover,.article-card:focus-visible{border-color:var(--ink-soft);box-shadow:0 10px 26px rgba(15,31,58,.07);outline:3px solid transparent;}
+.article-card:focus-visible{outline:3px solid var(--accent);outline-offset:3px;}
+.article-num{font-family:var(--mono);font-size:11px;color:var(--accent-deep);letter-spacing:.12em;text-transform:uppercase;}
+.article-title{font-family:var(--serif);font-size:1.08rem;line-height:1.5;color:var(--ink-mid);}
+.article-summary{font-size:.9rem;line-height:1.75;color:var(--text-mid);flex:1;}
+.article-cta{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-soft);text-transform:uppercase;border-top:1px solid var(--rule-soft);padding-top:12px;}
+.theme-overview{padding:52px 0 76px;}
+.theme-overview-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(280px,.45fr);gap:28px;align-items:start;}
+.info-card{background:#fff;border:1px solid var(--rule);padding:22px;margin-bottom:16px;}
+.info-card h2,.info-card h3{font-family:var(--serif);color:var(--ink-mid);font-weight:400;margin-bottom:10px;line-height:1.4;}
+.info-card p{color:var(--text-mid);line-height:1.8;}
+@media(max-width:980px){.theme-overview-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -266,134 +283,34 @@ main.curriculum { padding-top: var(--nav-h); }
   <a href="/en/#contact" class="btn btn-primary mobile-menu-cta" onclick="toggleMenu()">Book a free 30-min call</a>
 </nav>
 <main id="main-content" class="curriculum" tabindex="-1">
-<div class="wrap crumbs">
-  <a href="/en/">JII</a> <span class="sep">/</span>
-  <a href="/en/governance/">Governance Curriculum</a> <span class="sep">/</span>
-  The Code Era
-</div>
-<section class="curr-hero">
-  <div class="wrap">
-    <div class="curr-hero-inner">
-      <div class="curr-eyebrow">Theme 2 · June 2015 → June 2021</div>
-      <h1>The Code Era</h1>
-      <p class="lede">5 posts. Read in order, or jump to whichever post is most relevant to today's work.</p>
-      <div class="curr-hero-meta">
-        <span>Posts: <strong>5</strong></span>
-        <span>Reading time: <strong>~54 min</strong></span>
-        <span>Period: <strong>June 2015 → June 2021</strong></span>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="post-body">
-  <div class="wrap">
-    <article class="post-content">
-<h1>Theme 2 · The Code Era</h1>
-<h2>Why this theme exists</h2>
-<p>The Corporate Governance Code is the rulebook for board behaviour. It is jointly maintained by JPX/TSE and the FSA; it operates on a <em>comply‑or‑explain</em> basis; and it has been revised twice (June 2018 and June 2021) since its original 2015 publication. An IR representative who cannot fluently navigate the Code — who cannot name the principle behind a question or read a Corporate Governance Report end‑to‑end — is operating without the field manual.</p>
-<p>Theme 2 turns the IR rep into a confident Code reader. By the end you will:</p>
-<ul>
-<li><strong>Know the architecture</strong> — 5 General Principles, 31 Principles, 47 Supplementary Principles (in the 2021 version), and how comply‑or‑explain actually works.</li>
-<li><strong>Trace the substance</strong> — the 2018 revision's introduction of cost‑of‑capital language at Principle 5‑2, the 2021 revision's Prime‑only obligations.</li>
-<li><strong>Read a Corporate Governance Report in 15 minutes</strong> — including the section‑by‑section layout and the markers of weak vs strong comply‑or‑explain narratives.</li>
-<li><strong>Recognise METI's parallel rulebook</strong> — CGS, GGS, Fair M&amp;A, Takeover Guidelines — and when each one overrides the Code in market practice.</li>
-</ul>
-<h2>The arc in one sentence</h2>
-<blockquote>
-<p>The 2015 Code set the dialogue framework; the 2018 revision injected capital efficiency; the 2021 revision aligned the Code with the impending Prime Market; and METI's guideline family has done the operational heavy lifting that the Code's principles‑based design intentionally leaves to interpretation.</p>
-</blockquote>
-<h2>Posts in this theme</h2>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Title</th>
-<th>Visual</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>2.1</td>
-<td><a href="/en/governance/cg-code/2.1-cg-code-2015-primer/">The 2015 CG Code: a comply‑or‑explain primer</a></td>
-<td>5+30+38 principle architecture diagram</td>
-</tr>
-<tr>
-<td>2.2</td>
-<td><a href="/en/governance/cg-code/2.2-cg-code-2018-revision/">The 2018 Revision: capital efficiency enters the Code</a></td>
-<td>2015 vs 2018 diff table</td>
-</tr>
-<tr>
-<td>2.3</td>
-<td><a href="/en/governance/cg-code/2.3-cg-code-2021-revision/">The 2021 Revision: Prime, sustainability, diversity</a></td>
-<td>2018 vs 2021 diff + Prime‑only obligations sidebar</td>
-</tr>
-<tr>
-<td>2.4</td>
-<td><a href="/en/governance/cg-code/2.4-reading-a-cg-report/">How to Read a Japanese CG Report in 15 Minutes</a></td>
-<td>CG Report four‑section walkthrough</td>
-</tr>
-<tr>
-<td>2.5</td>
-<td><a href="/en/governance/cg-code/2.5-meti-guideline-family/">Code vs Guideline: METI's CGS / GGS / Fair M&amp;A / Takeover</a></td>
-<td>Code‑vs‑Guideline matrix</td>
-</tr>
-</tbody>
-</table>
-<h2>Reading order</h2>
-<p>Linear (2.1 → 2.2 → 2.3 → 2.4 → 2.5) is recommended. Posts 2.1‑2.3 are the historical arc of the Code itself; 2.4 is the practical reading skill; 2.5 zooms out to METI's parallel system that most non‑Japanese investors don't realise exists.</p>
-<h2>What you carry into Theme 3</h2>
-<ul>
-<li>Fluency in CG Code principle numbers (especially 1‑4 cross‑shareholdings, 4‑8 independent directors, 5‑2 cost of capital).</li>
-<li>Familiarity with the Prime‑only obligations, which are about to become the basis for market segmentation.</li>
-<li>Recognition that the Code is one of <em>two</em> governing instruments — the Stewardship Code being the other ("two wheels of a cart").</li>
-<li>An understanding that METI's guidelines, although non‑binding, are the operational standard for special committees, MBOs, and group governance.</li>
-</ul>
-<hr>
-<p><a href="/en/governance/">← Back to Theme 1</a> · <a href="/en/governance/">Continue to Theme 3 →</a> · <a href="/en/governance/">Curriculum index</a></p>
-    </article>
-  </div>
-</section>
-<section class="post-list" style="border-top:1px solid var(--rule); padding-top:48px;">
-  <div class="wrap">
-    <h2 style="font-family:var(--serif); font-size:1.6rem; font-weight:300; color:var(--ink-mid); margin-bottom:24px;">Posts in this theme</h2>
-    <a href="/en/governance/cg-code/2.1-cg-code-2015-primer/" class="post-list-row" style="display:grid; color:inherit; text-decoration:none;">
-  <div class="post-list-num">2.1</div>
-  <div>
-    <div class="post-list-title">The 2015 Corporate Governance Code: a comply-or-explain primer</div>
-    <div class="post-list-meta" style="margin-top:6px; text-transform:none; letter-spacing:0.04em; color:var(--text-dim);">How Japan&#x27;s first Corporate Governance Code arrived in June 2015, what its 5+30+38 architecture actually contains, and why the comply-or-explain mechanic — borrowed from the UK&#x27;s Cadbury template — is the single most important thing for an IR rep to understand about Japanese soft law.</div>
-  </div>
-  <div class="post-list-meta">11 minutes min →</div>
-</a><a href="/en/governance/cg-code/2.2-cg-code-2018-revision/" class="post-list-row" style="display:grid; color:inherit; text-decoration:none;">
-  <div class="post-list-num">2.2</div>
-  <div>
-    <div class="post-list-title">The 2018 Revision: capital efficiency enters the Code</div>
-    <div class="post-list-meta" style="margin-top:6px; text-transform:none; letter-spacing:0.04em; color:var(--text-dim);">The June 2018 revision was the moment &#x27;cost of capital&#x27; became a comply-or-explain expectation, cross-shareholdings moved from accepted practice to defended exception, CEO succession became a board responsibility, and corporate pension funds were drawn into the stewardship loop.</div>
-  </div>
-  <div class="post-list-meta">10 minutes min →</div>
-</a><a href="/en/governance/cg-code/2.3-cg-code-2021-revision/" class="post-list-row" style="display:grid; color:inherit; text-decoration:none;">
-  <div class="post-list-num">2.3</div>
-  <div>
-    <div class="post-list-title">The 2021 Revision: Prime, sustainability, diversity</div>
-    <div class="post-list-meta" style="margin-top:6px; text-transform:none; letter-spacing:0.04em; color:var(--text-dim);">The June 2021 revision aligned the Code with the April 2022 Prime/Standard/Growth market restructuring. It introduced Prime-only obligations on independence, skills matrix, TCFD-aligned climate disclosure, English disclosure and electronic voting, and tightened the comply-or-explain regime around sustainability, diversity and human capital.</div>
-  </div>
-  <div class="post-list-meta">12 minutes min →</div>
-</a><a href="/en/governance/cg-code/2.4-reading-a-cg-report/" class="post-list-row" style="display:grid; color:inherit; text-decoration:none;">
-  <div class="post-list-num">2.4</div>
-  <div>
-    <div class="post-list-title">How to Read a Japanese CG Report in 15 Minutes</div>
-    <div class="post-list-meta" style="margin-top:6px; text-transform:none; letter-spacing:0.04em; color:var(--text-dim);">A section-by-section walkthrough of the four-part TSE Corporate Governance Report template — what each section contains, what to read first, and what separates a strong comply-or-explain narrative from a weak one.</div>
-  </div>
-  <div class="post-list-meta">10 minutes min →</div>
-</a><a href="/en/governance/cg-code/2.5-meti-guideline-family/" class="post-list-row" style="display:grid; color:inherit; text-decoration:none;">
-  <div class="post-list-num">2.5</div>
-  <div>
-    <div class="post-list-title">Code vs Guideline: when METI&#x27;s CGS, GGS, Fair-M&amp;A and Takeover Guidelines override the Code</div>
-    <div class="post-list-meta" style="margin-top:6px; text-transform:none; letter-spacing:0.04em; color:var(--text-dim);">Four METI guideline families — CGS, GGS, Fair M&amp;A and the 2023 Guidelines for Corporate Takeovers — sit alongside the FSA/JPX Corporate Governance Code as the operational interpretive layer. They are not comply-or-explain, but proxy advisers, engagement investors and D&amp;O insurers treat them as authoritative.</div>
-  </div>
-  <div class="post-list-meta">11 minutes min →</div>
-</a>
-  </div>
-</section>
+<div class="wrap crumbs"><a href="/en/">JII</a> <span class="sep">/</span> <a href="/en/governance/">Governance</a> <span class="sep">/</span> Theme 2</div>
+<section class="reader-hero"><div class="wrap"><div class="curr-hero-inner"><div class="curr-eyebrow">Theme 2 · Corporate Governance Code · 2015 → 2021</div><h1>Understand the company–investor dialogue rules</h1><p class="lede">The Corporate Governance Code, CG Reports, boards, sustainability, diversity, and METI guidelines: the rules investors use when they engage.</p><p class="lede" style="font-size:.98rem;color:var(--text-mid);">This theme covers the 2015 Code, the 2018 cost-of-capital turn, the 2021 Prime/sustainability/diversity revision, and how to read a CG Report as an investor-facing document.</p></div></div></section>
+<section class="theme-overview"><div class="wrap theme-overview-grid"><div><div class="info-card"><h2>What this theme helps you explain</h2><p>This theme covers the 2015 Code, the 2018 cost-of-capital turn, the 2021 Prime/sustainability/diversity revision, and how to read a CG Report as an investor-facing document.</p></div><div class="info-card"><h2>Where this comes up in IR work</h2><p>Use this theme when investors ask which Code principle, CG Report section, or board-practice disclosure supports your answer.</p></div><div class="info-card"><h2>Articles</h2><div class="article-cards"><a href="/en/governance/cg-code/2.1-cg-code-2015-primer/" class="article-card">
+  <span class="article-num">Post 2.1</span>
+  <strong class="article-title">The 2015 Corporate Governance Code: a comply-or-explain primer</strong>
+  <span class="article-summary">How Japan&#x27;s first Corporate Governance Code arrived in June 2015, what its 5+30+38 architecture actually contains, and why the comply-or-explain mechanic — borrowed from the UK&#x27;s Cadbury template — is the single most important thing for an IR rep to understand about Japanese soft law.</span>
+  <span class="article-cta">Read this post →</span>
+</a><a href="/en/governance/cg-code/2.2-cg-code-2018-revision/" class="article-card">
+  <span class="article-num">Post 2.2</span>
+  <strong class="article-title">The 2018 Revision: capital efficiency enters the Code</strong>
+  <span class="article-summary">The June 2018 revision was the moment &#x27;cost of capital&#x27; became a comply-or-explain expectation, cross-shareholdings moved from accepted practice to defended exception, CEO succession became a board responsibility, and corporate pension funds were drawn into the stewardship loop.</span>
+  <span class="article-cta">Read this post →</span>
+</a><a href="/en/governance/cg-code/2.3-cg-code-2021-revision/" class="article-card">
+  <span class="article-num">Post 2.3</span>
+  <strong class="article-title">The 2021 Revision: Prime, sustainability, diversity</strong>
+  <span class="article-summary">The June 2021 revision aligned the Code with the April 2022 Prime/Standard/Growth market restructuring. It introduced Prime-only obligations on independence, skills matrix, TCFD-aligned climate disclosure, English disclosure and electronic voting, and tightened the comply-or-explain regime around sustainability, diversity and human capital.</span>
+  <span class="article-cta">Read this post →</span>
+</a><a href="/en/governance/cg-code/2.4-reading-a-cg-report/" class="article-card">
+  <span class="article-num">Post 2.4</span>
+  <strong class="article-title">How to Read a Japanese CG Report in 15 Minutes</strong>
+  <span class="article-summary">A section-by-section walkthrough of the four-part TSE Corporate Governance Report template — what each section contains, what to read first, and what separates a strong comply-or-explain narrative from a weak one.</span>
+  <span class="article-cta">Read this post →</span>
+</a><a href="/en/governance/cg-code/2.5-meti-guideline-family/" class="article-card">
+  <span class="article-num">Post 2.5</span>
+  <strong class="article-title">Code vs Guideline: when METI&#x27;s CGS, GGS, Fair-M&amp;A and Takeover Guidelines override the Code</strong>
+  <span class="article-summary">Four METI guideline families — CGS, GGS, Fair M&amp;A and the 2023 Guidelines for Corporate Takeovers — sit alongside the FSA/JPX Corporate Governance Code as the operational interpretive layer. They are not comply-or-explain, but proxy advisers, engagement investors and D&amp;O insurers treat them as authoritative.</span>
+  <span class="article-cta">Read this post →</span>
+</a></div></div></div><aside><div class="info-card"><h3>If you read one first</h3><p>Start with 2.1 for the Code architecture, then read 2.4 to understand the CG Report as a working IR document.</p></div><div class="info-card"><h3>Related official materials</h3><p>FSA/TSE Corporate Governance Code, CG Report forms, and METI CGS/GGS guidelines.</p><p><a href="/en/governance/toolbox/">Check the source room →</a></p></div><div class="info-card"><h3>Theme information</h3><p>Post range: 2.1–2.5<br>Period: 2015 → 2021<br>Official theme name: Corporate Governance Code</p></div></aside></div></section>
 </main>
 <footer>
   <div class="wrap">
@@ -412,12 +329,12 @@ main.curriculum { padding-top: var(--nav-h); }
         </ul>
       </div>
       <div class="footer-col">
-        <h2>Governance curriculum</h2>
+        <h2>Governance guide</h2>
         <ul>
-          <li><a href="/en/governance/">Curriculum home</a></li>
+          <li><a href="/en/governance/">Governance home</a></li>
           <li><a href="/en/governance/foundations/">Theme 1 · Foundations</a></li>
           <li><a href="/en/governance/capital-efficiency/">Theme 4 · Capital Efficiency</a></li>
-          <li><a href="/en/governance/toolbox/">IR Toolbox</a></li>
+          <li><a href="/en/governance/toolbox/">Source room</a></li>
         </ul>
       </div>
       <div class="footer-col">

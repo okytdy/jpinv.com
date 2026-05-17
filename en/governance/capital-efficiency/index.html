@@ -12,10 +12,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 
-<title>Capital Efficiency (Theme 4) | JII Governance Curriculum</title>
-<meta name="description" content="Capital Efficiency (31 March 2023 → present) — 5 posts covering this theme of Japan&#x27;s governance reform.">
-<meta property="og:title" content="Capital Efficiency (Theme 4) | JII Governance Curriculum">
-<meta property="og:description" content="Capital Efficiency (31 March 2023 → present) — 5 posts covering this theme of Japan&#x27;s governance reform.">
+<title>Explain cost of capital, PBR, and ROE | JII</title>
+<meta name="description" content="TSE’s capital-cost request, PBR below 1x, ROIC, WACC, equity spread, disclosure lists, and the shift from disclosure to implementation.">
+<meta property="og:title" content="Explain cost of capital, PBR, and ROE | JII">
+<meta property="og:description" content="TSE’s capital-cost request, PBR below 1x, ROIC, WACC, equity spread, disclosure lists, and the shift from disclosure to implementation.">
 <meta property="og:url" content="https://jpinv.com/en/governance/capital-efficiency/">
 <link rel="canonical" href="https://jpinv.com/en/governance/capital-efficiency/">
 <link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/capital-efficiency/">
@@ -227,6 +227,23 @@ main.curriculum { padding-top: var(--nav-h); }
 .stat-num { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 300; color: var(--ink-mid); line-height: 1; margin-bottom: 8px; }
 .stat-num em { color: var(--accent-deep); font-weight: 400; font-style: normal; }
 .stat-label { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; }
+
+/* Reader-facing governance redesign */
+.reader-hero { padding: 86px 0 52px; background: linear-gradient(180deg, #fff 0%, var(--bg-soft) 100%); border-bottom: 1px solid var(--rule); }
+.article-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px; }
+.article-card { display:flex; flex-direction:column; gap:10px; padding:22px; border:1px solid var(--rule); background:#fff; color:inherit; text-decoration:none; min-height:230px; }
+.article-card:hover,.article-card:focus-visible{border-color:var(--ink-soft);box-shadow:0 10px 26px rgba(15,31,58,.07);outline:3px solid transparent;}
+.article-card:focus-visible{outline:3px solid var(--accent);outline-offset:3px;}
+.article-num{font-family:var(--mono);font-size:11px;color:var(--accent-deep);letter-spacing:.12em;text-transform:uppercase;}
+.article-title{font-family:var(--serif);font-size:1.08rem;line-height:1.5;color:var(--ink-mid);}
+.article-summary{font-size:.9rem;line-height:1.75;color:var(--text-mid);flex:1;}
+.article-cta{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ink-soft);text-transform:uppercase;border-top:1px solid var(--rule-soft);padding-top:12px;}
+.theme-overview{padding:52px 0 76px;}
+.theme-overview-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(280px,.45fr);gap:28px;align-items:start;}
+.info-card{background:#fff;border:1px solid var(--rule);padding:22px;margin-bottom:16px;}
+.info-card h2,.info-card h3{font-family:var(--serif);color:var(--ink-mid);font-weight:400;margin-bottom:10px;line-height:1.4;}
+.info-card p{color:var(--text-mid);line-height:1.8;}
+@media(max-width:980px){.theme-overview-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -266,135 +283,34 @@ main.curriculum { padding-top: var(--nav-h); }
   <a href="/en/#contact" class="btn btn-primary mobile-menu-cta" onclick="toggleMenu()">Book a free 30-min call</a>
 </nav>
 <main id="main-content" class="curriculum" tabindex="-1">
-<div class="wrap crumbs">
-  <a href="/en/">JII</a> <span class="sep">/</span>
-  <a href="/en/governance/">Governance Curriculum</a> <span class="sep">/</span>
-  Capital Efficiency
-</div>
-<section class="curr-hero">
-  <div class="wrap">
-    <div class="curr-hero-inner">
-      <div class="curr-eyebrow">Theme 4 · 31 March 2023 → present</div>
-      <h1>Capital Efficiency</h1>
-      <p class="lede">5 posts. Read in order, or jump to whichever post is most relevant to today's work.</p>
-      <div class="curr-hero-meta">
-        <span>Posts: <strong>5</strong></span>
-        <span>Reading time: <strong>~40 min</strong></span>
-        <span>Period: <strong>31 March 2023 → present</strong></span>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="post-body">
-  <div class="wrap">
-    <article class="post-content">
-<h1>Theme 4 · Capital Efficiency</h1>
-<h2>Why this theme exists</h2>
-<p>On 31 March 2023, the Tokyo Stock Exchange asked all Prime and Standard Market companies to "Implement Management Conscious of Cost of Capital and Stock Price." A <em>request</em>, not a regulation. Yet within three years it has reshaped capital allocation across the Japanese listed universe — driving a record ¥18 trn of buybacks in 2024, the unwind of ¥3.69 trillion of cross‑shareholdings in FY2023, 108 activist campaigns in a single year, and the Buffett trade.</p>
-<p>Theme 4 is the operational core of this curriculum. It is the theme an IR rep is most likely to be tested on in an investor meeting tomorrow. By the end you will:</p>
-<ul>
-<li><strong>Decode the March 2023 request</strong> — its exact five‑step PDCA, what TSE actually asks for, why "request" has teeth.</li>
-<li><strong>Own the new vocabulary</strong> — WACC, cost of equity (CAPM), ROE, ROIC, equity spread (ROE − rE), CROIC, the PBR = ROE × PER decomposition.</li>
-<li><strong>Read the monthly disclosure list</strong> — how to parse Disclosed / Under Consideration / Not Disclosed.</li>
-<li><strong>Recognise the seven sins of misalignment</strong> — the archetypal disclosure failures TSE has called out.</li>
-<li><strong>Understand the April 2026 Update</strong> — the pivot from disclosure to substantive implementation.</li>
-</ul>
-<h2>The arc in one sentence</h2>
-<blockquote>
-<p>The March 2023 request seemed soft, but the public disclosure list, the "misalignment" booklet, the Follow‑up Council's iterative pressure, and the April 2026 "from form to substance" pivot have turned it into the most operationally consequential reform in modern Japanese governance.</p>
-</blockquote>
-<h2>Posts in this theme</h2>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Title</th>
-<th>Visual</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>4.1</td>
-<td><a href="/en/governance/capital-efficiency/4.1-march-2023-request-anatomy/">PBR &lt; 1 Is Not a Target — It's a Verdict</a></td>
-<td>5‑step PDCA + PBR = ROE × PER math callout</td>
-</tr>
-<tr>
-<td>4.2</td>
-<td><a href="/en/governance/capital-efficiency/4.2-cost-of-capital-vocabulary/">WACC, ROIC, Equity Spread: the new vocabulary</a></td>
-<td>9‑term JP/EN glossary table</td>
-</tr>
-<tr>
-<td>4.3</td>
-<td><a href="/en/governance/capital-efficiency/4.3-the-disclosure-list/">The Shame‑and‑Showcase List</a></td>
-<td>Monthly list mock + three‑state classification</td>
-</tr>
-<tr>
-<td>4.4</td>
-<td><a href="/en/governance/capital-efficiency/4.4-seven-sins-misalignment/">The Seven Sins of Cost‑of‑Capital Disclosure</a></td>
-<td>Misalignment vs Alignment comparison</td>
-</tr>
-<tr>
-<td>4.5</td>
-<td><a href="/en/governance/capital-efficiency/4.5-action-plan-2-update/">From Disclosure to Implementation: the April 2026 Update</a></td>
-<td>March 2023 → April 2026 arc + macro stats</td>
-</tr>
-</tbody>
-</table>
-<h2>Reading order</h2>
-<p>Linear (4.1 → 4.2 → 4.3 → 4.4 → 4.5) is mandatory. 4.1 sets the conceptual frame; 4.2 gives the vocabulary; 4.3 explains the enforcement mechanic; 4.4 gives the self‑diagnostic; 4.5 explains where TSE is now and what is coming.</p>
-<h2>What you carry into Theme 5</h2>
-<ul>
-<li>The vocabulary to speak fluently with overseas investors about cost of capital, ROIC trees, and equity spread.</li>
-<li>A self‑diagnostic for your own company's disclosure: which of the seven sins applies?</li>
-<li>Familiarity with the macro statistics that show the reform is structural, not cosmetic (¥18 trn buybacks, 108 campaigns, etc.).</li>
-<li>An entry point to Theme 5: cost of capital is the <em>foundation</em> on top of which English disclosure, cross‑shareholding policy, sustainability, and activism are all stacked.</li>
-</ul>
-<hr>
-<p><a href="/en/governance/">← Back to Theme 3</a> · <a href="/en/governance/">Continue to Theme 5 →</a> · [Curriculum index](../../READ</p>
-    </article>
-  </div>
-</section>
-<section class="post-list" style="border-top:1px solid var(--rule); padding-top:48px;">
-  <div class="wrap">
-    <h2 style="font-family:var(--serif); font-size:1.6rem; font-weight:300; color:var(--ink-mid); margin-bottom:24px;">Posts in this theme</h2>
-    <a href="/en/governance/capital-efficiency/4.1-march-2023-request-anatomy/" class="post-list-row" style="display:grid; color:inherit; text-decoration:none;">
-  <div class="post-list-num">4.1</div>
-  <div>
-    <div class="post-list-title">PBR &lt; 1 Is Not a Target — It&#x27;s a Verdict</div>
-    <div class="post-list-meta" style="margin-top:6px; text-transform:none; letter-spacing:0.04em; color:var(--text-dim);"></div>
-  </div>
-  <div class="post-list-meta">8 min →</div>
-</a><a href="/en/governance/capital-efficiency/4.2-cost-of-capital-vocabulary/" class="post-list-row" style="display:grid; color:inherit; text-decoration:none;">
-  <div class="post-list-num">4.2</div>
-  <div>
-    <div class="post-list-title">WACC, ROIC, Equity Spread: the new vocabulary every Japanese IR rep must own</div>
-    <div class="post-list-meta" style="margin-top:6px; text-transform:none; letter-spacing:0.04em; color:var(--text-dim);"></div>
-  </div>
-  <div class="post-list-meta">8 min →</div>
-</a><a href="/en/governance/capital-efficiency/4.3-the-disclosure-list/" class="post-list-row" style="display:grid; color:inherit; text-decoration:none;">
-  <div class="post-list-num">4.3</div>
-  <div>
-    <div class="post-list-title">The Shame-and-Showcase List: how TSE polices participation through publication</div>
-    <div class="post-list-meta" style="margin-top:6px; text-transform:none; letter-spacing:0.04em; color:var(--text-dim);"></div>
-  </div>
-  <div class="post-list-meta">8 min →</div>
-</a><a href="/en/governance/capital-efficiency/4.4-seven-sins-misalignment/" class="post-list-row" style="display:grid; color:inherit; text-decoration:none;">
-  <div class="post-list-num">4.4</div>
-  <div>
-    <div class="post-list-title">The Seven Sins of Cost-of-Capital Disclosure: read TSE&#x27;s &#x27;misalignment&#x27; booklet</div>
-    <div class="post-list-meta" style="margin-top:6px; text-transform:none; letter-spacing:0.04em; color:var(--text-dim);"></div>
-  </div>
-  <div class="post-list-meta">8 min →</div>
-</a><a href="/en/governance/capital-efficiency/4.5-action-plan-2-update/" class="post-list-row" style="display:grid; color:inherit; text-decoration:none;">
-  <div class="post-list-num">4.5</div>
-  <div>
-    <div class="post-list-title">From Disclosure to Implementation: how the April 2026 Update rewrote the rules</div>
-    <div class="post-list-meta" style="margin-top:6px; text-transform:none; letter-spacing:0.04em; color:var(--text-dim);"></div>
-  </div>
-  <div class="post-list-meta">8 min →</div>
-</a>
-  </div>
-</section>
+<div class="wrap crumbs"><a href="/en/">JII</a> <span class="sep">/</span> <a href="/en/governance/">Governance</a> <span class="sep">/</span> Theme 4</div>
+<section class="reader-hero"><div class="wrap"><div class="curr-hero-inner"><div class="curr-eyebrow">Theme 4 · Capital Efficiency and Corporate Value · March 2023 → present</div><h1>Explain cost of capital, PBR, and ROE</h1><p class="lede">TSE’s capital-cost request, PBR below 1x, ROIC, WACC, equity spread, disclosure lists, and the shift from disclosure to implementation.</p><p class="lede" style="font-size:.98rem;color:var(--text-mid);">This theme turns the March 2023 TSE request into practical IR language: cost of capital, PBR below 1x, capital allocation, progress disclosure, and investor dialogue.</p></div></div></section>
+<section class="theme-overview"><div class="wrap theme-overview-grid"><div><div class="info-card"><h2>What this theme helps you explain</h2><p>This theme turns the March 2023 TSE request into practical IR language: cost of capital, PBR below 1x, capital allocation, progress disclosure, and investor dialogue.</p></div><div class="info-card"><h2>Where this comes up in IR work</h2><p>Use this theme when investors ask how management recognizes cost of capital, what it will do about PBR below 1x, or how ROIC is governed.</p></div><div class="info-card"><h2>Articles</h2><div class="article-cards"><a href="/en/governance/capital-efficiency/4.1-march-2023-request-anatomy/" class="article-card">
+  <span class="article-num">Post 4.1</span>
+  <strong class="article-title">PBR &lt; 1 Is Not a Target — It&#x27;s a Verdict</strong>
+  <span class="article-summary">TSE’s March 2023 request treated PBR below 1x not as a target but as a market signal, and asked companies to manage with cost of capital and share price in mind.</span>
+  <span class="article-cta">Read this post →</span>
+</a><a href="/en/governance/capital-efficiency/4.2-cost-of-capital-vocabulary/" class="article-card">
+  <span class="article-num">Post 4.2</span>
+  <strong class="article-title">WACC, ROIC, Equity Spread: the new vocabulary every Japanese IR rep must own</strong>
+  <span class="article-summary">WACC, ROIC, ROE, equity spread, and residual income are now IR working vocabulary, not finance-theory decoration.</span>
+  <span class="article-cta">Read this post →</span>
+</a><a href="/en/governance/capital-efficiency/4.3-the-disclosure-list/" class="article-card">
+  <span class="article-num">Post 4.3</span>
+  <strong class="article-title">The Disclosure List: how publication changes issuer behaviour</strong>
+  <span class="article-summary">TSE’s disclosure list makes participation visible: not as a fine, but as a public mechanism that reinforces investor discipline and spreads examples.</span>
+  <span class="article-cta">Read this post →</span>
+</a><a href="/en/governance/capital-efficiency/4.4-seven-sins-misalignment/" class="article-card">
+  <span class="article-num">Post 4.4</span>
+  <strong class="article-title">The Seven Sins of Cost-of-Capital Disclosure: read TSE&#x27;s &#x27;misalignment&#x27; booklet</strong>
+  <span class="article-summary">TSE’s “investor perspective” materials are useful because they show not only good examples but also the disclosure patterns investors see as misaligned.</span>
+  <span class="article-cta">Read this post →</span>
+</a><a href="/en/governance/capital-efficiency/4.5-action-plan-2-update/" class="article-card">
+  <span class="article-num">Post 4.5</span>
+  <strong class="article-title">From Disclosure to Implementation: how the April 2026 Update rewrote the rules</strong>
+  <span class="article-summary">The April 2026 update shifted the emphasis from whether a company disclosed to whether boards discuss, execute, monitor progress, and engage with investors.</span>
+  <span class="article-cta">Read this post →</span>
+</a></div></div></div><aside><div class="info-card"><h3>If you read one first</h3><p>Start with 4.1 for the TSE request, then 4.2 to align vocabulary before reading the disclosure-list articles.</p></div><div class="info-card"><h3>Related official materials</h3><p>TSE capital-cost request, disclosure lists, investor-perspective examples, and implementation updates.</p><p><a href="/en/governance/toolbox/">Check the source room →</a></p></div><div class="info-card"><h3>Theme information</h3><p>Post range: 4.1–4.5<br>Period: March 2023 → present<br>Official theme name: Capital Efficiency and Corporate Value</p></div></aside></div></section>
 </main>
 <footer>
   <div class="wrap">
@@ -413,12 +329,12 @@ main.curriculum { padding-top: var(--nav-h); }
         </ul>
       </div>
       <div class="footer-col">
-        <h2>Governance curriculum</h2>
+        <h2>Governance guide</h2>
         <ul>
-          <li><a href="/en/governance/">Curriculum home</a></li>
+          <li><a href="/en/governance/">Governance home</a></li>
           <li><a href="/en/governance/foundations/">Theme 1 · Foundations</a></li>
           <li><a href="/en/governance/capital-efficiency/">Theme 4 · Capital Efficiency</a></li>
-          <li><a href="/en/governance/toolbox/">IR Toolbox</a></li>
+          <li><a href="/en/governance/toolbox/">Source room</a></li>
         </ul>
       </div>
       <div class="footer-col">

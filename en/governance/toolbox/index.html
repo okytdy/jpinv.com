@@ -12,10 +12,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 
-<title>The IR Toolbox | JII Governance Curriculum</title>
-<meta name="description" content="An indexed, perpetually-maintained repository of every official artifact an IR representative should know — codes, guidelines, lists, FAQs, working-group reports, and data dashboards.">
-<meta property="og:title" content="The IR Toolbox | JII Governance Curriculum">
-<meta property="og:description" content="An indexed, perpetually-maintained repository of every official artifact an IR representative should know — codes, guidelines, lists, FAQs, working-group reports, and data dashboards.">
+<title>Find Official Governance Sources | JII</title>
+<meta name="description" content="Find TSE requests, FSA codes, METI guidelines, English-disclosure materials, cost-of-capital references, and other official governance documents by topic.">
+<meta property="og:title" content="Find Official Governance Sources | JII">
+<meta property="og:description" content="Find TSE requests, FSA codes, METI guidelines, English-disclosure materials, cost-of-capital references, and other official governance documents by topic.">
 <meta property="og:url" content="https://jpinv.com/en/governance/toolbox/">
 <link rel="canonical" href="https://jpinv.com/en/governance/toolbox/">
 <link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/toolbox/">
@@ -227,6 +227,12 @@ main.curriculum { padding-top: var(--nav-h); }
 .stat-num { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 300; color: var(--ink-mid); line-height: 1; margin-bottom: 8px; }
 .stat-num em { color: var(--accent-deep); font-weight: 400; font-style: normal; }
 .stat-label { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; }
+.toolbox-cats { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; list-style:none; padding-left:0; }
+.toolbox-cats a { display:block; background:#fff; border:1px solid var(--rule); padding:12px 14px; font-size:.9rem; color:var(--ink-mid); text-decoration:none; }
+.toolbox-cats a:hover, .toolbox-cats a:focus-visible { border-color:var(--ink-soft); outline:3px solid var(--accent); outline-offset:2px; }
+.source-nav-card { background:#fff; border:1px solid var(--rule); padding:22px; margin:24px auto; max-width:var(--measure); }
+.post-content h2 { scroll-margin-top:calc(var(--nav-h) + 18px); }
+@media (max-width:620px){.toolbox-cats{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -268,20 +274,15 @@ main.curriculum { padding-top: var(--nav-h); }
 <main id="main-content" class="curriculum" tabindex="-1">
 <div class="wrap crumbs">
   <a href="/en/">JII</a> <span class="sep">/</span>
-  <a href="/en/governance/">Governance Curriculum</a> <span class="sep">/</span>
-  IR Toolbox
+  <a href="/en/governance/">Governance Guide</a> <span class="sep">/</span>
+  Source room
 </div>
 <header class="post-header">
   <div class="wrap">
     <div class="post-header-inner">
-      <div class="post-eyebrow">★ KEYSTONE · REFERENCE</div>
-      <h1 class="post-title">The IR Toolbox: every JPX / FSA / METI / SSBJ artifact, indexed</h1>
-      <p class="post-summary">An indexed, perpetually-maintained repository of every official artifact an IR representative should know — codes, guidelines, lists, FAQs, working-group reports, and data dashboards.</p>
-      <div class="post-meta">
-        <span>Updated: <strong>2026-05-17</strong></span>
-        <span>Categories: <strong>9</strong></span>
-        <span>Maintained <strong>monthly</strong></span>
-      </div>
+      <div class="post-eyebrow">Official materials</div>
+      <h1 class="post-title">Find the source document</h1>
+      <p class="post-summary">Use this source room to check TSE requests, FSA codes, METI guidelines, English-disclosure materials, cost-of-capital disclosure references, and other official governance documents by topic.</p>
     </div>
   </div>
 </header>
@@ -289,48 +290,19 @@ main.curriculum { padding-top: var(--nav-h); }
   <div class="wrap">
     <article class="post-content">
 <blockquote>
-<p><strong>TL;DR</strong>
-- This page is the keystone reference for IR representatives at Japan-listed companies — a single, curated catalogue of every official artifact (codes, guidelines, lists, FAQs, working-group reports, dashboards) produced by FSA, JPX/TSE, METI, SSBJ, MoJ, and GPIF.
-- Nine categories (A–I) organise every artifact by <em>function</em>, not by issuer, so you can find what you need by the question you are asking — not by which agency happens to own it.
-- Bilingual links wherever a Japanese-language original exists. URLs are verified against issuer domains only (<code>jpx.co.jp</code>, <code>fsa.go.jp</code>, <code>meti.go.jp</code>, <code>ssb-j.jp</code>, <code>moj.go.jp</code>, <code>gpif.go.jp</code>, <code>jira.or.jp</code>).
-- Read the <strong>seven-item shortlist at the bottom</strong> if you only have an afternoon. The full Toolbox is for when you need to find the canonical answer to a specific engagement question.</p>
+<p><strong>How to use this page</strong></p>
+<ul>
+<li>Start with the issue you need to verify, then jump to the relevant official-source group below.</li>
+<li>Use the external links to check the primary document; use the theme links when you need background and investor-facing explanation points.</li>
+<li>Links are kept to official issuer domains where possible, including FSA, JPX/TSE, METI, SSBJ, MoJ, GPIF, and JIRA.</li>
+</ul>
 </blockquote>
-<h2>What this Toolbox is</h2>
-<p>Japan's corporate-governance reform produces a constant stream of official documents — codes, supplementary guidance, study-group reports, follow-up opinion statements, monthly disclosure lists, sample forms, and statistical surveys. The volume is genuinely high: in any given calendar year the FSA, JPX/TSE, METI, and SSBJ together publish more than 100 distinct artifacts that an IR representative would benefit from knowing about. Most are bilingual; a meaningful minority remain Japanese-only.</p>
-<p>This Toolbox indexes those artifacts in one place. Each entry is a card with:</p>
-<ul>
-<li><strong>What it is</strong> — a one-sentence description of the document or dashboard.</li>
-<li><strong>Latest revision</strong> — the most recent material publication date.</li>
-<li><strong>Why IR cares</strong> — a one-sentence reason this artifact lands in your day-to-day work.</li>
-<li><strong>Links</strong> — English version, Japanese version, and any companion materials, linked directly to the issuer domain.</li>
-<li><strong>Filed under</strong> — the curriculum theme(s) where this artifact is the primary source.</li>
-</ul>
-<p>The organising principle is functional, not jurisdictional. If you want to know "what's the standard for what an independent director should actually do?", you should be able to find that artifact in <em>one</em> place (Category E: Guidelines), even though the answer technically lives in a METI publication that interacts with a TSE listing rule that derives from an FSA code. The Toolbox lets you navigate by question, not by org chart.</p>
-<h2>Who this is for</h2>
-<p>The primary reader is an <strong>IR representative at a Prime- or Standard-segment listed company</strong> with one to five years of experience, who needs to give defensible, source-grounded answers to overseas investors. Secondary readers include corporate-secretariat staff, sustainability-team leads, legal-department members supporting disclosure, and external advisors (sell-side analysts, governance consultants, fund-side stewardship teams) who want a single English-language map of Japan's governance reform.</p>
-<p>The Toolbox is <em>not</em> a tutorial. For pedagogy, see the five-theme curriculum (<code>/themes/01-foundations/</code> through <code>/themes/05-frontier/</code>); for the why-and-how reading order, see the Master Map (<code>/curriculum-map.md</code>). The Toolbox is the <em>reference</em> that those tutorials cite.</p>
-<h2>Inclusion policy</h2>
-<p>Only artifacts published by the following Japanese authorities are included:</p>
-<ul>
-<li><strong>FSA</strong> — Financial Services Agency (金融庁)</li>
-<li><strong>JPX / TSE</strong> — Japan Exchange Group / Tokyo Stock Exchange</li>
-<li><strong>METI</strong> — Ministry of Economy, Trade and Industry (経済産業省)</li>
-<li><strong>SSBJ</strong> — Sustainability Standards Board of Japan</li>
-<li><strong>MoJ</strong> — Ministry of Justice (法務省) for Companies Act and related materials</li>
-<li><strong>GPIF</strong> — Government Pension Investment Fund (for stewardship and ESG investor-side reference points)</li>
-<li><strong>JIRA</strong> — Japan Investor Relations Association (limited inclusion for practitioner standards)</li>
-</ul>
-<p>Secondary commentary, news articles, sell-side research, and consultancy reports are <strong>excluded</strong> — even where excellent — because they are not authoritative. Where a research firm or news article is the only English-language entry point to an otherwise Japanese-only authoritative document, the Toolbox cites the Japanese authoritative source and notes the gap.</p>
-<h2>Maintenance cadence</h2>
-<ul>
-<li><strong>Monthly</strong> (around the 15th): refresh the live disclosure lists in Category C — cost-of-capital-disclosure list (C.1), English-disclosure availability survey (C.3), grace-period list (C.2). All three update monthly on TSE servers.</li>
-<li><strong>Quarterly</strong>: re-verify every external URL. JPX in particular reorganises navigation paths during its periodic site refreshes, which silently breaks deep links.</li>
-<li><strong>Annually</strong> (after each fiscal-year-end): add the year's new working-group outputs, codify new METI guidelines, and refresh the statistics summaries in Category H.</li>
-<li><strong>Event-driven</strong>: when a major artifact is published (new code edition, new working-group report, new TSE list), add it within five business days and log the change in the maintenance table at the bottom of this page.</li>
-</ul>
-<p>Every change is recorded in the <strong>Maintenance Log</strong> at the foot of this page. The log is the audit trail; if a teammate cites a version of the Toolbox from six months ago, they can read the log to see what has moved.</p>
+<div class="source-nav-card"><h2>Source categories</h2><ul class="toolbox-cats"><li><a href="#codes">Check codes and principles</a></li><li><a href="#markets">Check market segments and listing standards</a></li><li><a href="#capital">Check cost-of-capital disclosure</a></li><li><a href="#english-disclosure">Check English disclosure</a></li><li><a href="#holdings">Check cross-shareholdings and listed subsidiaries</a></li><li><a href="#ma">Check takeover response and M&amp;A</a></li><li><a href="#sustainability">Check sustainability disclosure</a></li><li><a href="#investor-materials">Check investor-facing materials</a></li></ul></div>
+<h2>What this source room is for</h2>
+<p>Japan’s governance reform produces rules, requests, guideline papers, disclosure lists, and council materials across several official bodies. This page is organized by the practical question an IR team is trying to answer, not by the agency that published the document.</p>
+<p>Use it when you need to confirm the source behind a board memo, investor-meeting answer, CG Report update, integrated-report disclosure, or capital-allocation discussion.</p>
 <hr>
-<h2>A. The Codes</h2>
+<h2 id="codes">A. Codes and principles</h2>
 <p>The two foundational comply-or-explain documents that bracket the company–investor relationship, plus the Engagement Guidelines that sit between them, plus the newly published Asset Owner Principles that govern the entities that own your largest shareholders.</p>
 <h3>Japan's Corporate Governance Code · TSE / FSA</h3>
 <blockquote>
@@ -395,7 +367,7 @@ main.curriculum { padding-top: var(--nav-h); }
 <li>Filed under: Theme 1.4 (Stewardship), Theme 5.7 (Activism &amp; Engagement)</li>
 </ul>
 <hr>
-<h2>B. Market Structure / Listing</h2>
+<h2 id="markets">B. Market segments and listing standards</h2>
 <p>The TSE-published rules that define which segment you are in, what continued-listing thresholds you must clear, what TOPIX inclusion mechanics will do to your free float, and what conduct rules apply once you are listed.</p>
 <h3>Three-segment market structure (Prime / Standard / Growth) · TSE</h3>
 <blockquote>
@@ -481,7 +453,7 @@ main.curriculum { padding-top: var(--nav-h); }
 <li>Filed under: Theme 3.1 (Four Segments to Three)</li>
 </ul>
 <hr>
-<h2>C. Disclosure Lists — the "shame/showcase" lists</h2>
+<h2 id="capital">C. Disclosure lists and capital-cost references</h2>
 <p>TSE's deliberately public tools to surface laggards and reward leaders. An IR rep should know which list their company is on every month. The TSE refreshes most of these around the 15th of each month based on prior-month-end status.</p>
 <h3>List of Companies Disclosing on "Action to Implement Management That Is Conscious of Cost of Capital and Stock Price" · TSE</h3>
 <blockquote>
@@ -530,7 +502,7 @@ main.curriculum { padding-top: var(--nav-h); }
 <li>Filed under: Theme 2.4 (Reading a CG Report), Theme 5.1 (English Disclosure)</li>
 </ul>
 <hr>
-<h2>D. Good-Practice / Case-Study Collections</h2>
+<h2 id="english-disclosure">D. English disclosure and good-practice materials</h2>
 <p>The TSE's pedagogical apparatus. Each is essentially "here is what we want you to do, with examples." For an IR rep these are the cheat sheets — what the regulator considers a strong disclosure looks like in their own words.</p>
 <h3>Key Points and Examples on Cost-of-Capital-Conscious Management · TSE</h3>
 <blockquote>
@@ -613,7 +585,7 @@ main.curriculum { padding-top: var(--nav-h); }
 <li>Filed under: Theme 2 (Code Era), Theme 5.6 (Board Diversity), Theme 5.8 (Working Groups Landscape)</li>
 </ul>
 <hr>
-<h2>E. Guidelines (METI series)</h2>
+<h2 id="holdings">E. Cross-shareholdings, listed subsidiaries, M&amp;A, and METI guidelines</h2>
 <p>METI's "practical guidelines" are non-binding but explicitly endorsed in the CG Code (Principle 2-6, 4-10-1, and others) as references companies should follow. In engagement, foreign investors will frequently ask "are you following the METI guideline on X?" — knowing the answer with citation is table stakes.</p>
 <h3>Practical Guidelines for Corporate Governance Systems (CGS Guidelines) · METI</h3>
 <blockquote>
@@ -656,7 +628,7 @@ main.curriculum { padding-top: var(--nav-h); }
 <li><a href="https://www.meti.go.jp/policy/economy/keiei_innovation/keizaihousei/pdf/fairmaguidelines_english.pdf">English PDF</a></li>
 <li>Filed under: Theme 5.4 (MBO &amp; Takeover Guidelines)</li>
 </ul>
-<h3>Guidelines for Corporate Takeovers · METI</h3>
+<h3 id="ma">Guidelines for Corporate Takeovers · METI</h3>
 <blockquote>
 <p><strong>What it is:</strong> The 2023 reset of the M&amp;A norm in Japan: three principles (corporate-value-and-shareholder-interest principle, shareholder-intent principle, transparency principle), conduct expectations for target boards on receipt of an acquisition proposal, and anti-takeover-measure standards.
 <strong>Latest revision:</strong> 2023-08-31 (publication); Fair Acquisition Study Group reconvened February 2026 for further work.
@@ -723,7 +695,7 @@ main.curriculum { padding-top: var(--nav-h); }
 <li>Filed under: Theme 5.8 (Working Groups Landscape), Theme 2 (Code Era — pending 4.0 revision)</li>
 </ul>
 <hr>
-<h2>F. Working Group / Council Reports</h2>
+<h2 id="sustainability">F. Sustainability disclosure and working-group materials</h2>
 <p>These are the upstream tributaries — where today's rules get drafted before they appear in the codes. An IR rep who tracks the active working groups will know what is coming roughly 12 months before their CG-report deadlines change.</p>
 <h3>Council of Experts Concerning the Follow-up of Japan's Stewardship Code and Japan's Corporate Governance Code · FSA</h3>
 <blockquote>
@@ -965,7 +937,7 @@ main.curriculum { padding-top: var(--nav-h); }
 <li>Filed under: Theme 1.4 (Stewardship Code), Theme 5.7 (Activism &amp; Engagement)</li>
 </ul>
 <hr>
-<h2>I. Investor-Facing / Explanatory</h2>
+<h2 id="investor-materials">I. Investor-facing explanatory materials</h2>
 <p>The high-altitude explainer portals — what you send to a foreign investor doing first-pass diligence on the Japan governance reform story.</p>
 <h3>Initiatives for Corporate Governance Reform · FSA</h3>
 <blockquote>
@@ -1133,12 +1105,12 @@ main.curriculum { padding-top: var(--nav-h); }
 <li><strong>Day 7 — Benchmarking.</strong> TSE CG White Paper 2023 (D.7) → JPX ESG Knowledge Hub (D.5) → Initiatives for Corporate Governance Reform FSA portal (I.1).</li>
 </ol>
 <hr>
-<h2>Cross-references to the curriculum</h2>
-<p>Every Toolbox artifact is filed under one or more curriculum themes. The reverse mapping — which posts cite which artifacts — is reproduced here for navigation.</p>
+<h2>Cross-references to the governance guide</h2>
+<p>Every source-room artifact is filed under one or more governance-guide themes. The reverse mapping — which posts cite which artifacts — is reproduced here for navigation.</p>
 <table>
 <thead>
 <tr>
-<th>Curriculum post</th>
+<th>Guide post</th>
 <th>Primary Toolbox artifacts cited</th>
 </tr>
 </thead>
@@ -1267,7 +1239,7 @@ main.curriculum { padding-top: var(--nav-h); }
 <tbody>
 <tr>
 <td>2026-05-16</td>
-<td>Initial publication of the IR Toolbox. Indexed 9 categories × ~50 artifacts. All URLs verified against issuer domains.</td>
+<td>Initial publication of the Source room. Indexed 9 categories × ~50 artifacts. All URLs verified against issuer domains.</td>
 <td>Compiled from <code>/research/toolbox-index.md</code> dossier and the five theme dossiers.</td>
 </tr>
 <tr>
@@ -1410,12 +1382,12 @@ main.curriculum { padding-top: var(--nav-h); }
         </ul>
       </div>
       <div class="footer-col">
-        <h2>Governance curriculum</h2>
+        <h2>Governance guide</h2>
         <ul>
-          <li><a href="/en/governance/">Curriculum home</a></li>
+          <li><a href="/en/governance/">Governance home</a></li>
           <li><a href="/en/governance/foundations/">Theme 1 · Foundations</a></li>
           <li><a href="/en/governance/capital-efficiency/">Theme 4 · Capital Efficiency</a></li>
-          <li><a href="/en/governance/toolbox/">IR Toolbox</a></li>
+          <li><a href="/en/governance/toolbox/">Source room</a></li>
         </ul>
       </div>
       <div class="footer-col">
