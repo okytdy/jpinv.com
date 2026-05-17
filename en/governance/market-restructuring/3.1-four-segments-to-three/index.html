@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+<title>From Four Segments to Three: the April 2022 restructuring | JII Governance Curriculum</title>
+<meta name="description" content="From Four Segments to Three: the April 2022 restructuring — part of the JII Japan Governance Reform Curriculum.">
+<meta property="og:title" content="From Four Segments to Three: the April 2022 restructuring | JII Governance Curriculum">
+<meta property="og:description" content="From Four Segments to Three: the April 2022 restructuring — part of the JII Japan Governance Reform Curriculum.">
+<meta property="og:url" content="https://jpinv.com/en/governance/market-restructuring/3.1-four-segments-to-three/">
+<link rel="canonical" href="https://jpinv.com/en/governance/market-restructuring/3.1-four-segments-to-three/">
+<link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/market-restructuring/3.1-four-segments-to-three/">
+<link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/market-restructuring/3.1-four-segments-to-three/">
+<link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/market-restructuring/3.1-four-segments-to-three/">
+
+<style>
+:root {
+  --ink:        #1a2a4a;
+  --ink-mid:    #172641;
+  --ink-soft:   #304466;
+  --rule:       #d6dee8;
+  --rule-soft:  #e8edf3;
+  --bg:         #ffffff;
+  --bg-mid:     #f5f7fa;
+  --bg-soft:    #fafbfc;
+  --text:       #1f2937;
+  --text-mid:   #4a5566;
+  --text-dim:   #5f6875;
+  --accent:     #9a7838;
+  --accent-deep:#9a7838;
+  --accent-soft:#f4eee4;
+  --bad:        #b91c1c;
+  --warn:       #8a682b;
+  --ok:         #2f6f4f;
+  --serif: 'Noto Serif JP', 'Yu Mincho', serif;
+  --sans:  'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  --mono:  'DM Mono', monospace;
+  --max: 1100px;
+  --pad: 88px;
+  --gutter: 48px;
+  --nav-h: 64px;
+  --measure: 720px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 400; line-height: 1.7; overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+a { color: var(--ink-soft); text-decoration: none; }
+a:hover { color: var(--ink); }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+@media (max-width: 768px) { :root { --gutter: 22px; --pad: 56px; } }
+strong { font-weight: 600; color: var(--ink); }
+em { font-style: normal; color: var(--ink); font-weight: 600; }
+.label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); }
+
+/* Nav (copied from jpinv.com base) */
+nav#main-nav { position: fixed; top:0; left:0; right:0; z-index:100; height: var(--nav-h); background: rgba(255,255,255,0.96); backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule); display: flex; align-items: center; transition: box-shadow 0.3s; }
+nav#main-nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; }
+.nav-logo { text-decoration: none; display: inline-flex; align-items: center; flex: 0 0 auto; min-width: max-content; white-space: nowrap; }
+.nav-logo-img { display: block; width: auto; height: 40px; max-width: none; object-fit: contain; object-position: left center; }
+.nav-logo-img--mobile { display: none; width: 32px; height: 32px; object-fit: contain; }
+.nav-center { flex: 1; display: flex; justify-content: center; }
+.nav-links { display: flex; gap: 22px; list-style: none; flex-wrap: nowrap; white-space: nowrap; }
+.nav-links a { font-family: var(--sans); font-size: 0.78rem; font-weight: 400; letter-spacing: 0.04em; color: var(--text); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--ink-soft); }
+.nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; margin-left: auto; }
+.nav-cta { padding: 8px 14px; font-size: 0.7rem; }
+.locale-switcher { display: inline-flex; align-items: center; gap: 0; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; }
+.locale-switcher a { color: var(--text-dim); border: 1px solid var(--rule); padding: 6px 9px; text-decoration: none; transition: all 0.2s; }
+.locale-switcher a + a { margin-left: -1px; }
+.locale-switcher a:hover, .locale-switcher a.current { color: var(--ink); border-color: var(--ink-mid); background: var(--bg-soft); position: relative; z-index: 1; }
+.hamburger { display: none; flex-shrink:0; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
+.hamburger span { display:block; width:22px; height:1px; background:var(--ink); transition: all 0.25s; }
+@media (max-width: 900px) { .nav-center, .nav-right .nav-cta { display:none; } .hamburger { display:flex; } }
+@media (max-width: 768px) { .nav-logo-img--desktop { display:none; } .nav-logo-img--mobile { display:block; } }
+.mobile-menu { display:none; position:fixed; top:var(--nav-h); left:0; right:0; background:var(--bg); border-bottom:1px solid var(--rule); z-index:99; padding:8px var(--gutter) 20px; flex-direction:column; gap:0; }
+.mobile-menu.open { display:flex; }
+.mobile-menu a { font-size:0.88rem; color:var(--text); text-decoration:none; padding:14px 0; border-bottom:1px solid var(--rule); letter-spacing:0.04em; }
+.mobile-menu a:last-child { border-bottom:none; }
+.mobile-menu .mobile-menu-cta { margin-top:12px; padding:13px 18px; text-align:center; color:#fff; border-bottom:none; }
+
+.btn { display: inline-block; text-decoration: none; font-family: var(--sans); font-size: 0.84rem; font-weight: 400; letter-spacing: 0.06em; padding: 13px 28px; transition: all 0.2s; cursor: pointer; border: none; }
+.btn-primary { background: var(--ink); color: #fff; }
+.btn-primary:hover { background: var(--ink-mid); color: #fff; }
+.btn-outline { border: 1px solid var(--ink-mid); color: var(--ink); background: transparent; }
+.btn-outline:hover { border-color: var(--ink); color: var(--ink); }
+.rule-accent { width: 32px; height: 2px; background: var(--accent); margin: 14px 0 22px; }
+
+/* Footer (mirror) */
+footer { border-top: 1px solid var(--rule); padding: 52px 0 28px; background: var(--bg-soft); font-size: 0.82rem; color: var(--text-dim); }
+footer .footer-grid { display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 32px; align-items: start; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+footer h2 { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.2em; color: var(--ink-soft); text-transform: uppercase; margin-bottom: 12px; font-weight: 500; }
+footer h3 { font-family: var(--serif); font-size: 1rem; font-weight: 400; color: var(--ink); margin-bottom: 8px; }
+footer ul { list-style: none; }
+footer ul li { padding: 4px 0; }
+footer ul li a { color: var(--text-mid); }
+footer ul li a:hover { color: var(--ink); }
+footer .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 18px; flex-wrap: wrap; gap: 12px; }
+footer .footer-locale-switcher a.current { font-weight: 600; color: var(--ink); }
+@media (max-width: 900px) { footer .footer-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 580px) { footer .footer-grid { grid-template-columns: 1fr; } }
+
+
+/* === Curriculum-specific === */
+main.curriculum { padding-top: var(--nav-h); }
+.curr-hero { padding: 96px 0 64px; border-bottom: 1px solid var(--rule); position: relative; overflow: hidden; }
+.curr-hero::before { content:''; position:absolute; inset:0;
+  background-image: linear-gradient(rgba(15,31,58,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(15,31,58,0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent);
+          mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent); }
+.curr-hero-inner { position:relative; z-index:2; max-width: 880px; }
+.curr-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.32em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 18px; }
+.curr-hero h1 { font-family: var(--serif); font-size: clamp(1.9rem, 4.4vw, 3.1rem); font-weight: 300; color: var(--ink-mid); line-height: 1.3; letter-spacing: 0.02em; margin: 0 0 22px; }
+.curr-hero h1 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
+.curr-hero .lede { font-size: 1.05rem; line-height: 1.85; color: var(--text); margin: 0 0 24px; max-width: 700px; }
+.curr-hero-meta { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
+.curr-hero-meta strong { color: var(--ink); font-family: var(--mono); }
+
+.crumbs { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; padding: 22px 0 0; }
+.crumbs a { color: var(--text-mid); }
+.crumbs a:hover { color: var(--ink); }
+.crumbs .sep { color: var(--rule); margin: 0 8px; }
+
+.theme-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; padding: 56px 0; }
+.theme-card { display: block; background: #fff; border: 1px solid var(--rule); padding: 30px 28px; position: relative; transition: all 0.2s; }
+.theme-card:hover { border-color: var(--ink-soft); box-shadow: 0 12px 32px rgba(15,31,58,0.08); transform: translateY(-2px); }
+.theme-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background: var(--accent); opacity: 0.85; }
+.theme-card-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; }
+.theme-card-name { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--ink-mid); margin: 10px 0 8px; line-height: 1.35; }
+.theme-card-period { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 14px; }
+.theme-card-desc { font-size: 0.92rem; line-height: 1.7; color: var(--text); margin-bottom: 18px; }
+.theme-card-list { font-size: 0.84rem; color: var(--text-mid); list-style: none; padding-top: 14px; border-top: 1px solid var(--rule-soft); }
+.theme-card-list li { padding: 5px 0; }
+.theme-card-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; }
+.theme-card-foot .arrow { color: var(--accent-deep); }
+
+.post-list { padding: 28px 0 56px; }
+.post-list-row { display: grid; grid-template-columns: 60px 1fr auto; gap: 22px; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--rule-soft); transition: all 0.18s; }
+.post-list-row:hover { background: var(--bg-mid); padding-left: 12px; padding-right: 12px; }
+.post-list-num { font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em; color: var(--accent-deep); font-weight: 500; }
+.post-list-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--ink-mid); line-height: 1.45; }
+.post-list-meta { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; white-space: nowrap; }
+@media (max-width: 600px) { .post-list-row { grid-template-columns: 50px 1fr; } .post-list-meta { grid-column: 1 / -1; padding-left: 72px; } }
+
+/* Post body */
+.post-body { padding: 48px 0 80px; }
+.post-content { max-width: var(--measure); margin: 0 auto; }
+.post-content > p, .post-content > ul, .post-content > ol, .post-content > blockquote, .post-content > pre, .post-content > table, .post-content > hr, .post-content > h2, .post-content > h3, .post-content > h4 { max-width: var(--measure); margin-left: auto; margin-right: auto; }
+.post-content h2 { font-family: var(--serif); font-size: 1.55rem; font-weight: 400; color: var(--ink-mid); line-height: 1.35; margin: 56px 0 14px; padding-top: 22px; border-top: 1px solid var(--rule-soft); }
+.post-content h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 500; color: var(--ink); margin: 36px 0 10px; line-height: 1.4; }
+.post-content h4 { font-family: var(--sans); font-size: 1rem; font-weight: 600; color: var(--ink); margin: 26px 0 8px; letter-spacing: 0.02em; }
+.post-content p { margin: 0 0 18px; font-size: 1rem; line-height: 1.85; color: var(--text); }
+.post-content p:first-of-type { font-size: 1.05rem; }
+.post-content ul, .post-content ol { margin: 0 0 22px; padding-left: 28px; }
+.post-content ul li, .post-content ol li { font-size: 0.97rem; line-height: 1.8; margin-bottom: 8px; color: var(--text); }
+.post-content ul li::marker { color: var(--accent-deep); }
+.post-content blockquote { margin: 30px 0; padding: 20px 24px; border-left: 3px solid var(--accent); background: var(--accent-soft); color: var(--ink-mid); font-style: normal; }
+.post-content blockquote p { margin-bottom: 8px; font-size: 0.97rem; }
+.post-content blockquote p:last-child { margin-bottom: 0; }
+.post-content blockquote strong { color: var(--ink); }
+.post-content code { background: #f0f0f0; color: var(--ink-mid); font-family: var(--mono); font-size: 0.88rem; padding: 2px 6px; border-radius: 3px; }
+.post-content pre { background: #f9f9fb; border: 1px solid var(--rule); padding: 18px 22px; overflow-x: auto; font-family: var(--mono); font-size: 0.85rem; line-height: 1.55; margin: 24px 0; }
+.post-content pre code { background: transparent; padding: 0; font-size: inherit; }
+.post-content a { color: var(--accent-deep); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; transition: text-decoration-color 0.18s; }
+.post-content a:hover { text-decoration-color: var(--accent-deep); }
+.post-content hr { border: none; border-top: 1px solid var(--rule); margin: 40px auto; max-width: 120px; }
+.post-content table { width: 100%; max-width: var(--measure); margin: 28px auto; border-collapse: collapse; font-size: 0.9rem; }
+.post-content th { background: var(--bg-mid); color: var(--ink-mid); font-family: var(--sans); font-weight: 600; text-align: left; padding: 12px 14px; border-bottom: 2px solid var(--rule); }
+.post-content td { padding: 10px 14px; border-bottom: 1px solid var(--rule-soft); vertical-align: top; color: var(--text); }
+.post-content tr:nth-child(even) td { background: #fafbfc; }
+
+/* Mermaid container */
+.mermaid-wrap { background: #fdfdfe; border: 1px solid var(--rule); padding: 22px 18px; margin: 28px 0; overflow-x: auto; }
+.mermaid { font-family: var(--sans); text-align: center; }
+
+/* Post header */
+.post-header { padding: 48px 0 28px; border-bottom: 1px solid var(--rule); }
+.post-header-inner { max-width: var(--measure); margin: 0 auto; }
+.post-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.28em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 14px; }
+.post-title { font-family: var(--serif); font-size: clamp(1.7rem, 3.6vw, 2.4rem); font-weight: 400; color: var(--ink-mid); line-height: 1.3; margin: 0 0 16px; letter-spacing: 0.005em; }
+.post-summary { font-size: 1.02rem; line-height: 1.8; color: var(--text); margin: 0 0 22px; max-width: 660px; }
+.post-meta { display: flex; gap: 26px; flex-wrap: wrap; padding-top: 18px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
+.post-meta span strong { color: var(--ink); font-family: var(--mono); }
+
+/* Post nav (prev/next) */
+.post-nav { max-width: var(--measure); margin: 56px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding-top: 36px; border-top: 1px solid var(--rule); }
+.post-nav-link { display: block; padding: 18px 20px; background: var(--bg-mid); border: 1px solid var(--rule); transition: all 0.18s; }
+.post-nav-link:hover { border-color: var(--ink-soft); background: #fff; transform: translateY(-1px); }
+.post-nav-dir { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px; }
+.post-nav-title { font-family: var(--serif); font-size: 0.94rem; color: var(--ink-mid); line-height: 1.4; }
+.post-nav-link.next { text-align: right; }
+@media (max-width: 640px) { .post-nav { grid-template-columns: 1fr; } .post-nav-link.next { text-align: left; } }
+
+/* Knowledge check */
+.kcheck { background: var(--bg-mid); padding: 72px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.kcheck-head { max-width: 720px; margin: 0 auto 36px; text-align: center; }
+.kcheck h2 { font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 300; color: var(--ink-mid); margin: 0 0 14px; line-height: 1.3; }
+.kcheck h2 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
+.kcheck p.lede { font-size: 0.98rem; line-height: 1.75; color: var(--text); }
+.kcheck-q { background: #fff; border: 1px solid var(--rule); padding: 28px 30px; margin-bottom: 18px; max-width: 760px; margin-left: auto; margin-right: auto; }
+.kcheck-q-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; margin-bottom: 12px; }
+.kcheck-q-text { font-family: var(--serif); font-size: 1.1rem; line-height: 1.5; color: var(--ink-mid); margin-bottom: 18px; }
+.kcheck-opts { display: grid; gap: 8px; }
+.kcheck-opt { display: block; padding: 12px 16px; background: var(--bg-soft); border: 1px solid var(--rule); text-align: left; font-family: var(--sans); font-size: 0.92rem; color: var(--text); cursor: pointer; transition: all 0.15s; }
+.kcheck-opt:hover { background: #fff; border-color: var(--ink-soft); }
+.kcheck-opt.correct { background: #e8f3ec; border-color: var(--ok); color: var(--ok); }
+.kcheck-opt.incorrect { background: #fbe9e9; border-color: var(--bad); color: var(--bad); }
+.kcheck-explain { margin-top: 16px; padding: 14px 18px; background: var(--accent-soft); border-left: 3px solid var(--accent); font-size: 0.9rem; line-height: 1.7; color: var(--ink-mid); display: none; }
+.kcheck-q.answered .kcheck-explain { display: block; }
+.kcheck-score { text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--text-dim); margin-top: 28px; text-transform: uppercase; }
+.kcheck-score strong { color: var(--ink-mid); font-family: var(--mono); }
+
+/* Stats / hero stats */
+.stat-band { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; padding: 56px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); background: var(--bg-soft); }
+.stat-item { padding: 0 18px; }
+.stat-num { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 300; color: var(--ink-mid); line-height: 1; margin-bottom: 8px; }
+.stat-num em { color: var(--accent-deep); font-weight: 400; font-style: normal; }
+.stat-label { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; }
+</style>
+</head>
+<body>
+<nav id="main-nav" role="navigation" aria-label="Main navigation">
+  <div class="wrap nav-inner">
+    <a href="/en/" class="nav-logo" aria-label="JII home">
+      <img class="nav-logo-img nav-logo-img--desktop" src="/assets/logo-jii-wordmark.svg" alt="Japan Investor Interface logo" width="282" height="40">
+      <img class="nav-logo-img nav-logo-img--mobile" src="/assets/logo-jii-monogram.svg" alt="Japan Investor Interface logo" width="32" height="32">
+    </a>
+    <div class="nav-center">
+      <ul class="nav-links" role="list">
+        <li><a href="/en/services/">Services</a></li>
+        <li><a href="/en/pricing/">Pricing</a></li>
+        <li><a href="/en/company/">Company</a></li>
+        <li><a href="/en/faq/">FAQ</a></li>
+        <li><a href="/en/compounders/">Compounders</a></li>
+        <li><a href="/en/governance/">Governance</a></li>
+      </ul>
+    </div>
+    <div class="nav-right">
+      <a href="/en/#contact" class="btn btn-primary nav-cta">Free 30-min call</a>
+      <span class="locale-switcher nav-locale-switcher" aria-label="Language switcher"><a href="/governance/market-restructuring/3.1-four-segments-to-three/" data-locale-route lang="ja">JP</a><a href="/en/governance/market-restructuring/3.1-four-segments-to-three/" class="current" aria-current="page" lang="en">EN</a></span>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" hidden>
+  <a href="/en/services/" onclick="toggleMenu()">Services</a>
+  <a href="/en/pricing/" onclick="toggleMenu()">Pricing</a>
+  <a href="/en/company/" onclick="toggleMenu()">Company</a>
+  <a href="/en/faq/" onclick="toggleMenu()">FAQ</a>
+  <a href="/en/compounders/" onclick="toggleMenu()">Compounders</a>
+  <a href="/en/governance/" onclick="toggleMenu()">Governance</a>
+  <a href="/governance/market-restructuring/3.1-four-segments-to-three/" data-locale-route onclick="toggleMenu()" lang="ja">JP</a>
+  <a href="/en/#contact" class="btn btn-primary mobile-menu-cta" onclick="toggleMenu()">Book a free 30-min call</a>
+</nav>
+<main id="main-content" class="curriculum" tabindex="-1">
+<div class="wrap crumbs">
+  <a href="/en/">JII</a> <span class="sep">/</span>
+  <a href="/en/governance/">Governance Curriculum</a> <span class="sep">/</span>
+  <a href="/en/governance/market-restructuring/">Market Restructuring</a> <span class="sep">/</span>
+  Post 3.1
+</div>
+<header class="post-header">
+  <div class="wrap">
+    <div class="post-header-inner">
+      <div class="post-eyebrow">Theme 3 · POST 3.1</div>
+      <h1 class="post-title">From Four Segments to Three: the April 2022 restructuring</h1>
+      <p class="post-summary"></p>
+      <div class="post-meta">
+        <span>Theme: <strong>Market Restructuring</strong></span>
+        <span>Reading: <strong> min</strong></span>
+        <span>Updated: <strong>2026-05-16</strong></span>
+      </div>
+    </div>
+  </div>
+</header>
+<section class="post-body">
+  <div class="wrap">
+    <article class="post-content">
+<h1>From Four Segments to Three: the April 2022 Restructuring</h1>
+<blockquote>
+<p><strong>TL;DR</strong>
+- On <strong>4 April 2022</strong>, the Tokyo Stock Exchange replaced its four legacy market divisions (1st Section, 2nd Section, Mothers, JASDAQ) with three concept-driven segments — <strong>Prime, Standard and Growth</strong> — capping a 14-month formal policy review that had begun under Professor Hideki Kanda's Financial System Council study group in 2018.
+- Day-one distribution: <strong>1,839 Prime / 1,466 Standard / 466 Growth</strong> out of 3,771 listings. Prime alone absorbed 49% of all listings — almost mirroring the bloated 1st Section it was meant to replace.
+- The restructuring also redefined "tradable shares" to exclude cross-shareholdings, raised the Prime tradable-share-market-cap bar to <strong>JPY 10 bn</strong>, and layered Prime-only Corporate Governance Code obligations (one-third independent directors, English disclosure, TCFD-aligned climate disclosure) on top of segment selection.</p>
+</blockquote>
+<hr>
+<h2>Why the four-section system had to go</h2>
+<p>For nine years after the 2013 TSE/OSE cash-equity merger, the Tokyo Stock Exchange ran on four overlapping divisions inherited from two separate legacy exchanges. The 1st Section was intended for large, blue-chip companies; the 2nd Section for mid-caps; Mothers (the TSE-side emerging market) for early-stage growth; and JASDAQ (split into Standard and Growth tiers, inherited from the Osaka Securities Exchange) for everything else. The merger had preserved both exchanges' structures rather than redesigning them — a deliberate choice at the time, framed by JPX as "avoiding impact on listed companies and investors," but one that left Japan with the most cluttered market-segment menu in the developed world.</p>
+<p>Three structural problems festered. <strong>First</strong>, the 1st Section had become undiscriminating. As of 2 March 2022, <strong>2,180 of TSE's 2,653 listings — roughly 82% — sat in the "top" section</strong>, a share that made the label almost meaningless as a quality signal. The 2nd Section, by comparison, held only 473 names, less than a quarter of the 1st Section by count. <strong>Second</strong>, the concepts of the four markets blurred into each other. The 2nd Section, Mothers and JASDAQ all served, in different and overlapping ways, an audience of mid-sized and growth-stage issuers — without any clean delineation. <strong>Third, and most damagingly</strong>, transfer criteria <em>into</em> the 1st Section were <em>lighter</em> than direct-listing criteria into the same section. JPX itself eventually cited this anomaly as a structural defect: a company could IPO on Mothers or the 2nd Section, then "graduate" to the 1st Section under softer rules, blunting any post-listing pressure to keep improving.</p>
+<p>Layered over all of this was TOPIX, which was defined by 1st-Section membership. Because of that mechanical link, passive flows rewarded any company that secured 1st-Section status — turning the index into "more of a broad census than a selective index," in the language of the Financial System Council study group's December 2019 final report. With ~2,200 peak constituents, an estimated <strong>60% of TOPIX members did not earn their cost of capital</strong> — a statistic that arrived at the very moment Abenomics' governance reforms were trying to push Japanese boards toward capital efficiency.</p>
+<h2>The policy review: from advisory group to "Reiwa report"</h2>
+<p>The reform ran in two stacked phases. The TSE-side phase began in <strong>October 2018</strong> with the establishment of the <em>Advisory Group to Review the TSE Cash Equity Market Structure</em>. TSE published its consultation paper in December 2018 and ran public comment from 21 December 2018 to 31 January 2019, drawing roughly 90 written submissions and 70 individual interviews; a March 2019 "Summary of Current Issues" consolidated the input.</p>
+<p>The FSA-side, formal review followed: the <strong>Expert Study Group on Capital Markets in Japan</strong> of the Financial System Council, chaired by Professor Hideki Kanda of Gakushuin University Law School, met six times between May and December 2019. On <strong>27 December 2019</strong> the group published its final report — <em>"A New Equity Market Structure Serving for Companies and Investors in the New Era of Reiwa."</em> The title was deliberate: the report framed market restructuring as a Reiwa-era national project, not a technical exchange-administration matter. The report endorsed a three-segment design with distinct concepts, called for index reform that de-linked TOPIX from segment membership, and set the architecture that TSE then operationalised in its February 2020 "Overview of Market Structure Review."</p>
+<p>That FSA endorsement was structurally important. By placing the review inside the Financial System Council — rather than leaving it as a TSE rule-change project — the government gave the new design the political cover to impose genuinely tighter listing maintenance criteria and to layer Prime-only Corporate Governance Code obligations on top of segment selection.</p>
+<h2>The April 4, 2022 launch — three concepts, three thresholds</h2>
+<p>The 4 April 2022 restructuring replaced the four divisions with three concept-defined segments:</p>
+<ul>
+<li><strong>Prime Market</strong> — "oriented to companies which center their business on constructive dialogue with global investors." Criteria include tradable-share market cap <strong>≥ JPY 10 bn</strong>, tradable-share ratio <strong>≥ 35%</strong>, ≥ 800 shareholders, ≥ 20,000 trading units, daily average trading value ≥ JPY 20 m, and profit ≥ JPY 2.5 bn over recent two years (or JPY 10 bn market cap with JPY 10 bn revenue). On top of these, Prime issuers must comply (or explain) with the Prime-only Corporate Governance Code supplementary principles introduced in June 2021.</li>
+<li><strong>Standard Market</strong> — for companies "with sufficient liquidity and governance levels to be investment instruments in a public market." Tradable-share market cap <strong>≥ JPY 1 bn</strong>, tradable-share ratio <strong>≥ 25%</strong>, ≥ 400 shareholders.</li>
+<li><strong>Growth Market</strong> — for high-growth/emerging companies. Tradable-share market cap <strong>≥ JPY 500 m</strong>, tradable-share ratio <strong>≥ 25%</strong>, ≥ 150 shareholders.</li>
+</ul>
+<p>The day-one population was almost exactly the bloated shape policymakers had hoped to break. Of <strong>3,771 TSE-listed companies, 1,839 (49%) chose Prime, 1,466 (39%) Standard, and 466 (12%) Growth</strong> — a distribution that drew immediate criticism from overseas investors who had expected the new top segment to land closer to 500 names. The reason: roughly 16% of the Prime cohort were admitted under "transitional measures" they would not have cleared under regular criteria. (Theme 3.3 examines that cliff in detail.)</p>
+<h2>How the four old segments mapped onto the new three</h2>
+<p>The migration was not a one-to-one rename. The 1st Section split between Prime and Standard, the 2nd Section consolidated into Standard, Mothers and JASDAQ Growth flowed into Growth, and JASDAQ Standard merged into Standard. The chart below shows the dominant flows:</p>
+<div class="mermaid-wrap"><pre class="mermaid">flowchart LR
+    A[&quot;1st Section&lt;br/&gt;2,180 listings&lt;br/&gt;(March 2022)&quot;]
+    B[&quot;2nd Section&lt;br/&gt;473 listings&quot;]
+    C[&quot;Mothers&lt;br/&gt;(TSE-side&lt;br/&gt;emerging)&quot;]
+    D[&quot;JASDAQ Standard&lt;br/&gt;(OSE legacy)&quot;]
+    E[&quot;JASDAQ Growth&lt;br/&gt;(OSE legacy)&quot;]
+
+    P[&quot;Prime Market&lt;br/&gt;1,839 listings&lt;br/&gt;(49% of total)&quot;]
+    S[&quot;Standard Market&lt;br/&gt;1,466 listings&lt;br/&gt;(39% of total)&quot;]
+    G[&quot;Growth Market&lt;br/&gt;466 listings&lt;br/&gt;(12% of total)&quot;]
+
+    A --&gt;|&quot;~1,700 (Prime-qualifying&lt;br/&gt;or transitional)&quot;| P
+    A --&gt;|&quot;~480 (failed Prime&lt;br/&gt;thresholds; opted Standard)&quot;| S
+    B --&gt;|&quot;~470&quot;| S
+    D --&gt;|&quot;~700&quot;| S
+    C --&gt;|&quot;~430&quot;| G
+    E --&gt;|&quot;~36&quot;| G
+
+    classDef oldSeg fill:#f4f1ea,stroke:#7a6d4a,color:#3a3320
+    classDef newSeg fill:#e6efe1,stroke:#3d6b3a,color:#1f3a1d
+    class A,B,C,D,E oldSeg
+    class P,S,G newSeg</pre></div>
+
+<p>A cleaner reference table for the migration:</p>
+<table>
+<thead>
+<tr>
+<th>Legacy segment (pre-Apr 2022)</th>
+<th>New segment (Apr 2022)</th>
+<th>Approx. flow</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1st Section (large/blue-chip)</td>
+<td><strong>Prime Market</strong></td>
+<td>~1,700 listings (Prime-qualifying or admitted under transitional measures)</td>
+</tr>
+<tr>
+<td>1st Section (sub-threshold names)</td>
+<td><strong>Standard Market</strong></td>
+<td>~480 listings — companies that chose Standard rather than face Prime's JPY 10 bn tradable-share market cap</td>
+</tr>
+<tr>
+<td>2nd Section (mid-cap)</td>
+<td><strong>Standard Market</strong></td>
+<td>~470 listings</td>
+</tr>
+<tr>
+<td>Mothers (TSE emerging)</td>
+<td><strong>Growth Market</strong></td>
+<td>~430 listings</td>
+</tr>
+<tr>
+<td>JASDAQ Standard (OSE legacy)</td>
+<td><strong>Standard Market</strong></td>
+<td>~700 listings</td>
+</tr>
+<tr>
+<td>JASDAQ Growth (OSE legacy)</td>
+<td><strong>Growth Market</strong></td>
+<td>~36 listings</td>
+</tr>
+<tr>
+<td><strong>Total (Apr 2022)</strong></td>
+<td></td>
+<td><strong>3,771 listings → 1,839 / 1,466 / 466</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Two things are worth flagging in this map. First, the 1st-Section-to-Standard flow (~480 names) was a quiet but significant signal: roughly 22% of 1st-Section issuers either could not, or chose not to, defend the Prime thresholds, and accepted a one-step demotion in name in exchange for clearer compliance. Second, the consolidation of JASDAQ Standard into the new Standard Market — without renaming JASDAQ Growth's destination — finally collapsed the OSE-legacy duplication that had survived the 2013 merger.</p>
+<h2>The redefinition that changed everything: "tradable shares"</h2>
+<p>The 2022 launch redefined "tradable shares" (<em>ryūdōkabu / 流動株</em>) in a way that did more to reshape Japanese capital markets than the segment relabel itself. Under the new definition, shares held by <strong>Japanese banks, insurers and business corporations</strong> are <strong>excluded from "tradable" regardless of stake size</strong> — meaning that a 0.5% strategic shareholding by a regional bank counts the same as a 30% cross-holding by a major group company: both are non-tradable.</p>
+<p>This is the structural mechanism by which TSE chose to dismantle Japanese cross-shareholdings — through the back door of listing-maintenance criteria rather than direct prohibition. A Prime issuer with extensive cross-holdings will fail the 35% tradable-share-ratio test unless it either unwinds those holdings or accepts demotion to Standard. Theme 3.2 unpacks the mechanics; for present purposes, the key point is that the segment relabel and the tradable-share redefinition were a single policy package. Without the redefinition, Prime would have been a soft Branding exercise; with it, Prime is a binding constraint on the capital structure of Japan's largest companies.</p>
+<h2>Prime-only Corporate Governance Code obligations</h2>
+<p>The Corporate Governance Code revision of June 2021 — six months before the segment launch — introduced supplementary principles applicable only to Prime issuers. The most material for IR:</p>
+<ul>
+<li><strong>One-third independent outside directors</strong> (raised from the prior "two or more" general expectation, with supplementary principle 4.8 demanding at least one-third for Prime).</li>
+<li><strong>English disclosure of necessary information</strong> (Supplementary Principle 3.1.2) — a long-standing demand from overseas institutional investors, now a comply-or-explain item.</li>
+<li><strong>TCFD-aligned climate disclosure</strong> (Supplementary Principle 3.1.3) — narrowing what counts as "appropriate" sustainability disclosure for Prime-listed issuers.</li>
+<li><strong>Electronic voting platform usage</strong> (Supplementary Principle 1.2.4) — for general meetings.</li>
+</ul>
+<p>Together, these Prime-only items meant the segment choice was a <em>governance</em> choice as much as a <em>market-cap</em> choice. A company opting into Prime was not just declaring liquidity ambition; it was opting into the most demanding governance regime Japan has ever applied to listed issuers.</p>
+<h2>Why the 2022 launch felt like a re-label — and why that mattered</h2>
+<p>The criticism was immediate and sharp. With 1,839 names in Prime, the new top market looked, in a January 2022 Nikkei reading, "almost the same as the 1st Section." Overseas investors who had expected 500 names — a "real" top market — found roughly 16% of the Prime cohort admitted under transitional measures despite failing the regular criteria, with the transition itself originally framed as applying "for the time being" (<em>tōbun no aida / 当分の間</em>) and <strong>no fixed end date</strong>.</p>
+<p>That criticism was the political fuel for the <strong>Follow-up Council</strong> TSE established in July 2022, three months after launch — which in turn produced the March 2025 transitional-measures cliff (Theme 3.3), the March 2023 "PBR letter" (covered in Theme 4.1), and the cascading reforms that have defined Japanese corporate governance discourse ever since. In other words, the 2022 launch's <em>flaws</em> did more to drive subsequent reform than its successes.</p>
+<h2>What this means for IR</h2>
+<ol>
+<li>
+<p><strong>Segment choice is a governance commitment, not a marketing badge.</strong> A Prime listing carries Prime-only Corporate Governance Code obligations — one-third independent directors, English disclosure, TCFD climate disclosure, electronic voting. IR should be able to map each obligation to a board-level owner and an internal compliance status.</p>
+</li>
+<li>
+<p><strong>The tradable-share redefinition is the most consequential single change.</strong> If your company has meaningful cross-shareholdings — held by banks, insurers, or strategic-holder corporates — the 35% Prime tradable-share-ratio bar is the binding constraint. Treat it as a capital-structure question, not a listing-criterion question.</p>
+</li>
+<li>
+<p><strong>The Prime label does not mean what it looked like in 2022.</strong> Roughly 16% of the original Prime cohort were admitted under transitional measures; that grandfather expires in March 2025 (Theme 3.3). Investors no longer treat "Prime listing" alone as a quality signal — they look behind it.</p>
+</li>
+<li>
+<p><strong>TOPIX inclusion is no longer mechanical.</strong> Phase 2 of TOPIX reform (Oct 2026 – Jul 2028; Theme 3.4) detaches index inclusion from segment membership. A Standard-listed name with strong liquidity can be in TOPIX; a low-liquidity Prime issuer can be out. IR strategy must address index-eligibility independently from segment-eligibility.</p>
+</li>
+<li>
+<p><strong>The 2022 reform is the <em>foundation</em> of the current reform cycle, not its endpoint.</strong> Every subsequent reform — the PBR letter, the disclosure list, the misalignment booklet, the Growth Market 2030 revision, the English-disclosure mandate — sits on top of the three-segment architecture. IR cannot speak fluently about any of them without understanding the segments.</p>
+</li>
+</ol>
+<h2>Sources &amp; further reading</h2>
+<ul>
+<li>JPX, <strong>"Overview of Market Restructuring,"</strong> https://www.jpx.co.jp/english/equities/improvements/market-structure/01.html</li>
+<li>JPX, <strong>"Review of TSE Cash Equity Market Structure" (consultation hub)</strong>, https://www.jpx.co.jp/english/equities/improvements/market-structure/index.html</li>
+<li>JPX, <strong>"Consultation Paper Reference Data"</strong> (Dec 2018), https://www.jpx.co.jp/english/equities/improvements/market-structure/b5b4pj000002rxte-att/b5b4pj000002rz8g.pdf</li>
+<li>FSA, <strong>"Publication of report by the Expert Study Group on Capital Markets in Japan"</strong> (27 Dec 2019), https://www.fsa.go.jp/en/refer/councils/singie_kinyu/20191227.html</li>
+<li>JPX, <strong>"Upon Publication of Final Report,"</strong> https://www.jpx.co.jp/english/corporate/news/news-releases/1020/20191227-01e.html</li>
+<li>JPX, <strong>"Market Segments,"</strong> https://www.jpx.co.jp/english/equities/market-restructure/market-segments/index.html</li>
+<li>JPX, <strong>"Announcement of the Results of Market Segment Selection by Listed Companies"</strong> (11 Jan 2022), https://www.jpx.co.jp/english/corporate/news/news-releases/0060/20220111-01.html</li>
+<li>JPX, <strong>"Continued Listing Criteria (Prime Market),"</strong> https://www.jpx.co.jp/english/equities/listing/continue/outline/01.html</li>
+<li>Winston &amp; Strawn, <strong>"Tokyo Stock Exchange Reorganization: What Listed Companies and Investors Need to Know,"</strong> https://www.winston.com/en/insights-news/tokyo-stock-exchange-reorganization-what-listed-companies-and-investors-need-to-know</li>
+<li>Nippon.com, <strong>"Can Structural Reforms Revive the Tokyo Stock Exchange?"</strong> https://www.nippon.com/en/japan-topics/g02079/</li>
+</ul>
+<h2>Cross-references</h2>
+<ul>
+<li><strong>Theme 2.3 — The 2021 CG Code Revision: Prime, sustainability, diversity.</strong> The Prime-only supplementary principles introduced six months before the segment launch.</li>
+<li><strong>Theme 3.2 — The Tradable-Share Ratio.</strong> The redefinition that turned segment criteria into a cross-shareholding-unwind mechanism.</li>
+<li><strong>Theme 3.3 — The March 2025 Cliff.</strong> How the original "for the time being" transitional measures became a hard deadline and an improvement-period regime.</li>
+<li><strong>Theme 3.4 — TOPIX 2.0.</strong> The index reform that decouples TOPIX inclusion from segment membership.</li>
+<li><strong>Theme 4.1 — PBR &lt; 1 Is Not a Target.</strong> The March 2023 cost-of-capital request that built on the segment architecture set in April 2022.</li>
+</ul>
+    </article>
+    <div class="post-nav"><div></div><a href="/en/governance/market-restructuring/3.2-tradable-share-ratio/" class="post-nav-link next"><div class="post-nav-dir">Next →</div><div class="post-nav-title">The Tradable-Share Ratio: the one number that reshaped Japanese cross-shareholdings</div></a></div>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Japan Investor Interface Co., Ltd.</h3>
+        <p>Cross-border IR diagnostics for Japanese listed companies. The Foreign IR Diagnostic Card visualizes how foreign capital reads your IR.</p>
+      </div>
+      <div class="footer-col">
+        <h2>The diagnostic & plans</h2>
+        <ul>
+          <li><a href="/en/services/">The Diagnostic Card</a></li>
+          <li><a href="/en/pricing/">Light — Initial Diagnostic</a></li>
+          <li><a href="/en/pricing/">Standard — Disclosure Improvement</a></li>
+          <li><a href="/en/pricing/">Pro — Investor-Meeting Cycle</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Governance curriculum</h2>
+        <ul>
+          <li><a href="/en/governance/">Curriculum home</a></li>
+          <li><a href="/en/governance/foundations/">Theme 1 · Foundations</a></li>
+          <li><a href="/en/governance/capital-efficiency/">Theme 4 · Capital Efficiency</a></li>
+          <li><a href="/en/governance/toolbox/">IR Toolbox</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>JII Compounders</h2>
+        <ul>
+          <li><a href="/en/compounders/">All profiles</a></li>
+          <li><a href="/en/compounders/methodology/">Methodology</a></li>
+          <li><a href="https://japaninterface.substack.com/" rel="noopener" target="_blank">Substack</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Contact</h2>
+        <ul>
+          <li>Email <a href="mailto:info@jpinv.com">info@jpinv.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Japan Investor Interface Co., Ltd. · All rights reserved.</p>
+      <p class="footer-locale-switcher">Language: <a href="/en/" class="current" aria-current="page" lang="en">EN</a> / <a href="/" data-locale-route lang="ja">JP</a></p>
+    </div>
+  </div>
+</footer>
+<script>
+const nav = document.getElementById('main-nav');
+if (nav) window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+const hamburgerBtn = document.querySelector('.hamburger');
+function setMenuOpen(isOpen) { const menu = document.getElementById('mobileMenu'); if (!menu || !hamburgerBtn) return; menu.classList.toggle('open', isOpen); menu.hidden = !isOpen; hamburgerBtn.setAttribute('aria-expanded', String(isOpen)); }
+function toggleMenu() { const menu = document.getElementById('mobileMenu'); setMenuOpen(!(menu && menu.classList.contains('open'))); }
+document.addEventListener('click', (e) => { const menu = document.getElementById('mobileMenu'); if (menu && menu.classList.contains('open') && !menu.contains(e.target) && hamburgerBtn && !hamburgerBtn.contains(e.target)) setMenuOpen(false); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenuOpen(false); });
+</script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs';
+mermaid.initialize({ startOnLoad: true, theme: 'neutral', fontFamily: 'Noto Sans JP, Hiragino Kaku Gothic ProN, sans-serif', themeVariables: { primaryColor: '#f4eee4', primaryTextColor: '#1a2a4a', primaryBorderColor: '#9a7838', lineColor: '#304466', secondaryColor: '#f5f7fa', tertiaryColor: '#fafbfc' } });
+</script>
+</body>
+</html>

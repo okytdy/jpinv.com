@@ -1,0 +1,1125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Working Groups · jpinv.com</title>
+<!--
+================================================================================
+  WORKING GROUPS DASHBOARD — jpinv.com / governance-design-package
+================================================================================
+
+  PURPOSE
+    A live, "mission-control" view of which Japanese regulators and ministries
+    are actively shaping corporate-governance reform right now. Surfaces:
+      - the 14 tracked working groups (active / dormant / completed)
+      - each group's next meetings and expected outputs
+      - a horizontal 12-month calendar of every scheduled item
+      - a 90-day digest of what is coming next
+      - by-issuer summary (FSA / TSE / METI / SSBJ / MoJ)
+
+  DATA CONTRACT
+    Source: ../data/working-groups.json
+      {
+        schema_version: "1.0",
+        last_updated:   "YYYY-MM-DD",
+        groups: [
+          {
+            id, name_en, name_ja, short_name_en, short_name_ja,
+            issuer ("FSA"|"TSE"|"METI"|"SSBJ"|"MoJ"),
+            co_issuer? , host_council?, host_organisation?,
+            established ("YYYY-MM" or "YYYY"),
+            chair, mandate_en,
+            status ("active"|"dormant"|"completed"),
+            official_url, curriculum_slug,
+            recent_outputs: [{date, title_en, url}],
+            upcoming:       [{expected, type, title_en, url?}],
+            focus_topics_2026: ["slug-1", "slug-2", ...]
+          }
+        ],
+        upcoming_calendar: [
+          {date ("YYYY-MM-DD" or "YYYY-MM" or "YYYY-Qn"), group_id, type, title}
+        ]
+      }
+
+  INTERACTION MODEL
+    - Top header: title, "as of" stamp, EN/JA toggle, status filter, sort
+    - Calendar timeline (sticky-ish at top) plots upcoming_calendar items as
+      colored dots on a 12-month axis. Hover shows tooltip. Click scrolls to
+      the relevant group card and flashes it.
+    - "Next 90 days" digest is a chronological list above the grid.
+    - Issuer chip filter narrows the visible grid + timeline.
+    - Sort: next-meeting-date (default) | alphabetical | most-recent-output.
+    - Each card links to the official page and the curriculum frontier page.
+
+  DESIGN INTENT
+    Editorial mission-control. Serif headlines (Noto Serif JP) on a calm
+    ink/parchment palette; mono ticker-style metadata (DM Mono). Status uses
+    color sparingly — green dot for active, grey ring for dormant, muted /
+    strikethrough for completed. Issuers are color-coded.
+
+  ROUGH EDGES (for next Claude-design pass)
+    - Calendar uses a simple linear month grid; dense months (Jul 2026) stack
+      markers vertically which can crowd. Could swimlane by issuer.
+    - JA labels for type chips (meeting/output/deadline/milestone) and
+      issuer-summary aren't translated yet.
+    - "Read curriculum context" links all point to the same frontier page in
+      the current data; left as-is.
+    - Mobile timeline scrolls horizontally — acceptable but could collapse to
+      a list view on very narrow screens.
+
+================================================================================
+-->
+<style>
+  :root {
+    --ink: #1a2a4a;
+    --ink-soft: #3a4a6a;
+    --ink-faint: #6a7a96;
+    --accent: #9a7838;
+    --accent-soft: #c2a874;
+    --rule: #d6dee8;
+    --rule-soft: #e8edf3;
+    --paper: #fbfaf6;
+    --paper-soft: #f4f1e8;
+    --white: #ffffff;
+    --green: #2d8659;
+    --grey-dot: #a0a8b4;
+    --red: #b85450;
+    --serif: "Noto Serif JP", "Times New Roman", serif;
+    --sans:  "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --mono:  "DM Mono", "SF Mono", Consolas, monospace;
+
+    /* issuer palette */
+    --issuer-fsa:  #2b5d8c;
+    --issuer-tse:  #8c4a2b;
+    --issuer-meti: #5d7a3a;
+    --issuer-ssbj: #6a3a7a;
+    --issuer-moj:  #8c2b5d;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: var(--sans);
+    color: var(--ink);
+    background: var(--paper);
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent-soft); text-underline-offset: 3px; }
+  a:hover { text-decoration-color: var(--accent); }
+
+  /* ----------------------------------------------------------------- header */
+  .page-header {
+    border-bottom: 1px solid var(--rule);
+    background: var(--white);
+    padding: 28px 36px 20px;
+  }
+  .header-top {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    gap: 24px; flex-wrap: wrap;
+  }
+  .crumb {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  h1.title {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 1.2;
+    margin: 0 0 6px;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  h1.title .pipe { color: var(--accent); font-weight: 400; margin: 0 8px; }
+  .subtitle {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-soft);
+    letter-spacing: 0.02em;
+  }
+  .subtitle .dot { color: var(--accent); margin: 0 8px; }
+
+  .header-controls {
+    display: flex; gap: 18px; align-items: center; flex-wrap: wrap;
+  }
+  .ctrl-group {
+    display: flex; align-items: center; gap: 8px;
+    font-family: var(--mono); font-size: 11px;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .ctrl-group label { white-space: nowrap; }
+  .seg {
+    display: inline-flex;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    overflow: hidden;
+    background: var(--white);
+  }
+  .seg button {
+    appearance: none; border: 0; background: transparent;
+    font-family: var(--mono); font-size: 11px;
+    padding: 5px 10px;
+    color: var(--ink-soft);
+    cursor: pointer;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border-right: 1px solid var(--rule);
+  }
+  .seg button:last-child { border-right: 0; }
+  .seg button[aria-pressed="true"] {
+    background: var(--ink); color: var(--paper);
+  }
+  .seg button:hover:not([aria-pressed="true"]) { background: var(--rule-soft); }
+
+  select.ctrl {
+    font-family: var(--mono); font-size: 11px;
+    padding: 5px 10px; border: 1px solid var(--rule);
+    background: var(--white); color: var(--ink);
+    border-radius: 2px; cursor: pointer;
+    text-transform: uppercase; letter-spacing: 0.04em;
+  }
+
+  /* ------------------------------------------------------------- container */
+  main {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 32px 36px 80px;
+  }
+
+  /* ---------------------------------------------------------------- digest */
+  .digest {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent);
+    padding: 22px 26px;
+    margin-bottom: 32px;
+  }
+  .digest h2 {
+    font-family: var(--serif); font-weight: 500;
+    font-size: 18px; margin: 0 0 4px; color: var(--ink);
+  }
+  .digest .lede {
+    font-family: var(--mono); font-size: 11px;
+    color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.06em;
+    margin-bottom: 14px;
+  }
+  .digest ul {
+    list-style: none; padding: 0; margin: 0;
+    columns: 2; column-gap: 32px;
+  }
+  .digest li {
+    break-inside: avoid;
+    padding: 7px 0;
+    border-bottom: 1px dotted var(--rule);
+    font-size: 13px; line-height: 1.45;
+    display: grid; grid-template-columns: 70px 60px 1fr; gap: 8px;
+    align-items: baseline;
+  }
+  .digest li:last-child { border-bottom: 0; }
+  .digest .d-date {
+    font-family: var(--mono); font-size: 11px;
+    color: var(--ink); font-weight: 600;
+  }
+  .digest .d-type {
+    font-family: var(--mono); font-size: 9px;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--white); padding: 2px 5px; border-radius: 2px;
+    text-align: center; align-self: center;
+    background: var(--ink-soft);
+  }
+  .digest .d-type.meeting   { background: var(--issuer-fsa); }
+  .digest .d-type.output    { background: var(--accent); }
+  .digest .d-type.deadline  { background: var(--red); }
+  .digest .d-type.milestone { background: var(--ink); }
+  .digest .d-title { cursor: pointer; }
+  .digest .d-title:hover { color: var(--accent); }
+  .digest .d-issuer { color: var(--ink-faint); font-size: 11px; font-family: var(--mono); }
+
+  /* -------------------------------------------------------------- timeline */
+  .timeline-section {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    padding: 22px 0 18px;
+    margin-bottom: 36px;
+  }
+  .timeline-header {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 0 26px 14px;
+  }
+  .timeline-header h2 {
+    font-family: var(--serif); font-weight: 500;
+    font-size: 18px; margin: 0;
+  }
+  .timeline-legend {
+    display: flex; gap: 14px; font-family: var(--mono);
+    font-size: 10px; color: var(--ink-faint);
+    text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  .legend-swatch { display: inline-flex; align-items: center; gap: 5px; }
+  .legend-swatch .dot {
+    width: 9px; height: 9px; border-radius: 50%; display: inline-block;
+  }
+
+  .timeline-scroll {
+    overflow-x: auto;
+    overflow-y: visible;
+    padding: 0 26px 6px;
+    scrollbar-width: thin;
+  }
+  .timeline {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(110px, 1fr));
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    min-width: 1320px;
+    position: relative;
+  }
+  .tl-month {
+    border-right: 1px dotted var(--rule);
+    padding: 8px 8px 10px;
+    min-height: 180px;
+    position: relative;
+  }
+  .tl-month:last-child { border-right: 0; }
+  .tl-month.current { background: linear-gradient(180deg, rgba(154,120,56,0.06), transparent 60%); }
+  .tl-month-label {
+    font-family: var(--mono); font-size: 10px;
+    color: var(--ink-faint); text-transform: uppercase;
+    letter-spacing: 0.06em; margin-bottom: 6px;
+    display: flex; justify-content: space-between;
+  }
+  .tl-month.current .tl-month-label { color: var(--accent); font-weight: 600; }
+  .tl-marker {
+    display: flex; align-items: flex-start; gap: 6px;
+    margin: 4px 0; cursor: pointer;
+    padding: 3px 4px;
+    border-radius: 2px;
+    transition: background 0.12s;
+  }
+  .tl-marker:hover { background: var(--rule-soft); }
+  .tl-marker .tl-dot {
+    width: 9px; height: 9px; border-radius: 50%;
+    flex-shrink: 0; margin-top: 4px;
+    box-shadow: 0 0 0 2px var(--white);
+  }
+  .tl-marker .tl-cap {
+    font-size: 11px; line-height: 1.3;
+    color: var(--ink);
+  }
+  .tl-marker .tl-cap b { font-weight: 600; font-family: var(--mono); font-size: 10px; }
+
+  /* tooltip */
+  .tl-tip {
+    position: fixed; z-index: 50;
+    background: var(--ink); color: var(--paper);
+    padding: 8px 11px; border-radius: 3px;
+    font-size: 12px; line-height: 1.4;
+    max-width: 280px;
+    pointer-events: none;
+    opacity: 0; transition: opacity 0.12s;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+  }
+  .tl-tip.on { opacity: 1; }
+  .tl-tip .tt-meta {
+    font-family: var(--mono); font-size: 10px;
+    color: var(--accent-soft); text-transform: uppercase;
+    letter-spacing: 0.05em; margin-bottom: 3px;
+  }
+
+  /* ------------------------------------------------------------ issuer-bar */
+  .issuer-bar {
+    display: flex; flex-wrap: wrap; gap: 0;
+    border: 1px solid var(--rule);
+    background: var(--white);
+    margin-bottom: 28px;
+  }
+  .issuer-bar .ib-cell {
+    flex: 1 1 0;
+    padding: 14px 18px;
+    border-right: 1px solid var(--rule);
+    cursor: pointer;
+    transition: background 0.12s;
+    min-width: 130px;
+  }
+  .issuer-bar .ib-cell:last-child { border-right: 0; }
+  .issuer-bar .ib-cell:hover { background: var(--paper-soft); }
+  .issuer-bar .ib-cell[aria-pressed="true"] { background: var(--paper-soft); }
+  .ib-cell .ib-issuer {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--ink-soft);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .ib-cell .ib-issuer::before {
+    content: ""; width: 8px; height: 8px; border-radius: 50%;
+    background: var(--ink-faint); display: inline-block;
+  }
+  .ib-cell.ib-fsa  .ib-issuer::before { background: var(--issuer-fsa); }
+  .ib-cell.ib-tse  .ib-issuer::before { background: var(--issuer-tse); }
+  .ib-cell.ib-meti .ib-issuer::before { background: var(--issuer-meti); }
+  .ib-cell.ib-ssbj .ib-issuer::before { background: var(--issuer-ssbj); }
+  .ib-cell.ib-moj  .ib-issuer::before { background: var(--issuer-moj); }
+  .ib-cell .ib-count {
+    font-family: var(--serif); font-size: 28px; font-weight: 500;
+    color: var(--ink); margin-top: 6px;
+    line-height: 1;
+  }
+  .ib-cell .ib-detail {
+    font-family: var(--mono); font-size: 10px;
+    color: var(--ink-faint); text-transform: uppercase;
+    letter-spacing: 0.04em; margin-top: 4px;
+  }
+
+  /* ----------------------------------------------------------------- grid */
+  .grid-meta {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 14px;
+  }
+  .grid-meta h2 {
+    font-family: var(--serif); font-weight: 500;
+    font-size: 20px; margin: 0;
+  }
+  .grid-meta .count {
+    font-family: var(--mono); font-size: 11px;
+    color: var(--ink-faint); text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .groups-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 22px;
+  }
+
+  .card {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    padding: 22px 22px 18px;
+    display: flex; flex-direction: column;
+    transition: box-shadow 0.18s, border-color 0.18s;
+    position: relative;
+  }
+  .card:hover { box-shadow: 0 2px 14px rgba(26,42,74,0.06); border-color: var(--accent-soft); }
+  .card.flash { animation: flash 1.2s ease-out; }
+  @keyframes flash {
+    0% { box-shadow: 0 0 0 3px var(--accent); }
+    100% { box-shadow: 0 2px 14px rgba(26,42,74,0.06); }
+  }
+
+  .card.dormant   { background: var(--paper-soft); }
+  .card.completed { opacity: 0.7; }
+  .card.completed .card-name-en { text-decoration: line-through; text-decoration-color: var(--ink-faint); }
+
+  .card-top {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    gap: 12px; margin-bottom: 10px;
+  }
+  .badge-issuer {
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 3px 7px; border-radius: 2px;
+    background: var(--ink-faint); color: var(--white);
+    font-weight: 600;
+  }
+  .badge-issuer.fsa  { background: var(--issuer-fsa); }
+  .badge-issuer.tse  { background: var(--issuer-tse); }
+  .badge-issuer.meti { background: var(--issuer-meti); }
+  .badge-issuer.ssbj { background: var(--issuer-ssbj); }
+  .badge-issuer.moj  { background: var(--issuer-moj); }
+  .badge-co  {
+    font-family: var(--mono); font-size: 10px;
+    color: var(--ink-faint); margin-left: 4px;
+  }
+
+  .status {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: var(--mono); font-size: 10px;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--ink-faint);
+  }
+  .status .sdot {
+    width: 7px; height: 7px; border-radius: 50%;
+    display: inline-block;
+    background: var(--grey-dot);
+  }
+  .status.active .sdot { background: var(--green); box-shadow: 0 0 0 3px rgba(45,134,89,0.15); }
+  .status.dormant .sdot { background: var(--grey-dot); }
+  .status.completed .sdot { background: var(--ink-faint); }
+
+  .card-name-en {
+    font-family: var(--serif); font-weight: 500;
+    font-size: 17px; line-height: 1.3;
+    color: var(--ink); margin: 0 0 4px;
+  }
+  .card-name-ja {
+    font-family: var(--serif); font-size: 12.5px;
+    color: var(--ink-soft); margin: 0 0 10px;
+    line-height: 1.4;
+  }
+  .card-chair {
+    font-family: var(--mono); font-size: 11px;
+    color: var(--ink-faint); margin-bottom: 10px;
+    letter-spacing: 0.01em;
+  }
+  .card-chair .lbl {
+    text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--ink-faint); margin-right: 4px;
+  }
+  .card-mandate {
+    font-size: 12.5px; line-height: 1.5;
+    color: var(--ink-soft); margin: 0 0 14px;
+    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .sublist {
+    border-top: 1px dotted var(--rule);
+    padding: 10px 0 0;
+    margin-bottom: 10px;
+  }
+  .sublist .lbl {
+    font-family: var(--mono); font-size: 10px;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--ink-faint); margin-bottom: 6px;
+  }
+  .sublist ul { list-style: none; padding: 0; margin: 0; }
+  .sublist li {
+    display: grid; grid-template-columns: 64px 1fr; gap: 6px;
+    padding: 3px 0; font-size: 12px; line-height: 1.4;
+    color: var(--ink-soft);
+  }
+  .sublist li .li-date {
+    font-family: var(--mono); font-size: 10.5px;
+    color: var(--ink); font-weight: 600;
+  }
+  .sublist li.upcoming .li-date { color: var(--accent); }
+  .sublist li a { color: inherit; text-decoration: none; border-bottom: 1px dotted var(--rule); }
+  .sublist li a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 5px; margin: 6px 0 14px; }
+  .chip {
+    font-family: var(--mono); font-size: 10px;
+    background: var(--paper-soft);
+    color: var(--ink-soft);
+    padding: 3px 7px; border-radius: 12px;
+    border: 1px solid var(--rule);
+  }
+
+  .card-links {
+    margin-top: auto;
+    border-top: 1px solid var(--rule);
+    padding-top: 12px;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+  }
+  .card-links a {
+    font-family: var(--mono); font-size: 11px;
+    text-decoration: none;
+    color: var(--ink);
+    border-bottom: 1px solid var(--accent-soft);
+    padding-bottom: 1px;
+  }
+  .card-links a:hover { border-bottom-color: var(--accent); color: var(--accent); }
+  .card-links .arrow { color: var(--accent); margin-left: 3px; }
+
+  /* ------------------------------------------------------------- footer */
+  footer.page-foot {
+    border-top: 1px solid var(--rule);
+    padding: 24px 36px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    background: var(--white);
+    text-align: center;
+    letter-spacing: 0.04em;
+  }
+
+  /* ------------------------------------------------------------- responsive */
+  @media (max-width: 900px) {
+    .header-top, .header-controls { flex-direction: column; align-items: stretch; }
+    .header-controls { gap: 10px; }
+    main { padding: 20px 16px 60px; }
+    .page-header { padding: 18px 16px 14px; }
+    .digest ul { columns: 1; }
+    .groups-grid { grid-template-columns: 1fr; }
+    .issuer-bar { flex-direction: column; }
+    .issuer-bar .ib-cell { border-right: 0; border-bottom: 1px solid var(--rule); }
+    .issuer-bar .ib-cell:last-child { border-bottom: 0; }
+    h1.title { font-size: 22px; }
+  }
+
+  /* ------------------------------------------------------------- a11y */
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0;
+    margin: -1px; overflow: hidden; clip: rect(0,0,0,0);
+    border: 0;
+  }
+
+  /* JA mode adjustments */
+  body.lang-ja .card-name-en { font-size: 13px; color: var(--ink-soft); order: 2; margin-top: 4px; }
+  body.lang-ja .card-name-ja { font-size: 17px; color: var(--ink); font-weight: 500; order: 1; margin-bottom: 4px; }
+  body.lang-ja .card-name-wrap { display: flex; flex-direction: column; }
+</style>
+</head>
+<body>
+
+<header class="page-header" role="banner">
+  <div class="header-top">
+    <div>
+      <div class="crumb" aria-hidden="true">jpinv.com / governance / working groups</div>
+      <h1 class="title" data-en="Working Groups" data-ja="ワーキンググループ">
+        <span data-en="Working Groups" data-ja="ワーキンググループ">Working Groups</span><span class="pipe">·</span><span data-en="What Japan's Regulators Are Working On Now" data-ja="日本の規制当局が今取り組んでいること">What Japan's Regulators Are Working On Now</span>
+      </h1>
+      <div class="subtitle">
+        <span data-en="As of" data-ja="現在">As of</span>
+        <span id="asOfDate">2026-05-17</span>
+        <span class="dot">·</span>
+        <span id="activeCount">14</span>
+        <span data-en="active bodies tracked" data-ja="の活動中の組織を追跡">active bodies tracked</span>
+      </div>
+    </div>
+
+    <div class="header-controls" role="toolbar" aria-label="Dashboard controls">
+      <div class="ctrl-group">
+        <label id="lang-lbl">Lang</label>
+        <div class="seg" role="group" aria-labelledby="lang-lbl">
+          <button type="button" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" data-lang="ja" aria-pressed="false">JA</button>
+        </div>
+      </div>
+
+      <div class="ctrl-group">
+        <label id="status-lbl" data-en="Status" data-ja="状態">Status</label>
+        <div class="seg" role="group" aria-labelledby="status-lbl">
+          <button type="button" data-status="all"       aria-pressed="true">All</button>
+          <button type="button" data-status="active"    aria-pressed="false">Active</button>
+          <button type="button" data-status="dormant"   aria-pressed="false">Dormant</button>
+          <button type="button" data-status="completed" aria-pressed="false">Completed</button>
+        </div>
+      </div>
+
+      <div class="ctrl-group">
+        <label for="sortSel" data-en="Sort" data-ja="並び替え">Sort</label>
+        <select class="ctrl" id="sortSel" aria-label="Sort groups by">
+          <option value="next">Next meeting</option>
+          <option value="alpha">Alphabetical</option>
+          <option value="recent">Most recent output</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ===================== Next 90 days digest ===================== -->
+  <section class="digest" id="digest" aria-labelledby="digest-h">
+    <h2 id="digest-h" data-en="What's coming next 90 days" data-ja="今後90日間の予定">What's coming next 90 days</h2>
+    <div class="lede">
+      <span data-en="Curated from the upcoming-calendar feed · click any item to jump to the group" data-ja="今後の予定フィードより · クリックでグループに移動">Curated from the upcoming-calendar feed · click any item to jump to the group</span>
+    </div>
+    <ul id="digestList" role="list"></ul>
+  </section>
+
+  <!-- ===================== Timeline ===================== -->
+  <section class="timeline-section" aria-labelledby="timeline-h">
+    <div class="timeline-header">
+      <h2 id="timeline-h" data-en="12-month calendar · all scheduled outputs and meetings" data-ja="12か月カレンダー · 予定されている全ての成果物と会合">12-month calendar · all scheduled outputs and meetings</h2>
+      <div class="timeline-legend" aria-hidden="true">
+        <span class="legend-swatch"><span class="dot" style="background:var(--issuer-fsa)"></span>FSA</span>
+        <span class="legend-swatch"><span class="dot" style="background:var(--issuer-tse)"></span>TSE</span>
+        <span class="legend-swatch"><span class="dot" style="background:var(--issuer-meti)"></span>METI</span>
+        <span class="legend-swatch"><span class="dot" style="background:var(--issuer-ssbj)"></span>SSBJ</span>
+        <span class="legend-swatch"><span class="dot" style="background:var(--issuer-moj)"></span>MoJ</span>
+      </div>
+    </div>
+    <div class="timeline-scroll">
+      <div class="timeline" id="timeline" role="list" aria-label="Calendar timeline"></div>
+    </div>
+  </section>
+
+  <!-- ===================== Issuer summary bar ===================== -->
+  <section class="issuer-bar" id="issuerBar" role="group" aria-label="Filter by issuer"></section>
+
+  <!-- ===================== Groups grid ===================== -->
+  <section aria-labelledby="grid-h">
+    <div class="grid-meta">
+      <h2 id="grid-h" data-en="Active and recently-active groups" data-ja="活動中および直近活動のあったグループ">Active and recently-active groups</h2>
+      <div class="count" id="visibleCount" aria-live="polite"></div>
+    </div>
+    <div class="groups-grid" id="grid"></div>
+  </section>
+</main>
+
+<div class="tl-tip" id="tlTip" role="tooltip" aria-hidden="true"></div>
+
+<footer class="page-foot">
+  <span>jpinv.com · governance-design-package · working-groups dashboard prototype</span>
+  <span class="dot" style="margin: 0 8px; color: var(--accent);">·</span>
+  <span>data: <code>working-groups.json</code> v<span id="schemaVer">1.0</span></span>
+</footer>
+
+<script>
+/* =============================================================================
+ *  WORKING GROUPS DASHBOARD — runtime
+ * ===========================================================================*/
+
+// ------------------------- Inline fallback data ----------------------------
+// Used if fetch() fails (file://, CORS, etc). Mirrors the structure of
+// ../data/working-groups.json so the prototype is always demonstrable.
+const FALLBACK = {
+  schema_version: "1.0",
+  last_updated: "2026-05-17",
+  groups: [],
+  upcoming_calendar: []
+};
+
+// ------------------------- State -------------------------------------------
+const state = {
+  data: null,
+  lang: "en",
+  statusFilter: "all",
+  issuerFilter: "all",
+  sort: "next",
+};
+
+// ------------------------- Utility helpers --------------------------------
+const ISSUER_ORDER = ["FSA", "TSE", "METI", "SSBJ", "MoJ"];
+const $  = (sel, root = document) => root.querySelector(sel);
+const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+const el = (tag, attrs = {}, ...children) => {
+  const n = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) {
+    if (k === "class") n.className = v;
+    else if (k === "html") n.innerHTML = v;
+    else if (k.startsWith("on") && typeof v === "function") n.addEventListener(k.slice(2), v);
+    else if (v !== false && v != null) n.setAttribute(k, v);
+  }
+  for (const c of children.flat()) {
+    if (c == null || c === false) continue;
+    n.appendChild(typeof c === "string" ? document.createTextNode(c) : c);
+  }
+  return n;
+};
+
+// Normalise a date-ish string ("2026-05-15", "2026-05", "2026-Q2") -> sortable yyyy-mm-dd-ish
+function normDate(s) {
+  if (!s) return "9999-99-99";
+  if (/^\d{4}-\d{2}-\d{2}$/.test(s)) return s;
+  if (/^\d{4}-\d{2}$/.test(s))       return s + "-15";
+  const qm = s.match(/^(\d{4})-Q([1-4])$/);
+  if (qm) {
+    const q = parseInt(qm[2], 10);
+    const m = String(q * 3 - 1).padStart(2, "0");   // mid-quarter
+    return `${qm[1]}-${m}-15`;
+  }
+  if (/^\d{4}$/.test(s)) return s + "-06-15";
+  return s;
+}
+
+function prettyDate(s) {
+  if (!s) return "—";
+  if (/^\d{4}-Q[1-4]$/.test(s)) return s.replace("-", " ");
+  if (/^\d{4}-\d{2}-\d{2}$/.test(s)) {
+    const [y, m, d] = s.split("-");
+    const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    return `${months[+m - 1]} ${+d}`;
+  }
+  if (/^\d{4}-\d{2}$/.test(s)) {
+    const [y, m] = s.split("-");
+    const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    return `${months[+m - 1]} ${y.slice(2)}`;
+  }
+  return s;
+}
+
+function ymOf(s) {
+  const n = normDate(s);
+  return n.slice(0, 7);   // yyyy-mm
+}
+
+const ISSUER_LABELS_JA = {
+  FSA:  "金融庁",
+  TSE:  "東証",
+  METI: "経産省",
+  SSBJ: "SSBJ",
+  MoJ:  "法務省"
+};
+
+const TYPE_LABELS = {
+  meeting:   { en: "Meeting",   ja: "会合" },
+  output:    { en: "Output",    ja: "成果物" },
+  deadline:  { en: "Deadline",  ja: "期限" },
+  milestone: { en: "Milestone", ja: "節目" }
+};
+
+// ------------------------- Load -------------------------------------------
+async function load() {
+  try {
+    const r = await fetch("../data/working-groups.json", { cache: "no-store" });
+    if (!r.ok) throw new Error("fetch failed " + r.status);
+    state.data = await r.json();
+  } catch (err) {
+    console.warn("[working-groups] fetch failed, using fallback", err);
+    state.data = FALLBACK;
+  }
+  $("#asOfDate").textContent = state.data.last_updated || "—";
+  $("#schemaVer").textContent = state.data.schema_version || "—";
+  const activeN = state.data.groups.filter(g => g.status === "active").length;
+  $("#activeCount").textContent = activeN || state.data.groups.length;
+  render();
+  wire();
+}
+
+// ------------------------- Render: digest (90 days) ------------------------
+function renderDigest() {
+  const today = new Date(state.data.last_updated || "2026-05-17");
+  const horizon = new Date(today);
+  horizon.setDate(horizon.getDate() + 90);
+
+  const items = (state.data.upcoming_calendar || [])
+    .map(it => ({ ...it, _sortable: normDate(it.date) }))
+    .filter(it => {
+      const d = new Date(it._sortable);
+      return d >= today && d <= horizon;
+    })
+    .sort((a, b) => a._sortable.localeCompare(b._sortable));
+
+  const groupsById = Object.fromEntries(state.data.groups.map(g => [g.id, g]));
+  const ul = $("#digestList");
+  ul.innerHTML = "";
+
+  if (!items.length) {
+    ul.appendChild(el("li", {}, el("span", { class: "d-title" }, "No scheduled items in the next 90 days.")));
+    return;
+  }
+
+  for (const it of items) {
+    const g = groupsById[it.group_id] || {};
+    const li = el("li", { role: "listitem" },
+      el("span", { class: "d-date" }, prettyDate(it.date)),
+      el("span", { class: "d-type " + it.type }, (it.type || "").toUpperCase()),
+      el("span", {},
+        el("a", {
+          class: "d-title",
+          href: "#g-" + it.group_id,
+          onclick: (e) => { e.preventDefault(); jumpToGroup(it.group_id); }
+        }, it.title),
+        el("br"),
+        el("span", { class: "d-issuer" }, (g.issuer || "—") + " · " + (g.short_name_en || g.name_en || ""))
+      )
+    );
+    ul.appendChild(li);
+  }
+}
+
+// ------------------------- Render: timeline --------------------------------
+function renderTimeline() {
+  // 12-month axis starting from "as of" month
+  const start = new Date(state.data.last_updated || "2026-05-17");
+  start.setDate(1);
+  const months = [];
+  for (let i = 0; i < 12; i++) {
+    const d = new Date(start.getFullYear(), start.getMonth() + i, 1);
+    months.push({
+      key: `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`,
+      label: d.toLocaleDateString("en-US", { month: "short", year: "2-digit" }),
+      current: i === 0
+    });
+  }
+
+  const tl = $("#timeline");
+  tl.innerHTML = "";
+  const monthEls = {};
+  for (const m of months) {
+    const me = el("div", { class: "tl-month" + (m.current ? " current" : ""), role: "listitem" },
+      el("div", { class: "tl-month-label" },
+        el("span", {}, m.label),
+        m.current ? el("span", { "aria-label": "Now" }, "NOW") : null
+      )
+    );
+    tl.appendChild(me);
+    monthEls[m.key] = me;
+  }
+
+  const groupsById = Object.fromEntries(state.data.groups.map(g => [g.id, g]));
+  const itemsByMonth = {};
+  for (const it of (state.data.upcoming_calendar || [])) {
+    const k = ymOf(it.date);
+    (itemsByMonth[k] = itemsByMonth[k] || []).push(it);
+  }
+
+  for (const m of months) {
+    const slot = monthEls[m.key];
+    const items = (itemsByMonth[m.key] || [])
+      .sort((a, b) => normDate(a.date).localeCompare(normDate(b.date)));
+    for (const it of items) {
+      const g = groupsById[it.group_id] || {};
+      const issuer = (g.issuer || "fsa").toLowerCase();
+      // hide if filtered
+      if (state.issuerFilter !== "all" && (g.issuer || "") !== state.issuerFilter) continue;
+      if (state.statusFilter !== "all" && (g.status || "") !== state.statusFilter) continue;
+
+      const marker = el("div", {
+        class: "tl-marker",
+        role: "button",
+        tabindex: "0",
+        "aria-label": `${prettyDate(it.date)} ${it.type}: ${it.title}`,
+        onclick: () => jumpToGroup(it.group_id),
+        onkeydown: (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); jumpToGroup(it.group_id); } },
+        onmouseenter: (e) => showTip(e, it, g),
+        onmousemove: (e) => moveTip(e),
+        onmouseleave: () => hideTip(),
+        onfocus: (e) => showTip(e, it, g),
+        onblur: () => hideTip()
+      },
+        el("span", { class: "tl-dot", style: `background:var(--issuer-${issuer})` }),
+        el("span", { class: "tl-cap" },
+          el("b", {}, prettyDate(it.date) + " · " + (it.type || "").slice(0, 4).toUpperCase()),
+          el("br"),
+          (it.title || "").slice(0, 60) + ((it.title || "").length > 60 ? "…" : "")
+        )
+      );
+      slot.appendChild(marker);
+    }
+  }
+}
+
+// ------------------------- Tooltip ----------------------------------------
+function showTip(e, it, g) {
+  const tip = $("#tlTip");
+  tip.innerHTML = "";
+  tip.appendChild(el("div", { class: "tt-meta" },
+    prettyDate(it.date) + " · " + (it.type || "").toUpperCase() + " · " + (g.issuer || "—")));
+  tip.appendChild(el("div", {}, it.title || ""));
+  tip.appendChild(el("div", { style: "margin-top:5px;color:var(--accent-soft);font-size:11px" }, g.short_name_en || g.name_en || ""));
+  tip.classList.add("on");
+  tip.setAttribute("aria-hidden", "false");
+  moveTip(e);
+}
+function moveTip(e) {
+  const tip = $("#tlTip");
+  const x = (e.clientX || 0) + 14;
+  const y = (e.clientY || 0) + 14;
+  tip.style.left = Math.min(x, window.innerWidth - 300) + "px";
+  tip.style.top  = Math.min(y, window.innerHeight - 100) + "px";
+}
+function hideTip() {
+  const tip = $("#tlTip");
+  tip.classList.remove("on");
+  tip.setAttribute("aria-hidden", "true");
+}
+
+// ------------------------- Render: issuer bar -----------------------------
+function renderIssuerBar() {
+  const counts = {};
+  for (const g of state.data.groups) {
+    const k = g.issuer || "—";
+    counts[k] = counts[k] || { total: 0, active: 0 };
+    counts[k].total++;
+    if (g.status === "active") counts[k].active++;
+  }
+  const bar = $("#issuerBar");
+  bar.innerHTML = "";
+
+  // "All" reset cell
+  const total = state.data.groups.length;
+  const active = state.data.groups.filter(g => g.status === "active").length;
+  bar.appendChild(el("div", {
+    class: "ib-cell ib-all",
+    role: "button", tabindex: "0",
+    "aria-pressed": state.issuerFilter === "all",
+    onclick: () => { state.issuerFilter = "all"; render(); },
+    onkeydown: (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); state.issuerFilter = "all"; render(); } }
+  },
+    el("div", { class: "ib-issuer" }, "All Issuers"),
+    el("div", { class: "ib-count" }, String(total)),
+    el("div", { class: "ib-detail" }, active + " active · " + (total - active) + " other")
+  ));
+
+  for (const iss of ISSUER_ORDER) {
+    const c = counts[iss] || { total: 0, active: 0 };
+    if (!c.total) continue;
+    bar.appendChild(el("div", {
+      class: "ib-cell ib-" + iss.toLowerCase(),
+      role: "button", tabindex: "0",
+      "aria-pressed": state.issuerFilter === iss,
+      onclick: () => { state.issuerFilter = (state.issuerFilter === iss ? "all" : iss); render(); },
+      onkeydown: (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); state.issuerFilter = (state.issuerFilter === iss ? "all" : iss); render(); } }
+    },
+      el("div", { class: "ib-issuer" }, state.lang === "ja" ? (ISSUER_LABELS_JA[iss] + " · " + iss) : iss),
+      el("div", { class: "ib-count" }, String(c.total)),
+      el("div", { class: "ib-detail" }, c.active + " active · " + (c.total - c.active) + " other")
+    ));
+  }
+}
+
+// ------------------------- Render: cards ----------------------------------
+function nextMeetingDate(g) {
+  const u = (g.upcoming || []).map(x => normDate(x.expected)).sort();
+  return u[0] || "9999-99-99";
+}
+function mostRecentOutput(g) {
+  const r = (g.recent_outputs || []).map(x => normDate(x.date)).sort();
+  return r.length ? r[r.length - 1] : "0000-00-00";
+}
+
+function renderCards() {
+  let groups = state.data.groups.slice();
+
+  if (state.statusFilter !== "all") groups = groups.filter(g => g.status === state.statusFilter);
+  if (state.issuerFilter !== "all") groups = groups.filter(g => g.issuer === state.issuerFilter);
+
+  if (state.sort === "alpha")  groups.sort((a, b) => (a.short_name_en || a.name_en || "").localeCompare(b.short_name_en || b.name_en || ""));
+  else if (state.sort === "recent") groups.sort((a, b) => mostRecentOutput(b).localeCompare(mostRecentOutput(a)));
+  else groups.sort((a, b) => nextMeetingDate(a).localeCompare(nextMeetingDate(b)));
+
+  const grid = $("#grid");
+  grid.innerHTML = "";
+
+  for (const g of groups) {
+    grid.appendChild(renderCard(g));
+  }
+  $("#visibleCount").textContent = `${groups.length} of ${state.data.groups.length} shown`;
+}
+
+function renderCard(g) {
+  const issuer = (g.issuer || "").toLowerCase();
+  const statusLabel = g.status || "—";
+
+  const recent   = (g.recent_outputs || []).slice(0, 3);
+  const upcoming = (g.upcoming || []).slice(0, 3);
+
+  return el("article", {
+    class: "card " + (g.status || "active"),
+    id: "g-" + g.id,
+    "data-issuer": g.issuer || "",
+    "data-status": g.status || "",
+    "aria-labelledby": "g-name-" + g.id
+  },
+    el("div", { class: "card-top" },
+      el("div", {},
+        el("span", { class: "badge-issuer " + issuer }, g.issuer || "—"),
+        g.co_issuer ? el("span", { class: "badge-co" }, "+ " + g.co_issuer) : null,
+        g.host_council    ? el("span", { class: "badge-co" }, " · " + g.host_council)    : null,
+        g.host_organisation ? el("span", { class: "badge-co" }, " · " + g.host_organisation) : null
+      ),
+      el("span", { class: "status " + (g.status || "") },
+        el("span", { class: "sdot", "aria-hidden": "true" }),
+        statusLabel
+      )
+    ),
+    el("div", { class: "card-name-wrap" },
+      el("h3", { id: "g-name-" + g.id, class: "card-name-en" }, g.name_en || ""),
+      el("div", { class: "card-name-ja", lang: "ja" }, g.name_ja || "")
+    ),
+    g.chair ? el("div", { class: "card-chair" },
+      el("span", { class: "lbl" }, "Chair"),
+      g.chair
+    ) : null,
+    el("p", { class: "card-mandate" }, g.mandate_en || ""),
+    el("div", { class: "chips", "aria-label": "Focus topics" },
+      ...(g.focus_topics_2026 || []).map(t => el("span", { class: "chip" }, t))
+    ),
+    recent.length ? el("div", { class: "sublist" },
+      el("div", { class: "lbl" }, "Recent outputs"),
+      el("ul", { role: "list" },
+        ...recent.map(r => el("li", {},
+          el("span", { class: "li-date" }, prettyDate(r.date)),
+          el("span", {}, r.url
+            ? el("a", { href: r.url, target: "_blank", rel: "noopener" }, r.title_en)
+            : (r.title_en || ""))
+        ))
+      )
+    ) : null,
+    upcoming.length ? el("div", { class: "sublist" },
+      el("div", { class: "lbl" }, "Upcoming"),
+      el("ul", { role: "list" },
+        ...upcoming.map(u => el("li", { class: "upcoming" },
+          el("span", { class: "li-date" }, prettyDate(u.expected)),
+          el("span", {}, u.url
+            ? el("a", { href: u.url, target: "_blank", rel: "noopener" }, u.title_en)
+            : (u.title_en || ""))
+        ))
+      )
+    ) : null,
+    el("div", { class: "card-links" },
+      g.official_url ? el("a", { href: g.official_url, target: "_blank", rel: "noopener" },
+        "Open official page", el("span", { class: "arrow" }, " →")) : null,
+      g.curriculum_slug ? el("a", { href: g.curriculum_slug },
+        "Curriculum context", el("span", { class: "arrow" }, " →")) : null
+    )
+  );
+}
+
+// ------------------------- Jump to group ---------------------------------
+function jumpToGroup(id) {
+  const card = document.getElementById("g-" + id);
+  if (!card) return;
+  card.scrollIntoView({ behavior: "smooth", block: "center" });
+  card.classList.remove("flash");
+  // re-trigger animation
+  void card.offsetWidth;
+  card.classList.add("flash");
+}
+
+// ------------------------- Language switch -------------------------------
+function applyLang() {
+  document.body.classList.toggle("lang-ja", state.lang === "ja");
+  document.documentElement.lang = state.lang;
+  $$("[data-en]").forEach(n => {
+    const txt = state.lang === "ja" ? (n.getAttribute("data-ja") || n.getAttribute("data-en")) : n.getAttribute("data-en");
+    n.textContent = txt;
+  });
+}
+
+// ------------------------- Render orchestration --------------------------
+function render() {
+  renderDigest();
+  renderTimeline();
+  renderIssuerBar();
+  renderCards();
+  applyLang();
+}
+
+// ------------------------- Wire up controls ------------------------------
+function wire() {
+  // language seg
+  $$('.seg [data-lang]').forEach(b => {
+    b.addEventListener("click", () => {
+      state.lang = b.dataset.lang;
+      $$('.seg [data-lang]').forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+      render();
+    });
+  });
+  // status seg
+  $$('.seg [data-status]').forEach(b => {
+    b.addEventListener("click", () => {
+      state.statusFilter = b.dataset.status;
+      $$('.seg [data-status]').forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+      render();
+    });
+  });
+  // sort
+  $("#sortSel").addEventListener("change", (e) => {
+    state.sort = e.target.value;
+    renderCards();
+  });
+}
+
+// ------------------------- Go -------------------------------------------
+load();
+</script>
+</body>
+</html>

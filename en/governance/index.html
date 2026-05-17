@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+<title>Japan Governance Reform Curriculum | JII</title>
+<meta name="description" content="A 27-post curriculum that brings IR representatives up to speed with Japan&#x27;s governance-reform arc — from the lost-decade capital-efficiency gap to current working-group debates. Free, primary-source-anchored, by JII.">
+<meta property="og:title" content="Japan Governance Reform Curriculum | JII">
+<meta property="og:description" content="A 27-post curriculum that brings IR representatives up to speed with Japan&#x27;s governance-reform arc — from the lost-decade capital-efficiency gap to current working-group debates. Free, primary-source-anchored, by JII.">
+<meta property="og:url" content="https://jpinv.com/en/governance/">
+<link rel="canonical" href="https://jpinv.com/en/governance/">
+<link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/">
+<link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/">
+<link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/">
+
+<style>
+:root {
+  --ink:        #1a2a4a;
+  --ink-mid:    #172641;
+  --ink-soft:   #304466;
+  --rule:       #d6dee8;
+  --rule-soft:  #e8edf3;
+  --bg:         #ffffff;
+  --bg-mid:     #f5f7fa;
+  --bg-soft:    #fafbfc;
+  --text:       #1f2937;
+  --text-mid:   #4a5566;
+  --text-dim:   #5f6875;
+  --accent:     #9a7838;
+  --accent-deep:#9a7838;
+  --accent-soft:#f4eee4;
+  --bad:        #b91c1c;
+  --warn:       #8a682b;
+  --ok:         #2f6f4f;
+  --serif: 'Noto Serif JP', 'Yu Mincho', serif;
+  --sans:  'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  --mono:  'DM Mono', monospace;
+  --max: 1100px;
+  --pad: 88px;
+  --gutter: 48px;
+  --nav-h: 64px;
+  --measure: 720px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 400; line-height: 1.7; overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+a { color: var(--ink-soft); text-decoration: none; }
+a:hover { color: var(--ink); }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+@media (max-width: 768px) { :root { --gutter: 22px; --pad: 56px; } }
+strong { font-weight: 600; color: var(--ink); }
+em { font-style: normal; color: var(--ink); font-weight: 600; }
+.label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); }
+
+/* Nav (copied from jpinv.com base) */
+nav#main-nav { position: fixed; top:0; left:0; right:0; z-index:100; height: var(--nav-h); background: rgba(255,255,255,0.96); backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule); display: flex; align-items: center; transition: box-shadow 0.3s; }
+nav#main-nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; }
+.nav-logo { text-decoration: none; display: inline-flex; align-items: center; flex: 0 0 auto; min-width: max-content; white-space: nowrap; }
+.nav-logo-img { display: block; width: auto; height: 40px; max-width: none; object-fit: contain; object-position: left center; }
+.nav-logo-img--mobile { display: none; width: 32px; height: 32px; object-fit: contain; }
+.nav-center { flex: 1; display: flex; justify-content: center; }
+.nav-links { display: flex; gap: 22px; list-style: none; flex-wrap: nowrap; white-space: nowrap; }
+.nav-links a { font-family: var(--sans); font-size: 0.78rem; font-weight: 400; letter-spacing: 0.04em; color: var(--text); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--ink-soft); }
+.nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; margin-left: auto; }
+.nav-cta { padding: 8px 14px; font-size: 0.7rem; }
+.locale-switcher { display: inline-flex; align-items: center; gap: 0; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; }
+.locale-switcher a { color: var(--text-dim); border: 1px solid var(--rule); padding: 6px 9px; text-decoration: none; transition: all 0.2s; }
+.locale-switcher a + a { margin-left: -1px; }
+.locale-switcher a:hover, .locale-switcher a.current { color: var(--ink); border-color: var(--ink-mid); background: var(--bg-soft); position: relative; z-index: 1; }
+.hamburger { display: none; flex-shrink:0; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
+.hamburger span { display:block; width:22px; height:1px; background:var(--ink); transition: all 0.25s; }
+@media (max-width: 900px) { .nav-center, .nav-right .nav-cta { display:none; } .hamburger { display:flex; } }
+@media (max-width: 768px) { .nav-logo-img--desktop { display:none; } .nav-logo-img--mobile { display:block; } }
+.mobile-menu { display:none; position:fixed; top:var(--nav-h); left:0; right:0; background:var(--bg); border-bottom:1px solid var(--rule); z-index:99; padding:8px var(--gutter) 20px; flex-direction:column; gap:0; }
+.mobile-menu.open { display:flex; }
+.mobile-menu a { font-size:0.88rem; color:var(--text); text-decoration:none; padding:14px 0; border-bottom:1px solid var(--rule); letter-spacing:0.04em; }
+.mobile-menu a:last-child { border-bottom:none; }
+.mobile-menu .mobile-menu-cta { margin-top:12px; padding:13px 18px; text-align:center; color:#fff; border-bottom:none; }
+
+.btn { display: inline-block; text-decoration: none; font-family: var(--sans); font-size: 0.84rem; font-weight: 400; letter-spacing: 0.06em; padding: 13px 28px; transition: all 0.2s; cursor: pointer; border: none; }
+.btn-primary { background: var(--ink); color: #fff; }
+.btn-primary:hover { background: var(--ink-mid); color: #fff; }
+.btn-outline { border: 1px solid var(--ink-mid); color: var(--ink); background: transparent; }
+.btn-outline:hover { border-color: var(--ink); color: var(--ink); }
+.rule-accent { width: 32px; height: 2px; background: var(--accent); margin: 14px 0 22px; }
+
+/* Footer (mirror) */
+footer { border-top: 1px solid var(--rule); padding: 52px 0 28px; background: var(--bg-soft); font-size: 0.82rem; color: var(--text-dim); }
+footer .footer-grid { display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 32px; align-items: start; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+footer h2 { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.2em; color: var(--ink-soft); text-transform: uppercase; margin-bottom: 12px; font-weight: 500; }
+footer h3 { font-family: var(--serif); font-size: 1rem; font-weight: 400; color: var(--ink); margin-bottom: 8px; }
+footer ul { list-style: none; }
+footer ul li { padding: 4px 0; }
+footer ul li a { color: var(--text-mid); }
+footer ul li a:hover { color: var(--ink); }
+footer .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 18px; flex-wrap: wrap; gap: 12px; }
+footer .footer-locale-switcher a.current { font-weight: 600; color: var(--ink); }
+@media (max-width: 900px) { footer .footer-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 580px) { footer .footer-grid { grid-template-columns: 1fr; } }
+
+
+/* === Curriculum-specific === */
+main.curriculum { padding-top: var(--nav-h); }
+.curr-hero { padding: 96px 0 64px; border-bottom: 1px solid var(--rule); position: relative; overflow: hidden; }
+.curr-hero::before { content:''; position:absolute; inset:0;
+  background-image: linear-gradient(rgba(15,31,58,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(15,31,58,0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent);
+          mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent); }
+.curr-hero-inner { position:relative; z-index:2; max-width: 880px; }
+.curr-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.32em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 18px; }
+.curr-hero h1 { font-family: var(--serif); font-size: clamp(1.9rem, 4.4vw, 3.1rem); font-weight: 300; color: var(--ink-mid); line-height: 1.3; letter-spacing: 0.02em; margin: 0 0 22px; }
+.curr-hero h1 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
+.curr-hero .lede { font-size: 1.05rem; line-height: 1.85; color: var(--text); margin: 0 0 24px; max-width: 700px; }
+.curr-hero-meta { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
+.curr-hero-meta strong { color: var(--ink); font-family: var(--mono); }
+
+.crumbs { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; padding: 22px 0 0; }
+.crumbs a { color: var(--text-mid); }
+.crumbs a:hover { color: var(--ink); }
+.crumbs .sep { color: var(--rule); margin: 0 8px; }
+
+.theme-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; padding: 56px 0; }
+.theme-card { display: block; background: #fff; border: 1px solid var(--rule); padding: 30px 28px; position: relative; transition: all 0.2s; }
+.theme-card:hover { border-color: var(--ink-soft); box-shadow: 0 12px 32px rgba(15,31,58,0.08); transform: translateY(-2px); }
+.theme-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background: var(--accent); opacity: 0.85; }
+.theme-card-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; }
+.theme-card-name { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--ink-mid); margin: 10px 0 8px; line-height: 1.35; }
+.theme-card-period { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 14px; }
+.theme-card-desc { font-size: 0.92rem; line-height: 1.7; color: var(--text); margin-bottom: 18px; }
+.theme-card-list { font-size: 0.84rem; color: var(--text-mid); list-style: none; padding-top: 14px; border-top: 1px solid var(--rule-soft); }
+.theme-card-list li { padding: 5px 0; }
+.theme-card-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; }
+.theme-card-foot .arrow { color: var(--accent-deep); }
+
+.post-list { padding: 28px 0 56px; }
+.post-list-row { display: grid; grid-template-columns: 60px 1fr auto; gap: 22px; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--rule-soft); transition: all 0.18s; }
+.post-list-row:hover { background: var(--bg-mid); padding-left: 12px; padding-right: 12px; }
+.post-list-num { font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em; color: var(--accent-deep); font-weight: 500; }
+.post-list-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--ink-mid); line-height: 1.45; }
+.post-list-meta { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; white-space: nowrap; }
+@media (max-width: 600px) { .post-list-row { grid-template-columns: 50px 1fr; } .post-list-meta { grid-column: 1 / -1; padding-left: 72px; } }
+
+/* Post body */
+.post-body { padding: 48px 0 80px; }
+.post-content { max-width: var(--measure); margin: 0 auto; }
+.post-content > p, .post-content > ul, .post-content > ol, .post-content > blockquote, .post-content > pre, .post-content > table, .post-content > hr, .post-content > h2, .post-content > h3, .post-content > h4 { max-width: var(--measure); margin-left: auto; margin-right: auto; }
+.post-content h2 { font-family: var(--serif); font-size: 1.55rem; font-weight: 400; color: var(--ink-mid); line-height: 1.35; margin: 56px 0 14px; padding-top: 22px; border-top: 1px solid var(--rule-soft); }
+.post-content h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 500; color: var(--ink); margin: 36px 0 10px; line-height: 1.4; }
+.post-content h4 { font-family: var(--sans); font-size: 1rem; font-weight: 600; color: var(--ink); margin: 26px 0 8px; letter-spacing: 0.02em; }
+.post-content p { margin: 0 0 18px; font-size: 1rem; line-height: 1.85; color: var(--text); }
+.post-content p:first-of-type { font-size: 1.05rem; }
+.post-content ul, .post-content ol { margin: 0 0 22px; padding-left: 28px; }
+.post-content ul li, .post-content ol li { font-size: 0.97rem; line-height: 1.8; margin-bottom: 8px; color: var(--text); }
+.post-content ul li::marker { color: var(--accent-deep); }
+.post-content blockquote { margin: 30px 0; padding: 20px 24px; border-left: 3px solid var(--accent); background: var(--accent-soft); color: var(--ink-mid); font-style: normal; }
+.post-content blockquote p { margin-bottom: 8px; font-size: 0.97rem; }
+.post-content blockquote p:last-child { margin-bottom: 0; }
+.post-content blockquote strong { color: var(--ink); }
+.post-content code { background: #f0f0f0; color: var(--ink-mid); font-family: var(--mono); font-size: 0.88rem; padding: 2px 6px; border-radius: 3px; }
+.post-content pre { background: #f9f9fb; border: 1px solid var(--rule); padding: 18px 22px; overflow-x: auto; font-family: var(--mono); font-size: 0.85rem; line-height: 1.55; margin: 24px 0; }
+.post-content pre code { background: transparent; padding: 0; font-size: inherit; }
+.post-content a { color: var(--accent-deep); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; transition: text-decoration-color 0.18s; }
+.post-content a:hover { text-decoration-color: var(--accent-deep); }
+.post-content hr { border: none; border-top: 1px solid var(--rule); margin: 40px auto; max-width: 120px; }
+.post-content table { width: 100%; max-width: var(--measure); margin: 28px auto; border-collapse: collapse; font-size: 0.9rem; }
+.post-content th { background: var(--bg-mid); color: var(--ink-mid); font-family: var(--sans); font-weight: 600; text-align: left; padding: 12px 14px; border-bottom: 2px solid var(--rule); }
+.post-content td { padding: 10px 14px; border-bottom: 1px solid var(--rule-soft); vertical-align: top; color: var(--text); }
+.post-content tr:nth-child(even) td { background: #fafbfc; }
+
+/* Mermaid container */
+.mermaid-wrap { background: #fdfdfe; border: 1px solid var(--rule); padding: 22px 18px; margin: 28px 0; overflow-x: auto; }
+.mermaid { font-family: var(--sans); text-align: center; }
+
+/* Post header */
+.post-header { padding: 48px 0 28px; border-bottom: 1px solid var(--rule); }
+.post-header-inner { max-width: var(--measure); margin: 0 auto; }
+.post-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.28em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 14px; }
+.post-title { font-family: var(--serif); font-size: clamp(1.7rem, 3.6vw, 2.4rem); font-weight: 400; color: var(--ink-mid); line-height: 1.3; margin: 0 0 16px; letter-spacing: 0.005em; }
+.post-summary { font-size: 1.02rem; line-height: 1.8; color: var(--text); margin: 0 0 22px; max-width: 660px; }
+.post-meta { display: flex; gap: 26px; flex-wrap: wrap; padding-top: 18px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
+.post-meta span strong { color: var(--ink); font-family: var(--mono); }
+
+/* Post nav (prev/next) */
+.post-nav { max-width: var(--measure); margin: 56px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding-top: 36px; border-top: 1px solid var(--rule); }
+.post-nav-link { display: block; padding: 18px 20px; background: var(--bg-mid); border: 1px solid var(--rule); transition: all 0.18s; }
+.post-nav-link:hover { border-color: var(--ink-soft); background: #fff; transform: translateY(-1px); }
+.post-nav-dir { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px; }
+.post-nav-title { font-family: var(--serif); font-size: 0.94rem; color: var(--ink-mid); line-height: 1.4; }
+.post-nav-link.next { text-align: right; }
+@media (max-width: 640px) { .post-nav { grid-template-columns: 1fr; } .post-nav-link.next { text-align: left; } }
+
+/* Knowledge check */
+.kcheck { background: var(--bg-mid); padding: 72px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.kcheck-head { max-width: 720px; margin: 0 auto 36px; text-align: center; }
+.kcheck h2 { font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 300; color: var(--ink-mid); margin: 0 0 14px; line-height: 1.3; }
+.kcheck h2 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
+.kcheck p.lede { font-size: 0.98rem; line-height: 1.75; color: var(--text); }
+.kcheck-q { background: #fff; border: 1px solid var(--rule); padding: 28px 30px; margin-bottom: 18px; max-width: 760px; margin-left: auto; margin-right: auto; }
+.kcheck-q-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; margin-bottom: 12px; }
+.kcheck-q-text { font-family: var(--serif); font-size: 1.1rem; line-height: 1.5; color: var(--ink-mid); margin-bottom: 18px; }
+.kcheck-opts { display: grid; gap: 8px; }
+.kcheck-opt { display: block; padding: 12px 16px; background: var(--bg-soft); border: 1px solid var(--rule); text-align: left; font-family: var(--sans); font-size: 0.92rem; color: var(--text); cursor: pointer; transition: all 0.15s; }
+.kcheck-opt:hover { background: #fff; border-color: var(--ink-soft); }
+.kcheck-opt.correct { background: #e8f3ec; border-color: var(--ok); color: var(--ok); }
+.kcheck-opt.incorrect { background: #fbe9e9; border-color: var(--bad); color: var(--bad); }
+.kcheck-explain { margin-top: 16px; padding: 14px 18px; background: var(--accent-soft); border-left: 3px solid var(--accent); font-size: 0.9rem; line-height: 1.7; color: var(--ink-mid); display: none; }
+.kcheck-q.answered .kcheck-explain { display: block; }
+.kcheck-score { text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--text-dim); margin-top: 28px; text-transform: uppercase; }
+.kcheck-score strong { color: var(--ink-mid); font-family: var(--mono); }
+
+/* Stats / hero stats */
+.stat-band { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; padding: 56px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); background: var(--bg-soft); }
+.stat-item { padding: 0 18px; }
+.stat-num { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 300; color: var(--ink-mid); line-height: 1; margin-bottom: 8px; }
+.stat-num em { color: var(--accent-deep); font-weight: 400; font-style: normal; }
+.stat-label { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; }
+</style>
+</head>
+<body>
+<nav id="main-nav" role="navigation" aria-label="Main navigation">
+  <div class="wrap nav-inner">
+    <a href="/en/" class="nav-logo" aria-label="JII home">
+      <img class="nav-logo-img nav-logo-img--desktop" src="/assets/logo-jii-wordmark.svg" alt="Japan Investor Interface logo" width="282" height="40">
+      <img class="nav-logo-img nav-logo-img--mobile" src="/assets/logo-jii-monogram.svg" alt="Japan Investor Interface logo" width="32" height="32">
+    </a>
+    <div class="nav-center">
+      <ul class="nav-links" role="list">
+        <li><a href="/en/services/">Services</a></li>
+        <li><a href="/en/pricing/">Pricing</a></li>
+        <li><a href="/en/company/">Company</a></li>
+        <li><a href="/en/faq/">FAQ</a></li>
+        <li><a href="/en/compounders/">Compounders</a></li>
+        <li><a href="/en/governance/">Governance</a></li>
+      </ul>
+    </div>
+    <div class="nav-right">
+      <a href="/en/#contact" class="btn btn-primary nav-cta">Free 30-min call</a>
+      <span class="locale-switcher nav-locale-switcher" aria-label="Language switcher"><a href="/governance/" data-locale-route lang="ja">JP</a><a href="/en/governance/" class="current" aria-current="page" lang="en">EN</a></span>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" hidden>
+  <a href="/en/services/" onclick="toggleMenu()">Services</a>
+  <a href="/en/pricing/" onclick="toggleMenu()">Pricing</a>
+  <a href="/en/company/" onclick="toggleMenu()">Company</a>
+  <a href="/en/faq/" onclick="toggleMenu()">FAQ</a>
+  <a href="/en/compounders/" onclick="toggleMenu()">Compounders</a>
+  <a href="/en/governance/" onclick="toggleMenu()">Governance</a>
+  <a href="/governance/" data-locale-route onclick="toggleMenu()" lang="ja">JP</a>
+  <a href="/en/#contact" class="btn btn-primary mobile-menu-cta" onclick="toggleMenu()">Book a free 30-min call</a>
+</nav>
+<main id="main-content" class="curriculum" tabindex="-1">
+<div class="wrap crumbs">
+  <a href="/en/">JII</a> <span class="sep">/</span>
+  Governance Curriculum
+</div>
+<section class="curr-hero">
+  <div class="wrap">
+    <div class="curr-hero-inner">
+      <div class="curr-eyebrow">JII Editorial · Governance Reform</div>
+      <h1>Learn the history of Japan's <em>governance reforms</em>.</h1>
+      <p class="lede">A complete 27-post curriculum that brings an IR representative up to speed with where Japan stands today in its governance-reform arc — from the lost-decade capital-efficiency gap through the working-group debates shaping the next Corporate Governance Code revision.</p>
+      <p class="lede" style="font-size:0.95rem; color:var(--text-mid);">Built from primary FSA, JPX, METI, SSBJ, MoJ, and GPIF sources. Five themes. ~63,000 words. Free to read.</p>
+      <div class="curr-hero-meta">
+        <span>Themes: <strong>5</strong></span>
+        <span>Posts: <strong>27 + Toolbox</strong></span>
+        <span>Reading time: <strong>~8–12 hrs</strong></span>
+        <span>Audience: <strong>IR reps, analysts, board secretariats</strong></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stat-band">
+  <div class="wrap" style="display: contents;">
+    <div class="stat-item"><div class="stat-num"><em>5</em></div><div class="stat-label">Themes covering 35 years of reform</div></div>
+    <div class="stat-item"><div class="stat-num"><em>27</em></div><div class="stat-label">In-depth posts, all primary-source linked</div></div>
+    <div class="stat-item"><div class="stat-num"><em>~63k</em></div><div class="stat-label">Words of curated curriculum</div></div>
+    <div class="stat-item"><div class="stat-num"><em>50+</em></div><div class="stat-label">JPX / FSA / METI artifacts indexed in the Toolbox</div></div>
+  </div>
+</section>
+
+<section style="padding: 72px 0 16px;">
+  <div class="wrap">
+    <div style="max-width:780px; margin-bottom:36px;">
+      <div class="curr-eyebrow">Five themes · one continuous arc</div>
+      <h2 style="font-family:var(--serif); font-size:clamp(1.7rem, 3.4vw, 2.4rem); font-weight:300; color:var(--ink-mid); line-height:1.3; margin:0 0 16px;">Japan's governance reform is one continuous capital-efficiency narrative — built in layers.</h2>
+      <p style="font-size:1rem; line-height:1.8; color:var(--text);">Each theme presupposes the previous one. An IR representative who finishes Theme 5 should be able to read any FSA Action Programme, TSE follow-up document, or METI study-group report and place every paragraph on the map.</p>
+    </div>
+    <div class="theme-grid">
+      <a href="/en/governance/foundations/" class="theme-card">
+  <div class="theme-card-num">THEME 1</div>
+  <div class="theme-card-name">Foundations</div>
+  <div class="theme-card-period">pre-1990s → 2014</div>
+  <div class="theme-card-desc">Why reform happened — the lost-decade capital-efficiency gap, pre-reform architecture, Abenomics&#x27; Third Arrow, and the 2014 Stewardship Code as the founding instrument.</div>
+  <ul class="theme-card-list"><li>1. Why 8% Was the Number That Changed Japan</li><li>2. From Main Bank to Mizuno: Japan&#x27;s pre-reform governance architecture</li><li>3. Abenomics&#x27; Third Arrow: how governance became growth policy</li><li>4. The Two Wheels of the Cart: Japan&#x27;s Stewardship Code (2014, 2017, 2020, 2025)</li></ul>
+  <div class="theme-card-foot"><span>4 posts</span><span class="arrow">Read theme →</span></div>
+</a><a href="/en/governance/cg-code/" class="theme-card">
+  <div class="theme-card-num">THEME 2</div>
+  <div class="theme-card-name">The Code Era</div>
+  <div class="theme-card-period">2015 → 2021</div>
+  <div class="theme-card-desc">The rules of dialogue — the 2015 CG Code and its 2018/2021 revisions, how to read a Japanese CG Report, and METI&#x27;s parallel CGS/GGS/Fair M&amp;A/Takeover guideline family.</div>
+  <ul class="theme-card-list"><li>1. The 2015 Corporate Governance Code: a comply-or-explain primer</li><li>2. The 2018 Revision: capital efficiency enters the Code</li><li>3. The 2021 Revision: Prime, sustainability, diversity</li><li>4. How to Read a Japanese CG Report in 15 Minutes</li><li style="color:var(--text-dim); font-style:italic;">+ 1 more …</li></ul>
+  <div class="theme-card-foot"><span>5 posts</span><span class="arrow">Read theme →</span></div>
+</a><a href="/en/governance/market-restructuring/" class="theme-card">
+  <div class="theme-card-num">THEME 3</div>
+  <div class="theme-card-name">Market Restructuring</div>
+  <div class="theme-card-period">2022 → 2025</div>
+  <div class="theme-card-desc">From four legacy segments to Prime/Standard/Growth, the tradable-share-ratio mechanic, the March 2025 transitional-measures cliff, TOPIX 2.0, and the 2030 Growth-Market cliff.</div>
+  <ul class="theme-card-list"><li>1. From Four Segments to Three: the April 2022 restructuring</li><li>2. The Tradable-Share Ratio: the one number that reshaped Japanese cross-shareholdings</li><li>3. The March 2025 Cliff: end of transitional measures and the new improvement period</li><li>4. TOPIX 2.0: from census index to selected universe</li><li style="color:var(--text-dim); font-style:italic;">+ 1 more …</li></ul>
+  <div class="theme-card-foot"><span>5 posts</span><span class="arrow">Read theme →</span></div>
+</a><a href="/en/governance/capital-efficiency/" class="theme-card">
+  <div class="theme-card-num">THEME 4</div>
+  <div class="theme-card-name">Capital Efficiency</div>
+  <div class="theme-card-period">Mar 2023 → present</div>
+  <div class="theme-card-desc">The TSE March 2023 cost-of-capital request, the new vocabulary, the monthly disclosure list, the seven sins of misalignment, and the April 2026 &#x27;from form to substance&#x27; pivot.</div>
+  <ul class="theme-card-list"><li>1. PBR &lt; 1 Is Not a Target — It&#x27;s a Verdict</li><li>2. WACC, ROIC, Equity Spread: the new vocabulary every Japanese IR rep must own</li><li>3. The Shame-and-Showcase List: how TSE polices participation through publication</li><li>4. The Seven Sins of Cost-of-Capital Disclosure: read TSE&#x27;s &#x27;misalignment&#x27; booklet</li><li style="color:var(--text-dim); font-style:italic;">+ 1 more …</li></ul>
+  <div class="theme-card-foot"><span>5 posts</span><span class="arrow">Read theme →</span></div>
+</a><a href="/en/governance/frontier/" class="theme-card">
+  <div class="theme-card-num">THEME 5</div>
+  <div class="theme-card-name">The Frontier</div>
+  <div class="theme-card-period">2024 → 2027</div>
+  <div class="theme-card-desc">English-disclosure mandate, cross-shareholding end-game, listed-subsidiary resolution, takeover guidelines, SSBJ sustainability, board diversity, activism, and the working groups writing what&#x27;s next.</div>
+  <ul class="theme-card-list"><li>1. April 2025 Was a Switch, Not a Finish Line: the English Disclosure Mandate</li><li>2. The End-Game of Cross-Shareholdings: from comply-or-explain to per-stock verification</li><li>3. The Toyota Industries Deal Is the End of Keiretsu, in One Transaction</li><li>4. Hostile Is No Longer a Slur: METI&#x27;s 2023 Guidelines for Corporate Takeovers</li><li style="color:var(--text-dim); font-style:italic;">+ 4 more …</li></ul>
+  <div class="theme-card-foot"><span>8 posts</span><span class="arrow">Read theme →</span></div>
+</a>
+    </div>
+  </div>
+</section>
+
+<section style="padding: 56px 0 72px; background:var(--bg-soft); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule);">
+  <div class="wrap">
+    <div style="display:grid; grid-template-columns:auto 1fr auto; gap:32px; align-items:center;">
+      <div class="curr-eyebrow" style="margin:0;">★ Keystone</div>
+      <div>
+        <div style="font-family:var(--serif); font-size:1.3rem; color:var(--ink); font-weight:400; line-height:1.5; letter-spacing:0.02em;">The IR Toolbox — every JPX / FSA / METI / SSBJ artifact, indexed.</div>
+        <div style="font-size:0.92rem; color:var(--text-mid); line-height:1.7; margin-top:6px;">Codes, disclosure lists, good-practice collections, working-group reports, FAQs, and data dashboards — organised into nine categories.</div>
+      </div>
+      <a href="/en/governance/toolbox/" class="btn btn-outline">Open the Toolbox →</a>
+    </div>
+  </div>
+</section>
+
+<section class="kcheck">
+  <div class="wrap">
+    <div class="kcheck-head">
+      <div class="curr-eyebrow">Quick check</div>
+      <h2>Test your <em>governance fluency</em>.</h2>
+      <p class="lede">Five quick questions covering the spine of the curriculum. Honest measure of where you are before you start reading.</p>
+    </div>
+    <div id="kcheck-quiz">
+      <div class="kcheck-q" data-correct="b">
+        <div class="kcheck-q-num">Q1 · Theme 1</div>
+        <div class="kcheck-q-text">Which document first stated the "8% ROE" benchmark that has shaped Japanese capital-efficiency discourse for a decade?</div>
+        <div class="kcheck-opts">
+          <button class="kcheck-opt" data-opt="a">The 2014 Stewardship Code (FSA, February 2014)</button>
+          <button class="kcheck-opt" data-opt="b">The Ito Review (METI, August 2014)</button>
+          <button class="kcheck-opt" data-opt="c">The 2015 Corporate Governance Code (FSA/JPX, June 2015)</button>
+          <button class="kcheck-opt" data-opt="d">The TSE March 2023 request</button>
+        </div>
+        <div class="kcheck-explain">The Ito Review — chaired by Prof. Kunio Ito at Hitotsubashi University and published by METI in August 2014 — argued that an 8% ROE would exceed the expected cost of capital of 90% of global investors. The benchmark has been the single most-cited number in Japanese capital markets ever since.</div>
+      </div>
+      <div class="kcheck-q" data-correct="c">
+        <div class="kcheck-q-num">Q2 · Theme 3</div>
+        <div class="kcheck-q-text">On 4 April 2022, the Tokyo Stock Exchange consolidated its segments. How many companies launched on the Prime Market that day?</div>
+        <div class="kcheck-opts">
+          <button class="kcheck-opt" data-opt="a">~1,200</button>
+          <button class="kcheck-opt" data-opt="b">~1,500</button>
+          <button class="kcheck-opt" data-opt="c">~1,839</button>
+          <button class="kcheck-opt" data-opt="d">~2,200</button>
+        </div>
+        <div class="kcheck-explain">Exactly 1,839 companies launched on the Prime Market on 4 April 2022, alongside 1,466 on Standard and 466 on Growth — total 3,771. The Prime number drifted lower through 2024-2025 due to transitional-measures demotions and M&A.</div>
+      </div>
+      <div class="kcheck-q" data-correct="d">
+        <div class="kcheck-q-num">Q3 · Theme 4</div>
+        <div class="kcheck-q-text">TSE's March 2023 request asks Prime and Standard Market companies to "Implement Management Conscious of Cost of Capital and Stock Price." Which of the following is NOT one of the request's 5 steps?</div>
+        <div class="kcheck-opts">
+          <button class="kcheck-opt" data-opt="a">Analyse cost of capital and profitability</button>
+          <button class="kcheck-opt" data-opt="b">Identify issues</button>
+          <button class="kcheck-opt" data-opt="c">Develop and disclose policies and initiatives</button>
+          <button class="kcheck-opt" data-opt="d">Set a PBR target above 1.0</button>
+        </div>
+        <div class="kcheck-explain">PBR is the verdict, not the target. The request's 5 steps are: analyse, identify, develop & disclose, implement, revise. JPX CEO Yamaji has been explicit that managing PBR directly misses the point — the right targets are cost of capital, ROE, and equity spread.</div>
+      </div>
+      <div class="kcheck-q" data-correct="a">
+        <div class="kcheck-q-num">Q4 · Theme 5</div>
+        <div class="kcheck-q-text">From which date are Prime Market companies required to disclose timely-disclosure materials simultaneously in Japanese and English?</div>
+        <div class="kcheck-opts">
+          <button class="kcheck-opt" data-opt="a">1 April 2025</button>
+          <button class="kcheck-opt" data-opt="b">1 April 2024</button>
+          <button class="kcheck-opt" data-opt="c">1 January 2026</button>
+          <button class="kcheck-opt" data-opt="d">1 April 2026</button>
+        </div>
+        <div class="kcheck-explain">The TSE rule took effect on 1 April 2025. Pre-effective baseline was ~30% simultaneous; coverage rose to ~99% by late 2025. A grace period of up to one year is available for companies that submit a transition plan.</div>
+      </div>
+      <div class="kcheck-q" data-correct="b">
+        <div class="kcheck-q-num">Q5 · Theme 5</div>
+        <div class="kcheck-q-text">SSBJ published Japan's first sustainability disclosure standards on 5 March 2025. Which issuers must report under Phase 1, with the first fiscal year ending March 2027?</div>
+        <div class="kcheck-opts">
+          <button class="kcheck-opt" data-opt="a">All Prime Market companies</button>
+          <button class="kcheck-opt" data-opt="b">Prime issuers with market cap ≥ JPY 3 trillion</button>
+          <button class="kcheck-opt" data-opt="c">All listed companies above JPY 500 billion</button>
+          <button class="kcheck-opt" data-opt="d">Only TOPIX 100 constituents</button>
+        </div>
+        <div class="kcheck-explain">Phase 1 applies to Prime issuers above JPY 3 trillion market cap (first reporting FY ending March 2027). Phase 2 adds the ≥ JPY 1 trillion tier (FY ending March 2028). Phase 3 brings in ≥ JPY 500 billion (FY ending March 2029). All standards align with IFRS S1/S2.</div>
+      </div>
+    </div>
+    <div class="kcheck-score">Score: <strong><span id="kc-score">0</span> / 5</strong> · <a href="/en/governance/foundations/" style="color:var(--accent-deep); margin-left:8px;">Start the curriculum →</a></div>
+  </div>
+</section>
+
+<section style="padding: 64px 0 80px;">
+  <div class="wrap">
+    <div style="max-width:660px; margin:0 auto; text-align:center;">
+      <div class="curr-eyebrow">Get started</div>
+      <h2 style="font-family:var(--serif); font-size:clamp(1.5rem, 2.8vw, 2rem); font-weight:300; color:var(--ink-mid); line-height:1.3; margin:0 0 22px;">Three ways to read this curriculum.</h2>
+      <div style="text-align:left; padding:18px 22px; background:var(--bg-mid); border:1px solid var(--rule); margin-bottom:14px;">
+        <strong style="font-family:var(--serif); font-size:1.05rem;">Linear</strong><br>
+        <span style="font-size:0.92rem; color:var(--text-mid);">Recommended for new IR reps. Theme 1 → 2 → 3 → 4 → 5 → Toolbox. ~8 to 12 hours.</span>
+      </div>
+      <div style="text-align:left; padding:18px 22px; background:var(--bg-mid); border:1px solid var(--rule); margin-bottom:14px;">
+        <strong style="font-family:var(--serif); font-size:1.05rem;">By theme</strong><br>
+        <span style="font-size:0.92rem; color:var(--text-mid);">Jump to the relevant theme. Each post lists its prerequisites in the front matter.</span>
+      </div>
+      <div style="text-align:left; padding:18px 22px; background:var(--bg-mid); border:1px solid var(--rule);">
+        <strong style="font-family:var(--serif); font-size:1.05rem;">As reference</strong><br>
+        <span style="font-size:0.92rem; color:var(--text-mid);">Bookmark the Toolbox and cross-link from each curriculum post during ongoing work.</span>
+      </div>
+      <a href="/en/governance/foundations/" class="btn btn-primary" style="margin-top:30px; padding:16px 32px;">Begin with Theme 1 →</a>
+    </div>
+  </div>
+</section>
+
+<script>
+document.querySelectorAll('.kcheck-q').forEach(q => {
+  const correct = q.dataset.correct;
+  q.querySelectorAll('.kcheck-opt').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (q.classList.contains('answered')) return;
+      q.classList.add('answered');
+      q.querySelectorAll('.kcheck-opt').forEach(b => {
+        if (b.dataset.opt === correct) b.classList.add('correct');
+        else if (b === btn) b.classList.add('incorrect');
+      });
+      if (btn.dataset.opt === correct) {
+        const scoreEl = document.getElementById('kc-score');
+        scoreEl.textContent = String(parseInt(scoreEl.textContent, 10) + 1);
+      }
+    });
+  });
+});
+</script>
+
+</main>
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Japan Investor Interface Co., Ltd.</h3>
+        <p>Cross-border IR diagnostics for Japanese listed companies. The Foreign IR Diagnostic Card visualizes how foreign capital reads your IR.</p>
+      </div>
+      <div class="footer-col">
+        <h2>The diagnostic & plans</h2>
+        <ul>
+          <li><a href="/en/services/">The Diagnostic Card</a></li>
+          <li><a href="/en/pricing/">Light — Initial Diagnostic</a></li>
+          <li><a href="/en/pricing/">Standard — Disclosure Improvement</a></li>
+          <li><a href="/en/pricing/">Pro — Investor-Meeting Cycle</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Governance curriculum</h2>
+        <ul>
+          <li><a href="/en/governance/">Curriculum home</a></li>
+          <li><a href="/en/governance/foundations/">Theme 1 · Foundations</a></li>
+          <li><a href="/en/governance/capital-efficiency/">Theme 4 · Capital Efficiency</a></li>
+          <li><a href="/en/governance/toolbox/">IR Toolbox</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>JII Compounders</h2>
+        <ul>
+          <li><a href="/en/compounders/">All profiles</a></li>
+          <li><a href="/en/compounders/methodology/">Methodology</a></li>
+          <li><a href="https://japaninterface.substack.com/" rel="noopener" target="_blank">Substack</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Contact</h2>
+        <ul>
+          <li>Email <a href="mailto:info@jpinv.com">info@jpinv.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Japan Investor Interface Co., Ltd. · All rights reserved.</p>
+      <p class="footer-locale-switcher">Language: <a href="/en/" class="current" aria-current="page" lang="en">EN</a> / <a href="/" data-locale-route lang="ja">JP</a></p>
+    </div>
+  </div>
+</footer>
+<script>
+const nav = document.getElementById('main-nav');
+if (nav) window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+const hamburgerBtn = document.querySelector('.hamburger');
+function setMenuOpen(isOpen) { const menu = document.getElementById('mobileMenu'); if (!menu || !hamburgerBtn) return; menu.classList.toggle('open', isOpen); menu.hidden = !isOpen; hamburgerBtn.setAttribute('aria-expanded', String(isOpen)); }
+function toggleMenu() { const menu = document.getElementById('mobileMenu'); setMenuOpen(!(menu && menu.classList.contains('open'))); }
+document.addEventListener('click', (e) => { const menu = document.getElementById('mobileMenu'); if (menu && menu.classList.contains('open') && !menu.contains(e.target) && hamburgerBtn && !hamburgerBtn.contains(e.target)) setMenuOpen(false); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenuOpen(false); });
+</script>
+
+</body>
+</html>

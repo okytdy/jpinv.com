@@ -1,5 +1,7 @@
 # jpinv.com SEO Master Summary — 2026-05-16
 
+> **👉 For current open tasks, see `SEO_Work/_OPEN_TASKS.md` — that's the working to-do list (this document is the longer reference).**
+
 ## 0. エグゼクティブ・サマリー
 
 **目的**: jpinv.com を「海外IRコミュニケーション支援」のトップ検索結果として日本のIR担当者・経営企画・社長・CFOに認知させる。**翻訳会社ポジショニング**から完全に脱却し、「海外投資家に伝わるIR」カテゴリを取りにいく。

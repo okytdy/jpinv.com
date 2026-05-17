@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test Your Governance Fluency | JII</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!--
+================================================================================
+PROTOTYPE — Governance Fluency Quiz
+================================================================================
+Path:      /governance-design-package/prototypes/quiz.html
+Built:     2026-05-17
+Author:    JII prototype-builder pass (claude)
+Status:    Functional prototype, awaiting claude-design visual polish.
+
+DATA CONTRACT
+-------------
+Source: ../data/quiz-bank.json (schema_version 1.0).
+  bank.themes:    [{id, name_en, name_ja, slug}]
+  bank.questions: [{
+    id, theme(int 1..5), difficulty('intro'|'intermediate'|'advanced'),
+    stem_en, stem_ja,
+    options_en[4], options_ja[4], correct(int 0..3),
+    explanation_en, explanation_ja,
+    curriculum_slug, primary_source, tags[]
+  }]
+Loader tries fetch('../data/quiz-bank.json') first; falls back to inlined
+EMBEDDED_BANK (mirrors the JSON at build time) when file:// blocks fetch.
+
+INTERACTION MODEL
+-----------------
+State machine:  idle -> quizzing -> answered -> next -> ... -> results
+                |---- (Esc / Abort) ----------------------------|
+States stored on `state` object; renderXXX() functions repaint #stage.
+LocalStorage key 'jii-quiz-best-v1' tracks best score-per-mode for the
+"Personal best" overlay on the start screen. Mode key includes filter id
+(e.g. 'theme:3', 'difficulty:advanced') so per-theme bests are separate.
+
+DESIGN INTENT
+-------------
+Editorial, calm. Same palette/typography as jpinv.com (Noto Serif JP for
+headlines, Noto Sans JP body, DM Mono labels). Muted gold accent #9a7838
+for progress and selection. White card on bg-soft. Question stem in serif
+to feel like a primary-source quotation. Submit/Next animation: card
+fades-and-slides; correct/incorrect highlights fade in with a check or
+cross drawn via inline SVG strokes (no library).
+
+ROUGH EDGES (for claude-design pass)
+------------------------------------
+* The "By theme" subselector currently expands inline below the button —
+  may want a more spatial reveal.
+* No question shuffle within a mode (questions appear in JSON order).
+  Quick-check is randomly sampled but theme/difficulty filters are not.
+* Curriculum slugs assume current locale; if EN is on, /en/... slugs are
+  used as-is; if JA is on, the leading /en/ is stripped to match jpinv.com
+  routing. Verify against final site map.
+* Accessibility: aria-live on #stage works for SR; consider focusing the
+  first option on each question render so keyboard users land on choice 1.
+* Personal-best logic compares percentage when total counts differ across
+  retries (e.g. quick-check resampling). Acceptable for a prototype.
+================================================================================
+-->
+
+<style>
+:root {
+  --ink:        #1a2a4a;
+  --ink-mid:    #172641;
+  --ink-soft:   #304466;
+  --rule:       #d6dee8;
+  --rule-soft:  #e8edf3;
+  --bg:         #ffffff;
+  --bg-mid:     #f5f7fa;
+  --bg-soft:    #fafbfc;
+  --text:       #1f2937;
+  --text-mid:   #4a5566;
+  --text-dim:   #5f6875;
+  --accent:     #9a7838;
+  --accent-deep:#7d6028;
+  --accent-soft:#f4eee4;
+  --bad:        #b91c1c;
+  --bad-soft:   #fdecec;
+  --ok:         #2f6f4f;
+  --ok-soft:    #e6f1ec;
+  --warn:       #8a682b;
+  --serif: 'Noto Serif JP', 'Yu Mincho', serif;
+  --sans:  'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  --mono:  'DM Mono', monospace;
+  --max: 760px;
+  --gutter: 32px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  background: var(--bg-soft);
+  color: var(--text);
+  font-family: var(--sans);
+  font-weight: 400;
+  line-height: 1.65;
+  min-height: 100vh;
+  padding: 48px 0 96px;
+}
+@media (max-width: 640px) { :root { --gutter: 18px; } body { padding: 24px 0 64px; } }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .2s, color .2s; }
+a:hover { color: var(--ink); border-bottom-color: var(--accent); }
+.label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); }
+.rule-accent { width: 32px; height: 2px; background: var(--accent); margin: 14px 0 22px; }
+
+/* === Top bar =============================================================== */
+.topbar { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 28px; }
+.brand { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-soft); }
+.brand a { border: none; }
+.lang-toggle { display: inline-flex; align-items: center; gap: 0; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; }
+.lang-toggle button {
+  background: transparent; border: 1px solid var(--rule); padding: 6px 10px;
+  font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em;
+  color: var(--text-dim); cursor: pointer; transition: all .2s; text-transform: uppercase;
+}
+.lang-toggle button + button { margin-left: -1px; }
+.lang-toggle button.on { color: var(--ink); border-color: var(--ink-mid); background: var(--bg); }
+.lang-toggle button:hover { color: var(--ink); }
+
+/* === Card ================================================================== */
+.card {
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  padding: 48px 48px 40px;
+  position: relative;
+  animation: cardIn .35s ease both;
+}
+.card.exiting { animation: cardOut .22s ease both; }
+@keyframes cardIn  { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@keyframes cardOut { from { opacity: 1; transform: none; } to { opacity: 0; transform: translateY(-4px); } }
+@media (max-width: 640px) { .card { padding: 28px 22px 30px; } }
+
+/* === Start screen ========================================================== */
+.hero-title {
+  font-family: var(--serif); font-weight: 300;
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  line-height: 1.2; color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.hero-sub {
+  font-family: var(--sans); font-size: 0.92rem; color: var(--text-mid);
+  margin-top: 18px; max-width: 56ch;
+}
+.modes { margin-top: 36px; display: flex; flex-direction: column; gap: 14px; }
+.mode-btn {
+  display: block; width: 100%; text-align: left;
+  background: var(--bg); border: 1px solid var(--rule);
+  padding: 18px 22px 16px; cursor: pointer;
+  font-family: var(--sans); color: var(--text);
+  transition: border-color .18s, background .18s, transform .18s;
+  position: relative;
+}
+.mode-btn:hover { border-color: var(--ink-mid); background: var(--bg-soft); }
+.mode-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.mode-btn .mode-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--ink); }
+.mode-btn .mode-meta  { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-dim); margin-top: 6px; }
+.mode-btn .mode-best  { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); position: absolute; right: 22px; top: 18px; }
+.mode-btn[disabled] { opacity: .5; cursor: not-allowed; }
+
+.subselector { margin-top: 10px; padding: 14px 18px; background: var(--bg-soft); border: 1px solid var(--rule-soft); display: none; }
+.subselector.open { display: block; animation: cardIn .25s ease both; }
+.sub-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.sub-chip {
+  background: var(--bg); border: 1px solid var(--rule);
+  padding: 8px 14px; font-family: var(--sans); font-size: 0.78rem;
+  color: var(--text); cursor: pointer; transition: all .18s;
+}
+.sub-chip:hover { border-color: var(--ink-mid); }
+.sub-chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.sub-chip .chip-meta { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.1em; color: var(--text-dim); margin-left: 8px; }
+
+/* === Progress ============================================================== */
+.progress-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 22px; gap: 16px; }
+.progress-track { flex: 1; height: 2px; background: var(--rule); position: relative; overflow: hidden; }
+.progress-fill { position: absolute; left: 0; top: 0; bottom: 0; background: var(--accent); transition: width .4s cubic-bezier(.4,0,.2,1); }
+.progress-text { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.14em; color: var(--text-dim); white-space: nowrap; }
+.abort-btn {
+  background: transparent; border: none; cursor: pointer;
+  font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--text-dim); padding: 4px 8px; transition: color .2s;
+}
+.abort-btn:hover { color: var(--bad); }
+
+/* === Question screen ======================================================= */
+.q-badges { display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap; }
+.badge {
+  font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 4px 10px; border: 1px solid var(--rule); color: var(--ink-soft); background: var(--bg-soft);
+}
+.badge.diff-advanced { color: var(--accent); border-color: var(--accent); }
+.badge.diff-intermediate { color: var(--ink); }
+.badge.diff-intro { color: var(--text-dim); }
+
+.q-stem {
+  font-family: var(--serif); font-weight: 300;
+  font-size: clamp(1.15rem, 2.6vw, 1.45rem);
+  line-height: 1.45; color: var(--ink);
+  margin-bottom: 28px;
+}
+
+.options { display: flex; flex-direction: column; gap: 10px; }
+.option {
+  display: flex; align-items: flex-start; gap: 14px;
+  width: 100%; text-align: left;
+  background: var(--bg); border: 1px solid var(--rule);
+  padding: 14px 18px; cursor: pointer;
+  font-family: var(--sans); font-size: 0.94rem; color: var(--text); line-height: 1.55;
+  transition: border-color .15s, background .15s;
+}
+.option:hover:not([disabled]) { border-color: var(--ink-soft); background: var(--bg-soft); }
+.option:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.option .opt-letter {
+  flex: 0 0 auto; width: 22px; height: 22px;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: var(--mono); font-size: 0.7rem; color: var(--text-dim);
+  border: 1px solid var(--rule); border-radius: 50%;
+  margin-top: 2px;
+}
+.option .opt-body { flex: 1; }
+.option.selected { border-color: var(--ink); background: var(--bg-soft); }
+.option.selected .opt-letter { background: var(--ink); color: #fff; border-color: var(--ink); }
+.option.correct { border-color: var(--ok); background: var(--ok-soft); animation: flashOk .5s ease; }
+.option.correct .opt-letter { background: var(--ok); color: #fff; border-color: var(--ok); }
+.option.wrong   { border-color: var(--bad); background: var(--bad-soft); animation: flashBad .5s ease; }
+.option.wrong   .opt-letter { background: var(--bad); color: #fff; border-color: var(--bad); }
+.option[disabled] { cursor: default; }
+@keyframes flashOk  { 0% { transform: scale(1); } 30% { transform: scale(1.012); } 100% { transform: scale(1); } }
+@keyframes flashBad { 0% { transform: translateX(0); } 20% { transform: translateX(-3px); } 40% { transform: translateX(3px); } 60% { transform: translateX(-2px); } 100% { transform: translateX(0); } }
+
+.option .mark { flex: 0 0 auto; width: 18px; height: 18px; margin-top: 4px; opacity: 0; }
+.option.correct .mark, .option.wrong .mark { opacity: 1; animation: markDraw .5s .1s ease both; }
+@keyframes markDraw { from { stroke-dashoffset: 24; opacity: 0; } to { stroke-dashoffset: 0; opacity: 1; } }
+.mark path { fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 24; stroke-dashoffset: 24; }
+.option.correct .mark path { stroke: var(--ok); animation: markDraw .5s .1s ease both; }
+.option.wrong   .mark path { stroke: var(--bad); animation: markDraw .5s .1s ease both; }
+
+/* === Footer action row ===================================================== */
+.actions { margin-top: 26px; display: flex; gap: 12px; justify-content: flex-end; align-items: center; flex-wrap: wrap; }
+.btn {
+  display: inline-block; text-decoration: none; font-family: var(--sans);
+  font-size: 0.82rem; font-weight: 400; letter-spacing: 0.06em;
+  padding: 12px 24px; transition: all 0.2s; cursor: pointer; border: none;
+}
+.btn-primary { background: var(--ink); color: #fff; }
+.btn-primary:hover { background: var(--ink-mid); color: #fff; }
+.btn-primary[disabled] { background: var(--rule); color: var(--text-dim); cursor: not-allowed; }
+.btn-outline { border: 1px solid var(--ink-mid); color: var(--ink); background: transparent; }
+.btn-outline:hover { border-color: var(--ink); color: var(--ink); background: var(--bg-soft); }
+.btn-ghost { background: transparent; color: var(--text-dim); border: none; padding: 12px 8px; }
+.btn-ghost:hover { color: var(--ink); }
+
+/* === Explanation =========================================================== */
+.explain {
+  margin-top: 22px; padding: 22px; background: var(--bg-soft);
+  border-left: 2px solid var(--accent);
+  animation: cardIn .3s ease both;
+}
+.explain .ex-label { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.16em; color: var(--accent); text-transform: uppercase; margin-bottom: 8px; }
+.explain .ex-body  { font-family: var(--serif); font-weight: 300; font-size: 0.98rem; line-height: 1.6; color: var(--ink); }
+.explain .ex-links { margin-top: 14px; display: flex; flex-direction: column; gap: 6px; }
+.explain .ex-links a {
+  font-family: var(--sans); font-size: 0.8rem; color: var(--ink-soft);
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.explain .ex-links a:hover { color: var(--accent); }
+
+/* === Results screen ======================================================== */
+.results-headline {
+  font-family: var(--serif); font-weight: 300;
+  font-size: clamp(1.6rem, 3.6vw, 2.1rem); line-height: 1.2; color: var(--ink);
+  margin-bottom: 4px;
+}
+.results-score { font-family: var(--mono); font-size: 2.2rem; color: var(--accent); margin: 18px 0 6px; letter-spacing: -0.02em; }
+.results-sub   { font-family: var(--sans); font-size: 0.86rem; color: var(--text-mid); }
+.results-section-h {
+  font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--ink-soft); margin: 36px 0 16px;
+}
+.theme-row { display: grid; grid-template-columns: 1fr 60px; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--rule-soft); }
+.theme-row:last-child { border-bottom: none; }
+.theme-row .theme-name { font-family: var(--serif); font-size: 0.94rem; color: var(--ink); }
+.theme-row .theme-bar { grid-column: 1 / -1; height: 2px; background: var(--rule); position: relative; }
+.theme-row .theme-bar-fill { position: absolute; left: 0; top: 0; bottom: 0; background: var(--accent); }
+.theme-row .theme-count { font-family: var(--mono); font-size: 0.74rem; color: var(--text-dim); text-align: right; }
+
+.weak-list { display: flex; flex-direction: column; gap: 14px; }
+.weak-item { padding: 14px 16px; background: var(--bg-soft); border-left: 2px solid var(--bad); }
+.weak-item .weak-stem { font-family: var(--serif); font-size: 0.92rem; color: var(--ink); margin-bottom: 8px; }
+.weak-item .weak-meta { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px; }
+.weak-item a { font-family: var(--sans); font-size: 0.8rem; color: var(--accent); }
+
+.results-actions { margin-top: 36px; display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* === Misc ================================================================== */
+.sr-only { position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+.fineprint { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.14em; color: var(--text-dim); margin-top: 28px; text-align: center; text-transform: uppercase; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="topbar">
+    <div class="brand"><a href="/en/governance/">JII / Governance curriculum</a></div>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button id="lang-en" class="on" aria-pressed="true">EN</button>
+      <button id="lang-ja" aria-pressed="false">JA</button>
+    </div>
+  </div>
+
+  <main id="stage" aria-live="polite" aria-atomic="false"></main>
+
+  <p class="fineprint" id="fineprint">Prototype · Built on quiz-bank.json v1.0</p>
+</div>
+
+<!-- Inline fallback bank (mirrors ../data/quiz-bank.json at build time) -->
+<script id="embedded-bank" type="application/json">{"schema_version":"1.0","last_updated":"2026-05-17","themes":[{"id":1,"name_en":"Foundations","name_ja":"基礎","slug":"foundations"},{"id":2,"name_en":"The Code Era","name_ja":"コードの時代","slug":"cg-code"},{"id":3,"name_en":"Market Restructuring","name_ja":"市場区分の見直し","slug":"market-restructuring"},{"id":4,"name_en":"Capital Efficiency","name_ja":"資本効率","slug":"capital-efficiency"},{"id":5,"name_en":"The Frontier","name_ja":"最前線","slug":"frontier"}],"questions":[{"id":"q-t1-01","theme":1,"difficulty":"intro","stem_en":"Which document first stated the 8% ROE benchmark that has shaped Japanese capital-efficiency discourse for a decade?","stem_ja":"「8% ROE」のベンチマークを最初に提示した文書はどれか?","options_en":["The 2014 Stewardship Code (FSA, February 2014)","The Ito Review (METI, August 2014)","The 2015 Corporate Governance Code (FSA/JPX, June 2015)","The TSE March 2023 request on cost of capital"],"options_ja":["2014年スチュワードシップ・コード(金融庁、2014年2月)","伊藤レポート(経済産業省、2014年8月)","2015年コーポレートガバナンス・コード(金融庁・JPX、2015年6月)","TSE 2023年3月の資本コスト要請"],"correct":1,"explanation_en":"The Ito Review, chaired by Prof. Kunio Ito of Hitotsubashi University and published by METI on 6 August 2014, argued that an 8% ROE would exceed the expected cost of capital of roughly 90% of global investors surveyed. It has been the single most-cited number in Japanese capital markets ever since.","explanation_ja":"伊藤レポート(一橋大学・伊藤邦雄教授が座長、経済産業省、2014年8月6日公表)は、ROE 8%があれば世界の機関投資家の約90%が期待する資本コストを上回るとした。以後、日本資本市場で最も引用される数字となった。","curriculum_slug":"/en/governance/foundations/1.1-lost-decades-roe-gap/","primary_source":"https://www.meti.go.jp/policy/economy/keiei_innovation/kigyoukaikei/ito_review__released_august2014_en.pdf","tags":["ito-review","roe","8-percent"]},{"id":"q-t1-02","theme":1,"difficulty":"intermediate","stem_en":"How many principles did the 2014 Japan Stewardship Code originally contain, and what enforcement mechanic did it adopt from the UK Cadbury tradition?","stem_ja":"2014年の日本版スチュワードシップ・コードは当初いくつの原則を含み、英国Cadbury伝統から導入した執行メカニズムは何か?","options_en":["Five principles, on a rules-based mandatory basis","Seven principles, on a 'comply or explain' basis","Eight principles, on a 'comply or explain' basis (the eighth was added in 2017)","Seven principles, on a binding-statute basis enforced by FSA"],"options_ja":["5原則、ルールベースの強制適用","7原則、コンプライ・オア・エクスプレイン","8原則、コンプライ・オア・エクスプレイン(第8原則は2017年に追加)","7原則、金融庁が執行する法令ベース"],"correct":1,"explanation_en":"The original Code finalised on 26 February 2014 contained seven principles covering policy disclosure, conflicts of interest, monitoring, engagement, voting, reporting and competence. 'Comply or explain' was imported from the UK Cadbury Report tradition. An eighth principle on service providers was added in the 2017 revision.","explanation_ja":"2014年2月26日に最終化された当初コードは、方針開示・利益相反・モニタリング・対話・議決権行使・報告・能力という7原則。コンプライ・オア・エクスプレインは英国Cadburyレポートの伝統を継承。第8原則(議決権行使助言会社等)は2017年改訂で追加された。","curriculum_slug":"/en/governance/foundations/1.6-stewardship-code/","primary_source":"https://www.fsa.go.jp/en/refer/councils/stewardship/20140407/01.pdf","tags":["stewardship-code","comply-or-explain","seven-principles"]},{"id":"q-t1-03","theme":1,"difficulty":"intermediate","stem_en":"Which Abenomics document first elevated corporate governance from a legal-technical topic to a macroeconomic growth lever?","stem_ja":"コーポレートガバナンスを法技術的論点から経済成長政策の柱に格上げした最初のアベノミクス文書はどれか?","options_en":["The Cabinet's 'Three Arrows of Abenomics' overview (Dec 2012)","The Japan Revitalization Strategy — Japan Is Back (14 June 2013)","The Ito Review Final Report (Aug 2014)","The FSA's Stewardship Code Council inception document (Aug 2013)"],"options_ja":["内閣官房『アベノミクスの3本の矢』概要(2012年12月)","日本再興戦略 — JAPAN is BACK(2013年6月14日)","伊藤レポート最終報告書(2014年8月)","金融庁スチュワードシップ・コード有識者会議発足文書(2013年8月)"],"correct":1,"explanation_en":"The Japan Revitalization Strategy of 14 June 2013 (the 'Third Arrow') was the first Japanese government document to treat board independence and investor stewardship as macroeconomic growth levers. It directed that the Stewardship Code be drafted 'by the end of [2013]' and that a Corporate Governance Code be developed.","explanation_ja":"2013年6月14日の『日本再興戦略』(第三の矢)は、取締役会の独立性や投資家のスチュワードシップをマクロ経済の成長レバーとして位置づけた最初の政府文書。スチュワードシップ・コードを『2013年末までに』策定し、コーポレートガバナンス・コードを整備する旨を指示した。","curriculum_slug":"/en/governance/foundations/1.4-abenomics-third-arrow/","primary_source":"https://japan.kantei.go.jp/96_abe/documents/2013/1200485_7321.html","tags":["abenomics","third-arrow","japan-revitalization-strategy"]},{"id":"q-t1-04","theme":1,"difficulty":"intermediate","stem_en":"Hiromichi Mizuno served as GPIF's Chief Investment Officer during which period, and which manager-level requirement is he most associated with?","stem_ja":"水野弘道氏のGPIF最高投資責任者(CIO)としての在任期間と、運用機関に課した主要な要請として最も知られているものは?","options_en":["2013-2018; requiring managers to integrate climate scenario analysis","January 2015 - March 2020; requiring external managers to publish individual proxy votes","2015-2025; requiring managers to disclose Scope 3 emissions of investee companies","2014-2019; requiring managers to vote against any director with PBR < 1x"],"options_ja":["2013年〜2018年;運用機関に気候シナリオ分析の統合を要請","2015年1月〜2020年3月;運用機関に個別議案ごとの議決権行使結果の開示を要請","2015年〜2025年;投資先のスコープ3排出量開示を運用機関に要請","2014年〜2019年;PBR 1倍未満の企業の取締役選任への反対投票を要請"],"correct":1,"explanation_en":"Hiromichi Mizuno was GPIF CIO from January 2015 to March 2020. He required external asset managers to publish individual proxy-vote records, launched ESG-themed indices (MSCI Japan ESG Select Leaders, MSCI Japan Empowering Women, FTSE Blossom Japan), and became a vocal global ESG advocate. Because GPIF cannot hold Japanese equities directly, manager monitoring is its only stewardship lever.","explanation_ja":"水野弘道氏は2015年1月から2020年3月までGPIFのCIO。外部運用機関に対し個別議決権行使結果の開示を要請し、MSCI日本株ESGセレクト・リーダーズ等のESG指数の採用、グローバルなESG発信を主導した。GPIFは日本株を直接保有できないため、運用機関監督がスチュワードシップ唯一のレバーである。","curriculum_slug":"/en/governance/foundations/1.8-gpif-mizuno/","primary_source":"https://www.gpif.go.jp/en/investment/pdf/adoption_Japans_stewardship_code.pdf","tags":["gpif","mizuno","asset-owner","esg"]},{"id":"q-t1-05","theme":1,"difficulty":"advanced","stem_en":"At the 1988 peak of Japan's bubble, what share of TSE market capitalisation sat in cross-shareholdings (mochiai)?","stem_ja":"1988年のバブル最盛期に、TSE時価総額のうち持ち合い株式が占めた割合はおおよそどれくらいか?","options_en":["Approximately 20%","Approximately 35%","More than 50%","Approximately 75%"],"options_ja":["約20%","約35%","50%超","約75%"],"correct":2,"explanation_en":"At the 1988 peak, more than 50% of TSE market capitalisation consisted of cross-shareholdings. Cross-held shares only fell below 10% of total TSE holdings for the first time in 2017 — and the narrowly-defined cross-shareholding ratio remains roughly 25% today, the structural backdrop to today's reform agenda.","explanation_ja":"1988年のピークでは、TSE時価総額の50%超が持ち合い株式だった。狭義の持ち合いがTSE全保有の10%を初めて下回ったのは2017年。現在も狭義持ち合い比率は約25%残存しており、現行改革のアジェンダの構造的背景となっている。","curriculum_slug":"/en/governance/foundations/1.2-mochiai-keiretsu/","primary_source":"https://www.frbsf.org/wp-content/uploads/August-2009-Japans-Cross-Shareholding-Legacy-the-Financial-Impact-on-Banks-august-09-FINAL.pdf","tags":["mochiai","cross-shareholdings","keiretsu","1988-peak"]},{"id":"q-t1-06","theme":1,"difficulty":"advanced","stem_en":"The 2001 Commercial Code reform strengthened the kansayaku (statutory auditor) board. What was the precise headline requirement it introduced?","stem_ja":"2001年商法改正は監査役会を強化した。導入された看板要件として正しいものはどれか?","options_en":["At least one-third of statutory auditors had to be outside auditors, with a three-year term","At least half of statutory auditors had to be outside auditors, with a four-year mandatory term","All statutory auditors had to be outside auditors, with a six-year mandatory term","Statutory auditors had to be replaced by an Audit & Supervisory Committee structure"],"options_ja":["監査役の3分の1以上を社外監査役とし、任期は3年","監査役の半数以上を社外監査役とし、任期は4年(義務)","監査役の全員を社外監査役とし、任期は6年(義務)","監査役会を監査等委員会に置き換える"],"correct":1,"explanation_en":"The 2001 Commercial Code amendment required at least half of statutory auditors (kansayaku) to be 'outside' auditors and extended their mandatory term to four years. Together with the 2002 'company with committees' option and J-SOX (FIEA promulgated 14 June 2006), it formed the pre-Abenomics scaffolding — but by 2013 only ~22% of TOPIX 500 firms had even one independent outside director.","explanation_ja":"2001年改正商法は監査役の半数以上を社外監査役とし、任期を4年に延長した。2002年の委員会設置会社制度、J-SOX(2006年6月14日金商法公布)とあわせ、アベノミクス前の制度的足場を形成。しかし2013年時点でTOPIX 500の独立社外取締役を1名以上有する企業は約22%にとどまっていた。","curriculum_slug":"/en/governance/foundations/1.3-pre-abe-reforms/","primary_source":"https://www.kansa.or.jp/wp-content/uploads/2021/10/Japans-Audit-Supervisory-Board-Member-System.pdf","tags":["kansayaku","commercial-code","2001-reform"]},{"id":"q-t2-01","theme":2,"difficulty":"intro","stem_en":"How many provisions did Japan's first (June 2015) Corporate Governance Code contain?","stem_ja":"2015年6月施行の初版コーポレートガバナンス・コードは合計いくつの規定で構成されていたか?","options_en":["5 General Principles + 25 Principles + 38 Supplementary Principles = 68","5 General Principles + 30 Principles + 38 Supplementary Principles = 73","5 General Principles + 31 Principles + 47 Supplementary Principles = 83","7 General Principles + 30 Principles + 50 Supplementary Principles = 87"],"options_ja":["5基本原則+25原則+38補充原則=68","5基本原則+30原則+38補充原則=73","5基本原則+31原則+47補充原則=83","7基本原則+30原則+50補充原則=87"],"correct":1,"explanation_en":"The 2015 Code had a 5+30+38 architecture (73 provisions). The 2021 revision expanded this to 5+31+47 (83 provisions) to add Prime Market obligations including TCFD climate disclosure, the skills matrix, and one-third independent directors.","explanation_ja":"2015年版コードは5基本原則+30原則+38補充原則(計73)で構成されていた。2021年改訂で5+31+47(計83)に拡張され、TCFD気候開示、スキル・マトリックス、独立社外取締役3分の1以上といったプライム市場向け義務が追加された。","curriculum_slug":"/en/governance/cg-code/2.1-2015-code/","primary_source":"https://www.ecgi.global/sites/default/files/codes/documents/japan_cg_code_1jun15_en.pdf","tags":["cg-code","2015","architecture","5-30-38"]},{"id":"q-t2-02","theme":2,"difficulty":"intermediate","stem_en":"Which CG Code revision first introduced the phrase 'cost of capital' as a comply-or-explain expectation, and under which Principle?","stem_ja":"コードに『資本コスト』という文言を初めて『コンプライ・オア・エクスプレイン』の期待事項として導入したのは、どの改訂のどの原則か?","options_en":["2015 inception, under Principle 1.4","2018 revision, under Principle 5.2","2021 revision, under Supplementary Principle 3.1.3","2024 follow-up action programme, under Principle 4.8"],"options_ja":["2015年初版、原則1-4","2018年改訂、原則5-2","2021年改訂、補充原則3-1-3","2024年フォローアップ・アクションプログラム、原則4-8"],"correct":1,"explanation_en":"The June 2018 revision introduced Principle 5.2, requiring boards to 'identify their cost of capital' and articulate strategy accordingly. It was the first time 'cost of capital' appeared as a comply-or-explain expectation in Japanese listing soft-law — the seed that flowered into the March 2023 TSE PBR request.","explanation_ja":"2018年6月改訂で原則5-2が導入され、取締役会に『自社の資本コストを把握』した上で戦略と経営資源配分を示すよう求めた。日本の上場規程ソフトロー上、『資本コスト』が初めてコンプライ・オア・エクスプレイン項目として登場した瞬間で、2023年3月のTSE PBR要請の萌芽となった。","curriculum_slug":"/en/governance/cg-code/2.2-2018-revision/","primary_source":"https://www.fsa.go.jp/en/news/2018/follow-up/20180330-1/01.pdf","tags":["cg-code","2018-revision","cost-of-capital","principle-5-2"]},{"id":"q-t2-03","theme":2,"difficulty":"intermediate","stem_en":"Which two obligations were newly imposed on Prime Market companies by the June 2021 CG Code revision?","stem_ja":"2021年6月のコード改訂で、プライム上場会社に新たに課された主要義務2つはどれか?","options_en":["Mandatory dual listing on a foreign exchange + Scope 3 disclosure","At least one-third independent directors + TCFD-aligned climate disclosure","Majority-independent boards + IFRS adoption","Female-director ratio >= 30% + mandatory English YUHO filing"],"options_ja":["海外取引所への重複上場義務+スコープ3排出量開示","独立社外取締役3分の1以上+TCFD準拠の気候関連開示","取締役会の過半数独立化+IFRS適用義務","女性取締役比率30%以上+有価証券報告書の英文化義務"],"correct":1,"explanation_en":"The 2021 revision required Prime Market companies to have at least one-third independent directors (Principle 4.8) and to provide TCFD-aligned (or equivalent) climate-related disclosure under Supplementary Principle 3.1.3. It also introduced the skills-matrix expectation (4.11.1) and measurable diversity targets (2.4.1).","explanation_ja":"2021年改訂はプライム上場会社に対し、独立社外取締役3分の1以上(原則4-8)と、補充原則3-1-3に基づくTCFD(または同等のフレームワーク)に準拠した気候関連開示を求めた。スキル・マトリックス(4-11-1)、測定可能な多様性目標(2-4-1)も新たに導入された。","curriculum_slug":"/en/governance/cg-code/2.3-2021-revision/","primary_source":"https://www.jpx.co.jp/english/news/1020/b5b4pj0000046kxj-att/b5b4pj0000046l0c.pdf","tags":["cg-code","2021-revision","prime-market","tcfd","one-third"]},{"id":"q-t2-04","theme":2,"difficulty":"intermediate","stem_en":"The CG Code is enforced through which legal mechanism — and what document records each issuer's comply-or-explain narrative?","stem_ja":"コーポレートガバナンス・コードはどのような法的枠組みで執行され、各社のコンプライ・オア・エクスプレイン記載を収録する文書は何か?","options_en":["Financial Instruments and Exchange Act statute; the YUHO (annual securities report)","TSE Securities Listing Regulations (listing contract); the Corporate Governance Report (CG Report)","Companies Act statute; the Business Report (jigyo hokokusho)","Cabinet Office Order; the Convocation Notice"],"options_ja":["金融商品取引法(法令);有価証券報告書","東証上場規程(上場契約);コーポレート・ガバナンス報告書","会社法(法令);事業報告書","内閣府令;招集通知"],"correct":1,"explanation_en":"The Code is published by the TSE and lives inside the Securities Listing Regulations (Rule 436-3), enforced via the listing contract rather than statute. The Corporate Governance Report (CG Report) — a four-section TSE-template filing — is the disclosure vehicle and must be updated whenever material facts change, not on a fixed annual cycle.","explanation_ja":"コードは東証が公表し、有価証券上場規程(第436条の3)に組み込まれ、上場契約により執行される(法令ではない)。開示媒体は4セクション構成の『コーポレート・ガバナンス報告書』で、定期的更新ではなく重要事実発生時に随時更新が求められる。","curriculum_slug":"/en/governance/cg-code/2.4-comply-or-explain/","primary_source":"https://www.jpx.co.jp/english/equities/listing/cg/01.html","tags":["comply-or-explain","listing-regulations","cg-report"]},{"id":"q-t2-05","theme":2,"difficulty":"intermediate","stem_en":"Which METI guideline became the de facto procedural standard for MBOs and controlling-shareholder acquisitions in Japan, with a special committee of independent persons treated as effectively mandatory?","stem_ja":"MBOおよび支配株主による完全子会社化の手続的事実上標準となり、独立社外者で構成される特別委員会の設置が事実上必須とされたMETIガイドラインはどれか?","options_en":["The 2005 Takeover Defense Guidelines","The 2017 CGS Guidelines","The 2019 Fair M&A Guidelines (June 2019)","The 2023 Guidelines for Corporate Takeovers"],"options_ja":["2005年買収防衛指針","2017年CGSガイドライン","2019年6月 公正なM&Aの在り方に関する指針","2023年企業買収における行動指針"],"correct":2,"explanation_en":"METI's Fair M&A Guidelines, published 28 June 2019 (English September 2019), rewrote the 2007 MBO Guidelines and extended the special-committee + market-check + majority-of-minority architecture to controlling-shareholder acquisitions as well as MBOs. Although non-binding, Japanese practitioners treat the special committee of independent persons as effectively mandatory market practice.","explanation_ja":"METIの『公正なM&Aの在り方に関する指針』(2019年6月28日、英文版2019年9月)は2007年MBO指針を全面改訂し、特別委員会+マーケットチェック+マジョリティ・オブ・マイノリティ枠組みをMBOに加え支配株主による完全子会社化にも拡張。法的拘束力はないが、独立社外者からなる特別委員会は事実上の必須実務とされている。","curriculum_slug":"/en/governance/cg-code/2.7-meti-guidelines/","primary_source":"https://www.meti.go.jp/policy/economy/keiei_innovation/keizaihousei/pdf/fairmaguidelines_english.pdf","tags":["meti","fair-ma-guidelines","mbo","special-committee"]},{"id":"q-t2-06","theme":2,"difficulty":"advanced","stem_en":"The 2018 CG Code revision introduced Supplementary Principle 1.4.1, prohibiting which specific behaviour related to cross-shareholdings?","stem_ja":"2018年改訂で導入された補充原則1-4-1は、政策保有株式に関するどのような行為を禁止したか?","options_en":["Acquiring any new cross-shareholding above 1% of net assets","Voting in support of any cross-held company's director slate","Hinting at a reduction in business transactions when a cross-holder signals intention to sell","Reporting cross-shareholdings on a net rather than gross basis in the YUHO"],"options_ja":["純資産の1%超の新規政策保有株式の取得","政策保有先の取締役選任議案への賛成投票","政策保有株式の売却意向を示した相手に対し、取引縮減を示唆すること","有価証券報告書での政策保有株式の純額(ネット)表示"],"correct":2,"explanation_en":"Supplementary Principle 1.4.1 — newly introduced in June 2018 — explicitly forbids issuers from 'hinting at a reduction in business transactions' when a cross-holder signals intention to sell its strategic stake. It is a rare piece of behavioural prohibition in a soft-law Code that otherwise speaks in principle-level language.","explanation_ja":"2018年6月新設の補充原則1-4-1は、政策保有株主が売却意向を示した際に『取引の縮減を示唆する』ことを明確に禁止。原則ベースのソフトローであるコードの中で、行為レベルの禁止規定を置く稀有な条項である。","curriculum_slug":"/en/governance/cg-code/2.2-2018-revision/","primary_source":"https://www.fsa.go.jp/en/news/2018/follow-up/20180330-1/01.pdf","tags":["cg-code","cross-shareholdings","supplementary-1-4-1"]},{"id":"q-t3-01","theme":3,"difficulty":"intro","stem_en":"On 4 April 2022, how many companies selected Prime, Standard and Growth markets respectively at launch?","stem_ja":"2022年4月4日の市場区分再編初日、プライム・スタンダード・グロースの3市場を選択した企業数はそれぞれいくつか?","options_en":["Prime 2,180 / Standard 473 / Growth 466","Prime 1,839 / Standard 1,466 / Growth 466","Prime 1,624 / Standard 1,500 / Growth 610","Prime 1,500 / Standard 1,500 / Growth 700"],"options_ja":["プライム 2,180 / スタンダード 473 / グロース 466","プライム 1,839 / スタンダード 1,466 / グロース 466","プライム 1,624 / スタンダード 1,500 / グロース 610","プライム 1,500 / スタンダード 1,500 / グロース 700"],"correct":1,"explanation_en":"At the 4 April 2022 launch, of 3,771 TSE listings, 1,839 (49%) selected Prime, 1,466 (39%) Standard, and 466 (12%) Growth. The Prime count's similarity to the old 1st Section (2,180 firms) immediately drew criticism that the launch was a re-labeling rather than a reform — which is why the March 2025 transitional cliff matters.","explanation_ja":"2022年4月4日施行時点で東証上場3,771社のうち、プライム1,839社(49%)、スタンダード1,466社(39%)、グロース466社(12%)。プライムの社数が旧1部(2,180社)に近かったため『単なる名称変更』との批判が即座に上がり、これが2025年3月の経過措置期限の重要性につながった。","curriculum_slug":"/en/governance/market-restructuring/3.3-april-2022-launch/","primary_source":"https://www.jpx.co.jp/english/corporate/news/news-releases/0060/20220111-01.html","tags":["prime","standard","growth","april-2022","segment-count"]},{"id":"q-t3-02","theme":3,"difficulty":"intermediate","stem_en":"The 2022 redefinition of 'tradable shares' for listing-criteria purposes excludes which categories of holders regardless of stake size?","stem_ja":"2022年に再定義された『流通株式』(上場維持基準上)では、保有株数の大小にかかわらず除外される保有主体はどれか?","options_en":["Only holders with stakes above 10%","Only directors and officers of the listed company","Japanese banks, insurance companies and business corporations - regardless of stake size","Foreign institutional investors with stakes above 5%"],"options_ja":["10%超を保有する株主のみ","上場会社の取締役・執行役員のみ","日本の銀行・保険会社・事業法人 - 保有株数の大小を問わない","5%超を保有する外国機関投資家"],"correct":2,"explanation_en":"Under the 2022 redefinition, shares held by Japanese banks, insurers and business corporations are excluded from 'tradable shares' regardless of stake size — capturing cross-shareholdings as illiquid. Combined with the 35% tradable-share-ratio bar for Prime and 25% for Standard/Growth, this is how the TSE dismantles cross-shareholdings via market structure rather than direct prohibition.","explanation_ja":"2022年の再定義では、日本の銀行・保険会社・事業法人が保有する株式は、保有株数にかかわらず『流通株式』から除外される - 政策保有を非流動とみなす仕組み。プライム35%・スタンダード/グロース25%の流通株式比率基準と組み合わせ、直接禁止ではなく市場構造を通じて持ち合いを解消する設計。","curriculum_slug":"/en/governance/market-restructuring/3.3-tradable-shares/","primary_source":"https://www.jpx.co.jp/english/equities/listing/continue/details/02.html","tags":["tradable-shares","cross-shareholdings","prime-criteria"]},{"id":"q-t3-03","theme":3,"difficulty":"intermediate","stem_en":"On 30 January 2023, the TSE terminated the open-ended 'for the time being' transitional measures. From which date do the regular continued-listing criteria now apply?","stem_ja":"2023年1月30日、TSEは『当分の間』とされていた経過措置の終了を発表した。通常の上場維持基準が適用されるのはどの基準日以降か?","options_en":["Any record date on or after 1 March 2024","Any record date on or after 1 March 2025","Any record date on or after 1 April 2026","Any record date on or after 1 April 2030"],"options_ja":["2024年3月1日以降の基準日","2025年3月1日以降の基準日","2026年4月1日以降の基準日","2030年4月1日以降の基準日"],"correct":1,"explanation_en":"On 30 January 2023, TSE announced that regular continued-listing criteria apply to any record date on or after 1 March 2025. Companies failing the criteria at their post-March 2025 record date enter a one-year improvement period (six months for trading-volume tests); continued failure triggers Security Under Supervision designation and ultimately delisting.","explanation_ja":"2023年1月30日、TSEは2025年3月1日以降の基準日から通常の上場維持基準を適用すると発表。当該基準日後に基準を満たさない企業は1年の改善期間(売買代金基準は6か月)を経て、なお適合しなければ監理銘柄指定、最終的に上場廃止となる。","curriculum_slug":"/en/governance/market-restructuring/3.4-march-2025-cliff/","primary_source":"https://www.jpx.co.jp/english/equities/follow-up/04.html","tags":["march-2025","transitional-measures","improvement-period"]},{"id":"q-t3-04","theme":3,"difficulty":"intermediate","stem_en":"The TOPIX index reform proceeds in two phases. What does Phase 2 (October 2026 - July 2028) fundamentally change about the TOPIX universe?","stem_ja":"TOPIX指数改革は2段階で進行する。第2段階(2026年10月〜2028年7月)が指数のユニバースに加える根本的な変更は何か?","options_en":["It restricts TOPIX to Prime Market issuers only, tightening the segment link","It de-links TOPIX from segment membership entirely - Prime, Standard and Growth issuers all eligible based on liquidity tests","It limits TOPIX to the top 500 free-float-weighted constituents","It replaces TOPIX with a new SSBJ-aligned ESG composite index"],"options_ja":["TOPIXをプライム上場会社のみに限定し、市場区分との連動を強化","市場区分とTOPIXを完全に切り離す - 流動性基準を満たせばプライム・スタンダード・グロース全てから採用可能","TOPIXを浮動株時価総額上位500銘柄に限定","TOPIXをSSBJ準拠の新ESGコンポジット指数に置換"],"correct":1,"explanation_en":"Phase 2 (Oct 2026 - Jul 2028) de-links TOPIX from segment membership entirely. Selection is driven by two liquidity tests: (a) annual trading-value turnover ratio >= 0.14 and (b) inclusion in the top 97% by cumulative free-float market cap. Estimated final count: ~1,200 constituents - down from a ~2,200 peak - with Standard-listed issuers eligible if they meet liquidity, while low-liquidity Prime issuers will be removed.","explanation_ja":"第2段階(2026年10月〜2028年7月)は市場区分とTOPIXを完全に切り離す。選定基準は(a)年間売買代金回転率0.14以上、(b)浮動株時価総額累積97%以内の2つ。最終的に約1,200銘柄(ピーク約2,200から半減)。スタンダード上場でも流動性基準を満たせば採用、低流動性のプライム銘柄は除外される。","curriculum_slug":"/en/governance/market-restructuring/3.7-topix-reform/","primary_source":"https://www.jpx.co.jp/english/markets/indices/revisions-indices/b5b4pj0000049s3x-att/RevisionsofTOPIX_e.pdf","tags":["topix","phase-2","index-reform","liquidity"]},{"id":"q-t3-05","theme":3,"difficulty":"advanced","stem_en":"Under the 26 September 2025 proposed Growth Market revision, what becomes the new market-cap maintenance threshold and from what year does it apply?","stem_ja":"2025年9月26日に公表されたグロース市場の上場維持基準の見直し案で、新たな時価総額基準とその適用開始年は?","options_en":["JPY 4 billion after ten years, applied from 2027","JPY 10 billion after five years, applied from 2030","JPY 25 billion after seven years, applied from 2028","JPY 100 billion after five years, applied from 2030"],"options_ja":["上場後10年で40億円、2027年から","上場後5年で100億円、2030年から","上場後7年で250億円、2028年から","上場後5年で1,000億円、2030年から"],"correct":1,"explanation_en":"TSE's 26 September 2025 proposal raises the Growth Market maintenance bar from 'JPY 4 bn market cap after ten years' to 'JPY 10 bn after five years,' effective from 2030. About 200 Growth companies sit in the 4-10 bn band today, and roughly 70% of Growth listings are below the new 10 bn threshold - making M&A, voluntary delisting, or transfer to Standard the live strategic options.","explanation_ja":"2025年9月26日のTSE提案は、グロース市場の維持基準を『上場後10年で40億円』から『上場後5年で100億円』へ引き上げ、2030年から適用。現在40億〜100億円帯に約200社、グロース全体の約70%が新基準100億円を下回る水準にあり、M&A・自主上場廃止・スタンダードへの移行が現実的選択肢となる。","curriculum_slug":"/en/governance/market-restructuring/3.8-growth-2030/","primary_source":"https://www.jpx.co.jp/english/news/1020/20250926-01.html","tags":["growth-market","2030-cliff","10-billion-yen"]},{"id":"q-t3-06","theme":3,"difficulty":"advanced","stem_en":"What pre-reform structural defect did JPX explicitly cite as creating a perverse incentive in the legacy four-section system?","stem_ja":"再編前の旧4市場構造において、JPXが『歪んだインセンティブを生んでいる』として明示的に指摘した構造的欠陥はどれか?","options_en":["1st Section transfer criteria were stricter than direct-listing criteria, suppressing IPOs","1st Section transfer criteria were lighter than direct-listing criteria, encouraging IPOs onto Mothers/2nd Section followed by 'graduation'","TOPIX excluded Mothers issuers, blocking emerging-growth flows","JASDAQ Standard and JASDAQ Growth had identical listing criteria"],"options_ja":["1部への市場変更基準が新規上場基準より厳しく、IPOを抑制していた","1部への市場変更基準が新規上場基準より軽く、マザーズ/2部にIPO後『卒業』するインセンティブを生んでいた","TOPIXがマザーズ銘柄を除外し、新興成長フローを阻害していた","JASDAQ Standard と JASDAQ Growth の上場基準が同一であった"],"correct":1,"explanation_en":"JPX explicitly cited that 1st Section transfer criteria were lighter than direct-listing criteria - creating a perverse incentive where companies IPO'd onto Mothers or 2nd Section and then 'graduated' to the 1st Section under softer rules. This, plus the TOPIX-tracks-1st-Section design, explains why 82% of TSE listings (2,180 of 2,653) had accumulated in the 1st Section by March 2022.","explanation_ja":"JPXは1部への市場変更基準が新規上場基準より軽い点を構造的欠陥として明示。マザーズ/2部にIPOした後、緩い基準で1部に『卒業』するインセンティブを生んでいた。TOPIXが1部に連動していた設計と相まって、2022年3月時点でTSE上場2,653社中2,180社(82%)が1部に滞留する状況を招いた。","curriculum_slug":"/en/governance/market-restructuring/3.1-before-state/","primary_source":"https://www.jpx.co.jp/english/equities/improvements/market-structure/01.html","tags":["four-section","topix-distortion","perverse-incentive","1st-section"]},{"id":"q-t4-01","theme":4,"difficulty":"intro","stem_en":"What is the correct Japanese term and English translation of the document the TSE issued on 31 March 2023 - and what is the key linguistic nuance?","stem_ja":"2023年3月31日にTSEが公表した文書の正確な日本語タイトル・英訳および、言語上のニュアンス上の重要な留意点は?","options_en":["Shirei (Directive) - a binding regulatory mandate","Onegai (Request) - a non-binding request, enforced by reputational visibility not sanctions","Meirei (Order) - a binding administrative order","Kisoku (Rule) - a TSE listing rule with delisting penalty"],"options_ja":["「指令」 - Directive - 拘束力ある規制命令","「お願い」 - Request - 拘束力のない要請、評判可視化により事実上の遵守圧","「命令」 - Order - 拘束力ある行政命令","「規則」 - Rule - TSE上場規則(違反は上場廃止)"],"correct":1,"explanation_en":"The document is 'Action to Implement Management That Is Conscious of Cost of Capital and Stock Price' (資本コストや株価を意識した経営の実現に向けた対応等に関するお願いについて). The word onegai ('request') matters: it is a request, not a directive or regulation. Compliance is achieved through monthly disclosure lists and reputational visibility, not legal sanctions.","explanation_ja":"正式名称は『資本コストや株価を意識した経営の実現に向けた対応等に関するお願いについて』(英訳 Action to Implement Management That Is Conscious of Cost of Capital and Stock Price)。『お願い』は指令でも規制でもなく、月次開示リストや評判の可視化を通じて事実上の遵守圧をかける仕組みである。","curriculum_slug":"/en/governance/capital-efficiency/4.1-march-2023-request/","primary_source":"https://www.jpx.co.jp/english/news/1020/20230331-01.html","tags":["march-2023","onegai","request","pbr-letter"]},{"id":"q-t4-02","theme":4,"difficulty":"intermediate","stem_en":"The TSE March 2023 request asks companies to perform a continuous PDCA loop. What are the five required actions?","stem_ja":"TSE 2023年3月の要請が求める継続的PDCAサイクルの5つのアクションは何か?","options_en":["Identify peers - benchmark ROE - set target - buy back shares - report","Understand cost of capital - identify issues - disclose policies - implement - revise","Hire consultant - conduct strategic review - divest non-core - repurchase shares - exit","Forecast cash flows - measure WACC - set dividend ratio - file disclosure - close"],"options_ja":["ピア特定→ROEベンチマーク→目標設定→自社株買い→報告","資本コストを把握→課題を特定→方針を開示→実行→見直し","コンサル起用→戦略レビュー→非中核事業売却→自社株買い→撤退","CF予測→WACC計測→配当性向設定→開示→クローズ"],"correct":1,"explanation_en":"The five required actions are: (a) accurately understand cost of capital and current capital efficiency, (b) identify issues through board discussion, (c) develop and disclose policies and initiatives, (d) implement them, and (e) revise based on dialogue with investors. The request explicitly frames these as a continuous PDCA loop, not a one-off filing.","explanation_ja":"5つのアクションは、(a)資本コストおよび現状の資本効率の正確な把握、(b)取締役会での議論を通じた課題特定、(c)方針・施策の策定と開示、(d)実行、(e)投資家との対話を踏まえた見直し。一回限りの開示ではなく継続的PDCAサイクルとして設計されている。","curriculum_slug":"/en/governance/capital-efficiency/4.1-march-2023-request/","primary_source":"https://www.jpx.co.jp/english/news/1020/cg27su0000005hdb-att/cg27su0000005hgo.pdf","tags":["pdca","five-steps","march-2023"]},{"id":"q-t4-03","theme":4,"difficulty":"intermediate","stem_en":"Which identity does TSE want every Japanese board to internalise as the canonical PBR decomposition?","stem_ja":"TSEが各取締役会に内面化を求める、PBR分解の基本恒等式はどれか?","options_en":["PBR = ROE x Dividend Yield","PBR = ROE x PER (Price-to-Earnings Ratio)","PBR = WACC / ROIC","PBR = Equity Spread x Cost of Equity"],"options_ja":["PBR = ROE × 配当利回り","PBR = ROE × PER(株価収益率)","PBR = WACC ÷ ROIC","PBR = エクイティ・スプレッド × 株主資本コスト"],"correct":1,"explanation_en":"PBR = ROE x PER is the identity TSE wants every board to memorise - it forces a choice between 'raise profitability' (the ROE lever) and 'convince the market of growth' (the PER lever). Mathematically, the equity spread (ROE - cost of equity) determines whether PBR is above or below 1x: when expected future spread is negative, PBR < 1 follows by construction.","explanation_ja":"PBR = ROE × PER がTSEが取締役会に求める基本恒等式。『収益性を上げる』(ROEレバー)か『成長期待を市場に訴える』(PERレバー)のいずれかを迫る。数学的にはエクイティ・スプレッド(ROE - 株主資本コスト)がPBR1倍の上下を決定し、将来期待スプレッドがマイナスなら必然的にPBR < 1となる。","curriculum_slug":"/en/governance/capital-efficiency/4.6-vocabulary/","primary_source":"https://www.jpx.co.jp/english/news/1020/u5j7e50000001bqd-att/240201en.pdf","tags":["pbr-decomposition","roe-per","equity-spread"]},{"id":"q-t4-04","theme":4,"difficulty":"intermediate","stem_en":"The monthly disclosure list classifies companies in three states. Which classification was given a six-month time limit from January 2025?","stem_ja":"月次開示リストは企業を3つのステータスに区分する。2025年1月から6か月の期限が新たに設定されたステータスはどれか?","options_en":["'Disclosed' - capped at six months after which companies must re-disclose","'Under Consideration' - capped at six months, after which companies are reclassified as 'Not Disclosed'","'Not Disclosed' - capped at six months, after which delisting proceedings start","'Implementation Complete' - capped at six months, after which the company must report KPIs"],"options_ja":["『開示済』 - 6か月で再開示義務","『検討中』 - 6か月を超えると『未開示』に再分類","『未開示』 - 6か月で上場廃止手続開始","『実行完了』 - 6か月でKPI報告義務"],"correct":1,"explanation_en":"From January 2025, companies left in the 'Under Consideration' status for more than six months are reclassified as 'Not Disclosed' - closing the loophole of indefinitely promising future action. This is the most concrete bit of soft enforcement: companies can no longer park themselves in the gray zone. As of March 13 2026, ~93% of Prime and ~51% of Standard issuers had disclosed.","explanation_ja":"2025年1月から、『検討中』ステータスに6か月超留まる企業は『未開示』に再分類される - 検討を約束し続ける抜け道を封じる仕組み。最も具体的なソフト・エンフォースメントであり、グレーゾーンへの『駐車』を不可能にする。2026年3月13日時点でプライム約93%、スタンダード約51%が開示済。","curriculum_slug":"/en/governance/capital-efficiency/4.3-monthly-list/","primary_source":"https://www.jpx.co.jp/english/equities/follow-up/nlsgeu000006xn3l.html","tags":["monthly-list","under-consideration","six-month-cap"]},{"id":"q-t4-05","theme":4,"difficulty":"intermediate","stem_en":"Japanese listed companies announced a record buyback total in 2024. Approximately how much was authorized?","stem_ja":"2024年に日本の上場企業が発表した自社株買いの総額は記録的な水準だった。その規模はおおよそいくらか?","options_en":["Approximately JPY 5 trillion","Approximately JPY 9.6 trillion (the 2023 figure)","Approximately JPY 18 trillion (~US$120 bn) - nearly double the 2023 total","Approximately JPY 30 trillion"],"options_ja":["約5兆円","約9.6兆円(2023年実績)","約18兆円(約1,200億ドル) - 2023年実績のほぼ倍","約30兆円"],"correct":2,"explanation_en":"Buybacks announced in 2024 totaled ~JPY 18.04 trillion (~US$120 bn), nearly double the JPY 9.57 trillion of 2023. Net corporate stock buying reached ~JPY 7.9 trillion, making Japanese companies the single largest net buyer of Japanese equities in 2024. Cross-shareholding sales also hit a record JPY 369 bn (FY2023, +86% YoY).","explanation_ja":"2024年の自社株買い発表総額は約18.04兆円(約1,200億ドル)で、2023年の9.57兆円のほぼ倍。純買い入れは約7.9兆円に達し、日本企業は2024年の日本株最大の純買い手となった。政策保有株式の売却もFY2023に過去最高の3,690億円(前年比+86%)を記録した。","curriculum_slug":"/en/governance/capital-efficiency/4.0-headline-numbers/","primary_source":"https://www.jpx.co.jp/english/news/1020/20240115-01.html","tags":["buybacks","2024-record","18-trillion"]},{"id":"q-t4-06","theme":4,"difficulty":"advanced","stem_en":"What does the equity spread (ROE - cost of equity) tell us mathematically about a company's PBR - and which 'misalignment' pattern does TSE specifically flag in this context?","stem_ja":"エクイティ・スプレッド(ROE - 株主資本コスト)は数学的に企業のPBRに何を意味するか。またTSEがこの文脈で特に指摘する『投資家視点との不整合』パターンは?","options_en":["Positive spread implies PBR > 1; the misalignment is companies using a cost of equity far ABOVE what investors recognise","Positive spread implies PBR > 1; the misalignment is companies using a cost of equity far BELOW what investors recognise (flattering the spread)","Negative spread implies PBR > 1; the misalignment is over-aggressive buybacks","The relationship is empirical only; no specific misalignment is flagged"],"options_ja":["プラスのスプレッド→PBR > 1; 不整合は投資家が認識する水準より『高い』株主資本コストの使用","プラスのスプレッド→PBR > 1; 不整合は投資家が認識する水準より『低い』株主資本コストの使用(スプレッドを過大に見せる)","マイナスのスプレッド→PBR > 1; 不整合は過剰な自社株買い","経験的な関係のみで、特定の不整合は指摘されていない"],"correct":1,"explanation_en":"Positive equity spread (ROE > cost of equity) implies PBR > 1 by the Residual Income Model; negative spread implies PBR < 1. TSE specifically flags 'a cost of equity far from the level recognized by investors' - i.e., using an artificially low CoE (e.g., 4-5%) to flatter the spread when investors' working range is 7-9%. This 'misalignment' pattern appears in the November 2024 'Cases Where Companies Are Not Aligned' booklet.","explanation_ja":"プラスのエクイティ・スプレッド(ROE > 株主資本コスト)は残余利益モデルによりPBR > 1を含意。逆にマイナスならPBR < 1。TSEは『投資家が認識する水準とかけ離れた株主資本コスト』 - 投資家の実勢7〜9%に対し人為的に低い4〜5%を使用しスプレッドを過大に見せる手口 - を不整合パターンとして2024年11月の『投資家の視点との不整合事例集』で指摘している。","curriculum_slug":"/en/governance/capital-efficiency/4.6-vocabulary/","primary_source":"https://www.jpx.co.jp/english/news/1020/20241121-01.html","tags":["equity-spread","residual-income","misalignment","cost-of-equity"]},{"id":"q-t4-07","theme":4,"difficulty":"advanced","stem_en":"The April 2026 TSE 'Update' (Action Plan 2.0) explicitly shifts the bar in what direction?","stem_ja":"2026年4月28日のTSE『要請の更新』(アクションプラン2.0)は、ハードルをどの方向に明確にシフトさせたか?","options_en":["From 'implementation' back to 'disclosure' - simplifying the regime for smaller issuers","From 'disclose initiatives' to 'show implementation and progress' - prioritising growth investment, portfolio review and balance-sheet optimisation over passive buybacks","From soft request to binding listing rule with delisting sanctions","From cost-of-capital focus to a single PBR > 1x hard target"],"options_ja":["『実行』から『開示』へ後退 - 小規模上場会社向けに制度を簡素化","『施策の開示』から『実行と進捗の提示』へ - 成長投資・事業ポートフォリオ見直し・最適なバランスシートを受動的自社株買いより優先","ソフトな要請から拘束力ある上場規則(上場廃止のペナルティ付)へ","資本コスト中心から、PBR1倍超のハード目標へ"],"correct":1,"explanation_en":"The 28 April 2026 Update shifts the bar from 'disclose initiatives' to 'show implementation and progress.' Key emphases: (i) growth investment (R&D, human capital, capex, intangibles) over buybacks, (ii) business portfolio review and balance-sheet optimisation, (iii) continuous PDCA with concrete progress metrics, (iv) deeper engagement with medium- to long-term investors. TSE explicitly notes that ROE 'has not improved as much' as PBR.","explanation_ja":"2026年4月28日のUpdateは『施策の開示』から『実行と進捗の提示』へハードルを明確に上げた。重点は、(i)自社株買いを上回る成長投資(R&D・人的資本・設備投資・無形資産)、(ii)事業ポートフォリオ見直しとバランスシート最適化、(iii)具体的進捗指標を伴う継続的PDCA、(iv)中長期投資家との深度ある対話。TSEはROEがPBRほど改善していない点も明示する。","curriculum_slug":"/en/governance/capital-efficiency/4.8-april-2026-update/","primary_source":"https://www.jpx.co.jp/english/equities/follow-up/uorii50000004sse-att/vk0khi000001czd0.pdf","tags":["april-2026","action-plan-2","growth-investment","portfolio-review"]},{"id":"q-t4-08","theme":4,"difficulty":"advanced","stem_en":"Scenario: A Prime-listed company with PBR 0.7x, ROE 6%, and stated cost of equity 4.5% submits a CG disclosure stating that PBR < 1 will be addressed via JPY 50 bn buyback (~5% of market cap) and a 50% payout ratio. Which TSE-flagged 'misalignment' pattern is most relevant?","stem_ja":"シナリオ:PBR 0.7倍、ROE 6%、株主資本コスト4.5%とするプライム上場会社が、PBR1倍未満への対応として500億円(時価総額の約5%)の自社株買いと配当性向50%を提示した。TSEが指摘する『不整合パターン』のうち、最も該当するものはどれか?","options_en":["Excellent disclosure; no misalignment - the buyback and payout ratio directly address PBR","Using a cost of equity far below investor consensus (4.5% vs. 7-9% range), AND treating shareholder returns as the entire response without addressing ROE or growth investment","Failure to disclose Scope 3 GHG emissions in the CG Report","Inadequate skills-matrix disclosure for the audit committee"],"options_ja":["優れた開示で不整合なし - 自社株買いと配当性向はPBRに直接対応している","投資家コンセンサスを大幅に下回る株主資本コスト(4.5% 対 実勢7〜9%)を使用し、かつROEや成長投資に触れず株主還元だけを回答としている","コーポレート・ガバナンス報告書でのスコープ3 GHG排出量未開示","監査委員会のスキル・マトリックス開示が不十分"],"correct":1,"explanation_en":"Two of TSE's most-cited misalignment patterns apply: (1) using a cost of equity (4.5%) far below the investor working range of 7-9% - this artificially makes the equity spread look positive (6% - 4.5% = +1.5%) when in reality it is deeply negative (6% - 8% = -2%), consistent with the 0.7x PBR; and (2) treating shareholder returns as the entire response - TSE explicitly flags this in November 2024's 'Cases Where Companies Are Not Aligned.' Real fix requires ROE improvement and growth investment.","explanation_ja":"TSEが頻繁に指摘する不整合パターンが2つ該当する:(1)投資家実勢7〜9%を大きく下回る4.5%の株主資本コストを使用すること - エクイティ・スプレッドを人為的にプラス(6% - 4.5% = +1.5%)に見せるが実際は深いマイナス(6% - 8% = -2%)で、PBR 0.7倍と整合的;(2)株主還元を唯一の回答とすること - 2024年11月『投資家視点との不整合事例集』が明示的に指摘。本来の解決策はROE改善と成長投資である。","curriculum_slug":"/en/governance/capital-efficiency/4.6-vocabulary/","primary_source":"https://www.jpx.co.jp/english/news/1020/20241121-01.html","tags":["scenario","misalignment","cost-of-equity","buyback-only"]},{"id":"q-t5-01","theme":5,"difficulty":"intro","stem_en":"From what date are Prime Market companies required to disclose financial results and timely-disclosure information simultaneously in Japanese and English?","stem_ja":"プライム上場会社が、決算短信および適時開示情報を日英で同時開示しなければならないのは、いつから?","options_en":["1 April 2024","1 April 2025","1 April 2026","1 April 2027"],"options_ja":["2024年4月1日","2025年4月1日","2026年4月1日","2027年4月1日"],"correct":1,"explanation_en":"The TSE listing-rule amendment, finalised January 2024 after the March 2023 policy paper, requires all ~1,640 domestic Prime-listed issuers to simultaneously disclose financial results (kessan-tanshin) and timely disclosure (適時開示) in Japanese and English from 1 April 2025. Foreign issuers are exempt because they already disclose in English. Excerpt/summary translations are permitted.","explanation_ja":"2023年3月のポリシーペーパー、2024年1月の上場規則改正により、約1,640社の国内プライム上場会社は2025年4月1日から決算短信および適時開示情報を日英同時開示する義務を負う。既に英文開示している外国上場会社は対象外。要約・抄訳形式での開示も認められている。","curriculum_slug":"/en/governance/frontier/5.1-english-disclosure/","primary_source":"https://www.jpx.co.jp/english/corporate/news/news-releases/0060/20250122-01.html","tags":["english-disclosure","april-2025","prime-mandate"]},{"id":"q-t5-02","theme":5,"difficulty":"intermediate","stem_en":"What is the Phase 1 market-cap threshold under the SSBJ sustainability-disclosure mandate, and when does it apply?","stem_ja":"SSBJサステナビリティ開示基準の第1段階(フェーズ1)の時価総額閾値と適用期は?","options_en":["Market cap >= JPY 1 trillion; FY ending March 2027","Market cap >= JPY 3 trillion; FY ending March 2027 (~70 issuers)","Market cap >= JPY 500 billion; FY ending March 2028","All Prime issuers; FY ending March 2026"],"options_ja":["時価総額1兆円以上、2027年3月期から","時価総額3兆円以上、2027年3月期から(対象約70社)","時価総額5,000億円以上、2028年3月期から","プライム上場全社、2026年3月期から"],"correct":1,"explanation_en":"The phased SSBJ rollout for Prime issuers in statutory securities reports is: Phase 1 - market cap >= JPY 3 trillion (FY ending March 2027, ~70 issuers); Phase 2 - >= JPY 1 trillion (March 2028); Phase 3 - >= JPY 500 bn (March 2029). The SSBJ standards (issued 5 March 2025) incorporate all IFRS S1 and S2 requirements, including Scope 3 (with first-year transition reliefs). Japan chose single materiality, not double.","explanation_ja":"プライム上場会社の有価証券報告書におけるSSBJ段階的義務化は、第1段階:時価総額3兆円以上(2027年3月期、対象約70社);第2段階:1兆円以上(2028年3月期);第3段階:5,000億円以上(2029年3月期)。SSBJ基準(2025年3月5日公表)はIFRS S1・S2の全要件を取り込み、スコープ3も対象(初年度経過措置あり)。日本はシングル・マテリアリティを採用(ダブルではない)。","curriculum_slug":"/en/governance/frontier/5.5-ssbj/","primary_source":"https://www.fsa.go.jp/en/news/2025/20251106/20251106.html","tags":["ssbj","phase-1","march-2027","3-trillion"]},{"id":"q-t5-03","theme":5,"difficulty":"intermediate","stem_en":"The Japanese government's June 2023 target on female directors at Prime Market companies has two milestones. What are they?","stem_ja":"2023年6月の政府方針が示すプライム上場会社の女性役員比率に関する2つの里程は?","options_en":["10% by 2025; 30% by 2030","At least one female director by 2025; 30% female directors at Prime by 2030","20% by 2027; 50% by 2035","At least two female directors by 2025; 40% by 2030"],"options_ja":["2025年までに10%、2030年までに30%","2025年までに女性取締役1名以上、2030年までにプライム女性取締役比率30%","2027年までに20%、2035年までに50%","2025年までに女性取締役2名以上、2030年までに40%"],"correct":1,"explanation_en":"The June 2023 'Policy on Women's Active Engagement' set: (i) at least one female director at every Prime Market company by 2025, and (ii) 30% female directors at Prime Market companies by 2030. The major-Japan-firm female-executive ratio rose from 11.4% in 2022 to 18.4% in October 2025 - still well below the 30% target. This sits alongside CGC Supplementary Principle 2.4.1 on measurable voluntary diversity targets.","explanation_ja":"2023年6月の『女性版骨太の方針』が示した目標は、(i)2025年までにプライム全社で女性役員1名以上、(ii)2030年までにプライム女性役員比率30%。主要日本企業の女性役員比率は2022年の11.4%から2025年10月時点で18.4%に上昇しているが、30%目標にはなお距離がある。CGC補充原則2-4-1の測定可能な多様性目標と表裏一体の枠組み。","curriculum_slug":"/en/governance/frontier/5.6-diversity/","primary_source":"https://www.lexology.com/library/detail.aspx?g=71abd0c9-a133-45ae-a9dd-e2bb98fb79a9","tags":["diversity","30-by-30","female-directors"]},{"id":"q-t5-04","theme":5,"difficulty":"intermediate","stem_en":"What is the most significant change to Japan's TOB (tender offer bid) regime under the 2024 FIEA amendments effective May 2026?","stem_ja":"2026年5月施行の2024年金商法改正でTOB(株式公開買付)制度に加わる最も重要な変更は?","options_en":["The mandatory-TOB threshold rises from >30% to >50%","The mandatory-TOB threshold drops from >1/3 to >30%, and on-market purchases are brought into TOB scope","TOBs are abolished in favour of US-style auction rules","Foreign acquirers are barred from launching TOBs without FSA pre-approval"],"options_ja":["強制的TOB基準が30%超から50%超に引き上げ","強制的TOB基準が3分の1超から30%超に引き下げ、市場内取引もTOB規制の対象に","TOBを廃止し米国型オークション・ルールに置換","外国買収者によるTOBは金融庁の事前承認が必要"],"correct":1,"explanation_en":"The 2024 FIEA amendments (Diet-passed May 2024; effective 1 May 2026) lower the mandatory-TOB threshold from 'more than 1/3' to 'more than 30%' and bring on-market purchases inside TOB scope. They also clarify the 5%-rule definitions of 'joint holders' and 'acts of material proposal' - addressing the long-standing chilling effect on collective engagement.","explanation_ja":"2024年金商法改正(2024年5月成立、2026年5月1日施行)は、強制TOB基準を『3分の1超』から『30%超』に引き下げ、市場内取引も買付規制の対象に取り込む。あわせて5%ルールの『共同保有者』『重要提案行為』の定義を明確化し、長年指摘された協働エンゲージメントの萎縮効果に対応する。","curriculum_slug":"/en/governance/frontier/5.4-takeover-guidelines/","primary_source":"https://www.dlapiper.com/en/insights/publications/2026/01/recent-developments-on-tob-rules-and-shareholding-transparency-in-japan","tags":["fiea-2024","tob-threshold","30-percent","may-2026"]},{"id":"q-t5-05","theme":5,"difficulty":"intermediate","stem_en":"The Toyota Industries (6201) take-private announced in 2025 is described as a watershed because it simultaneously achieves which two governance outcomes?","stem_ja":"2025年に発表された豊田自動織機(6201)の非公開化が画期的とされる理由は、どの2つのガバナンス的成果を同時に達成することにあるか?","options_en":["Cross-border listing + IFRS adoption","Dissolution of a 76-year listed-subsidiary structure + unwinding of long-criticised cross-shareholdings with Toyota Motor, Denso, Aisin and Toyota Tsusho","Listed-subsidiary unwind + adoption of monthly disclosure list compliance","Buyback authorisation + female-director ratio increase"],"options_ja":["海外上場+IFRS適用","76年続いた上場子会社構造の解消+トヨタ自動車・デンソー・アイシン・豊田通商との長年批判されてきた持ち合い解消の同時達成","上場子会社解消+月次開示リスト遵守","自社株買い実施+女性役員比率の引き上げ"],"correct":1,"explanation_en":"The Toyota Industries take-private is the first major Japanese transaction to braid two long-standing governance issues in one deal: dissolving a 76-year listed-subsidiary structure and unwinding the long-criticised Toyota Group cross-shareholding lattice (Toyota Motor, Denso, Aisin, Toyota Tsusho). ACGA called it 'the symbolic dissolution of Japan Inc.'s last untouchable keiretsu.' Final bid: JPY 18,800/share (42.2% premium); Elliott opposed, asserting NAV >JPY 26,000.","explanation_ja":"豊田自動織機の非公開化は、76年続いた上場子会社構造の解消と、長年批判されてきたトヨタグループの持ち合い構造(トヨタ自動車・デンソー・アイシン・豊田通商)の解消を一取引で同時達成した日本初の主要案件。ACGAは『日本株式会社最後の聖域・系列の象徴的解体』と評した。最終提示価格は1株18,800円(42.2%プレミアム)。Elliottは本源的NAVを26,000円超と主張し反対した。","curriculum_slug":"/en/governance/frontier/5.3-parent-sub/","primary_source":"https://global.toyota/en/newsroom/corporate/42882940.html","tags":["toyota-industries","listed-subsidiary","cross-shareholdings","keiretsu"]},{"id":"q-t5-06","theme":5,"difficulty":"advanced","stem_en":"METI's August 2023 Guidelines for Corporate Takeovers introduced which three operative principles, replacing the 2005 takeover-defence stance?","stem_ja":"2023年8月のMETI『企業買収における行動指針』が、2005年買収防衛指針に代わって示した3つの基本原則は?","options_en":["Buyback fairness / Disclosure consistency / Director independence","Corporate Value & Shareholders' Common Interest / Shareholder Intent / Transparency","Cost of Capital / Climate Disclosure / Board Skills","Speed / Confidentiality / Defensive Flexibility"],"options_ja":["自社株買いの公正性/開示の整合性/取締役の独立性","企業価値・株主共同の利益の確保/株主意思の尊重/透明性","資本コスト/気候開示/取締役会のスキル","迅速性/守秘性/防衛の柔軟性"],"correct":1,"explanation_en":"The 31 August 2023 Guidelines for Corporate Takeovers establish three operative principles: (1) Corporate Value and Shareholders' Common Interest - boards must judge bona-fide offers against value-creation impact; (2) Shareholder Intent - boards must give shareholders adequate time and information; (3) Transparency - boards must disclose how they assessed an offer. They replace the 2005 defence-friendly stance and introduce the 'bona-fide offer' (真摯な買収提案) doctrine with an explicit board engagement duty.","explanation_ja":"2023年8月31日の『企業買収における行動指針』が示す3原則:(1)企業価値・株主共同の利益の確保 - 取締役会は真摯な買収提案を企業価値創造の観点から判断する義務;(2)株主意思の尊重 - 株主に十分な時間と情報を提供;(3)透明性 - 評価プロセスの開示。2005年指針の防衛容認姿勢から転換し、『真摯な買収提案』への取締役会の検討義務を明示した。","curriculum_slug":"/en/governance/frontier/5.4-takeover-guidelines/","primary_source":"https://www.meti.go.jp/english/press/2023/0831_001.html","tags":["takeover-guidelines","2023","bona-fide-offer","three-principles"]},{"id":"q-t5-07","theme":5,"difficulty":"advanced","stem_en":"The June 2025 Stewardship Code revision (v3.0) most notably changed the Code's stance on which engagement practice?","stem_ja":"2025年6月のスチュワードシップ・コード改訂(v3.0)が最も注目される形で姿勢を変更したエンゲージメント手法は?","options_en":["Voting policy disclosure - now requires fund-by-fund vote rationale","Collaborative engagement - moved from 'may be beneficial as necessary' to 'should be considered more proactively'","Proxy advisor conflicts of interest - eliminated from Code scope","ESG integration - made voluntary again"],"options_ja":["議決権行使方針の開示 - ファンドごとの判断理由開示を新たに義務化","協働エンゲージメント - 『必要に応じ有用となり得る』から『より積極的に検討すべき』に文言を変更","議決権行使助言会社の利益相反 - コードの対象外に","ESG統合 - 任意化に戻す"],"correct":1,"explanation_en":"The June 2025 Stewardship Code v3.0 newly states that collaborative engagement should be considered 'more proactively' (replacing the prior 'may be beneficial as necessary'). Revised Guidance 4-2 requires investors to publish a policy on responding to companies' requests for beneficial-ownership information. This addresses the long-standing 5%-rule chilling effect on collective engagement - coordinated with the 2024 FIEA amendments clarifying 'joint holders' and 'acts of material proposal.'","explanation_ja":"2025年6月のスチュワードシップ・コードv3.0は、協働エンゲージメントを『必要に応じ有用となり得る』から『より積極的に検討すべき』へ表現を改めた。改訂指針4-2は、企業からの実質株主情報照会への対応方針開示を運用機関に求める。長年指摘された5%ルールの萎縮効果に対応し、2024年金商法改正(『共同保有者』『重要提案行為』の明確化)と連動する。","curriculum_slug":"/en/governance/frontier/5.7-activism/","primary_source":"https://www.fsa.go.jp/en/refer/councils/stewardship/20250626/03.pdf","tags":["stewardship-code-v3","collaborative-engagement","june-2025"]},{"id":"q-t5-08","theme":5,"difficulty":"advanced","stem_en":"Japan adopted single materiality (not double materiality) under the SSBJ standards. Which body publicly urged Japan to adopt double materiality and was ultimately rebuffed?","stem_ja":"日本はSSBJ基準でシングル・マテリアリティ(ダブルではなく)を採用した。日本にダブル・マテリアリティ採用を公に求めたが最終的に受け入れられなかった国際団体はどれか?","options_en":["ISSB (International Sustainability Standards Board)","TCFD (Task Force on Climate-related Financial Disclosures)","GRI (Global Reporting Initiative)","PRI (Principles for Responsible Investment)"],"options_ja":["ISSB(国際サステナビリティ基準審議会)","TCFD(気候関連財務情報開示タスクフォース)","GRI(グローバル・レポーティング・イニシアティブ)","PRI(国連責任投資原則)"],"correct":2,"explanation_en":"GRI publicly urged Japan to adopt double materiality during the 2024 SSBJ consultations and was rebuffed. The FSA/SSBJ retained single materiality (investor-decision focus, aligned with IFRS S1/S2) but emphasised that companies are free to additionally report impact-materiality information using GRI standards. The debate is expected to re-open in the 2026-27 CG Code revision being prepared by the Expert Panel that first met 21 October 2025.","explanation_ja":"2024年のSSBJパブコメ過程でGRIは公にダブル・マテリアリティ採用を求めたが、最終的に受け入れられなかった。金融庁・SSBJはIFRS S1/S2と整合的なシングル・マテリアリティ(投資家意思決定基準)を維持しつつ、企業がGRI基準で追加的にインパクト・マテリアリティ情報を報告することは妨げないとした。本論点は2025年10月21日に初会合を開いた有識者会議で進行中の2026〜27年CGC改訂で再燃の見込み。","curriculum_slug":"/en/governance/frontier/5.5-ssbj/","primary_source":"https://www.ifrs.org/content/dam/ifrs/publications/sustainability-jurisdictions/pdf-snapshots/japan-ifrs-snapshot.pdf","tags":["ssbj","single-materiality","gri","double-materiality"]}]}</script>
+
+<script>
+"use strict";
+
+/* ============================================================================
+   1. DATA LOAD
+   ========================================================================== */
+const EMBEDDED_BANK = JSON.parse(document.getElementById('embedded-bank').textContent);
+
+async function loadBank() {
+  try {
+    const res = await fetch('../data/quiz-bank.json', { cache: 'no-store' });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    if (data && Array.isArray(data.questions) && data.questions.length) return data;
+    throw new Error('Empty bank');
+  } catch (e) {
+    console.warn('[quiz] fetch failed, using embedded fallback:', e.message);
+    return EMBEDDED_BANK;
+  }
+}
+
+/* ============================================================================
+   2. STATE
+   ========================================================================== */
+const LS_KEY = 'jii-quiz-best-v1';
+const state = {
+  bank:    null,
+  lang:    'en',                 // 'en' | 'ja'
+  mode:    null,                 // { kind, label, label_ja, qids[] }
+  idx:     0,
+  answers: [],                   // [{ qid, picked, correct, isCorrect }]
+  picked:  null,
+  phase:   'idle',               // idle | quizzing | answered | results
+};
+
+function readBests() {
+  try { return JSON.parse(localStorage.getItem(LS_KEY) || '{}'); } catch (e) { return {}; }
+}
+function writeBest(modeKey, score, total) {
+  const all = readBests();
+  const pct = total ? score / total : 0;
+  const prev = all[modeKey];
+  if (!prev || (score / total) > (prev.score / prev.total)) {
+    all[modeKey] = { score, total, pct, ts: Date.now() };
+    try { localStorage.setItem(LS_KEY, JSON.stringify(all)); } catch (e) {}
+  }
+}
+
+/* ============================================================================
+   3. MODE BUILDERS
+   ========================================================================== */
+function shuffle(a) {
+  const x = a.slice();
+  for (let i = x.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [x[i], x[j]] = [x[j], x[i]];
+  }
+  return x;
+}
+function modeQuick()      { return shuffle(state.bank.questions.map(q => q.id)).slice(0, 5); }
+function modeFull()       { return state.bank.questions.map(q => q.id); }
+function modeTheme(id)    { return state.bank.questions.filter(q => q.theme === id).map(q => q.id); }
+function modeDifficulty(d){ return state.bank.questions.filter(q => q.difficulty === d).map(q => q.id); }
+
+function startMode(spec) {
+  state.mode    = spec;
+  state.idx     = 0;
+  state.answers = [];
+  state.picked  = null;
+  state.phase   = 'quizzing';
+  renderQuestion();
+}
+
+/* ============================================================================
+   4. RENDER
+   ========================================================================== */
+const stage = document.getElementById('stage');
+
+function transition(renderFn) {
+  const card = stage.querySelector('.card');
+  if (!card) { renderFn(); return; }
+  card.classList.add('exiting');
+  setTimeout(() => { renderFn(); }, 200);
+}
+
+/* ---------- 4a. Start ----------------------------------------------------- */
+function renderStart() {
+  state.phase = 'idle';
+  state.mode  = null;
+  state.idx   = 0;
+  state.answers = [];
+  state.picked = null;
+
+  const bests = readBests();
+  const t = state.lang === 'ja';
+
+  const themes = state.bank.themes.map(th => {
+    const count = modeTheme(th.id).length;
+    const best  = bests['theme:' + th.id];
+    const bestStr = best ? `Best ${best.score}/${best.total}` : '';
+    const name = t ? th.name_ja : th.name_en;
+    return `<button class="sub-chip" data-mode="theme" data-arg="${th.id}">
+              ${escapeHtml(name)}
+              <span class="chip-meta">${count} ${t ? '問' : 'qs'}${bestStr ? ' · ' + bestStr : ''}</span>
+            </button>`;
+  }).join('');
+
+  const diffs = [
+    { id: 'intro',        en: 'Intro',        ja: '入門' },
+    { id: 'intermediate', en: 'Intermediate', ja: '中級' },
+    { id: 'advanced',     en: 'Advanced',     ja: '上級' },
+  ].map(d => {
+    const count = modeDifficulty(d.id).length;
+    const best  = bests['difficulty:' + d.id];
+    const bestStr = best ? `Best ${best.score}/${best.total}` : '';
+    const name = t ? d.ja : d.en;
+    return `<button class="sub-chip" data-mode="difficulty" data-arg="${d.id}">
+              ${escapeHtml(name)}
+              <span class="chip-meta">${count} ${t ? '問' : 'qs'}${bestStr ? ' · ' + bestStr : ''}</span>
+            </button>`;
+  }).join('');
+
+  const bestQuick = bests['quick'];
+  const bestFull  = bests['full'];
+
+  const html = `
+    <section class="card" aria-labelledby="hero-title">
+      <p class="label">${t ? '小テスト' : 'Self-assessment'}</p>
+      <h1 class="hero-title" id="hero-title">${t ? 'ガバナンス理解度テスト' : 'Test Your Governance Fluency'}</h1>
+      <div class="rule-accent"></div>
+      <p class="hero-sub">${t
+        ? '34問のカリキュラム連動クイズ。テーマ別・難易度別・全34問・5問速習の4モード。回答後に解説と一次資料へのリンクが表示されます。'
+        : 'Thirty-four primary-source questions across the curriculum. Pick a mode below — quick check, full assessment, by theme, or by difficulty. Every answer surfaces an explanation, the primary source, and a link to the relevant curriculum post.'}</p>
+
+      <div class="modes" role="list">
+        <button class="mode-btn" data-mode="quick" role="listitem">
+          ${bestQuick ? `<span class="mode-best">Best ${bestQuick.score}/${bestQuick.total}</span>` : ''}
+          <div class="mode-title">${t ? '速習チェック' : 'Quick check'}</div>
+          <div class="mode-meta">${t ? '5問・全テーマからランダム' : '5 questions · sampled across all themes'}</div>
+        </button>
+
+        <button class="mode-btn" data-mode="full" role="listitem">
+          ${bestFull ? `<span class="mode-best">Best ${bestFull.score}/${bestFull.total}</span>` : ''}
+          <div class="mode-title">${t ? '全範囲アセスメント' : 'Full assessment'}</div>
+          <div class="mode-meta">${t ? '全34問・所要15〜20分' : 'All 34 questions · 15–20 min'}</div>
+        </button>
+
+        <button class="mode-btn" data-mode="theme-toggle" aria-expanded="false" aria-controls="sub-theme" role="listitem">
+          <div class="mode-title">${t ? 'テーマ別' : 'By theme'}</div>
+          <div class="mode-meta">${t ? '5テーマから選択' : 'Choose one of 5 themes'}</div>
+        </button>
+        <div class="subselector" id="sub-theme" role="group" aria-label="${t ? 'テーマ選択' : 'Theme selector'}">
+          <span class="label">${t ? 'テーマ' : 'Theme'}</span>
+          <div class="sub-chips">${themes}</div>
+        </div>
+
+        <button class="mode-btn" data-mode="diff-toggle" aria-expanded="false" aria-controls="sub-diff" role="listitem">
+          <div class="mode-title">${t ? '難易度別' : 'By difficulty'}</div>
+          <div class="mode-meta">${t ? '入門 / 中級 / 上級' : 'Intro / Intermediate / Advanced'}</div>
+        </button>
+        <div class="subselector" id="sub-diff" role="group" aria-label="${t ? '難易度選択' : 'Difficulty selector'}">
+          <span class="label">${t ? '難易度' : 'Difficulty'}</span>
+          <div class="sub-chips">${diffs}</div>
+        </div>
+      </div>
+    </section>
+  `;
+  stage.innerHTML = html;
+
+  // Wire mode buttons
+  stage.querySelectorAll('.mode-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const m = btn.dataset.mode;
+      if (m === 'quick') {
+        startMode({ kind: 'quick', key: 'quick', label_en: 'Quick check', label_ja: '速習チェック', qids: modeQuick() });
+      } else if (m === 'full') {
+        startMode({ kind: 'full', key: 'full', label_en: 'Full assessment', label_ja: '全範囲アセスメント', qids: modeFull() });
+      } else if (m === 'theme-toggle') {
+        toggleSub('sub-theme', btn);
+      } else if (m === 'diff-toggle') {
+        toggleSub('sub-diff', btn);
+      }
+    });
+  });
+  stage.querySelectorAll('.sub-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      const mode = chip.dataset.mode;
+      const arg  = chip.dataset.arg;
+      if (mode === 'theme') {
+        const th = state.bank.themes.find(x => x.id === parseInt(arg, 10));
+        startMode({ kind: 'theme', key: 'theme:' + arg, label_en: 'Theme: ' + th.name_en, label_ja: 'テーマ: ' + th.name_ja, qids: modeTheme(parseInt(arg, 10)) });
+      } else if (mode === 'difficulty') {
+        const labels = { intro: ['Intro','入門'], intermediate: ['Intermediate','中級'], advanced: ['Advanced','上級'] };
+        startMode({ kind: 'difficulty', key: 'difficulty:' + arg, label_en: labels[arg][0], label_ja: labels[arg][1], qids: modeDifficulty(arg) });
+      }
+    });
+  });
+}
+
+function toggleSub(id, btn) {
+  const el = document.getElementById(id);
+  // close any other
+  document.querySelectorAll('.subselector.open').forEach(s => { if (s !== el) s.classList.remove('open'); });
+  document.querySelectorAll('.mode-btn[aria-expanded="true"]').forEach(b => { if (b !== btn) b.setAttribute('aria-expanded', 'false'); });
+  const open = el.classList.toggle('open');
+  btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+
+/* ---------- 4b. Question -------------------------------------------------- */
+function renderQuestion() {
+  const q = currentQuestion();
+  const total = state.mode.qids.length;
+  const n = state.idx + 1;
+  const t = state.lang === 'ja';
+  const theme = state.bank.themes.find(x => x.id === q.theme);
+
+  const stem    = t ? q.stem_ja : q.stem_en;
+  const options = t ? q.options_ja : q.options_en;
+  const themeName = t ? theme.name_ja : theme.name_en;
+  const diffLabel = { intro: ['Intro','入門'], intermediate: ['Intermediate','中級'], advanced: ['Advanced','上級'] }[q.difficulty];
+
+  const letters = ['A','B','C','D'];
+  const optsHtml = options.map((opt, i) => `
+    <button class="option" data-i="${i}" aria-pressed="false">
+      <span class="opt-letter" aria-hidden="true">${letters[i]}</span>
+      <span class="opt-body">${escapeHtml(opt)}</span>
+      <svg class="mark" viewBox="0 0 24 24" aria-hidden="true"><path d=""/></svg>
+    </button>
+  `).join('');
+
+  const fillPct = ((state.idx) / total) * 100;
+
+  const html = `
+    <section class="card" aria-labelledby="q-stem">
+      <div class="progress-row">
+        <div class="progress-text">${n} / ${total} · ${escapeHtml(t ? state.mode.label_ja : state.mode.label_en)}</div>
+        <div class="progress-track"><div class="progress-fill" style="width:${fillPct}%"></div></div>
+        <button class="abort-btn" id="abort" title="${t ? '中止 (Esc)' : 'Abort (Esc)'}">${t ? '中止' : 'Abort'}</button>
+      </div>
+
+      <div class="q-badges">
+        <span class="badge">${escapeHtml(themeName)}</span>
+        <span class="badge diff-${q.difficulty}">${diffLabel[t ? 1 : 0]}</span>
+      </div>
+
+      <h2 class="q-stem" id="q-stem">${escapeHtml(stem)}</h2>
+
+      <div class="options" role="radiogroup" aria-labelledby="q-stem">
+        ${optsHtml}
+      </div>
+
+      <div class="actions" id="action-row">
+        <button class="btn btn-primary" id="submit-btn" disabled>${t ? '送信' : 'Submit'}</button>
+      </div>
+    </section>
+  `;
+
+  transition(() => {
+    stage.innerHTML = html;
+    state.picked = null;
+    state.phase  = 'quizzing';
+
+    const optionEls = stage.querySelectorAll('.option');
+    optionEls.forEach(el => {
+      el.addEventListener('click', () => pickOption(parseInt(el.dataset.i, 10)));
+      el.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pickOption(parseInt(el.dataset.i, 10)); }
+      });
+    });
+    document.getElementById('submit-btn').addEventListener('click', submitAnswer);
+    document.getElementById('abort').addEventListener('click', () => {
+      if (confirm(t ? '中止しますか?進捗は保存されません。' : 'Abort this run? Progress will not be saved.')) renderStart();
+    });
+    // Update progress to current step (not next) after a frame
+    requestAnimationFrame(() => {
+      const fill = stage.querySelector('.progress-fill');
+      if (fill) fill.style.width = (((state.idx) / total) * 100) + '%';
+    });
+  });
+}
+
+function pickOption(i) {
+  if (state.phase !== 'quizzing') return;
+  state.picked = i;
+  const opts = stage.querySelectorAll('.option');
+  opts.forEach((el, j) => {
+    el.classList.toggle('selected', j === i);
+    el.setAttribute('aria-pressed', j === i ? 'true' : 'false');
+  });
+  document.getElementById('submit-btn').disabled = false;
+}
+
+function submitAnswer() {
+  if (state.phase !== 'quizzing' || state.picked === null) return;
+  const q = currentQuestion();
+  const isCorrect = state.picked === q.correct;
+  state.answers.push({ qid: q.id, picked: state.picked, correct: q.correct, isCorrect });
+  state.phase = 'answered';
+
+  const opts = stage.querySelectorAll('.option');
+  opts.forEach((el, i) => {
+    el.disabled = true;
+    el.classList.remove('selected');
+    el.querySelector('.opt-letter').textContent = ['A','B','C','D'][i];
+    if (i === q.correct) {
+      el.classList.add('correct');
+      const path = el.querySelector('.mark path');
+      path.setAttribute('d', 'M5 12l4 4 10-10');
+    } else if (i === state.picked) {
+      el.classList.add('wrong');
+      const path = el.querySelector('.mark path');
+      path.setAttribute('d', 'M6 6l12 12 M18 6L6 18');
+    }
+  });
+
+  // Inject explanation
+  renderExplanation(q, isCorrect);
+
+  // Swap submit -> next
+  const t = state.lang === 'ja';
+  const row = document.getElementById('action-row');
+  const isLast = state.idx + 1 >= state.mode.qids.length;
+  row.innerHTML = `<button class="btn btn-primary" id="next-btn">${isLast ? (t ? '結果を見る →' : 'See results →') : (t ? '次の問題 →' : 'Next question →')}</button>`;
+  document.getElementById('next-btn').addEventListener('click', nextQuestion);
+  document.getElementById('next-btn').focus();
+
+  // Advance progress fill
+  const total = state.mode.qids.length;
+  const fill = stage.querySelector('.progress-fill');
+  if (fill) fill.style.width = (((state.idx + 1) / total) * 100) + '%';
+}
+
+function renderExplanation(q, isCorrect) {
+  const t = state.lang === 'ja';
+  const body  = t ? q.explanation_ja : q.explanation_en;
+  const slug  = q.curriculum_slug;
+  const localizedSlug = t ? slug.replace(/^\/en\//, '/') : slug;
+  const src   = q.primary_source;
+  const div = document.createElement('div');
+  div.className = 'explain';
+  div.innerHTML = `
+    <div class="ex-label">${isCorrect ? (t ? '正解' : 'Correct') : (t ? '不正解' : 'Not quite')} · ${t ? '解説' : 'Explanation'}</div>
+    <div class="ex-body">${escapeHtml(body)}</div>
+    <div class="ex-links">
+      <a href="${escapeAttr(localizedSlug)}" target="_blank" rel="noopener">${t ? 'カリキュラム記事を読む →' : 'Read curriculum post →'}</a>
+      <a href="${escapeAttr(src)}" target="_blank" rel="noopener">${t ? '一次資料 →' : 'Primary source →'}</a>
+    </div>
+  `;
+  stage.querySelector('.card').insertBefore(div, document.getElementById('action-row'));
+}
+
+function nextQuestion() {
+  if (state.idx + 1 >= state.mode.qids.length) {
+    renderResults();
+  } else {
+    state.idx += 1;
+    renderQuestion();
+  }
+}
+
+/* ---------- 4c. Results --------------------------------------------------- */
+function renderResults() {
+  state.phase = 'results';
+  const t = state.lang === 'ja';
+  const score = state.answers.filter(a => a.isCorrect).length;
+  const total = state.answers.length;
+  const pct = Math.round((score / total) * 100);
+
+  writeBest(state.mode.key, score, total);
+
+  // Per-theme breakdown (only themes present in this run)
+  const themeAgg = {};
+  state.answers.forEach(a => {
+    const q = state.bank.questions.find(x => x.id === a.qid);
+    if (!themeAgg[q.theme]) themeAgg[q.theme] = { right: 0, total: 0 };
+    themeAgg[q.theme].total += 1;
+    if (a.isCorrect) themeAgg[q.theme].right += 1;
+  });
+  const themeRows = Object.keys(themeAgg).map(tid => {
+    const th = state.bank.themes.find(x => x.id === parseInt(tid, 10));
+    const agg = themeAgg[tid];
+    const p = (agg.right / agg.total) * 100;
+    return `
+      <div class="theme-row">
+        <div class="theme-name">${escapeHtml(t ? th.name_ja : th.name_en)}</div>
+        <div class="theme-count">${agg.right}/${agg.total}</div>
+        <div class="theme-bar"><div class="theme-bar-fill" style="width:${p}%"></div></div>
+      </div>
+    `;
+  }).join('');
+
+  // Weak areas
+  const wrong = state.answers.filter(a => !a.isCorrect);
+  const weakHtml = wrong.length === 0
+    ? `<p style="font-family: var(--serif); font-style: italic; color: var(--text-mid);">${t ? '誤答はありません。お見事です。' : 'No incorrect answers — excellent.'}</p>`
+    : wrong.map(a => {
+        const q = state.bank.questions.find(x => x.id === a.qid);
+        const th = state.bank.themes.find(x => x.id === q.theme);
+        const slug = t ? q.curriculum_slug.replace(/^\/en\//, '/') : q.curriculum_slug;
+        return `
+          <div class="weak-item">
+            <div class="weak-meta">${escapeHtml(t ? th.name_ja : th.name_en)} · ${q.difficulty}</div>
+            <div class="weak-stem">${escapeHtml(t ? q.stem_ja : q.stem_en)}</div>
+            <a href="${escapeAttr(slug)}" target="_blank" rel="noopener">${t ? 'カリキュラム記事を読む →' : 'Review curriculum post →'}</a>
+          </div>
+        `;
+      }).join('');
+
+  const verdict = pct >= 85 ? (t ? '見事' : 'Strong fluency')
+                : pct >= 60 ? (t ? '健闘' : 'Solid footing')
+                            : (t ? '伸びしろ' : 'Room to grow');
+
+  const html = `
+    <section class="card">
+      <p class="label">${escapeHtml(t ? state.mode.label_ja : state.mode.label_en)} · ${t ? '結果' : 'Results'}</p>
+      <h1 class="results-headline">${verdict}</h1>
+      <div class="rule-accent"></div>
+      <div class="results-score">${score}<span style="font-size: 1.4rem; color: var(--text-dim);"> / ${total}</span></div>
+      <p class="results-sub">${pct}% ${t ? '正解' : 'correct'}</p>
+
+      <p class="results-section-h">${t ? 'テーマ別内訳' : 'Per-theme breakdown'}</p>
+      ${themeRows}
+
+      <p class="results-section-h">${t ? '弱点エリアの復習' : 'Review weak areas'}</p>
+      <div class="weak-list">${weakHtml}</div>
+
+      <div class="results-actions">
+        <button class="btn btn-primary" id="retry-btn">${t ? '再挑戦' : 'Retry'}</button>
+        <button class="btn btn-outline" id="another-btn">${t ? '別モードを試す' : 'Try another mode'}</button>
+      </div>
+    </section>
+  `;
+  transition(() => {
+    stage.innerHTML = html;
+    document.getElementById('retry-btn').addEventListener('click', () => {
+      // Resample for quick; reuse same id-list otherwise
+      if (state.mode.kind === 'quick') state.mode.qids = modeQuick();
+      startMode(state.mode);
+    });
+    document.getElementById('another-btn').addEventListener('click', renderStart);
+  });
+}
+
+/* ============================================================================
+   5. HELPERS
+   ========================================================================== */
+function currentQuestion() {
+  const id = state.mode.qids[state.idx];
+  return state.bank.questions.find(q => q.id === id);
+}
+function escapeHtml(s) {
+  return String(s == null ? '' : s)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+function escapeAttr(s) { return escapeHtml(s); }
+
+/* ============================================================================
+   6. GLOBAL HANDLERS
+   ========================================================================== */
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && (state.phase === 'quizzing' || state.phase === 'answered')) {
+    if (confirm(state.lang === 'ja' ? '中止しますか?' : 'Abort this run?')) renderStart();
+  }
+  // Number keys 1-4 to pick during quizzing
+  if (state.phase === 'quizzing' && /^[1-4]$/.test(e.key)) {
+    pickOption(parseInt(e.key, 10) - 1);
+  }
+  if (state.phase === 'quizzing' && e.key === 'Enter' && state.picked !== null) {
+    submitAnswer();
+  }
+  if (state.phase === 'answered' && e.key === 'Enter') {
+    const nx = document.getElementById('next-btn');
+    if (nx) nx.click();
+  }
+});
+
+document.getElementById('lang-en').addEventListener('click', () => setLang('en'));
+document.getElementById('lang-ja').addEventListener('click', () => setLang('ja'));
+function setLang(l) {
+  if (state.lang === l) return;
+  state.lang = l;
+  document.getElementById('lang-en').classList.toggle('on', l === 'en');
+  document.getElementById('lang-ja').classList.toggle('on', l === 'ja');
+  document.getElementById('lang-en').setAttribute('aria-pressed', l === 'en');
+  document.getElementById('lang-ja').setAttribute('aria-pressed', l === 'ja');
+  document.documentElement.lang = l;
+  // Re-render the current screen with the new language
+  if (state.phase === 'idle' || state.phase === 'results') {
+    state.phase === 'results' ? renderResults() : renderStart();
+  } else {
+    renderQuestion();
+    // Re-apply answered state if we were on an explanation
+    if (state.phase === 'answered') {
+      // Pop last answer (will be re-added by submit) then re-submit
+      const last = state.answers.pop();
+      state.picked = last.picked;
+      submitAnswer();
+    }
+  }
+}
+
+/* ============================================================================
+   7. BOOT
+   ========================================================================== */
+(async function boot() {
+  state.bank = await loadBank();
+  renderStart();
+})();
+</script>
+</body>
+</html>

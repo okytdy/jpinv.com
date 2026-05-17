@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+<title>The End-Game of Cross-Shareholdings: from comply-or-explain to per-stock verification | JII Governance Curriculum</title>
+<meta name="description" content="From the 1988 peak of mochiai at &gt;50% of TSE market cap to per-stock rationale disclosure in the YUHO today: how cross-shareholding reform moved from soft-law guidance to a board-level annual verification regime, with Toyota Industries as the symbolic dissolution event.">
+<meta property="og:title" content="The End-Game of Cross-Shareholdings: from comply-or-explain to per-stock verification | JII Governance Curriculum">
+<meta property="og:description" content="From the 1988 peak of mochiai at &gt;50% of TSE market cap to per-stock rationale disclosure in the YUHO today: how cross-shareholding reform moved from soft-law guidance to a board-level annual verification regime, with Toyota Industries as the symbolic dissolution event.">
+<meta property="og:url" content="https://jpinv.com/en/governance/frontier/5.2-cross-shareholdings-end-game/">
+<link rel="canonical" href="https://jpinv.com/en/governance/frontier/5.2-cross-shareholdings-end-game/">
+<link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/frontier/5.2-cross-shareholdings-end-game/">
+<link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/frontier/5.2-cross-shareholdings-end-game/">
+<link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/frontier/5.2-cross-shareholdings-end-game/">
+
+<style>
+:root {
+  --ink:        #1a2a4a;
+  --ink-mid:    #172641;
+  --ink-soft:   #304466;
+  --rule:       #d6dee8;
+  --rule-soft:  #e8edf3;
+  --bg:         #ffffff;
+  --bg-mid:     #f5f7fa;
+  --bg-soft:    #fafbfc;
+  --text:       #1f2937;
+  --text-mid:   #4a5566;
+  --text-dim:   #5f6875;
+  --accent:     #9a7838;
+  --accent-deep:#9a7838;
+  --accent-soft:#f4eee4;
+  --bad:        #b91c1c;
+  --warn:       #8a682b;
+  --ok:         #2f6f4f;
+  --serif: 'Noto Serif JP', 'Yu Mincho', serif;
+  --sans:  'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  --mono:  'DM Mono', monospace;
+  --max: 1100px;
+  --pad: 88px;
+  --gutter: 48px;
+  --nav-h: 64px;
+  --measure: 720px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 400; line-height: 1.7; overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+a { color: var(--ink-soft); text-decoration: none; }
+a:hover { color: var(--ink); }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+@media (max-width: 768px) { :root { --gutter: 22px; --pad: 56px; } }
+strong { font-weight: 600; color: var(--ink); }
+em { font-style: normal; color: var(--ink); font-weight: 600; }
+.label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); }
+
+/* Nav (copied from jpinv.com base) */
+nav#main-nav { position: fixed; top:0; left:0; right:0; z-index:100; height: var(--nav-h); background: rgba(255,255,255,0.96); backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule); display: flex; align-items: center; transition: box-shadow 0.3s; }
+nav#main-nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; }
+.nav-logo { text-decoration: none; display: inline-flex; align-items: center; flex: 0 0 auto; min-width: max-content; white-space: nowrap; }
+.nav-logo-img { display: block; width: auto; height: 40px; max-width: none; object-fit: contain; object-position: left center; }
+.nav-logo-img--mobile { display: none; width: 32px; height: 32px; object-fit: contain; }
+.nav-center { flex: 1; display: flex; justify-content: center; }
+.nav-links { display: flex; gap: 22px; list-style: none; flex-wrap: nowrap; white-space: nowrap; }
+.nav-links a { font-family: var(--sans); font-size: 0.78rem; font-weight: 400; letter-spacing: 0.04em; color: var(--text); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--ink-soft); }
+.nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; margin-left: auto; }
+.nav-cta { padding: 8px 14px; font-size: 0.7rem; }
+.locale-switcher { display: inline-flex; align-items: center; gap: 0; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; }
+.locale-switcher a { color: var(--text-dim); border: 1px solid var(--rule); padding: 6px 9px; text-decoration: none; transition: all 0.2s; }
+.locale-switcher a + a { margin-left: -1px; }
+.locale-switcher a:hover, .locale-switcher a.current { color: var(--ink); border-color: var(--ink-mid); background: var(--bg-soft); position: relative; z-index: 1; }
+.hamburger { display: none; flex-shrink:0; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
+.hamburger span { display:block; width:22px; height:1px; background:var(--ink); transition: all 0.25s; }
+@media (max-width: 900px) { .nav-center, .nav-right .nav-cta { display:none; } .hamburger { display:flex; } }
+@media (max-width: 768px) { .nav-logo-img--desktop { display:none; } .nav-logo-img--mobile { display:block; } }
+.mobile-menu { display:none; position:fixed; top:var(--nav-h); left:0; right:0; background:var(--bg); border-bottom:1px solid var(--rule); z-index:99; padding:8px var(--gutter) 20px; flex-direction:column; gap:0; }
+.mobile-menu.open { display:flex; }
+.mobile-menu a { font-size:0.88rem; color:var(--text); text-decoration:none; padding:14px 0; border-bottom:1px solid var(--rule); letter-spacing:0.04em; }
+.mobile-menu a:last-child { border-bottom:none; }
+.mobile-menu .mobile-menu-cta { margin-top:12px; padding:13px 18px; text-align:center; color:#fff; border-bottom:none; }
+
+.btn { display: inline-block; text-decoration: none; font-family: var(--sans); font-size: 0.84rem; font-weight: 400; letter-spacing: 0.06em; padding: 13px 28px; transition: all 0.2s; cursor: pointer; border: none; }
+.btn-primary { background: var(--ink); color: #fff; }
+.btn-primary:hover { background: var(--ink-mid); color: #fff; }
+.btn-outline { border: 1px solid var(--ink-mid); color: var(--ink); background: transparent; }
+.btn-outline:hover { border-color: var(--ink); color: var(--ink); }
+.rule-accent { width: 32px; height: 2px; background: var(--accent); margin: 14px 0 22px; }
+
+/* Footer (mirror) */
+footer { border-top: 1px solid var(--rule); padding: 52px 0 28px; background: var(--bg-soft); font-size: 0.82rem; color: var(--text-dim); }
+footer .footer-grid { display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 32px; align-items: start; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+footer h2 { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.2em; color: var(--ink-soft); text-transform: uppercase; margin-bottom: 12px; font-weight: 500; }
+footer h3 { font-family: var(--serif); font-size: 1rem; font-weight: 400; color: var(--ink); margin-bottom: 8px; }
+footer ul { list-style: none; }
+footer ul li { padding: 4px 0; }
+footer ul li a { color: var(--text-mid); }
+footer ul li a:hover { color: var(--ink); }
+footer .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 18px; flex-wrap: wrap; gap: 12px; }
+footer .footer-locale-switcher a.current { font-weight: 600; color: var(--ink); }
+@media (max-width: 900px) { footer .footer-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 580px) { footer .footer-grid { grid-template-columns: 1fr; } }
+
+
+/* === Curriculum-specific === */
+main.curriculum { padding-top: var(--nav-h); }
+.curr-hero { padding: 96px 0 64px; border-bottom: 1px solid var(--rule); position: relative; overflow: hidden; }
+.curr-hero::before { content:''; position:absolute; inset:0;
+  background-image: linear-gradient(rgba(15,31,58,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(15,31,58,0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent);
+          mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent); }
+.curr-hero-inner { position:relative; z-index:2; max-width: 880px; }
+.curr-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.32em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 18px; }
+.curr-hero h1 { font-family: var(--serif); font-size: clamp(1.9rem, 4.4vw, 3.1rem); font-weight: 300; color: var(--ink-mid); line-height: 1.3; letter-spacing: 0.02em; margin: 0 0 22px; }
+.curr-hero h1 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
+.curr-hero .lede { font-size: 1.05rem; line-height: 1.85; color: var(--text); margin: 0 0 24px; max-width: 700px; }
+.curr-hero-meta { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
+.curr-hero-meta strong { color: var(--ink); font-family: var(--mono); }
+
+.crumbs { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; padding: 22px 0 0; }
+.crumbs a { color: var(--text-mid); }
+.crumbs a:hover { color: var(--ink); }
+.crumbs .sep { color: var(--rule); margin: 0 8px; }
+
+.theme-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; padding: 56px 0; }
+.theme-card { display: block; background: #fff; border: 1px solid var(--rule); padding: 30px 28px; position: relative; transition: all 0.2s; }
+.theme-card:hover { border-color: var(--ink-soft); box-shadow: 0 12px 32px rgba(15,31,58,0.08); transform: translateY(-2px); }
+.theme-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background: var(--accent); opacity: 0.85; }
+.theme-card-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; }
+.theme-card-name { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--ink-mid); margin: 10px 0 8px; line-height: 1.35; }
+.theme-card-period { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 14px; }
+.theme-card-desc { font-size: 0.92rem; line-height: 1.7; color: var(--text); margin-bottom: 18px; }
+.theme-card-list { font-size: 0.84rem; color: var(--text-mid); list-style: none; padding-top: 14px; border-top: 1px solid var(--rule-soft); }
+.theme-card-list li { padding: 5px 0; }
+.theme-card-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; }
+.theme-card-foot .arrow { color: var(--accent-deep); }
+
+.post-list { padding: 28px 0 56px; }
+.post-list-row { display: grid; grid-template-columns: 60px 1fr auto; gap: 22px; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--rule-soft); transition: all 0.18s; }
+.post-list-row:hover { background: var(--bg-mid); padding-left: 12px; padding-right: 12px; }
+.post-list-num { font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em; color: var(--accent-deep); font-weight: 500; }
+.post-list-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--ink-mid); line-height: 1.45; }
+.post-list-meta { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; white-space: nowrap; }
+@media (max-width: 600px) { .post-list-row { grid-template-columns: 50px 1fr; } .post-list-meta { grid-column: 1 / -1; padding-left: 72px; } }
+
+/* Post body */
+.post-body { padding: 48px 0 80px; }
+.post-content { max-width: var(--measure); margin: 0 auto; }
+.post-content > p, .post-content > ul, .post-content > ol, .post-content > blockquote, .post-content > pre, .post-content > table, .post-content > hr, .post-content > h2, .post-content > h3, .post-content > h4 { max-width: var(--measure); margin-left: auto; margin-right: auto; }
+.post-content h2 { font-family: var(--serif); font-size: 1.55rem; font-weight: 400; color: var(--ink-mid); line-height: 1.35; margin: 56px 0 14px; padding-top: 22px; border-top: 1px solid var(--rule-soft); }
+.post-content h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 500; color: var(--ink); margin: 36px 0 10px; line-height: 1.4; }
+.post-content h4 { font-family: var(--sans); font-size: 1rem; font-weight: 600; color: var(--ink); margin: 26px 0 8px; letter-spacing: 0.02em; }
+.post-content p { margin: 0 0 18px; font-size: 1rem; line-height: 1.85; color: var(--text); }
+.post-content p:first-of-type { font-size: 1.05rem; }
+.post-content ul, .post-content ol { margin: 0 0 22px; padding-left: 28px; }
+.post-content ul li, .post-content ol li { font-size: 0.97rem; line-height: 1.8; margin-bottom: 8px; color: var(--text); }
+.post-content ul li::marker { color: var(--accent-deep); }
+.post-content blockquote { margin: 30px 0; padding: 20px 24px; border-left: 3px solid var(--accent); background: var(--accent-soft); color: var(--ink-mid); font-style: normal; }
+.post-content blockquote p { margin-bottom: 8px; font-size: 0.97rem; }
+.post-content blockquote p:last-child { margin-bottom: 0; }
+.post-content blockquote strong { color: var(--ink); }
+.post-content code { background: #f0f0f0; color: var(--ink-mid); font-family: var(--mono); font-size: 0.88rem; padding: 2px 6px; border-radius: 3px; }
+.post-content pre { background: #f9f9fb; border: 1px solid var(--rule); padding: 18px 22px; overflow-x: auto; font-family: var(--mono); font-size: 0.85rem; line-height: 1.55; margin: 24px 0; }
+.post-content pre code { background: transparent; padding: 0; font-size: inherit; }
+.post-content a { color: var(--accent-deep); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; transition: text-decoration-color 0.18s; }
+.post-content a:hover { text-decoration-color: var(--accent-deep); }
+.post-content hr { border: none; border-top: 1px solid var(--rule); margin: 40px auto; max-width: 120px; }
+.post-content table { width: 100%; max-width: var(--measure); margin: 28px auto; border-collapse: collapse; font-size: 0.9rem; }
+.post-content th { background: var(--bg-mid); color: var(--ink-mid); font-family: var(--sans); font-weight: 600; text-align: left; padding: 12px 14px; border-bottom: 2px solid var(--rule); }
+.post-content td { padding: 10px 14px; border-bottom: 1px solid var(--rule-soft); vertical-align: top; color: var(--text); }
+.post-content tr:nth-child(even) td { background: #fafbfc; }
+
+/* Mermaid container */
+.mermaid-wrap { background: #fdfdfe; border: 1px solid var(--rule); padding: 22px 18px; margin: 28px 0; overflow-x: auto; }
+.mermaid { font-family: var(--sans); text-align: center; }
+
+/* Post header */
+.post-header { padding: 48px 0 28px; border-bottom: 1px solid var(--rule); }
+.post-header-inner { max-width: var(--measure); margin: 0 auto; }
+.post-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.28em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 14px; }
+.post-title { font-family: var(--serif); font-size: clamp(1.7rem, 3.6vw, 2.4rem); font-weight: 400; color: var(--ink-mid); line-height: 1.3; margin: 0 0 16px; letter-spacing: 0.005em; }
+.post-summary { font-size: 1.02rem; line-height: 1.8; color: var(--text); margin: 0 0 22px; max-width: 660px; }
+.post-meta { display: flex; gap: 26px; flex-wrap: wrap; padding-top: 18px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
+.post-meta span strong { color: var(--ink); font-family: var(--mono); }
+
+/* Post nav (prev/next) */
+.post-nav { max-width: var(--measure); margin: 56px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding-top: 36px; border-top: 1px solid var(--rule); }
+.post-nav-link { display: block; padding: 18px 20px; background: var(--bg-mid); border: 1px solid var(--rule); transition: all 0.18s; }
+.post-nav-link:hover { border-color: var(--ink-soft); background: #fff; transform: translateY(-1px); }
+.post-nav-dir { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px; }
+.post-nav-title { font-family: var(--serif); font-size: 0.94rem; color: var(--ink-mid); line-height: 1.4; }
+.post-nav-link.next { text-align: right; }
+@media (max-width: 640px) { .post-nav { grid-template-columns: 1fr; } .post-nav-link.next { text-align: left; } }
+
+/* Knowledge check */
+.kcheck { background: var(--bg-mid); padding: 72px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.kcheck-head { max-width: 720px; margin: 0 auto 36px; text-align: center; }
+.kcheck h2 { font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 300; color: var(--ink-mid); margin: 0 0 14px; line-height: 1.3; }
+.kcheck h2 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
+.kcheck p.lede { font-size: 0.98rem; line-height: 1.75; color: var(--text); }
+.kcheck-q { background: #fff; border: 1px solid var(--rule); padding: 28px 30px; margin-bottom: 18px; max-width: 760px; margin-left: auto; margin-right: auto; }
+.kcheck-q-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; margin-bottom: 12px; }
+.kcheck-q-text { font-family: var(--serif); font-size: 1.1rem; line-height: 1.5; color: var(--ink-mid); margin-bottom: 18px; }
+.kcheck-opts { display: grid; gap: 8px; }
+.kcheck-opt { display: block; padding: 12px 16px; background: var(--bg-soft); border: 1px solid var(--rule); text-align: left; font-family: var(--sans); font-size: 0.92rem; color: var(--text); cursor: pointer; transition: all 0.15s; }
+.kcheck-opt:hover { background: #fff; border-color: var(--ink-soft); }
+.kcheck-opt.correct { background: #e8f3ec; border-color: var(--ok); color: var(--ok); }
+.kcheck-opt.incorrect { background: #fbe9e9; border-color: var(--bad); color: var(--bad); }
+.kcheck-explain { margin-top: 16px; padding: 14px 18px; background: var(--accent-soft); border-left: 3px solid var(--accent); font-size: 0.9rem; line-height: 1.7; color: var(--ink-mid); display: none; }
+.kcheck-q.answered .kcheck-explain { display: block; }
+.kcheck-score { text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--text-dim); margin-top: 28px; text-transform: uppercase; }
+.kcheck-score strong { color: var(--ink-mid); font-family: var(--mono); }
+
+/* Stats / hero stats */
+.stat-band { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; padding: 56px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); background: var(--bg-soft); }
+.stat-item { padding: 0 18px; }
+.stat-num { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 300; color: var(--ink-mid); line-height: 1; margin-bottom: 8px; }
+.stat-num em { color: var(--accent-deep); font-weight: 400; font-style: normal; }
+.stat-label { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; }
+</style>
+</head>
+<body>
+<nav id="main-nav" role="navigation" aria-label="Main navigation">
+  <div class="wrap nav-inner">
+    <a href="/en/" class="nav-logo" aria-label="JII home">
+      <img class="nav-logo-img nav-logo-img--desktop" src="/assets/logo-jii-wordmark.svg" alt="Japan Investor Interface logo" width="282" height="40">
+      <img class="nav-logo-img nav-logo-img--mobile" src="/assets/logo-jii-monogram.svg" alt="Japan Investor Interface logo" width="32" height="32">
+    </a>
+    <div class="nav-center">
+      <ul class="nav-links" role="list">
+        <li><a href="/en/services/">Services</a></li>
+        <li><a href="/en/pricing/">Pricing</a></li>
+        <li><a href="/en/company/">Company</a></li>
+        <li><a href="/en/faq/">FAQ</a></li>
+        <li><a href="/en/compounders/">Compounders</a></li>
+        <li><a href="/en/governance/">Governance</a></li>
+      </ul>
+    </div>
+    <div class="nav-right">
+      <a href="/en/#contact" class="btn btn-primary nav-cta">Free 30-min call</a>
+      <span class="locale-switcher nav-locale-switcher" aria-label="Language switcher"><a href="/governance/frontier/5.2-cross-shareholdings-end-game/" data-locale-route lang="ja">JP</a><a href="/en/governance/frontier/5.2-cross-shareholdings-end-game/" class="current" aria-current="page" lang="en">EN</a></span>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" hidden>
+  <a href="/en/services/" onclick="toggleMenu()">Services</a>
+  <a href="/en/pricing/" onclick="toggleMenu()">Pricing</a>
+  <a href="/en/company/" onclick="toggleMenu()">Company</a>
+  <a href="/en/faq/" onclick="toggleMenu()">FAQ</a>
+  <a href="/en/compounders/" onclick="toggleMenu()">Compounders</a>
+  <a href="/en/governance/" onclick="toggleMenu()">Governance</a>
+  <a href="/governance/frontier/5.2-cross-shareholdings-end-game/" data-locale-route onclick="toggleMenu()" lang="ja">JP</a>
+  <a href="/en/#contact" class="btn btn-primary mobile-menu-cta" onclick="toggleMenu()">Book a free 30-min call</a>
+</nav>
+<main id="main-content" class="curriculum" tabindex="-1">
+<div class="wrap crumbs">
+  <a href="/en/">JII</a> <span class="sep">/</span>
+  <a href="/en/governance/">Governance Curriculum</a> <span class="sep">/</span>
+  <a href="/en/governance/frontier/">The Frontier</a> <span class="sep">/</span>
+  Post 5.2
+</div>
+<header class="post-header">
+  <div class="wrap">
+    <div class="post-header-inner">
+      <div class="post-eyebrow">Theme 5 · POST 5.2</div>
+      <h1 class="post-title">The End-Game of Cross-Shareholdings: from comply-or-explain to per-stock verification</h1>
+      <p class="post-summary">From the 1988 peak of mochiai at &gt;50% of TSE market cap to per-stock rationale disclosure in the YUHO today: how cross-shareholding reform moved from soft-law guidance to a board-level annual verification regime, with Toyota Industries as the symbolic dissolution event.</p>
+      <div class="post-meta">
+        <span>Theme: <strong>The Frontier</strong></span>
+        <span>Reading: <strong>16 minutes min</strong></span>
+        <span>Updated: <strong>2026-05-16</strong></span>
+      </div>
+    </div>
+  </div>
+</header>
+<section class="post-body">
+  <div class="wrap">
+    <article class="post-content">
+<blockquote>
+<p><strong>TL;DR</strong>
+- Cross-shareholdings (政策保有株式, <em>seisaku hoyu kabushiki</em>) peaked at roughly 60% of TSE market cap in 1990 and have fallen to about 25% in 2024 — a generation-long unwind that is finally accelerating.
+- The regime is now <strong>per-stock verification</strong>: since FY2022 YUHO filings, issuers must disclose each named holding's economic rationale, the board's review of that rationale, and the criteria for voting and exit. "Comply or explain" gave way to "verify and disclose for every position."
+- The <strong>Toyota Industries take-private</strong> (announced June 2025, repriced JPY 18,800/share in late 2025) simultaneously dissolves a 76-year listed-subsidiary structure and unwinds cross-holdings with Toyota Motor, Denso, Aisin and Toyota Tsusho — the symbolic dissolution of Japan Inc.'s last untouchable keiretsu.</p>
+</blockquote>
+<h2>A 35-year unwind in one table</h2>
+<p>Cross-shareholdings — the mutual holding of equity between affiliated Japanese companies — are the architectural feature most foreign investors point to when they describe what is structurally distinctive about Japanese corporate governance. The post-war keiretsu network was built on them; the main-bank system reinforced them; and they functioned, for thirty years, as the operational definition of a <strong>stable shareholder</strong> — a vote that would never be on the activist's side and never sold into a hostile bid. They were also, mechanically, the largest single explanation for Japan's persistent return-on-equity gap. Capital that sits in a counterparty's equity is capital that does not generate operating returns.</p>
+<p>The unwind has been long enough that it is easy to forget the starting point. The Nomura-RIETI series shows the following arc:</p>
+<table>
+<thead>
+<tr>
+<th>Year</th>
+<th>Narrow cross-shareholding ratio (% of TSE market cap)</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1988</td>
+<td><strong>&gt;50%</strong> (peak of <em>mochiai</em>)</td>
+<td>The keiretsu / main-bank system at its widest</td>
+</tr>
+<tr>
+<td>1990</td>
+<td>~60% (including bank holdings)</td>
+<td>Post-bubble peak; banks' equity book begins to bind</td>
+</tr>
+<tr>
+<td>1995</td>
+<td>~50%</td>
+<td>Banking crisis erodes lender appetite for equity</td>
+</tr>
+<tr>
+<td>2000</td>
+<td>~30%</td>
+<td>Mark-to-market accounting + Big Bang banking reform</td>
+</tr>
+<tr>
+<td>2005</td>
+<td>~22%</td>
+<td>Sustained outflow of cross-held shares</td>
+</tr>
+<tr>
+<td>2010</td>
+<td>~16% (narrow) / ~28% (broad)</td>
+<td>The "lost decade" hangover; the FSA begins to focus</td>
+</tr>
+<tr>
+<td>2015</td>
+<td>~13% (narrow) / ~24% (broad)</td>
+<td>2015 CGC introduces Principle 1-4</td>
+</tr>
+<tr>
+<td>2018</td>
+<td>~11% (narrow) / ~22% (broad)</td>
+<td>2018 CGC revision adds board-level annual verification</td>
+</tr>
+<tr>
+<td>2021</td>
+<td>~10% (narrow) / ~21% (broad)</td>
+<td>2021 CGC narrows acceptable rationales</td>
+</tr>
+<tr>
+<td>2023</td>
+<td>~9% (narrow) / ~20% (broad)</td>
+<td>FSA per-stock disclosure rule binding in YUHO</td>
+</tr>
+<tr>
+<td>2024</td>
+<td>~8% (narrow) / ~19% (broad)</td>
+<td>Record JPY 3.6 trn of sales by non-financial listed issuers</td>
+</tr>
+<tr>
+<td>2025</td>
+<td>~7-8% (narrow)</td>
+<td>Toyota Industries deal announced; group unwind accelerates</td>
+</tr>
+</tbody>
+</table>
+<p>Two interpretations of the same data sit side by side in policy debates. The optimistic view emphasises trajectory: the system that locked Japanese equity returns for thirty years is now being dismantled, and the dismantling has continuous momentum from policy reform, accounting reform, and the cost-of-capital revolution of Theme 4. The pessimistic view — closer to ACGA's framing — is that a 7-8% narrow ratio is still anomalously high, that the broadly-defined ratio is barely moving, and that the remaining holdings are concentrated in the highest-leverage relationships (auto OEM-supplier; trading house-affiliate; bank-borrower legacy) where unwinding has the highest political cost.</p>
+<p>The current FSA / TSE position is closer to ACGA's. The 2025 Action Programme for Corporate Governance Reform explicitly singles out cross-shareholdings as the unfinished item on which the Follow-up Council intends to "intensify monitoring and disclosure expectations." The 2025-26 working-group docket reflects that priority.</p>
+<h2>The four-stage policy timeline</h2>
+<p>A short policy chronology makes the regulatory layering explicit.</p>
+<h3>Stage 1 — 2015: Principle 1-4 enters the Code</h3>
+<p>The 2015 Corporate Governance Code, as launched, contained Principle 1-4: "When companies hold shares of other listed companies as cross-shareholdings, they should examine the medium- to long-term economic rationale and future outlook of major cross-shareholdings on a yearly basis, taking into consideration both associated risks and returns. The annual examination should result in the board's detailed explanation of the objective and rationale behind cross-shareholdings."</p>
+<p>This was a comply-or-explain principle and an aggregate disclosure: a single paragraph in the corporate-governance report. Compliance with the principle was widespread; the substance of the explanations was thin. Most issuers wrote variants of <em>"We hold these positions to maintain business relationships and stability"</em> without naming positions or quantifying economic rationale.</p>
+<h3>Stage 2 — 2018: board-level verification</h3>
+<p>The 2018 revision sharpened Principle 1-4 by adding <strong>board-level annual verification</strong>. The Board itself (not management, not the IR function) had to "specifically examine whether the purpose of holding is appropriate and whether the benefits and risks from each cross-shareholding cover the company's cost of capital." Two phrases in that addition matter: <em>each</em> (the unit of analysis becomes the individual holding, not the aggregate) and <em>cost of capital</em> (the test is economic, not relational).</p>
+<p>This was the first time Japan's soft law linked cross-shareholding rationale to cost of capital. It anticipated the 2023 TSE request by five years, and is one of the reasons the 2023 request landed in such well-prepared institutional ground.</p>
+<h3>Stage 3 — 2021: narrowed permissible rationales</h3>
+<p>The 2021 revision did not change the principle's number but tightened the supplementary guidance via the FSA's Guidelines for Investor and Company Engagement. Acceptable rationales for retention narrowed to a small set: clear and quantifiable business benefit; a long-term strategic alliance with disclosed economic terms; or a position scheduled to be reduced on a named timetable. <strong>"Stability" and "long-standing relationship" were explicitly identified as no longer sufficient explanations.</strong></p>
+<h3>Stage 4 — 2022 onwards: per-stock YUHO disclosure</h3>
+<p>The decisive change happened not in the Code but in the FSA's Cabinet Office Order on Disclosure of Corporate Affairs (企業内容等の開示に関する内閣府令), amended for FY2022 filings. From the YUHO filed in mid-2023, every issuer must disclose for each named cross-shareholding:</p>
+<ul>
+<li>The company name and the number of shares held.</li>
+<li>The book value and the market value.</li>
+<li>The <strong>specific</strong> purpose of holding (not boilerplate language).</li>
+<li>The <strong>board's verification</strong> of whether the holding rationale remains valid.</li>
+<li>The criteria the issuer uses for <strong>voting</strong> the shares.</li>
+<li>For positions reclassified from "strategic" (政策保有) to "pure investment" (純投資), the criteria and intended holding period.</li>
+</ul>
+<p>This is the per-stock verification regime. It moves the unit of disclosure from "we hold cross-shareholdings as a matter of policy" to "here is each holding, here is what it does economically, here is the board's view on whether it should still exist." Aggregate ratios continue to fall because aggregate ratios are now the <em>consequence</em> of individual board decisions, each of which is now visible.</p>
+<h2>What the 2024 FSA Follow-up Council material said</h2>
+<p>The 18 April 2024 Follow-up Council material is the most assertive statement the FSA has issued on cross-shareholdings. Three of its operative points are now load-bearing for IR teams.</p>
+<p><strong>One — Where there is an "alleged" business reason, prove it.</strong> Where an issuer cites a customer or supplier relationship as the rationale for a holding, the FSA expects disclosure of <em>what would change</em> about that relationship if the holding were sold. If nothing would change, the holding is economically a pure investment dressed as strategic — and should be reclassified.</p>
+<p><strong>Two — Where there is a counterparty, address it.</strong> Cross-shareholdings are by definition mutual. The FSA expects issuers to disclose whether they have requested the counterparty to sell <em>their</em> mirror holding, and what the counterparty's response was. This is the regulatory framing of the "you sell yours, I sell mine" deadlock that has historically stalled bilateral unwinds.</p>
+<p><strong>Three — The "above 10% of net assets" cohort gets named.</strong> The FSA's April 2024 material singled out the 28% of TOPIX 500 constituents whose strategic holdings exceed 10% of net assets as the cohort requiring "particular monitoring." This is a soft form of public naming; in subsequent monitoring rounds, the cohort is expected to receive explicit FSA engagement.</p>
+<p>ACGA's May 2024 Open Letter on strategic shareholdings reinforced these points and added a fourth, more pointed, criticism: that <strong>issuers continue to vote their cross-held shares for incumbent management</strong>, even where the held company underperforms. ACGA's recommendation was that issuers either commit to vote cross-held shares according to a published voting policy that applies the same test as for pure investments, or sell the position. This is now under active discussion in the FSA Follow-up Council and is a candidate item for the next CGC revision.</p>
+<h2>Sidebar: the Toyota Industries dissolution</h2>
+<p>The transaction that made cross-shareholding reform real in 2025 was the <strong>Toyota Industries Corporation (TICO; ticker 6201) take-private</strong>. The deal's structure rewards study because it solves three governance problems at once.</p>
+<p><strong>Structure.</strong> A Toyota-Motor-led tender offer (later joined by an entity controlled by the Toyoda family and a special-purpose vehicle) acquires the public float of Toyota Industries. The bid was launched in June 2025 at JPY 16,300/share. After Elliott Investment Management publicly opposed the initial price on the grounds that intrinsic NAV exceeded JPY 26,000/share, the offer was raised in late 2025 to <strong>JPY 18,800/share, a 42.2% premium to the unaffected 25 April 2025 price</strong>.</p>
+<p><strong>Cross-shareholding effect.</strong> Toyota Industries historically held cross-positions in Toyota Motor (around 9% of TICO's net assets), Denso, Aisin, and Toyota Tsusho. The take-private structure provides for the simultaneous <strong>retirement</strong> of those cross-holdings: Toyota Industries' stakes in the three Toyota Group affiliates are unwound as part of the transaction's financing, with proceeds flowing into the take-private vehicle. The exception is Toyota Motor's residual preferred-share economic interest, which is retained in modified form to preserve consolidation arrangements.</p>
+<p><strong>Listed-subsidiary effect.</strong> Toyota Industries was, in classification terms, a listed subsidiary of the Toyota Group for <strong>76 years</strong> — formally an "equity-method affiliate" in Toyota Motor's accounts, but consistently treated by foreign investors as a controlled entity subject to the two-tier discount (a parent-listing discount layered on the Japan discount). The take-private resolves that conflict by removing the public listing.</p>
+<p><strong>Why it matters for cross-shareholding policy.</strong> The Toyota Industries transaction is the first major Japanese deal to braid listed-subsidiary unwind and cross-shareholding unwind into a single piece of financial engineering. It demonstrates that the two policy threads — Theme 5.2 and Theme 5.3 — are not separate. The most economically significant remaining cross-shareholdings sit <em>inside</em> group structures with listed subsidiaries, and dismantling one without dismantling the other is incomplete. ACGA characterised the deal as <strong>"the symbolic dissolution of Japan Inc.'s last untouchable keiretsu."</strong></p>
+<p><strong>Why it is not the end.</strong> The Toyota Industries deal also showed that even a deal designed to dissolve a keiretsu can attract minority-protection activism. Elliott's intervention secured a 15% price increase on top of the initial offer. That outcome will be cited by every activist who looks at the <strong>Hitachi</strong>, <strong>Sumitomo</strong>, <strong>Mitsubishi</strong>, <strong>Sony</strong> and <strong>Itochu</strong> group structures over 2026-27 — and will reinforce the message that group-affiliate unwinds need to be priced for fairness, not for sponsor convenience.</p>
+<h2>Where the remaining cross-shareholdings live</h2>
+<p>Despite the headline ratios, the remaining cross-shareholdings are not evenly distributed. As of the FY2024 YUHO cycle, the concentration looks like this:</p>
+<ul>
+<li><strong>Auto OEM-supplier.</strong> Toyota Group, Honda group, Nissan-Renault, and the second-tier OEMs all retain mutual holdings with their largest suppliers. The Toyota Industries deal is the first major dissolution; Denso's record FY2024 sale of JPY 438.5 bn of cross-held shares signals the rest of the OEM-supplier lattice is in motion.</li>
+<li><strong>Trading house-affiliate.</strong> Itochu, Mitsui, Mitsubishi Corp, Sumitomo Corp and Marubeni retain cross-holdings with affiliated manufacturers and service companies, justified historically as "alliance underwrites." Reduction has been steady but the broad-base ratio remains elevated.</li>
+<li><strong>Bank-borrower legacy.</strong> Megabank holdings of corporate equity have fallen from their 1990 peaks but remain non-trivial; reciprocal holdings from corporates in banks (the old main-bank token) are now the smaller side of the relationship and are being reduced fastest.</li>
+<li><strong>Insurance carrier-counterparty.</strong> Life insurers (Nippon Life, Dai-ichi Life, Meiji Yasuda) hold large equity books across corporate Japan that are part stable-shareholder, part return-seeking. Their disclosure regime is separate from the listed-issuer regime, but their behaviour increasingly mirrors institutional-investor stewardship.</li>
+<li><strong>Family-affiliated business groups.</strong> Toyota Industries' dissolution leaves a smaller set of family-controlled group structures (Suzuki, Mazda's TOK relationships, regional industrial groups) where cross-holdings continue to function as stable-shareholder defences.</li>
+</ul>
+<p>The implication for IR teams is that the public conversation about cross-shareholdings is no longer about the aggregate level. It is about <strong>the specific holdings each issuer still has</strong>, the specific rationale each holding rests on, and the specific timetable for review. The per-stock disclosure regime is the structural reason for this shift.</p>
+<h2>Why FY2023's record JPY 3.6 trn matters</h2>
+<p>The single most striking statistic in the post-2022 period is the FY2023 figure for cross-shareholding <strong>sales</strong> by listed non-financial issuers: <strong>JPY 3.6 trillion, up 86% year-on-year</strong>. Two readings of that number coexist.</p>
+<p>The first reading is that the FSA's per-stock disclosure rule, layered on top of TSE's March 2023 cost-of-capital request, finally made it cheaper for boards to sell than to defend. Per-stock rationale disclosure forces boards to answer the question "what does this stock do for us?" — and many concluded that the honest answer was "less than its cost of capital."</p>
+<p>The second reading is that the 86% YoY jump is partly cyclical — Japanese equity prices peaked in early 2024 — and partly the consequence of a small number of large issuers (Denso, the megabanks, the trading houses) accelerating their existing reduction programmes. Whether the FY2024 and FY2025 figures sustain the pace will tell us whether the structural shift is durable.</p>
+<p>The early evidence is encouraging. Denso alone expects to raise more than <strong>JPY 380 bn</strong> in FY2025 from continuing the unwind. The megabanks have published 5-year reduction targets that, taken together, imply a further JPY 5 trn of sales by FY2030. The trading houses have moved from non-disclosure to ratio-target disclosure. The unwind is now baked into the operational plans of the issuers that hold the largest books — which is what a durable structural shift looks like.</p>
+<h2>What this means for IR</h2>
+<ol>
+<li><strong>Stop reporting aggregate ratios; report named positions, board reviews, and timetables.</strong> The FSA's per-stock regime makes aggregate ratios necessary but not sufficient. A foreign analyst will assume that any aggregate-only disclosure is concealing the painful items.</li>
+<li><strong>State the cost-of-capital test for each holding, not just for the company.</strong> If the holding cannot earn the company's WACC over a defined horizon, say so and say what the board plans to do. "Maintain for stability" is no longer a defensible answer.</li>
+<li><strong>Disclose your voting policy for cross-held shares.</strong> ACGA's voting-policy critique is the single most likely item to enter the next CGC revision. Issuers that publish a voting policy now — one that applies the same governance standards to held companies as to pure investments — pre-empt the criticism.</li>
+<li><strong>Engage your counterparty before disclosure.</strong> Per-stock disclosure forces both sides of a bilateral cross-holding to face the same regulatory expectation simultaneously. Coordinated reduction programmes with named counterparties are now disclosed in several FY2024 YUHO filings — a practice that is fast becoming the standard.</li>
+<li><strong>Treat Toyota Industries as the template.</strong> Group-affiliate IR teams should now expect engagement letters citing the TICO deal as the precedent. The right answer is not "we are different"; the right answer is a specific roadmap of how the issuer intends to reduce concentration over a defined horizon, and what triggers (cost-of-capital underperformance, activist engagement, counterparty initiation) would accelerate the timeline.</li>
+</ol>
+<h2>Sources &amp; further reading</h2>
+<ul>
+<li>FSA Follow-up Council material, "TSE's Recent Initiatives" (18 April 2024): https://www.fsa.go.jp/en/refer/councils/follow-up/material/20240418-04.pdf</li>
+<li>FSA cross-shareholding disclosure material (18 April 2024): https://www.fsa.go.jp/en/refer/councils/follow-up/material/20240418-03.pdf</li>
+<li>ACGA Open Letter on Strategic Shareholdings, May 2024 (Harvard Corp Gov forum): https://corpgov.law.harvard.edu/2024/05/16/acga-open-letter-strategic-shareholdings-in-corporate-japan/</li>
+<li>Toyota Motor press release on Toyota Industries privatisation: https://global.toyota/en/newsroom/corporate/42882940.html</li>
+<li>ACGA blog: "Toyota Industries: Governance concerns persist in revised takeover": https://www.acga-asia.org/blog-detail.php?id=114</li>
+<li>Nomura Connects, "Japan Cross-Shareholdings Enter a Dynamic New Era": https://www.nomuraconnects.com/focused-thinking-posts/japan-cross-shareholdings-enter-a-dynamic-new-era/</li>
+<li>FSA, "Action Programme for Corporate Governance Reform 2025": https://www.fsa.go.jp/en/news/2025/20250630-1.html</li>
+</ul>
+<hr>
+<p><strong>Next in this theme:</strong> <a href="/en/governance/frontier/5.3-listed-subsidiaries/">5.3 The Toyota Industries Deal Is the End of Keiretsu, in One Transaction</a></p>
+<p><strong>Related posts in other themes:</strong>
+- <a href="/en/governance/foundations/1.2-pre-reform-architecture/">1.2 From Main Bank to Mizuno: Japan's pre-reform governance architecture</a>
+- <a href="/en/governance/cg-code/2.3-cg-code-2021-revision/">2.3 The 2021 Revision: Prime, sustainability, diversity</a>
+- <a href="/en/governance/capital-efficiency/4.1-march-2023-request-anatomy/">4.1 PBR &lt; 1 Is Not a Target — It's a Verdict</a>
+- <a href="/en/governance/frontier/5.7-activism-engagement-2025/">5.7 Collaborative Engagement After Stewardship Code 3.0</a></p>
+    </article>
+    <div class="post-nav"><a href="/en/governance/frontier/5.1-english-disclosure-mandate/" class="post-nav-link prev"><div class="post-nav-dir">← Previous</div><div class="post-nav-title">April 2025 Was a Switch, Not a Finish Line: the English Disclosure Mandate</div></a><a href="/en/governance/frontier/5.3-listed-subsidiaries/" class="post-nav-link next"><div class="post-nav-dir">Next →</div><div class="post-nav-title">The Toyota Industries Deal Is the End of Keiretsu, in One Transaction</div></a></div>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Japan Investor Interface Co., Ltd.</h3>
+        <p>Cross-border IR diagnostics for Japanese listed companies. The Foreign IR Diagnostic Card visualizes how foreign capital reads your IR.</p>
+      </div>
+      <div class="footer-col">
+        <h2>The diagnostic & plans</h2>
+        <ul>
+          <li><a href="/en/services/">The Diagnostic Card</a></li>
+          <li><a href="/en/pricing/">Light — Initial Diagnostic</a></li>
+          <li><a href="/en/pricing/">Standard — Disclosure Improvement</a></li>
+          <li><a href="/en/pricing/">Pro — Investor-Meeting Cycle</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Governance curriculum</h2>
+        <ul>
+          <li><a href="/en/governance/">Curriculum home</a></li>
+          <li><a href="/en/governance/foundations/">Theme 1 · Foundations</a></li>
+          <li><a href="/en/governance/capital-efficiency/">Theme 4 · Capital Efficiency</a></li>
+          <li><a href="/en/governance/toolbox/">IR Toolbox</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>JII Compounders</h2>
+        <ul>
+          <li><a href="/en/compounders/">All profiles</a></li>
+          <li><a href="/en/compounders/methodology/">Methodology</a></li>
+          <li><a href="https://japaninterface.substack.com/" rel="noopener" target="_blank">Substack</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Contact</h2>
+        <ul>
+          <li>Email <a href="mailto:info@jpinv.com">info@jpinv.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Japan Investor Interface Co., Ltd. · All rights reserved.</p>
+      <p class="footer-locale-switcher">Language: <a href="/en/" class="current" aria-current="page" lang="en">EN</a> / <a href="/" data-locale-route lang="ja">JP</a></p>
+    </div>
+  </div>
+</footer>
+<script>
+const nav = document.getElementById('main-nav');
+if (nav) window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+const hamburgerBtn = document.querySelector('.hamburger');
+function setMenuOpen(isOpen) { const menu = document.getElementById('mobileMenu'); if (!menu || !hamburgerBtn) return; menu.classList.toggle('open', isOpen); menu.hidden = !isOpen; hamburgerBtn.setAttribute('aria-expanded', String(isOpen)); }
+function toggleMenu() { const menu = document.getElementById('mobileMenu'); setMenuOpen(!(menu && menu.classList.contains('open'))); }
+document.addEventListener('click', (e) => { const menu = document.getElementById('mobileMenu'); if (menu && menu.classList.contains('open') && !menu.contains(e.target) && hamburgerBtn && !hamburgerBtn.contains(e.target)) setMenuOpen(false); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenuOpen(false); });
+</script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs';
+mermaid.initialize({ startOnLoad: true, theme: 'neutral', fontFamily: 'Noto Sans JP, Hiragino Kaku Gothic ProN, sans-serif', themeVariables: { primaryColor: '#f4eee4', primaryTextColor: '#1a2a4a', primaryBorderColor: '#9a7838', lineColor: '#304466', secondaryColor: '#f5f7fa', tertiaryColor: '#fafbfc' } });
+</script>
+</body>
+</html>

@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+<title>PBR &lt; 1 Is Not a Target — It&#x27;s a Verdict | JII Governance Curriculum</title>
+<meta name="description" content="PBR &lt; 1 Is Not a Target — It&#x27;s a Verdict — part of the JII Japan Governance Reform Curriculum.">
+<meta property="og:title" content="PBR &lt; 1 Is Not a Target — It&#x27;s a Verdict | JII Governance Curriculum">
+<meta property="og:description" content="PBR &lt; 1 Is Not a Target — It&#x27;s a Verdict — part of the JII Japan Governance Reform Curriculum.">
+<meta property="og:url" content="https://jpinv.com/en/governance/capital-efficiency/4.1-march-2023-request-anatomy/">
+<link rel="canonical" href="https://jpinv.com/en/governance/capital-efficiency/4.1-march-2023-request-anatomy/">
+<link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/capital-efficiency/4.1-march-2023-request-anatomy/">
+<link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/capital-efficiency/4.1-march-2023-request-anatomy/">
+<link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/capital-efficiency/4.1-march-2023-request-anatomy/">
+
+<style>
+:root {
+  --ink:        #1a2a4a;
+  --ink-mid:    #172641;
+  --ink-soft:   #304466;
+  --rule:       #d6dee8;
+  --rule-soft:  #e8edf3;
+  --bg:         #ffffff;
+  --bg-mid:     #f5f7fa;
+  --bg-soft:    #fafbfc;
+  --text:       #1f2937;
+  --text-mid:   #4a5566;
+  --text-dim:   #5f6875;
+  --accent:     #9a7838;
+  --accent-deep:#9a7838;
+  --accent-soft:#f4eee4;
+  --bad:        #b91c1c;
+  --warn:       #8a682b;
+  --ok:         #2f6f4f;
+  --serif: 'Noto Serif JP', 'Yu Mincho', serif;
+  --sans:  'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  --mono:  'DM Mono', monospace;
+  --max: 1100px;
+  --pad: 88px;
+  --gutter: 48px;
+  --nav-h: 64px;
+  --measure: 720px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 400; line-height: 1.7; overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+a { color: var(--ink-soft); text-decoration: none; }
+a:hover { color: var(--ink); }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+@media (max-width: 768px) { :root { --gutter: 22px; --pad: 56px; } }
+strong { font-weight: 600; color: var(--ink); }
+em { font-style: normal; color: var(--ink); font-weight: 600; }
+.label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); }
+
+/* Nav (copied from jpinv.com base) */
+nav#main-nav { position: fixed; top:0; left:0; right:0; z-index:100; height: var(--nav-h); background: rgba(255,255,255,0.96); backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule); display: flex; align-items: center; transition: box-shadow 0.3s; }
+nav#main-nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; }
+.nav-logo { text-decoration: none; display: inline-flex; align-items: center; flex: 0 0 auto; min-width: max-content; white-space: nowrap; }
+.nav-logo-img { display: block; width: auto; height: 40px; max-width: none; object-fit: contain; object-position: left center; }
+.nav-logo-img--mobile { display: none; width: 32px; height: 32px; object-fit: contain; }
+.nav-center { flex: 1; display: flex; justify-content: center; }
+.nav-links { display: flex; gap: 22px; list-style: none; flex-wrap: nowrap; white-space: nowrap; }
+.nav-links a { font-family: var(--sans); font-size: 0.78rem; font-weight: 400; letter-spacing: 0.04em; color: var(--text); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--ink-soft); }
+.nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; margin-left: auto; }
+.nav-cta { padding: 8px 14px; font-size: 0.7rem; }
+.locale-switcher { display: inline-flex; align-items: center; gap: 0; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; }
+.locale-switcher a { color: var(--text-dim); border: 1px solid var(--rule); padding: 6px 9px; text-decoration: none; transition: all 0.2s; }
+.locale-switcher a + a { margin-left: -1px; }
+.locale-switcher a:hover, .locale-switcher a.current { color: var(--ink); border-color: var(--ink-mid); background: var(--bg-soft); position: relative; z-index: 1; }
+.hamburger { display: none; flex-shrink:0; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
+.hamburger span { display:block; width:22px; height:1px; background:var(--ink); transition: all 0.25s; }
+@media (max-width: 900px) { .nav-center, .nav-right .nav-cta { display:none; } .hamburger { display:flex; } }
+@media (max-width: 768px) { .nav-logo-img--desktop { display:none; } .nav-logo-img--mobile { display:block; } }
+.mobile-menu { display:none; position:fixed; top:var(--nav-h); left:0; right:0; background:var(--bg); border-bottom:1px solid var(--rule); z-index:99; padding:8px var(--gutter) 20px; flex-direction:column; gap:0; }
+.mobile-menu.open { display:flex; }
+.mobile-menu a { font-size:0.88rem; color:var(--text); text-decoration:none; padding:14px 0; border-bottom:1px solid var(--rule); letter-spacing:0.04em; }
+.mobile-menu a:last-child { border-bottom:none; }
+.mobile-menu .mobile-menu-cta { margin-top:12px; padding:13px 18px; text-align:center; color:#fff; border-bottom:none; }
+
+.btn { display: inline-block; text-decoration: none; font-family: var(--sans); font-size: 0.84rem; font-weight: 400; letter-spacing: 0.06em; padding: 13px 28px; transition: all 0.2s; cursor: pointer; border: none; }
+.btn-primary { background: var(--ink); color: #fff; }
+.btn-primary:hover { background: var(--ink-mid); color: #fff; }
+.btn-outline { border: 1px solid var(--ink-mid); color: var(--ink); background: transparent; }
+.btn-outline:hover { border-color: var(--ink); color: var(--ink); }
+.rule-accent { width: 32px; height: 2px; background: var(--accent); margin: 14px 0 22px; }
+
+/* Footer (mirror) */
+footer { border-top: 1px solid var(--rule); padding: 52px 0 28px; background: var(--bg-soft); font-size: 0.82rem; color: var(--text-dim); }
+footer .footer-grid { display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 32px; align-items: start; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+footer h2 { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.2em; color: var(--ink-soft); text-transform: uppercase; margin-bottom: 12px; font-weight: 500; }
+footer h3 { font-family: var(--serif); font-size: 1rem; font-weight: 400; color: var(--ink); margin-bottom: 8px; }
+footer ul { list-style: none; }
+footer ul li { padding: 4px 0; }
+footer ul li a { color: var(--text-mid); }
+footer ul li a:hover { color: var(--ink); }
+footer .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 18px; flex-wrap: wrap; gap: 12px; }
+footer .footer-locale-switcher a.current { font-weight: 600; color: var(--ink); }
+@media (max-width: 900px) { footer .footer-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 580px) { footer .footer-grid { grid-template-columns: 1fr; } }
+
+
+/* === Curriculum-specific === */
+main.curriculum { padding-top: var(--nav-h); }
+.curr-hero { padding: 96px 0 64px; border-bottom: 1px solid var(--rule); position: relative; overflow: hidden; }
+.curr-hero::before { content:''; position:absolute; inset:0;
+  background-image: linear-gradient(rgba(15,31,58,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(15,31,58,0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent);
+          mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent); }
+.curr-hero-inner { position:relative; z-index:2; max-width: 880px; }
+.curr-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.32em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 18px; }
+.curr-hero h1 { font-family: var(--serif); font-size: clamp(1.9rem, 4.4vw, 3.1rem); font-weight: 300; color: var(--ink-mid); line-height: 1.3; letter-spacing: 0.02em; margin: 0 0 22px; }
+.curr-hero h1 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
+.curr-hero .lede { font-size: 1.05rem; line-height: 1.85; color: var(--text); margin: 0 0 24px; max-width: 700px; }
+.curr-hero-meta { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
+.curr-hero-meta strong { color: var(--ink); font-family: var(--mono); }
+
+.crumbs { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; padding: 22px 0 0; }
+.crumbs a { color: var(--text-mid); }
+.crumbs a:hover { color: var(--ink); }
+.crumbs .sep { color: var(--rule); margin: 0 8px; }
+
+.theme-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; padding: 56px 0; }
+.theme-card { display: block; background: #fff; border: 1px solid var(--rule); padding: 30px 28px; position: relative; transition: all 0.2s; }
+.theme-card:hover { border-color: var(--ink-soft); box-shadow: 0 12px 32px rgba(15,31,58,0.08); transform: translateY(-2px); }
+.theme-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background: var(--accent); opacity: 0.85; }
+.theme-card-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; }
+.theme-card-name { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--ink-mid); margin: 10px 0 8px; line-height: 1.35; }
+.theme-card-period { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 14px; }
+.theme-card-desc { font-size: 0.92rem; line-height: 1.7; color: var(--text); margin-bottom: 18px; }
+.theme-card-list { font-size: 0.84rem; color: var(--text-mid); list-style: none; padding-top: 14px; border-top: 1px solid var(--rule-soft); }
+.theme-card-list li { padding: 5px 0; }
+.theme-card-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; }
+.theme-card-foot .arrow { color: var(--accent-deep); }
+
+.post-list { padding: 28px 0 56px; }
+.post-list-row { display: grid; grid-template-columns: 60px 1fr auto; gap: 22px; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--rule-soft); transition: all 0.18s; }
+.post-list-row:hover { background: var(--bg-mid); padding-left: 12px; padding-right: 12px; }
+.post-list-num { font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em; color: var(--accent-deep); font-weight: 500; }
+.post-list-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--ink-mid); line-height: 1.45; }
+.post-list-meta { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; white-space: nowrap; }
+@media (max-width: 600px) { .post-list-row { grid-template-columns: 50px 1fr; } .post-list-meta { grid-column: 1 / -1; padding-left: 72px; } }
+
+/* Post body */
+.post-body { padding: 48px 0 80px; }
+.post-content { max-width: var(--measure); margin: 0 auto; }
+.post-content > p, .post-content > ul, .post-content > ol, .post-content > blockquote, .post-content > pre, .post-content > table, .post-content > hr, .post-content > h2, .post-content > h3, .post-content > h4 { max-width: var(--measure); margin-left: auto; margin-right: auto; }
+.post-content h2 { font-family: var(--serif); font-size: 1.55rem; font-weight: 400; color: var(--ink-mid); line-height: 1.35; margin: 56px 0 14px; padding-top: 22px; border-top: 1px solid var(--rule-soft); }
+.post-content h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 500; color: var(--ink); margin: 36px 0 10px; line-height: 1.4; }
+.post-content h4 { font-family: var(--sans); font-size: 1rem; font-weight: 600; color: var(--ink); margin: 26px 0 8px; letter-spacing: 0.02em; }
+.post-content p { margin: 0 0 18px; font-size: 1rem; line-height: 1.85; color: var(--text); }
+.post-content p:first-of-type { font-size: 1.05rem; }
+.post-content ul, .post-content ol { margin: 0 0 22px; padding-left: 28px; }
+.post-content ul li, .post-content ol li { font-size: 0.97rem; line-height: 1.8; margin-bottom: 8px; color: var(--text); }
+.post-content ul li::marker { color: var(--accent-deep); }
+.post-content blockquote { margin: 30px 0; padding: 20px 24px; border-left: 3px solid var(--accent); background: var(--accent-soft); color: var(--ink-mid); font-style: normal; }
+.post-content blockquote p { margin-bottom: 8px; font-size: 0.97rem; }
+.post-content blockquote p:last-child { margin-bottom: 0; }
+.post-content blockquote strong { color: var(--ink); }
+.post-content code { background: #f0f0f0; color: var(--ink-mid); font-family: var(--mono); font-size: 0.88rem; padding: 2px 6px; border-radius: 3px; }
+.post-content pre { background: #f9f9fb; border: 1px solid var(--rule); padding: 18px 22px; overflow-x: auto; font-family: var(--mono); font-size: 0.85rem; line-height: 1.55; margin: 24px 0; }
+.post-content pre code { background: transparent; padding: 0; font-size: inherit; }
+.post-content a { color: var(--accent-deep); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; transition: text-decoration-color 0.18s; }
+.post-content a:hover { text-decoration-color: var(--accent-deep); }
+.post-content hr { border: none; border-top: 1px solid var(--rule); margin: 40px auto; max-width: 120px; }
+.post-content table { width: 100%; max-width: var(--measure); margin: 28px auto; border-collapse: collapse; font-size: 0.9rem; }
+.post-content th { background: var(--bg-mid); color: var(--ink-mid); font-family: var(--sans); font-weight: 600; text-align: left; padding: 12px 14px; border-bottom: 2px solid var(--rule); }
+.post-content td { padding: 10px 14px; border-bottom: 1px solid var(--rule-soft); vertical-align: top; color: var(--text); }
+.post-content tr:nth-child(even) td { background: #fafbfc; }
+
+/* Mermaid container */
+.mermaid-wrap { background: #fdfdfe; border: 1px solid var(--rule); padding: 22px 18px; margin: 28px 0; overflow-x: auto; }
+.mermaid { font-family: var(--sans); text-align: center; }
+
+/* Post header */
+.post-header { padding: 48px 0 28px; border-bottom: 1px solid var(--rule); }
+.post-header-inner { max-width: var(--measure); margin: 0 auto; }
+.post-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.28em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 14px; }
+.post-title { font-family: var(--serif); font-size: clamp(1.7rem, 3.6vw, 2.4rem); font-weight: 400; color: var(--ink-mid); line-height: 1.3; margin: 0 0 16px; letter-spacing: 0.005em; }
+.post-summary { font-size: 1.02rem; line-height: 1.8; color: var(--text); margin: 0 0 22px; max-width: 660px; }
+.post-meta { display: flex; gap: 26px; flex-wrap: wrap; padding-top: 18px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
+.post-meta span strong { color: var(--ink); font-family: var(--mono); }
+
+/* Post nav (prev/next) */
+.post-nav { max-width: var(--measure); margin: 56px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding-top: 36px; border-top: 1px solid var(--rule); }
+.post-nav-link { display: block; padding: 18px 20px; background: var(--bg-mid); border: 1px solid var(--rule); transition: all 0.18s; }
+.post-nav-link:hover { border-color: var(--ink-soft); background: #fff; transform: translateY(-1px); }
+.post-nav-dir { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px; }
+.post-nav-title { font-family: var(--serif); font-size: 0.94rem; color: var(--ink-mid); line-height: 1.4; }
+.post-nav-link.next { text-align: right; }
+@media (max-width: 640px) { .post-nav { grid-template-columns: 1fr; } .post-nav-link.next { text-align: left; } }
+
+/* Knowledge check */
+.kcheck { background: var(--bg-mid); padding: 72px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.kcheck-head { max-width: 720px; margin: 0 auto 36px; text-align: center; }
+.kcheck h2 { font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 300; color: var(--ink-mid); margin: 0 0 14px; line-height: 1.3; }
+.kcheck h2 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
+.kcheck p.lede { font-size: 0.98rem; line-height: 1.75; color: var(--text); }
+.kcheck-q { background: #fff; border: 1px solid var(--rule); padding: 28px 30px; margin-bottom: 18px; max-width: 760px; margin-left: auto; margin-right: auto; }
+.kcheck-q-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; margin-bottom: 12px; }
+.kcheck-q-text { font-family: var(--serif); font-size: 1.1rem; line-height: 1.5; color: var(--ink-mid); margin-bottom: 18px; }
+.kcheck-opts { display: grid; gap: 8px; }
+.kcheck-opt { display: block; padding: 12px 16px; background: var(--bg-soft); border: 1px solid var(--rule); text-align: left; font-family: var(--sans); font-size: 0.92rem; color: var(--text); cursor: pointer; transition: all 0.15s; }
+.kcheck-opt:hover { background: #fff; border-color: var(--ink-soft); }
+.kcheck-opt.correct { background: #e8f3ec; border-color: var(--ok); color: var(--ok); }
+.kcheck-opt.incorrect { background: #fbe9e9; border-color: var(--bad); color: var(--bad); }
+.kcheck-explain { margin-top: 16px; padding: 14px 18px; background: var(--accent-soft); border-left: 3px solid var(--accent); font-size: 0.9rem; line-height: 1.7; color: var(--ink-mid); display: none; }
+.kcheck-q.answered .kcheck-explain { display: block; }
+.kcheck-score { text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--text-dim); margin-top: 28px; text-transform: uppercase; }
+.kcheck-score strong { color: var(--ink-mid); font-family: var(--mono); }
+
+/* Stats / hero stats */
+.stat-band { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; padding: 56px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); background: var(--bg-soft); }
+.stat-item { padding: 0 18px; }
+.stat-num { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 300; color: var(--ink-mid); line-height: 1; margin-bottom: 8px; }
+.stat-num em { color: var(--accent-deep); font-weight: 400; font-style: normal; }
+.stat-label { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; }
+</style>
+</head>
+<body>
+<nav id="main-nav" role="navigation" aria-label="Main navigation">
+  <div class="wrap nav-inner">
+    <a href="/en/" class="nav-logo" aria-label="JII home">
+      <img class="nav-logo-img nav-logo-img--desktop" src="/assets/logo-jii-wordmark.svg" alt="Japan Investor Interface logo" width="282" height="40">
+      <img class="nav-logo-img nav-logo-img--mobile" src="/assets/logo-jii-monogram.svg" alt="Japan Investor Interface logo" width="32" height="32">
+    </a>
+    <div class="nav-center">
+      <ul class="nav-links" role="list">
+        <li><a href="/en/services/">Services</a></li>
+        <li><a href="/en/pricing/">Pricing</a></li>
+        <li><a href="/en/company/">Company</a></li>
+        <li><a href="/en/faq/">FAQ</a></li>
+        <li><a href="/en/compounders/">Compounders</a></li>
+        <li><a href="/en/governance/">Governance</a></li>
+      </ul>
+    </div>
+    <div class="nav-right">
+      <a href="/en/#contact" class="btn btn-primary nav-cta">Free 30-min call</a>
+      <span class="locale-switcher nav-locale-switcher" aria-label="Language switcher"><a href="/governance/capital-efficiency/4.1-march-2023-request-anatomy/" data-locale-route lang="ja">JP</a><a href="/en/governance/capital-efficiency/4.1-march-2023-request-anatomy/" class="current" aria-current="page" lang="en">EN</a></span>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" hidden>
+  <a href="/en/services/" onclick="toggleMenu()">Services</a>
+  <a href="/en/pricing/" onclick="toggleMenu()">Pricing</a>
+  <a href="/en/company/" onclick="toggleMenu()">Company</a>
+  <a href="/en/faq/" onclick="toggleMenu()">FAQ</a>
+  <a href="/en/compounders/" onclick="toggleMenu()">Compounders</a>
+  <a href="/en/governance/" onclick="toggleMenu()">Governance</a>
+  <a href="/governance/capital-efficiency/4.1-march-2023-request-anatomy/" data-locale-route onclick="toggleMenu()" lang="ja">JP</a>
+  <a href="/en/#contact" class="btn btn-primary mobile-menu-cta" onclick="toggleMenu()">Book a free 30-min call</a>
+</nav>
+<main id="main-content" class="curriculum" tabindex="-1">
+<div class="wrap crumbs">
+  <a href="/en/">JII</a> <span class="sep">/</span>
+  <a href="/en/governance/">Governance Curriculum</a> <span class="sep">/</span>
+  <a href="/en/governance/capital-efficiency/">Capital Efficiency</a> <span class="sep">/</span>
+  Post 4.1
+</div>
+<header class="post-header">
+  <div class="wrap">
+    <div class="post-header-inner">
+      <div class="post-eyebrow">Theme 4 · POST 4.1</div>
+      <h1 class="post-title">PBR &lt; 1 Is Not a Target — It&#x27;s a Verdict</h1>
+      <p class="post-summary"></p>
+      <div class="post-meta">
+        <span>Theme: <strong>Capital Efficiency</strong></span>
+        <span>Reading: <strong> min</strong></span>
+        <span>Updated: <strong>2026-05-16</strong></span>
+      </div>
+    </div>
+  </div>
+</header>
+<section class="post-body">
+  <div class="wrap">
+    <article class="post-content">
+<h1>PBR &lt; 1 Is Not a Target — It's a Verdict</h1>
+<h2>TL;DR</h2>
+<ul>
+<li>On <strong>March 31, 2023</strong>, the Tokyo Stock Exchange formally <strong>requested</strong> every Prime and Standard Market company to "implement management conscious of cost of capital and stock price." Roughly <strong>half of Prime Market companies were trading below book value (PBR &lt; 1x)</strong> at the time — the trigger statistic.</li>
+<li>The word in Japanese is <strong>「お願い」(<em>onegai</em>) — "request,"</strong> not directive. Compliance is enforced through reputational visibility (monthly disclosure list, named good-practice and misalignment cases), not legal sanction.</li>
+<li><strong>PBR is not a management target</strong>; it is the market's verdict on expected equity spread (ROE minus cost of equity). The request asks companies to run a <strong>continuous five-step PDCA</strong>: <em>understand → identify → develop &amp; disclose → implement → revise</em> — and to let PBR follow.</li>
+</ul>
+<hr>
+<h2>The document that quietly changed Japanese capitalism</h2>
+<p>On March 31, 2023, the Tokyo Stock Exchange issued a one-page request that has since reshaped how every Japanese listed company talks about capital. The full English title is <strong>"Action to Implement Management That Is Conscious of Cost of Capital and Stock Price"</strong>; the Japanese is <strong>「資本コストや株価を意識した経営の実現に向けた対応等に関するお願いについて」</strong> (<em>Shihon kosuto ya kabuka o ishiki shita keiei no jitsugen ni muketa taiō tō ni kansuru onegai ni tsuite</em>).</p>
+<p>Three words in that title deserve close attention before anything else.</p>
+<p><strong>「資本コスト」(<em>shihon kosuto</em>) — "cost of capital."</strong> Until 2023, this was a CFO-and-treasurer term in most Japanese companies. After 2023, it is a CEO-and-board term — explicitly named in TSE's request as something the board itself must "accurately understand."</p>
+<p><strong>「株価を意識した」(<em>kabuka o ishiki shita</em>) — "conscious of the stock price."</strong> This phrase is a polite Japanese way of saying: stop ignoring what the market is telling you. The request expects management to read PBR as a signal and respond to it — not as a target to game, but as evidence about whether the company's expected future ROE clears its cost of equity.</p>
+<p><strong>「お願い」(<em>onegai</em>) — "request."</strong> Not 規制 (regulation), not 命令 (order), not 義務 (obligation). A request. The single most-mistranslated word in this entire document. English-language commentary frequently calls it a "directive" or a "mandate"; both overstate the legal force. TSE has no power to compel earnings, and chose not to invent one. What TSE did invent was <strong>reputational enforcement at scale</strong> — and we will return to that mechanism throughout this theme.</p>
+<p>The request applies to companies in the <strong>Prime and Standard Markets</strong>. Growth Market companies received a parallel, separately-tailored document on the same day. This module focuses on the Prime/Standard text, which is by far the more consequential.</p>
+<hr>
+<h2>The trigger statistic: half of Prime trades below book</h2>
+<p>The reason TSE acted in March 2023 — rather than five years earlier, or five years later — is captured in a single number. As of end-March 2023:</p>
+<ul>
+<li><strong>Approximately 50% of TSE Prime Market companies had a PBR below 1x.</strong></li>
+<li>The comparable figure in the United States was roughly <strong>5%</strong>.</li>
+<li>Roughly <strong>40% of all TSE-listed companies</strong> were below book value across all segments.</li>
+<li>Approximately <strong>50% of Prime and ~60% of Standard Market companies had ROE below 8%</strong> — below the cost of equity recognised by most Japanese institutional investors.</li>
+</ul>
+<p>A PBR below 1 is not a stylistic complaint about a sluggish share price. It is the market expressing, in the most direct mathematical language available, that the <strong>expected future return on incremental equity invested by the company is below the equity holder's required return</strong> — i.e., that the company is, in expectation, destroying value with each additional yen of retained earnings. Half of Prime corporate Japan, in the market's view, was a net destroyer of value. That is the verdict TSE finally decided to publish.</p>
+<p>A note on terminology: throughout this curriculum we use <strong>PBR</strong> (Price-to-Book Ratio, the standard Japanese term) and <strong>P/B</strong> (the standard English term) interchangeably; they are the same ratio.</p>
+<hr>
+<h2>The math: PBR = ROE × PER, and the equity-spread identity</h2>
+<p>The request's intellectual core is two simple identities. Every IR representative should be able to write both on a whiteboard.</p>
+<blockquote>
+<p><strong>Identity 1 — PBR decomposition:</strong>
+<strong>PBR = ROE × PER</strong></p>
+<p>(Price/Book = (Earnings/Book) × (Price/Earnings))</p>
+<p>Therefore PBR &lt; 1 implies either ROE is too low, or PER (the market's growth expectation) is depressed — or both.</p>
+<p><strong>Identity 2 — Equity-spread / Residual Income relationship:</strong>
+If expected future <strong>equity spread = ROE − cost of equity (rE)</strong> is <strong>positive</strong>, then <strong>PBR &gt; 1</strong>.
+If expected future equity spread is <strong>negative</strong>, then <strong>PBR &lt; 1</strong>.</p>
+<p>Stated as the Residual Income Model:
+<strong>Market value of equity = Book value + PV of (ROE − rE) × Book</strong></p>
+<p>Therefore: <strong>Market/Book &gt; 1 ⇔ E[ROE] &gt; rE.</strong></p>
+</blockquote>
+<p>This is the equation the request quietly assumes. TSE never instructs companies to achieve any particular PBR — because doing so would be backwards. The lever is the equity spread; PBR is the readout.</p>
+<p>JPX CEO Hiromi Yamaji has been explicit on this point in multiple public addresses: <strong>PBR is not a target. ROE relative to cost of equity is.</strong> Companies that announce "we will achieve PBR &gt; 1 by FY2026" without disclosing what their cost of equity is, what ROE level would clear that hurdle, and what initiatives will close the gap, are essentially announcing they have not understood the request.</p>
+<hr>
+<h2>The five-step PDCA: what TSE actually asked for</h2>
+<p>The request itself runs to roughly two pages. Stripped down, it asks every Prime and Standard board to perform — <strong>on an ongoing basis</strong> — the following five-step cycle.</p>
+<div class="mermaid-wrap"><pre class="mermaid">flowchart LR
+    A[&quot;1. Analyse / Understand&lt;br/&gt;Cost of capital &amp; current&lt;br/&gt;capital efficiency&quot;] --&gt; B[&quot;2. Identify Issues&lt;br/&gt;Board-level discussion of&lt;br/&gt;why PBR / ROE is where it is&quot;]
+    B --&gt; C[&quot;3. Develop &amp; Disclose&lt;br/&gt;Policies, initiatives,&lt;br/&gt;KPIs and timelines&quot;]
+    C --&gt; D[&quot;4. Implement&lt;br/&gt;Execute capital allocation&lt;br/&gt;and operational changes&quot;]
+    D --&gt; E[&quot;5. Revise&lt;br/&gt;Engagement with investors,&lt;br/&gt;then iterate&quot;]
+    E -.continuous PDCA.-&gt; A
+    classDef step fill:#f5f8ff,stroke:#3858b9,stroke-width:1.5px,color:#1a2747;
+    class A,B,C,D,E step;</pre></div>
+
+<p>Two features of this cycle matter operationally.</p>
+<p><strong>First, it is explicitly continuous.</strong> TSE's wording emphasises that this is not a one-off compliance filing. The November 2024 "misalignment" booklet (covered in detail in <strong>Post 4.4</strong>) calls out companies that "disclosed once and stopped" as a top failure mode. The Council of Experts adopted "the quality, not just quantity, of disclosure" as its 2024 supervisory standard precisely to push issuers past first-cycle compliance.</p>
+<p><strong>Second, the disclosure step (3) is the only step that is externally visible.</strong> Steps 1 and 2 happen inside the boardroom; step 4 happens inside the business; step 5 happens in IR meetings. Step 3 — the disclosure — is therefore the <strong>proxy variable</strong> by which the market judges whether the other four steps are happening at all. TSE designed the monthly disclosure list (Post <strong>4.3</strong>) so that step 3 has nowhere to hide.</p>
+<hr>
+<h2>What the request does <em>not</em> say</h2>
+<p>Reading the request closely is as much an exercise in noting what is absent as what is present.</p>
+<p><strong>The request does not specify a PBR target.</strong> It never says "get above 1x." Companies that have inserted "PBR ≥ 1 by FY2026" into their Mid-Term Management Plans are inferring this from the trigger statistic, not from the document. TSE has been at pains to discourage this framing.</p>
+<p><strong>The request does not specify an ROE level.</strong> It does not say "achieve ROE ≥ 8%." The 8% number — popularised by the Ito Review in 2014 (see Theme 1.1) — is investor consensus, not TSE prescription. The request asks companies to identify their <em>own</em> cost of equity and manage to a positive spread, whatever that level may be.</p>
+<p><strong>The request does not specify a payout ratio.</strong> This is critical. The November 2024 misalignment booklet explicitly flags <strong>"treating shareholder returns as the entire response"</strong> as a top archetypal sin. Buybacks and dividends are one lever in a larger toolkit; substituting them for substantive cost-of-capital management is itself the misalignment.</p>
+<p><strong>The request does not impose a deadline.</strong> It asks for ongoing PDCA. The implicit cadence is annual — disclosure aligned with the Corporate Governance Report cycle — but no formal sunset date applies. The April 2026 "Update" (Post <strong>4.5</strong>) extended and sharpened the expectations rather than closing them out.</p>
+<hr>
+<h2>How the request fits into the broader policy architecture</h2>
+<p>The March 2023 request did not arrive from nowhere. It is the operational tip of a five-layer policy stack that has been building since the early 2010s:</p>
+<ol>
+<li><strong>The Ito Review (2014)</strong> — established 8% ROE as a working benchmark and put cost of capital on the political agenda. (Theme 1.3)</li>
+<li><strong>The Corporate Governance Code (2015, revised 2018 and 2021)</strong> — established board-level governance expectations and, in 2018, formally introduced capital-efficiency language. (Theme 2.2)</li>
+<li><strong>The April 2022 Market Restructuring</strong> — created the Prime/Standard/Growth segments and made the disclosure rules bite where the most-watched investor universe is. (Theme 3.1)</li>
+<li><strong>The March 2023 TSE Request</strong> — operationalised the cost-of-capital expectation at the company level. <strong>(this post)</strong></li>
+<li><strong>The Follow-up Council and the monthly disclosure list</strong> — the enforcement layer. (Posts 4.3, 4.4)</li>
+</ol>
+<p>This layered architecture is why "soft law" works in Japan in a way it often does not in other jurisdictions. The request alone would be a polite letter. The request <em>plus</em> the disclosure list <em>plus</em> the Council's published evaluations <em>plus</em> the activist response (Post 4.5) is a coercive system without coercive language.</p>
+<hr>
+<h2>Why "request" actually has teeth</h2>
+<p>Newcomers to Japanese capital-markets policy regularly underestimate the request because it is not legally binding. That underestimation is a mistake. The mechanism has three reinforcing teeth.</p>
+<p><strong>Tooth 1 — Listing-license proximity.</strong> TSE is the entity that grants and maintains the listing. A company that ignores a TSE request is not legally liable, but it is signalling to its own licensor that it does not consider the licensor's priorities binding. No CFO wants that conversation, even though there is no formal sanction.</p>
+<p><strong>Tooth 2 — Investor screening.</strong> The monthly disclosure list is consumed directly by Japanese institutional asset managers and, increasingly, by foreign investors via translated databases. Inclusion is a screen; exclusion is a flag. Major Japanese AMs (Nomura, SMBC Nikko, Asset Management One) have publicly toughened proxy-voting guidelines on issuers below PBR 1x that fail to disclose.</p>
+<p><strong>Tooth 3 — Activist invitation.</strong> As Post <strong>4.5</strong> documents, 2024 saw <strong>108 activist campaigns in Japan</strong> — a record, up 74% from 2018. The TSE request gave activists a regulator-endorsed playbook: "the exchange itself has asked the company to do this; we are merely accelerating compliance." Companies that refuse to disclose, or that disclose boilerplate, become activist targets.</p>
+<p>The aggregate effect is that the request, while legally a request, is operationally closer to a regulatory expectation. By <strong>March 13, 2026</strong>, approximately <strong>93% of Prime Market companies (1,472 issuers) and 51% of Standard Market companies (807 issuers)</strong> had boards that had formally discussed and disclosed countermeasures. That is not the response rate of a polite letter; it is the response rate of a binding norm.</p>
+<hr>
+<h2>What this means for IR</h2>
+<ol>
+<li><strong>Internalise the math first.</strong> If you cannot write <strong>PBR = ROE × PER</strong> and <strong>PBR &gt; 1 ⇔ E[ROE] &gt; rE</strong> on a whiteboard, you cannot run a credible cost-of-capital IR programme. Make these the opening slides of every internal training.</li>
+<li><strong>Stop quoting PBR as a target.</strong> If your CEO or MTM names a specific PBR goal, push back internally. The right target is the equity spread; PBR will follow. Quoting PBR as a target is itself a TSE-flagged misalignment pattern (Post 4.4).</li>
+<li><strong>Audit your disclosure against the five-step PDCA.</strong> For each of the five steps, can you point an investor at a specific paragraph in your latest CG report or MTM that demonstrates you have done it? Step 1 (cost of capital number) and step 5 (revision based on dialogue) are the two most commonly missing.</li>
+<li><strong>Build a continuous cycle, not an annual filing.</strong> TSE's January 2025 rule reclassifying "Under Consideration" issuers as "Not Disclosed" after six months is a concrete signal that one-off compliance does not count. Your disclosure should evolve visibly between annual reports.</li>
+<li><strong>Brief your CEO on the "request" framing.</strong> Many Japanese CEOs still read the request as voluntary because it is legally voluntary. The reputational, investor-screening, and activist machinery around the request is what makes it operational. The board must understand all three teeth.</li>
+</ol>
+<hr>
+<h2>Sources &amp; further reading</h2>
+<p><strong>Primary</strong>
+- JPX news release (EN), March 31, 2023: <a href="https://www.jpx.co.jp/english/news/1020/20230331-01.html">https://www.jpx.co.jp/english/news/1020/20230331-01.html</a>
+- Request document PDF (EN): <a href="https://www.jpx.co.jp/english/news/1020/cg27su0000005hdb-att/cg27su0000005hgo.pdf">https://www.jpx.co.jp/english/news/1020/cg27su0000005hdb-att/cg27su0000005hgo.pdf</a>
+- "Action to Implement Management Conscious of Cost of Capital and Stock Price" hub (EN): <a href="https://www.jpx.co.jp/english/equities/follow-up/02.html">https://www.jpx.co.jp/english/equities/follow-up/02.html</a>
+- JPX news release (EN), April 14, 2023 (post-issuance Q&amp;A): <a href="https://www.jpx.co.jp/english/news/1020/e20230414-01.html">https://www.jpx.co.jp/english/news/1020/e20230414-01.html</a>
+- Yamaji, Japan Securities Summit slides, March 6, 2024: <a href="https://www.icmagroup.org/assets/Slides_Mr.-Hiromi-Yamaji_JPX_Japan-Securities-Summit-6-March-2024.pdf">https://www.icmagroup.org/assets/Slides_Mr.-Hiromi-Yamaji_JPX_Japan-Securities-Summit-6-March-2024.pdf</a></p>
+<p><strong>Supporting</strong>
+- TSE Council of Experts — Status after Market Restructuring (EN PDF): <a href="https://www.jpx.co.jp/english/equities/follow-up/b5b4pj000004yqcc-att/dh3otn0000006vlf.pdf">https://www.jpx.co.jp/english/equities/follow-up/b5b4pj000004yqcc-att/dh3otn0000006vlf.pdf</a>
+- TSE "Status of Disclosure" (Mar 13, 2026): <a href="https://www.jpx.co.jp/english/equities/follow-up/uorii50000004sse-att/dh3otn0000006l3i.pdf">https://www.jpx.co.jp/english/equities/follow-up/uorii50000004sse-att/dh3otn0000006l3i.pdf</a>
+- Springer chapter on Equity Spread and Value Creation: <a href="https://link.springer.com/chapter/10.1007/978-981-10-8503-1_4">https://link.springer.com/chapter/10.1007/978-981-10-8503-1_4</a></p>
+<hr>
+<h2>Cross-references</h2>
+<ul>
+<li><strong>Theme 1.3</strong> — Abenomics' Third Arrow: how governance became growth policy</li>
+<li><strong>Theme 2.2</strong> — The 2018 Revision: capital efficiency enters the Code</li>
+<li><strong>Theme 3.1</strong> — From Four Segments to Three: the April 2022 restructuring</li>
+<li><strong>Theme 4.2</strong> — WACC, ROIC, Equity Spread: the new vocabulary every Japanese IR rep must own</li>
+<li><strong>Theme 4.3</strong> — The Shame-and-Showcase List: how TSE polices participation through publication</li>
+<li><strong>Theme 4.4</strong> — The Seven Sins of Cost-of-Capital Disclosure</li>
+<li><strong>Theme 4.5</strong> — From Disclosure to Implementation: how the April 2026 Update rewrote the rules</li>
+</ul>
+    </article>
+    <div class="post-nav"><div></div><a href="/en/governance/capital-efficiency/4.2-cost-of-capital-vocabulary/" class="post-nav-link next"><div class="post-nav-dir">Next →</div><div class="post-nav-title">WACC, ROIC, Equity Spread: the new vocabulary every Japanese IR rep must own</div></a></div>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Japan Investor Interface Co., Ltd.</h3>
+        <p>Cross-border IR diagnostics for Japanese listed companies. The Foreign IR Diagnostic Card visualizes how foreign capital reads your IR.</p>
+      </div>
+      <div class="footer-col">
+        <h2>The diagnostic & plans</h2>
+        <ul>
+          <li><a href="/en/services/">The Diagnostic Card</a></li>
+          <li><a href="/en/pricing/">Light — Initial Diagnostic</a></li>
+          <li><a href="/en/pricing/">Standard — Disclosure Improvement</a></li>
+          <li><a href="/en/pricing/">Pro — Investor-Meeting Cycle</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Governance curriculum</h2>
+        <ul>
+          <li><a href="/en/governance/">Curriculum home</a></li>
+          <li><a href="/en/governance/foundations/">Theme 1 · Foundations</a></li>
+          <li><a href="/en/governance/capital-efficiency/">Theme 4 · Capital Efficiency</a></li>
+          <li><a href="/en/governance/toolbox/">IR Toolbox</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>JII Compounders</h2>
+        <ul>
+          <li><a href="/en/compounders/">All profiles</a></li>
+          <li><a href="/en/compounders/methodology/">Methodology</a></li>
+          <li><a href="https://japaninterface.substack.com/" rel="noopener" target="_blank">Substack</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Contact</h2>
+        <ul>
+          <li>Email <a href="mailto:info@jpinv.com">info@jpinv.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Japan Investor Interface Co., Ltd. · All rights reserved.</p>
+      <p class="footer-locale-switcher">Language: <a href="/en/" class="current" aria-current="page" lang="en">EN</a> / <a href="/" data-locale-route lang="ja">JP</a></p>
+    </div>
+  </div>
+</footer>
+<script>
+const nav = document.getElementById('main-nav');
+if (nav) window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+const hamburgerBtn = document.querySelector('.hamburger');
+function setMenuOpen(isOpen) { const menu = document.getElementById('mobileMenu'); if (!menu || !hamburgerBtn) return; menu.classList.toggle('open', isOpen); menu.hidden = !isOpen; hamburgerBtn.setAttribute('aria-expanded', String(isOpen)); }
+function toggleMenu() { const menu = document.getElementById('mobileMenu'); setMenuOpen(!(menu && menu.classList.contains('open'))); }
+document.addEventListener('click', (e) => { const menu = document.getElementById('mobileMenu'); if (menu && menu.classList.contains('open') && !menu.contains(e.target) && hamburgerBtn && !hamburgerBtn.contains(e.target)) setMenuOpen(false); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenuOpen(false); });
+</script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs';
+mermaid.initialize({ startOnLoad: true, theme: 'neutral', fontFamily: 'Noto Sans JP, Hiragino Kaku Gothic ProN, sans-serif', themeVariables: { primaryColor: '#f4eee4', primaryTextColor: '#1a2a4a', primaryBorderColor: '#9a7838', lineColor: '#304466', secondaryColor: '#f5f7fa', tertiaryColor: '#fafbfc' } });
+</script>
+</body>
+</html>

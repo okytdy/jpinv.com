@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+<title>WACC, ROIC, Equity Spread: the new vocabulary every Japanese IR rep must own | JII Governance Curriculum</title>
+<meta name="description" content="WACC, ROIC, Equity Spread: the new vocabulary every Japanese IR rep must own — part of the JII Japan Governance Reform Curriculum.">
+<meta property="og:title" content="WACC, ROIC, Equity Spread: the new vocabulary every Japanese IR rep must own | JII Governance Curriculum">
+<meta property="og:description" content="WACC, ROIC, Equity Spread: the new vocabulary every Japanese IR rep must own — part of the JII Japan Governance Reform Curriculum.">
+<meta property="og:url" content="https://jpinv.com/en/governance/capital-efficiency/4.2-cost-of-capital-vocabulary/">
+<link rel="canonical" href="https://jpinv.com/en/governance/capital-efficiency/4.2-cost-of-capital-vocabulary/">
+<link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/capital-efficiency/4.2-cost-of-capital-vocabulary/">
+<link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/capital-efficiency/4.2-cost-of-capital-vocabulary/">
+<link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/capital-efficiency/4.2-cost-of-capital-vocabulary/">
+
+<style>
+:root {
+  --ink:        #1a2a4a;
+  --ink-mid:    #172641;
+  --ink-soft:   #304466;
+  --rule:       #d6dee8;
+  --rule-soft:  #e8edf3;
+  --bg:         #ffffff;
+  --bg-mid:     #f5f7fa;
+  --bg-soft:    #fafbfc;
+  --text:       #1f2937;
+  --text-mid:   #4a5566;
+  --text-dim:   #5f6875;
+  --accent:     #9a7838;
+  --accent-deep:#9a7838;
+  --accent-soft:#f4eee4;
+  --bad:        #b91c1c;
+  --warn:       #8a682b;
+  --ok:         #2f6f4f;
+  --serif: 'Noto Serif JP', 'Yu Mincho', serif;
+  --sans:  'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  --mono:  'DM Mono', monospace;
+  --max: 1100px;
+  --pad: 88px;
+  --gutter: 48px;
+  --nav-h: 64px;
+  --measure: 720px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 400; line-height: 1.7; overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+a { color: var(--ink-soft); text-decoration: none; }
+a:hover { color: var(--ink); }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+@media (max-width: 768px) { :root { --gutter: 22px; --pad: 56px; } }
+strong { font-weight: 600; color: var(--ink); }
+em { font-style: normal; color: var(--ink); font-weight: 600; }
+.label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); }
+
+/* Nav (copied from jpinv.com base) */
+nav#main-nav { position: fixed; top:0; left:0; right:0; z-index:100; height: var(--nav-h); background: rgba(255,255,255,0.96); backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule); display: flex; align-items: center; transition: box-shadow 0.3s; }
+nav#main-nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; }
+.nav-logo { text-decoration: none; display: inline-flex; align-items: center; flex: 0 0 auto; min-width: max-content; white-space: nowrap; }
+.nav-logo-img { display: block; width: auto; height: 40px; max-width: none; object-fit: contain; object-position: left center; }
+.nav-logo-img--mobile { display: none; width: 32px; height: 32px; object-fit: contain; }
+.nav-center { flex: 1; display: flex; justify-content: center; }
+.nav-links { display: flex; gap: 22px; list-style: none; flex-wrap: nowrap; white-space: nowrap; }
+.nav-links a { font-family: var(--sans); font-size: 0.78rem; font-weight: 400; letter-spacing: 0.04em; color: var(--text); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--ink-soft); }
+.nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; margin-left: auto; }
+.nav-cta { padding: 8px 14px; font-size: 0.7rem; }
+.locale-switcher { display: inline-flex; align-items: center; gap: 0; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; }
+.locale-switcher a { color: var(--text-dim); border: 1px solid var(--rule); padding: 6px 9px; text-decoration: none; transition: all 0.2s; }
+.locale-switcher a + a { margin-left: -1px; }
+.locale-switcher a:hover, .locale-switcher a.current { color: var(--ink); border-color: var(--ink-mid); background: var(--bg-soft); position: relative; z-index: 1; }
+.hamburger { display: none; flex-shrink:0; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
+.hamburger span { display:block; width:22px; height:1px; background:var(--ink); transition: all 0.25s; }
+@media (max-width: 900px) { .nav-center, .nav-right .nav-cta { display:none; } .hamburger { display:flex; } }
+@media (max-width: 768px) { .nav-logo-img--desktop { display:none; } .nav-logo-img--mobile { display:block; } }
+.mobile-menu { display:none; position:fixed; top:var(--nav-h); left:0; right:0; background:var(--bg); border-bottom:1px solid var(--rule); z-index:99; padding:8px var(--gutter) 20px; flex-direction:column; gap:0; }
+.mobile-menu.open { display:flex; }
+.mobile-menu a { font-size:0.88rem; color:var(--text); text-decoration:none; padding:14px 0; border-bottom:1px solid var(--rule); letter-spacing:0.04em; }
+.mobile-menu a:last-child { border-bottom:none; }
+.mobile-menu .mobile-menu-cta { margin-top:12px; padding:13px 18px; text-align:center; color:#fff; border-bottom:none; }
+
+.btn { display: inline-block; text-decoration: none; font-family: var(--sans); font-size: 0.84rem; font-weight: 400; letter-spacing: 0.06em; padding: 13px 28px; transition: all 0.2s; cursor: pointer; border: none; }
+.btn-primary { background: var(--ink); color: #fff; }
+.btn-primary:hover { background: var(--ink-mid); color: #fff; }
+.btn-outline { border: 1px solid var(--ink-mid); color: var(--ink); background: transparent; }
+.btn-outline:hover { border-color: var(--ink); color: var(--ink); }
+.rule-accent { width: 32px; height: 2px; background: var(--accent); margin: 14px 0 22px; }
+
+/* Footer (mirror) */
+footer { border-top: 1px solid var(--rule); padding: 52px 0 28px; background: var(--bg-soft); font-size: 0.82rem; color: var(--text-dim); }
+footer .footer-grid { display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 32px; align-items: start; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+footer h2 { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.2em; color: var(--ink-soft); text-transform: uppercase; margin-bottom: 12px; font-weight: 500; }
+footer h3 { font-family: var(--serif); font-size: 1rem; font-weight: 400; color: var(--ink); margin-bottom: 8px; }
+footer ul { list-style: none; }
+footer ul li { padding: 4px 0; }
+footer ul li a { color: var(--text-mid); }
+footer ul li a:hover { color: var(--ink); }
+footer .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 18px; flex-wrap: wrap; gap: 12px; }
+footer .footer-locale-switcher a.current { font-weight: 600; color: var(--ink); }
+@media (max-width: 900px) { footer .footer-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 580px) { footer .footer-grid { grid-template-columns: 1fr; } }
+
+
+/* === Curriculum-specific === */
+main.curriculum { padding-top: var(--nav-h); }
+.curr-hero { padding: 96px 0 64px; border-bottom: 1px solid var(--rule); position: relative; overflow: hidden; }
+.curr-hero::before { content:''; position:absolute; inset:0;
+  background-image: linear-gradient(rgba(15,31,58,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(15,31,58,0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent);
+          mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent); }
+.curr-hero-inner { position:relative; z-index:2; max-width: 880px; }
+.curr-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.32em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 18px; }
+.curr-hero h1 { font-family: var(--serif); font-size: clamp(1.9rem, 4.4vw, 3.1rem); font-weight: 300; color: var(--ink-mid); line-height: 1.3; letter-spacing: 0.02em; margin: 0 0 22px; }
+.curr-hero h1 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
+.curr-hero .lede { font-size: 1.05rem; line-height: 1.85; color: var(--text); margin: 0 0 24px; max-width: 700px; }
+.curr-hero-meta { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
+.curr-hero-meta strong { color: var(--ink); font-family: var(--mono); }
+
+.crumbs { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; padding: 22px 0 0; }
+.crumbs a { color: var(--text-mid); }
+.crumbs a:hover { color: var(--ink); }
+.crumbs .sep { color: var(--rule); margin: 0 8px; }
+
+.theme-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; padding: 56px 0; }
+.theme-card { display: block; background: #fff; border: 1px solid var(--rule); padding: 30px 28px; position: relative; transition: all 0.2s; }
+.theme-card:hover { border-color: var(--ink-soft); box-shadow: 0 12px 32px rgba(15,31,58,0.08); transform: translateY(-2px); }
+.theme-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background: var(--accent); opacity: 0.85; }
+.theme-card-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; }
+.theme-card-name { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--ink-mid); margin: 10px 0 8px; line-height: 1.35; }
+.theme-card-period { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 14px; }
+.theme-card-desc { font-size: 0.92rem; line-height: 1.7; color: var(--text); margin-bottom: 18px; }
+.theme-card-list { font-size: 0.84rem; color: var(--text-mid); list-style: none; padding-top: 14px; border-top: 1px solid var(--rule-soft); }
+.theme-card-list li { padding: 5px 0; }
+.theme-card-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; }
+.theme-card-foot .arrow { color: var(--accent-deep); }
+
+.post-list { padding: 28px 0 56px; }
+.post-list-row { display: grid; grid-template-columns: 60px 1fr auto; gap: 22px; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--rule-soft); transition: all 0.18s; }
+.post-list-row:hover { background: var(--bg-mid); padding-left: 12px; padding-right: 12px; }
+.post-list-num { font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em; color: var(--accent-deep); font-weight: 500; }
+.post-list-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--ink-mid); line-height: 1.45; }
+.post-list-meta { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; white-space: nowrap; }
+@media (max-width: 600px) { .post-list-row { grid-template-columns: 50px 1fr; } .post-list-meta { grid-column: 1 / -1; padding-left: 72px; } }
+
+/* Post body */
+.post-body { padding: 48px 0 80px; }
+.post-content { max-width: var(--measure); margin: 0 auto; }
+.post-content > p, .post-content > ul, .post-content > ol, .post-content > blockquote, .post-content > pre, .post-content > table, .post-content > hr, .post-content > h2, .post-content > h3, .post-content > h4 { max-width: var(--measure); margin-left: auto; margin-right: auto; }
+.post-content h2 { font-family: var(--serif); font-size: 1.55rem; font-weight: 400; color: var(--ink-mid); line-height: 1.35; margin: 56px 0 14px; padding-top: 22px; border-top: 1px solid var(--rule-soft); }
+.post-content h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 500; color: var(--ink); margin: 36px 0 10px; line-height: 1.4; }
+.post-content h4 { font-family: var(--sans); font-size: 1rem; font-weight: 600; color: var(--ink); margin: 26px 0 8px; letter-spacing: 0.02em; }
+.post-content p { margin: 0 0 18px; font-size: 1rem; line-height: 1.85; color: var(--text); }
+.post-content p:first-of-type { font-size: 1.05rem; }
+.post-content ul, .post-content ol { margin: 0 0 22px; padding-left: 28px; }
+.post-content ul li, .post-content ol li { font-size: 0.97rem; line-height: 1.8; margin-bottom: 8px; color: var(--text); }
+.post-content ul li::marker { color: var(--accent-deep); }
+.post-content blockquote { margin: 30px 0; padding: 20px 24px; border-left: 3px solid var(--accent); background: var(--accent-soft); color: var(--ink-mid); font-style: normal; }
+.post-content blockquote p { margin-bottom: 8px; font-size: 0.97rem; }
+.post-content blockquote p:last-child { margin-bottom: 0; }
+.post-content blockquote strong { color: var(--ink); }
+.post-content code { background: #f0f0f0; color: var(--ink-mid); font-family: var(--mono); font-size: 0.88rem; padding: 2px 6px; border-radius: 3px; }
+.post-content pre { background: #f9f9fb; border: 1px solid var(--rule); padding: 18px 22px; overflow-x: auto; font-family: var(--mono); font-size: 0.85rem; line-height: 1.55; margin: 24px 0; }
+.post-content pre code { background: transparent; padding: 0; font-size: inherit; }
+.post-content a { color: var(--accent-deep); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; transition: text-decoration-color 0.18s; }
+.post-content a:hover { text-decoration-color: var(--accent-deep); }
+.post-content hr { border: none; border-top: 1px solid var(--rule); margin: 40px auto; max-width: 120px; }
+.post-content table { width: 100%; max-width: var(--measure); margin: 28px auto; border-collapse: collapse; font-size: 0.9rem; }
+.post-content th { background: var(--bg-mid); color: var(--ink-mid); font-family: var(--sans); font-weight: 600; text-align: left; padding: 12px 14px; border-bottom: 2px solid var(--rule); }
+.post-content td { padding: 10px 14px; border-bottom: 1px solid var(--rule-soft); vertical-align: top; color: var(--text); }
+.post-content tr:nth-child(even) td { background: #fafbfc; }
+
+/* Mermaid container */
+.mermaid-wrap { background: #fdfdfe; border: 1px solid var(--rule); padding: 22px 18px; margin: 28px 0; overflow-x: auto; }
+.mermaid { font-family: var(--sans); text-align: center; }
+
+/* Post header */
+.post-header { padding: 48px 0 28px; border-bottom: 1px solid var(--rule); }
+.post-header-inner { max-width: var(--measure); margin: 0 auto; }
+.post-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.28em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 14px; }
+.post-title { font-family: var(--serif); font-size: clamp(1.7rem, 3.6vw, 2.4rem); font-weight: 400; color: var(--ink-mid); line-height: 1.3; margin: 0 0 16px; letter-spacing: 0.005em; }
+.post-summary { font-size: 1.02rem; line-height: 1.8; color: var(--text); margin: 0 0 22px; max-width: 660px; }
+.post-meta { display: flex; gap: 26px; flex-wrap: wrap; padding-top: 18px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
+.post-meta span strong { color: var(--ink); font-family: var(--mono); }
+
+/* Post nav (prev/next) */
+.post-nav { max-width: var(--measure); margin: 56px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding-top: 36px; border-top: 1px solid var(--rule); }
+.post-nav-link { display: block; padding: 18px 20px; background: var(--bg-mid); border: 1px solid var(--rule); transition: all 0.18s; }
+.post-nav-link:hover { border-color: var(--ink-soft); background: #fff; transform: translateY(-1px); }
+.post-nav-dir { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px; }
+.post-nav-title { font-family: var(--serif); font-size: 0.94rem; color: var(--ink-mid); line-height: 1.4; }
+.post-nav-link.next { text-align: right; }
+@media (max-width: 640px) { .post-nav { grid-template-columns: 1fr; } .post-nav-link.next { text-align: left; } }
+
+/* Knowledge check */
+.kcheck { background: var(--bg-mid); padding: 72px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.kcheck-head { max-width: 720px; margin: 0 auto 36px; text-align: center; }
+.kcheck h2 { font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 300; color: var(--ink-mid); margin: 0 0 14px; line-height: 1.3; }
+.kcheck h2 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
+.kcheck p.lede { font-size: 0.98rem; line-height: 1.75; color: var(--text); }
+.kcheck-q { background: #fff; border: 1px solid var(--rule); padding: 28px 30px; margin-bottom: 18px; max-width: 760px; margin-left: auto; margin-right: auto; }
+.kcheck-q-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; margin-bottom: 12px; }
+.kcheck-q-text { font-family: var(--serif); font-size: 1.1rem; line-height: 1.5; color: var(--ink-mid); margin-bottom: 18px; }
+.kcheck-opts { display: grid; gap: 8px; }
+.kcheck-opt { display: block; padding: 12px 16px; background: var(--bg-soft); border: 1px solid var(--rule); text-align: left; font-family: var(--sans); font-size: 0.92rem; color: var(--text); cursor: pointer; transition: all 0.15s; }
+.kcheck-opt:hover { background: #fff; border-color: var(--ink-soft); }
+.kcheck-opt.correct { background: #e8f3ec; border-color: var(--ok); color: var(--ok); }
+.kcheck-opt.incorrect { background: #fbe9e9; border-color: var(--bad); color: var(--bad); }
+.kcheck-explain { margin-top: 16px; padding: 14px 18px; background: var(--accent-soft); border-left: 3px solid var(--accent); font-size: 0.9rem; line-height: 1.7; color: var(--ink-mid); display: none; }
+.kcheck-q.answered .kcheck-explain { display: block; }
+.kcheck-score { text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--text-dim); margin-top: 28px; text-transform: uppercase; }
+.kcheck-score strong { color: var(--ink-mid); font-family: var(--mono); }
+
+/* Stats / hero stats */
+.stat-band { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; padding: 56px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); background: var(--bg-soft); }
+.stat-item { padding: 0 18px; }
+.stat-num { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 300; color: var(--ink-mid); line-height: 1; margin-bottom: 8px; }
+.stat-num em { color: var(--accent-deep); font-weight: 400; font-style: normal; }
+.stat-label { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; }
+</style>
+</head>
+<body>
+<nav id="main-nav" role="navigation" aria-label="Main navigation">
+  <div class="wrap nav-inner">
+    <a href="/en/" class="nav-logo" aria-label="JII home">
+      <img class="nav-logo-img nav-logo-img--desktop" src="/assets/logo-jii-wordmark.svg" alt="Japan Investor Interface logo" width="282" height="40">
+      <img class="nav-logo-img nav-logo-img--mobile" src="/assets/logo-jii-monogram.svg" alt="Japan Investor Interface logo" width="32" height="32">
+    </a>
+    <div class="nav-center">
+      <ul class="nav-links" role="list">
+        <li><a href="/en/services/">Services</a></li>
+        <li><a href="/en/pricing/">Pricing</a></li>
+        <li><a href="/en/company/">Company</a></li>
+        <li><a href="/en/faq/">FAQ</a></li>
+        <li><a href="/en/compounders/">Compounders</a></li>
+        <li><a href="/en/governance/">Governance</a></li>
+      </ul>
+    </div>
+    <div class="nav-right">
+      <a href="/en/#contact" class="btn btn-primary nav-cta">Free 30-min call</a>
+      <span class="locale-switcher nav-locale-switcher" aria-label="Language switcher"><a href="/governance/capital-efficiency/4.2-cost-of-capital-vocabulary/" data-locale-route lang="ja">JP</a><a href="/en/governance/capital-efficiency/4.2-cost-of-capital-vocabulary/" class="current" aria-current="page" lang="en">EN</a></span>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" hidden>
+  <a href="/en/services/" onclick="toggleMenu()">Services</a>
+  <a href="/en/pricing/" onclick="toggleMenu()">Pricing</a>
+  <a href="/en/company/" onclick="toggleMenu()">Company</a>
+  <a href="/en/faq/" onclick="toggleMenu()">FAQ</a>
+  <a href="/en/compounders/" onclick="toggleMenu()">Compounders</a>
+  <a href="/en/governance/" onclick="toggleMenu()">Governance</a>
+  <a href="/governance/capital-efficiency/4.2-cost-of-capital-vocabulary/" data-locale-route onclick="toggleMenu()" lang="ja">JP</a>
+  <a href="/en/#contact" class="btn btn-primary mobile-menu-cta" onclick="toggleMenu()">Book a free 30-min call</a>
+</nav>
+<main id="main-content" class="curriculum" tabindex="-1">
+<div class="wrap crumbs">
+  <a href="/en/">JII</a> <span class="sep">/</span>
+  <a href="/en/governance/">Governance Curriculum</a> <span class="sep">/</span>
+  <a href="/en/governance/capital-efficiency/">Capital Efficiency</a> <span class="sep">/</span>
+  Post 4.2
+</div>
+<header class="post-header">
+  <div class="wrap">
+    <div class="post-header-inner">
+      <div class="post-eyebrow">Theme 4 · POST 4.2</div>
+      <h1 class="post-title">WACC, ROIC, Equity Spread: the new vocabulary every Japanese IR rep must own</h1>
+      <p class="post-summary"></p>
+      <div class="post-meta">
+        <span>Theme: <strong>Capital Efficiency</strong></span>
+        <span>Reading: <strong> min</strong></span>
+        <span>Updated: <strong>2026-05-16</strong></span>
+      </div>
+    </div>
+  </div>
+</header>
+<section class="post-body">
+  <div class="wrap">
+    <article class="post-content">
+<h1>WACC, ROIC, Equity Spread: the new vocabulary every Japanese IR rep must own</h1>
+<h2>TL;DR</h2>
+<ul>
+<li>The TSE March 2023 request's most durable effect has been <strong>linguistic</strong>. Terms that were specialist jargon in 2022 — WACC, equity spread, ROIC tree, CROIC, PBR decomposition — are now standard boardroom and earnings-call vocabulary in Japan.</li>
+<li>Investor consensus working ranges per TSE consultations: <strong>cost of equity ~7–9%, WACC ~5–7%</strong> for typical Prime Market issuers. Companies disclosing cost of equity below ~5% are flagged in TSE's November 2024 "misalignment" booklet as a red flag.</li>
+<li>The two governing identities to memorise: <strong>PBR = ROE × PER</strong>, and <strong>PBR &gt; 1 ⇔ E[ROE] &gt; cost of equity</strong>. Every term in this glossary serves one of these two equations.</li>
+</ul>
+<hr>
+<h2>Why the vocabulary matters</h2>
+<p>A finance vocabulary is not decoration. Each term in the post-2023 Japanese governance lexicon is a precise instrument: it isolates a specific cause of value creation or destruction, and tells the investor what to look at. Imprecise vocabulary in an earnings briefing — saying "capital efficiency" without specifying whether you mean ROE, ROIC, or RONA, or saying "cost of capital" without specifying WACC vs. cost of equity — signals to a sophisticated investor that the management has not internalised the framework. The November 2024 TSE "misalignment" booklet specifically lists imprecise vocabulary as a pattern (see Post 4.4).</p>
+<p>This module is a <strong>terminology atlas</strong>. Print it. Drill it. Translate it into your own MTM and CG report so the same word in Japanese always maps to the same word in English and to the same formula.</p>
+<hr>
+<h2>The cost-of-capital terminology atlas</h2>
+<p>The table below covers the eight terms every Japanese IR rep should be able to define, calculate, and locate inside their own company's financials.</p>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Japanese</th>
+<th>EN</th>
+<th>Simple formula</th>
+<th>One-line definition</th>
+<th>Why investors care</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>WACC</strong></td>
+<td>加重平均資本コスト</td>
+<td>Weighted Average Cost of Capital</td>
+<td>WACC = (E/V)·rE + (D/V)·rD·(1−t)</td>
+<td>Blended cost of debt and equity — the hurdle rate ROIC must clear.</td>
+<td>Below WACC, every yen of invested capital is destroying value. Most cited number in any cost-of-capital disclosure.</td>
+</tr>
+<tr>
+<td><strong>Cost of equity (CAPM)</strong></td>
+<td>株主資本コスト</td>
+<td>Cost of Equity</td>
+<td>rE = rf + β·(rm − rf)</td>
+<td>Required return for the equity holder, computed via the Capital Asset Pricing Model.</td>
+<td>Investor surveys put the working range at <strong>7–9%</strong> for Prime issuers; values below ~5% are TSE-flagged as unrealistically low.</td>
+</tr>
+<tr>
+<td><strong>Cost of debt</strong></td>
+<td>負債コスト</td>
+<td>Cost of Debt</td>
+<td>rD(after-tax) = rD·(1 − t)</td>
+<td>After-tax interest rate on the company's debt.</td>
+<td>Anchored by JGB rates plus credit spread; rose materially as BOJ exited NIRP in 2024.</td>
+</tr>
+<tr>
+<td><strong>ROE</strong></td>
+<td>自己資本利益率</td>
+<td>Return on Equity</td>
+<td>ROE = Net Income / Avg. Shareholders' Equity</td>
+<td>Profit per yen of book equity.</td>
+<td>Compared to cost of equity; ROE &gt; rE is the precondition for PBR &gt; 1. Ito Review benchmark: <strong>8% minimum</strong>.</td>
+</tr>
+<tr>
+<td><strong>ROIC</strong></td>
+<td>投下資本利益率</td>
+<td>Return on Invested Capital</td>
+<td>ROIC = NOPAT / (Equity + Interest-bearing Debt)</td>
+<td>Profit per yen of total invested capital, pre-financing-structure.</td>
+<td>Compared to WACC; <strong>ROIC − WACC &gt; 0</strong> is the unit-economics value-creation test. Segment-level ROIC trees are the disclosure gold standard.</td>
+</tr>
+<tr>
+<td><strong>Equity spread</strong></td>
+<td>エクイティスプレッド</td>
+<td>Equity Spread</td>
+<td>ES = ROE − rE</td>
+<td>The gap between actual return and required return on equity.</td>
+<td>Positive ES ⇔ PBR &gt; 1; negative ES ⇔ PBR &lt; 1. The single most important diagnostic number on a Japanese balance sheet today.</td>
+</tr>
+<tr>
+<td><strong>CROIC</strong></td>
+<td>キャッシュROIC</td>
+<td>Cash ROIC</td>
+<td>CROIC = CFO (or FCF) / Invested Capital</td>
+<td>Cash-based variant of ROIC using operating cash flow or free cash flow.</td>
+<td>Removes accrual noise; favoured by long-only foreign investors and increasingly cited in MTMs.</td>
+</tr>
+<tr>
+<td><strong>Residual Income</strong></td>
+<td>残余利益 / 経済利益</td>
+<td>Residual Income / Economic Profit</td>
+<td>RI = (ROE − rE) × Equity (or EVA = (ROIC − WACC) × IC)</td>
+<td>Absolute yen of value created above the cost of capital.</td>
+<td>The "EVA" framework that operationalises equity spread / ROIC spread at the absolute-yen level. Marui Group is the canonical Japanese exemplar.</td>
+</tr>
+<tr>
+<td><strong>PBR decomposition</strong></td>
+<td>PBR分解</td>
+<td>PBR Decomposition</td>
+<td>PBR = ROE × PER</td>
+<td>Identity splitting price/book into a profitability axis (ROE) and a market-expectations axis (PER).</td>
+<td>Tells the board whether the PBR-below-1 problem is a profitability problem, a growth-expectations problem, or both.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>How the terms fit together</h2>
+<p>The vocabulary is not a flat list — it has structure. Understanding the structure is more useful than memorising any individual definition.</p>
+<p><strong>Layer 1 — Inputs (the costs).</strong> WACC, cost of equity (rE), and cost of debt (rD) measure what capital <em>demands</em> from the company. These are determined by the market, not by management.</p>
+<p><strong>Layer 2 — Outputs (the returns).</strong> ROE, ROIC, and CROIC measure what the company <em>delivers</em> to its capital providers. These are determined by management.</p>
+<p><strong>Layer 3 — Spreads (the gap).</strong> Equity spread (ROE − rE), ROIC spread (ROIC − WACC), and Residual Income / EVA are the <strong>value-creation diagnostics</strong> — outputs minus inputs.</p>
+<p><strong>Layer 4 — Market readouts.</strong> PBR and PER are the <strong>market's verdict</strong> on the expected future value of those spreads. PBR = ROE × PER decomposes that verdict into a profitability and an expectations component.</p>
+<p>The TSE request asks companies to manage <strong>layers 1–3</strong>; layer 4 follows. Every misalignment pattern in the November 2024 booklet can be traced to a confusion between these layers — most commonly, companies trying to manage layer 4 (PBR) directly without addressing layers 1–3.</p>
+<hr>
+<h2>Cost of equity: the contested number</h2>
+<p>Of all the terms in the atlas, <strong>cost of equity</strong> is the one most likely to be the subject of investor pushback. The reason is that companies and investors typically disagree.</p>
+<p><strong>The CAPM formula</strong> — rE = rf + β·(rm − rf) — requires three inputs:</p>
+<ul>
+<li><strong>Risk-free rate (rf)</strong>: typically the 10-year JGB yield. Around <strong>1.0–1.5%</strong> in late 2024 / 2025, after BOJ exited NIRP. Up materially from the near-zero levels of 2016–2022.</li>
+<li><strong>Beta (β)</strong>: the stock's sensitivity to the market index, typically estimated over 5 years of weekly returns vs. TOPIX.</li>
+<li><strong>Equity risk premium (rm − rf)</strong>: the expected return on equities over risk-free assets. The <strong>Japanese institutional consensus is roughly 5.5–7%</strong>, though academic estimates vary widely.</li>
+</ul>
+<p>A typical Japanese mid-cap might land at: rf ≈ 1.2% + β·1.0 × ERP·6% = <strong>~7.2%</strong> cost of equity.</p>
+<p>The TSE November 2024 "misalignment" booklet specifically flags companies disclosing cost of equity values "far below the level recognized by investors" — i.e., companies using artificially low rE to make the equity spread look positive. Common shortcuts that produce too-low numbers:</p>
+<ul>
+<li>Using a pre-BOJ-normalisation risk-free rate (e.g., 0.2% instead of 1.3%).</li>
+<li>Using an unrealistically low equity risk premium (3–4% rather than 5.5–7%).</li>
+<li>Using beta from a benign window that excludes pandemic/2022 volatility.</li>
+<li>Treating "WACC" as a substitute for rE in the equity-spread calculation.</li>
+</ul>
+<p><strong>A defensible 2025–2026 Japanese cost-of-equity disclosure should land between approximately 7% and 9%, with the exact number traceable to a CAPM calculation the IR team can defend in front of an investor.</strong> Below ~6% invites pushback; below ~5% will be flagged.</p>
+<hr>
+<h2>ROE vs. ROIC: the segment-level test</h2>
+<p>ROE is a corporate-level metric. ROIC is a business-unit-level metric. Both matter, and they answer different questions.</p>
+<p><strong>ROE answers:</strong> Is the company, in aggregate, earning more than its equity holders require?</p>
+<p><strong>ROIC answers:</strong> Is each individual business unit earning more than the blended cost of the capital that funds it?</p>
+<p>The <strong>"ROIC tree"</strong> — popularised by Hitachi (6501) after FY2019 and now a near-mandatory feature of best-practice MTMs — disaggregates ROIC into operating margin × invested-capital turnover, then disaggregates each of those into operational drivers (gross margin, opex ratio, working capital days, fixed asset turnover, and so on). The tree's purpose is to let management identify, segment by segment, <strong>where in the business value is being created and where it is being destroyed</strong> — and to give investors a transparent map of the same.</p>
+<p>The Hitachi integrated report (linked in Sources) is the canonical example: every segment publishes ROIC, the WACC hurdle is explicit, and segments below WACC are explicitly identified for portfolio review. Marui Group (8252) was the Japanese pioneer in EVA-style disclosure more than a decade before the TSE request and remains a reference example in the retail sector.</p>
+<hr>
+<h2>The Residual Income Model: the math behind the verdict</h2>
+<p>For IR reps who want to understand <em>why</em> equity spread determines PBR, the <strong>Residual Income Model (RIM)</strong> is the formal link. The model decomposes the market value of equity as:</p>
+<blockquote>
+<p><strong>V₀ = B₀ + Σ E[(ROEₜ − rE)·Bₜ₋₁] / (1 + rE)ᵗ</strong></p>
+</blockquote>
+<p>where V₀ is market value of equity today, B₀ is current book value, and the summation is the present value of all future residual incomes (equity spreads multiplied by book equity).</p>
+<p>Two consequences fall out immediately:</p>
+<ol>
+<li><strong>If the market expects (ROE − rE) &gt; 0 in perpetuity, V₀ &gt; B₀ — i.e., PBR &gt; 1.</strong></li>
+<li><strong>If the market expects (ROE − rE) &lt; 0 in perpetuity, V₀ &lt; B₀ — i.e., PBR &lt; 1.</strong></li>
+</ol>
+<p>This is why TSE describes PBR as a "verdict": the market is literally pricing the expected future equity spread, discounted at the cost of equity. The half of the Prime Market that traded below PBR 1 in March 2023 was, by RIM, the half of the Prime Market that the market expected to destroy value going forward.</p>
+<p>This is also why managing PBR directly — through buybacks, marketing, or short-term share-price actions — does not solve the underlying problem. It is the expected future equity spread that needs to change. Buybacks can reduce the book equity denominator in ROE, which temporarily flatters the number, but <strong>a buyback that does not change the unit economics of the business does not change the long-run residual income</strong> — and sophisticated investors price through it. (More on this in Post 4.4, sin #5: "buybacks as substitute.")</p>
+<hr>
+<h2>CROIC and the cash-flow variant</h2>
+<p>A growing number of Japanese disclosures now feature <strong>CROIC (Cash ROIC)</strong> alongside ROIC. The motivation is that accrual NOPAT can be flattered by depreciation policy, capitalisation choices, and one-off provisions. Cash-flow-based variants — using CFO or FCF in the numerator — strip those out.</p>
+<p>A typical CROIC disclosure:</p>
+<blockquote>
+<p><strong>CROIC = (Operating Cash Flow − Maintenance Capex) / (Total Invested Capital)</strong></p>
+</blockquote>
+<p>Foreign long-only investors, in particular, ask for CROIC because it is harder to game across reporting periods. As a result, MTMs published in 2024–2026 increasingly disclose <strong>both</strong> ROIC and CROIC, with WACC as the shared hurdle.</p>
+<hr>
+<h2>How this vocabulary should show up in your disclosure</h2>
+<p>A best-practice cost-of-capital disclosure — the kind featured in TSE's 55 named good-practice examples — typically contains:</p>
+<ol>
+<li><strong>An explicit cost-of-equity number</strong>, with CAPM inputs shown (rf, β, ERP). Range: 7–9%.</li>
+<li><strong>An explicit WACC number</strong>, with E/V and D/V weights shown. Range: 5–7%.</li>
+<li><strong>A consolidated ROE</strong> and a <strong>segment-level ROIC tree</strong>.</li>
+<li><strong>The equity spread (ROE − rE)</strong> and the <strong>ROIC spread (ROIC − WACC)</strong>, shown as either a number or a chart.</li>
+<li><strong>A forward path</strong> showing how the spread is expected to evolve over the MTM horizon (typically 3 years), with the underlying assumptions on margin, capital turnover, and balance-sheet structure.</li>
+</ol>
+<p>Disclosures that hit all five of these elements rarely end up in the November 2024 "misalignment" booklet. Disclosures that skip elements 1, 2, or 4 — typically because the company has not formally adopted the vocabulary internally — are the most common archetypes flagged.</p>
+<hr>
+<h2>What this means for IR</h2>
+<ol>
+<li><strong>Make the atlas mandatory internal reading.</strong> Every member of the IR, planning, and CFO teams should be able to define each of the eight terms cold and write the formula. The vocabulary gap is the single most common reason a smart Japanese company misses an investor-grade disclosure.</li>
+<li><strong>Decide and document your cost-of-equity number — defensibly.</strong> A defensible Japanese cost-of-equity disclosure in 2025–2026 lands in the <strong>7–9% range</strong> with CAPM inputs traceable. If your number is below 6%, an investor will ask you to defend it. If it is below 5%, the TSE has flagged that as a misalignment pattern.</li>
+<li><strong>Disclose both ROE and segment-level ROIC, with WACC.</strong> Corporate-level ROE alone is necessary but not sufficient. Investors increasingly read ROIC trees, and segment-level disclosure has become the post-2023 best-practice norm.</li>
+<li><strong>Use spreads, not levels, as your headline.</strong> "Our ROE is 9%" is less informative than "our equity spread is +1.5 ppt and we target +3 ppt by FY27." The spread is what drives PBR; the level is just a number.</li>
+<li><strong>Train management to use the words consistently.</strong> "Capital efficiency," "cost of capital," and "ROE" are not interchangeable. Inconsistency in earnings-call language is read by sophisticated investors as evidence of internal inconsistency in the framework.</li>
+</ol>
+<hr>
+<h2>Sources &amp; further reading</h2>
+<p><strong>Primary</strong>
+- TSE "Key Points and Examples" booklet (Feb 2024, EN PDF): <a href="https://www.jpx.co.jp/english/news/1020/u5j7e50000001bqd-att/240201en.pdf">https://www.jpx.co.jp/english/news/1020/u5j7e50000001bqd-att/240201en.pdf</a>
+- TSE "Key Points" updated edition (late 2025, EN PDF): <a href="https://www.jpx.co.jp/english/news/1020/vk0khi000000gi14-att/vk0khi000000gi4d.pdf">https://www.jpx.co.jp/english/news/1020/vk0khi000000gi14-att/vk0khi000000gi4d.pdf</a>
+- TSE November 2024 "Cases Where Companies Are Not Aligned": <a href="https://www.jpx.co.jp/english/news/1020/20241121-01.html">https://www.jpx.co.jp/english/news/1020/20241121-01.html</a></p>
+<p><strong>Supporting</strong>
+- Hitachi Integrated Report on ROIC management: <a href="https://www.hitachi.com/IR-e/library/integrated/2023/ar2023e_14.pdf">https://www.hitachi.com/IR-e/library/integrated/2023/ar2023e_14.pdf</a>
+- Springer chapter "Equity Spread and Value Creation": <a href="https://link.springer.com/chapter/10.1007/978-981-10-8503-1_4">https://link.springer.com/chapter/10.1007/978-981-10-8503-1_4</a>
+- Morgan Stanley "ROIC and the Investment Process": <a href="https://www.morganstanley.com/im/publication/insights/articles/article_roicandtheinvestmentprocess.pdf">https://www.morganstanley.com/im/publication/insights/articles/article_roicandtheinvestmentprocess.pdf</a>
+- Dai-ichi Life Research Institute (Feb 2024): <a href="https://www.dlri.co.jp/english/report_en/202402YK.html">https://www.dlri.co.jp/english/report_en/202402YK.html</a>
+- Marui Group IR (EVA / ROIC disclosure pioneer): <a href="https://www.0101maruigroup.co.jp/en/ir/">https://www.0101maruigroup.co.jp/en/ir/</a></p>
+<hr>
+<h2>Cross-references</h2>
+<ul>
+<li><strong>Theme 1.1</strong> — Why 8% Was the Number That Changed Japan (Ito Review)</li>
+<li><strong>Theme 4.1</strong> — PBR &lt; 1 Is Not a Target — It's a Verdict</li>
+<li><strong>Theme 4.3</strong> — The Shame-and-Showcase List</li>
+<li><strong>Theme 4.4</strong> — The Seven Sins of Cost-of-Capital Disclosure</li>
+<li><strong>Theme 4.5</strong> — From Disclosure to Implementation: how the April 2026 Update rewrote the rules</li>
+</ul>
+    </article>
+    <div class="post-nav"><a href="/en/governance/capital-efficiency/4.1-march-2023-request-anatomy/" class="post-nav-link prev"><div class="post-nav-dir">← Previous</div><div class="post-nav-title">PBR &lt; 1 Is Not a Target — It&#x27;s a Verdict</div></a><a href="/en/governance/capital-efficiency/4.3-the-disclosure-list/" class="post-nav-link next"><div class="post-nav-dir">Next →</div><div class="post-nav-title">The Shame-and-Showcase List: how TSE polices participation through publication</div></a></div>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Japan Investor Interface Co., Ltd.</h3>
+        <p>Cross-border IR diagnostics for Japanese listed companies. The Foreign IR Diagnostic Card visualizes how foreign capital reads your IR.</p>
+      </div>
+      <div class="footer-col">
+        <h2>The diagnostic & plans</h2>
+        <ul>
+          <li><a href="/en/services/">The Diagnostic Card</a></li>
+          <li><a href="/en/pricing/">Light — Initial Diagnostic</a></li>
+          <li><a href="/en/pricing/">Standard — Disclosure Improvement</a></li>
+          <li><a href="/en/pricing/">Pro — Investor-Meeting Cycle</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Governance curriculum</h2>
+        <ul>
+          <li><a href="/en/governance/">Curriculum home</a></li>
+          <li><a href="/en/governance/foundations/">Theme 1 · Foundations</a></li>
+          <li><a href="/en/governance/capital-efficiency/">Theme 4 · Capital Efficiency</a></li>
+          <li><a href="/en/governance/toolbox/">IR Toolbox</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>JII Compounders</h2>
+        <ul>
+          <li><a href="/en/compounders/">All profiles</a></li>
+          <li><a href="/en/compounders/methodology/">Methodology</a></li>
+          <li><a href="https://japaninterface.substack.com/" rel="noopener" target="_blank">Substack</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Contact</h2>
+        <ul>
+          <li>Email <a href="mailto:info@jpinv.com">info@jpinv.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Japan Investor Interface Co., Ltd. · All rights reserved.</p>
+      <p class="footer-locale-switcher">Language: <a href="/en/" class="current" aria-current="page" lang="en">EN</a> / <a href="/" data-locale-route lang="ja">JP</a></p>
+    </div>
+  </div>
+</footer>
+<script>
+const nav = document.getElementById('main-nav');
+if (nav) window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+const hamburgerBtn = document.querySelector('.hamburger');
+function setMenuOpen(isOpen) { const menu = document.getElementById('mobileMenu'); if (!menu || !hamburgerBtn) return; menu.classList.toggle('open', isOpen); menu.hidden = !isOpen; hamburgerBtn.setAttribute('aria-expanded', String(isOpen)); }
+function toggleMenu() { const menu = document.getElementById('mobileMenu'); setMenuOpen(!(menu && menu.classList.contains('open'))); }
+document.addEventListener('click', (e) => { const menu = document.getElementById('mobileMenu'); if (menu && menu.classList.contains('open') && !menu.contains(e.target) && hamburgerBtn && !hamburgerBtn.contains(e.target)) setMenuOpen(false); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenuOpen(false); });
+</script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs';
+mermaid.initialize({ startOnLoad: true, theme: 'neutral', fontFamily: 'Noto Sans JP, Hiragino Kaku Gothic ProN, sans-serif', themeVariables: { primaryColor: '#f4eee4', primaryTextColor: '#1a2a4a', primaryBorderColor: '#9a7838', lineColor: '#304466', secondaryColor: '#f5f7fa', tertiaryColor: '#fafbfc' } });
+</script>
+</body>
+</html>

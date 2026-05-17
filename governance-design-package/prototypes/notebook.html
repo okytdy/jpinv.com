@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IR Notebook — Japan Governance Reference Library | JII</title>
+<meta name="description" content="A searchable, filterable directory of every official Japan governance reference link — codes, market structure, METI guidelines, working groups, FAQs, data, and investor-facing resources.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!--
+================================================================================
+  IR NOTEBOOK — Japan Governance Reference Library
+  Prototype for jpinv.com governance-design-package
+  Author: JII / built 2026-05-17
+================================================================================
+
+  DATA CONTRACT
+  -------------
+  Source: ../data/links-notebook.json
+  Schema: schema_version 1.0, two top-level arrays
+    - categories[]: { id, name_en, name_ja, icon, order }
+    - links[]:     { id, title_en, title_ja, issuer, category, tags[],
+                     url_en, url_ja, format, last_revised, summary_en,
+                     summary_ja, why_ir_cares_en, why_ir_cares_ja,
+                     curriculum_slug, last_checked, language[] }
+
+  Issuers seen in current data (9):
+    FSA, JPX, JPX/FSA, JPX/TSE, JPXI, METI, GPIF, SSBJ, MoJ, JIRA
+    -> grouped under 7 "issuer families" for the sidebar filter:
+       FSA | JPX (covers JPX, JPX/TSE, JPX/FSA, JPXI) | METI | SSBJ |
+       MoJ | GPIF | JIRA
+
+  Formats: PDF | Web | (Dashboard reserved — not present in current data
+                        but included as filter for future entries.)
+
+  INTERACTION MODEL
+  -----------------
+  Filters compose with AND across facets, OR within a facet.
+  - category[]: multi-select (OR)
+  - issuer[]:   multi-select (OR), matched via family map
+  - format[]:   multi-select (OR)
+  - language:   single-select: 'en' | 'ja' | 'both' | null
+  - tag[]:      multi-select (OR) — added by clicking tag cloud or card chip
+  - search:     debounced 200ms; case-insensitive substring over title /
+                summary / tags / why_ir_cares
+
+  Sort modes: 'recent' (last_revised desc) | 'alpha' | 'category' (then alpha)
+
+  Persistence: localStorage 'jii.notebook.v1' stores { filters, sort, lang }.
+
+  DESIGN INTENT
+  -------------
+  The page is built to match the existing jpinv.com aesthetic: ink-blue +
+  bronze accent, mincho serif headlines, mono UI labels, ruled dividers
+  rather than shadows. The sidebar is the most distinguishing element —
+  a vertically-laned filter rail with monospaced eyebrows for each facet,
+  collapsible on mobile via a drawer.
+
+  Cards mirror the compounders gallery: serif title, summary, tag chips,
+  issuer badge top-left (color-coded), "Open ->" CTA bottom-right.
+  Hover reveals the "why IR cares" line + curriculum link, and exposes a
+  "Copy link" action.
+
+  ROUGH EDGES / FOLLOW-UPS for claude-design pass
+  -----------------------------------------------
+  - Tag cloud currently shows top 24 tags by frequency; a "show all"
+    expander would be nice.
+  - The "Open all in new tabs" action triggers >10-popup confirmation
+    but does not stagger window.open() calls; some browsers will block.
+  - Empty state copy could be more helpful (suggest clearing one facet).
+  - No deep-linking yet — filters are not encoded into URL hash. Should
+    be straightforward to add for shareable filter views.
+  - Curriculum slugs assume /en/ — JA toggle does not rewrite the prefix.
+  - "Dashboard" format filter has no current matches; left as forward-
+    compatibility.
+
+================================================================================
+-->
+
+<style>
+  :root {
+    --ink: #1a2a4a; --ink-mid: #172641; --ink-soft: #304466;
+    --rule: #d6dee8; --rule-soft: #e8edf3;
+    --bg: #ffffff; --bg-mid: #f5f7fa; --bg-soft: #fafbfc;
+    --text: #1f2937; --text-mid: #4a5566; --text-dim: #7a8290;
+    --accent: #b08a4a; --accent-deep: #9a7838; --accent-soft: #f4eee4;
+    --ok: #2f6f4f; --bad: #b91c1c;
+    --serif: 'Noto Serif JP', 'Yu Mincho', serif;
+    --sans: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+    --mono: 'DM Mono', monospace;
+
+    /* Issuer color coding — desaturated, ink-family hues */
+    --iss-fsa:   #2f5076;
+    --iss-jpx:   #5e4a8a;
+    --iss-meti:  #8a5a3a;
+    --iss-ssbj:  #3a6f5e;
+    --iss-moj:   #6b4858;
+    --iss-gpif:  #4a6b3a;
+    --iss-jira:  #8a6a3a;
+    --iss-other: #5a6470;
+  }
+  *,*::before,*::after { box-sizing: border-box; }
+  html,body { margin:0; padding:0; background: var(--bg); color: var(--text); font-family: var(--sans); }
+  body { font-size: 15px; line-height: 1.65; }
+  a { color: var(--ink-soft); text-decoration: none; }
+  a:hover { color: var(--ink); }
+  button { font-family: inherit; }
+
+  /* ---------- Header ---------- */
+  header.site {
+    position: relative; padding: 36px 0 28px; border-bottom: 1px solid var(--rule); overflow: hidden;
+  }
+  header.site::before {
+    content:''; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(15,31,58,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(15,31,58,0.04) 1px, transparent 1px);
+    background-size: 64px 64px;
+    -webkit-mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent);
+            mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent);
+    pointer-events: none;
+  }
+  .site-inner { position: relative; z-index: 2; max-width: 1400px; margin: 0 auto; padding: 0 32px; }
+  .site-row { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+  .brand { font-family: var(--serif); font-size: 22px; font-weight: 300; color: var(--ink-mid); letter-spacing: 0.04em; line-height: 1; }
+  .brand .pipe { color: var(--accent); font-weight: 200; margin: 0 4px; }
+  .brand .sub { font-family: var(--sans); font-size: 11px; color: var(--ink-soft); letter-spacing: 0.04em; margin-left: 10px; }
+  .lang-toggle { margin-left: auto; display: inline-flex; gap: 0; border: 1px solid var(--rule); }
+  .lang-toggle button {
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase;
+    background: var(--bg); color: var(--ink-soft); border: none; padding: 7px 14px; cursor: pointer;
+    border-right: 1px solid var(--rule);
+  }
+  .lang-toggle button:last-child { border-right: none; }
+  .lang-toggle button.active { background: var(--bg-soft); color: var(--ink-mid); }
+  .lang-toggle button:hover { color: var(--ink); }
+
+  .page-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.32em; color: var(--accent-deep); text-transform: uppercase; margin-bottom: 10px; font-weight: 500; }
+  .page-title { font-family: var(--serif); font-size: clamp(1.6rem, 3.2vw, 2.4rem); font-weight: 300; color: var(--ink-mid); line-height: 1.4; letter-spacing: 0.02em; margin: 0 0 10px; }
+  .page-title em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
+  .page-meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; }
+  .page-meta .count { color: var(--ink-mid); }
+
+  /* ---------- Layout ---------- */
+  .layout { max-width: 1400px; margin: 0 auto; padding: 28px 32px 80px; display: grid; grid-template-columns: 280px 1fr; gap: 36px; align-items: start; }
+
+  /* ---------- Sidebar (filter rail) ---------- */
+  aside.filters {
+    position: sticky; top: 20px; align-self: start;
+    background: var(--bg-soft); border: 1px solid var(--rule);
+    padding: 22px 22px 24px; max-height: calc(100vh - 40px); overflow-y: auto;
+  }
+  .filter-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 1px solid var(--rule); }
+  .filter-head h2 { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.22em; color: var(--ink-mid); text-transform: uppercase; margin: 0; font-weight: 500; }
+  .clear-all {
+    font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.16em; text-transform: uppercase;
+    background: transparent; border: 1px solid var(--rule); color: var(--text-mid); padding: 4px 8px; cursor: pointer;
+  }
+  .clear-all:hover { color: var(--bad); border-color: var(--bad); }
+  .clear-all:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  .facet { margin-bottom: 22px; }
+  .facet:last-child { margin-bottom: 0; }
+  .facet-label { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.22em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 8px; font-weight: 500; }
+
+  .opt-list { list-style: none; margin: 0; padding: 0; }
+  .opt-list li { margin: 0; }
+  .opt-btn {
+    width: 100%; display: flex; justify-content: space-between; align-items: center;
+    background: transparent; border: none; padding: 6px 0; cursor: pointer;
+    font-family: var(--sans); font-size: 13px; color: var(--text); text-align: left;
+    border-bottom: 1px dashed transparent;
+  }
+  .opt-btn:hover { color: var(--ink-mid); }
+  .opt-btn .lbl { display: inline-flex; align-items: center; gap: 8px; }
+  .opt-btn .chk { width: 12px; height: 12px; border: 1px solid var(--rule); background: var(--bg); display: inline-flex; align-items: center; justify-content: center; flex: none; }
+  .opt-btn.on .chk { background: var(--ink-mid); border-color: var(--ink-mid); }
+  .opt-btn.on .chk::after { content:''; width: 6px; height: 6px; background: var(--accent-soft); }
+  .opt-btn.on { color: var(--ink-mid); font-weight: 500; }
+  .opt-count { font-family: var(--mono); font-size: 10px; color: var(--text-dim); letter-spacing: 0.08em; }
+
+  .lang-row { display: flex; gap: 6px; }
+  .lang-row .opt-btn {
+    flex: 1; justify-content: center; padding: 7px 8px;
+    border: 1px solid var(--rule); background: var(--bg);
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+  }
+  .lang-row .opt-btn.on { background: var(--ink-mid); color: var(--accent-soft); border-color: var(--ink-mid); }
+
+  .tag-cloud { display: flex; flex-wrap: wrap; gap: 5px; }
+  .tag-chip {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em;
+    color: var(--text-mid); background: var(--bg); border: 1px solid var(--rule);
+    padding: 3px 7px; cursor: pointer;
+  }
+  .tag-chip:hover { color: var(--ink-mid); border-color: var(--ink-soft); }
+  .tag-chip.on { background: var(--ink-mid); color: var(--accent-soft); border-color: var(--ink-mid); }
+
+  /* ---------- Mobile drawer ---------- */
+  .drawer-toggle { display: none; }
+  .drawer-backdrop { display: none; position: fixed; inset: 0; background: rgba(15,31,58,0.42); z-index: 40; }
+
+  /* ---------- Main panel ---------- */
+  main { min-width: 0; }
+  .toolbar { display: flex; gap: 14px; align-items: center; margin-bottom: 22px; flex-wrap: wrap; }
+  .search-wrap { position: relative; flex: 1; min-width: 260px; }
+  .search-wrap::before {
+    content:''; position: absolute; left: 14px; top: 50%; width: 12px; height: 12px;
+    border: 1.5px solid var(--text-dim); border-radius: 50%; transform: translateY(-60%);
+  }
+  .search-wrap::after {
+    content:''; position: absolute; left: 23px; top: 50%; width: 8px; height: 1.5px;
+    background: var(--text-dim); transform: translateY(2px) rotate(45deg); transform-origin: left;
+  }
+  .search {
+    width: 100%; padding: 13px 16px 13px 38px;
+    border: 1px solid var(--rule); background: var(--bg);
+    font-family: var(--sans); font-size: 14px; color: var(--ink-mid);
+    outline: none;
+  }
+  .search:focus { border-color: var(--ink-soft); }
+  .search::placeholder { color: var(--text-dim); }
+
+  .sort-wrap { display: inline-flex; align-items: center; gap: 8px; }
+  .sort-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; color: var(--text-dim); text-transform: uppercase; font-weight: 500; }
+  .sort-select {
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase;
+    border: 1px solid var(--rule); background: var(--bg); color: var(--ink-mid);
+    padding: 9px 12px; cursor: pointer; appearance: none;
+    background-image: linear-gradient(45deg, transparent 50%, var(--ink-soft) 50%), linear-gradient(135deg, var(--ink-soft) 50%, transparent 50%);
+    background-position: calc(100% - 14px) 55%, calc(100% - 10px) 55%;
+    background-size: 4px 4px, 4px 4px;
+    background-repeat: no-repeat;
+    padding-right: 28px;
+  }
+
+  .drawer-btn {
+    display: none;
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase;
+    background: var(--bg); border: 1px solid var(--rule); color: var(--ink-mid);
+    padding: 10px 14px; cursor: pointer;
+  }
+
+  .group-actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 16px; padding: 12px 14px; background: var(--bg-soft); border: 1px solid var(--rule-soft); border-left: 3px solid var(--accent); font-family: var(--sans); font-size: 13px; color: var(--text-mid); }
+  .group-actions.hidden { display: none; }
+  .group-actions strong { color: var(--ink-mid); font-weight: 500; }
+  .group-actions button {
+    margin-left: auto;
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+    background: var(--ink-mid); color: var(--accent-soft); border: 1px solid var(--ink-mid);
+    padding: 7px 12px; cursor: pointer;
+  }
+  .group-actions button:hover { background: var(--ink); }
+
+  .results-meta { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 16px; }
+  .results-meta b { color: var(--ink-mid); font-weight: 500; }
+
+  /* ---------- Active filter chips ---------- */
+  .active-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+  .active-chip {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+    background: var(--accent-soft); color: var(--ink-mid); border: 1px solid var(--accent);
+    padding: 4px 8px 4px 10px; display: inline-flex; align-items: center; gap: 6px; cursor: pointer;
+  }
+  .active-chip:hover { background: var(--accent); color: #fff; }
+  .active-chip .x { font-family: var(--mono); font-weight: 500; }
+
+  /* ---------- Card grid ---------- */
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  @media (max-width: 1180px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .card {
+    position: relative;
+    display: flex; flex-direction: column;
+    background: var(--bg); border: 1px solid var(--rule);
+    padding: 18px 20px 18px;
+    transition: border-color 0.18s, transform 0.18s, box-shadow 0.18s;
+    min-height: 240px;
+  }
+  .card:hover, .card:focus-within {
+    border-color: var(--accent); transform: translateY(-2px);
+    box-shadow: 0 6px 20px -10px rgba(15,31,58,0.25);
+  }
+  .card:hover .card-hover, .card:focus-within .card-hover { opacity: 1; transform: translateY(0); }
+  .card-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; gap: 8px; }
+  .issuer-badge {
+    font-family: var(--mono); font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: #fff; padding: 3px 7px; flex: none; font-weight: 500;
+  }
+  .issuer-badge.iss-FSA   { background: var(--iss-fsa); }
+  .issuer-badge.iss-JPX   { background: var(--iss-jpx); }
+  .issuer-badge.iss-METI  { background: var(--iss-meti); }
+  .issuer-badge.iss-SSBJ  { background: var(--iss-ssbj); }
+  .issuer-badge.iss-MoJ   { background: var(--iss-moj); }
+  .issuer-badge.iss-GPIF  { background: var(--iss-gpif); }
+  .issuer-badge.iss-JIRA  { background: var(--iss-jira); }
+  .issuer-badge.iss-other { background: var(--iss-other); }
+
+  .card-meta { font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; display: flex; gap: 8px; align-items: center; }
+  .card-format { padding: 2px 6px; border: 1px solid var(--rule); }
+  .card-date { color: var(--text-dim); }
+
+  .card-title {
+    font-family: var(--serif); font-size: 1.05rem; color: var(--ink-mid);
+    font-weight: 400; line-height: 1.45; letter-spacing: 0.01em; margin: 0 0 10px;
+  }
+  .card-summary {
+    font-family: var(--sans); font-size: 12.5px; color: var(--text-mid);
+    line-height: 1.7; margin: 0 0 12px;
+    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .card-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 12px; }
+  .card-tag {
+    font-family: var(--mono); font-size: 9px; letter-spacing: 0.06em;
+    color: var(--text-dim); background: var(--bg-soft); border: 1px solid var(--rule-soft);
+    padding: 2px 6px; cursor: pointer;
+  }
+  .card-tag:hover { color: var(--ink-mid); border-color: var(--ink-soft); }
+
+  .card-foot { margin-top: auto; display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid var(--rule-soft); }
+  .card-open {
+    font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink-mid); font-weight: 500; display: inline-flex; align-items: center; gap: 6px;
+  }
+  .card-open:hover { color: var(--accent-deep); }
+  .card-open .arrow { font-family: var(--serif); font-size: 13px; }
+  .card-actions { display: inline-flex; gap: 6px; }
+  .icon-btn {
+    background: transparent; border: 1px solid transparent; cursor: pointer; padding: 4px;
+    color: var(--text-dim); font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em;
+  }
+  .icon-btn:hover { color: var(--ink-mid); border-color: var(--rule); }
+
+  .card-hover {
+    position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
+    background: var(--bg); border-top: 1px solid var(--accent);
+    padding: 12px 20px 14px;
+    opacity: 0; transform: translateY(4px); pointer-events: none;
+    transition: opacity 0.18s, transform 0.18s;
+  }
+  .card:hover .card-hover, .card:focus-within .card-hover { pointer-events: auto; }
+  .card-hover-label { font-family: var(--mono); font-size: 8.5px; letter-spacing: 0.22em; color: var(--accent-deep); text-transform: uppercase; margin-bottom: 4px; font-weight: 500; }
+  .card-hover-text { font-family: var(--serif); font-size: 12px; color: var(--text); line-height: 1.65; margin: 0 0 8px; }
+  .card-curriculum {
+    font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent-deep); display: inline-flex; align-items: center; gap: 5px;
+  }
+  .card-curriculum:hover { color: var(--ink-mid); }
+
+  /* ---------- Empty state ---------- */
+  .empty {
+    grid-column: 1 / -1;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    background: var(--bg-soft); border: 1px dashed var(--rule);
+    padding: 60px 28px; text-align: center; min-height: 280px;
+  }
+  .empty .label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 10px; }
+  .empty .msg { font-family: var(--serif); font-size: 1.15rem; color: var(--ink-mid); line-height: 1.6; max-width: 420px; margin: 0 0 16px; font-weight: 300; }
+  .empty button {
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase;
+    background: var(--ink-mid); color: var(--accent-soft); border: 1px solid var(--ink-mid);
+    padding: 10px 16px; cursor: pointer;
+  }
+  .empty button:hover { background: var(--ink); }
+
+  /* ---------- Toast ---------- */
+  .toast {
+    position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%) translateY(20px);
+    background: var(--ink-mid); color: var(--accent-soft);
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    padding: 12px 20px; border: 1px solid var(--ink); z-index: 100;
+    opacity: 0; pointer-events: none; transition: opacity 0.2s, transform 0.2s;
+  }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  /* ---------- Loading ---------- */
+  .loading { padding: 60px 0; text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.22em; color: var(--text-dim); text-transform: uppercase; }
+
+  /* ---------- Accessibility ---------- */
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+    outline: 2px solid var(--accent); outline-offset: 2px;
+  }
+  .skip-link {
+    position: fixed; top: 10px; left: 10px; z-index: 1000;
+    transform: translateY(-150%);
+    padding: 10px 14px; background: var(--ink); color: #fff; text-decoration: none;
+  }
+  .skip-link:focus { transform: translateY(0); }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .layout { grid-template-columns: 1fr; padding: 20px 18px 60px; gap: 0; }
+    aside.filters {
+      position: fixed; top: 0; left: 0; bottom: 0; width: 320px; max-width: 86vw;
+      z-index: 50; transform: translateX(-100%); transition: transform 0.25s ease;
+      max-height: none; border-right: 1px solid var(--rule); border-left: none;
+      border-top: none; border-bottom: none;
+    }
+    aside.filters.open { transform: translateX(0); }
+    .drawer-btn { display: inline-flex; align-items: center; gap: 6px; }
+    .drawer-backdrop.show { display: block; }
+    .grid { grid-template-columns: 1fr; gap: 14px; }
+    .site-inner { padding: 0 18px; }
+    header.site { padding: 26px 0 20px; }
+    .site-row { flex-wrap: wrap; }
+    .lang-toggle { margin-left: 0; }
+    .page-title { font-size: 1.45rem; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<header class="site">
+  <div class="site-inner">
+    <div class="site-row">
+      <a href="/" class="brand" aria-label="JII home">JII<span class="pipe">|</span><span>Japan Investor Investigations</span><span class="sub" data-i18n="subtitle">Governance design package</span></a>
+      <div class="lang-toggle" role="tablist" aria-label="Language">
+        <button data-lang="en" class="active" role="tab" aria-selected="true">EN</button>
+        <button data-lang="ja" role="tab" aria-selected="false">JA</button>
+      </div>
+    </div>
+    <div class="page-eyebrow" data-i18n="eyebrow">Reference library</div>
+    <h1 class="page-title" data-i18n="title">IR Notebook <em>— Japan Governance Reference Library</em></h1>
+    <div class="page-meta">
+      <span data-i18n="meta-prefix">Indexing</span>
+      <span class="count" id="totalCount">—</span>
+      <span data-i18n="meta-suffix">official links across 9 categories. Updated</span>
+      <span id="lastUpdated">—</span>.
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+
+  <!-- Sidebar -->
+  <aside class="filters" id="filters" aria-label="Filter results">
+    <div class="filter-head">
+      <h2 data-i18n="filters-h">Filters</h2>
+      <button class="clear-all" id="clearAll" data-i18n="clear-all">Clear all</button>
+    </div>
+
+    <div class="facet">
+      <div class="facet-label" data-i18n="facet-cat">Category</div>
+      <ul class="opt-list" id="catList"></ul>
+    </div>
+
+    <div class="facet">
+      <div class="facet-label" data-i18n="facet-issuer">Issuer</div>
+      <ul class="opt-list" id="issuerList"></ul>
+    </div>
+
+    <div class="facet">
+      <div class="facet-label" data-i18n="facet-format">Format</div>
+      <ul class="opt-list" id="formatList"></ul>
+    </div>
+
+    <div class="facet">
+      <div class="facet-label" data-i18n="facet-lang">Language available</div>
+      <div class="lang-row" id="langRow">
+        <button class="opt-btn" data-lang-filter="en">EN</button>
+        <button class="opt-btn" data-lang-filter="ja">JA</button>
+        <button class="opt-btn" data-lang-filter="both">Both</button>
+      </div>
+    </div>
+
+    <div class="facet">
+      <div class="facet-label" data-i18n="facet-tags">Tags</div>
+      <div class="tag-cloud" id="tagCloud"></div>
+    </div>
+  </aside>
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+
+  <!-- Main -->
+  <main id="main" tabindex="-1">
+
+    <div class="toolbar">
+      <button class="drawer-btn" id="drawerBtn" aria-label="Open filters">☰ <span data-i18n="filters-btn">Filters</span></button>
+      <div class="search-wrap">
+        <input
+          type="search" class="search" id="search"
+          placeholder="Search title, summary, tags…"
+          aria-label="Search reference library"
+          autocomplete="off">
+      </div>
+      <div class="sort-wrap">
+        <span class="sort-label" data-i18n="sort-label">Sort</span>
+        <select class="sort-select" id="sort" aria-label="Sort results">
+          <option value="recent" data-i18n="sort-recent">Most recent</option>
+          <option value="alpha" data-i18n="sort-alpha">Alphabetical</option>
+          <option value="category" data-i18n="sort-category">By category</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="active-chips" id="activeChips"></div>
+
+    <div class="group-actions hidden" id="groupActions">
+      <strong id="groupActionsLabel">—</strong>
+      <span data-i18n="group-suffix">filtered</span>
+      <button id="openAllBtn" data-i18n="open-all">Open all in new tabs ↗</button>
+    </div>
+
+    <div class="results-meta" id="resultsMeta">
+      <span data-i18n="showing">Showing</span> <b id="resultsCount">—</b> <span data-i18n="of">of</span> <b id="resultsTotal">—</b>.
+    </div>
+
+    <div class="loading" id="loading" data-i18n="loading">Loading reference library…</div>
+
+    <div class="grid" id="grid" hidden></div>
+  </main>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* ============================================================================
+   STATE & CONFIG
+============================================================================ */
+const STORAGE_KEY = 'jii.notebook.v1';
+const DEBOUNCE_MS = 200;
+
+// Issuer family map — raw issuer string -> filter family
+const ISSUER_FAMILY = {
+  'FSA': 'FSA',
+  'JPX': 'JPX',
+  'JPX/TSE': 'JPX',
+  'JPX/FSA': 'JPX',
+  'JPXI': 'JPX',
+  'METI': 'METI',
+  'SSBJ': 'SSBJ',
+  'MoJ': 'MoJ',
+  'GPIF': 'GPIF',
+  'JIRA': 'JIRA'
+};
+const ISSUER_FAMILIES = ['FSA','JPX','METI','SSBJ','MoJ','GPIF','JIRA'];
+
+// Available formats (forward-compatible)
+const FORMAT_OPTIONS = ['PDF','Web','Dashboard'];
+
+// i18n strings for UI chrome
+const I18N = {
+  en: {
+    subtitle: 'Governance design package',
+    eyebrow: 'Reference library',
+    title: 'IR Notebook <em>— Japan Governance Reference Library</em>',
+    'meta-prefix': 'Indexing',
+    'meta-suffix': 'official links across 9 categories. Updated',
+    'filters-h': 'Filters',
+    'clear-all': 'Clear all',
+    'facet-cat': 'Category',
+    'facet-issuer': 'Issuer',
+    'facet-format': 'Format',
+    'facet-lang': 'Language available',
+    'facet-tags': 'Tags',
+    'filters-btn': 'Filters',
+    'sort-label': 'Sort',
+    'sort-recent': 'Most recent',
+    'sort-alpha': 'Alphabetical',
+    'sort-category': 'By category',
+    showing: 'Showing',
+    of: 'of',
+    loading: 'Loading reference library…',
+    'open-all': 'Open all in new tabs ↗',
+    'group-suffix': 'filtered',
+    empty_label: 'No matches',
+    empty_msg: 'No reference links match the current filter set. Try removing a facet or clearing the search.',
+    empty_btn: 'Clear all filters',
+    open: 'Open',
+    copy: 'Copy link',
+    copied: 'Link copied to clipboard',
+    why: 'Why IR cares',
+    curriculum: 'Read curriculum context →',
+    confirm_many: 'Open all {n} links in new tabs? Your browser may block some pop-ups.',
+    lang_both: 'Both',
+    search_placeholder: 'Search title, summary, tags…'
+  },
+  ja: {
+    subtitle: 'ガバナンス・デザインパッケージ',
+    eyebrow: 'リファレンス・ライブラリ',
+    title: 'IRノート<em>—日本ガバナンス公式リンク集</em>',
+    'meta-prefix': '',
+    'meta-suffix': '件の公式リンクを9カテゴリで索引。最終更新',
+    'filters-h': 'フィルター',
+    'clear-all': 'すべて解除',
+    'facet-cat': 'カテゴリ',
+    'facet-issuer': '発行主体',
+    'facet-format': '形式',
+    'facet-lang': '対応言語',
+    'facet-tags': 'タグ',
+    'filters-btn': 'フィルター',
+    'sort-label': '並び替え',
+    'sort-recent': '更新日順',
+    'sort-alpha': '五十音順',
+    'sort-category': 'カテゴリ別',
+    showing: '表示中',
+    of: '/',
+    loading: 'リファレンス・ライブラリを読み込み中…',
+    'open-all': 'すべて新規タブで開く ↗',
+    'group-suffix': '件抽出',
+    empty_label: '該当なし',
+    empty_msg: '現在のフィルター条件に該当するリンクがありません。条件を緩めるか、検索語を変更してください。',
+    empty_btn: 'フィルターを解除',
+    open: '開く',
+    copy: 'リンクをコピー',
+    copied: 'リンクをコピーしました',
+    why: 'IR担当者が知るべき理由',
+    curriculum: 'カリキュラム解説を読む →',
+    confirm_many: '{n}件のリンクをすべて新規タブで開きますか?ブラウザによってはブロックされる場合があります。',
+    lang_both: '両方',
+    search_placeholder: 'タイトル・要約・タグから検索…'
+  }
+};
+
+// Initial state
+let state = {
+  lang: 'en',
+  filters: {
+    categories: [],
+    issuers: [],
+    formats: [],
+    language: null,    // null | 'en' | 'ja' | 'both'
+    tags: [],
+    search: ''
+  },
+  sort: 'recent'
+};
+
+let DATA = { categories: [], links: [] };
+
+/* ============================================================================
+   PERSISTENCE
+============================================================================ */
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return;
+    const saved = JSON.parse(raw);
+    if (saved.lang) state.lang = saved.lang;
+    if (saved.sort) state.sort = saved.sort;
+    if (saved.filters) Object.assign(state.filters, saved.filters);
+  } catch (e) {
+    console.warn('[notebook] failed to load saved state', e);
+  }
+}
+function saveState() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({
+      lang: state.lang,
+      sort: state.sort,
+      filters: state.filters
+    }));
+  } catch (e) {
+    // localStorage may be unavailable (private mode, etc.) — silent fallback
+  }
+}
+
+/* ============================================================================
+   DATA LOADING
+============================================================================ */
+async function loadData() {
+  try {
+    const res = await fetch('../data/links-notebook.json', { cache: 'no-cache' });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    return await res.json();
+  } catch (e) {
+    console.warn('[notebook] fetch failed, using inline fallback', e);
+    // Minimal inline fallback so the prototype is viewable when opened via
+    // file:// without a local server. Single representative entry.
+    return {
+      schema_version: '1.0',
+      last_updated: '2026-05-17',
+      categories: [
+        { id:'codes', name_en:'Codes', name_ja:'コード類', order:1 },
+        { id:'market', name_en:'Market structure', name_ja:'市場構造', order:2 },
+        { id:'lists', name_en:'Disclosure lists', name_ja:'開示企業リスト', order:3 },
+        { id:'good-practice', name_en:'Good-practice collections', name_ja:'ベストプラクティス', order:4 },
+        { id:'guidelines', name_en:'METI Guidelines', name_ja:'経済産業省ガイドライン', order:5 },
+        { id:'working-groups', name_en:'Working groups & councils', name_ja:'ワーキング・グループ', order:6 },
+        { id:'faqs', name_en:'FAQs & practical tools', name_ja:'FAQ・実務ツール', order:7 },
+        { id:'data', name_en:'Data & statistics', name_ja:'データ・統計', order:8 },
+        { id:'investor', name_en:'Investor-facing', name_ja:'投資家向け説明', order:9 }
+      ],
+      links: [{
+        id:'fallback-1',
+        title_en:'CG Code (fallback inline entry)',
+        title_ja:'コーポレートガバナンス・コード(フォールバック)',
+        issuer:'JPX/FSA', category:'codes',
+        tags:['cg-code','comply-or-explain'],
+        url_en:'https://www.jpx.co.jp/english/', url_ja:'https://www.jpx.co.jp/',
+        format:'PDF', last_revised:'2021-06-11',
+        summary_en:'Fallback entry — fetch of links-notebook.json failed. Serve from a local web server to see the full 85-entry catalogue.',
+        summary_ja:'フォールバック表示。links-notebook.json の読み込みに失敗しました。ローカルサーバー経由でご覧ください。',
+        why_ir_cares_en:'This prototype expects to be served over HTTP. Open via a local server (e.g. `python -m http.server`).',
+        why_ir_cares_ja:'本プロトタイプはHTTP経由での提供を前提としています。',
+        curriculum_slug:'/en/governance/cg-code/2.3-cg-code-2021-revision/',
+        last_checked:'2026-05-17',
+        language:['en','ja']
+      }]
+    };
+  }
+}
+
+/* ============================================================================
+   UTILITIES
+============================================================================ */
+function t(key) { return I18N[state.lang][key] || I18N.en[key] || key; }
+function issuerFamily(issuer) { return ISSUER_FAMILY[issuer] || 'other'; }
+function debounce(fn, ms) {
+  let h; return function(...a){ clearTimeout(h); h = setTimeout(()=>fn.apply(this,a), ms); };
+}
+function showToast(msg) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  clearTimeout(showToast._h);
+  showToast._h = setTimeout(()=>el.classList.remove('show'), 1800);
+}
+function escapeHtml(s) {
+  if (s == null) return '';
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
+}
+
+/* ============================================================================
+   FILTER PIPELINE
+============================================================================ */
+function applyFilters() {
+  const f = state.filters;
+  const q = (f.search || '').trim().toLowerCase();
+
+  let out = DATA.links.filter(link => {
+    if (f.categories.length && !f.categories.includes(link.category)) return false;
+    if (f.issuers.length && !f.issuers.includes(issuerFamily(link.issuer))) return false;
+    if (f.formats.length && !f.formats.includes(link.format)) return false;
+    if (f.language) {
+      const langs = link.language || [];
+      if (f.language === 'both') {
+        if (!(langs.includes('en') && langs.includes('ja'))) return false;
+      } else {
+        if (!langs.includes(f.language)) return false;
+      }
+    }
+    if (f.tags.length) {
+      const linkTags = link.tags || [];
+      if (!f.tags.every(t => linkTags.includes(t))) return false;
+    }
+    if (q) {
+      const hay = [
+        link.title_en, link.title_ja, link.summary_en, link.summary_ja,
+        link.why_ir_cares_en, link.why_ir_cares_ja,
+        (link.tags || []).join(' '), link.issuer
+      ].join(' ').toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
+    return true;
+  });
+
+  // Sort
+  if (state.sort === 'alpha') {
+    out.sort((a,b)=> (a['title_'+state.lang] || a.title_en).localeCompare(b['title_'+state.lang] || b.title_en));
+  } else if (state.sort === 'category') {
+    const order = Object.fromEntries(DATA.categories.map(c => [c.id, c.order]));
+    out.sort((a,b)=> {
+      const oa = order[a.category] || 99, ob = order[b.category] || 99;
+      if (oa !== ob) return oa - ob;
+      return (a['title_'+state.lang] || a.title_en).localeCompare(b['title_'+state.lang] || b.title_en);
+    });
+  } else { // recent
+    out.sort((a,b)=> (b.last_revised || '').localeCompare(a.last_revised || ''));
+  }
+
+  return out;
+}
+
+/* ============================================================================
+   RENDER: SIDEBAR
+============================================================================ */
+function countLinksMatching(predicate) {
+  return DATA.links.filter(predicate).length;
+}
+
+function renderCategoryList() {
+  const ul = document.getElementById('catList');
+  ul.innerHTML = '';
+  const sorted = [...DATA.categories].sort((a,b)=>a.order-b.order);
+  sorted.forEach(cat => {
+    const count = countLinksMatching(l => l.category === cat.id);
+    const li = document.createElement('li');
+    const on = state.filters.categories.includes(cat.id);
+    li.innerHTML = `
+      <button class="opt-btn ${on?'on':''}" data-cat="${cat.id}" aria-pressed="${on}">
+        <span class="lbl"><span class="chk"></span>${escapeHtml(cat['name_'+state.lang])}</span>
+        <span class="opt-count">${count}</span>
+      </button>`;
+    ul.appendChild(li);
+  });
+  ul.querySelectorAll('.opt-btn').forEach(btn => {
+    btn.addEventListener('click', () => toggleFilter('categories', btn.dataset.cat));
+  });
+}
+
+function renderIssuerList() {
+  const ul = document.getElementById('issuerList');
+  ul.innerHTML = '';
+  ISSUER_FAMILIES.forEach(fam => {
+    const count = countLinksMatching(l => issuerFamily(l.issuer) === fam);
+    if (count === 0) return;
+    const on = state.filters.issuers.includes(fam);
+    const li = document.createElement('li');
+    li.innerHTML = `
+      <button class="opt-btn ${on?'on':''}" data-iss="${fam}" aria-pressed="${on}">
+        <span class="lbl"><span class="chk"></span>${fam}</span>
+        <span class="opt-count">${count}</span>
+      </button>`;
+    ul.appendChild(li);
+  });
+  ul.querySelectorAll('.opt-btn').forEach(btn => {
+    btn.addEventListener('click', () => toggleFilter('issuers', btn.dataset.iss));
+  });
+}
+
+function renderFormatList() {
+  const ul = document.getElementById('formatList');
+  ul.innerHTML = '';
+  FORMAT_OPTIONS.forEach(fmt => {
+    const count = countLinksMatching(l => l.format === fmt);
+    const on = state.filters.formats.includes(fmt);
+    const li = document.createElement('li');
+    li.innerHTML = `
+      <button class="opt-btn ${on?'on':''}" data-fmt="${fmt}" aria-pressed="${on}">
+        <span class="lbl"><span class="chk"></span>${fmt}</span>
+        <span class="opt-count">${count}</span>
+      </button>`;
+    ul.appendChild(li);
+  });
+  ul.querySelectorAll('.opt-btn').forEach(btn => {
+    btn.addEventListener('click', () => toggleFilter('formats', btn.dataset.fmt));
+  });
+}
+
+function renderLangRow() {
+  const row = document.getElementById('langRow');
+  row.querySelectorAll('button').forEach(btn => {
+    const v = btn.dataset.langFilter;
+    btn.classList.toggle('on', state.filters.language === v);
+    btn.setAttribute('aria-pressed', String(state.filters.language === v));
+    // Localize "Both" label
+    if (v === 'both') btn.textContent = t('lang_both');
+    btn.onclick = () => {
+      state.filters.language = state.filters.language === v ? null : v;
+      saveState(); render();
+    };
+  });
+}
+
+function renderTagCloud() {
+  const cloud = document.getElementById('tagCloud');
+  cloud.innerHTML = '';
+  // top 24 tags by frequency
+  const freq = {};
+  DATA.links.forEach(l => (l.tags || []).forEach(tg => { freq[tg] = (freq[tg]||0)+1; }));
+  const top = Object.entries(freq).sort((a,b)=>b[1]-a[1]).slice(0, 24);
+  top.forEach(([tag, count]) => {
+    const on = state.filters.tags.includes(tag);
+    const btn = document.createElement('button');
+    btn.className = 'tag-chip' + (on ? ' on' : '');
+    btn.textContent = `${tag} · ${count}`;
+    btn.setAttribute('aria-pressed', String(on));
+    btn.addEventListener('click', () => toggleFilter('tags', tag));
+    cloud.appendChild(btn);
+  });
+}
+
+/* ============================================================================
+   RENDER: ACTIVE CHIPS + GROUP ACTIONS
+============================================================================ */
+function renderActiveChips() {
+  const box = document.getElementById('activeChips');
+  box.innerHTML = '';
+  const chips = [];
+
+  state.filters.categories.forEach(c => {
+    const cat = DATA.categories.find(x => x.id === c);
+    if (cat) chips.push({label: cat['name_'+state.lang], remove: () => toggleFilter('categories', c)});
+  });
+  state.filters.issuers.forEach(i => chips.push({label: i, remove: () => toggleFilter('issuers', i)}));
+  state.filters.formats.forEach(f => chips.push({label: f, remove: () => toggleFilter('formats', f)}));
+  state.filters.tags.forEach(tg => chips.push({label: '#'+tg, remove: () => toggleFilter('tags', tg)}));
+  if (state.filters.language) {
+    const lbl = state.filters.language === 'both' ? t('lang_both') : state.filters.language.toUpperCase();
+    chips.push({label: lbl, remove: () => { state.filters.language = null; saveState(); render(); }});
+  }
+  if (state.filters.search) {
+    chips.push({label: '"' + state.filters.search + '"', remove: () => { state.filters.search = ''; document.getElementById('search').value = ''; saveState(); render(); }});
+  }
+
+  chips.forEach(c => {
+    const el = document.createElement('button');
+    el.className = 'active-chip';
+    el.innerHTML = `${escapeHtml(c.label)} <span class="x">×</span>`;
+    el.addEventListener('click', c.remove);
+    box.appendChild(el);
+  });
+
+  document.getElementById('clearAll').disabled = chips.length === 0;
+}
+
+function renderGroupActions(filtered) {
+  const wrap = document.getElementById('groupActions');
+  const f = state.filters;
+  // Show when results filtered to a single category
+  if (f.categories.length === 1 && filtered.length > 0) {
+    const cat = DATA.categories.find(x => x.id === f.categories[0]);
+    document.getElementById('groupActionsLabel').textContent = `${cat['name_'+state.lang]} · ${filtered.length}`;
+    wrap.classList.remove('hidden');
+    document.getElementById('openAllBtn').onclick = () => openAll(filtered);
+  } else {
+    wrap.classList.add('hidden');
+  }
+}
+
+function openAll(items) {
+  if (items.length === 0) return;
+  if (items.length > 10) {
+    const msg = t('confirm_many').replace('{n}', items.length);
+    if (!confirm(msg)) return;
+  }
+  items.forEach(it => {
+    const url = it['url_'+state.lang] || it.url_en;
+    if (url) window.open(url, '_blank', 'noopener');
+  });
+}
+
+/* ============================================================================
+   RENDER: CARDS
+============================================================================ */
+function renderCards(filtered) {
+  const grid = document.getElementById('grid');
+  grid.innerHTML = '';
+  grid.hidden = false;
+  document.getElementById('loading').style.display = 'none';
+
+  document.getElementById('resultsCount').textContent = filtered.length;
+  document.getElementById('resultsTotal').textContent = DATA.links.length;
+
+  if (filtered.length === 0) {
+    const empty = document.createElement('div');
+    empty.className = 'empty';
+    empty.innerHTML = `
+      <div class="label">${t('empty_label')}</div>
+      <p class="msg">${escapeHtml(t('empty_msg'))}</p>
+      <button id="emptyClear">${t('empty_btn')}</button>
+    `;
+    grid.appendChild(empty);
+    document.getElementById('emptyClear').onclick = clearAllFilters;
+    return;
+  }
+
+  const frag = document.createDocumentFragment();
+  filtered.forEach(link => frag.appendChild(renderCard(link)));
+  grid.appendChild(frag);
+}
+
+function renderCard(link) {
+  const lang = state.lang;
+  const title = link['title_'+lang] || link.title_en;
+  const summary = link['summary_'+lang] || link.summary_en;
+  const why = link['why_ir_cares_'+lang] || link.why_ir_cares_en;
+  const url = link['url_'+lang] || link.url_en;
+  const fam = issuerFamily(link.issuer);
+  const date = link.last_revised ? link.last_revised.slice(0,7) : '';
+
+  const card = document.createElement('article');
+  card.className = 'card';
+  card.dataset.id = link.id;
+
+  card.innerHTML = `
+    <div class="card-head">
+      <span class="issuer-badge iss-${fam}" title="${escapeHtml(link.issuer)}">${escapeHtml(link.issuer)}</span>
+      <span class="card-meta">
+        <span class="card-format">${escapeHtml(link.format || '')}</span>
+        <span class="card-date">${escapeHtml(date)}</span>
+      </span>
+    </div>
+    <h3 class="card-title">${escapeHtml(title)}</h3>
+    <p class="card-summary">${escapeHtml(summary)}</p>
+    <div class="card-tags">
+      ${(link.tags || []).slice(0,5).map(tg =>
+        `<button class="card-tag" data-tag="${escapeHtml(tg)}">${escapeHtml(tg)}</button>`
+      ).join('')}
+    </div>
+    <div class="card-foot">
+      <a class="card-open" href="${escapeHtml(url)}" target="_blank" rel="noopener">${t('open')} <span class="arrow">→</span></a>
+      <span class="card-actions">
+        <button class="icon-btn" data-copy="${escapeHtml(url)}" aria-label="${t('copy')}" title="${t('copy')}">⧉ ${t('copy')}</button>
+      </span>
+    </div>
+    <div class="card-hover" aria-hidden="true">
+      <div class="card-hover-label">${t('why')}</div>
+      <p class="card-hover-text">${escapeHtml(why)}</p>
+      ${link.curriculum_slug ? `<a class="card-curriculum" href="${escapeHtml(link.curriculum_slug)}">${t('curriculum')}</a>` : ''}
+    </div>
+  `;
+
+  // Card-tag click adds to tag filter
+  card.querySelectorAll('.card-tag').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation(); e.preventDefault();
+      toggleFilter('tags', btn.dataset.tag);
+    });
+  });
+  // Copy button
+  const copyBtn = card.querySelector('[data-copy]');
+  copyBtn.addEventListener('click', e => {
+    e.stopPropagation(); e.preventDefault();
+    const u = copyBtn.dataset.copy;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(u).then(() => showToast(t('copied')));
+    } else {
+      // Fallback
+      const ta = document.createElement('textarea');
+      ta.value = u; document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); showToast(t('copied')); } catch(e) {}
+      document.body.removeChild(ta);
+    }
+  });
+
+  // Enter on the card follows the link
+  card.tabIndex = 0;
+  card.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && document.activeElement === card) {
+      window.open(url, '_blank', 'noopener');
+    }
+  });
+
+  return card;
+}
+
+/* ============================================================================
+   FILTER MUTATIONS
+============================================================================ */
+function toggleFilter(key, value) {
+  const arr = state.filters[key];
+  const i = arr.indexOf(value);
+  if (i >= 0) arr.splice(i, 1); else arr.push(value);
+  saveState(); render();
+}
+function clearAllFilters() {
+  state.filters = { categories:[], issuers:[], formats:[], language:null, tags:[], search:'' };
+  document.getElementById('search').value = '';
+  saveState(); render();
+}
+
+/* ============================================================================
+   I18N APPLICATION
+============================================================================ */
+function applyI18n() {
+  document.documentElement.lang = state.lang;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    const val = t(key);
+    if (key === 'title') el.innerHTML = val; else el.textContent = val;
+  });
+  document.getElementById('search').placeholder = t('search_placeholder');
+  // Lang toggle visual state
+  document.querySelectorAll('.lang-toggle button').forEach(b => {
+    const on = b.dataset.lang === state.lang;
+    b.classList.toggle('active', on);
+    b.setAttribute('aria-selected', String(on));
+  });
+}
+
+/* ============================================================================
+   MAIN RENDER
+============================================================================ */
+function render() {
+  applyI18n();
+  renderCategoryList();
+  renderIssuerList();
+  renderFormatList();
+  renderLangRow();
+  renderTagCloud();
+  renderActiveChips();
+  const filtered = applyFilters();
+  renderGroupActions(filtered);
+  renderCards(filtered);
+}
+
+/* ============================================================================
+   INIT
+============================================================================ */
+async function init() {
+  loadState();
+
+  DATA = await loadData();
+  document.getElementById('totalCount').textContent = DATA.links.length;
+  document.getElementById('lastUpdated').textContent = DATA.last_updated || '';
+
+  // Wire static controls
+  document.getElementById('clearAll').addEventListener('click', clearAllFilters);
+
+  const searchEl = document.getElementById('search');
+  searchEl.value = state.filters.search || '';
+  searchEl.addEventListener('input', debounce(e => {
+    state.filters.search = e.target.value;
+    saveState(); render();
+  }, DEBOUNCE_MS));
+
+  const sortEl = document.getElementById('sort');
+  sortEl.value = state.sort;
+  sortEl.addEventListener('change', e => {
+    state.sort = e.target.value;
+    saveState(); render();
+  });
+
+  document.querySelectorAll('.lang-toggle button').forEach(b => {
+    b.addEventListener('click', () => {
+      state.lang = b.dataset.lang;
+      saveState(); render();
+    });
+  });
+
+  // Mobile drawer
+  const drawerBtn = document.getElementById('drawerBtn');
+  const filters = document.getElementById('filters');
+  const backdrop = document.getElementById('drawerBackdrop');
+  drawerBtn.addEventListener('click', () => {
+    filters.classList.add('open');
+    backdrop.classList.add('show');
+  });
+  backdrop.addEventListener('click', () => {
+    filters.classList.remove('open');
+    backdrop.classList.remove('show');
+  });
+
+  // Keyboard: Escape closes drawer
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && filters.classList.contains('open')) {
+      filters.classList.remove('open');
+      backdrop.classList.remove('show');
+    }
+  });
+
+  render();
+}
+
+init().catch(e => {
+  console.error('[notebook] init failed', e);
+  document.getElementById('loading').textContent = 'Failed to load reference library — see console.';
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+name: feed-refresh
+
+# JII Compounders -- Capital-Allocation Inflection Feed
+# Polls EDINET + TDnet every 30 min, runs the classifier,
+# appends new matches to compounders/feed/data/*.json, and pushes back to main.
+# Spec: compounders/feed/_SPEC.md, sections 3, 4, 8.
+
+on:
+  schedule:
+    # Every 30 minutes. GitHub may delay scheduled runs under heavy load;
+    # the refresh script is idempotent so late catch-ups are safe.
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+    # Manual trigger -- exposed as a "Run workflow" button in the Actions tab.
+
+permissions:
+  contents: write    # so the job can commit and push the refreshed JSON
+
+concurrency:
+  # Never let two refresh runs race each other -- newer one wins.
+  group: feed-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    name: Poll disclosures and append new matches
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          # Need full token persistence so the later push step can write back.
+          persist-credentials: true
+          fetch-depth: 1
+
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Python dependencies
+        timeout-minutes: 3
+        run: |
+          set -euo pipefail
+          if [ -f tools/requirements.txt ]; then
+            pip install --disable-pip-version-check -r tools/requirements.txt
+          else
+            echo "tools/requirements.txt missing -- falling back to inline install"
+            pip install --disable-pip-version-check requests beautifulsoup4 lxml
+          fi
+
+      - name: Run feed_refresh.py
+        id: refresh
+        timeout-minutes: 10
+        continue-on-error: false
+        env:
+          EDINET_API_KEY: ${{ secrets.EDINET_API_KEY }}
+          PYTHONUNBUFFERED: '1'
+        run: |
+          set -euo pipefail
+          python tools/feed_refresh.py
+
+      - name: Check for changes under compounders/feed/data/
+        id: diff
+        run: |
+          set -euo pipefail
+          if [ -n "$(git status --porcelain compounders/feed/data/)" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            # Best-effort count of newly-added rows in feed.json for the run summary.
+            # Counts lines starting with the row id sentinel; tolerates missing files.
+            added=$(git diff --unified=0 -- compounders/feed/data/feed.json 2>/dev/null                     | grep -E '^\+\s*"id":' | wc -l | tr -d ' ')
+            echo "added=${added:-0}" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "added=0" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit and push refreshed data
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          set -euo pipefail
+          git config user.name  "jii-feed-bot"
+          git config user.email "feed-bot@users.noreply.github.com"
+          git add compounders/feed/data/
+          git commit -m "feed: refresh @ ${{ github.run_id }}"
+          git push
+
+      - name: Job summary
+        if: always()
+        run: |
+          {
+            echo "## Feed refresh"
+            echo ""
+            echo "- changed: ${{ steps.diff.outputs.changed }}"
+            echo "- new rows appended: ${{ steps.diff.outputs.added }}"
+            echo "- run id: ${{ github.run_id }}"
+          } >> "$GITHUB_STEP_SUMMARY"

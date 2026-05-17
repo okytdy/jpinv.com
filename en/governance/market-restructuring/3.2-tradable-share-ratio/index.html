@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+<title>The Tradable-Share Ratio: the one number that reshaped Japanese cross-shareholdings | JII Governance Curriculum</title>
+<meta name="description" content="The Tradable-Share Ratio: the one number that reshaped Japanese cross-shareholdings — part of the JII Japan Governance Reform Curriculum.">
+<meta property="og:title" content="The Tradable-Share Ratio: the one number that reshaped Japanese cross-shareholdings | JII Governance Curriculum">
+<meta property="og:description" content="The Tradable-Share Ratio: the one number that reshaped Japanese cross-shareholdings — part of the JII Japan Governance Reform Curriculum.">
+<meta property="og:url" content="https://jpinv.com/en/governance/market-restructuring/3.2-tradable-share-ratio/">
+<link rel="canonical" href="https://jpinv.com/en/governance/market-restructuring/3.2-tradable-share-ratio/">
+<link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/market-restructuring/3.2-tradable-share-ratio/">
+<link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/market-restructuring/3.2-tradable-share-ratio/">
+<link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/market-restructuring/3.2-tradable-share-ratio/">
+
+<style>
+:root {
+  --ink:        #1a2a4a;
+  --ink-mid:    #172641;
+  --ink-soft:   #304466;
+  --rule:       #d6dee8;
+  --rule-soft:  #e8edf3;
+  --bg:         #ffffff;
+  --bg-mid:     #f5f7fa;
+  --bg-soft:    #fafbfc;
+  --text:       #1f2937;
+  --text-mid:   #4a5566;
+  --text-dim:   #5f6875;
+  --accent:     #9a7838;
+  --accent-deep:#9a7838;
+  --accent-soft:#f4eee4;
+  --bad:        #b91c1c;
+  --warn:       #8a682b;
+  --ok:         #2f6f4f;
+  --serif: 'Noto Serif JP', 'Yu Mincho', serif;
+  --sans:  'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  --mono:  'DM Mono', monospace;
+  --max: 1100px;
+  --pad: 88px;
+  --gutter: 48px;
+  --nav-h: 64px;
+  --measure: 720px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 400; line-height: 1.7; overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+a { color: var(--ink-soft); text-decoration: none; }
+a:hover { color: var(--ink); }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+@media (max-width: 768px) { :root { --gutter: 22px; --pad: 56px; } }
+strong { font-weight: 600; color: var(--ink); }
+em { font-style: normal; color: var(--ink); font-weight: 600; }
+.label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); }
+
+/* Nav (copied from jpinv.com base) */
+nav#main-nav { position: fixed; top:0; left:0; right:0; z-index:100; height: var(--nav-h); background: rgba(255,255,255,0.96); backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule); display: flex; align-items: center; transition: box-shadow 0.3s; }
+nav#main-nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; }
+.nav-logo { text-decoration: none; display: inline-flex; align-items: center; flex: 0 0 auto; min-width: max-content; white-space: nowrap; }
+.nav-logo-img { display: block; width: auto; height: 40px; max-width: none; object-fit: contain; object-position: left center; }
+.nav-logo-img--mobile { display: none; width: 32px; height: 32px; object-fit: contain; }
+.nav-center { flex: 1; display: flex; justify-content: center; }
+.nav-links { display: flex; gap: 22px; list-style: none; flex-wrap: nowrap; white-space: nowrap; }
+.nav-links a { font-family: var(--sans); font-size: 0.78rem; font-weight: 400; letter-spacing: 0.04em; color: var(--text); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--ink-soft); }
+.nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; margin-left: auto; }
+.nav-cta { padding: 8px 14px; font-size: 0.7rem; }
+.locale-switcher { display: inline-flex; align-items: center; gap: 0; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; }
+.locale-switcher a { color: var(--text-dim); border: 1px solid var(--rule); padding: 6px 9px; text-decoration: none; transition: all 0.2s; }
+.locale-switcher a + a { margin-left: -1px; }
+.locale-switcher a:hover, .locale-switcher a.current { color: var(--ink); border-color: var(--ink-mid); background: var(--bg-soft); position: relative; z-index: 1; }
+.hamburger { display: none; flex-shrink:0; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
+.hamburger span { display:block; width:22px; height:1px; background:var(--ink); transition: all 0.25s; }
+@media (max-width: 900px) { .nav-center, .nav-right .nav-cta { display:none; } .hamburger { display:flex; } }
+@media (max-width: 768px) { .nav-logo-img--desktop { display:none; } .nav-logo-img--mobile { display:block; } }
+.mobile-menu { display:none; position:fixed; top:var(--nav-h); left:0; right:0; background:var(--bg); border-bottom:1px solid var(--rule); z-index:99; padding:8px var(--gutter) 20px; flex-direction:column; gap:0; }
+.mobile-menu.open { display:flex; }
+.mobile-menu a { font-size:0.88rem; color:var(--text); text-decoration:none; padding:14px 0; border-bottom:1px solid var(--rule); letter-spacing:0.04em; }
+.mobile-menu a:last-child { border-bottom:none; }
+.mobile-menu .mobile-menu-cta { margin-top:12px; padding:13px 18px; text-align:center; color:#fff; border-bottom:none; }
+
+.btn { display: inline-block; text-decoration: none; font-family: var(--sans); font-size: 0.84rem; font-weight: 400; letter-spacing: 0.06em; padding: 13px 28px; transition: all 0.2s; cursor: pointer; border: none; }
+.btn-primary { background: var(--ink); color: #fff; }
+.btn-primary:hover { background: var(--ink-mid); color: #fff; }
+.btn-outline { border: 1px solid var(--ink-mid); color: var(--ink); background: transparent; }
+.btn-outline:hover { border-color: var(--ink); color: var(--ink); }
+.rule-accent { width: 32px; height: 2px; background: var(--accent); margin: 14px 0 22px; }
+
+/* Footer (mirror) */
+footer { border-top: 1px solid var(--rule); padding: 52px 0 28px; background: var(--bg-soft); font-size: 0.82rem; color: var(--text-dim); }
+footer .footer-grid { display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 32px; align-items: start; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+footer h2 { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.2em; color: var(--ink-soft); text-transform: uppercase; margin-bottom: 12px; font-weight: 500; }
+footer h3 { font-family: var(--serif); font-size: 1rem; font-weight: 400; color: var(--ink); margin-bottom: 8px; }
+footer ul { list-style: none; }
+footer ul li { padding: 4px 0; }
+footer ul li a { color: var(--text-mid); }
+footer ul li a:hover { color: var(--ink); }
+footer .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 18px; flex-wrap: wrap; gap: 12px; }
+footer .footer-locale-switcher a.current { font-weight: 600; color: var(--ink); }
+@media (max-width: 900px) { footer .footer-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 580px) { footer .footer-grid { grid-template-columns: 1fr; } }
+
+
+/* === Curriculum-specific === */
+main.curriculum { padding-top: var(--nav-h); }
+.curr-hero { padding: 96px 0 64px; border-bottom: 1px solid var(--rule); position: relative; overflow: hidden; }
+.curr-hero::before { content:''; position:absolute; inset:0;
+  background-image: linear-gradient(rgba(15,31,58,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(15,31,58,0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent);
+          mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent); }
+.curr-hero-inner { position:relative; z-index:2; max-width: 880px; }
+.curr-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.32em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 18px; }
+.curr-hero h1 { font-family: var(--serif); font-size: clamp(1.9rem, 4.4vw, 3.1rem); font-weight: 300; color: var(--ink-mid); line-height: 1.3; letter-spacing: 0.02em; margin: 0 0 22px; }
+.curr-hero h1 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
+.curr-hero .lede { font-size: 1.05rem; line-height: 1.85; color: var(--text); margin: 0 0 24px; max-width: 700px; }
+.curr-hero-meta { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
+.curr-hero-meta strong { color: var(--ink); font-family: var(--mono); }
+
+.crumbs { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; padding: 22px 0 0; }
+.crumbs a { color: var(--text-mid); }
+.crumbs a:hover { color: var(--ink); }
+.crumbs .sep { color: var(--rule); margin: 0 8px; }
+
+.theme-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; padding: 56px 0; }
+.theme-card { display: block; background: #fff; border: 1px solid var(--rule); padding: 30px 28px; position: relative; transition: all 0.2s; }
+.theme-card:hover { border-color: var(--ink-soft); box-shadow: 0 12px 32px rgba(15,31,58,0.08); transform: translateY(-2px); }
+.theme-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background: var(--accent); opacity: 0.85; }
+.theme-card-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; }
+.theme-card-name { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--ink-mid); margin: 10px 0 8px; line-height: 1.35; }
+.theme-card-period { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 14px; }
+.theme-card-desc { font-size: 0.92rem; line-height: 1.7; color: var(--text); margin-bottom: 18px; }
+.theme-card-list { font-size: 0.84rem; color: var(--text-mid); list-style: none; padding-top: 14px; border-top: 1px solid var(--rule-soft); }
+.theme-card-list li { padding: 5px 0; }
+.theme-card-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; }
+.theme-card-foot .arrow { color: var(--accent-deep); }
+
+.post-list { padding: 28px 0 56px; }
+.post-list-row { display: grid; grid-template-columns: 60px 1fr auto; gap: 22px; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--rule-soft); transition: all 0.18s; }
+.post-list-row:hover { background: var(--bg-mid); padding-left: 12px; padding-right: 12px; }
+.post-list-num { font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em; color: var(--accent-deep); font-weight: 500; }
+.post-list-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--ink-mid); line-height: 1.45; }
+.post-list-meta { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; white-space: nowrap; }
+@media (max-width: 600px) { .post-list-row { grid-template-columns: 50px 1fr; } .post-list-meta { grid-column: 1 / -1; padding-left: 72px; } }
+
+/* Post body */
+.post-body { padding: 48px 0 80px; }
+.post-content { max-width: var(--measure); margin: 0 auto; }
+.post-content > p, .post-content > ul, .post-content > ol, .post-content > blockquote, .post-content > pre, .post-content > table, .post-content > hr, .post-content > h2, .post-content > h3, .post-content > h4 { max-width: var(--measure); margin-left: auto; margin-right: auto; }
+.post-content h2 { font-family: var(--serif); font-size: 1.55rem; font-weight: 400; color: var(--ink-mid); line-height: 1.35; margin: 56px 0 14px; padding-top: 22px; border-top: 1px solid var(--rule-soft); }
+.post-content h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 500; color: var(--ink); margin: 36px 0 10px; line-height: 1.4; }
+.post-content h4 { font-family: var(--sans); font-size: 1rem; font-weight: 600; color: var(--ink); margin: 26px 0 8px; letter-spacing: 0.02em; }
+.post-content p { margin: 0 0 18px; font-size: 1rem; line-height: 1.85; color: var(--text); }
+.post-content p:first-of-type { font-size: 1.05rem; }
+.post-content ul, .post-content ol { margin: 0 0 22px; padding-left: 28px; }
+.post-content ul li, .post-content ol li { font-size: 0.97rem; line-height: 1.8; margin-bottom: 8px; color: var(--text); }
+.post-content ul li::marker { color: var(--accent-deep); }
+.post-content blockquote { margin: 30px 0; padding: 20px 24px; border-left: 3px solid var(--accent); background: var(--accent-soft); color: var(--ink-mid); font-style: normal; }
+.post-content blockquote p { margin-bottom: 8px; font-size: 0.97rem; }
+.post-content blockquote p:last-child { margin-bottom: 0; }
+.post-content blockquote strong { color: var(--ink); }
+.post-content code { background: #f0f0f0; color: var(--ink-mid); font-family: var(--mono); font-size: 0.88rem; padding: 2px 6px; border-radius: 3px; }
+.post-content pre { background: #f9f9fb; border: 1px solid var(--rule); padding: 18px 22px; overflow-x: auto; font-family: var(--mono); font-size: 0.85rem; line-height: 1.55; margin: 24px 0; }
+.post-content pre code { background: transparent; padding: 0; font-size: inherit; }
+.post-content a { color: var(--accent-deep); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; transition: text-decoration-color 0.18s; }
+.post-content a:hover { text-decoration-color: var(--accent-deep); }
+.post-content hr { border: none; border-top: 1px solid var(--rule); margin: 40px auto; max-width: 120px; }
+.post-content table { width: 100%; max-width: var(--measure); margin: 28px auto; border-collapse: collapse; font-size: 0.9rem; }
+.post-content th { background: var(--bg-mid); color: var(--ink-mid); font-family: var(--sans); font-weight: 600; text-align: left; padding: 12px 14px; border-bottom: 2px solid var(--rule); }
+.post-content td { padding: 10px 14px; border-bottom: 1px solid var(--rule-soft); vertical-align: top; color: var(--text); }
+.post-content tr:nth-child(even) td { background: #fafbfc; }
+
+/* Mermaid container */
+.mermaid-wrap { background: #fdfdfe; border: 1px solid var(--rule); padding: 22px 18px; margin: 28px 0; overflow-x: auto; }
+.mermaid { font-family: var(--sans); text-align: center; }
+
+/* Post header */
+.post-header { padding: 48px 0 28px; border-bottom: 1px solid var(--rule); }
+.post-header-inner { max-width: var(--measure); margin: 0 auto; }
+.post-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.28em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 14px; }
+.post-title { font-family: var(--serif); font-size: clamp(1.7rem, 3.6vw, 2.4rem); font-weight: 400; color: var(--ink-mid); line-height: 1.3; margin: 0 0 16px; letter-spacing: 0.005em; }
+.post-summary { font-size: 1.02rem; line-height: 1.8; color: var(--text); margin: 0 0 22px; max-width: 660px; }
+.post-meta { display: flex; gap: 26px; flex-wrap: wrap; padding-top: 18px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
+.post-meta span strong { color: var(--ink); font-family: var(--mono); }
+
+/* Post nav (prev/next) */
+.post-nav { max-width: var(--measure); margin: 56px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding-top: 36px; border-top: 1px solid var(--rule); }
+.post-nav-link { display: block; padding: 18px 20px; background: var(--bg-mid); border: 1px solid var(--rule); transition: all 0.18s; }
+.post-nav-link:hover { border-color: var(--ink-soft); background: #fff; transform: translateY(-1px); }
+.post-nav-dir { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px; }
+.post-nav-title { font-family: var(--serif); font-size: 0.94rem; color: var(--ink-mid); line-height: 1.4; }
+.post-nav-link.next { text-align: right; }
+@media (max-width: 640px) { .post-nav { grid-template-columns: 1fr; } .post-nav-link.next { text-align: left; } }
+
+/* Knowledge check */
+.kcheck { background: var(--bg-mid); padding: 72px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.kcheck-head { max-width: 720px; margin: 0 auto 36px; text-align: center; }
+.kcheck h2 { font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 300; color: var(--ink-mid); margin: 0 0 14px; line-height: 1.3; }
+.kcheck h2 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
+.kcheck p.lede { font-size: 0.98rem; line-height: 1.75; color: var(--text); }
+.kcheck-q { background: #fff; border: 1px solid var(--rule); padding: 28px 30px; margin-bottom: 18px; max-width: 760px; margin-left: auto; margin-right: auto; }
+.kcheck-q-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; margin-bottom: 12px; }
+.kcheck-q-text { font-family: var(--serif); font-size: 1.1rem; line-height: 1.5; color: var(--ink-mid); margin-bottom: 18px; }
+.kcheck-opts { display: grid; gap: 8px; }
+.kcheck-opt { display: block; padding: 12px 16px; background: var(--bg-soft); border: 1px solid var(--rule); text-align: left; font-family: var(--sans); font-size: 0.92rem; color: var(--text); cursor: pointer; transition: all 0.15s; }
+.kcheck-opt:hover { background: #fff; border-color: var(--ink-soft); }
+.kcheck-opt.correct { background: #e8f3ec; border-color: var(--ok); color: var(--ok); }
+.kcheck-opt.incorrect { background: #fbe9e9; border-color: var(--bad); color: var(--bad); }
+.kcheck-explain { margin-top: 16px; padding: 14px 18px; background: var(--accent-soft); border-left: 3px solid var(--accent); font-size: 0.9rem; line-height: 1.7; color: var(--ink-mid); display: none; }
+.kcheck-q.answered .kcheck-explain { display: block; }
+.kcheck-score { text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--text-dim); margin-top: 28px; text-transform: uppercase; }
+.kcheck-score strong { color: var(--ink-mid); font-family: var(--mono); }
+
+/* Stats / hero stats */
+.stat-band { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; padding: 56px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); background: var(--bg-soft); }
+.stat-item { padding: 0 18px; }
+.stat-num { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 300; color: var(--ink-mid); line-height: 1; margin-bottom: 8px; }
+.stat-num em { color: var(--accent-deep); font-weight: 400; font-style: normal; }
+.stat-label { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; }
+</style>
+</head>
+<body>
+<nav id="main-nav" role="navigation" aria-label="Main navigation">
+  <div class="wrap nav-inner">
+    <a href="/en/" class="nav-logo" aria-label="JII home">
+      <img class="nav-logo-img nav-logo-img--desktop" src="/assets/logo-jii-wordmark.svg" alt="Japan Investor Interface logo" width="282" height="40">
+      <img class="nav-logo-img nav-logo-img--mobile" src="/assets/logo-jii-monogram.svg" alt="Japan Investor Interface logo" width="32" height="32">
+    </a>
+    <div class="nav-center">
+      <ul class="nav-links" role="list">
+        <li><a href="/en/services/">Services</a></li>
+        <li><a href="/en/pricing/">Pricing</a></li>
+        <li><a href="/en/company/">Company</a></li>
+        <li><a href="/en/faq/">FAQ</a></li>
+        <li><a href="/en/compounders/">Compounders</a></li>
+        <li><a href="/en/governance/">Governance</a></li>
+      </ul>
+    </div>
+    <div class="nav-right">
+      <a href="/en/#contact" class="btn btn-primary nav-cta">Free 30-min call</a>
+      <span class="locale-switcher nav-locale-switcher" aria-label="Language switcher"><a href="/governance/market-restructuring/3.2-tradable-share-ratio/" data-locale-route lang="ja">JP</a><a href="/en/governance/market-restructuring/3.2-tradable-share-ratio/" class="current" aria-current="page" lang="en">EN</a></span>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" hidden>
+  <a href="/en/services/" onclick="toggleMenu()">Services</a>
+  <a href="/en/pricing/" onclick="toggleMenu()">Pricing</a>
+  <a href="/en/company/" onclick="toggleMenu()">Company</a>
+  <a href="/en/faq/" onclick="toggleMenu()">FAQ</a>
+  <a href="/en/compounders/" onclick="toggleMenu()">Compounders</a>
+  <a href="/en/governance/" onclick="toggleMenu()">Governance</a>
+  <a href="/governance/market-restructuring/3.2-tradable-share-ratio/" data-locale-route onclick="toggleMenu()" lang="ja">JP</a>
+  <a href="/en/#contact" class="btn btn-primary mobile-menu-cta" onclick="toggleMenu()">Book a free 30-min call</a>
+</nav>
+<main id="main-content" class="curriculum" tabindex="-1">
+<div class="wrap crumbs">
+  <a href="/en/">JII</a> <span class="sep">/</span>
+  <a href="/en/governance/">Governance Curriculum</a> <span class="sep">/</span>
+  <a href="/en/governance/market-restructuring/">Market Restructuring</a> <span class="sep">/</span>
+  Post 3.2
+</div>
+<header class="post-header">
+  <div class="wrap">
+    <div class="post-header-inner">
+      <div class="post-eyebrow">Theme 3 · POST 3.2</div>
+      <h1 class="post-title">The Tradable-Share Ratio: the one number that reshaped Japanese cross-shareholdings</h1>
+      <p class="post-summary"></p>
+      <div class="post-meta">
+        <span>Theme: <strong>Market Restructuring</strong></span>
+        <span>Reading: <strong> min</strong></span>
+        <span>Updated: <strong>2026-05-16</strong></span>
+      </div>
+    </div>
+  </div>
+</header>
+<section class="post-body">
+  <div class="wrap">
+    <article class="post-content">
+<h1>The Tradable-Share Ratio: the one number that reshaped Japanese cross-shareholdings</h1>
+<blockquote>
+<p><strong>TL;DR</strong>
+- In April 2022, TSE quietly rewrote the definition of "tradable shares" (<em>ryūdōkabu / 流動株</em>): under the new rule, shares held by <strong>Japanese banks, insurers and business corporations are excluded from "tradable" regardless of stake size</strong>, treating cross-shareholdings as illiquid even at 0.1%.
+- That redefinition, combined with the <strong>35% Prime tradable-share-ratio</strong> continued-listing threshold, transformed a technical liquidity metric into the most powerful single tool for dismantling Japan's cross-shareholding system — without ever using the word "prohibition."
+- For founder-controlled and group-controlled Prime issuers, the tradable-share ratio is the most binding criterion in practice. Buybacks of strategic-holder stakes, share consolidations, secondary offerings, and TOBs by founding families are all downstream consequences of this one definitional change.</p>
+</blockquote>
+<hr>
+<h2>What the tradable-share ratio is, and what it used to be</h2>
+<p>Every TSE listing-maintenance regime since the 1990s has had some concept of "tradable" or "floating" shares — a calculation designed to measure how much of a company's equity is actually available for trading in the market, as distinct from blocks held by insiders or long-term strategic shareholders. The continued-listing criteria for all three new TSE segments — Prime, Standard, Growth — use this measure twice: once as an absolute <em>market-cap</em> test (tradable-share market cap ≥ JPY 10 bn for Prime, ≥ JPY 1 bn for Standard, ≥ JPY 500 m for Growth) and once as a <em>ratio</em> test (≥ 35% for Prime, ≥ 25% for Standard and Growth).</p>
+<p>The metric had existed in some form since the pre-2022 1st Section regime, but the <strong>2022 redefinition</strong> is what gave it teeth. The change is best understood as a series of carve-outs from the "tradable" pool. Under the new TSE definition, the following are excluded from tradable shares:</p>
+<ol>
+<li>Shares held by the <strong>top ten largest shareholders</strong> (with limited exceptions).</li>
+<li>Shares held by <strong>directors and officers</strong>, and by parties related to them.</li>
+<li><strong>Treasury shares</strong> held by the company itself.</li>
+<li>Shares held by <strong>other special parties</strong> (e.g., subsidiaries and affiliates that hold parent shares).</li>
+<li><strong>Shares held by Japanese banks (depositary institutions) and insurance companies</strong> — regardless of whether they appear in the top ten.</li>
+<li><strong>Shares held by business corporations</strong> that hold the issuer's stock as part of a strategic or business relationship — <strong>regardless of stake size</strong>.</li>
+</ol>
+<p>It is the <strong>fifth and sixth carve-outs</strong> that did the heavy lifting. Before 2022, a regional bank holding 1.2% of a listed company's shares — a textbook small "strategic" stake left over from a 1990s business relationship — would have been part of the tradable-share pool unless that bank happened to be in the top ten. After 2022, it is non-tradable, full stop. The same applies to a Toyota-group company holding 0.8% of a small supplier, or an insurer holding 2% of a long-term policyholder partner.</p>
+<h2>OLD vs NEW: the definitional shift in one table</h2>
+<table>
+<thead>
+<tr>
+<th>Holder category</th>
+<th><strong>OLD definition</strong> (pre-Apr 2022)</th>
+<th><strong>NEW definition</strong> (Apr 2022 onward)</th>
+<th>Implication for cross-shareholdings</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Top 10 largest shareholders</td>
+<td>Excluded from tradable</td>
+<td>Excluded from tradable</td>
+<td>Unchanged</td>
+</tr>
+<tr>
+<td>Directors, officers, related parties</td>
+<td>Excluded</td>
+<td>Excluded</td>
+<td>Unchanged</td>
+</tr>
+<tr>
+<td>Treasury shares</td>
+<td>Excluded</td>
+<td>Excluded</td>
+<td>Unchanged</td>
+</tr>
+<tr>
+<td><strong>Japanese banks (depositary institutions)</strong> — small stakes (&lt;top 10)</td>
+<td><em>Counted as tradable</em></td>
+<td><strong>Excluded — regardless of stake size</strong></td>
+<td>Regional-bank holdings now non-tradable even at 0.5%</td>
+</tr>
+<tr>
+<td><strong>Insurance companies</strong> — small stakes</td>
+<td><em>Counted as tradable</em></td>
+<td><strong>Excluded — regardless of stake size</strong></td>
+<td>Life and casualty insurer cross-holdings non-tradable</td>
+</tr>
+<tr>
+<td><strong>Business corporations</strong> holding shares as strategic / business relationship</td>
+<td><em>Counted as tradable</em> if not in top 10</td>
+<td><strong>Excluded — regardless of stake size</strong>, where holder confirms relationship</td>
+<td>All Keiretsu-style cross-holdings non-tradable</td>
+</tr>
+<tr>
+<td>Asset-management arms of trust banks, foreign institutional investors, individual retail</td>
+<td>Tradable</td>
+<td>Tradable</td>
+<td>Unchanged — these are the holders that <em>do</em> count</td>
+</tr>
+<tr>
+<td><strong>Continued-listing ratio thresholds</strong></td>
+<td>1st Section: tradable-share ratio ≥ 35% (with much looser tradable definition)</td>
+<td><strong>Prime ≥ 35% / Standard ≥ 25% / Growth ≥ 25%</strong> under the tightened definition</td>
+<td>Same headline number, much harder test</td>
+</tr>
+</tbody>
+</table>
+<p>The "same headline number, much harder test" framing is the key analytical move. Many overseas commentators in 2022 looked at the 35% Prime threshold and thought "that's not very different from the 1st Section's 35%." That reading missed the point. The percentage is the same; the <em>denominator and numerator have been rewritten</em> so that holdings counted as "tradable" under the old rule are now counted as "locked." A company that was comfortably over 35% in March 2022 could find itself below 35% on day one of April 2022 — without a single share changing hands.</p>
+<h2>Why this is the most binding criterion in practice</h2>
+<p>Among Prime's quantitative continued-listing tests — tradable-share market cap ≥ JPY 10 bn, tradable-share ratio ≥ 35%, ≥ 800 shareholders, ≥ 20,000 trading units, daily average trading value ≥ JPY 20 m — the <strong>tradable-share ratio is the one most founder-controlled and group-controlled issuers fail</strong>. Three reasons:</p>
+<p><strong>First, market-cap and trading-volume tests are largely a function of price and float arithmetic.</strong> A company can address a failing tradable-share market cap by either market-cap appreciation (improve fundamentals, do buybacks, raise PBR) or by tradable-share <em>count</em> increases (secondary offerings, share consolidations of strategic-holder stakes). These are conventional capital-markets actions.</p>
+<p><strong>Second, the shareholder-count and trading-unit tests are addressable through retail-distribution measures</strong> — secondary offerings to retail, share splits, etc.</p>
+<p><strong>Third, the tradable-share ratio is governed by the structure of the shareholder base itself.</strong> It does not care about share price. It does not care about trading volume. It cares only about <em>who owns the shares</em>. For an issuer whose top shareholders include a founding family, a parent company, a network of group affiliates, a main bank, a long-relationship insurer, and a handful of business-relationship corporates, the ratio cannot be fixed by issuance or buyback alone — it can only be fixed by <strong>changing the identity of the shareholders</strong>.</p>
+<p>That structural fact is what made the 2022 redefinition the single most consequential change in Japanese capital markets in a decade.</p>
+<h2>The corporate actions the rule has triggered</h2>
+<p>By 2025, the menu of corporate actions taken by Japanese listed companies to address tradable-share-ratio failures had become familiar enough to be tracked as a category. The pattern:</p>
+<ul>
+<li><strong>Buybacks of strategic-holder stakes.</strong> The issuer buys back its own shares from a strategic-holder corporate or insurer. The shares become treasury (still non-tradable), but the <em>denominator</em> shrinks, lifting the ratio. Often paired with cancellation to make the lift permanent.</li>
+<li><strong>Strategic-holder dispositions in the open market.</strong> The cross-holding bank or insurer sells its stake in the open market or via secondary offering. The shares move from "non-tradable" to "tradable," lifting the ratio. The 2010 and 2018 CG Code revisions have made this disposition pattern increasingly common; the 2022 ratio rule accelerated it.</li>
+<li><strong>Share consolidations followed by secondary offerings.</strong> The issuer consolidates founder/strategic holdings (using internal restructuring or holding-company transactions) and then sells the consolidated block into the market through a secondary offering — converting non-tradable shares into tradable in one transaction.</li>
+<li><strong>Migration from Prime to Standard.</strong> For companies where the structural shareholder base cannot economically be unwound, a voluntary segment transfer to Standard (with its 25% threshold and JPY 1 bn tradable-share market-cap floor) is the simplest answer.</li>
+<li><strong>MBO / TOB by founding family or PE.</strong> Where Prime-listing is no longer worth the constraint, founder-led MBOs (sometimes with PE financing) take the company private. These have spiked in 2024-2025 — see Theme 5.4 for the MBO/Takeover Guidelines context.</li>
+</ul>
+<h2>A worked example of the arithmetic</h2>
+<p>Consider a hypothetical mid-cap Prime issuer with the following pre-2022 cap table:</p>
+<table>
+<thead>
+<tr>
+<th>Holder</th>
+<th>Stake</th>
+<th>Old (pre-2022) tradable?</th>
+<th>New (post-2022) tradable?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Founding family (combined)</td>
+<td>22%</td>
+<td>No (top 10)</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Main bank (depositary institution)</td>
+<td>4%</td>
+<td>Yes (not top 10)</td>
+<td><strong>No</strong></td>
+</tr>
+<tr>
+<td>Affiliated insurer</td>
+<td>2%</td>
+<td>Yes (not top 10)</td>
+<td><strong>No</strong></td>
+</tr>
+<tr>
+<td>Three group corporates (1% each)</td>
+<td>3%</td>
+<td>Yes (not top 10)</td>
+<td><strong>No</strong></td>
+</tr>
+<tr>
+<td>Other top-10 holders (asset managers)</td>
+<td>14%</td>
+<td>No (top 10)</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Treasury</td>
+<td>1%</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Free float (retail + foreign + domestic asset mgmt under top 10)</td>
+<td>54%</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td>100%</td>
+<td><strong>Tradable: 63%</strong></td>
+<td><strong>Tradable: 54%</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Under the old definition, this company had a comfortable 63% tradable-share ratio — far above the 35% Prime bar. Under the new definition, the same shareholder base yields <strong>54%</strong> — still above 35%, but with materially less headroom. A small adverse change in the cap table (a few percentage points of new strategic-holder accumulation, or an asset manager moving into the top 10 and out of tradable) could push the ratio toward the threshold without any underlying business deterioration.</p>
+<p>For a more concentrated issuer — say, 35% founder stake, 8% main-bank holdings, 6% insurer holdings, 8% group corporates — the same arithmetic yields a tradable-share ratio of <strong>around 38% under the new definition</strong> vs. ~57% under the old. That issuer is one shareholder-base change away from a continued-listing failure.</p>
+<h2>The policy logic: dismantling cross-shareholdings through the back door</h2>
+<p>It is important to read the 2022 redefinition as a deliberate piece of policy design, not a technical clean-up. Japan has spent two decades trying to unwind its cross-shareholding system through softer mechanisms:</p>
+<ul>
+<li>The 2010 Cabinet Office Ordinance required disclosure of the <strong>purpose and rationale</strong> of strategic shareholdings in the Annual Securities Report.</li>
+<li>The 2014 Stewardship Code asked institutional investors to engage on cross-shareholdings.</li>
+<li>The 2015 Corporate Governance Code (Principle 1.4) required listed companies to <strong>disclose policy on strategic shareholdings</strong> and to verify their economic rationale annually.</li>
+<li>The 2018 Code revision tightened the per-stock verification requirement.</li>
+</ul>
+<p>Each of these moves shifted the conversation but did not change the math. By 2020 the FSA's policy community had concluded that disclosure-and-explain mechanisms alone would not unwind the system. The 2022 redefinition is what changed the math — by making cross-shareholdings <em>count against you for listing maintenance</em>, regardless of whether you disclosed them, justified them, or verified them.</p>
+<p><div class="mermaid-wrap"><pre class="mermaid">flowchart TD
+    A[&quot;Issuer&#x27;s total shares&quot;] --&gt; B[&quot;Subtract: top-10 holders&lt;br/&gt;+ directors/officers&lt;br/&gt;+ treasury shares&quot;]
+    B --&gt; C[&quot;Subtract: ALL bank holdings&lt;br/&gt;regardless of stake size&quot;]
+    C --&gt; D[&quot;Subtract: ALL insurer holdings&lt;br/&gt;regardless of stake size&quot;]
+    D --&gt; E[&quot;Subtract: business-corporate&lt;br/&gt;strategic holdings&lt;br/&gt;regardless of stake size&quot;]
+    E --&gt; F[&quot;= Tradable shares&quot;]
+    F --&gt; G{&quot;Tradable-share ratio&lt;br/&gt;(% of total)&quot;}
+    G --&gt;|&quot;≥ 35%&quot;| H[&quot;Prime-eligible&quot;]
+    G --&gt;|&quot;25%–35%&quot;| I[&quot;Standard-eligible&lt;br/&gt;(not Prime)&quot;]
+    G --&gt;|&quot;&lt; 25%&quot;| J[&quot;Improvement period&lt;br/&gt;→ potential demotion&lt;br/&gt;or delisting&quot;]</p>
+<pre><code>classDef pass fill:#e6efe1,stroke:#3d6b3a,color:#1f3a1d
+classDef warn fill:#f9eecc,stroke:#a07e3a,color:#3a2d10
+classDef fail fill:#f4d5d0,stroke:#8a3f3a,color:#3a1614
+class H pass
+class I warn
+class J fail&lt;/pre&gt;&lt;/div&gt;
+</code></pre>
+<h2>What this means for IR</h2>
+<ol>
+<li>
+<p><strong>Treat the tradable-share ratio as a capital-structure metric, not a listing metric.</strong> It is determined by <em>who owns your shares</em>, not by your share price or trading volume. Update your tradable-share-ratio calculation every quarter — most companies will find the number drifts based on shareholder-base changes alone.</p>
+</li>
+<li>
+<p><strong>Map your shareholder base into the six tradable-share categories.</strong> Build an internal "tradable-share decomposition" that explicitly tags every top-30 holder as bank, insurer, business corporate, asset manager, retail, foreign institutional, or other. This is the operational dataset you need for any cross-shareholding-unwind discussion.</p>
+</li>
+<li>
+<p><strong>Anticipate strategic-holder disposition pressure.</strong> Banks and insurers face their own CG Code pressure to reduce cross-shareholdings (Theme 5.2). Expect your strategic-holder shareholders to come asking about disposition. Have a structured response ready — buyback price, market-impact concerns, timing, and disclosure handling.</p>
+</li>
+<li>
+<p><strong>Don't fight the math.</strong> If your structural shareholder base cannot economically support a 35% Prime tradable-share ratio after the March 2025 cliff, a voluntary transfer to Standard is a perfectly respectable answer. Companies that have done this — disclosing the transfer as a deliberate strategic choice rather than as a failure — have been received reasonably well by the market.</p>
+</li>
+<li>
+<p><strong>Document the cross-shareholding policy meticulously.</strong> The Annual Securities Report's strategic-shareholding section, the CG Report's Principle 1.4 disclosure, and the company's internal "verification of economic rationale" minutes are now interlinked with the listing-maintenance metric. Treat them as one integrated disclosure package.</p>
+</li>
+</ol>
+<h2>Sources &amp; further reading</h2>
+<ul>
+<li>JPX, <strong>"Tradable Shares — Details of Continued Listing Criteria,"</strong> https://www.jpx.co.jp/english/equities/listing/continue/details/02.html</li>
+<li>JPX, <strong>"Continued Listing Criteria (Prime Market),"</strong> https://www.jpx.co.jp/english/equities/listing/continue/outline/01.html</li>
+<li>JPX, <strong>"Continued Listing Criteria (Standard Market),"</strong> https://www.jpx.co.jp/english/equities/listing/continue/outline/02.html</li>
+<li>JPX, <strong>"Continued Listing Criteria (Growth Market),"</strong> https://www.jpx.co.jp/english/equities/listing/continue/outline/03.html</li>
+<li>JPX, <strong>"Market Segments,"</strong> https://www.jpx.co.jp/english/equities/market-restructure/market-segments/index.html</li>
+<li>FSA, <strong>Corporate Governance Code (2021 revision), Principle 1.4 (Cross-Shareholdings),</strong> https://www.fsa.go.jp/en/refer/councils/follow-up/cgcode.pdf</li>
+<li>METI, <strong>"Practical Guidelines for Group Governance Systems,"</strong> https://www.meti.go.jp/english/press/2019/0628_001.html</li>
+<li>Winston &amp; Strawn, <strong>"Tokyo Stock Exchange Reorganization: What Listed Companies and Investors Need to Know,"</strong> https://www.winston.com/en/insights-news/tokyo-stock-exchange-reorganization-what-listed-companies-and-investors-need-to-know</li>
+</ul>
+<h2>Cross-references</h2>
+<ul>
+<li><strong>Theme 3.1 — From Four Segments to Three.</strong> The segment architecture in which the tradable-share-ratio rule operates.</li>
+<li><strong>Theme 3.3 — The March 2025 Cliff.</strong> When the transitional grandfather on the tradable-share rule expires.</li>
+<li><strong>Theme 5.2 — The End-Game of Cross-Shareholdings.</strong> Per-stock verification, the FSA pressure on banks and insurers to dispose, and what comes after the 2022 redefinition.</li>
+<li><strong>Theme 4.1 — PBR &lt; 1 Is Not a Target.</strong> Cost-of-capital management as the strategic counterpart to capital-structure cleanup.</li>
+<li><strong>Theme 1.2 — From Main Bank to Mizuno.</strong> The keiretsu architecture this rule is dismantling.</li>
+</ul>
+    </article>
+    <div class="post-nav"><a href="/en/governance/market-restructuring/3.1-four-segments-to-three/" class="post-nav-link prev"><div class="post-nav-dir">← Previous</div><div class="post-nav-title">From Four Segments to Three: the April 2022 restructuring</div></a><a href="/en/governance/market-restructuring/3.3-transitional-measures-cliff/" class="post-nav-link next"><div class="post-nav-dir">Next →</div><div class="post-nav-title">The March 2025 Cliff: end of transitional measures and the new improvement period</div></a></div>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Japan Investor Interface Co., Ltd.</h3>
+        <p>Cross-border IR diagnostics for Japanese listed companies. The Foreign IR Diagnostic Card visualizes how foreign capital reads your IR.</p>
+      </div>
+      <div class="footer-col">
+        <h2>The diagnostic & plans</h2>
+        <ul>
+          <li><a href="/en/services/">The Diagnostic Card</a></li>
+          <li><a href="/en/pricing/">Light — Initial Diagnostic</a></li>
+          <li><a href="/en/pricing/">Standard — Disclosure Improvement</a></li>
+          <li><a href="/en/pricing/">Pro — Investor-Meeting Cycle</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Governance curriculum</h2>
+        <ul>
+          <li><a href="/en/governance/">Curriculum home</a></li>
+          <li><a href="/en/governance/foundations/">Theme 1 · Foundations</a></li>
+          <li><a href="/en/governance/capital-efficiency/">Theme 4 · Capital Efficiency</a></li>
+          <li><a href="/en/governance/toolbox/">IR Toolbox</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>JII Compounders</h2>
+        <ul>
+          <li><a href="/en/compounders/">All profiles</a></li>
+          <li><a href="/en/compounders/methodology/">Methodology</a></li>
+          <li><a href="https://japaninterface.substack.com/" rel="noopener" target="_blank">Substack</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Contact</h2>
+        <ul>
+          <li>Email <a href="mailto:info@jpinv.com">info@jpinv.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Japan Investor Interface Co., Ltd. · All rights reserved.</p>
+      <p class="footer-locale-switcher">Language: <a href="/en/" class="current" aria-current="page" lang="en">EN</a> / <a href="/" data-locale-route lang="ja">JP</a></p>
+    </div>
+  </div>
+</footer>
+<script>
+const nav = document.getElementById('main-nav');
+if (nav) window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+const hamburgerBtn = document.querySelector('.hamburger');
+function setMenuOpen(isOpen) { const menu = document.getElementById('mobileMenu'); if (!menu || !hamburgerBtn) return; menu.classList.toggle('open', isOpen); menu.hidden = !isOpen; hamburgerBtn.setAttribute('aria-expanded', String(isOpen)); }
+function toggleMenu() { const menu = document.getElementById('mobileMenu'); setMenuOpen(!(menu && menu.classList.contains('open'))); }
+document.addEventListener('click', (e) => { const menu = document.getElementById('mobileMenu'); if (menu && menu.classList.contains('open') && !menu.contains(e.target) && hamburgerBtn && !hamburgerBtn.contains(e.target)) setMenuOpen(false); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenuOpen(false); });
+</script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs';
+mermaid.initialize({ startOnLoad: true, theme: 'neutral', fontFamily: 'Noto Sans JP, Hiragino Kaku Gothic ProN, sans-serif', themeVariables: { primaryColor: '#f4eee4', primaryTextColor: '#1a2a4a', primaryBorderColor: '#9a7838', lineColor: '#304466', secondaryColor: '#f5f7fa', tertiaryColor: '#fafbfc' } });
+</script>
+</body>
+</html>

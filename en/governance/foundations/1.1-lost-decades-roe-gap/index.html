@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+<title>Why 8% Was the Number That Changed Japan | JII Governance Curriculum</title>
+<meta name="description" content="How a single ROE benchmark in a 2014 METI report converted three decades of weak Japanese equity returns into a tractable, measurable governance problem.">
+<meta property="og:title" content="Why 8% Was the Number That Changed Japan | JII Governance Curriculum">
+<meta property="og:description" content="How a single ROE benchmark in a 2014 METI report converted three decades of weak Japanese equity returns into a tractable, measurable governance problem.">
+<meta property="og:url" content="https://jpinv.com/en/governance/foundations/1.1-lost-decades-roe-gap/">
+<link rel="canonical" href="https://jpinv.com/en/governance/foundations/1.1-lost-decades-roe-gap/">
+<link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/foundations/1.1-lost-decades-roe-gap/">
+<link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/foundations/1.1-lost-decades-roe-gap/">
+<link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/foundations/1.1-lost-decades-roe-gap/">
+
+<style>
+:root {
+  --ink:        #1a2a4a;
+  --ink-mid:    #172641;
+  --ink-soft:   #304466;
+  --rule:       #d6dee8;
+  --rule-soft:  #e8edf3;
+  --bg:         #ffffff;
+  --bg-mid:     #f5f7fa;
+  --bg-soft:    #fafbfc;
+  --text:       #1f2937;
+  --text-mid:   #4a5566;
+  --text-dim:   #5f6875;
+  --accent:     #9a7838;
+  --accent-deep:#9a7838;
+  --accent-soft:#f4eee4;
+  --bad:        #b91c1c;
+  --warn:       #8a682b;
+  --ok:         #2f6f4f;
+  --serif: 'Noto Serif JP', 'Yu Mincho', serif;
+  --sans:  'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  --mono:  'DM Mono', monospace;
+  --max: 1100px;
+  --pad: 88px;
+  --gutter: 48px;
+  --nav-h: 64px;
+  --measure: 720px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 400; line-height: 1.7; overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+a { color: var(--ink-soft); text-decoration: none; }
+a:hover { color: var(--ink); }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+@media (max-width: 768px) { :root { --gutter: 22px; --pad: 56px; } }
+strong { font-weight: 600; color: var(--ink); }
+em { font-style: normal; color: var(--ink); font-weight: 600; }
+.label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); }
+
+/* Nav (copied from jpinv.com base) */
+nav#main-nav { position: fixed; top:0; left:0; right:0; z-index:100; height: var(--nav-h); background: rgba(255,255,255,0.96); backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule); display: flex; align-items: center; transition: box-shadow 0.3s; }
+nav#main-nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; }
+.nav-logo { text-decoration: none; display: inline-flex; align-items: center; flex: 0 0 auto; min-width: max-content; white-space: nowrap; }
+.nav-logo-img { display: block; width: auto; height: 40px; max-width: none; object-fit: contain; object-position: left center; }
+.nav-logo-img--mobile { display: none; width: 32px; height: 32px; object-fit: contain; }
+.nav-center { flex: 1; display: flex; justify-content: center; }
+.nav-links { display: flex; gap: 22px; list-style: none; flex-wrap: nowrap; white-space: nowrap; }
+.nav-links a { font-family: var(--sans); font-size: 0.78rem; font-weight: 400; letter-spacing: 0.04em; color: var(--text); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--ink-soft); }
+.nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; margin-left: auto; }
+.nav-cta { padding: 8px 14px; font-size: 0.7rem; }
+.locale-switcher { display: inline-flex; align-items: center; gap: 0; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; }
+.locale-switcher a { color: var(--text-dim); border: 1px solid var(--rule); padding: 6px 9px; text-decoration: none; transition: all 0.2s; }
+.locale-switcher a + a { margin-left: -1px; }
+.locale-switcher a:hover, .locale-switcher a.current { color: var(--ink); border-color: var(--ink-mid); background: var(--bg-soft); position: relative; z-index: 1; }
+.hamburger { display: none; flex-shrink:0; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
+.hamburger span { display:block; width:22px; height:1px; background:var(--ink); transition: all 0.25s; }
+@media (max-width: 900px) { .nav-center, .nav-right .nav-cta { display:none; } .hamburger { display:flex; } }
+@media (max-width: 768px) { .nav-logo-img--desktop { display:none; } .nav-logo-img--mobile { display:block; } }
+.mobile-menu { display:none; position:fixed; top:var(--nav-h); left:0; right:0; background:var(--bg); border-bottom:1px solid var(--rule); z-index:99; padding:8px var(--gutter) 20px; flex-direction:column; gap:0; }
+.mobile-menu.open { display:flex; }
+.mobile-menu a { font-size:0.88rem; color:var(--text); text-decoration:none; padding:14px 0; border-bottom:1px solid var(--rule); letter-spacing:0.04em; }
+.mobile-menu a:last-child { border-bottom:none; }
+.mobile-menu .mobile-menu-cta { margin-top:12px; padding:13px 18px; text-align:center; color:#fff; border-bottom:none; }
+
+.btn { display: inline-block; text-decoration: none; font-family: var(--sans); font-size: 0.84rem; font-weight: 400; letter-spacing: 0.06em; padding: 13px 28px; transition: all 0.2s; cursor: pointer; border: none; }
+.btn-primary { background: var(--ink); color: #fff; }
+.btn-primary:hover { background: var(--ink-mid); color: #fff; }
+.btn-outline { border: 1px solid var(--ink-mid); color: var(--ink); background: transparent; }
+.btn-outline:hover { border-color: var(--ink); color: var(--ink); }
+.rule-accent { width: 32px; height: 2px; background: var(--accent); margin: 14px 0 22px; }
+
+/* Footer (mirror) */
+footer { border-top: 1px solid var(--rule); padding: 52px 0 28px; background: var(--bg-soft); font-size: 0.82rem; color: var(--text-dim); }
+footer .footer-grid { display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 32px; align-items: start; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+footer h2 { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.2em; color: var(--ink-soft); text-transform: uppercase; margin-bottom: 12px; font-weight: 500; }
+footer h3 { font-family: var(--serif); font-size: 1rem; font-weight: 400; color: var(--ink); margin-bottom: 8px; }
+footer ul { list-style: none; }
+footer ul li { padding: 4px 0; }
+footer ul li a { color: var(--text-mid); }
+footer ul li a:hover { color: var(--ink); }
+footer .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 18px; flex-wrap: wrap; gap: 12px; }
+footer .footer-locale-switcher a.current { font-weight: 600; color: var(--ink); }
+@media (max-width: 900px) { footer .footer-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 580px) { footer .footer-grid { grid-template-columns: 1fr; } }
+
+
+/* === Curriculum-specific === */
+main.curriculum { padding-top: var(--nav-h); }
+.curr-hero { padding: 96px 0 64px; border-bottom: 1px solid var(--rule); position: relative; overflow: hidden; }
+.curr-hero::before { content:''; position:absolute; inset:0;
+  background-image: linear-gradient(rgba(15,31,58,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(15,31,58,0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent);
+          mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent); }
+.curr-hero-inner { position:relative; z-index:2; max-width: 880px; }
+.curr-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.32em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 18px; }
+.curr-hero h1 { font-family: var(--serif); font-size: clamp(1.9rem, 4.4vw, 3.1rem); font-weight: 300; color: var(--ink-mid); line-height: 1.3; letter-spacing: 0.02em; margin: 0 0 22px; }
+.curr-hero h1 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
+.curr-hero .lede { font-size: 1.05rem; line-height: 1.85; color: var(--text); margin: 0 0 24px; max-width: 700px; }
+.curr-hero-meta { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
+.curr-hero-meta strong { color: var(--ink); font-family: var(--mono); }
+
+.crumbs { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; padding: 22px 0 0; }
+.crumbs a { color: var(--text-mid); }
+.crumbs a:hover { color: var(--ink); }
+.crumbs .sep { color: var(--rule); margin: 0 8px; }
+
+.theme-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; padding: 56px 0; }
+.theme-card { display: block; background: #fff; border: 1px solid var(--rule); padding: 30px 28px; position: relative; transition: all 0.2s; }
+.theme-card:hover { border-color: var(--ink-soft); box-shadow: 0 12px 32px rgba(15,31,58,0.08); transform: translateY(-2px); }
+.theme-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background: var(--accent); opacity: 0.85; }
+.theme-card-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; }
+.theme-card-name { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--ink-mid); margin: 10px 0 8px; line-height: 1.35; }
+.theme-card-period { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 14px; }
+.theme-card-desc { font-size: 0.92rem; line-height: 1.7; color: var(--text); margin-bottom: 18px; }
+.theme-card-list { font-size: 0.84rem; color: var(--text-mid); list-style: none; padding-top: 14px; border-top: 1px solid var(--rule-soft); }
+.theme-card-list li { padding: 5px 0; }
+.theme-card-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; }
+.theme-card-foot .arrow { color: var(--accent-deep); }
+
+.post-list { padding: 28px 0 56px; }
+.post-list-row { display: grid; grid-template-columns: 60px 1fr auto; gap: 22px; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--rule-soft); transition: all 0.18s; }
+.post-list-row:hover { background: var(--bg-mid); padding-left: 12px; padding-right: 12px; }
+.post-list-num { font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em; color: var(--accent-deep); font-weight: 500; }
+.post-list-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--ink-mid); line-height: 1.45; }
+.post-list-meta { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; white-space: nowrap; }
+@media (max-width: 600px) { .post-list-row { grid-template-columns: 50px 1fr; } .post-list-meta { grid-column: 1 / -1; padding-left: 72px; } }
+
+/* Post body */
+.post-body { padding: 48px 0 80px; }
+.post-content { max-width: var(--measure); margin: 0 auto; }
+.post-content > p, .post-content > ul, .post-content > ol, .post-content > blockquote, .post-content > pre, .post-content > table, .post-content > hr, .post-content > h2, .post-content > h3, .post-content > h4 { max-width: var(--measure); margin-left: auto; margin-right: auto; }
+.post-content h2 { font-family: var(--serif); font-size: 1.55rem; font-weight: 400; color: var(--ink-mid); line-height: 1.35; margin: 56px 0 14px; padding-top: 22px; border-top: 1px solid var(--rule-soft); }
+.post-content h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 500; color: var(--ink); margin: 36px 0 10px; line-height: 1.4; }
+.post-content h4 { font-family: var(--sans); font-size: 1rem; font-weight: 600; color: var(--ink); margin: 26px 0 8px; letter-spacing: 0.02em; }
+.post-content p { margin: 0 0 18px; font-size: 1rem; line-height: 1.85; color: var(--text); }
+.post-content p:first-of-type { font-size: 1.05rem; }
+.post-content ul, .post-content ol { margin: 0 0 22px; padding-left: 28px; }
+.post-content ul li, .post-content ol li { font-size: 0.97rem; line-height: 1.8; margin-bottom: 8px; color: var(--text); }
+.post-content ul li::marker { color: var(--accent-deep); }
+.post-content blockquote { margin: 30px 0; padding: 20px 24px; border-left: 3px solid var(--accent); background: var(--accent-soft); color: var(--ink-mid); font-style: normal; }
+.post-content blockquote p { margin-bottom: 8px; font-size: 0.97rem; }
+.post-content blockquote p:last-child { margin-bottom: 0; }
+.post-content blockquote strong { color: var(--ink); }
+.post-content code { background: #f0f0f0; color: var(--ink-mid); font-family: var(--mono); font-size: 0.88rem; padding: 2px 6px; border-radius: 3px; }
+.post-content pre { background: #f9f9fb; border: 1px solid var(--rule); padding: 18px 22px; overflow-x: auto; font-family: var(--mono); font-size: 0.85rem; line-height: 1.55; margin: 24px 0; }
+.post-content pre code { background: transparent; padding: 0; font-size: inherit; }
+.post-content a { color: var(--accent-deep); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; transition: text-decoration-color 0.18s; }
+.post-content a:hover { text-decoration-color: var(--accent-deep); }
+.post-content hr { border: none; border-top: 1px solid var(--rule); margin: 40px auto; max-width: 120px; }
+.post-content table { width: 100%; max-width: var(--measure); margin: 28px auto; border-collapse: collapse; font-size: 0.9rem; }
+.post-content th { background: var(--bg-mid); color: var(--ink-mid); font-family: var(--sans); font-weight: 600; text-align: left; padding: 12px 14px; border-bottom: 2px solid var(--rule); }
+.post-content td { padding: 10px 14px; border-bottom: 1px solid var(--rule-soft); vertical-align: top; color: var(--text); }
+.post-content tr:nth-child(even) td { background: #fafbfc; }
+
+/* Mermaid container */
+.mermaid-wrap { background: #fdfdfe; border: 1px solid var(--rule); padding: 22px 18px; margin: 28px 0; overflow-x: auto; }
+.mermaid { font-family: var(--sans); text-align: center; }
+
+/* Post header */
+.post-header { padding: 48px 0 28px; border-bottom: 1px solid var(--rule); }
+.post-header-inner { max-width: var(--measure); margin: 0 auto; }
+.post-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.28em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 14px; }
+.post-title { font-family: var(--serif); font-size: clamp(1.7rem, 3.6vw, 2.4rem); font-weight: 400; color: var(--ink-mid); line-height: 1.3; margin: 0 0 16px; letter-spacing: 0.005em; }
+.post-summary { font-size: 1.02rem; line-height: 1.8; color: var(--text); margin: 0 0 22px; max-width: 660px; }
+.post-meta { display: flex; gap: 26px; flex-wrap: wrap; padding-top: 18px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
+.post-meta span strong { color: var(--ink); font-family: var(--mono); }
+
+/* Post nav (prev/next) */
+.post-nav { max-width: var(--measure); margin: 56px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding-top: 36px; border-top: 1px solid var(--rule); }
+.post-nav-link { display: block; padding: 18px 20px; background: var(--bg-mid); border: 1px solid var(--rule); transition: all 0.18s; }
+.post-nav-link:hover { border-color: var(--ink-soft); background: #fff; transform: translateY(-1px); }
+.post-nav-dir { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px; }
+.post-nav-title { font-family: var(--serif); font-size: 0.94rem; color: var(--ink-mid); line-height: 1.4; }
+.post-nav-link.next { text-align: right; }
+@media (max-width: 640px) { .post-nav { grid-template-columns: 1fr; } .post-nav-link.next { text-align: left; } }
+
+/* Knowledge check */
+.kcheck { background: var(--bg-mid); padding: 72px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.kcheck-head { max-width: 720px; margin: 0 auto 36px; text-align: center; }
+.kcheck h2 { font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 300; color: var(--ink-mid); margin: 0 0 14px; line-height: 1.3; }
+.kcheck h2 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
+.kcheck p.lede { font-size: 0.98rem; line-height: 1.75; color: var(--text); }
+.kcheck-q { background: #fff; border: 1px solid var(--rule); padding: 28px 30px; margin-bottom: 18px; max-width: 760px; margin-left: auto; margin-right: auto; }
+.kcheck-q-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; margin-bottom: 12px; }
+.kcheck-q-text { font-family: var(--serif); font-size: 1.1rem; line-height: 1.5; color: var(--ink-mid); margin-bottom: 18px; }
+.kcheck-opts { display: grid; gap: 8px; }
+.kcheck-opt { display: block; padding: 12px 16px; background: var(--bg-soft); border: 1px solid var(--rule); text-align: left; font-family: var(--sans); font-size: 0.92rem; color: var(--text); cursor: pointer; transition: all 0.15s; }
+.kcheck-opt:hover { background: #fff; border-color: var(--ink-soft); }
+.kcheck-opt.correct { background: #e8f3ec; border-color: var(--ok); color: var(--ok); }
+.kcheck-opt.incorrect { background: #fbe9e9; border-color: var(--bad); color: var(--bad); }
+.kcheck-explain { margin-top: 16px; padding: 14px 18px; background: var(--accent-soft); border-left: 3px solid var(--accent); font-size: 0.9rem; line-height: 1.7; color: var(--ink-mid); display: none; }
+.kcheck-q.answered .kcheck-explain { display: block; }
+.kcheck-score { text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--text-dim); margin-top: 28px; text-transform: uppercase; }
+.kcheck-score strong { color: var(--ink-mid); font-family: var(--mono); }
+
+/* Stats / hero stats */
+.stat-band { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; padding: 56px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); background: var(--bg-soft); }
+.stat-item { padding: 0 18px; }
+.stat-num { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 300; color: var(--ink-mid); line-height: 1; margin-bottom: 8px; }
+.stat-num em { color: var(--accent-deep); font-weight: 400; font-style: normal; }
+.stat-label { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; }
+</style>
+</head>
+<body>
+<nav id="main-nav" role="navigation" aria-label="Main navigation">
+  <div class="wrap nav-inner">
+    <a href="/en/" class="nav-logo" aria-label="JII home">
+      <img class="nav-logo-img nav-logo-img--desktop" src="/assets/logo-jii-wordmark.svg" alt="Japan Investor Interface logo" width="282" height="40">
+      <img class="nav-logo-img nav-logo-img--mobile" src="/assets/logo-jii-monogram.svg" alt="Japan Investor Interface logo" width="32" height="32">
+    </a>
+    <div class="nav-center">
+      <ul class="nav-links" role="list">
+        <li><a href="/en/services/">Services</a></li>
+        <li><a href="/en/pricing/">Pricing</a></li>
+        <li><a href="/en/company/">Company</a></li>
+        <li><a href="/en/faq/">FAQ</a></li>
+        <li><a href="/en/compounders/">Compounders</a></li>
+        <li><a href="/en/governance/">Governance</a></li>
+      </ul>
+    </div>
+    <div class="nav-right">
+      <a href="/en/#contact" class="btn btn-primary nav-cta">Free 30-min call</a>
+      <span class="locale-switcher nav-locale-switcher" aria-label="Language switcher"><a href="/governance/foundations/1.1-lost-decades-roe-gap/" data-locale-route lang="ja">JP</a><a href="/en/governance/foundations/1.1-lost-decades-roe-gap/" class="current" aria-current="page" lang="en">EN</a></span>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" hidden>
+  <a href="/en/services/" onclick="toggleMenu()">Services</a>
+  <a href="/en/pricing/" onclick="toggleMenu()">Pricing</a>
+  <a href="/en/company/" onclick="toggleMenu()">Company</a>
+  <a href="/en/faq/" onclick="toggleMenu()">FAQ</a>
+  <a href="/en/compounders/" onclick="toggleMenu()">Compounders</a>
+  <a href="/en/governance/" onclick="toggleMenu()">Governance</a>
+  <a href="/governance/foundations/1.1-lost-decades-roe-gap/" data-locale-route onclick="toggleMenu()" lang="ja">JP</a>
+  <a href="/en/#contact" class="btn btn-primary mobile-menu-cta" onclick="toggleMenu()">Book a free 30-min call</a>
+</nav>
+<main id="main-content" class="curriculum" tabindex="-1">
+<div class="wrap crumbs">
+  <a href="/en/">JII</a> <span class="sep">/</span>
+  <a href="/en/governance/">Governance Curriculum</a> <span class="sep">/</span>
+  <a href="/en/governance/foundations/">Foundations</a> <span class="sep">/</span>
+  Post 1.1
+</div>
+<header class="post-header">
+  <div class="wrap">
+    <div class="post-header-inner">
+      <div class="post-eyebrow">Theme 1 · POST 1.1</div>
+      <h1 class="post-title">Why 8% Was the Number That Changed Japan</h1>
+      <p class="post-summary">How a single ROE benchmark in a 2014 METI report converted three decades of weak Japanese equity returns into a tractable, measurable governance problem.</p>
+      <div class="post-meta">
+        <span>Theme: <strong>Foundations</strong></span>
+        <span>Reading: <strong>10 minutes min</strong></span>
+        <span>Updated: <strong>2026-05-16</strong></span>
+      </div>
+    </div>
+  </div>
+</header>
+<section class="post-body">
+  <div class="wrap">
+    <article class="post-content">
+<blockquote>
+<p><strong>TL;DR</strong>
+- On 29 December 1989 the Nikkei 225 closed at 38,915.87. It did not surpass that level until February 2024 — a 34-year, 2-month round trip.
+- Through those decades, Japanese ROE sat below 5% while peers in the US averaged ~21% and Europe ~15%; the Ito Review of August 2014 reframed this as a <em>governance</em> problem, not a cyclical hangover.
+- The Review fixed an <strong>8% minimum ROE</strong> benchmark — chosen because it exceeded the cost of capital reported by ~90% of surveyed global investors. That single number is now the gravitational centre of every Japanese capital-efficiency policy that followed.</p>
+</blockquote>
+<h2>The thirty-four-year round trip</h2>
+<p>The Tokyo Stock Exchange ended trading on 29 December 1989 with the Nikkei 225 at <strong>38,915.87</strong> and the TOPIX at <strong>2,881.37</strong>. Both indices then spent the next three and a half decades below those levels. The Nikkei did not surpass its 1989 close until February 2024; the TOPIX took until early 2024 to re-approach 2,881. No other developed-market index has produced a comparable inter-generational drought.</p>
+<p>The standard mid-1990s explanation was cyclical: an asset-price bubble had burst, banks were impaired, deflation was sticky. By the mid-2000s the explanation had migrated to demographic: a shrinking working-age population was bound to drag returns. Both stories survived because both contained truth. But they shared a quiet weakness — they treated the equity-market underperformance as something that <em>happened to</em> Japanese companies rather than something Japanese companies were <em>generating</em>.</p>
+<p>By the time the second Abe administration took office in December 2012, a different diagnosis was forming inside METI: Japanese equity returns were structurally low because Japanese <strong>capital efficiency</strong> was structurally low. Capital was being trapped on balance sheets, recycled into low-return investments, and shielded from market discipline by cross-shareholdings and insider boards. If that diagnosis was right, then the policy lever was not monetary or demographic. It was governance.</p>
+<h2>The ROE gap, in numbers</h2>
+<p>By 2014 the cross-country evidence was difficult to argue with.</p>
+<table>
+<thead>
+<tr>
+<th>Region</th>
+<th>Avg. ROE (2004–2013)</th>
+<th>Avg. ROIC (McKinsey)</th>
+<th>Foreign equity ownership (2014)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Japan</td>
+<td><strong>&lt; 5%</strong></td>
+<td><strong>~8%</strong></td>
+<td>~30%</td>
+</tr>
+<tr>
+<td>United States</td>
+<td>14–15%</td>
+<td><strong>~21%</strong></td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>Europe (Stoxx 600)</td>
+<td>10–11%</td>
+<td><strong>~15%</strong></td>
+<td>n/a</td>
+</tr>
+</tbody>
+</table>
+<p>Sources: METI Ito Review §1, §3 (2014); McKinsey &amp; Co., <em>Closing Japan's valuation gap by changing corporate traditions</em>.</p>
+<p>Two findings inside the Ito Review made the gap especially indefensible to a Japanese audience:</p>
+<ol>
+<li><strong>Capital-cost blindness.</strong> Only ~40% of Japanese listed companies were "conscious of their cost of capital." Fewer than 10% disclosed it. A company that does not know its own cost of capital cannot allocate capital well by any definition.</li>
+<li><strong>The double standard.</strong> Japanese managers "use two different sets of language" — speaking ROE and shareholder value to overseas investors while internally managing to operational and headcount metrics. The Review labelled this the <strong>double-standard problem</strong>.</li>
+</ol>
+<blockquote>
+<p>"ROE for Japanese companies has been below 5%, despite their cost of capital being far in excess of this level. This is a structural problem."
+— METI, <em>Ito Review of Competitiveness and Incentives for Sustainable Growth — Final Report</em> (Aug 2014)</p>
+</blockquote>
+<p>The Review also coined a phrase that has since entered the vocabulary of every Japanese strategy team:</p>
+<blockquote>
+<p>"Japan is the world's most innovative, continuously low-profitable country."
+— Kunio Ito, chair of the Project on Competitiveness and Incentives for Sustainable Growth</p>
+</blockquote>
+<p>The <strong>innovation paradox</strong> captured the political problem precisely. Japan had the patents, the engineering depth and the global market positions. What it lacked was the discipline to convert that competitive position into a return that exceeded its own cost of capital.</p>
+<h2>Why 8%, specifically</h2>
+<p>The Ito Review did not invent the 8% number; it crystallised it. The Review's project team surveyed global investors during 2013–2014 on the cost of capital they implicitly applied to Japanese equities. The modal answer clustered around 7%. To exceed the cost of capital of ~90% of those investors — comfortably, not marginally — an ROE of around 8% was required.</p>
+<p>The Review's wording is precise:</p>
+<blockquote>
+<p>"The first step in receiving recognition from global investors is for a company to commit to achieving a minimum ROE of 8%. Needless to say, this 8% ROE is a minimum level; companies should not see this as the ultimate target."
+— Ito Review, §1.3</p>
+</blockquote>
+<p>Three features of that sentence have mattered ever since:</p>
+<ul>
+<li><strong>"Minimum"</strong> — the Review explicitly disclaimed 8% as a ceiling.</li>
+<li><strong>"Recognition from global investors"</strong> — the legitimacy that the Review was buying was external, not domestic.</li>
+<li><strong>"Commit"</strong> — implying public, ex-ante commitment, not a result that happens to land above 8% in a good year.</li>
+</ul>
+<p>The 8% benchmark spread fast. It was quoted in the FSA's Stewardship Code follow-up materials, in the 2015 Corporate Governance Code, in GPIF stewardship documents, in nearly every sell-side analyst's coverage initiation note on a Japanese mid-cap, and — eventually — in the March 2023 TSE request that defined the next phase of reform. By 2026, an 8% ROE floor is the load-bearing assumption of an entire generation of Japanese investor-relations practice.</p>
+<h2>The demand-side trigger</h2>
+<p>The ROE gap had existed for two decades before the Ito Review crystallised it. Why did the diagnosis stick in 2013–2014 and not in 1995 or 2005? Two demand-side shifts explain the timing.</p>
+<p>The first was the foreign-investor base. In the early 1980s, foreign holdings of TSE-listed equities were negligible. By 2014 they had risen to ~30%, and foreign investors generated roughly 60–70% of daily TSE trading volume. The marginal voter on Japanese equity prices had become international, and the international marginal voter was unwilling to underwrite &lt; 5% ROE indefinitely.</p>
+<p>The second was the collapse of the bank-monitoring counterweight. Bank ownership of listed equities fell from above 20% in the 1980s to under 5% by 2014. The historic monitoring node of Japanese capitalism — the main bank that held equity, provided debt and sat across the table from management quarterly — had withdrawn its capital and its supervision. Something had to fill the void.</p>
+<blockquote>
+<p><strong>Sidebar — Why the gap was hard to see from inside.</strong> From a Japanese manager's point of view, capital efficiency <em>had</em> been improving. Operating margins at large manufacturers rose during the 2000s; net debt fell. But ROE is the ratio of net income to equity, and equity itself had been rising faster than profits because companies retained cash rather than returning it. The denominator was growing faster than the numerator. That is the precise mechanism the 8% benchmark, and the cost-of-capital disclosure regime that followed, was designed to expose.</p>
+</blockquote>
+<h2>How the number changed the conversation</h2>
+<p>Before August 2014, a CEO who reported a 6% ROE could plausibly call it "in line with the Japanese market." After August 2014, that same CEO had to explain why he or she was failing a named numerical test set by the country's own industry ministry. The asymmetry mattered: it was no longer the foreign analyst's framework, it was Tokyo's.</p>
+<p>The Review's choice of <em>METI</em> as the publishing body — rather than the FSA, the TSE, or the Cabinet Office — was deliberate. METI is the ministry that listed Japanese manufacturers historically respected most. Having the 8% number issue from the same building that runs industrial policy made it harder to dismiss as an investor-relations talking point.</p>
+<p>Three downstream effects compounded over the following decade:</p>
+<ol>
+<li><strong>The 2015 Corporate Governance Code</strong> embedded "efficient use of capital" as one of the five general principles (Principle 5), giving the 8% number a comply-or-explain mechanism for board sign-off.</li>
+<li><strong>GPIF's stewardship framework</strong> under Hiromichi Mizuno (CIO, 2015–2020) required external asset managers to engage on capital efficiency. Eight per cent became the implicit floor below which an investee company would face a "why not" conversation.</li>
+<li><strong>The March 2023 TSE request</strong> to companies with PBR &lt; 1 — the single most consequential operational document in Japanese governance since the codes — is, mathematically, a re-statement of the 8% test. Because PBR = ROE × PER, a company with PBR &lt; 1 is almost always a company with ROE below its cost of capital.</li>
+</ol>
+<p>The line from the Ito Review's August 2014 paragraph to the TSE's March 2023 disclosure-list mechanism is one continuous capital-efficiency narrative. The 8% number is the through-line.</p>
+<h2>What this means for IR</h2>
+<ol>
+<li><strong>Treat 8% as the floor, not the target.</strong> Investors who came of age after 2014 read 8% as the <em>minimum</em> the Review specified. If your medium-term plan tops out at an 8.5% ROE, expect engagement questions about why the ambition is not higher.</li>
+<li><strong>Disclose your cost of capital.</strong> The Ito Review found only ~10% of Japanese listed companies disclosed it in 2014. If yours still does not, you are sitting in the bottom decile of a 12-year-old disclosure expectation.</li>
+<li><strong>Reconcile the "double standard" before you are asked.</strong> If your internal KPIs (operating margin, headcount efficiency, segment OP) do not translate cleanly into an equity-return narrative, build that bridge into your earnings deck before an engagement letter forces it.</li>
+<li><strong>Use historical ROE decomposition.</strong> When ROE falls short, decompose into net margin × asset turnover × leverage (DuPont). Investors expect the diagnosis, not just the number.</li>
+<li><strong>Anchor every capital-allocation slide to the 8%.</strong> Investments, buybacks, dividends, M&amp;A — each should be justified against an explicit hurdle, and the hurdle's relationship to the 8% benchmark stated in one sentence.</li>
+</ol>
+<h2>Sources &amp; further reading</h2>
+<ul>
+<li>METI, <em>Ito Review of Competitiveness and Incentives for Sustainable Growth — Final Report</em> (Aug 2014, English PDF): https://www.meti.go.jp/policy/economy/keiei_innovation/kigyoukaikei/ito_review__released_august2014_en.pdf</li>
+<li>METI Ito-Review portal: https://www.meti.go.jp/english/policy/economy/keiei_innovation/corporate_accounting/Itoreview.html</li>
+<li>METI, <em>Outline of the Ito Review 3.0 (SX Edition)</em> (Aug 2022): https://www.meti.go.jp/english/press/2022/pdf/0831_003c.pdf</li>
+<li>METI, <em>Ito Review 3.0 (SX Edition) — full English text</em> (Aug 2022): https://www.meti.go.jp/policy/economy/keiei_innovation/kigyoukaikei/ito_review_3.0__sx_edition__released_august2022_en.pdf</li>
+<li>McKinsey &amp; Co., <em>Closing Japan's valuation gap by changing corporate traditions</em>: https://www.mckinsey.com/capabilities/strategy-and-corporate-finance/our-insights/closing-japans-valuation-gap-by-changing-corporate-traditions</li>
+<li>Nippon.com, Nikkei index history dataset: https://www.nippon.com/en/japan-data/h01927/</li>
+</ul>
+<hr>
+<p><strong>Next in this theme:</strong> <a href="/en/governance/foundations/1.2-pre-reform-architecture/">1.2 From Main Bank to Mizuno: Japan's pre-reform governance architecture</a></p>
+<p><strong>Related posts in other themes:</strong>
+- <a href="/en/governance/cg-code/2.2-cg-code-2018-revision/">2.2 The 2018 Revision: capital efficiency enters the Code</a>
+- <a href="/en/governance/capital-efficiency/4.1-march-2023-request-anatomy/">4.1 PBR &lt; 1 Is Not a Target — It's a Verdict</a>
+- <a href="/en/governance/capital-efficiency/4.2-cost-of-capital-vocabulary/">4.2 WACC, ROIC, Equity Spread: the new vocabulary every Japanese IR rep must own</a></p>
+    </article>
+    <div class="post-nav"><div></div><a href="/en/governance/foundations/1.2-pre-reform-architecture/" class="post-nav-link next"><div class="post-nav-dir">Next →</div><div class="post-nav-title">From Main Bank to Mizuno: Japan&#x27;s pre-reform governance architecture</div></a></div>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Japan Investor Interface Co., Ltd.</h3>
+        <p>Cross-border IR diagnostics for Japanese listed companies. The Foreign IR Diagnostic Card visualizes how foreign capital reads your IR.</p>
+      </div>
+      <div class="footer-col">
+        <h2>The diagnostic & plans</h2>
+        <ul>
+          <li><a href="/en/services/">The Diagnostic Card</a></li>
+          <li><a href="/en/pricing/">Light — Initial Diagnostic</a></li>
+          <li><a href="/en/pricing/">Standard — Disclosure Improvement</a></li>
+          <li><a href="/en/pricing/">Pro — Investor-Meeting Cycle</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Governance curriculum</h2>
+        <ul>
+          <li><a href="/en/governance/">Curriculum home</a></li>
+          <li><a href="/en/governance/foundations/">Theme 1 · Foundations</a></li>
+          <li><a href="/en/governance/capital-efficiency/">Theme 4 · Capital Efficiency</a></li>
+          <li><a href="/en/governance/toolbox/">IR Toolbox</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>JII Compounders</h2>
+        <ul>
+          <li><a href="/en/compounders/">All profiles</a></li>
+          <li><a href="/en/compounders/methodology/">Methodology</a></li>
+          <li><a href="https://japaninterface.substack.com/" rel="noopener" target="_blank">Substack</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Contact</h2>
+        <ul>
+          <li>Email <a href="mailto:info@jpinv.com">info@jpinv.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Japan Investor Interface Co., Ltd. · All rights reserved.</p>
+      <p class="footer-locale-switcher">Language: <a href="/en/" class="current" aria-current="page" lang="en">EN</a> / <a href="/" data-locale-route lang="ja">JP</a></p>
+    </div>
+  </div>
+</footer>
+<script>
+const nav = document.getElementById('main-nav');
+if (nav) window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+const hamburgerBtn = document.querySelector('.hamburger');
+function setMenuOpen(isOpen) { const menu = document.getElementById('mobileMenu'); if (!menu || !hamburgerBtn) return; menu.classList.toggle('open', isOpen); menu.hidden = !isOpen; hamburgerBtn.setAttribute('aria-expanded', String(isOpen)); }
+function toggleMenu() { const menu = document.getElementById('mobileMenu'); setMenuOpen(!(menu && menu.classList.contains('open'))); }
+document.addEventListener('click', (e) => { const menu = document.getElementById('mobileMenu'); if (menu && menu.classList.contains('open') && !menu.contains(e.target) && hamburgerBtn && !hamburgerBtn.contains(e.target)) setMenuOpen(false); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenuOpen(false); });
+</script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs';
+mermaid.initialize({ startOnLoad: true, theme: 'neutral', fontFamily: 'Noto Sans JP, Hiragino Kaku Gothic ProN, sans-serif', themeVariables: { primaryColor: '#f4eee4', primaryTextColor: '#1a2a4a', primaryBorderColor: '#9a7838', lineColor: '#304466', secondaryColor: '#f5f7fa', tertiaryColor: '#fafbfc' } });
+</script>
+</body>
+</html>

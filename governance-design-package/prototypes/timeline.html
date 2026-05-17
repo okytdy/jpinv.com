@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Japan Governance Reform Timeline · 1989 → 2026</title>
+<!--
+=============================================================================
+JPINV.COM · GOVERNANCE-DESIGN-PACKAGE · TIMELINE PROTOTYPE
+=============================================================================
+
+(a) DATA CONTRACT
+-----------------
+Loads `../data/timeline.json` (schema_version 1.0). Falls back to inline
+sample data if the fetch fails (e.g., opened via file:// without a server).
+
+Each event:
+{
+  id: string,                         // slug
+  date: "YYYY-MM-DD",                 // always full date even at month/year precision
+  date_precision: "day"|"month"|"year",
+  title_en / title_ja: string,
+  summary_en / summary_ja: string,
+  category: one-of categories[].id,
+  importance: 1..5,                   // dot size + filter
+  curriculum_slug: "/en/governance/..../" ,
+  primary_source: URL,
+  tags: string[]
+}
+
+categories[]:
+{ id, label_en, label_ja, color_hex }
+
+(b) INTERACTION MODEL
+---------------------
+- Horizontal scrollable rail, 1989 → 2026, decade & year markers.
+- Events plotted as dots, x = linear interpolation of date in the [1989-01-01,
+  2026-12-31] window. Y is assigned via greedy lane packing (above/below the
+  axis, alternating) to avoid collision — small lateral nudges happen too.
+- Hover dot → tooltip with title + date + 1-line summary.
+- Click dot → slide-out right panel with full event detail + curriculum link.
+- Filters: category chips (multi-select toggle), importance ≥ N slider,
+  EN/JA language toggle. All filters recombine live.
+- Mobile (<700px): rail rotates 90° conceptually — events stack vertically.
+- Keyboard: Tab between dots, Enter/Space to open, Esc to close panel.
+
+(c) DESIGN INTENT
+-----------------
+Editorial, mute, jpinv.com-native. White ground; #1a2a4a ink; #9a7838 accent.
+Noto Serif JP for headlines, Noto Sans JP for chrome, DM Mono for dates &
+metadata. Hairline rules, near-zero shadow, generous whitespace. Dots use
+category color, importance scales radius.
+
+(d) KNOWN LIMITATIONS (intentional rough edges, for Claude Design pass)
+-----------------------------------------------------------------------
+- Lane packing is greedy (not force-directed); dense clusters around
+  2015 & 2023 will produce some visual stacking.
+- Year scrubber is a simple jump-to-year <select>; no zoom yet.
+- Mobile vertical layout reuses the same DOM and rotates positioning via
+  a media-query branch in JS — no separate template.
+- Tooltip position does not flip near right edge of viewport.
+- Panel slide-out has no focus trap.
+- No deep linking (#event-id).
+- Transitions are CSS-only, kept minimal.
+=============================================================================
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a2a4a;
+    --ink-mid: #172641;
+    --ink-soft: #4a5a7a;
+    --rule: #d6dee8;
+    --rule-soft: #e8edf3;
+    --bg: #ffffff;
+    --bg-mid: #f5f7fa;
+    --accent: #9a7838;
+    --accent-soft: #c9b48a;
+    --danger: #b91c1c;
+    --serif: 'Noto Serif JP', 'Yu Mincho', 'YuMincho', serif;
+    --sans: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif;
+    --mono: 'DM Mono', 'Menlo', monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.55;
+  }
+
+  a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent-soft);
+    transition: border-color .15s ease;
+  }
+  a:hover { border-color: var(--accent); }
+
+  /* ------------------- HEADER ------------------- */
+
+  header.timeline-header {
+    padding: 56px 48px 28px;
+    border-bottom: 1px solid var(--rule);
+    background: var(--bg);
+  }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 12px 0;
+  }
+
+  h1.timeline-title {
+    font-family: var(--serif);
+    font-size: clamp(28px, 3.6vw, 44px);
+    font-weight: 500;
+    color: var(--ink);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.005em;
+    line-height: 1.15;
+  }
+
+  p.timeline-sub {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--ink-soft);
+    max-width: 720px;
+    margin: 0 0 28px 0;
+  }
+
+  /* ------------------- CONTROLS ROW ------------------- */
+
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px 36px;
+    align-items: flex-start;
+    margin-top: 18px;
+  }
+
+  .control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .control-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .chip {
+    --chip-color: var(--ink);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--ink);
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all .15s ease;
+    user-select: none;
+  }
+  .chip:hover { border-color: var(--ink-soft); }
+  .chip .swatch {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--chip-color);
+    opacity: 0.85;
+  }
+  .chip.is-off {
+    color: #a5adbb;
+    background: transparent;
+    border-color: var(--rule-soft);
+  }
+  .chip.is-off .swatch { opacity: 0.25; }
+
+  .lang-toggle {
+    display: inline-flex;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    overflow: hidden;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 400;
+  }
+  .lang-toggle button {
+    background: transparent;
+    border: 0;
+    color: var(--ink-soft);
+    padding: 5px 12px;
+    cursor: pointer;
+    letter-spacing: 0.08em;
+    font-family: inherit;
+    font-size: inherit;
+  }
+  .lang-toggle button.active {
+    background: var(--ink);
+    color: #fff;
+  }
+
+  .slider-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .slider-wrap input[type="range"] {
+    -webkit-appearance: none;
+    width: 140px;
+    height: 2px;
+    background: var(--rule);
+    outline: none;
+  }
+  .slider-wrap input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    cursor: pointer;
+    border: 0;
+  }
+  .slider-wrap input[type="range"]::-moz-range-thumb {
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    cursor: pointer;
+    border: 0;
+  }
+  .slider-readout {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink);
+    min-width: 44px;
+  }
+
+  .year-jump select {
+    font-family: var(--mono);
+    font-size: 11px;
+    border: 1px solid var(--rule);
+    background: var(--bg);
+    color: var(--ink);
+    padding: 5px 10px;
+    border-radius: 999px;
+  }
+
+  .counts {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-soft);
+    margin-left: auto;
+    align-self: flex-end;
+  }
+  .counts strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  /* ------------------- TIMELINE RAIL ------------------- */
+
+  main {
+    position: relative;
+  }
+
+  .rail-scroller {
+    position: relative;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0 40px;
+    background:
+      linear-gradient(90deg, var(--bg) 0%, transparent 40px),
+      linear-gradient(270deg, var(--bg) 0%, transparent 40px),
+      var(--bg);
+    scrollbar-width: thin;
+  }
+  .rail-scroller::-webkit-scrollbar { height: 8px; }
+  .rail-scroller::-webkit-scrollbar-track { background: transparent; }
+  .rail-scroller::-webkit-scrollbar-thumb {
+    background: var(--rule);
+    border-radius: 4px;
+  }
+
+  .rail {
+    position: relative;
+    height: 520px;
+    min-width: 2800px;
+    margin: 40px 0 48px;
+  }
+
+  /* horizontal axis line */
+  .rail::before {
+    content: "";
+    position: absolute;
+    left: 0; right: 0;
+    top: 50%;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  .year-tick {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 1px;
+    height: 8px;
+    background: var(--rule);
+  }
+  .year-tick.major { height: 16px; background: var(--ink-soft); }
+  .year-tick .lab {
+    position: absolute;
+    top: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+  .year-tick.major .lab {
+    font-size: 11px;
+    color: var(--ink);
+    font-weight: 400;
+  }
+
+  .decade-label {
+    position: absolute;
+    top: -8px;
+    transform: translateX(-50%);
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    opacity: 0.18;
+    pointer-events: none;
+  }
+
+  /* ------------------- EVENT DOTS ------------------- */
+
+  .event-dot {
+    position: absolute;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+  .event-dot .core {
+    display: block;
+    width: var(--size, 12px);
+    height: var(--size, 12px);
+    border-radius: 50%;
+    background: var(--color, var(--ink));
+    border: 1.5px solid var(--bg);
+    box-shadow: 0 0 0 1px var(--color, var(--ink));
+    transition: transform .12s ease, box-shadow .12s ease;
+  }
+  .event-dot:hover .core,
+  .event-dot:focus-visible .core {
+    transform: scale(1.35);
+    box-shadow: 0 0 0 1px var(--color), 0 0 0 5px rgba(26, 42, 74, 0.08);
+  }
+  .event-dot:focus { outline: none; }
+  .event-dot.is-active .core {
+    box-shadow: 0 0 0 1px var(--color), 0 0 0 4px rgba(154, 120, 56, 0.35);
+  }
+  .event-dot.is-hidden {
+    opacity: 0.06;
+    pointer-events: none;
+  }
+
+  /* connector lines from dot to axis */
+  .event-dot .leader {
+    position: absolute;
+    left: 50%;
+    width: 1px;
+    background: var(--color);
+    opacity: 0.35;
+    transform: translateX(-50%);
+  }
+  .event-dot.above .leader { top: 50%; }
+  .event-dot.below .leader { bottom: 50%; }
+
+  .event-dot .mini-label {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--mono);
+    font-size: 9.5px;
+    color: var(--ink-soft);
+    white-space: nowrap;
+    pointer-events: none;
+    max-width: 140px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  .event-dot.above .mini-label { bottom: calc(100% + 4px); }
+  .event-dot.below .mini-label { top: calc(100% + 4px); }
+  .event-dot.imp-5 .mini-label,
+  .event-dot.imp-4 .mini-label {
+    color: var(--ink);
+    font-weight: 400;
+  }
+  .event-dot.imp-1 .mini-label,
+  .event-dot.imp-2 .mini-label {
+    display: none;
+  }
+
+  /* ------------------- TOOLTIP ------------------- */
+
+  .tooltip {
+    position: fixed;
+    z-index: 50;
+    max-width: 320px;
+    padding: 12px 14px;
+    background: var(--ink);
+    color: #fff;
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.5;
+    border-radius: 2px;
+    box-shadow: 0 4px 16px rgba(26, 42, 74, 0.18);
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity .14s ease, transform .14s ease;
+  }
+  .tooltip.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .tooltip .tt-date {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--accent-soft);
+    letter-spacing: 0.06em;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .tooltip .tt-title {
+    font-family: var(--serif);
+    font-size: 13px;
+    font-weight: 500;
+    color: #fff;
+    margin: 0 0 6px;
+    line-height: 1.3;
+  }
+  .tooltip .tt-sum {
+    color: #d6dee8;
+  }
+
+  /* ------------------- PANEL ------------------- */
+
+  .panel-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(26, 42, 74, 0.18);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .2s ease;
+    z-index: 90;
+  }
+  .panel-backdrop.is-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  aside.event-panel {
+    position: fixed;
+    top: 0; right: 0;
+    width: min(520px, 92vw);
+    height: 100vh;
+    background: var(--bg);
+    border-left: 1px solid var(--rule);
+    box-shadow: -8px 0 32px rgba(26, 42, 74, 0.06);
+    transform: translateX(100%);
+    transition: transform .28s cubic-bezier(.4,0,.2,1);
+    z-index: 100;
+    overflow-y: auto;
+  }
+  aside.event-panel.is-open {
+    transform: translateX(0);
+  }
+
+  .panel-inner {
+    padding: 32px 36px 48px;
+  }
+
+  .panel-close {
+    position: absolute;
+    top: 18px; right: 22px;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-soft);
+    padding: 6px 10px;
+    border-radius: 999px;
+    transition: color .15s, background .15s;
+  }
+  .panel-close:hover {
+    color: var(--ink);
+    background: var(--bg-mid);
+  }
+
+  .panel-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink);
+    padding: 4px 10px;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    margin-bottom: 20px;
+  }
+  .panel-badge .swatch {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--ink);
+  }
+
+  .panel-date {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+    margin-bottom: 8px;
+  }
+
+  .panel-title {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.25;
+    margin: 0 0 4px;
+  }
+  .panel-title-alt {
+    font-family: var(--serif);
+    font-size: 15px;
+    color: var(--ink-soft);
+    font-weight: 400;
+    margin: 0 0 24px;
+    line-height: 1.4;
+  }
+
+  .panel-divider {
+    height: 1px;
+    background: var(--rule);
+    margin: 20px 0;
+  }
+
+  .panel-summary {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--ink);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+  .panel-summary-alt {
+    font-family: var(--sans);
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.75;
+    margin-bottom: 24px;
+  }
+
+  .panel-meta {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 10px 14px;
+    font-size: 12px;
+    margin-bottom: 24px;
+  }
+  .panel-meta dt {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+    padding-top: 2px;
+  }
+  .panel-meta dd {
+    margin: 0;
+    color: var(--ink);
+    word-break: break-word;
+  }
+  .panel-meta .tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10px;
+    background: var(--bg-mid);
+    color: var(--ink-soft);
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin: 0 4px 4px 0;
+  }
+
+  .panel-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 400;
+    color: #fff;
+    background: var(--ink);
+    padding: 12px 20px;
+    border-radius: 2px;
+    border: 0;
+    cursor: pointer;
+    transition: background .15s ease;
+    text-decoration: none;
+  }
+  .panel-cta:hover { background: var(--accent); border-bottom-color: transparent; }
+  .panel-cta .arrow { font-family: var(--mono); }
+
+  /* ------------------- MOBILE / VERTICAL MODE ------------------- */
+
+  @media (max-width: 700px) {
+    header.timeline-header {
+      padding: 36px 22px 22px;
+    }
+    .controls { gap: 18px 22px; }
+    .counts { margin-left: 0; }
+
+    .rail-scroller {
+      overflow-x: hidden;
+      overflow-y: auto;
+      padding: 20px 0;
+      max-height: calc(100vh - 320px);
+    }
+
+    .rail {
+      min-width: 0;
+      width: 100%;
+      height: auto;
+      min-height: 4400px;
+      margin: 0;
+    }
+
+    .rail::before {
+      left: 32px;
+      right: auto;
+      top: 0; bottom: 0;
+      width: 1px; height: auto;
+    }
+
+    .year-tick {
+      top: auto;
+      transform: translate(-50%, -50%);
+      left: 32px !important;
+    }
+    .year-tick .lab {
+      top: -7px;
+      left: 18px;
+      transform: none;
+    }
+    .year-tick.major .lab { font-size: 12px; }
+    .decade-label {
+      left: 32px !important;
+      top: auto;
+      transform: translate(18px, -50%);
+      font-size: 18px;
+    }
+
+    .event-dot {
+      transform: translate(-50%, -50%);
+    }
+    .event-dot.above .leader,
+    .event-dot.below .leader {
+      top: 50%; bottom: auto;
+      left: 50%;
+      height: 1px; width: var(--leader, 20px);
+      transform: translate(0, -50%);
+    }
+    .event-dot.below .leader { transform: translate(calc(-100% + 0px), -50%); }
+    .event-dot .mini-label {
+      top: 50%;
+      transform: translateY(-50%);
+      left: calc(100% + 16px);
+      bottom: auto;
+      max-width: 200px;
+      white-space: normal;
+    }
+    .event-dot.below .mini-label {
+      left: auto;
+      right: calc(100% + 16px);
+      text-align: right;
+    }
+    .event-dot.imp-1 .mini-label,
+    .event-dot.imp-2 .mini-label,
+    .event-dot.imp-3 .mini-label { display: none; }
+
+    aside.event-panel { width: 100vw; }
+  }
+
+  /* ------------------- LOAD STATE ------------------- */
+
+  .load-msg {
+    padding: 60px 48px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-soft);
+  }
+  .load-msg.error { color: var(--danger); }
+
+  .legend-note {
+    margin-top: 12px;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-soft);
+    letter-spacing: 0.04em;
+  }
+
+  /* hide scrollbar arrows on mobile */
+  @media (max-width: 700px) {
+    .rail-scroller::-webkit-scrollbar { width: 4px; height: 0; }
+  }
+</style>
+</head>
+<body>
+
+<header class="timeline-header">
+  <p class="eyebrow">Governance Reform · Curriculum Index</p>
+  <h1 class="timeline-title" id="title">Japan Governance Reform Timeline · 1989 → 2026</h1>
+  <p class="timeline-sub" id="subtitle">
+    A working index of 93 events that shaped the codes, courts, councils and market structure of corporate Japan over thirty-seven years. Click any point to open the underlying curriculum dossier.
+  </p>
+
+  <div class="controls" role="region" aria-label="Timeline controls">
+    <div class="control-group">
+      <span class="control-label">Categories</span>
+      <div class="chips" id="chips" role="group" aria-label="Filter by category"></div>
+    </div>
+
+    <div class="control-group">
+      <span class="control-label">Importance ≥</span>
+      <div class="slider-wrap">
+        <input type="range" id="impSlider" min="1" max="5" step="1" value="1" aria-label="Minimum importance">
+        <span class="slider-readout" id="impReadout">1 (all)</span>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <span class="control-label">Jump to year</span>
+      <div class="year-jump">
+        <select id="yearJump" aria-label="Jump to year"></select>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <span class="control-label">Language</span>
+      <div class="lang-toggle" role="group" aria-label="Language toggle">
+        <button data-lang="en" class="active" type="button">EN</button>
+        <button data-lang="ja" type="button">JA</button>
+      </div>
+    </div>
+
+    <div class="counts" id="counts">— events</div>
+  </div>
+  <p class="legend-note">Hover a dot for summary · click for full entry · Tab + Enter for keyboard navigation · Esc to close.</p>
+</header>
+
+<main>
+  <div class="rail-scroller" id="railScroller">
+    <div class="rail" id="rail" role="list" aria-label="Timeline events">
+      <div class="load-msg" id="loadMsg">Loading timeline data…</div>
+    </div>
+  </div>
+</main>
+
+<div class="tooltip" id="tooltip" role="tooltip" aria-hidden="true">
+  <span class="tt-date" id="ttDate"></span>
+  <p class="tt-title" id="ttTitle"></p>
+  <span class="tt-sum" id="ttSum"></span>
+</div>
+
+<div class="panel-backdrop" id="backdrop"></div>
+<aside class="event-panel" id="panel" role="dialog" aria-modal="true" aria-labelledby="panelTitle" aria-hidden="true">
+  <button class="panel-close" id="panelClose" aria-label="Close panel">CLOSE ✕</button>
+  <div class="panel-inner" id="panelInner">
+    <!-- populated dynamically -->
+  </div>
+</aside>
+
+<script>
+(() => {
+  'use strict';
+
+  // -------------------------------------------------------------------------
+  // FALLBACK DATA (used if fetch fails — e.g. opened via file://)
+  // -------------------------------------------------------------------------
+  const FALLBACK = {
+    schema_version: "1.0",
+    categories: [
+      {id:"code",label_en:"Codes",label_ja:"コード",color_hex:"#9a7838"},
+      {id:"market",label_en:"Market structure",label_ja:"市場構造",color_hex:"#2f6f4f"},
+      {id:"disclosure",label_en:"Disclosure rules",label_ja:"開示ルール",color_hex:"#1a2a4a"},
+      {id:"working-group",label_en:"Working groups",label_ja:"ワーキング・グループ",color_hex:"#8a682b"},
+      {id:"case",label_en:"Landmark cases",label_ja:"代表事例",color_hex:"#b91c1c"},
+      {id:"macro",label_en:"Macro context",label_ja:"マクロ環境",color_hex:"#5f6875"}
+    ],
+    events: [
+      {id:"1989-peak",date:"1989-12-29",date_precision:"day",title_en:"Nikkei peak",title_ja:"日経平均ピーク",summary_en:"Bubble-era top at 38,915.87.",summary_ja:"バブル期最高値。",category:"macro",importance:5,curriculum_slug:"/en/governance/foundations/",primary_source:"#",tags:["macro"]},
+      {id:"2014-stewardship",date:"2014-02-26",date_precision:"day",title_en:"Stewardship Code 1.0",title_ja:"スチュワードシップ・コード策定",summary_en:"Seven principles for institutional investors.",summary_ja:"機関投資家7原則。",category:"code",importance:5,curriculum_slug:"/en/governance/foundations/",primary_source:"#",tags:["stewardship"]},
+      {id:"2015-cgcode",date:"2015-06-01",date_precision:"day",title_en:"CG Code 1.0",title_ja:"CGコード適用開始",summary_en:"First Corporate Governance Code applies to listed firms.",summary_ja:"日本初のCGコード適用。",category:"code",importance:5,curriculum_slug:"/en/governance/cg-code/",primary_source:"#",tags:["cgcode"]},
+      {id:"2022-prime",date:"2022-04-04",date_precision:"day",title_en:"TSE Prime Market launches",title_ja:"東証プライム市場発足",summary_en:"Three-tier reorganization of Tokyo Stock Exchange.",summary_ja:"東証3市場再編。",category:"market",importance:5,curriculum_slug:"/en/governance/market/",primary_source:"#",tags:["tse","prime"]}
+    ]
+  };
+
+  // -------------------------------------------------------------------------
+  // STATE
+  // -------------------------------------------------------------------------
+  const state = {
+    data: null,
+    catById: {},          // id -> category object
+    activeCats: new Set(),// currently enabled categories
+    minImp: 1,
+    lang: 'en',
+    activeId: null
+  };
+
+  // -------------------------------------------------------------------------
+  // CONSTANTS
+  // -------------------------------------------------------------------------
+  const RAIL_START = new Date('1989-01-01').getTime();
+  const RAIL_END   = new Date('2026-12-31').getTime();
+  const RAIL_SPAN  = RAIL_END - RAIL_START;
+  const SIZE_BY_IMP = {1: 7, 2: 9, 3: 12, 4: 16, 5: 22};
+  const LANE_HEIGHT = 38;         // px between stacked lanes
+  const MAX_LANES   = 6;          // lanes per side
+  const COLLISION_DX = 50;        // px lateral collision window for dot lane packing
+
+  // -------------------------------------------------------------------------
+  // INIT
+  // -------------------------------------------------------------------------
+  function init() {
+    fetch('../data/timeline.json')
+      .then(r => {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
+      })
+      .then(json => {
+        state.data = json;
+        boot();
+      })
+      .catch(err => {
+        console.warn('Falling back to inline test data:', err.message);
+        state.data = FALLBACK;
+        // surface a small banner so the consumer knows it's the fallback
+        const m = document.getElementById('loadMsg');
+        if (m) {
+          m.className = 'load-msg error';
+          m.textContent = 'Could not fetch timeline.json — using 4-event fallback (open via http:// to load full data).';
+        }
+        setTimeout(boot, 80);
+      });
+  }
+
+  function boot() {
+    // index categories
+    state.data.categories.forEach(c => {
+      state.catById[c.id] = c;
+      state.activeCats.add(c.id);
+    });
+    // sort events ascending
+    state.data.events.sort((a,b) => a.date.localeCompare(b.date));
+
+    buildChips();
+    buildYearJump();
+    bindControls();
+    renderRail();
+    bindPanel();
+  }
+
+  // -------------------------------------------------------------------------
+  // CHIPS
+  // -------------------------------------------------------------------------
+  function buildChips() {
+    const root = document.getElementById('chips');
+    root.innerHTML = '';
+    state.data.categories.forEach(cat => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'chip';
+      b.dataset.cat = cat.id;
+      b.style.setProperty('--chip-color', cat.color_hex);
+      b.setAttribute('aria-pressed', 'true');
+      b.innerHTML = `<span class="swatch"></span><span class="chip-label">${escapeHtml(cat['label_' + state.lang])}</span>`;
+      b.addEventListener('click', () => {
+        if (state.activeCats.has(cat.id)) {
+          state.activeCats.delete(cat.id);
+          b.classList.add('is-off');
+          b.setAttribute('aria-pressed', 'false');
+        } else {
+          state.activeCats.add(cat.id);
+          b.classList.remove('is-off');
+          b.setAttribute('aria-pressed', 'true');
+        }
+        applyFilters();
+      });
+      root.appendChild(b);
+    });
+  }
+
+  // -------------------------------------------------------------------------
+  // YEAR JUMP
+  // -------------------------------------------------------------------------
+  function buildYearJump() {
+    const sel = document.getElementById('yearJump');
+    sel.innerHTML = '';
+    const opt0 = document.createElement('option');
+    opt0.value = '';
+    opt0.textContent = '— year —';
+    sel.appendChild(opt0);
+    for (let y = 1989; y <= 2026; y++) {
+      const opt = document.createElement('option');
+      opt.value = y; opt.textContent = y;
+      sel.appendChild(opt);
+    }
+    sel.addEventListener('change', e => {
+      const y = parseInt(e.target.value);
+      if (!y) return;
+      const x = dateToX(new Date(`${y}-06-15`).getTime());
+      const sc = document.getElementById('railScroller');
+      const isMobile = window.matchMedia('(max-width: 700px)').matches;
+      if (isMobile) {
+        const rail = document.getElementById('rail');
+        const targetY = (x / 100) * rail.offsetHeight;
+        sc.scrollTo({ top: targetY - 200, behavior: 'smooth' });
+      } else {
+        const rail = document.getElementById('rail');
+        const targetX = (x / 100) * rail.offsetWidth;
+        sc.scrollTo({ left: targetX - sc.clientWidth / 2, behavior: 'smooth' });
+      }
+    });
+  }
+
+  // -------------------------------------------------------------------------
+  // CONTROLS BINDING
+  // -------------------------------------------------------------------------
+  function bindControls() {
+    // importance
+    const slider = document.getElementById('impSlider');
+    const readout = document.getElementById('impReadout');
+    slider.addEventListener('input', e => {
+      state.minImp = parseInt(e.target.value);
+      readout.textContent = state.minImp === 1 ? '1 (all)' : `${state.minImp}`;
+      applyFilters();
+    });
+
+    // language
+    document.querySelectorAll('.lang-toggle button').forEach(b => {
+      b.addEventListener('click', () => {
+        if (state.lang === b.dataset.lang) return;
+        state.lang = b.dataset.lang;
+        document.querySelectorAll('.lang-toggle button').forEach(x => x.classList.toggle('active', x === b));
+        relabel();
+      });
+    });
+  }
+
+  // -------------------------------------------------------------------------
+  // RENDER RAIL
+  // -------------------------------------------------------------------------
+  function renderRail() {
+    const rail = document.getElementById('rail');
+    rail.innerHTML = '';
+
+    // year ticks
+    for (let y = 1989; y <= 2026; y++) {
+      const tick = document.createElement('div');
+      const isMajor = (y % 10 === 0);
+      tick.className = 'year-tick' + (isMajor ? ' major' : '');
+      const xPct = dateToX(new Date(`${y}-01-01`).getTime());
+      tick.style.left = xPct + '%';
+      if (isMajor || y === 1989 || y === 2026 || y % 5 === 0) {
+        const lab = document.createElement('span');
+        lab.className = 'lab';
+        lab.textContent = y;
+        tick.appendChild(lab);
+      }
+      rail.appendChild(tick);
+    }
+
+    // decade labels
+    [1990, 2000, 2010, 2020].forEach(d => {
+      const lab = document.createElement('div');
+      lab.className = 'decade-label';
+      lab.textContent = d + 's';
+      lab.style.left = dateToX(new Date(`${d + 5}-01-01`).getTime()) + '%';
+      rail.appendChild(lab);
+    });
+
+    // lane packing for events
+    // events come pre-sorted; assign alternating above/below with greedy lanes
+    const lanesAbove = [];  // each entry = last x-percent occupied at that lane
+    const lanesBelow = [];
+
+    state.data.events.forEach((ev, i) => {
+      const xPct = dateToX(new Date(ev.date).getTime());
+      // prefer alternation but choose the side with shorter waitlist
+      const sideOrder = (i % 2 === 0) ? ['above','below'] : ['below','above'];
+      let placed = null;
+
+      for (const side of sideOrder) {
+        const lanes = side === 'above' ? lanesAbove : lanesBelow;
+        for (let l = 0; l < MAX_LANES; l++) {
+          const last = lanes[l];
+          if (last === undefined || xPct - last > 1.6) { // ~1.6% gap (~45px @ 2800px)
+            lanes[l] = xPct;
+            placed = { side, lane: l };
+            break;
+          }
+        }
+        if (placed) break;
+      }
+      if (!placed) placed = { side: 'above', lane: MAX_LANES };
+
+      ev._x = xPct;
+      ev._side = placed.side;
+      ev._lane = placed.lane;
+      rail.appendChild(buildDot(ev));
+    });
+
+    // remove load msg
+    const lm = document.getElementById('loadMsg');
+    if (lm) lm.remove();
+
+    updateCounts();
+  }
+
+  function buildDot(ev) {
+    const cat = state.catById[ev.category] || { color_hex: 'var(--ink)' };
+    const size = SIZE_BY_IMP[ev.importance] || 10;
+    const yOffsetPx = (ev._lane + 1) * LANE_HEIGHT;
+    const isAbove = ev._side === 'above';
+
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = `event-dot imp-${ev.importance} ${ev._side}`;
+    btn.dataset.id = ev.id;
+    btn.style.left = ev._x + '%';
+    btn.style.top  = `calc(50% + ${isAbove ? '-' : ''}${yOffsetPx}px)`;
+    btn.style.setProperty('--color', cat.color_hex);
+    btn.style.setProperty('--size', size + 'px');
+    btn.setAttribute('role', 'listitem');
+    btn.setAttribute('aria-label', `${ev['title_' + state.lang]} — ${prettyDate(ev)}`);
+
+    const leaderLen = Math.max(yOffsetPx - size/2, 8);
+    btn.innerHTML = `
+      <span class="leader" style="height:${leaderLen}px"></span>
+      <span class="core"></span>
+      <span class="mini-label">${escapeHtml(truncate(ev['title_' + state.lang], 36))}</span>
+    `;
+
+    btn.addEventListener('mouseenter', e => showTip(e, ev));
+    btn.addEventListener('mousemove', e => moveTip(e));
+    btn.addEventListener('mouseleave', hideTip);
+    btn.addEventListener('focus', e => showTip(e, ev));
+    btn.addEventListener('blur', hideTip);
+    btn.addEventListener('click', () => openPanel(ev));
+    btn.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openPanel(ev);
+      }
+    });
+
+    return btn;
+  }
+
+  // -------------------------------------------------------------------------
+  // FILTERS
+  // -------------------------------------------------------------------------
+  function applyFilters() {
+    let shown = 0;
+    document.querySelectorAll('.event-dot').forEach(d => {
+      const id = d.dataset.id;
+      const ev = state.data.events.find(e => e.id === id);
+      const ok = state.activeCats.has(ev.category) && ev.importance >= state.minImp;
+      d.classList.toggle('is-hidden', !ok);
+      if (ok) shown++;
+    });
+    updateCounts(shown);
+  }
+
+  function updateCounts(shown) {
+    const c = document.getElementById('counts');
+    const total = state.data.events.length;
+    if (shown === undefined) shown = total;
+    c.innerHTML = `<strong>${shown}</strong> of ${total} events shown`;
+  }
+
+  // -------------------------------------------------------------------------
+  // LANG TOGGLE / RELABEL
+  // -------------------------------------------------------------------------
+  function relabel() {
+    // chip labels
+    document.querySelectorAll('.chip').forEach(b => {
+      const cat = state.catById[b.dataset.cat];
+      b.querySelector('.chip-label').textContent = cat['label_' + state.lang];
+    });
+    // dot mini labels + aria
+    document.querySelectorAll('.event-dot').forEach(d => {
+      const ev = state.data.events.find(e => e.id === d.dataset.id);
+      d.querySelector('.mini-label').textContent = truncate(ev['title_' + state.lang], 36);
+      d.setAttribute('aria-label', `${ev['title_' + state.lang]} — ${prettyDate(ev)}`);
+    });
+    // open panel
+    if (state.activeId) {
+      const ev = state.data.events.find(e => e.id === state.activeId);
+      if (ev) renderPanel(ev);
+    }
+  }
+
+  // -------------------------------------------------------------------------
+  // TOOLTIP
+  // -------------------------------------------------------------------------
+  const tt = document.getElementById('tooltip');
+  function showTip(e, ev) {
+    document.getElementById('ttDate').textContent = prettyDate(ev).toUpperCase();
+    document.getElementById('ttTitle').textContent = ev['title_' + state.lang];
+    document.getElementById('ttSum').textContent = truncate(ev['summary_' + state.lang], 180);
+    tt.classList.add('is-visible');
+    tt.setAttribute('aria-hidden', 'false');
+    moveTip(e);
+  }
+  function moveTip(e) {
+    if (!tt.classList.contains('is-visible')) return;
+    const x = (e.clientX !== undefined ? e.clientX : (e.target.getBoundingClientRect().left + 10));
+    const y = (e.clientY !== undefined ? e.clientY : (e.target.getBoundingClientRect().top + 10));
+    const pad = 14;
+    const ttW = tt.offsetWidth;
+    const ttH = tt.offsetHeight;
+    let lx = x + pad, ly = y + pad;
+    if (lx + ttW > window.innerWidth - 8)  lx = x - ttW - pad;
+    if (ly + ttH > window.innerHeight - 8) ly = y - ttH - pad;
+    tt.style.left = Math.max(8, lx) + 'px';
+    tt.style.top  = Math.max(8, ly) + 'px';
+  }
+  function hideTip() {
+    tt.classList.remove('is-visible');
+    tt.setAttribute('aria-hidden', 'true');
+  }
+
+  // -------------------------------------------------------------------------
+  // PANEL
+  // -------------------------------------------------------------------------
+  function bindPanel() {
+    document.getElementById('panelClose').addEventListener('click', closePanel);
+    document.getElementById('backdrop').addEventListener('click', closePanel);
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closePanel();
+    });
+  }
+
+  function openPanel(ev) {
+    state.activeId = ev.id;
+    document.querySelectorAll('.event-dot').forEach(d =>
+      d.classList.toggle('is-active', d.dataset.id === ev.id));
+    renderPanel(ev);
+    document.getElementById('panel').classList.add('is-open');
+    document.getElementById('panel').setAttribute('aria-hidden', 'false');
+    document.getElementById('backdrop').classList.add('is-open');
+    hideTip();
+  }
+
+  function closePanel() {
+    state.activeId = null;
+    document.querySelectorAll('.event-dot').forEach(d => d.classList.remove('is-active'));
+    document.getElementById('panel').classList.remove('is-open');
+    document.getElementById('panel').setAttribute('aria-hidden', 'true');
+    document.getElementById('backdrop').classList.remove('is-open');
+  }
+
+  function renderPanel(ev) {
+    const cat = state.catById[ev.category];
+    const inner = document.getElementById('panelInner');
+    const altLang = state.lang === 'en' ? 'ja' : 'en';
+    const tagPills = (ev.tags || []).map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('');
+
+    inner.innerHTML = `
+      <span class="panel-badge" style="border-color:${cat.color_hex}40">
+        <span class="swatch" style="background:${cat.color_hex}"></span>
+        ${escapeHtml(cat['label_' + state.lang])}
+      </span>
+      <div class="panel-date">${escapeHtml(prettyDate(ev).toUpperCase())}</div>
+      <h2 class="panel-title" id="panelTitle">${escapeHtml(ev['title_' + state.lang])}</h2>
+      <p class="panel-title-alt">${escapeHtml(ev['title_' + altLang])}</p>
+
+      <div class="panel-divider"></div>
+
+      <p class="panel-summary">${escapeHtml(ev['summary_' + state.lang])}</p>
+      <p class="panel-summary-alt">${escapeHtml(ev['summary_' + altLang])}</p>
+
+      <dl class="panel-meta">
+        <dt>Importance</dt><dd>${'●'.repeat(ev.importance)}${'○'.repeat(5 - ev.importance)} &nbsp;<span style="color:var(--ink-soft);font-family:var(--mono);font-size:11px">(${ev.importance}/5)</span></dd>
+        <dt>Primary source</dt><dd>${ev.primary_source && ev.primary_source !== '#'
+            ? `<a href="${escapeAttr(ev.primary_source)}" target="_blank" rel="noopener">${escapeHtml(hostname(ev.primary_source))}</a>`
+            : '<span style="color:var(--ink-soft)">—</span>'}</dd>
+        ${tagPills ? `<dt>Tags</dt><dd>${tagPills}</dd>` : ''}
+      </dl>
+
+      <a class="panel-cta" href="${escapeAttr(ev.curriculum_slug)}">
+        ${state.lang === 'en' ? 'Read full curriculum post' : 'カリキュラム本文を読む'}
+        <span class="arrow">→</span>
+      </a>
+    `;
+  }
+
+  // -------------------------------------------------------------------------
+  // HELPERS
+  // -------------------------------------------------------------------------
+  function dateToX(t) {
+    return ((t - RAIL_START) / RAIL_SPAN) * 100;
+  }
+
+  function prettyDate(ev) {
+    const d = new Date(ev.date);
+    const y = d.getFullYear();
+    const m = d.getMonth();
+    const day = d.getDate();
+    const months = state.lang === 'en'
+      ? ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
+      : ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+    if (ev.date_precision === 'year')  return state.lang === 'en' ? `${y}` : `${y}年`;
+    if (ev.date_precision === 'month') return state.lang === 'en' ? `${months[m]} ${y}` : `${y}年${months[m]}`;
+    return state.lang === 'en' ? `${months[m]} ${day}, ${y}` : `${y}年${months[m]}${day}日`;
+  }
+
+  function truncate(s, n) {
+    if (!s) return '';
+    return s.length > n ? s.slice(0, n - 1).trimEnd() + '…' : s;
+  }
+
+  function escapeHtml(s) {
+    if (s == null) return '';
+    return String(s).replace(/[&<>"']/g, c => ({
+      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'
+    }[c]));
+  }
+  function escapeAttr(s) { return escapeHtml(s); }
+
+  function hostname(url) {
+    try { return new URL(url).hostname.replace(/^www\./,''); }
+    catch (e) { return url; }
+  }
+
+  // -------------------------------------------------------------------------
+  // GO
+  // -------------------------------------------------------------------------
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html>

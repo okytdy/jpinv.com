@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+<title>SSBJ in Action: the three-phase sustainability disclosure roll-out | JII Governance Curriculum</title>
+<meta name="description" content="Japan&#x27;s Sustainability Standards Board issued its three inaugural standards on 5 March 2025, the FSA built a roadmap, and the largest Prime issuers are now operating against a March 2027 first-mandatory-filing deadline. The framework is structurally IFRS S1/S2 with Japan-specific transition reliefs; the rollout is phased; the bridge from Code 3-1 ③ TCFD disclosure to SSBJ statutory disclosure is the operative challenge.">
+<meta property="og:title" content="SSBJ in Action: the three-phase sustainability disclosure roll-out | JII Governance Curriculum">
+<meta property="og:description" content="Japan&#x27;s Sustainability Standards Board issued its three inaugural standards on 5 March 2025, the FSA built a roadmap, and the largest Prime issuers are now operating against a March 2027 first-mandatory-filing deadline. The framework is structurally IFRS S1/S2 with Japan-specific transition reliefs; the rollout is phased; the bridge from Code 3-1 ③ TCFD disclosure to SSBJ statutory disclosure is the operative challenge.">
+<meta property="og:url" content="https://jpinv.com/en/governance/frontier/5.5-ssbj-sustainability/">
+<link rel="canonical" href="https://jpinv.com/en/governance/frontier/5.5-ssbj-sustainability/">
+<link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/frontier/5.5-ssbj-sustainability/">
+<link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/frontier/5.5-ssbj-sustainability/">
+<link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/frontier/5.5-ssbj-sustainability/">
+
+<style>
+:root {
+  --ink:        #1a2a4a;
+  --ink-mid:    #172641;
+  --ink-soft:   #304466;
+  --rule:       #d6dee8;
+  --rule-soft:  #e8edf3;
+  --bg:         #ffffff;
+  --bg-mid:     #f5f7fa;
+  --bg-soft:    #fafbfc;
+  --text:       #1f2937;
+  --text-mid:   #4a5566;
+  --text-dim:   #5f6875;
+  --accent:     #9a7838;
+  --accent-deep:#9a7838;
+  --accent-soft:#f4eee4;
+  --bad:        #b91c1c;
+  --warn:       #8a682b;
+  --ok:         #2f6f4f;
+  --serif: 'Noto Serif JP', 'Yu Mincho', serif;
+  --sans:  'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  --mono:  'DM Mono', monospace;
+  --max: 1100px;
+  --pad: 88px;
+  --gutter: 48px;
+  --nav-h: 64px;
+  --measure: 720px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 400; line-height: 1.7; overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+a { color: var(--ink-soft); text-decoration: none; }
+a:hover { color: var(--ink); }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+@media (max-width: 768px) { :root { --gutter: 22px; --pad: 56px; } }
+strong { font-weight: 600; color: var(--ink); }
+em { font-style: normal; color: var(--ink); font-weight: 600; }
+.label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); }
+
+/* Nav (copied from jpinv.com base) */
+nav#main-nav { position: fixed; top:0; left:0; right:0; z-index:100; height: var(--nav-h); background: rgba(255,255,255,0.96); backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule); display: flex; align-items: center; transition: box-shadow 0.3s; }
+nav#main-nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; }
+.nav-logo { text-decoration: none; display: inline-flex; align-items: center; flex: 0 0 auto; min-width: max-content; white-space: nowrap; }
+.nav-logo-img { display: block; width: auto; height: 40px; max-width: none; object-fit: contain; object-position: left center; }
+.nav-logo-img--mobile { display: none; width: 32px; height: 32px; object-fit: contain; }
+.nav-center { flex: 1; display: flex; justify-content: center; }
+.nav-links { display: flex; gap: 22px; list-style: none; flex-wrap: nowrap; white-space: nowrap; }
+.nav-links a { font-family: var(--sans); font-size: 0.78rem; font-weight: 400; letter-spacing: 0.04em; color: var(--text); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--ink-soft); }
+.nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; margin-left: auto; }
+.nav-cta { padding: 8px 14px; font-size: 0.7rem; }
+.locale-switcher { display: inline-flex; align-items: center; gap: 0; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; }
+.locale-switcher a { color: var(--text-dim); border: 1px solid var(--rule); padding: 6px 9px; text-decoration: none; transition: all 0.2s; }
+.locale-switcher a + a { margin-left: -1px; }
+.locale-switcher a:hover, .locale-switcher a.current { color: var(--ink); border-color: var(--ink-mid); background: var(--bg-soft); position: relative; z-index: 1; }
+.hamburger { display: none; flex-shrink:0; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
+.hamburger span { display:block; width:22px; height:1px; background:var(--ink); transition: all 0.25s; }
+@media (max-width: 900px) { .nav-center, .nav-right .nav-cta { display:none; } .hamburger { display:flex; } }
+@media (max-width: 768px) { .nav-logo-img--desktop { display:none; } .nav-logo-img--mobile { display:block; } }
+.mobile-menu { display:none; position:fixed; top:var(--nav-h); left:0; right:0; background:var(--bg); border-bottom:1px solid var(--rule); z-index:99; padding:8px var(--gutter) 20px; flex-direction:column; gap:0; }
+.mobile-menu.open { display:flex; }
+.mobile-menu a { font-size:0.88rem; color:var(--text); text-decoration:none; padding:14px 0; border-bottom:1px solid var(--rule); letter-spacing:0.04em; }
+.mobile-menu a:last-child { border-bottom:none; }
+.mobile-menu .mobile-menu-cta { margin-top:12px; padding:13px 18px; text-align:center; color:#fff; border-bottom:none; }
+
+.btn { display: inline-block; text-decoration: none; font-family: var(--sans); font-size: 0.84rem; font-weight: 400; letter-spacing: 0.06em; padding: 13px 28px; transition: all 0.2s; cursor: pointer; border: none; }
+.btn-primary { background: var(--ink); color: #fff; }
+.btn-primary:hover { background: var(--ink-mid); color: #fff; }
+.btn-outline { border: 1px solid var(--ink-mid); color: var(--ink); background: transparent; }
+.btn-outline:hover { border-color: var(--ink); color: var(--ink); }
+.rule-accent { width: 32px; height: 2px; background: var(--accent); margin: 14px 0 22px; }
+
+/* Footer (mirror) */
+footer { border-top: 1px solid var(--rule); padding: 52px 0 28px; background: var(--bg-soft); font-size: 0.82rem; color: var(--text-dim); }
+footer .footer-grid { display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 32px; align-items: start; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+footer h2 { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.2em; color: var(--ink-soft); text-transform: uppercase; margin-bottom: 12px; font-weight: 500; }
+footer h3 { font-family: var(--serif); font-size: 1rem; font-weight: 400; color: var(--ink); margin-bottom: 8px; }
+footer ul { list-style: none; }
+footer ul li { padding: 4px 0; }
+footer ul li a { color: var(--text-mid); }
+footer ul li a:hover { color: var(--ink); }
+footer .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 18px; flex-wrap: wrap; gap: 12px; }
+footer .footer-locale-switcher a.current { font-weight: 600; color: var(--ink); }
+@media (max-width: 900px) { footer .footer-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 580px) { footer .footer-grid { grid-template-columns: 1fr; } }
+
+
+/* === Curriculum-specific === */
+main.curriculum { padding-top: var(--nav-h); }
+.curr-hero { padding: 96px 0 64px; border-bottom: 1px solid var(--rule); position: relative; overflow: hidden; }
+.curr-hero::before { content:''; position:absolute; inset:0;
+  background-image: linear-gradient(rgba(15,31,58,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(15,31,58,0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent);
+          mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent); }
+.curr-hero-inner { position:relative; z-index:2; max-width: 880px; }
+.curr-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.32em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 18px; }
+.curr-hero h1 { font-family: var(--serif); font-size: clamp(1.9rem, 4.4vw, 3.1rem); font-weight: 300; color: var(--ink-mid); line-height: 1.3; letter-spacing: 0.02em; margin: 0 0 22px; }
+.curr-hero h1 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
+.curr-hero .lede { font-size: 1.05rem; line-height: 1.85; color: var(--text); margin: 0 0 24px; max-width: 700px; }
+.curr-hero-meta { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
+.curr-hero-meta strong { color: var(--ink); font-family: var(--mono); }
+
+.crumbs { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; padding: 22px 0 0; }
+.crumbs a { color: var(--text-mid); }
+.crumbs a:hover { color: var(--ink); }
+.crumbs .sep { color: var(--rule); margin: 0 8px; }
+
+.theme-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; padding: 56px 0; }
+.theme-card { display: block; background: #fff; border: 1px solid var(--rule); padding: 30px 28px; position: relative; transition: all 0.2s; }
+.theme-card:hover { border-color: var(--ink-soft); box-shadow: 0 12px 32px rgba(15,31,58,0.08); transform: translateY(-2px); }
+.theme-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background: var(--accent); opacity: 0.85; }
+.theme-card-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; }
+.theme-card-name { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--ink-mid); margin: 10px 0 8px; line-height: 1.35; }
+.theme-card-period { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 14px; }
+.theme-card-desc { font-size: 0.92rem; line-height: 1.7; color: var(--text); margin-bottom: 18px; }
+.theme-card-list { font-size: 0.84rem; color: var(--text-mid); list-style: none; padding-top: 14px; border-top: 1px solid var(--rule-soft); }
+.theme-card-list li { padding: 5px 0; }
+.theme-card-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; }
+.theme-card-foot .arrow { color: var(--accent-deep); }
+
+.post-list { padding: 28px 0 56px; }
+.post-list-row { display: grid; grid-template-columns: 60px 1fr auto; gap: 22px; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--rule-soft); transition: all 0.18s; }
+.post-list-row:hover { background: var(--bg-mid); padding-left: 12px; padding-right: 12px; }
+.post-list-num { font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em; color: var(--accent-deep); font-weight: 500; }
+.post-list-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--ink-mid); line-height: 1.45; }
+.post-list-meta { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; white-space: nowrap; }
+@media (max-width: 600px) { .post-list-row { grid-template-columns: 50px 1fr; } .post-list-meta { grid-column: 1 / -1; padding-left: 72px; } }
+
+/* Post body */
+.post-body { padding: 48px 0 80px; }
+.post-content { max-width: var(--measure); margin: 0 auto; }
+.post-content > p, .post-content > ul, .post-content > ol, .post-content > blockquote, .post-content > pre, .post-content > table, .post-content > hr, .post-content > h2, .post-content > h3, .post-content > h4 { max-width: var(--measure); margin-left: auto; margin-right: auto; }
+.post-content h2 { font-family: var(--serif); font-size: 1.55rem; font-weight: 400; color: var(--ink-mid); line-height: 1.35; margin: 56px 0 14px; padding-top: 22px; border-top: 1px solid var(--rule-soft); }
+.post-content h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 500; color: var(--ink); margin: 36px 0 10px; line-height: 1.4; }
+.post-content h4 { font-family: var(--sans); font-size: 1rem; font-weight: 600; color: var(--ink); margin: 26px 0 8px; letter-spacing: 0.02em; }
+.post-content p { margin: 0 0 18px; font-size: 1rem; line-height: 1.85; color: var(--text); }
+.post-content p:first-of-type { font-size: 1.05rem; }
+.post-content ul, .post-content ol { margin: 0 0 22px; padding-left: 28px; }
+.post-content ul li, .post-content ol li { font-size: 0.97rem; line-height: 1.8; margin-bottom: 8px; color: var(--text); }
+.post-content ul li::marker { color: var(--accent-deep); }
+.post-content blockquote { margin: 30px 0; padding: 20px 24px; border-left: 3px solid var(--accent); background: var(--accent-soft); color: var(--ink-mid); font-style: normal; }
+.post-content blockquote p { margin-bottom: 8px; font-size: 0.97rem; }
+.post-content blockquote p:last-child { margin-bottom: 0; }
+.post-content blockquote strong { color: var(--ink); }
+.post-content code { background: #f0f0f0; color: var(--ink-mid); font-family: var(--mono); font-size: 0.88rem; padding: 2px 6px; border-radius: 3px; }
+.post-content pre { background: #f9f9fb; border: 1px solid var(--rule); padding: 18px 22px; overflow-x: auto; font-family: var(--mono); font-size: 0.85rem; line-height: 1.55; margin: 24px 0; }
+.post-content pre code { background: transparent; padding: 0; font-size: inherit; }
+.post-content a { color: var(--accent-deep); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; transition: text-decoration-color 0.18s; }
+.post-content a:hover { text-decoration-color: var(--accent-deep); }
+.post-content hr { border: none; border-top: 1px solid var(--rule); margin: 40px auto; max-width: 120px; }
+.post-content table { width: 100%; max-width: var(--measure); margin: 28px auto; border-collapse: collapse; font-size: 0.9rem; }
+.post-content th { background: var(--bg-mid); color: var(--ink-mid); font-family: var(--sans); font-weight: 600; text-align: left; padding: 12px 14px; border-bottom: 2px solid var(--rule); }
+.post-content td { padding: 10px 14px; border-bottom: 1px solid var(--rule-soft); vertical-align: top; color: var(--text); }
+.post-content tr:nth-child(even) td { background: #fafbfc; }
+
+/* Mermaid container */
+.mermaid-wrap { background: #fdfdfe; border: 1px solid var(--rule); padding: 22px 18px; margin: 28px 0; overflow-x: auto; }
+.mermaid { font-family: var(--sans); text-align: center; }
+
+/* Post header */
+.post-header { padding: 48px 0 28px; border-bottom: 1px solid var(--rule); }
+.post-header-inner { max-width: var(--measure); margin: 0 auto; }
+.post-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.28em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 14px; }
+.post-title { font-family: var(--serif); font-size: clamp(1.7rem, 3.6vw, 2.4rem); font-weight: 400; color: var(--ink-mid); line-height: 1.3; margin: 0 0 16px; letter-spacing: 0.005em; }
+.post-summary { font-size: 1.02rem; line-height: 1.8; color: var(--text); margin: 0 0 22px; max-width: 660px; }
+.post-meta { display: flex; gap: 26px; flex-wrap: wrap; padding-top: 18px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
+.post-meta span strong { color: var(--ink); font-family: var(--mono); }
+
+/* Post nav (prev/next) */
+.post-nav { max-width: var(--measure); margin: 56px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding-top: 36px; border-top: 1px solid var(--rule); }
+.post-nav-link { display: block; padding: 18px 20px; background: var(--bg-mid); border: 1px solid var(--rule); transition: all 0.18s; }
+.post-nav-link:hover { border-color: var(--ink-soft); background: #fff; transform: translateY(-1px); }
+.post-nav-dir { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px; }
+.post-nav-title { font-family: var(--serif); font-size: 0.94rem; color: var(--ink-mid); line-height: 1.4; }
+.post-nav-link.next { text-align: right; }
+@media (max-width: 640px) { .post-nav { grid-template-columns: 1fr; } .post-nav-link.next { text-align: left; } }
+
+/* Knowledge check */
+.kcheck { background: var(--bg-mid); padding: 72px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.kcheck-head { max-width: 720px; margin: 0 auto 36px; text-align: center; }
+.kcheck h2 { font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 300; color: var(--ink-mid); margin: 0 0 14px; line-height: 1.3; }
+.kcheck h2 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
+.kcheck p.lede { font-size: 0.98rem; line-height: 1.75; color: var(--text); }
+.kcheck-q { background: #fff; border: 1px solid var(--rule); padding: 28px 30px; margin-bottom: 18px; max-width: 760px; margin-left: auto; margin-right: auto; }
+.kcheck-q-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; margin-bottom: 12px; }
+.kcheck-q-text { font-family: var(--serif); font-size: 1.1rem; line-height: 1.5; color: var(--ink-mid); margin-bottom: 18px; }
+.kcheck-opts { display: grid; gap: 8px; }
+.kcheck-opt { display: block; padding: 12px 16px; background: var(--bg-soft); border: 1px solid var(--rule); text-align: left; font-family: var(--sans); font-size: 0.92rem; color: var(--text); cursor: pointer; transition: all 0.15s; }
+.kcheck-opt:hover { background: #fff; border-color: var(--ink-soft); }
+.kcheck-opt.correct { background: #e8f3ec; border-color: var(--ok); color: var(--ok); }
+.kcheck-opt.incorrect { background: #fbe9e9; border-color: var(--bad); color: var(--bad); }
+.kcheck-explain { margin-top: 16px; padding: 14px 18px; background: var(--accent-soft); border-left: 3px solid var(--accent); font-size: 0.9rem; line-height: 1.7; color: var(--ink-mid); display: none; }
+.kcheck-q.answered .kcheck-explain { display: block; }
+.kcheck-score { text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--text-dim); margin-top: 28px; text-transform: uppercase; }
+.kcheck-score strong { color: var(--ink-mid); font-family: var(--mono); }
+
+/* Stats / hero stats */
+.stat-band { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; padding: 56px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); background: var(--bg-soft); }
+.stat-item { padding: 0 18px; }
+.stat-num { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 300; color: var(--ink-mid); line-height: 1; margin-bottom: 8px; }
+.stat-num em { color: var(--accent-deep); font-weight: 400; font-style: normal; }
+.stat-label { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; }
+</style>
+</head>
+<body>
+<nav id="main-nav" role="navigation" aria-label="Main navigation">
+  <div class="wrap nav-inner">
+    <a href="/en/" class="nav-logo" aria-label="JII home">
+      <img class="nav-logo-img nav-logo-img--desktop" src="/assets/logo-jii-wordmark.svg" alt="Japan Investor Interface logo" width="282" height="40">
+      <img class="nav-logo-img nav-logo-img--mobile" src="/assets/logo-jii-monogram.svg" alt="Japan Investor Interface logo" width="32" height="32">
+    </a>
+    <div class="nav-center">
+      <ul class="nav-links" role="list">
+        <li><a href="/en/services/">Services</a></li>
+        <li><a href="/en/pricing/">Pricing</a></li>
+        <li><a href="/en/company/">Company</a></li>
+        <li><a href="/en/faq/">FAQ</a></li>
+        <li><a href="/en/compounders/">Compounders</a></li>
+        <li><a href="/en/governance/">Governance</a></li>
+      </ul>
+    </div>
+    <div class="nav-right">
+      <a href="/en/#contact" class="btn btn-primary nav-cta">Free 30-min call</a>
+      <span class="locale-switcher nav-locale-switcher" aria-label="Language switcher"><a href="/governance/frontier/5.5-ssbj-sustainability/" data-locale-route lang="ja">JP</a><a href="/en/governance/frontier/5.5-ssbj-sustainability/" class="current" aria-current="page" lang="en">EN</a></span>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" hidden>
+  <a href="/en/services/" onclick="toggleMenu()">Services</a>
+  <a href="/en/pricing/" onclick="toggleMenu()">Pricing</a>
+  <a href="/en/company/" onclick="toggleMenu()">Company</a>
+  <a href="/en/faq/" onclick="toggleMenu()">FAQ</a>
+  <a href="/en/compounders/" onclick="toggleMenu()">Compounders</a>
+  <a href="/en/governance/" onclick="toggleMenu()">Governance</a>
+  <a href="/governance/frontier/5.5-ssbj-sustainability/" data-locale-route onclick="toggleMenu()" lang="ja">JP</a>
+  <a href="/en/#contact" class="btn btn-primary mobile-menu-cta" onclick="toggleMenu()">Book a free 30-min call</a>
+</nav>
+<main id="main-content" class="curriculum" tabindex="-1">
+<div class="wrap crumbs">
+  <a href="/en/">JII</a> <span class="sep">/</span>
+  <a href="/en/governance/">Governance Curriculum</a> <span class="sep">/</span>
+  <a href="/en/governance/frontier/">The Frontier</a> <span class="sep">/</span>
+  Post 5.5
+</div>
+<header class="post-header">
+  <div class="wrap">
+    <div class="post-header-inner">
+      <div class="post-eyebrow">Theme 5 · POST 5.5</div>
+      <h1 class="post-title">SSBJ in Action: the three-phase sustainability disclosure roll-out</h1>
+      <p class="post-summary">Japan&#x27;s Sustainability Standards Board issued its three inaugural standards on 5 March 2025, the FSA built a roadmap, and the largest Prime issuers are now operating against a March 2027 first-mandatory-filing deadline. The framework is structurally IFRS S1/S2 with Japan-specific transition reliefs; the rollout is phased; the bridge from Code 3-1 ③ TCFD disclosure to SSBJ statutory disclosure is the operative challenge.</p>
+      <div class="post-meta">
+        <span>Theme: <strong>The Frontier</strong></span>
+        <span>Reading: <strong>15 minutes min</strong></span>
+        <span>Updated: <strong>2026-05-17</strong></span>
+      </div>
+    </div>
+  </div>
+</header>
+<section class="post-body">
+  <div class="wrap">
+    <article class="post-content">
+<blockquote>
+<p><strong>TL;DR</strong>
+- On <strong>5 March 2025</strong>, the Sustainability Standards Board of Japan (SSBJ) issued three inaugural standards — Universal/Application Standard, Theme-based Standard 1 (general, mirroring IFRS S1), Theme-based Standard 2 (climate, mirroring IFRS S2).
+- The FSA's phased roll-out applies the standards as <strong>statutory YUHO disclosure</strong>: <strong>Phase 1 (FY ending March 2027) for issuers above JPY 3 trn market cap (~70 companies)</strong>; <strong>Phase 2 (March 2028) for above JPY 1 trn</strong>; <strong>Phase 3 (March 2029) for above JPY 500 bn</strong>. The rest of Prime is on a path still being finalised.
+- Japan chose <strong>single materiality</strong>, structural IFRS alignment, and a <strong>3-year glide path to mandatory assurance</strong>. The CGC Supplementary Principle 3-1 ③ TCFD obligation stays in force during the transition; the bridge from voluntary to statutory is now the operative IR challenge.</p>
+</blockquote>
+<h2>The institutional architecture, in one diagram</h2>
+<p>The Japanese sustainability disclosure stack now has four layers, each operating at a different legal level:</p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Document</th>
+<th>Legal force</th>
+<th>Coverage</th>
+<th>Operative date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Soft law</td>
+<td>CGC Supplementary Principle 3-1 ③</td>
+<td>Comply-or-explain</td>
+<td>All Prime issuers</td>
+<td>June 2021 onwards</td>
+</tr>
+<tr>
+<td>Soft law</td>
+<td>TCFD Consortium Guidance 3.0</td>
+<td>Voluntary</td>
+<td>All listed</td>
+<td>2022 onwards</td>
+</tr>
+<tr>
+<td>Standards body</td>
+<td>SSBJ Universal Standard + Theme-based Standards 1 &amp; 2</td>
+<td>Standards body issuance</td>
+<td>Voluntary until mandate</td>
+<td>5 March 2025</td>
+</tr>
+<tr>
+<td>Hard law</td>
+<td>FSA Cabinet Office Order amendments</td>
+<td>Statutory disclosure in YUHO</td>
+<td>Phased — see below</td>
+<td>Phase 1 March 2027</td>
+</tr>
+</tbody>
+</table>
+<p>Two architectural decisions deserve highlight before the operational detail.</p>
+<p>First, Japan chose <strong>structural alignment with IFRS S1 / S2</strong> rather than building a parallel domestic standard. The SSBJ Theme-based Standards 1 and 2 incorporate every requirement of the ISSB's S1 and S2, with the addition of Japan-specific transitional reliefs. The reason matters: structural alignment means a Phase-1 SSBJ issuer can file a single sustainability disclosure that satisfies the SSBJ statutory mandate and the global investor expectation simultaneously. Japan has avoided a parallel-disclosure burden that the EU's CSRD-versus-ISSB position has imposed elsewhere.</p>
+<p>Second, Japan chose <strong>single materiality</strong>. The SSBJ disclosure framework is built on financial materiality — what an entity's sustainability factors mean for its enterprise value and cash flows. This is the IFRS S1/S2 framing. The EU's CSRD, by contrast, mandates <strong>double materiality</strong> — financial materiality plus impact materiality (how the entity affects society and environment). GRI publicly urged Japan to adopt double materiality during the 2024 consultations; Japan's regulators rebuffed the proposal but emphasised that companies are free to <em>additionally</em> report impact-materiality content using GRI standards. The single-versus-double debate is expected to re-open in the 2026-27 CGC revision.</p>
+<h2>The phased rollout</h2>
+<p>The phased rollout, in operative table form:</p>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Threshold (consolidated market cap at fiscal year-end)</th>
+<th>Approx. number of issuers</th>
+<th>First mandatory filing</th>
+<th>Scope-3 transitional relief</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Phase 1</strong></td>
+<td><strong>≥ JPY 3 trillion</strong></td>
+<td><strong>~70</strong></td>
+<td><strong>FY ending March 2027</strong> (YUHO filed by June 2027)</td>
+<td>First year only</td>
+</tr>
+<tr>
+<td><strong>Phase 2</strong></td>
+<td>≥ JPY 1 trillion</td>
+<td>~150 additional</td>
+<td>FY ending March 2028</td>
+<td>First year only</td>
+</tr>
+<tr>
+<td><strong>Phase 3</strong></td>
+<td>≥ JPY 500 billion</td>
+<td>~300 additional</td>
+<td>FY ending March 2029</td>
+<td>First year only</td>
+</tr>
+<tr>
+<td>Phase 4 (TBC)</td>
+<td>Other Prime issuers</td>
+<td>Remainder</td>
+<td>Path subject to final Cabinet Office Order amendments</td>
+<td>TBC</td>
+</tr>
+<tr>
+<td>Phase 5 (TBC)</td>
+<td>Standard / Growth issuers</td>
+<td>All other listed</td>
+<td>Not yet scheduled</td>
+<td>TBC</td>
+</tr>
+</tbody>
+</table>
+<p>The phasing logic mirrors the FSA's standard pattern: largest first, with each phase producing a year of practical implementation experience before the next phase joins. The pattern is also the pattern of the English-disclosure rollout (Post 5.1) — the largest Prime issuers are the first cohort, the rest of Prime is on a defined path, and Standard/Growth follow.</p>
+<p>The <strong>assurance schedule</strong> is layered on top of the disclosure schedule. The FSA's roadmap calls for <strong>limited assurance (third-party)</strong> to become mandatory three years after the first mandatory disclosure. That means Phase-1 issuers must obtain limited assurance from FY March 2030; Phase-2 issuers from FY March 2031; Phase-3 issuers from FY March 2032. Reasonable assurance is contemplated but not yet on a defined timetable.</p>
+<p>The roll-out also introduces a meaningful <strong>safe harbour</strong> in the statutory text: forward-looking statements about climate-related risks and scenarios are protected from civil liability when the disclosure is made in good faith and based on reasonable information at the time of preparation. This was an explicit ask of the issuer community during the FSA Working Group consultations and was incorporated in the November 2025 Interim Report.</p>
+<h2>What's in the standards</h2>
+<p>The three SSBJ standards work as a stack.</p>
+<h3>Universal Standard — "Application of the Sustainability Disclosure Standards"</h3>
+<p>The Universal Standard is the cross-cutting application document. It specifies the materiality lens (single materiality, financial), the time horizons (short, medium, long), the connectivity requirement (sustainability disclosures must be linked to the financial statements), the comparative-period disclosure expectation, and the location of the disclosure (statutory YUHO). It also incorporates the IFRS S1 "core content" architecture — Governance, Strategy, Risk Management, Metrics &amp; Targets — as the structural template for every theme-based standard.</p>
+<h3>Theme-based Standard 1 — General Disclosures</h3>
+<p>Theme-based Standard 1 is the Japanese counterpart of <strong>IFRS S1</strong>. It applies to all material sustainability-related risks and opportunities, not just climate. For each material topic, the issuer must disclose: (a) the governance processes that oversee the topic; (b) the strategy and decisions taken in response; (c) the risk-management processes; and (d) the metrics and targets used to measure performance and progress.</p>
+<p>Standard 1 is generic by design; it is the disclosure framework into which subsequent theme-based standards (biodiversity, human capital, social, etc.) will plug. The SSBJ has signalled that the next theme-based standards are likely to address human capital and biodiversity, with timing tied to ISSB developments.</p>
+<h3>Theme-based Standard 2 — Climate-related Disclosures</h3>
+<p>Theme-based Standard 2 is the Japanese counterpart of <strong>IFRS S2</strong>. It is the climate-specific application of Standard 1, with detailed industry-specific metrics derived from the ISSB's industry-based guidance.</p>
+<p>The operative requirement most IR teams focus on is the <strong>Scope 1, 2, and 3 GHG emissions disclosure</strong>. All three scopes are required, with quantitative disclosure across the value chain. The standard's Scope-3 expectation mirrors the IFRS S2 expectation — 15 categories where applicable, with disclosure of the methodologies used. The transitional relief permits Phase-1 issuers to defer Scope-3 disclosure for the first year of mandatory application — a relief expected to be used by most Phase-1 issuers, given Scope-3 data-collection complexity.</p>
+<p>Beyond emissions, Standard 2 requires disclosure of:
+- Climate-related governance (board oversight, management responsibilities).
+- Climate-related strategy, including the resilience of the business model to a 2°C scenario (and, voluntarily, a 1.5°C scenario).
+- Climate-related risks and opportunities, with quantitative and qualitative description.
+- Targets, including absolute and intensity-based emissions targets, with disclosure of how the targets relate to any net-zero commitment.</p>
+<h2>The bridge from CGC 3-1 ③ to statutory SSBJ</h2>
+<p>The CGC's Supplementary Principle 3-1 ③ has required Prime issuers since June 2021 to disclose climate-related information "based on TCFD or an equivalent framework." Five years on, the disclosure landscape is uneven: by mid-2023 only around 30% of Prime issuers were filing fully TCFD-aligned disclosures, with another ~50% partial-compliance and ~20% explanation-based non-compliance.</p>
+<p>The bridge from this soft-law TCFD obligation to the hard-law SSBJ obligation is the operative challenge for Phase-1 issuers in 2025-26. Three differences matter most.</p>
+<p><strong>Location.</strong> TCFD-aligned disclosure has historically lived in the integrated report, the sustainability report, or — for some issuers — a corporate-website disclosure. SSBJ-aligned disclosure must live in the <strong>YUHO</strong> (statutory annual securities report). The legal status, the audit responsibility, the management certification, and the liability framework all change when the disclosure moves into the YUHO.</p>
+<p><strong>Granularity and assurance.</strong> TCFD disclosure has been narrative-led with optional metrics. SSBJ Standard 2 requires defined quantitative metrics (Scope 1/2/3 emissions in tCO₂e; transition risk metrics; physical risk metrics) at the granularity and methodology consistent with IFRS S2. Limited assurance is on a 3-year glide path, but the assurance-readiness work — establishing data-collection processes, controls, documentation, methodology disclosures — must begin in the first year of statutory application.</p>
+<p><strong>Connectivity.</strong> SSBJ disclosure must be <strong>linked to the financial statements</strong> in a way TCFD disclosure typically is not. Where a climate-related risk is material to a financial-statement assumption (e.g., useful life of long-lived assets, impairment indicators, provisions), the SSBJ disclosure must reference the financial-statement treatment and vice versa. This is the connectivity requirement borrowed from IFRS S1.</p>
+<p>For Phase-1 issuers, the practical implication is that <strong>the FY March 2027 YUHO is being designed now</strong>. Data-collection systems for Scope-3 emissions, internal-controls documentation, third-party assurance scoping, and bilingual disclosure pipelines (per Post 5.1) all need to be built over 2025-26 to support the first filing.</p>
+<h2>The 68% data-collection problem</h2>
+<p>Deloitte's 2025 Japan sustainability-readiness survey found that <strong>68% of Prime issuers cite "data collection and integration" as their top SSBJ implementation challenge</strong>. The finding is consistent across other surveys (PwC, KPMG, EY) and across regulator engagement materials.</p>
+<p>The data-collection challenge has three dimensions:</p>
+<ol>
+<li><strong>Scope-3 emissions.</strong> Most Japanese issuers do not have systematic data flow from suppliers and customers for Scope-3 categories 1 (purchased goods), 11 (use of sold products), and 4 (upstream transportation). The data has to be either estimated (using industry-average emission factors) or collected via supplier questionnaires (which take 12-24 months to systematise).</li>
+<li><strong>Subsidiary roll-up.</strong> For diversified groups, getting consistent emissions data across foreign subsidiaries requires either a centralised reporting platform or harmonised methodologies across local finance and ESG teams. The integration with consolidated financial reporting systems is the typical gap.</li>
+<li><strong>Methodology disclosure.</strong> Standard 2 requires disclosure of methodologies used. Many Japanese issuers have been using inconsistent methodologies year to year (or different methodologies across business units) and now need to standardise and document those methodologies for statutory filing.</li>
+</ol>
+<p>The 2025-26 vendor market for sustainability data platforms is now meaningfully larger than it was in 2024. JPXI's August 2025 announcement of machine-readable governance data, the rise of dedicated Japanese sustainability-data vendors (Persefoni Japan, NTT DATA's sustainability platform, Wingarc), and the integration of sustainability data into core ERP systems are all signs of the market response. The IR function's role is increasingly to brief the CFO and the controller's office on the disclosure-deadline timetable, not to own the data-collection process itself.</p>
+<h2>Sidebar: where the IFRS S1/S2 bridge breaks</h2>
+<p>For all the structural alignment, three places in the SSBJ-to-IFRS bridge are worth flagging for IR teams that operate cross-border.</p>
+<p><strong>Materiality assessment terminology.</strong> SSBJ uses "single materiality" framing in line with IFRS, but Japanese-language materiality assessment tools have historically incorporated stakeholder considerations that look more like double materiality. Issuers should harmonise terminology between the SSBJ statutory disclosure and any GRI-aligned sustainability report.</p>
+<p><strong>Industry-based guidance.</strong> IFRS S2 includes the SASB-derived industry-based guidance for 68 industries. SSBJ Standard 2 incorporates this guidance, but the Japanese-language interpretation work is still maturing. Cross-border issuers may want to refer to both the SSBJ Japanese guidance and the IFRS S2 industry guidance to ensure consistency.</p>
+<p><strong>Transitional reliefs.</strong> Japan's transitional reliefs are specifically Japanese — they do not apply outside the Japanese statutory disclosure. An issuer that uses the Scope-3 first-year relief in its YUHO must still respond to IFRS S2-aligned investor questionnaires that may not recognise the Japanese relief. The narrative the IR team uses needs to bridge both audiences.</p>
+<h2>What this means for IR</h2>
+<ol>
+<li><strong>If you are a Phase-1 issuer, design the FY March 2027 disclosure now.</strong> Data-collection, methodology, assurance scoping and bilingual production all have 12-18 month lead times. The first filing's quality will set the engagement narrative for the next three years.</li>
+<li><strong>Build the bridge from TCFD to SSBJ explicitly.</strong> Do not silently re-label the TCFD disclosure as SSBJ-aligned. The granularity, location and connectivity differences are material. Walk investors through the change in your FY2026 governance report.</li>
+<li><strong>Decide your Scope-3 strategy early.</strong> The first-year transitional relief is available, but using it without a clear roadmap to full Scope-3 disclosure invites engagement questions. The strongest Phase-1 issuers will publish a 3-year Scope-3 buildout plan in parallel with the first filing.</li>
+<li><strong>Coordinate the SSBJ filing with the bilingual disclosure pipeline.</strong> Phase-1 issuers are also Prime issuers, who must file the YUHO in English on the FSA's emerging timetable (Post 5.1). The same SSBJ-aligned content needs to flow into both Japanese and English production cycles.</li>
+<li><strong>Use the safe harbour, but use it carefully.</strong> The forward-looking-statement safe harbour applies when disclosures are made in good faith and on reasonable information. The narrative around scenarios, transition plans and emissions targets should be drafted with the safe harbour in mind — but should not lean on it as a shield against substantive engagement.</li>
+</ol>
+<h2>Sources &amp; further reading</h2>
+<ul>
+<li>SSBJ official site (English): https://www.ssb-j.jp/en/</li>
+<li>FSA news release, "Interim Report of WG on Disclosure and Assurance of Sustainability-related Financial Information" (6 November 2025): https://www.fsa.go.jp/en/news/2025/20251106/20251106.html</li>
+<li>FSA Roadmap on Sustainability Disclosure and Assurance (November 2025 PDF): https://www.fsa.go.jp/en/news/2025/20251106/02.pdf</li>
+<li>FSA final report (April 2026): https://www.fsa.go.jp/en/news/2026/20260409.html</li>
+<li>IFRS Foundation Jurisdictional Snapshot — Japan: https://www.ifrs.org/content/dam/ifrs/publications/sustainability-jurisdictions/pdf-snapshots/japan-ifrs-snapshot.pdf</li>
+<li>ISSB IFRS S1 and S2 standards: https://www.ifrs.org/issued-standards/ifrs-sustainability-standards-navigator/</li>
+<li>JPX, "Sample Data Available for JPXI Customized Data on Director and Auditor Skills" (19 August 2025): https://www.jpx.co.jp/english/corporate/news/news-releases/6020/20250819-01.html</li>
+</ul>
+<hr>
+<p><strong>Next in this theme:</strong> <a href="/en/governance/frontier/5.6-board-diversity-30-by-30/">5.6 "30% by 2030" Is a Pipeline Problem</a></p>
+<p><strong>Related posts in other themes:</strong>
+- <a href="/en/governance/cg-code/2.3-cg-code-2021-revision/">2.3 The 2021 Revision: Prime, sustainability, diversity</a>
+- <a href="/en/governance/frontier/5.1-english-disclosure-mandate/">5.1 April 2025 Was a Switch, Not a Finish Line: the English disclosure mandate</a>
+- <a href="/en/governance/frontier/5.8-working-groups-landscape/">5.8 The Working Groups That Are Writing Japan's Next Governance Rules</a></p>
+    </article>
+    <div class="post-nav"><a href="/en/governance/frontier/5.4-mbo-takeover-guidelines/" class="post-nav-link prev"><div class="post-nav-dir">← Previous</div><div class="post-nav-title">Hostile Is No Longer a Slur: METI&#x27;s 2023 Guidelines for Corporate Takeovers</div></a><a href="/en/governance/frontier/5.6-board-diversity-30-by-30/" class="post-nav-link next"><div class="post-nav-dir">Next →</div><div class="post-nav-title">&#x27;30% by 2030&#x27; Is a Pipeline Problem</div></a></div>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Japan Investor Interface Co., Ltd.</h3>
+        <p>Cross-border IR diagnostics for Japanese listed companies. The Foreign IR Diagnostic Card visualizes how foreign capital reads your IR.</p>
+      </div>
+      <div class="footer-col">
+        <h2>The diagnostic & plans</h2>
+        <ul>
+          <li><a href="/en/services/">The Diagnostic Card</a></li>
+          <li><a href="/en/pricing/">Light — Initial Diagnostic</a></li>
+          <li><a href="/en/pricing/">Standard — Disclosure Improvement</a></li>
+          <li><a href="/en/pricing/">Pro — Investor-Meeting Cycle</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Governance curriculum</h2>
+        <ul>
+          <li><a href="/en/governance/">Curriculum home</a></li>
+          <li><a href="/en/governance/foundations/">Theme 1 · Foundations</a></li>
+          <li><a href="/en/governance/capital-efficiency/">Theme 4 · Capital Efficiency</a></li>
+          <li><a href="/en/governance/toolbox/">IR Toolbox</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>JII Compounders</h2>
+        <ul>
+          <li><a href="/en/compounders/">All profiles</a></li>
+          <li><a href="/en/compounders/methodology/">Methodology</a></li>
+          <li><a href="https://japaninterface.substack.com/" rel="noopener" target="_blank">Substack</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Contact</h2>
+        <ul>
+          <li>Email <a href="mailto:info@jpinv.com">info@jpinv.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Japan Investor Interface Co., Ltd. · All rights reserved.</p>
+      <p class="footer-locale-switcher">Language: <a href="/en/" class="current" aria-current="page" lang="en">EN</a> / <a href="/" data-locale-route lang="ja">JP</a></p>
+    </div>
+  </div>
+</footer>
+<script>
+const nav = document.getElementById('main-nav');
+if (nav) window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+const hamburgerBtn = document.querySelector('.hamburger');
+function setMenuOpen(isOpen) { const menu = document.getElementById('mobileMenu'); if (!menu || !hamburgerBtn) return; menu.classList.toggle('open', isOpen); menu.hidden = !isOpen; hamburgerBtn.setAttribute('aria-expanded', String(isOpen)); }
+function toggleMenu() { const menu = document.getElementById('mobileMenu'); setMenuOpen(!(menu && menu.classList.contains('open'))); }
+document.addEventListener('click', (e) => { const menu = document.getElementById('mobileMenu'); if (menu && menu.classList.contains('open') && !menu.contains(e.target) && hamburgerBtn && !hamburgerBtn.contains(e.target)) setMenuOpen(false); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenuOpen(false); });
+</script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs';
+mermaid.initialize({ startOnLoad: true, theme: 'neutral', fontFamily: 'Noto Sans JP, Hiragino Kaku Gothic ProN, sans-serif', themeVariables: { primaryColor: '#f4eee4', primaryTextColor: '#1a2a4a', primaryBorderColor: '#9a7838', lineColor: '#304466', secondaryColor: '#f5f7fa', tertiaryColor: '#fafbfc' } });
+</script>
+</body>
+</html>

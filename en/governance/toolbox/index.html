@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+<title>The IR Toolbox | JII Governance Curriculum</title>
+<meta name="description" content="An indexed, perpetually-maintained repository of every official artifact an IR representative should know — codes, guidelines, lists, FAQs, working-group reports, and data dashboards.">
+<meta property="og:title" content="The IR Toolbox | JII Governance Curriculum">
+<meta property="og:description" content="An indexed, perpetually-maintained repository of every official artifact an IR representative should know — codes, guidelines, lists, FAQs, working-group reports, and data dashboards.">
+<meta property="og:url" content="https://jpinv.com/en/governance/toolbox/">
+<link rel="canonical" href="https://jpinv.com/en/governance/toolbox/">
+<link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/toolbox/">
+<link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/toolbox/">
+<link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/toolbox/">
+
+<style>
+:root {
+  --ink:        #1a2a4a;
+  --ink-mid:    #172641;
+  --ink-soft:   #304466;
+  --rule:       #d6dee8;
+  --rule-soft:  #e8edf3;
+  --bg:         #ffffff;
+  --bg-mid:     #f5f7fa;
+  --bg-soft:    #fafbfc;
+  --text:       #1f2937;
+  --text-mid:   #4a5566;
+  --text-dim:   #5f6875;
+  --accent:     #9a7838;
+  --accent-deep:#9a7838;
+  --accent-soft:#f4eee4;
+  --bad:        #b91c1c;
+  --warn:       #8a682b;
+  --ok:         #2f6f4f;
+  --serif: 'Noto Serif JP', 'Yu Mincho', serif;
+  --sans:  'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  --mono:  'DM Mono', monospace;
+  --max: 1100px;
+  --pad: 88px;
+  --gutter: 48px;
+  --nav-h: 64px;
+  --measure: 720px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 400; line-height: 1.7; overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+a { color: var(--ink-soft); text-decoration: none; }
+a:hover { color: var(--ink); }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+@media (max-width: 768px) { :root { --gutter: 22px; --pad: 56px; } }
+strong { font-weight: 600; color: var(--ink); }
+em { font-style: normal; color: var(--ink); font-weight: 600; }
+.label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); }
+
+/* Nav (copied from jpinv.com base) */
+nav#main-nav { position: fixed; top:0; left:0; right:0; z-index:100; height: var(--nav-h); background: rgba(255,255,255,0.96); backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule); display: flex; align-items: center; transition: box-shadow 0.3s; }
+nav#main-nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; }
+.nav-logo { text-decoration: none; display: inline-flex; align-items: center; flex: 0 0 auto; min-width: max-content; white-space: nowrap; }
+.nav-logo-img { display: block; width: auto; height: 40px; max-width: none; object-fit: contain; object-position: left center; }
+.nav-logo-img--mobile { display: none; width: 32px; height: 32px; object-fit: contain; }
+.nav-center { flex: 1; display: flex; justify-content: center; }
+.nav-links { display: flex; gap: 22px; list-style: none; flex-wrap: nowrap; white-space: nowrap; }
+.nav-links a { font-family: var(--sans); font-size: 0.78rem; font-weight: 400; letter-spacing: 0.04em; color: var(--text); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--ink-soft); }
+.nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; margin-left: auto; }
+.nav-cta { padding: 8px 14px; font-size: 0.7rem; }
+.locale-switcher { display: inline-flex; align-items: center; gap: 0; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; }
+.locale-switcher a { color: var(--text-dim); border: 1px solid var(--rule); padding: 6px 9px; text-decoration: none; transition: all 0.2s; }
+.locale-switcher a + a { margin-left: -1px; }
+.locale-switcher a:hover, .locale-switcher a.current { color: var(--ink); border-color: var(--ink-mid); background: var(--bg-soft); position: relative; z-index: 1; }
+.hamburger { display: none; flex-shrink:0; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
+.hamburger span { display:block; width:22px; height:1px; background:var(--ink); transition: all 0.25s; }
+@media (max-width: 900px) { .nav-center, .nav-right .nav-cta { display:none; } .hamburger { display:flex; } }
+@media (max-width: 768px) { .nav-logo-img--desktop { display:none; } .nav-logo-img--mobile { display:block; } }
+.mobile-menu { display:none; position:fixed; top:var(--nav-h); left:0; right:0; background:var(--bg); border-bottom:1px solid var(--rule); z-index:99; padding:8px var(--gutter) 20px; flex-direction:column; gap:0; }
+.mobile-menu.open { display:flex; }
+.mobile-menu a { font-size:0.88rem; color:var(--text); text-decoration:none; padding:14px 0; border-bottom:1px solid var(--rule); letter-spacing:0.04em; }
+.mobile-menu a:last-child { border-bottom:none; }
+.mobile-menu .mobile-menu-cta { margin-top:12px; padding:13px 18px; text-align:center; color:#fff; border-bottom:none; }
+
+.btn { display: inline-block; text-decoration: none; font-family: var(--sans); font-size: 0.84rem; font-weight: 400; letter-spacing: 0.06em; padding: 13px 28px; transition: all 0.2s; cursor: pointer; border: none; }
+.btn-primary { background: var(--ink); color: #fff; }
+.btn-primary:hover { background: var(--ink-mid); color: #fff; }
+.btn-outline { border: 1px solid var(--ink-mid); color: var(--ink); background: transparent; }
+.btn-outline:hover { border-color: var(--ink); color: var(--ink); }
+.rule-accent { width: 32px; height: 2px; background: var(--accent); margin: 14px 0 22px; }
+
+/* Footer (mirror) */
+footer { border-top: 1px solid var(--rule); padding: 52px 0 28px; background: var(--bg-soft); font-size: 0.82rem; color: var(--text-dim); }
+footer .footer-grid { display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 32px; align-items: start; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+footer h2 { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.2em; color: var(--ink-soft); text-transform: uppercase; margin-bottom: 12px; font-weight: 500; }
+footer h3 { font-family: var(--serif); font-size: 1rem; font-weight: 400; color: var(--ink); margin-bottom: 8px; }
+footer ul { list-style: none; }
+footer ul li { padding: 4px 0; }
+footer ul li a { color: var(--text-mid); }
+footer ul li a:hover { color: var(--ink); }
+footer .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 18px; flex-wrap: wrap; gap: 12px; }
+footer .footer-locale-switcher a.current { font-weight: 600; color: var(--ink); }
+@media (max-width: 900px) { footer .footer-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 580px) { footer .footer-grid { grid-template-columns: 1fr; } }
+
+
+/* === Curriculum-specific === */
+main.curriculum { padding-top: var(--nav-h); }
+.curr-hero { padding: 96px 0 64px; border-bottom: 1px solid var(--rule); position: relative; overflow: hidden; }
+.curr-hero::before { content:''; position:absolute; inset:0;
+  background-image: linear-gradient(rgba(15,31,58,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(15,31,58,0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent);
+          mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent); }
+.curr-hero-inner { position:relative; z-index:2; max-width: 880px; }
+.curr-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.32em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 18px; }
+.curr-hero h1 { font-family: var(--serif); font-size: clamp(1.9rem, 4.4vw, 3.1rem); font-weight: 300; color: var(--ink-mid); line-height: 1.3; letter-spacing: 0.02em; margin: 0 0 22px; }
+.curr-hero h1 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
+.curr-hero .lede { font-size: 1.05rem; line-height: 1.85; color: var(--text); margin: 0 0 24px; max-width: 700px; }
+.curr-hero-meta { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
+.curr-hero-meta strong { color: var(--ink); font-family: var(--mono); }
+
+.crumbs { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; padding: 22px 0 0; }
+.crumbs a { color: var(--text-mid); }
+.crumbs a:hover { color: var(--ink); }
+.crumbs .sep { color: var(--rule); margin: 0 8px; }
+
+.theme-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; padding: 56px 0; }
+.theme-card { display: block; background: #fff; border: 1px solid var(--rule); padding: 30px 28px; position: relative; transition: all 0.2s; }
+.theme-card:hover { border-color: var(--ink-soft); box-shadow: 0 12px 32px rgba(15,31,58,0.08); transform: translateY(-2px); }
+.theme-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background: var(--accent); opacity: 0.85; }
+.theme-card-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; }
+.theme-card-name { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--ink-mid); margin: 10px 0 8px; line-height: 1.35; }
+.theme-card-period { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 14px; }
+.theme-card-desc { font-size: 0.92rem; line-height: 1.7; color: var(--text); margin-bottom: 18px; }
+.theme-card-list { font-size: 0.84rem; color: var(--text-mid); list-style: none; padding-top: 14px; border-top: 1px solid var(--rule-soft); }
+.theme-card-list li { padding: 5px 0; }
+.theme-card-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; }
+.theme-card-foot .arrow { color: var(--accent-deep); }
+
+.post-list { padding: 28px 0 56px; }
+.post-list-row { display: grid; grid-template-columns: 60px 1fr auto; gap: 22px; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--rule-soft); transition: all 0.18s; }
+.post-list-row:hover { background: var(--bg-mid); padding-left: 12px; padding-right: 12px; }
+.post-list-num { font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em; color: var(--accent-deep); font-weight: 500; }
+.post-list-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--ink-mid); line-height: 1.45; }
+.post-list-meta { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; white-space: nowrap; }
+@media (max-width: 600px) { .post-list-row { grid-template-columns: 50px 1fr; } .post-list-meta { grid-column: 1 / -1; padding-left: 72px; } }
+
+/* Post body */
+.post-body { padding: 48px 0 80px; }
+.post-content { max-width: var(--measure); margin: 0 auto; }
+.post-content > p, .post-content > ul, .post-content > ol, .post-content > blockquote, .post-content > pre, .post-content > table, .post-content > hr, .post-content > h2, .post-content > h3, .post-content > h4 { max-width: var(--measure); margin-left: auto; margin-right: auto; }
+.post-content h2 { font-family: var(--serif); font-size: 1.55rem; font-weight: 400; color: var(--ink-mid); line-height: 1.35; margin: 56px 0 14px; padding-top: 22px; border-top: 1px solid var(--rule-soft); }
+.post-content h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 500; color: var(--ink); margin: 36px 0 10px; line-height: 1.4; }
+.post-content h4 { font-family: var(--sans); font-size: 1rem; font-weight: 600; color: var(--ink); margin: 26px 0 8px; letter-spacing: 0.02em; }
+.post-content p { margin: 0 0 18px; font-size: 1rem; line-height: 1.85; color: var(--text); }
+.post-content p:first-of-type { font-size: 1.05rem; }
+.post-content ul, .post-content ol { margin: 0 0 22px; padding-left: 28px; }
+.post-content ul li, .post-content ol li { font-size: 0.97rem; line-height: 1.8; margin-bottom: 8px; color: var(--text); }
+.post-content ul li::marker { color: var(--accent-deep); }
+.post-content blockquote { margin: 30px 0; padding: 20px 24px; border-left: 3px solid var(--accent); background: var(--accent-soft); color: var(--ink-mid); font-style: normal; }
+.post-content blockquote p { margin-bottom: 8px; font-size: 0.97rem; }
+.post-content blockquote p:last-child { margin-bottom: 0; }
+.post-content blockquote strong { color: var(--ink); }
+.post-content code { background: #f0f0f0; color: var(--ink-mid); font-family: var(--mono); font-size: 0.88rem; padding: 2px 6px; border-radius: 3px; }
+.post-content pre { background: #f9f9fb; border: 1px solid var(--rule); padding: 18px 22px; overflow-x: auto; font-family: var(--mono); font-size: 0.85rem; line-height: 1.55; margin: 24px 0; }
+.post-content pre code { background: transparent; padding: 0; font-size: inherit; }
+.post-content a { color: var(--accent-deep); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; transition: text-decoration-color 0.18s; }
+.post-content a:hover { text-decoration-color: var(--accent-deep); }
+.post-content hr { border: none; border-top: 1px solid var(--rule); margin: 40px auto; max-width: 120px; }
+.post-content table { width: 100%; max-width: var(--measure); margin: 28px auto; border-collapse: collapse; font-size: 0.9rem; }
+.post-content th { background: var(--bg-mid); color: var(--ink-mid); font-family: var(--sans); font-weight: 600; text-align: left; padding: 12px 14px; border-bottom: 2px solid var(--rule); }
+.post-content td { padding: 10px 14px; border-bottom: 1px solid var(--rule-soft); vertical-align: top; color: var(--text); }
+.post-content tr:nth-child(even) td { background: #fafbfc; }
+
+/* Mermaid container */
+.mermaid-wrap { background: #fdfdfe; border: 1px solid var(--rule); padding: 22px 18px; margin: 28px 0; overflow-x: auto; }
+.mermaid { font-family: var(--sans); text-align: center; }
+
+/* Post header */
+.post-header { padding: 48px 0 28px; border-bottom: 1px solid var(--rule); }
+.post-header-inner { max-width: var(--measure); margin: 0 auto; }
+.post-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.28em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 14px; }
+.post-title { font-family: var(--serif); font-size: clamp(1.7rem, 3.6vw, 2.4rem); font-weight: 400; color: var(--ink-mid); line-height: 1.3; margin: 0 0 16px; letter-spacing: 0.005em; }
+.post-summary { font-size: 1.02rem; line-height: 1.8; color: var(--text); margin: 0 0 22px; max-width: 660px; }
+.post-meta { display: flex; gap: 26px; flex-wrap: wrap; padding-top: 18px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
+.post-meta span strong { color: var(--ink); font-family: var(--mono); }
+
+/* Post nav (prev/next) */
+.post-nav { max-width: var(--measure); margin: 56px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding-top: 36px; border-top: 1px solid var(--rule); }
+.post-nav-link { display: block; padding: 18px 20px; background: var(--bg-mid); border: 1px solid var(--rule); transition: all 0.18s; }
+.post-nav-link:hover { border-color: var(--ink-soft); background: #fff; transform: translateY(-1px); }
+.post-nav-dir { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px; }
+.post-nav-title { font-family: var(--serif); font-size: 0.94rem; color: var(--ink-mid); line-height: 1.4; }
+.post-nav-link.next { text-align: right; }
+@media (max-width: 640px) { .post-nav { grid-template-columns: 1fr; } .post-nav-link.next { text-align: left; } }
+
+/* Knowledge check */
+.kcheck { background: var(--bg-mid); padding: 72px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.kcheck-head { max-width: 720px; margin: 0 auto 36px; text-align: center; }
+.kcheck h2 { font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 300; color: var(--ink-mid); margin: 0 0 14px; line-height: 1.3; }
+.kcheck h2 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
+.kcheck p.lede { font-size: 0.98rem; line-height: 1.75; color: var(--text); }
+.kcheck-q { background: #fff; border: 1px solid var(--rule); padding: 28px 30px; margin-bottom: 18px; max-width: 760px; margin-left: auto; margin-right: auto; }
+.kcheck-q-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; margin-bottom: 12px; }
+.kcheck-q-text { font-family: var(--serif); font-size: 1.1rem; line-height: 1.5; color: var(--ink-mid); margin-bottom: 18px; }
+.kcheck-opts { display: grid; gap: 8px; }
+.kcheck-opt { display: block; padding: 12px 16px; background: var(--bg-soft); border: 1px solid var(--rule); text-align: left; font-family: var(--sans); font-size: 0.92rem; color: var(--text); cursor: pointer; transition: all 0.15s; }
+.kcheck-opt:hover { background: #fff; border-color: var(--ink-soft); }
+.kcheck-opt.correct { background: #e8f3ec; border-color: var(--ok); color: var(--ok); }
+.kcheck-opt.incorrect { background: #fbe9e9; border-color: var(--bad); color: var(--bad); }
+.kcheck-explain { margin-top: 16px; padding: 14px 18px; background: var(--accent-soft); border-left: 3px solid var(--accent); font-size: 0.9rem; line-height: 1.7; color: var(--ink-mid); display: none; }
+.kcheck-q.answered .kcheck-explain { display: block; }
+.kcheck-score { text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--text-dim); margin-top: 28px; text-transform: uppercase; }
+.kcheck-score strong { color: var(--ink-mid); font-family: var(--mono); }
+
+/* Stats / hero stats */
+.stat-band { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; padding: 56px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); background: var(--bg-soft); }
+.stat-item { padding: 0 18px; }
+.stat-num { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 300; color: var(--ink-mid); line-height: 1; margin-bottom: 8px; }
+.stat-num em { color: var(--accent-deep); font-weight: 400; font-style: normal; }
+.stat-label { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; }
+</style>
+</head>
+<body>
+<nav id="main-nav" role="navigation" aria-label="Main navigation">
+  <div class="wrap nav-inner">
+    <a href="/en/" class="nav-logo" aria-label="JII home">
+      <img class="nav-logo-img nav-logo-img--desktop" src="/assets/logo-jii-wordmark.svg" alt="Japan Investor Interface logo" width="282" height="40">
+      <img class="nav-logo-img nav-logo-img--mobile" src="/assets/logo-jii-monogram.svg" alt="Japan Investor Interface logo" width="32" height="32">
+    </a>
+    <div class="nav-center">
+      <ul class="nav-links" role="list">
+        <li><a href="/en/services/">Services</a></li>
+        <li><a href="/en/pricing/">Pricing</a></li>
+        <li><a href="/en/company/">Company</a></li>
+        <li><a href="/en/faq/">FAQ</a></li>
+        <li><a href="/en/compounders/">Compounders</a></li>
+        <li><a href="/en/governance/">Governance</a></li>
+      </ul>
+    </div>
+    <div class="nav-right">
+      <a href="/en/#contact" class="btn btn-primary nav-cta">Free 30-min call</a>
+      <span class="locale-switcher nav-locale-switcher" aria-label="Language switcher"><a href="/governance/toolbox/" data-locale-route lang="ja">JP</a><a href="/en/governance/toolbox/" class="current" aria-current="page" lang="en">EN</a></span>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" hidden>
+  <a href="/en/services/" onclick="toggleMenu()">Services</a>
+  <a href="/en/pricing/" onclick="toggleMenu()">Pricing</a>
+  <a href="/en/company/" onclick="toggleMenu()">Company</a>
+  <a href="/en/faq/" onclick="toggleMenu()">FAQ</a>
+  <a href="/en/compounders/" onclick="toggleMenu()">Compounders</a>
+  <a href="/en/governance/" onclick="toggleMenu()">Governance</a>
+  <a href="/governance/toolbox/" data-locale-route onclick="toggleMenu()" lang="ja">JP</a>
+  <a href="/en/#contact" class="btn btn-primary mobile-menu-cta" onclick="toggleMenu()">Book a free 30-min call</a>
+</nav>
+<main id="main-content" class="curriculum" tabindex="-1">
+<div class="wrap crumbs">
+  <a href="/en/">JII</a> <span class="sep">/</span>
+  <a href="/en/governance/">Governance Curriculum</a> <span class="sep">/</span>
+  IR Toolbox
+</div>
+<header class="post-header">
+  <div class="wrap">
+    <div class="post-header-inner">
+      <div class="post-eyebrow">★ KEYSTONE · REFERENCE</div>
+      <h1 class="post-title">The IR Toolbox: every JPX / FSA / METI / SSBJ artifact, indexed</h1>
+      <p class="post-summary">An indexed, perpetually-maintained repository of every official artifact an IR representative should know — codes, guidelines, lists, FAQs, working-group reports, and data dashboards.</p>
+      <div class="post-meta">
+        <span>Updated: <strong>2026-05-17</strong></span>
+        <span>Categories: <strong>9</strong></span>
+        <span>Maintained <strong>monthly</strong></span>
+      </div>
+    </div>
+  </div>
+</header>
+<section class="post-body">
+  <div class="wrap">
+    <article class="post-content">
+<blockquote>
+<p><strong>TL;DR</strong>
+- This page is the keystone reference for IR representatives at Japan-listed companies — a single, curated catalogue of every official artifact (codes, guidelines, lists, FAQs, working-group reports, dashboards) produced by FSA, JPX/TSE, METI, SSBJ, MoJ, and GPIF.
+- Nine categories (A–I) organise every artifact by <em>function</em>, not by issuer, so you can find what you need by the question you are asking — not by which agency happens to own it.
+- Bilingual links wherever a Japanese-language original exists. URLs are verified against issuer domains only (<code>jpx.co.jp</code>, <code>fsa.go.jp</code>, <code>meti.go.jp</code>, <code>ssb-j.jp</code>, <code>moj.go.jp</code>, <code>gpif.go.jp</code>, <code>jira.or.jp</code>).
+- Read the <strong>seven-item shortlist at the bottom</strong> if you only have an afternoon. The full Toolbox is for when you need to find the canonical answer to a specific engagement question.</p>
+</blockquote>
+<h2>What this Toolbox is</h2>
+<p>Japan's corporate-governance reform produces a constant stream of official documents — codes, supplementary guidance, study-group reports, follow-up opinion statements, monthly disclosure lists, sample forms, and statistical surveys. The volume is genuinely high: in any given calendar year the FSA, JPX/TSE, METI, and SSBJ together publish more than 100 distinct artifacts that an IR representative would benefit from knowing about. Most are bilingual; a meaningful minority remain Japanese-only.</p>
+<p>This Toolbox indexes those artifacts in one place. Each entry is a card with:</p>
+<ul>
+<li><strong>What it is</strong> — a one-sentence description of the document or dashboard.</li>
+<li><strong>Latest revision</strong> — the most recent material publication date.</li>
+<li><strong>Why IR cares</strong> — a one-sentence reason this artifact lands in your day-to-day work.</li>
+<li><strong>Links</strong> — English version, Japanese version, and any companion materials, linked directly to the issuer domain.</li>
+<li><strong>Filed under</strong> — the curriculum theme(s) where this artifact is the primary source.</li>
+</ul>
+<p>The organising principle is functional, not jurisdictional. If you want to know "what's the standard for what an independent director should actually do?", you should be able to find that artifact in <em>one</em> place (Category E: Guidelines), even though the answer technically lives in a METI publication that interacts with a TSE listing rule that derives from an FSA code. The Toolbox lets you navigate by question, not by org chart.</p>
+<h2>Who this is for</h2>
+<p>The primary reader is an <strong>IR representative at a Prime- or Standard-segment listed company</strong> with one to five years of experience, who needs to give defensible, source-grounded answers to overseas investors. Secondary readers include corporate-secretariat staff, sustainability-team leads, legal-department members supporting disclosure, and external advisors (sell-side analysts, governance consultants, fund-side stewardship teams) who want a single English-language map of Japan's governance reform.</p>
+<p>The Toolbox is <em>not</em> a tutorial. For pedagogy, see the five-theme curriculum (<code>/themes/01-foundations/</code> through <code>/themes/05-frontier/</code>); for the why-and-how reading order, see the Master Map (<code>/curriculum-map.md</code>). The Toolbox is the <em>reference</em> that those tutorials cite.</p>
+<h2>Inclusion policy</h2>
+<p>Only artifacts published by the following Japanese authorities are included:</p>
+<ul>
+<li><strong>FSA</strong> — Financial Services Agency (金融庁)</li>
+<li><strong>JPX / TSE</strong> — Japan Exchange Group / Tokyo Stock Exchange</li>
+<li><strong>METI</strong> — Ministry of Economy, Trade and Industry (経済産業省)</li>
+<li><strong>SSBJ</strong> — Sustainability Standards Board of Japan</li>
+<li><strong>MoJ</strong> — Ministry of Justice (法務省) for Companies Act and related materials</li>
+<li><strong>GPIF</strong> — Government Pension Investment Fund (for stewardship and ESG investor-side reference points)</li>
+<li><strong>JIRA</strong> — Japan Investor Relations Association (limited inclusion for practitioner standards)</li>
+</ul>
+<p>Secondary commentary, news articles, sell-side research, and consultancy reports are <strong>excluded</strong> — even where excellent — because they are not authoritative. Where a research firm or news article is the only English-language entry point to an otherwise Japanese-only authoritative document, the Toolbox cites the Japanese authoritative source and notes the gap.</p>
+<h2>Maintenance cadence</h2>
+<ul>
+<li><strong>Monthly</strong> (around the 15th): refresh the live disclosure lists in Category C — cost-of-capital-disclosure list (C.1), English-disclosure availability survey (C.3), grace-period list (C.2). All three update monthly on TSE servers.</li>
+<li><strong>Quarterly</strong>: re-verify every external URL. JPX in particular reorganises navigation paths during its periodic site refreshes, which silently breaks deep links.</li>
+<li><strong>Annually</strong> (after each fiscal-year-end): add the year's new working-group outputs, codify new METI guidelines, and refresh the statistics summaries in Category H.</li>
+<li><strong>Event-driven</strong>: when a major artifact is published (new code edition, new working-group report, new TSE list), add it within five business days and log the change in the maintenance table at the bottom of this page.</li>
+</ul>
+<p>Every change is recorded in the <strong>Maintenance Log</strong> at the foot of this page. The log is the audit trail; if a teammate cites a version of the Toolbox from six months ago, they can read the log to see what has moved.</p>
+<hr>
+<h2>A. The Codes</h2>
+<p>The two foundational comply-or-explain documents that bracket the company–investor relationship, plus the Engagement Guidelines that sit between them, plus the newly published Asset Owner Principles that govern the entities that own your largest shareholders.</p>
+<h3>Japan's Corporate Governance Code · TSE / FSA</h3>
+<blockquote>
+<p><strong>What it is:</strong> The five-General-Principle / 31-Principle / 42-Supplementary-Principle comply-or-explain rulebook governing every TSE-listed company's board behaviour, disclosure, and shareholder relations. Formally adopted as part of the TSE Securities Listing Regulations.
+<strong>Latest revision:</strong> 2021-06-11 (third edition; 1.0 was 2015, 2.0 was 2018). A fourth revision is in active preparation by the FSA Expert Panel — first meeting October 2025, second meeting February 2026, publication expected mid-2026.
+<strong>Why IR cares:</strong> Every CG Report your company files is structured around explaining your compliance — or your "explain" — with these 78 items. The 2021 Prime-specific principles (TCFD-aligned climate disclosure, majority-independent boards or independent special committees for listed subsidiaries, skills matrices, diversity, electronic voting, English disclosure) are the implicit floor investors use in engagement.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.jpx.co.jp/english/equities/listing/cg/">English landing page</a></li>
+<li><a href="https://www.jpx.co.jp/english/news/1020/b5b4pj0000046kxj-att/b5b4pj0000046l0c.pdf">English full text PDF (2021)</a></li>
+<li><a href="https://www.jpx.co.jp/english/news/1020/20210611-01.html">English publication notice (2021)</a></li>
+<li><a href="https://www.fsa.go.jp/en/news/2018/follow-up/20180330-1.html">FSA 2018 revision page</a></li>
+<li><a href="https://www.fsa.go.jp/en/news/2021/20210611.html">FSA 2021 finalisation page</a></li>
+<li>Filed under: Theme 2 (Code Era), Theme 5 (Frontier — pending revision)</li>
+</ul>
+<h3>Expert Panel on the Revision of the Corporate Governance Code · FSA</h3>
+<blockquote>
+<p><strong>What it is:</strong> The active FSA-convened expert panel preparing the fourth revision of the CG Code. Status: active; first meeting 21 October 2025, second meeting 19 February 2026.
+<strong>Latest revision:</strong> 2026-02-19 (second meeting).
+<strong>Why IR cares:</strong> This is where the next round of explicit demands on companies — likely on substance-of-engagement, board-effectiveness assessment, controlling-shareholder relationships, and sustainability integration — is being negotiated. Tracking the panel's published materials lets you brief your CEO 12 months ahead of any new comply-or-explain item.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.fsa.go.jp/en/refer/councils/revision_corporategovernance/index.html">English landing page</a></li>
+<li><a href="https://www.fsa.go.jp/en/news/2025/20251014.html">First meeting announcement (Oct 2025)</a></li>
+<li><a href="https://www.fsa.go.jp/en/news/2026/20260219.html">Second meeting notice (Feb 2026)</a></li>
+<li>Filed under: Theme 5.8 (Working Groups Landscape)</li>
+</ul>
+<h3>Guidelines for Investor and Company Engagement · FSA</h3>
+<blockquote>
+<p><strong>What it is:</strong> A short companion document to the CG Code listing concrete "agenda items" investors are expected to raise in engagement — cost of capital, capital allocation, board composition, ESG, group governance, cross-shareholdings.
+<strong>Latest revision:</strong> 2021-06-11 (revised alongside CG Code 3.0; next revision expected with CG Code 4.0).
+<strong>Why IR cares:</strong> The Guidelines are the FSA's official answer to "what should engagement actually be about?" When investors come into a meeting, the agenda items in this short document are the implicit checklist they are working from.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.fsa.go.jp/en/news/2018/follow-up/20180601.html">FSA 2018 compilation</a></li>
+<li><a href="https://www.fsa.go.jp/en/news/2021/20210611.html">FSA 2021 finalisation</a></li>
+<li>Filed under: Theme 2 (Code Era), Theme 4 (Capital Efficiency)</li>
+</ul>
+<h3>Japan's Stewardship Code · FSA</h3>
+<blockquote>
+<p><strong>What it is:</strong> The eight-principle (formerly seven) comply-or-explain rulebook governing institutional investors' stewardship of Japanese equity — engagement, voting, monitoring, conflicts of interest, escalation. Currently in its third revised edition.
+<strong>Latest revision:</strong> 2025-06-26 (4.0, third revision). Earlier editions: 1.0 February 2014; 2.0 May 2017; 3.0 March 2020.
+<strong>Why IR cares:</strong> This is the rulebook your investors operate under. When a fund justifies why it is voting against your director slate, it is citing a Stewardship Code principle. Knowing their constraints makes you a better engagement counterparty — and lets you anticipate what they will ask for in advance.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.fsa.go.jp/en/refer/councils/stewardship/">English landing page</a></li>
+<li><a href="https://www.fsa.go.jp/en/refer/councils/stewardship/20250626.html">2025 third revision news</a></li>
+<li><a href="https://www.fsa.go.jp/en/refer/councils/stewardship/20250626/01.pdf">2025 final English text PDF</a></li>
+<li><a href="https://www.fsa.go.jp/en/refer/councils/stewardship/20200324.html">2020 second revision news</a></li>
+<li><a href="https://www.fsa.go.jp/en/laws_regulations/pc_stewardship.html">Laws &amp; regulations entry</a></li>
+<li>Filed under: Theme 1.4 (Stewardship Code 2014–2025), Theme 5.7 (Collaborative Engagement)</li>
+</ul>
+<h3>Asset Owner Principles · FSA</h3>
+<blockquote>
+<p><strong>What it is:</strong> The August-2024 principles for pension funds, insurers, and other asset owners — covering investment policy, human resources, conflict-of-interest management, accountability, and stewardship-activity oversight. As of end-June 2025, 219 asset owners had signed on.
+<strong>Latest revision:</strong> 2024-08-28 (initial publication).
+<strong>Why IR cares:</strong> Asset owners — the GPIF-style giants that own your shareholders — are now subject to their own explicit accountability standard. Pension-fund engagement priorities flow downstream from this document. When your largest shareholder's largest underlying client signs on to the Asset Owner Principles, what the underlying client cares about becomes what your shareholder pushes for.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.fsa.go.jp/en/news/2024/20240828.html">English landing page</a></li>
+<li><a href="https://www.fsa.go.jp/en/policy/asset-owner-principles/index.html">FSA Asset Owner Principles index</a></li>
+<li>Filed under: Theme 1.4 (Stewardship), Theme 5.7 (Activism &amp; Engagement)</li>
+</ul>
+<hr>
+<h2>B. Market Structure / Listing</h2>
+<p>The TSE-published rules that define which segment you are in, what continued-listing thresholds you must clear, what TOPIX inclusion mechanics will do to your free float, and what conduct rules apply once you are listed.</p>
+<h3>Three-segment market structure (Prime / Standard / Growth) · TSE</h3>
+<blockquote>
+<p><strong>What it is:</strong> The April-2022 restructuring of TSE's market segments, replacing the old 1st Section / 2nd Section / Mothers / JASDAQ structure with three segments: Prime (institutional-investor quality, highest governance standard, English disclosure), Standard (basic governance), Growth (high-growth/high-risk with mandatory growth-plan disclosure).
+<strong>Latest revision:</strong> 2022-04-04 (effective date); ongoing iteration via the Follow-up Council.
+<strong>Why IR cares:</strong> Your segment determines which CG Code Supplementary Principles apply, whether English disclosure is mandatory, and which TOPIX/index-inclusion criteria you face. Every cross-company benchmarking exercise starts here.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.jpx.co.jp/english/equities/improvements/market-structure/01.html">English overview</a></li>
+<li><a href="https://www.jpx.co.jp/english/equities/listing-on-tse/new/basic/index.html">Basic listing structure page</a></li>
+<li>Filed under: Theme 3.1 (Four Segments to Three)</li>
+</ul>
+<h3>Continued Listing Criteria &amp; Transitional Measures · TSE</h3>
+<blockquote>
+<p><strong>What it is:</strong> The quantitative thresholds (tradable-share market cap, tradable-share ratio, average daily trading value, number of shareholders) that companies must continuously meet to remain in their assigned segment, plus the post-restructuring "improvement period" rules for non-conforming companies.
+<strong>Latest revision:</strong> Phased; transitional measures expired in waves through 2024–2025.
+<strong>Why IR cares:</strong> If your company is on an improvement plan because it does not yet meet Prime or Standard tradable-share criteria, every IR conversation will touch the plan to clear the bar. Investors check the published list of grace-period companies before booking a meeting.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.jpx.co.jp/english/equities/listing/continue/details/02.html">Tradable Shares criteria detail</a></li>
+<li><a href="https://www.jpx.co.jp/english/equities/follow-up/04.html">Expiration of transitional measures</a></li>
+<li><a href="https://www.jpx.co.jp/english/equities/follow-up/b5b4pj000004yqcc-att/sjcobq0000024jy4.pdf">Future Approaches in the Standard Market PDF</a></li>
+<li>Filed under: Theme 3.2 (Tradable-Share Ratio), Theme 3.3 (Transitional Measures Cliff)</li>
+</ul>
+<h3>Growth Market revised continued listing criteria · TSE</h3>
+<blockquote>
+<p><strong>What it is:</strong> The September-2025 revision that raises the Growth Market continued-listing market-cap threshold to ¥10 billion at the end of the 5th fiscal year after listing (was ¥4 billion at 10 years). Applies from fiscal years ending on or after 1 March 2030.
+<strong>Latest revision:</strong> 2025-09-26 (publication).
+<strong>Why IR cares:</strong> If you are a Growth-Market issuer, this resets the timeline pressure on your growth-plan execution — roughly 200 of the current Growth-Market constituents will need to cross a meaningfully higher bar in the next four years.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.jpx.co.jp/english/news/1020/20250926-01.html">English news</a></li>
+<li><a href="https://www.jpx.co.jp/english/news/1020/sjcobq00000283qb-att/sjcobq00000283u0.pdf">Outline PDF</a></li>
+<li>Filed under: Theme 3.5 (Growth Market 2030 Cliff)</li>
+</ul>
+<h3>English Disclosure mandate · TSE</h3>
+<blockquote>
+<p><strong>What it is:</strong> The TSE policy requiring Prime-market companies to disclose earnings reports (kessan tanshin) and timely-disclosure material simultaneously in Japanese and English via TDnet. Summary/excerpt English is acceptable; full translation is encouraged.
+<strong>Latest revision:</strong> 2025-04-01 (effective for FYs ending on or after 1 March 2025).
+<strong>Why IR cares:</strong> This is the operational rule behind your team's deadlines. Every TDnet release now has an English twin requirement. Implementation status is publicly surveyed (see C.3) and grace-period companies are publicly listed (see C.2).</p>
+</blockquote>
+<ul>
+<li><a href="https://www.jpx.co.jp/english/equities/listed-co/disclosure-gate/handbook/">Practical Handbook for English Disclosure</a></li>
+<li><a href="https://www.jpx.co.jp/english/equities/listed-co/disclosure-gate/service/index.html">English Disclosure via TDnet</a></li>
+<li><a href="https://www.jpx.co.jp/english/equities/follow-up/b5b4pj000004yqcc-att/u5j7e50000000l3i.pdf">Policy PDF</a></li>
+<li>Filed under: Theme 5.1 (English Disclosure Mandate)</li>
+</ul>
+<h3>TOPIX methodology and index-series rules · JPXI</h3>
+<blockquote>
+<p><strong>What it is:</strong> The methodology guidebooks for the TOPIX index and the TOPIX New Index Series, governing free-float adjustment, periodic-review schedule, the 10% cap rule, and the second-stage revision program (from October 2026, TOPIX will be selected by liquidity, not segment, and rebalanced annually).
+<strong>Latest revision:</strong> Ongoing; second-stage revisions phased through 2026–2028.
+<strong>Why IR cares:</strong> TOPIX inclusion drives passive-flow exposure. Under the new methodology, low-liquidity issuers risk losing weight or being excluded. Engagement programs of passive houses (Nikko AM, Nomura AM, BlackRock Japan) hinge on these rules — your index weight is their lever.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.jpx.co.jp/english/markets/indices/topix/">TOPIX landing page</a></li>
+<li><a href="https://www.jpx.co.jp/english/markets/indices/line-up/files/e_cal2_30_topix.pdf">TOPIX guidebook PDF</a></li>
+<li><a href="https://www.jpx.co.jp/english/markets/indices/line-up/files/e_cal_12_size.pdf">TOPIX New Index Series guidebook PDF</a></li>
+<li><a href="https://www.jpx.co.jp/english/markets/indices/revisions-indices/b5b4pj0000049s3x-att/RevisionsofTOPIX_e.pdf">Overview of TOPIX Revisions PDF</a></li>
+<li><a href="https://www.jpx.co.jp/english/markets/indices/revisions-indices/02.html">Second stage of revisions</a></li>
+<li>Filed under: Theme 3.4 (TOPIX Reform)</li>
+</ul>
+<h3>Code of Corporate Conduct · TSE</h3>
+<blockquote>
+<p><strong>What it is:</strong> Listed-company conduct rules embedded in the Securities Listing Regulations, covering: framework for foreign-investor voting, independent director/auditor securing, English disclosure of corporate information, IR-system development, internal control, anti-insider-trading, exclusion of anti-social forces.
+<strong>Latest revision:</strong> Ongoing iterative amendment via TSE rulebook updates.
+<strong>Why IR cares:</strong> The legal hook for English disclosure and for IR-system development sits in this Code. Violations can trigger TSE recommendations or public announcements — both of which appear on your CG Report and are visible to every investor.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.jpx.co.jp/english/equities/listing/code-of-conduct/index.html">English landing page</a></li>
+<li>Filed under: Theme 2 (Code Era), Theme 3 (Market Restructuring), Theme 5.1 (English Disclosure)</li>
+</ul>
+<h3>New Listing Guidebooks · TSE</h3>
+<blockquote>
+<p><strong>What it is:</strong> The 2024-edition guidebooks for new listings on each segment (Prime / Standard / Growth / Foreign Companies), specifying quantitative and qualitative listing criteria, exam timeline, and post-listing obligations.
+<strong>Latest revision:</strong> 2024 edition (current).
+<strong>Why IR cares:</strong> Useful when peers IPO; the FAQ also clarifies what was reviewed at your own listing, which informs how investors view your governance starting capital.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.jpx.co.jp/english/equities/listing-on-tse/new/guide/index.html">English landing page</a></li>
+<li><a href="https://www.jpx.co.jp/english/equities/listing-on-tse/new/guide/tvdivq0000002g9b-att/bv22ga0000001ufs.pdf">Prime guidebook PDF</a></li>
+<li><a href="https://www.jpx.co.jp/english/equities/listing-on-tse/new/guide/tvdivq0000002g9b-att/bv22ga0000001uhi.pdf">Growth guidebook PDF</a></li>
+<li><a href="https://www.jpx.co.jp/english/equities/listing-on-tse/ipo-benefits/b5b4pj0000004y5w-att/FAQ_20241111.pdf">Listing Examination FAQ PDF (Nov 2024)</a></li>
+<li>Filed under: Theme 3.1 (Four Segments to Three)</li>
+</ul>
+<hr>
+<h2>C. Disclosure Lists — the "shame/showcase" lists</h2>
+<p>TSE's deliberately public tools to surface laggards and reward leaders. An IR rep should know which list their company is on every month. The TSE refreshes most of these around the 15th of each month based on prior-month-end status.</p>
+<h3>List of Companies Disclosing on "Action to Implement Management That Is Conscious of Cost of Capital and Stock Price" · TSE</h3>
+<blockquote>
+<p><strong>What it is:</strong> The flagship monthly list tagging every Prime- and Standard-listed company as "Disclosed", "Under consideration", or absent on the cost-of-capital-conscious-management disclosure. Identifies the disclosure keyword in CG Reports and filters by segment and sector.
+<strong>Latest revision:</strong> First published 2024-01-15; updated around the 15th of each month based on prior-month-end status; underlying request itself updated April 2026.
+<strong>Why IR cares:</strong> This is the list overseas investors check first. As of end-July 2024, 86% of Prime and 44% of Standard companies appeared as disclosed. Absence is conspicuous; "under consideration" status that lingers becomes a credibility tax with every passing month.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.jpx.co.jp/english/equities/follow-up/02.html">Page hosting the live list and latest documents</a></li>
+<li><a href="https://www.jpx.co.jp/english/news/1020/20240115-01.html">Initial publication news (Jan 2024)</a></li>
+<li><a href="https://www.jpx.co.jp/english/news/1020/20240927-01.html">September 2024 revision</a></li>
+<li><a href="https://www.jpx.co.jp/english/news/1020/20250115-01.html">January 2025 revised list</a></li>
+<li><a href="https://www.jpx.co.jp/english/news/1020/20260428-01.html">April 2026 update to the underlying request</a></li>
+<li>Filed under: Theme 4.3 (The Disclosure List), Theme 4.5 (Action Plan 2 Update)</li>
+</ul>
+<h3>List of Companies on Grace Period for English Disclosure · TSE</h3>
+<blockquote>
+<p><strong>What it is:</strong> The TSE-maintained list of companies that submitted a grace-period application by the April-2025 deadline, with each company's estimated implementation date (up to one year extension).
+<strong>Latest revision:</strong> Monthly.
+<strong>Why IR cares:</strong> Being on this list is a public admission of being behind on the English-disclosure mandate. The "improvement period" framing applies, and investors note it when triaging coverage of Japanese names.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.jpx.co.jp/english/listing/others/en-disclosures/">English landing page</a></li>
+<li>Filed under: Theme 5.1 (English Disclosure Mandate)</li>
+</ul>
+<h3>Availability of English Disclosure Information by Listed Companies · TSE</h3>
+<blockquote>
+<p><strong>What it is:</strong> A self-reported monthly survey of every listed company recording which materials they disclose in English, the disclosure timing, and which platform or IR-site they use.
+<strong>Latest revision:</strong> Monthly (around the 15th); summary report most recently December 2025 (published Jan 2026).
+<strong>Why IR cares:</strong> Investors use this as a screen — companies that score poorly on coverage breadth get filtered out of consideration sets. The 2025 Overseas Investor Survey results and the December 2025 implementation-status summary feed back into how investors weight this data.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.jpx.co.jp/english/equities/listed-co/disclosure-gate/availability/">Availability survey landing page</a></li>
+<li><a href="https://www.jpx.co.jp/english/corporate/news/news-releases/0060/20250902-01.html">2025 Overseas Investor Survey results</a></li>
+<li><a href="https://www.jpx.co.jp/english/corporate/news/news-releases/0060/20260126-04.html">December 2025 implementation-status summary</a></li>
+<li>Filed under: Theme 5.1 (English Disclosure Mandate)</li>
+</ul>
+<h3>Corporate Governance Information Search — English CG Reports filter · TSE</h3>
+<blockquote>
+<p><strong>What it is:</strong> A search interface across every CG Report filed with TSE; filterable to show only companies whose CG Reports are available in English.
+<strong>Latest revision:</strong> Continuously updated.
+<strong>Why IR cares:</strong> This is the search box a foreign analyst opens to read your CG Report. If you are not in the filter result, you do not exist to that analyst.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.jpx.co.jp/english/listing/cg-search/index.html">English search interface</a></li>
+<li>Filed under: Theme 2.4 (Reading a CG Report), Theme 5.1 (English Disclosure)</li>
+</ul>
+<hr>
+<h2>D. Good-Practice / Case-Study Collections</h2>
+<p>The TSE's pedagogical apparatus. Each is essentially "here is what we want you to do, with examples." For an IR rep these are the cheat sheets — what the regulator considers a strong disclosure looks like in their own words.</p>
+<h3>Key Points and Examples on Cost-of-Capital-Conscious Management · TSE</h3>
+<blockquote>
+<p><strong>What it is:</strong> The investor-perspective frame for the cost-of-capital request, with do-and-don't examples drawn from feedback gathered from 400+ investment firms. The November 2024 update added a "Cases Where Companies Are Not Aligned With Investors' Perspectives" section; the December 2025 update added named case studies of companies that materially raised PBR/ROIC through specific governance changes.
+<strong>Latest revision:</strong> 2025-12-26 (third edition, with case studies).
+<strong>Why IR cares:</strong> This is the answer key. If your disclosure looks like the "not aligned" examples, expect investor questions; if it mirrors the "good case" structure, you will be referenced positively.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.jpx.co.jp/english/news/1020/20240201-01.html">February 2024 news</a></li>
+<li><a href="https://www.jpx.co.jp/english/news/1020/u5j7e50000001bqd-att/240201en.pdf">February 2024 PDF</a></li>
+<li><a href="https://www.jpx.co.jp/english/news/1020/20241121-01.html">November 2024 misalignment cases news</a></li>
+<li><a href="https://www.jpx.co.jp/english/news/1020/20251226-01.html">December 2025 case studies news</a></li>
+<li><a href="https://www.jpx.co.jp/english/news/1020/vk0khi000000gi14-att/vk0khi000000gi4i.pdf">December 2025 case studies PDF</a></li>
+<li>Filed under: Theme 4.1 (March 2023 Request Anatomy), Theme 4.4 (Seven Sins of Misalignment), Theme 4.5 (Action Plan 2 Update)</li>
+</ul>
+<h3>Compilation of Case Studies on Parent-Subsidiary Listings · TSE</h3>
+<blockquote>
+<p><strong>What it is:</strong> The TSE compilation of examples and investor-perspective framing for listed companies with controlling shareholders (parent companies, founders, holding structures). Specifies misalignment patterns and corrective steps.
+<strong>Latest revision:</strong> 2025-12-26 (case studies); companion "Investor's Perspective" document published 2025-02-04.
+<strong>Why IR cares:</strong> If your company has a controlling shareholder above the ~30% threshold, this is the playbook for the minority-shareholder-protection narrative you owe investors. The case-study examples are the safest template to follow.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.jpx.co.jp/english/news/1020/20251226-03.html">English news (Dec 2025 case studies)</a></li>
+<li><a href="https://www.jpx.co.jp/english/news/1020/20250204-01.html">Investor's Perspective on Parent-Subsidiary Listings (Feb 2025)</a></li>
+<li>Filed under: Theme 5.3 (Listed Subsidiaries)</li>
+</ul>
+<h3>Examples of Good Practice in Corporate Governance (2019) · TSE</h3>
+<blockquote>
+<p><strong>What it is:</strong> Curated examples (drawn from CG Reports) of companies that substantively — not formally — incorporated capital cost into strategy and strengthened board function.
+<strong>Latest revision:</strong> 2019-12 (English).
+<strong>Why IR cares:</strong> Still cited as foundational reading. Many of the patterns identified here became the template for the 2023 cost-of-capital-conscious-management framework.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.jpx.co.jp/english/news/1020/e20191202-01.html">English news</a></li>
+<li>Filed under: Theme 2.4 (Reading a CG Report), Theme 4 (Capital Efficiency)</li>
+</ul>
+<h3>Practical Handbook for ESG Disclosure · JPX / TSE</h3>
+<blockquote>
+<p><strong>What it is:</strong> A four-step framework (Initial → Selective → Improving → Strategic) for ESG disclosure with examples and references to SSE Model Guidance, TCFD, SASB, and METI's Guidance for Collaborative Value Creation.
+<strong>Latest revision:</strong> 2020-05-26 (English); 2020-03-31 (Japanese).
+<strong>Why IR cares:</strong> Still the most accessible primer on what ESG disclosure should look like — and what investors infer when it is missing.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.jpx.co.jp/english/corporate/sustainability/esg-investment/handbook/">English landing page</a></li>
+<li><a href="https://www.jpx.co.jp/english/corporate/sustainability/esg-investment/handbook/b5b4pj000003dkeo-att/handbook.pdf">English handbook PDF</a></li>
+<li><a href="https://www.jpx.co.jp/english/corporate/news/news-releases/0010/b5b4pj000003d3qp.html">Release notice</a></li>
+<li>Filed under: Theme 5.5 (SSBJ Sustainability)</li>
+</ul>
+<h3>JPX ESG Knowledge Hub · JPX</h3>
+<blockquote>
+<p><strong>What it is:</strong> A curated portal of ESG resources, examples, frameworks, and external links.
+<strong>Latest revision:</strong> Launched 2020-11-20; updated continuously.
+<strong>Why IR cares:</strong> Single-page launching point for ESG references — useful when onboarding a new IR junior who needs to understand the ESG-disclosure landscape from scratch.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.jpx.co.jp/english/corporate/sustainability/esgknowledgehub/index.html">English landing page</a></li>
+<li>Filed under: Theme 5.5 (SSBJ Sustainability)</li>
+</ul>
+<h3>Director Skills-Matrix Sample Data · JPXI</h3>
+<blockquote>
+<p><strong>What it is:</strong> JPXI's eight-category classification of director and auditor skills mapped across listed companies, with sample data and a call for feedback on a forthcoming paid service.
+<strong>Latest revision:</strong> 2025-08-19.
+<strong>Why IR cares:</strong> Foreshadows a standardised cross-company skills-matrix comparison that investors will increasingly use to benchmark your board. The eight categories are the de facto schema you should align your own skills matrix to.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.jpx.co.jp/english/corporate/news/news-releases/6020/20250819-01.html">English news release</a></li>
+<li>Filed under: Theme 2.3 (2021 CG Code Revision), Theme 5.6 (Board Diversity)</li>
+</ul>
+<h3>TSE-Listed Companies White Paper on Corporate Governance · TSE</h3>
+<blockquote>
+<p><strong>What it is:</strong> The biennial statistical analysis of CG Report contents — compliance rates by Principle, board composition, independent-director ratios, skills-matrix uptake, sustainability disclosure trends — plus selected investor-friendly disclosure examples. Issued since 2007.
+<strong>Latest revision:</strong> 2023 (English editions: 2019, 2021, 2023).
+<strong>Why IR cares:</strong> The benchmark you compare yourself against. When an investor cites "the average Prime board has X independent directors," they are citing this.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.jpx.co.jp/english/equities/listing/cg/02.html">English landing page</a></li>
+<li><a href="https://www.jpx.co.jp/english/equities/listing/cg/tvdivq0000008jb0-att/uorii50000003gfb.pdf">2023 White Paper PDF</a></li>
+<li><a href="https://www.jpx.co.jp/english/equities/listing/cg/tvdivq0000008jb0-att/b5b4pj0000049wa0.pdf">2021 White Paper PDF</a></li>
+<li><a href="https://www.jpx.co.jp/english/equities/listing/cg/tvdivq0000008jb0-att/b5b4pj000002xyj7.pdf">2019 White Paper PDF</a></li>
+<li>Filed under: Theme 2 (Code Era), Theme 5.6 (Board Diversity), Theme 5.8 (Working Groups Landscape)</li>
+</ul>
+<hr>
+<h2>E. Guidelines (METI series)</h2>
+<p>METI's "practical guidelines" are non-binding but explicitly endorsed in the CG Code (Principle 2-6, 4-10-1, and others) as references companies should follow. In engagement, foreign investors will frequently ask "are you following the METI guideline on X?" — knowing the answer with citation is table stakes.</p>
+<h3>Practical Guidelines for Corporate Governance Systems (CGS Guidelines) · METI</h3>
+<blockquote>
+<p><strong>What it is:</strong> Best practices on top-management team formation, authority delegation, strategy formulation, committee use, executive remuneration, and HR development. The nomination, compensation, and succession content was spun out into the separate CGS Supplement in 2022.
+<strong>Latest revision:</strong> 2022-07-19 (Phase 3; earlier editions March 2017 and September 2018).
+<strong>Why IR cares:</strong> When investors ask "tell us about your succession plan" or "how does your nomination committee decide CEO appointments," the answer should reference and align with this document.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.meti.go.jp/english/press/2022/0719_002.html">English revision news (2022)</a></li>
+<li><a href="https://www.meti.go.jp/english/policy/economy/corporate_governance/index.html">METI corporate governance landing</a></li>
+<li>Filed under: Theme 2.5 (METI Guideline Family)</li>
+</ul>
+<h3>Guidelines for Nomination and Compensation Committees and Succession Planning (CGS Supplement) · METI</h3>
+<blockquote>
+<p><strong>What it is:</strong> Detailed best-practice templates for committee charters, succession-plan structures, and committee disclosure — the spun-off companion to the CGS Guidelines Phase 3 revision.
+<strong>Latest revision:</strong> 2022-07-19.
+<strong>Why IR cares:</strong> Foreign investors ask for committee-process detail constantly; this document gives you the vocabulary and structural template to answer in their language.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.meti.go.jp/english/press/2022/0719_002.html">English news (parent CGS revision)</a></li>
+<li>Filed under: Theme 2.5 (METI Guideline Family), Theme 5.6 (Board Diversity)</li>
+</ul>
+<h3>Practical Guidelines for Group Governance Systems (Group Guidelines) · METI</h3>
+<blockquote>
+<p><strong>What it is:</strong> Best practices for group management (parent–subsidiary relationships) with a focus on Section 6, which addresses listed subsidiaries and the structural conflicts of interest with general shareholders.
+<strong>Latest revision:</strong> 2019-06-28.
+<strong>Why IR cares:</strong> If you are a listed subsidiary, or a parent of one, every engagement question on minority-shareholder protection refers here. The Section 6 framework is the regulator's expected baseline.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.meti.go.jp/english/policy/economy/corporate_governance/index.html">METI corporate governance landing — index of guidelines</a></li>
+<li>Filed under: Theme 5.3 (Listed Subsidiaries)</li>
+</ul>
+<h3>Fair M&amp;A Guidelines · METI</h3>
+<blockquote>
+<p><strong>What it is:</strong> Fairness procedures for MBOs and controlling-shareholder buyouts — special committees, market check, majority-of-minority condition, fairness opinion, disclosure standards. Replaced the 2007 MBO Guidelines.
+<strong>Latest revision:</strong> 2019-06-28.
+<strong>Why IR cares:</strong> Relevant in any going-private or controlling-shareholder transaction. Investors expect strict alignment with each procedural element.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.meti.go.jp/policy/economy/keiei_innovation/keizaihousei/pdf/fairmaguidelines_english.pdf">English PDF</a></li>
+<li>Filed under: Theme 5.4 (MBO &amp; Takeover Guidelines)</li>
+</ul>
+<h3>Guidelines for Corporate Takeovers · METI</h3>
+<blockquote>
+<p><strong>What it is:</strong> The 2023 reset of the M&amp;A norm in Japan: three principles (corporate-value-and-shareholder-interest principle, shareholder-intent principle, transparency principle), conduct expectations for target boards on receipt of an acquisition proposal, and anti-takeover-measure standards.
+<strong>Latest revision:</strong> 2023-08-31 (publication); Fair Acquisition Study Group reconvened February 2026 for further work.
+<strong>Why IR cares:</strong> Re-set the M&amp;A norm in Japan. Unsolicited bids are now substantially more likely, and target-board behaviour is judged against this document. Activists cite it explicitly in shareholder proposals.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.meti.go.jp/english/press/2023/0831_001.html">English news</a></li>
+<li><a href="https://www.meti.go.jp/english/press/2023/pdf/0831_001b.pdf">English reference translation PDF</a></li>
+<li><a href="https://www.meti.go.jp/english/press/2026/0203_001.html">Reconvening of study group (Feb 2026)</a></li>
+<li>Filed under: Theme 5.4 (MBO &amp; Takeover Guidelines), Theme 5.7 (Activism &amp; Engagement)</li>
+</ul>
+<h3>Practical Guidelines for Independent Directors · METI</h3>
+<blockquote>
+<p><strong>What it is:</strong> What independent directors should actually do — the "five duties," monitoring framework, engagement with management, committee role.
+<strong>Latest revision:</strong> 2020-07-31.
+<strong>Why IR cares:</strong> The expected operating standard for your independent directors. Engagement questions like "what do your outside directors actually do?" should be answerable in this vocabulary.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.meti.go.jp/english/press/2020/0731_003.html">English news release</a></li>
+<li>Filed under: Theme 2.5 (METI Guideline Family), Theme 5.6 (Board Diversity)</li>
+</ul>
+<h3>Practical Guidelines for Business Transformations · METI</h3>
+<blockquote>
+<p><strong>What it is:</strong> Process and disclosure standards for business portfolio review, divestiture, and reorganisation. Sets out the ROIC-based portfolio frameworks investors expect.
+<strong>Latest revision:</strong> 2020-07-31.
+<strong>Why IR cares:</strong> When investors ask "what is your portfolio-review process and how do you decide what to exit?" — this is the canonical answer template.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.meti.go.jp/english/press/2020/pdf/0731_004b.pdf">English PDF</a></li>
+<li>Filed under: Theme 4.2 (Cost-of-Capital Vocabulary), Theme 5 (Frontier)</li>
+</ul>
+<h3>Ito Review (1.0, 2.0, 3.0) and Guidance for Collaborative Value Creation 2.0 · METI</h3>
+<blockquote>
+<p><strong>What it is:</strong> Ito Review 1.0 (August 2014) established the "8% minimum ROE" benchmark and the "double standard" critique; Ito Review 3.0 (August 2022, "SX Edition") reframes long-term value creation around Sustainability Transformation. The Guidance for Collaborative Value Creation 2.0 is the dialogue framework for IR/CFO teams to communicate value-creation models.
+<strong>Latest revision:</strong> 2022-08 (Ito Review 3.0).
+<strong>Why IR cares:</strong> The 8% ROE meme came from here, and it remains the implicit baseline foreign investors use. Use the Collaborative Value Creation 2.0 model as a template for your integrated-report value-creation diagram.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.meti.go.jp/policy/economy/keiei_innovation/kigyoukaikei/ito_review__released_august2014_en.pdf">Ito Review 1.0 PDF</a></li>
+<li><a href="https://www.meti.go.jp/policy/economy/keiei_innovation/kigyoukaikei/ito_review_3.0__sx_edition__released_august2022_en.pdf">Ito Review 3.0 PDF</a></li>
+<li><a href="https://www.meti.go.jp/english/press/2022/pdf/0831_003c.pdf">Outline of Ito Review 3.0 brief PDF</a></li>
+<li><a href="https://www.meti.go.jp/english/policy/economy/corporate_accounting/pdf/guidance.pdf">Guidance for Collaborative Value Creation 2.0 PDF</a></li>
+<li>Filed under: Theme 1.1 (Lost Decades / ROE Gap), Theme 4.2 (Cost-of-Capital Vocabulary)</li>
+</ul>
+<h3>SX Brands and the SX Initiative · METI</h3>
+<blockquote>
+<p><strong>What it is:</strong> Annual recognition of companies with exemplary Sustainability Transformation disclosure and engagement.
+<strong>Latest revision:</strong> 2025-05 (SX Brands 2025 Report).
+<strong>Why IR cares:</strong> Being recognised as an SX Brand is a credibility marker with overseas SRI/ESG investors, and the report's selection criteria are themselves a useful disclosure template.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.meti.go.jp/policy/economy/keiei_innovation/kigyoukaikei/sx2025report_english.pdf">SX Brands 2025 Report PDF</a></li>
+<li><a href="https://www.meti.go.jp/english/press/2023/0210_002.html">SX Brands establishment news (2023)</a></li>
+<li>Filed under: Theme 5.5 (SSBJ Sustainability)</li>
+</ul>
+<h3>Five Principles for Board of Directors / Corporate Governance Guidance for Earning Power · METI</h3>
+<blockquote>
+<p><strong>What it is:</strong> Five principles from METI's Study Group on Corporate Governance toward the Enhancement of Earning Power, focused on the board's strategic-direction-setting and oversight role for earning-power improvement.
+<strong>Latest revision:</strong> 2025-04-30.
+<strong>Why IR cares:</strong> The newest articulation of what METI thinks boards should be doing. Likely to be referenced in the upcoming CG Code 4.0 revision — read it now to anticipate next year's engagement questions.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.meti.go.jp/english/press/2025/0430-002.html">English news release</a></li>
+<li>Filed under: Theme 5.8 (Working Groups Landscape), Theme 2 (Code Era — pending 4.0 revision)</li>
+</ul>
+<hr>
+<h2>F. Working Group / Council Reports</h2>
+<p>These are the upstream tributaries — where today's rules get drafted before they appear in the codes. An IR rep who tracks the active working groups will know what is coming roughly 12 months before their CG-report deadlines change.</p>
+<h3>Council of Experts Concerning the Follow-up of Japan's Stewardship Code and Japan's Corporate Governance Code · FSA</h3>
+<blockquote>
+<p><strong>What it is:</strong> The FSA-convened expert council that issues annual "Action Programs" — the FSA's scorecard of what still needs to improve and what mandatory measures are likely in the next 12 months.
+<strong>Latest revision:</strong> 2025-06-30 (Action Programme for Corporate Governance Reform 2025).
+<strong>Why IR cares:</strong> These Action Programs are the FSA's annual scorecard. Whatever appears here as a priority is likely to appear in the next CG Code revision or TSE follow-up request.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.fsa.go.jp/en/refer/councils/follow-up/index.html">English landing page</a></li>
+<li><a href="https://www.fsa.go.jp/en/news/2023/20230426.html">Opinion Statement (April 2023) — From Form to Substance</a></li>
+<li><a href="https://www.fsa.go.jp/en/refer/councils/follow-up/opinion/20230419-07.pdf">Opinion Statement (April 2023) PDF</a></li>
+<li><a href="https://www.fsa.go.jp/en/news/2024/20240607-2.html">Action Program 2024 — Principles into Practice</a></li>
+<li><a href="https://www.fsa.go.jp/en/refer/councils/follow-up/statements_7_overview.pdf">Action Program 2024 overview PDF</a></li>
+<li><a href="https://www.fsa.go.jp/en/news/2025/20250630-1.html">Action Programme 2025</a></li>
+<li>Filed under: Theme 4.5 (Action Plan 2 Update), Theme 5.8 (Working Groups Landscape)</li>
+</ul>
+<h3>Council of Experts Concerning the Corporate Governance Code (2014–2015) · FSA</h3>
+<blockquote>
+<p><strong>What it is:</strong> The archive of the original drafting council that produced the 2015 CG Code.
+<strong>Latest revision:</strong> Archival.
+<strong>Why IR cares:</strong> Historical context — useful for understanding why specific Principles read the way they do, particularly when a foreign investor questions whether a Principle "really means" what its drafting history suggests.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.fsa.go.jp/en/refer/councils/corporategovernance/">English landing page</a></li>
+<li>Filed under: Theme 2.1 (2015 CG Code Primer)</li>
+</ul>
+<h3>Expert Panel on the Stewardship Code · FSA</h3>
+<blockquote>
+<p><strong>What it is:</strong> The drafting and revision council for the Stewardship Code, most recently producing the 2025 third revision.
+<strong>Latest revision:</strong> 2025-06-26.
+<strong>Why IR cares:</strong> Where investor-side rules are negotiated. Reading the minutes tells you what concerns are top-of-mind for institutional investors that will arrive in your meetings.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.fsa.go.jp/en/refer/councils/stewardship/">English landing page</a></li>
+<li>Filed under: Theme 1.4 (Stewardship Code), Theme 5.7 (Activism &amp; Engagement)</li>
+</ul>
+<h3>Working Group on Disclosure and Assurance of Sustainability-related Financial Information · FSA / Financial System Council</h3>
+<blockquote>
+<p><strong>What it is:</strong> The working group setting the roadmap for making SSBJ Standards mandatory in annual securities reports, phased by market cap, starting with the largest Prime companies. Mandatory assurance begins one year after mandatory disclosure, with phased scope expansion.
+<strong>Latest revision:</strong> 2026-04 (Final Report).
+<strong>Why IR cares:</strong> The single most important document for what your sustainability-disclosure timeline looks like over the next five years.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.fsa.go.jp/en/refer/councils/sustainability_disclose_wg/index.html">English landing page</a></li>
+<li><a href="https://www.fsa.go.jp/en/news/2025/20251106/20251106.html">Interim Report (Nov 2025)</a></li>
+<li><a href="https://www.fsa.go.jp/en/news/2026/20260409.html">Final Report (April 2026)</a></li>
+<li><a href="https://www.fsa.go.jp/en/news/2025/20251106/02.pdf">Roadmap PDF (English)</a></li>
+<li>Filed under: Theme 5.5 (SSBJ Sustainability), Theme 5.8 (Working Groups Landscape)</li>
+</ul>
+<h3>Working Group on Tender Offer Rule and Large Shareholding Reporting Rule · FSA / Financial System Council</h3>
+<blockquote>
+<p><strong>What it is:</strong> The working group recommending modernization of Japan's tender-offer rules (including bringing market purchases into scope above 30%) and the "joint holder" / "material proposal" definitions under large-shareholding reporting.
+<strong>Latest revision:</strong> 2024-01-30 (report); 2025-09-17 Stewardship-Code-related Large Shareholding clarification.
+<strong>Why IR cares:</strong> Reshapes the tactical landscape for activist campaigns and unsolicited bids on your shareholder register.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.fsa.go.jp/en/refer/councils/singie_kinyu/reports.html">FSA past releases index</a></li>
+<li><a href="https://www.fsa.go.jp/en/refer/councils/stewardship/20250917.html">Stewardship-Code-related Large Shareholding clarification (Sep 2025)</a></li>
+<li>Filed under: Theme 5.4 (MBO &amp; Takeover Guidelines), Theme 5.7 (Activism &amp; Engagement)</li>
+</ul>
+<h3>TSE Council of Experts Concerning the Follow-up of Market Restructuring · TSE</h3>
+<blockquote>
+<p><strong>What it is:</strong> The post-market-restructuring iterative governance body. Each iteration produces a "Summary of Discussions" and TSE's "Future Actions" response. This is the engine that produced the cost-of-capital request, the English-disclosure mandate, the Growth Market revisions, and the parent-subsidiary work.
+<strong>Latest revision:</strong> Ongoing.
+<strong>Why IR cares:</strong> Whatever next year's TSE request will be, it gets drafted here first. Tracking this council's meeting agendas is the single highest-leverage forward-looking IR activity.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.jpx.co.jp/english/equities/follow-up/index.html">English landing page</a></li>
+<li><a href="https://www.jpx.co.jp/english/equities/follow-up/01.html">Summary of Discussions (01.html)</a></li>
+<li><a href="https://www.jpx.co.jp/english/equities/follow-up/02.html">Action to Implement Management page (02.html)</a></li>
+<li><a href="https://www.jpx.co.jp/english/equities/follow-up/04.html">Expiration of Transitional Measures (04.html)</a></li>
+<li><a href="https://www.jpx.co.jp/english/news/1020/e20230130-01.html">January 2023 summary news</a></li>
+<li><a href="https://www.jpx.co.jp/english/news/1020/20240830-01.html">August 2024 future initiatives news</a></li>
+<li>Filed under: Theme 3 (Market Restructuring), Theme 4 (Capital Efficiency), Theme 5.8 (Working Groups Landscape)</li>
+</ul>
+<h3>Study Group to Review Minority Shareholder Protection of Quasi-Controlled Listed Companies · TSE</h3>
+<blockquote>
+<p><strong>What it is:</strong> Academic-investor-issuer working group on protections for minority shareholders at companies under substantial-control ownership structures (parent-subsidiary listings, founder-controlled companies, holding-company structures). Feeds into the December 2025 parent-subsidiary case-study collection.
+<strong>Latest revision:</strong> Ongoing.
+<strong>Why IR cares:</strong> If your company has any controlling-shareholder situation, this is the rulebook in formation — track agendas to anticipate what specific protections will be expected next.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.jpx.co.jp/english/equities/improvements/study-group/index.html">English landing page</a></li>
+<li>Filed under: Theme 5.3 (Listed Subsidiaries)</li>
+</ul>
+<h3>Working Group on Corporate Disclosure · FSA / Financial System Council</h3>
+<blockquote>
+<p><strong>What it is:</strong> The Working Group whose reports drove the 2019 narrative-information principles and various Cabinet Office Ordinance amendments to Annual Securities Report disclosure requirements.
+<strong>Latest revision:</strong> Ongoing.
+<strong>Why IR cares:</strong> Where the requirements for what goes into the yuho (Annual Securities Report) get drafted before they become law.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.fsa.go.jp/en/refer/councils/singie_kinyu/disclosure_wg/comments.html">Public-comment archive</a></li>
+<li>Filed under: Theme 5.5 (SSBJ Sustainability), Theme 5.8 (Working Groups Landscape)</li>
+</ul>
+<hr>
+<h2>G. FAQs and Practical Tools</h2>
+<p>The day-to-day operational documents — preparation guidelines, sample forms, handbooks, FAQ PDFs — that an IR team actually uses in writing disclosures and onboarding new staff.</p>
+<h3>Preparation Guidelines for Corporate Governance Reports · TSE</h3>
+<blockquote>
+<p><strong>What it is:</strong> Field-by-field instructions for completing the CG Report — the legal comply-or-explain filing that is the bedrock of governance disclosure.
+<strong>Latest revision:</strong> 2025-05.
+<strong>Why IR cares:</strong> Your CG Report is read every six months by every analyst covering you. This document tells you exactly what each field is asking for and how to write the explanations.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.jpx.co.jp/english/equities/listing/cg/tvdivq0000008j85-att/b5b4pj000001qogp.pdf">English PDF</a></li>
+<li><a href="https://www.jpx.co.jp/english/equities/listing/cg/01.html">CG Report landing page</a></li>
+<li>Filed under: Theme 2.4 (Reading a CG Report)</li>
+</ul>
+<h3>English Sample Disclosure Forms · TSE</h3>
+<blockquote>
+<p><strong>What it is:</strong> Bilingual templates for kessan tanshin (earnings reports), notice of general meeting, corporate actions, and other recurring filings.
+<strong>Latest revision:</strong> Continuously updated alongside the English Disclosure GATE.
+<strong>Why IR cares:</strong> Saves hours of translation labour and ensures consistency with what TDnet processing systems expect.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.jpx.co.jp/english/equities/listed-co/disclosure-gate/form/index.html">English landing page</a></li>
+<li>Filed under: Theme 5.1 (English Disclosure Mandate)</li>
+</ul>
+<h3>Practical Handbook for English Disclosure · TSE</h3>
+<blockquote>
+<p><strong>What it is:</strong> Practical guidance on building English IR — terminology, structure, prioritisation, dialogue with overseas investors.
+<strong>Latest revision:</strong> Continuously updated.
+<strong>Why IR cares:</strong> If you have a new English-disclosure-mandate-driven workstream, this is the first thing your team should read.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.jpx.co.jp/english/equities/listed-co/disclosure-gate/handbook/">English landing page</a></li>
+<li>Filed under: Theme 5.1 (English Disclosure Mandate)</li>
+</ul>
+<h3>Guidebook for the Timely Disclosure of Corporate Information · TSE</h3>
+<blockquote>
+<p><strong>What it is:</strong> What triggers TDnet timely disclosure: defined events, materiality thresholds, decision flow, prior-explanation procedures, posting and distribution mechanics.
+<strong>Latest revision:</strong> Continuously updated.
+<strong>Why IR cares:</strong> This is the operational bible for your timely-disclosure officer. Misjudging a disclosure trigger is a regulatory issue.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.jpx.co.jp/english/equities/listing/disclosure/guidebook/index.html">English landing page</a></li>
+<li><a href="https://www.jpx.co.jp/english/equities/listing/disclosure/guidebook/dh3otn0000000xbv-att/Guidebook.pdf">English PDF</a></li>
+<li>Filed under: Theme 5.1 (English Disclosure Mandate)</li>
+</ul>
+<h3>TDnet Overview and API Service · TSE</h3>
+<blockquote>
+<p><strong>What it is:</strong> How TDnet works — filing mechanics, prior explanation, Company Announcements Service posting, media distribution, database archival. API tier for vendors.
+<strong>Latest revision:</strong> Continuously updated.
+<strong>Why IR cares:</strong> Required reading for everyone in the disclosure workflow.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.jpx.co.jp/english/equities/listing/disclosure/tdnet/index.html">TDnet overview</a></li>
+<li><a href="https://www.jpx.co.jp/english/markets/paid-info-listing/tdnet/02.html">TDnet API service</a></li>
+<li><a href="https://www.jpx.co.jp/english/markets/paid-info-listing/tdnet/p1j4l40000000q03-att/TDnetAPI_ServiceGuideE.pdf">TDnet API Service Guide PDF</a></li>
+<li>Filed under: Theme 5.1 (English Disclosure Mandate)</li>
+</ul>
+<h3>Listing Examination FAQ · TSE</h3>
+<blockquote>
+<p><strong>What it is:</strong> Common questions answered for IPO candidates and their advisors.
+<strong>Latest revision:</strong> 2024-11-11.
+<strong>Why IR cares:</strong> Useful reference when explaining your own original listing exam to long-tenured investors and when peer companies IPO.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.jpx.co.jp/english/equities/listing-on-tse/ipo-benefits/b5b4pj0000004y5w-att/FAQ_20241111.pdf">English PDF</a></li>
+<li>Filed under: Theme 3 (Market Restructuring)</li>
+</ul>
+<h3>Investors' Views on IR Systems and Activities · TSE</h3>
+<blockquote>
+<p><strong>What it is:</strong> A compilation of direct investor feedback on what good and bad IR systems look like.
+<strong>Latest revision:</strong> Continuously updated.
+<strong>Why IR cares:</strong> A reality-check from the investor side on how you actually rate.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.jpx.co.jp/english/equities/listing/investor-relations/sjcobq000001ttz5-att/um3qrc000001qu5e.pdf">English PDF</a></li>
+<li><a href="https://www.jpx.co.jp/english/equities/listing/investor-relations/index.html">IR Systems landing page</a></li>
+<li>Filed under: Theme 5.7 (Activism &amp; Engagement)</li>
+</ul>
+<h3>Principles Regarding the Disclosure of Narrative Information · FSA</h3>
+<blockquote>
+<p><strong>What it is:</strong> The principles guiding business-strategy disclosure, MD&amp;A, and risk-factor presentation in the yuho. Companion: "Best Practices for the Disclosure of Narrative Information," updated periodically.
+<strong>Latest revision:</strong> 2019-06-06.
+<strong>Why IR cares:</strong> This is the framework for the narrative sections of your Annual Securities Report and Integrated Report.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.fsa.go.jp/en/news/2019/20190606-3.html">English news</a></li>
+<li><a href="https://www.fsa.go.jp/en/news/2019/20190606-3/01.pdf">English PDF</a></li>
+<li>Filed under: Theme 2.4 (Reading a CG Report), Theme 5.5 (SSBJ Sustainability)</li>
+</ul>
+<hr>
+<h2>H. Data / Statistics Dashboards</h2>
+<p>The numerical reference points an IR rep uses when benchmarking — how your peer group is performing, what the population averages look like, what overseas investors say in surveys.</p>
+<h3>Corporate Governance Information Search · TSE</h3>
+<blockquote>
+<p><strong>What it is:</strong> A searchable database across all CG Reports — basic policy, capital structure, independent-director information, governance system, internal control.
+<strong>Latest revision:</strong> Continuously updated.
+<strong>Why IR cares:</strong> Useful for benchmarking peer disclosures and for showing your team how investors will see your own filings.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.jpx.co.jp/english/listing/cg-search/index.html">English search interface</a></li>
+<li>Filed under: Theme 2.4 (Reading a CG Report)</li>
+</ul>
+<h3>TSE CG White Paper statistics</h3>
+<p>The CG White Paper (see D — Director Skills-Matrix and TSE White Paper entries above) is the canonical source for population statistics: compliance rates by Principle, board composition averages, ratio of women directors, ratio of independent directors, cross-shareholding trends. Issued biennially.</p>
+<h3>English Disclosure Implementation Status Survey · TSE</h3>
+<blockquote>
+<p><strong>What it is:</strong> Statistics on how Prime companies are performing against the English-disclosure mandate.
+<strong>Latest revision:</strong> December 2025 (published 2026-01-26).
+<strong>Why IR cares:</strong> Benchmark your English coverage against peer averages — the survey identifies gaps by sector and by material type.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.jpx.co.jp/english/corporate/news/news-releases/0060/20260126-04.html">English news release</a></li>
+<li>Filed under: Theme 5.1 (English Disclosure Mandate)</li>
+</ul>
+<h3>2025 Survey of Overseas Investors on English Disclosure · TSE</h3>
+<blockquote>
+<p><strong>What it is:</strong> Direct feedback from overseas investors on which English disclosures matter and where gaps remain.
+<strong>Latest revision:</strong> 2025-09-02.
+<strong>Why IR cares:</strong> When you defend the prioritisation of your English-disclosure pipeline to management, cite this survey.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.jpx.co.jp/english/corporate/news/news-releases/0060/20250902-01.html">English news release</a></li>
+<li>Filed under: Theme 5.1 (English Disclosure Mandate)</li>
+</ul>
+<h3>Status Update on Cost-of-Capital-Conscious Management · TSE</h3>
+<blockquote>
+<p><strong>What it is:</strong> Periodic updates on disclosure adoption rates by market, sector, and PBR band — the running scoreboard on the cost-of-capital request.
+<strong>Latest revision:</strong> Periodic; major update August 2024 with monthly list updates ongoing.
+<strong>Why IR cares:</strong> Direct numerical benchmarks for how you are doing relative to your segment.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.jpx.co.jp/english/equities/follow-up/b5b4pj000004yqcc-att/sjcobq0000024jxu.pdf">English PDF</a></li>
+<li><a href="https://www.jpx.co.jp/english/news/1020/20240830-01.html">August 2024 news</a></li>
+<li>Filed under: Theme 4.3 (The Disclosure List), Theme 4.5 (Action Plan 2 Update)</li>
+</ul>
+<h3>GPIF Stewardship Activities Report · GPIF</h3>
+<blockquote>
+<p><strong>What it is:</strong> The annual report of the Government Pension Investment Fund on its asset managers' stewardship activities, with named-and-shamed analysis of voting patterns and engagement themes.
+<strong>Latest revision:</strong> Annual.
+<strong>Why IR cares:</strong> GPIF is the largest single asset owner of Japanese equity in the world; its stewardship priorities define what every Japanese asset manager will push for in your engagement meetings.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.gpif.go.jp/en/investment/stewardship/">GPIF stewardship landing (English)</a></li>
+<li>Filed under: Theme 1.4 (Stewardship Code), Theme 5.7 (Activism &amp; Engagement)</li>
+</ul>
+<hr>
+<h2>I. Investor-Facing / Explanatory</h2>
+<p>The high-altitude explainer portals — what you send to a foreign investor doing first-pass diligence on the Japan governance reform story.</p>
+<h3>Initiatives for Corporate Governance Reform · FSA</h3>
+<blockquote>
+<p><strong>What it is:</strong> The FSA's curated single-page overview of every governance-reform initiative — Codes, Action Programs, Working Groups, and key statistics. Updated periodically.
+<strong>Latest revision:</strong> Periodic.
+<strong>Why IR cares:</strong> The best single English-language pitch deck on Japan's governance-reform story. Send this to a foreign investor doing first-pass diligence on Japan.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.fsa.go.jp/en/policy/corporategovernencereform/20240115.html">English landing page</a></li>
+<li>Filed under: Theme 1 (Foundations), Theme 5.8 (Working Groups Landscape)</li>
+</ul>
+<h3>METI Corporate Governance landing · METI</h3>
+<blockquote>
+<p><strong>What it is:</strong> The central index of every METI study group, guideline, and press release in corporate governance.
+<strong>Latest revision:</strong> Continuously updated.
+<strong>Why IR cares:</strong> The portal for finding the latest METI guidance.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.meti.go.jp/english/policy/economy/corporate_governance/index.html">English landing page</a></li>
+<li>Filed under: All themes (master index for METI artifacts)</li>
+</ul>
+<h3>METI Corporate Value Creation portal · METI</h3>
+<blockquote>
+<p><strong>What it is:</strong> The home for the Ito Review and Guidance for Collaborative Value Creation 2.0.
+<strong>Latest revision:</strong> Continuously updated.
+<strong>Why IR cares:</strong> Strategic-level reading for any integrated-report or capital-markets-day owner.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.meti.go.jp/english/policy/economy/corporate_accounting/index.html">English landing page</a></li>
+<li>Filed under: Theme 1.1 (Lost Decades / ROE Gap), Theme 4 (Capital Efficiency)</li>
+</ul>
+<h3>JPX corporate sustainability portal · JPX</h3>
+<blockquote>
+<p><strong>What it is:</strong> Resources, examples, and links — including the Practical Handbook for ESG Disclosure and the ESG Knowledge Hub.
+<strong>Latest revision:</strong> Continuously updated.
+<strong>Why IR cares:</strong> Where your sustainability-team and IR-team workflows meet.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.jpx.co.jp/english/corporate/sustainability/esg-investment/support/index.html">Support landing page</a></li>
+<li>Filed under: Theme 5.5 (SSBJ Sustainability)</li>
+</ul>
+<h3>SSBJ landing page · SSBJ</h3>
+<blockquote>
+<p><strong>What it is:</strong> The SSBJ home with the three inaugural Standards (Universal "Application of the SSBJ Standards"; Theme-based No. 1 "General Disclosures"; Theme-based No. 2 "Climate-related Disclosures"), released 5 March 2025; amended 13 March 2026 ("Amendments to GHG Emissions Disclosures" to reflect ISSB IFRS S2 amendments). Standards themselves are Japanese-language; English Schedule of Differences and Concordance with ISSB Standards are published in English.
+<strong>Latest revision:</strong> 2026-03-13 (GHG Emissions amendments).
+<strong>Why IR cares:</strong> Once mandatory application begins (per the FSA Sustainability Roadmap), the SSBJ Standards become the literal authority for what climate and sustainability disclosure must contain in your yuho.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.ssb-j.jp/en/">English landing page</a></li>
+<li><a href="https://www.ssb-j.jp/en/ssbj_standards.html">SSBJ Standards page</a></li>
+<li><a href="https://www.ssb-j.jp/en/ssbj_standards/2025-0305.html">Inaugural standards news (Mar 2025)</a></li>
+<li><a href="https://www.ssb-j.jp/en/ssbj_standards/2026-0313.html">March 2026 amendments news</a></li>
+<li><a href="https://www.ssb-j.jp/jp/wp-content/uploads/sites/7/20250305_e.pdf">English explainer PDF</a></li>
+<li><a href="https://www.ssb-j.jp/en/exposure_drafts/y2026.html">2026 Exposure Drafts</a></li>
+<li>Filed under: Theme 5.5 (SSBJ Sustainability)</li>
+</ul>
+<h3>FSA Laws &amp; Regulations index · FSA</h3>
+<blockquote>
+<p><strong>What it is:</strong> The English translations of FIEA, Cabinet Office Ordinances on Disclosure, and major guidelines.
+<strong>Latest revision:</strong> Continuously updated.
+<strong>Why IR cares:</strong> The English-language authority for any legal-text reference.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.fsa.go.jp/en/laws_regulations/index.html">English landing page</a></li>
+<li><a href="https://www.fsa.go.jp/en/laws_regulations/pc_stewardship.html">Stewardship Code laws page</a></li>
+<li>Filed under: All themes</li>
+</ul>
+<h3>JPX investor-relations portal &amp; IR-systems guidance · JPX / TSE</h3>
+<blockquote>
+<p><strong>What it is:</strong> TSE's own guidance on what IR systems should look like for a listed company — built off the Code of Corporate Conduct requirements.
+<strong>Latest revision:</strong> Continuously updated.
+<strong>Why IR cares:</strong> Where TSE's expectations of your IR function are codified.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.jpx.co.jp/english/equities/listing/investor-relations/index.html">English landing page</a></li>
+<li>Filed under: Theme 5.1 (English Disclosure), Theme 5.7 (Activism &amp; Engagement)</li>
+</ul>
+<h3>MoJ Companies Act index · Ministry of Justice</h3>
+<blockquote>
+<p><strong>What it is:</strong> The MoJ-hosted English-language reference for the Companies Act of Japan (会社法), including the most recent 2019/2021 revisions that introduced the obligation for listed companies to appoint at least one outside director and changed director-compensation disclosure rules.
+<strong>Latest revision:</strong> Periodic legislative amendment.
+<strong>Why IR cares:</strong> The Companies Act sits behind the CG Code: where the Code says "comply or explain," the Act says "must." Knowing which is which is part of basic IR fluency.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.moj.go.jp/MINJI/minji07_00149.html">MoJ English page on the Companies Act</a></li>
+<li>Filed under: Theme 2 (Code Era)</li>
+</ul>
+<h3>JIRA — Japan Investor Relations Association · JIRA</h3>
+<blockquote>
+<p><strong>What it is:</strong> The practitioner body for Japanese IR officers, publishing the IR-officer skills standard and running the annual IR Excellence Awards.
+<strong>Latest revision:</strong> Annual.
+<strong>Why IR cares:</strong> Not a regulator, but the only domestic professional body specifically for IR practice; the awards criteria are themselves a useful self-assessment template.</p>
+</blockquote>
+<ul>
+<li><a href="https://www.jira.or.jp/english/">English landing page</a></li>
+<li>Filed under: Theme 5.7 (Activism &amp; Engagement), all themes (practitioner reference)</li>
+</ul>
+<hr>
+<h2>If you only read one thing per theme, read these</h2>
+<p>A curated seven-item shortlist for the IR rep with an afternoon, not a week. Each item is the single most-cited artifact in its theme.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Artifact</th>
+<th>Theme</th>
+<th>Why this one</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="https://www.meti.go.jp/policy/economy/keiei_innovation/kigyoukaikei/ito_review__released_august2014_en.pdf">Ito Review 1.0 (Aug 2014)</a></td>
+<td>1. Foundations</td>
+<td>The single document that converted three decades of Japanese under-performance into a governance problem, and fixed the 8% ROE benchmark.</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="https://www.jpx.co.jp/english/news/1020/b5b4pj0000046kxj-att/b5b4pj0000046l0c.pdf">Japan's Corporate Governance Code (2021 PDF)</a></td>
+<td>2. Code Era</td>
+<td>The 78-Principle rulebook your CG Report is structured to answer.</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="https://www.jpx.co.jp/english/equities/improvements/market-structure/01.html">Three-segment market structure overview</a></td>
+<td>3. Market Restructuring</td>
+<td>The April 2022 reshape that decides which CG Code Supplementary Principles apply to you.</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="https://www.jpx.co.jp/english/news/1020/vk0khi000000gi14-att/vk0khi000000gi4i.pdf">Key Points and Examples on Cost-of-Capital-Conscious Management (Dec 2025 PDF)</a></td>
+<td>4. Capital Efficiency</td>
+<td>The answer key for the cost-of-capital request — with named case studies of companies that actually closed the PBR gap.</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="https://www.fsa.go.jp/en/news/2025/20250630-1.html">Action Programme for Corporate Governance Reform 2025</a></td>
+<td>5. Frontier (current state)</td>
+<td>The FSA's annual scorecard of what reform still needs and what is coming next.</td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="https://www.fsa.go.jp/en/news/2025/20251106/02.pdf">Sustainability Disclosure Roadmap PDF (Nov 2025)</a></td>
+<td>5. Frontier (sustainability)</td>
+<td>The roadmap for when SSBJ Standards become mandatory by market cap.</td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="https://www.fsa.go.jp/en/policy/corporategovernencereform/20240115.html">Initiatives for Corporate Governance Reform (FSA portal)</a></td>
+<td>0. Keystone</td>
+<td>The best single overview to send to a foreign investor doing first-pass diligence.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>Quick-reference reading order for a new IR rep</h2>
+<p>If a new IR rep has one week to read in, sequence:</p>
+<ol>
+<li><strong>Day 1 — The Codes.</strong> Japan's Corporate Governance Code (A.1) → Guidelines for Investor and Company Engagement (A.3) → Stewardship Code (A.4).</li>
+<li><strong>Day 2 — The operational rules.</strong> Code of Corporate Conduct (B.6) → English Disclosure mandate page (B.4) → CG Report Preparation Guidelines (G.1).</li>
+<li><strong>Day 3 — The cost-of-capital regime.</strong> TSE March 2023 request + Key Points / Examples + the Nov 2024 misalignment cases + the Dec 2025 case-study collection (D.1) → the live list (C.1) and Status Update (H.5).</li>
+<li><strong>Day 4 — METI guidelines.</strong> CGS Guidelines + Nomination/Compensation Supplement (E.1, E.2) → Group Guidelines (E.3) → Guidelines for Corporate Takeovers (E.5) → Practical Guidelines for Independent Directors (E.6).</li>
+<li><strong>Day 5 — Sustainability.</strong> SSBJ Standards landing (I.5) → FSA Sustainability Roadmap (F.4) → Practical Handbook for ESG Disclosure (D.4).</li>
+<li><strong>Day 6 — The upstream councils.</strong> Action Program for Corporate Governance Reform 2025 (F.1) → Follow-up of Market Restructuring landing (F.6) → Expert Panel on the Revision of the CG Code (A.2).</li>
+<li><strong>Day 7 — Benchmarking.</strong> TSE CG White Paper 2023 (D.7) → JPX ESG Knowledge Hub (D.5) → Initiatives for Corporate Governance Reform FSA portal (I.1).</li>
+</ol>
+<hr>
+<h2>Cross-references to the curriculum</h2>
+<p>Every Toolbox artifact is filed under one or more curriculum themes. The reverse mapping — which posts cite which artifacts — is reproduced here for navigation.</p>
+<table>
+<thead>
+<tr>
+<th>Curriculum post</th>
+<th>Primary Toolbox artifacts cited</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.1 Lost Decades / ROE Gap</td>
+<td>Ito Review 1.0 (E); Collaborative Value Creation 2.0 (E)</td>
+</tr>
+<tr>
+<td>1.2 Pre-reform Architecture</td>
+<td>METI Corporate Governance landing (I.2) — historical context</td>
+</tr>
+<tr>
+<td>1.3 Abenomics Third Arrow</td>
+<td>Initiatives for Corporate Governance Reform (I.1)</td>
+</tr>
+<tr>
+<td>1.4 Stewardship Code 2014–2025</td>
+<td>Stewardship Code (A.4); Asset Owner Principles (A.5); GPIF Stewardship Activities (H)</td>
+</tr>
+<tr>
+<td>2.1 2015 CG Code Primer</td>
+<td>Japan's Corporate Governance Code (A.1); Council of Experts 2014–2015 (F.2)</td>
+</tr>
+<tr>
+<td>2.2 2018 CG Code Revision</td>
+<td>Japan's Corporate Governance Code (A.1); Guidelines for Investor &amp; Company Engagement (A.3)</td>
+</tr>
+<tr>
+<td>2.3 2021 CG Code Revision</td>
+<td>Japan's Corporate Governance Code (A.1); Director Skills-Matrix Sample Data (D.6)</td>
+</tr>
+<tr>
+<td>2.4 Reading a CG Report</td>
+<td>Preparation Guidelines for CG Reports (G.1); CG Information Search (C.4 / H.1); Narrative Information Principles (G.8)</td>
+</tr>
+<tr>
+<td>2.5 METI Guideline Family</td>
+<td>CGS Guidelines (E.1); CGS Supplement (E.2); Group Guidelines (E.3); Fair M&amp;A Guidelines (E.4); Guidelines for Corporate Takeovers (E.5); Independent Directors Guidelines (E.6)</td>
+</tr>
+<tr>
+<td>3.1 Four Segments to Three</td>
+<td>Three-segment structure (B.1); New Listing Guidebooks (B.7)</td>
+</tr>
+<tr>
+<td>3.2 Tradable-Share Ratio</td>
+<td>Continued Listing Criteria (B.2)</td>
+</tr>
+<tr>
+<td>3.3 Transitional Measures Cliff</td>
+<td>Continued Listing Criteria (B.2); Future Approaches in the Standard Market</td>
+</tr>
+<tr>
+<td>3.4 TOPIX Reform</td>
+<td>TOPIX methodology (B.5)</td>
+</tr>
+<tr>
+<td>3.5 Growth Market 2030 Cliff</td>
+<td>Growth Market revised continued listing criteria (B.3)</td>
+</tr>
+<tr>
+<td>4.1 March 2023 Request Anatomy</td>
+<td>Key Points and Examples on Cost-of-Capital-Conscious Management (D.1); TSE Follow-up of Market Restructuring (F.6)</td>
+</tr>
+<tr>
+<td>4.2 Cost-of-Capital Vocabulary</td>
+<td>Ito Review 1.0 &amp; 3.0 (E.8); Practical Guidelines for Business Transformations (E.7)</td>
+</tr>
+<tr>
+<td>4.3 The Disclosure List</td>
+<td>C.1 (cost-of-capital list); H.5 (status update)</td>
+</tr>
+<tr>
+<td>4.4 Seven Sins of Misalignment</td>
+<td>D.1 (Nov 2024 misalignment cases)</td>
+</tr>
+<tr>
+<td>4.5 Action Plan 2 Update</td>
+<td>Action Programme 2025 (F.1); April 2026 update to underlying request (C.1)</td>
+</tr>
+<tr>
+<td>5.1 English Disclosure Mandate</td>
+<td>B.4; C.2 (grace period); C.3 (availability); G.2, G.3, G.4, G.5; H.3, H.4</td>
+</tr>
+<tr>
+<td>5.2 Cross-shareholdings End-Game</td>
+<td>Japan's CG Code Principle 1-4 (A.1); CG White Paper (D.7)</td>
+</tr>
+<tr>
+<td>5.3 Listed Subsidiaries</td>
+<td>D.2 (parent-subsidiary case studies); E.3 (Group Guidelines); F.7 (Study Group on Minority Shareholder Protection)</td>
+</tr>
+<tr>
+<td>5.4 MBO &amp; Takeover Guidelines</td>
+<td>E.4 (Fair M&amp;A); E.5 (Guidelines for Corporate Takeovers); F.5 (Tender Offer WG)</td>
+</tr>
+<tr>
+<td>5.5 SSBJ Sustainability</td>
+<td>I.5 (SSBJ landing); F.4 (Sustainability WG); D.4 (ESG Handbook); E.9 (SX Brands)</td>
+</tr>
+<tr>
+<td>5.6 Board Diversity 30 by 30</td>
+<td>D.6 (Director Skills-Matrix); D.7 (CG White Paper); E.10 (Five Principles)</td>
+</tr>
+<tr>
+<td>5.7 Activism &amp; Engagement</td>
+<td>A.4 (Stewardship Code); A.5 (Asset Owner Principles); F.5 (Tender Offer WG); G.7 (Investors' Views on IR)</td>
+</tr>
+<tr>
+<td>5.8 Working Groups Landscape</td>
+<td>A.2 (Expert Panel on CG Code revision); F.1 (Follow-up Council); F.4 (Sustainability WG); F.6 (Market Restructuring Follow-up); F.7 (Minority Shareholder WG)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>Maintenance log</h2>
+<p>This is the audit trail. Every material change to the Toolbox is logged below: date of change, what was changed, and the source authority for the change.</p>
+<table>
+<thead>
+<tr>
+<th>Date</th>
+<th>Change</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2026-05-16</td>
+<td>Initial publication of the IR Toolbox. Indexed 9 categories × ~50 artifacts. All URLs verified against issuer domains.</td>
+<td>Compiled from <code>/research/toolbox-index.md</code> dossier and the five theme dossiers.</td>
+</tr>
+<tr>
+<td>2026-04-28</td>
+<td>Added April 2026 update to the underlying cost-of-capital request (C.1).</td>
+<td>https://www.jpx.co.jp/english/news/1020/20260428-01.html</td>
+</tr>
+<tr>
+<td>2026-04-09</td>
+<td>Added Final Report of the Working Group on Disclosure and Assurance of Sustainability-related Financial Information (F.4).</td>
+<td>https://www.fsa.go.jp/en/news/2026/20260409.html</td>
+</tr>
+<tr>
+<td>2026-03-13</td>
+<td>Added SSBJ "Amendments to GHG Emissions Disclosures" (I.5).</td>
+<td>https://www.ssb-j.jp/en/ssbj_standards/2026-0313.html</td>
+</tr>
+<tr>
+<td>2026-02-19</td>
+<td>Added second meeting of the FSA Expert Panel on the Revision of the CG Code (A.2).</td>
+<td>https://www.fsa.go.jp/en/news/2026/20260219.html</td>
+</tr>
+<tr>
+<td>2026-02-03</td>
+<td>Added reconvening of METI Fair Acquisition Study Group (E.5).</td>
+<td>https://www.meti.go.jp/english/press/2026/0203_001.html</td>
+</tr>
+<tr>
+<td>2026-01-26</td>
+<td>Added December 2025 English-disclosure implementation-status summary (H.3).</td>
+<td>https://www.jpx.co.jp/english/corporate/news/news-releases/0060/20260126-04.html</td>
+</tr>
+<tr>
+<td>2025-12-26</td>
+<td>Added Compilation of Case Studies on Parent-Subsidiary Listings (D.2) and Dec 2025 case studies in Key Points and Examples (D.1).</td>
+<td>https://www.jpx.co.jp/english/news/1020/20251226-01.html ; https://www.jpx.co.jp/english/news/1020/20251226-03.html</td>
+</tr>
+<tr>
+<td>2025-11-06</td>
+<td>Added Interim Report of the Working Group on Disclosure and Assurance of Sustainability-related Financial Information (F.4).</td>
+<td>https://www.fsa.go.jp/en/news/2025/20251106/20251106.html</td>
+</tr>
+<tr>
+<td>2025-10-14</td>
+<td>Added first-meeting announcement for the FSA Expert Panel on the Revision of the CG Code (A.2).</td>
+<td>https://www.fsa.go.jp/en/news/2025/20251014.html</td>
+</tr>
+<tr>
+<td>2025-09-26</td>
+<td>Added Revision to the Growth Market's Continued Listing Criteria (B.3).</td>
+<td>https://www.jpx.co.jp/english/news/1020/20250926-01.html</td>
+</tr>
+<tr>
+<td>2025-09-17</td>
+<td>Added Stewardship-Code-related Large Shareholding clarification (F.5).</td>
+<td>https://www.fsa.go.jp/en/refer/councils/stewardship/20250917.html</td>
+</tr>
+<tr>
+<td>2025-09-02</td>
+<td>Added 2025 Survey of Overseas Investors on English Disclosure (H.4).</td>
+<td>https://www.jpx.co.jp/english/corporate/news/news-releases/0060/20250902-01.html</td>
+</tr>
+<tr>
+<td>2025-08-19</td>
+<td>Added JPXI Director Skills-Matrix Sample Data (D.6).</td>
+<td>https://www.jpx.co.jp/english/corporate/news/news-releases/6020/20250819-01.html</td>
+</tr>
+<tr>
+<td>2025-06-30</td>
+<td>Added Action Programme for Corporate Governance Reform 2025 (F.1).</td>
+<td>https://www.fsa.go.jp/en/news/2025/20250630-1.html</td>
+</tr>
+<tr>
+<td>2025-06-26</td>
+<td>Added Stewardship Code third revision (A.4).</td>
+<td>https://www.fsa.go.jp/en/refer/councils/stewardship/20250626.html</td>
+</tr>
+<tr>
+<td>2025-05</td>
+<td>Added SX Brands 2025 Report (E.9).</td>
+<td>https://www.meti.go.jp/policy/economy/keiei_innovation/kigyoukaikei/sx2025report_english.pdf</td>
+</tr>
+<tr>
+<td>2025-04-30</td>
+<td>Added Five Principles for Board of Directors / Corporate Governance Guidance for Earning Power (E.10).</td>
+<td>https://www.meti.go.jp/english/press/2025/0430-002.html</td>
+</tr>
+<tr>
+<td>2025-04-01</td>
+<td>English Disclosure mandate effective for FYs ending on/after 1 March 2025 (B.4).</td>
+<td>https://www.jpx.co.jp/english/equities/follow-up/b5b4pj000004yqcc-att/u5j7e50000000l3i.pdf</td>
+</tr>
+<tr>
+<td>2025-02-04</td>
+<td>Added Investor's Perspective on Such Matters as Parent-Subsidiary Listings (D.2 companion).</td>
+<td>https://www.jpx.co.jp/english/news/1020/20250204-01.html</td>
+</tr>
+<tr>
+<td>2024-08-28</td>
+<td>Added Asset Owner Principles (A.5).</td>
+<td>https://www.fsa.go.jp/en/news/2024/20240828.html</td>
+</tr>
+<tr>
+<td>2024-06-07</td>
+<td>Added Action Program for Corporate Governance Reform 2024 (F.1).</td>
+<td>https://www.fsa.go.jp/en/news/2024/20240607-2.html</td>
+</tr>
+<tr>
+<td>2024-01-30</td>
+<td>Working Group on Tender Offer Rule and Large Shareholding Reporting Rule report (F.5).</td>
+<td>https://www.fsa.go.jp/en/refer/councils/singie_kinyu/reports.html</td>
+</tr>
+<tr>
+<td>2024-01-15</td>
+<td>TSE first publication of the "Action to Implement Management That Is Conscious of Cost of Capital and Stock Price" disclosing-companies list (C.1).</td>
+<td>https://www.jpx.co.jp/english/news/1020/20240115-01.html</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><em>The Toolbox is maintained by jpinv.com. Last full URL verification: 2026-05-16. Next scheduled URL re-verification: 2026-08-15. To suggest an addition, correction, or broken-link report, log an issue at the jpinv.com GitHub repository or email editor@jpinv.com.</em></p>
+    </article>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Japan Investor Interface Co., Ltd.</h3>
+        <p>Cross-border IR diagnostics for Japanese listed companies. The Foreign IR Diagnostic Card visualizes how foreign capital reads your IR.</p>
+      </div>
+      <div class="footer-col">
+        <h2>The diagnostic & plans</h2>
+        <ul>
+          <li><a href="/en/services/">The Diagnostic Card</a></li>
+          <li><a href="/en/pricing/">Light — Initial Diagnostic</a></li>
+          <li><a href="/en/pricing/">Standard — Disclosure Improvement</a></li>
+          <li><a href="/en/pricing/">Pro — Investor-Meeting Cycle</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Governance curriculum</h2>
+        <ul>
+          <li><a href="/en/governance/">Curriculum home</a></li>
+          <li><a href="/en/governance/foundations/">Theme 1 · Foundations</a></li>
+          <li><a href="/en/governance/capital-efficiency/">Theme 4 · Capital Efficiency</a></li>
+          <li><a href="/en/governance/toolbox/">IR Toolbox</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>JII Compounders</h2>
+        <ul>
+          <li><a href="/en/compounders/">All profiles</a></li>
+          <li><a href="/en/compounders/methodology/">Methodology</a></li>
+          <li><a href="https://japaninterface.substack.com/" rel="noopener" target="_blank">Substack</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Contact</h2>
+        <ul>
+          <li>Email <a href="mailto:info@jpinv.com">info@jpinv.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Japan Investor Interface Co., Ltd. · All rights reserved.</p>
+      <p class="footer-locale-switcher">Language: <a href="/en/" class="current" aria-current="page" lang="en">EN</a> / <a href="/" data-locale-route lang="ja">JP</a></p>
+    </div>
+  </div>
+</footer>
+<script>
+const nav = document.getElementById('main-nav');
+if (nav) window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+const hamburgerBtn = document.querySelector('.hamburger');
+function setMenuOpen(isOpen) { const menu = document.getElementById('mobileMenu'); if (!menu || !hamburgerBtn) return; menu.classList.toggle('open', isOpen); menu.hidden = !isOpen; hamburgerBtn.setAttribute('aria-expanded', String(isOpen)); }
+function toggleMenu() { const menu = document.getElementById('mobileMenu'); setMenuOpen(!(menu && menu.classList.contains('open'))); }
+document.addEventListener('click', (e) => { const menu = document.getElementById('mobileMenu'); if (menu && menu.classList.contains('open') && !menu.contains(e.target) && hamburgerBtn && !hamburgerBtn.contains(e.target)) setMenuOpen(false); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenuOpen(false); });
+</script>
+
+</body>
+</html>

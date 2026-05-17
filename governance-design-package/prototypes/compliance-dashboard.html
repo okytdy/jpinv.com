@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Japanese Governance Compliance Dashboard | JII</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+
+<!--
+  ===========================================================================
+  COMPLIANCE DASHBOARD · prototype
+  jpinv.com / governance-design-package / prototypes / compliance-dashboard.html
+  ===========================================================================
+
+  (a) DATA CONTRACT
+  -----------------
+  Reads ../data/compliance.json (schema_version 1.0). Each `topic` has:
+    - id, name_en, name_ja, issued_by, issued_date, as_of
+    - curriculum_slug, primary_source, secondary_sources[]
+    - description_en
+    - segments[]: { segment, total, disclosed, under_consideration,
+                    not_disclosed, disclosed_pct, estimate? }
+    - sample_companies: { best_practice[], not_disclosed[] }
+    - trend[]: { date, ...one or more *_pct fields, target?, estimate? }
+    - aggregate_metrics?: object of named scalars (optional, varies by topic)
+
+  Trend series keys vary topic-to-topic (e.g. disclosed_pct_prime,
+  simultaneous_pct_prime, cross_holding_pct_topix, ...). detectTrendSeries()
+  auto-discovers every numeric series in the trend array and renders each as
+  its own line — robust to schema drift.
+
+  (b) INTERACTION MODEL
+  ---------------------
+  Top-of-page tab strip switches the active topic. Only one topic is rendered
+  at a time (lazy: charts are created on activation, destroyed on switch).
+  - Click a stacked-bar segment -> drill-down panel filters sample_companies
+    by status; shows "View full TSE list" link when sample data is sparse.
+  - Click a trend-line datapoint -> snapshot panel shows that date's values
+    across all series in the same trend array.
+  - EN/JA toggle swaps topic titles and tab labels (sample/description copy
+    stays English in this prototype — a real build would localize fully).
+
+  (c) INTENTIONAL ROUGH EDGES
+  ---------------------------
+  - Sample companies are illustrative; the JPX list is the authoritative
+    roster. Drill-down for the "Not Disclosed" cohort always points users to
+    primary_source rather than pretending to enumerate ~1,500 issuers.
+  - Donut "aggregate disclosed share" sums across all segments in a topic;
+    for topics where segments are NOT disjoint (e.g. board diversity ≥1
+    female vs ≥30%) this is descriptive rather than arithmetic. Flagged in
+    the chart's text summary.
+  - Trend series labels are inferred from JSON keys (humanizeKey()); some
+    keys read better than others. A real build would map them.
+  - All charts use Chart.js defaults animated once on mount; no virtualized
+    scrolling. Performance is fine at 10 topics × 3 charts.
+  - aggregate_metrics is read but only rendered if present; the four KPI
+    tiles fall back to segment-derived numbers otherwise.
+  ===========================================================================
+-->
+
+<style>
+:root {
+  --ink:        #1a2a4a;
+  --ink-mid:    #172641;
+  --ink-soft:   #304466;
+  --rule:       #d6dee8;
+  --rule-soft:  #e8edf3;
+  --bg:         #ffffff;
+  --bg-mid:     #f5f7fa;
+  --bg-soft:    #fafbfc;
+  --text:       #1f2937;
+  --text-mid:   #4a5566;
+  --text-dim:   #5f6875;
+  --accent:     #9a7838;
+  --accent-deep:#9a7838;
+  --accent-soft:#f4eee4;
+  --bad:        #b91c1c;
+  --warn:       #8a682b;
+  --ok:         #2f6f4f;
+  --serif: 'Noto Serif JP', 'Yu Mincho', serif;
+  --sans:  'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  --mono:  'DM Mono', monospace;
+  --max: 1240px;
+  --gutter: 48px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 400; line-height: 1.6; }
+img { max-width: 100%; display: block; }
+a { color: var(--accent-deep); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; transition: text-decoration-color 0.18s; }
+a:hover { text-decoration-color: var(--accent-deep); }
+strong { font-weight: 600; color: var(--ink); }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+@media (max-width: 768px) { :root { --gutter: 22px; } }
+
+/* === Header === */
+header.dashboard-header {
+  border-bottom: 1px solid var(--rule);
+  padding: 36px 0 24px;
+  background: var(--bg);
+}
+.header-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+.header-left .eyebrow {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.32em;
+  color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 12px;
+}
+.header-left h1 {
+  font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 300;
+  color: var(--ink-mid); line-height: 1.3; letter-spacing: 0.01em; margin: 0;
+}
+.header-left h1 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
+.header-left .as-of {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em;
+  color: var(--text-dim); text-transform: uppercase; margin-top: 12px;
+}
+.header-right { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
+.lang-toggle {
+  display: inline-flex; font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.12em;
+}
+.lang-toggle button {
+  background: transparent; border: 1px solid var(--rule); padding: 6px 10px;
+  font-family: inherit; font-size: inherit; letter-spacing: inherit;
+  color: var(--text-dim); cursor: pointer; transition: all 0.2s;
+}
+.lang-toggle button + button { margin-left: -1px; }
+.lang-toggle button.current,
+.lang-toggle button:hover { color: var(--ink); border-color: var(--ink-mid); background: var(--bg-soft); position: relative; z-index: 1; }
+.topic-count {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em;
+  color: var(--text-dim); text-transform: uppercase;
+  padding: 8px 14px; border: 1px solid var(--rule); background: var(--bg-soft);
+}
+.topic-count strong { color: var(--ink); font-family: var(--mono); }
+
+/* === Tab strip === */
+nav.tab-strip {
+  border-bottom: 1px solid var(--rule);
+  background: var(--bg-soft);
+  position: sticky; top: 0; z-index: 30;
+  backdrop-filter: blur(6px);
+}
+.tab-strip-inner {
+  display: flex; overflow-x: auto; scrollbar-width: thin;
+  scrollbar-color: var(--rule) transparent;
+}
+.tab-strip-inner::-webkit-scrollbar { height: 6px; }
+.tab-strip-inner::-webkit-scrollbar-thumb { background: var(--rule); }
+.tab-strip button.tab {
+  flex: 0 0 auto;
+  background: transparent; border: none; border-bottom: 2px solid transparent;
+  padding: 16px 18px 14px; cursor: pointer;
+  font-family: var(--sans); font-size: 0.82rem; font-weight: 400; letter-spacing: 0.02em;
+  color: var(--text-mid); white-space: nowrap; transition: all 0.18s;
+  position: relative;
+}
+.tab-strip button.tab:hover { color: var(--ink); background: rgba(154,120,56,0.04); }
+.tab-strip button.tab.active { color: var(--ink); border-bottom-color: var(--accent); font-weight: 500; }
+.tab-strip button.tab .tab-num {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em;
+  color: var(--accent-deep); margin-right: 8px; font-weight: 500;
+}
+.tab-dropdown { display: none; padding: 14px var(--gutter); }
+.tab-dropdown select {
+  width: 100%; padding: 12px 14px;
+  font-family: var(--sans); font-size: 0.9rem; color: var(--ink);
+  border: 1px solid var(--rule); background: var(--bg);
+}
+@media (max-width: 600px) {
+  .tab-strip-inner { display: none; }
+  .tab-dropdown { display: block; }
+}
+
+/* === Topic detail === */
+section.topic-detail { padding: 48px 0 80px; }
+.topic-head { margin-bottom: 28px; }
+.topic-head .topic-eyebrow {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.24em;
+  color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 10px;
+}
+.topic-head h2 {
+  font-family: var(--serif); font-size: clamp(1.5rem, 2.6vw, 2rem);
+  font-weight: 400; color: var(--ink-mid); line-height: 1.3; margin: 0 0 14px; max-width: 880px;
+}
+.topic-head .topic-meta {
+  display: flex; gap: 24px; flex-wrap: wrap; padding-top: 14px;
+  border-top: 1px solid var(--rule-soft);
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em;
+  color: var(--text-dim); text-transform: uppercase;
+}
+.topic-head .topic-meta strong { color: var(--ink); font-family: var(--mono); }
+.topic-head .topic-desc { font-size: 0.95rem; line-height: 1.8; color: var(--text); margin: 18px 0 0; max-width: 880px; }
+
+/* === KPI tiles === */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin: 32px 0 36px;
+}
+.kpi-tile {
+  padding: 22px 22px 20px;
+  background: var(--bg-soft);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--accent);
+  position: relative;
+}
+.kpi-tile .kpi-label {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em;
+  color: var(--text-dim); text-transform: uppercase; margin-bottom: 10px;
+  line-height: 1.4;
+}
+.kpi-tile .kpi-value {
+  font-family: var(--serif); font-size: 2rem; font-weight: 300;
+  color: var(--ink-mid); line-height: 1; letter-spacing: 0.005em;
+}
+.kpi-tile .kpi-unit { font-size: 0.9rem; color: var(--text-mid); margin-left: 3px; font-family: var(--sans); }
+.kpi-tile .kpi-sub {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
+  color: var(--text-dim); text-transform: uppercase; margin-top: 10px;
+}
+.kpi-tile.ok { border-left-color: var(--ok); }
+.kpi-tile.warn { border-left-color: var(--warn); }
+.kpi-tile.bad { border-left-color: var(--bad); }
+.kpi-tile.ok .kpi-value { color: var(--ok); }
+.kpi-tile.bad .kpi-value { color: var(--bad); }
+
+/* === Chart grid === */
+.chart-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 22px;
+  margin-bottom: 36px;
+}
+.chart-card {
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  padding: 24px 24px 18px;
+  display: flex; flex-direction: column;
+  min-width: 0;
+}
+.chart-card.span-2 { grid-column: 1 / -1; }
+.chart-card h3 {
+  font-family: var(--serif); font-size: 1.05rem; font-weight: 500;
+  color: var(--ink-mid); margin: 0 0 4px;
+}
+.chart-card .chart-sub {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em;
+  color: var(--text-dim); text-transform: uppercase; margin-bottom: 14px;
+}
+.chart-canvas-wrap { position: relative; flex: 1; min-height: 240px; }
+.chart-card.tall .chart-canvas-wrap { min-height: 280px; }
+.chart-text-summary {
+  font-size: 0.82rem; color: var(--text-mid); line-height: 1.6;
+  margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--rule-soft);
+}
+.chart-text-summary .sr-label {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 0.18em;
+  color: var(--text-dim); text-transform: uppercase; margin-right: 6px;
+}
+@media (max-width: 900px) {
+  .chart-grid { grid-template-columns: 1fr; }
+  .chart-card.span-2 { grid-column: auto; }
+}
+
+/* === Drill-down panel === */
+.drill-panel {
+  background: var(--accent-soft);
+  border: 1px solid var(--accent);
+  border-left-width: 3px;
+  padding: 20px 24px;
+  margin: 24px 0;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  position: relative;
+}
+.drill-panel.hidden { display: none; }
+.drill-panel .drill-eyebrow {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em;
+  color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 8px;
+}
+.drill-panel h4 {
+  font-family: var(--serif); font-size: 1.05rem; font-weight: 500;
+  color: var(--ink); margin: 0 0 8px;
+}
+.drill-panel .drill-close {
+  position: absolute; top: 16px; right: 18px;
+  background: none; border: none; cursor: pointer;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em;
+  color: var(--text-dim); text-transform: uppercase;
+}
+.drill-panel .drill-close:hover { color: var(--ink); }
+.drill-panel ul { list-style: none; padding: 0; margin: 8px 0 0; }
+.drill-panel ul li {
+  padding: 6px 0; border-bottom: 1px dashed rgba(154,120,56,0.3);
+  font-size: 0.88rem;
+}
+.drill-panel ul li:last-child { border-bottom: none; }
+.drill-panel ul li strong { font-family: var(--mono); color: var(--ink); font-size: 0.84rem; }
+
+/* === Sample companies table === */
+.section-head {
+  font-family: var(--serif); font-size: 1.2rem; font-weight: 500;
+  color: var(--ink-mid); margin: 32px 0 6px;
+}
+.section-sub {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em;
+  color: var(--text-dim); text-transform: uppercase; margin-bottom: 16px;
+}
+.table-scroll { overflow-x: auto; border: 1px solid var(--rule); background: var(--bg); }
+table.companies {
+  width: 100%; border-collapse: collapse; font-size: 0.9rem; min-width: 720px;
+}
+table.companies th {
+  background: var(--bg-mid); color: var(--ink-mid);
+  font-family: var(--sans); font-weight: 600; text-align: left;
+  padding: 12px 16px; border-bottom: 2px solid var(--rule);
+  font-size: 0.82rem; letter-spacing: 0.02em;
+}
+table.companies td {
+  padding: 12px 16px; border-bottom: 1px solid var(--rule-soft);
+  vertical-align: top; color: var(--text);
+}
+table.companies tr:last-child td { border-bottom: none; }
+table.companies tr:hover td { background: var(--bg-soft); }
+table.companies td.ticker { font-family: var(--mono); font-size: 0.84rem; color: var(--ink); white-space: nowrap; }
+table.companies td.name { font-weight: 500; color: var(--ink-mid); white-space: nowrap; }
+table.companies td.highlight { color: var(--text-mid); font-size: 0.88rem; line-height: 1.6; }
+table.companies td.link a { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.06em; }
+
+/* === Sources block === */
+.sources-block {
+  margin-top: 36px;
+  padding: 24px 0 0;
+  border-top: 1px solid var(--rule);
+  display: grid; grid-template-columns: 1fr 1fr; gap: 28px;
+}
+.sources-block h4 {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em;
+  color: var(--ink-soft); text-transform: uppercase; font-weight: 500; margin-bottom: 10px;
+}
+.sources-block a { font-size: 0.88rem; line-height: 1.6; display: block; word-break: break-word; }
+.sources-block .secondary { margin-top: 8px; font-size: 0.82rem; }
+.sources-block .curriculum-link {
+  display: inline-block; padding: 10px 16px;
+  background: var(--ink); color: #fff; text-decoration: none;
+  font-family: var(--sans); font-size: 0.82rem; letter-spacing: 0.04em;
+  transition: background 0.18s;
+}
+.sources-block .curriculum-link:hover { background: var(--ink-mid); color: #fff; }
+@media (max-width: 700px) { .sources-block { grid-template-columns: 1fr; } }
+
+/* === Loading / empty states === */
+.loading {
+  padding: 80px var(--gutter); text-align: center;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em;
+  color: var(--text-dim); text-transform: uppercase;
+}
+.estimate-flag {
+  display: inline-block; margin-left: 6px;
+  font-family: var(--mono); font-size: 9px; letter-spacing: 0.12em;
+  color: var(--warn); text-transform: uppercase;
+  padding: 2px 6px; border: 1px solid rgba(138,104,43,0.3); background: rgba(138,104,43,0.06);
+}
+
+/* === Focus rings (accessibility) === */
+button:focus-visible, a:focus-visible, select:focus-visible {
+  outline: 2px solid var(--accent); outline-offset: 2px;
+}
+
+/* === Footer === */
+footer.proto-foot {
+  border-top: 1px solid var(--rule); padding: 36px 0 40px;
+  background: var(--bg-soft); margin-top: 40px;
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em;
+  color: var(--text-dim); text-transform: uppercase; text-align: center;
+}
+footer.proto-foot strong { color: var(--ink); font-family: var(--mono); }
+</style>
+</head>
+<body>
+
+<header class="dashboard-header">
+  <div class="wrap">
+    <div class="header-row">
+      <div class="header-left">
+        <div class="eyebrow">Governance Curriculum · Live Compliance Tracker</div>
+        <h1 id="title-en">Japanese Governance Compliance <em>Dashboard</em></h1>
+        <h1 id="title-ja" style="display:none;">日本のガバナンス・コンプライアンス・<em>ダッシュボード</em></h1>
+        <div class="as-of">As of <span id="as-of-date">2026-05-17</span> · Source: JPX / FSA / METI / curriculum dossiers</div>
+      </div>
+      <div class="header-right">
+        <div class="topic-count" id="topic-count">Tracking <strong>—</strong> Topics</div>
+        <div class="lang-toggle" role="group" aria-label="Language toggle">
+          <button id="lang-en" class="current" aria-pressed="true">EN</button>
+          <button id="lang-ja" aria-pressed="false">JA</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="tab-strip" aria-label="Compliance topics">
+  <div class="wrap">
+    <div class="tab-strip-inner" id="tab-strip" role="tablist"></div>
+  </div>
+  <div class="tab-dropdown">
+    <label for="tab-dropdown-select" style="font-family:var(--mono);font-size:10px;letter-spacing:0.18em;color:var(--text-dim);text-transform:uppercase;display:block;margin-bottom:8px;">Topic</label>
+    <select id="tab-dropdown-select" aria-label="Select topic"></select>
+  </div>
+</nav>
+
+<main>
+  <section class="topic-detail">
+    <div class="wrap">
+      <div id="topic-content" class="loading">Loading compliance data&hellip;</div>
+    </div>
+  </section>
+</main>
+
+<footer class="proto-foot">
+  <div class="wrap">
+    Prototype · <strong>governance-design-package / compliance-dashboard</strong> · jpinv.com
+  </div>
+</footer>
+
+<script>
+/* =========================================================================
+   COMPLIANCE DASHBOARD · controller
+   ========================================================================= */
+
+// --- inline fallback (last-resort if fetch fails; trimmed to schema shape) ---
+const INLINE_FALLBACK = {
+  schema_version: "1.0",
+  last_updated: "2026-05-17",
+  topics: [{
+    id: "cost-of-capital-disclosure",
+    name_en: "Action to Implement Management Conscious of Cost of Capital and Stock Price",
+    name_ja: "資本コストや株価を意識した経営の実現に向けた対応",
+    issued_by: "TSE",
+    as_of: "2026-03-13",
+    primary_source: "https://www.jpx.co.jp/english/equities/follow-up/02.html",
+    secondary_sources: [],
+    curriculum_slug: "/en/governance/capital-efficiency/4.3-the-disclosure-list/",
+    description_en: "Live JSON fetch failed — displaying minimal fallback. Open the dashboard via a local server (or the deployed site) for full data.",
+    segments: [
+      {segment:"Prime", total:1599, disclosed:1472, under_consideration:80, not_disclosed:47, disclosed_pct:92.1},
+      {segment:"Standard", total:1574, disclosed:807, under_consideration:195, not_disclosed:572, disclosed_pct:51.3}
+    ],
+    sample_companies: { best_practice: [], not_disclosed: [] },
+    trend: [
+      {date:"2024-01-15", disclosed_pct_prime:49.2, disclosed_pct_standard:18.5},
+      {date:"2026-03-13", disclosed_pct_prime:92.1, disclosed_pct_standard:51.3}
+    ]
+  }]
+};
+
+// --- state ---
+const state = {
+  data: null,
+  activeTopicId: null,
+  lang: 'en',
+  charts: []   // active Chart.js instances; destroyed on topic switch
+};
+
+// --- chart palette (muted, editorial — matches site CSS vars) ---
+const CSSV = getComputedStyle(document.documentElement);
+const c = (name) => CSSV.getPropertyValue(name).trim();
+const PALETTE = {
+  ok:    c('--ok')    || '#2f6f4f',
+  warn:  c('--warn')  || '#8a682b',
+  bad:   c('--bad')   || '#b91c1c',
+  ink:   c('--ink')   || '#1a2a4a',
+  inkS:  c('--ink-soft') || '#304466',
+  acc:   c('--accent') || '#9a7838',
+  rule:  c('--rule')  || '#d6dee8',
+  text:  c('--text-mid') || '#4a5566',
+  dim:   c('--text-dim') || '#5f6875'
+};
+
+// Chart.js global defaults — editorial, no gridline noise
+if (window.Chart) {
+  Chart.defaults.font.family = "'Noto Sans JP','Hiragino Kaku Gothic ProN',sans-serif";
+  Chart.defaults.font.size = 11;
+  Chart.defaults.color = PALETTE.text;
+  Chart.defaults.plugins.legend.labels.boxWidth = 10;
+  Chart.defaults.plugins.legend.labels.boxHeight = 10;
+  Chart.defaults.plugins.legend.labels.font = { family: "'DM Mono', monospace", size: 10 };
+  Chart.defaults.plugins.tooltip.titleFont = { family: "'Noto Serif JP', serif", size: 12, weight: '500' };
+  Chart.defaults.plugins.tooltip.bodyFont  = { family: "'DM Mono', monospace", size: 11 };
+  Chart.defaults.plugins.tooltip.backgroundColor = 'rgba(26,42,74,0.96)';
+  Chart.defaults.plugins.tooltip.padding = 10;
+  Chart.defaults.plugins.tooltip.cornerRadius = 0;
+  Chart.defaults.plugins.tooltip.borderColor = PALETTE.acc;
+  Chart.defaults.plugins.tooltip.borderWidth = 1;
+  Chart.defaults.animation.duration = 600;
+}
+
+// --- humanize a JSON key into a chart label ---
+function humanizeKey(key) {
+  return key
+    .replace(/_pct\b/g, ' %')
+    .replace(/_/g, ' ')
+    .replace(/\bprime\b/gi, 'Prime')
+    .replace(/\bstandard\b/gi, 'Standard')
+    .replace(/\btopix\b/gi, 'TOPIX')
+    .replace(/\btcfd\b/gi, 'TCFD')
+    .replace(/\bssbj\b/gi, 'SSBJ')
+    .replace(/\bgdp\b/gi, 'GDP')
+    .replace(/\bmom\b/gi, 'MoM')
+    .replace(/\bjp\b/gi, 'JP')
+    .replace(/\ben\b/gi, 'EN')
+    .replace(/\bpct\b/gi, '%')
+    .replace(/\bavg\b/gi, 'avg')
+    .replace(/^\s*\w/, ch => ch.toUpperCase())
+    .trim();
+}
+
+// --- detect numeric series in a trend array (skip date, target, estimate) ---
+function detectTrendSeries(trend) {
+  const skipKeys = new Set(['date', 'target', 'estimate']);
+  const keys = new Set();
+  trend.forEach(pt => {
+    Object.keys(pt).forEach(k => {
+      if (!skipKeys.has(k) && typeof pt[k] === 'number') keys.add(k);
+    });
+  });
+  return Array.from(keys);
+}
+
+// --- pick line color for nth series ---
+function seriesColor(i) {
+  const seq = [PALETTE.ink, PALETTE.acc, PALETTE.ok, PALETTE.warn, PALETTE.inkS, PALETTE.bad];
+  return seq[i % seq.length];
+}
+
+// --- compute aggregate (total counts across all segments of a topic) ---
+function aggregateCounts(topic) {
+  let total = 0, disclosed = 0, under = 0, notd = 0;
+  topic.segments.forEach(s => {
+    total += s.total || 0;
+    disclosed += s.disclosed || 0;
+    under += s.under_consideration || 0;
+    notd += s.not_disclosed || 0;
+  });
+  return { total, disclosed, under, notd };
+}
+
+// --- build the KPI tile data for a topic (best-effort) ---
+function buildKPIs(topic) {
+  const agg = aggregateCounts(topic);
+  const tiles = [];
+
+  // Tile 1: lead segment disclosed %
+  const lead = topic.segments[0];
+  if (lead) {
+    tiles.push({
+      label: lead.segment,
+      value: lead.disclosed_pct.toFixed(1),
+      unit: '%',
+      sub: `${lead.disclosed.toLocaleString()} / ${lead.total.toLocaleString()} disclosed`,
+      tone: lead.disclosed_pct >= 85 ? 'ok' : (lead.disclosed_pct >= 50 ? 'warn' : 'bad'),
+      estimate: !!lead.estimate
+    });
+  }
+
+  // Tile 2: second segment (or aggregate)
+  const second = topic.segments[1];
+  if (second) {
+    tiles.push({
+      label: second.segment,
+      value: second.disclosed_pct.toFixed(1),
+      unit: '%',
+      sub: `${second.disclosed.toLocaleString()} / ${second.total.toLocaleString()} disclosed`,
+      tone: second.disclosed_pct >= 85 ? 'ok' : (second.disclosed_pct >= 50 ? 'warn' : 'bad'),
+      estimate: !!second.estimate
+    });
+  }
+
+  // Tile 3: trend YoY delta on lead series
+  if (topic.trend && topic.trend.length >= 2) {
+    const seriesKeys = detectTrendSeries(topic.trend);
+    const lead = seriesKeys[0];
+    if (lead) {
+      // find last and prior-year-ish points
+      const last = topic.trend[topic.trend.length - 1];
+      const prev = topic.trend[topic.trend.length - 2];
+      if (last[lead] != null && prev[lead] != null) {
+        const delta = last[lead] - prev[lead];
+        tiles.push({
+          label: `${humanizeKey(lead)} · vs prior`,
+          value: (delta >= 0 ? '+' : '') + delta.toFixed(1),
+          unit: 'pp',
+          sub: `${prev.date} → ${last.date}`,
+          tone: delta >= 0 ? 'ok' : 'bad'
+        });
+      }
+    }
+  }
+
+  // Tile 4: total tracked issuers
+  tiles.push({
+    label: 'Tracked Issuers (sum of segments)',
+    value: agg.total.toLocaleString(),
+    unit: '',
+    sub: `${agg.disclosed.toLocaleString()} disclosed · ${agg.under.toLocaleString()} pending`,
+    tone: ''
+  });
+
+  return tiles.slice(0, 4);
+}
+
+// --- destroy all active charts ---
+function destroyCharts() {
+  state.charts.forEach(ch => { try { ch.destroy(); } catch (e) {} });
+  state.charts = [];
+}
+
+// --- render a topic into #topic-content ---
+function renderTopic(topicId) {
+  const topic = state.data.topics.find(t => t.id === topicId);
+  if (!topic) return;
+  state.activeTopicId = topicId;
+  destroyCharts();
+
+  const lang = state.lang;
+  const name = (lang === 'ja' && topic.name_ja) ? topic.name_ja : topic.name_en;
+  const kpis = buildKPIs(topic);
+
+  const container = document.getElementById('topic-content');
+  container.classList.remove('loading');
+
+  // ---- build HTML scaffold ----
+  container.innerHTML = `
+    <div class="topic-head">
+      <div class="topic-eyebrow">${topic.issued_by || ''} · Issued ${topic.issued_date || '—'}</div>
+      <h2>${escapeHtml(name)}</h2>
+      <p class="topic-desc">${escapeHtml(topic.description_en || '')}</p>
+      <div class="topic-meta">
+        <span>As of <strong>${topic.as_of || '—'}</strong></span>
+        <span>Issuer <strong>${topic.issued_by || '—'}</strong></span>
+        ${topic.effective_date ? `<span>Effective <strong>${topic.effective_date}</strong></span>` : ''}
+        ${topic.target_year ? `<span>Target <strong>${topic.target_year}</strong></span>` : ''}
+        <span>Segments <strong>${topic.segments.length}</strong></span>
+      </div>
+    </div>
+
+    <div class="kpi-grid">
+      ${kpis.map(k => `
+        <div class="kpi-tile ${k.tone || ''}">
+          <div class="kpi-label">${escapeHtml(k.label)}${k.estimate ? '<span class="estimate-flag">est</span>' : ''}</div>
+          <div class="kpi-value">${k.value}<span class="kpi-unit">${k.unit}</span></div>
+          <div class="kpi-sub">${escapeHtml(k.sub || '')}</div>
+        </div>
+      `).join('')}
+    </div>
+
+    <div class="drill-panel hidden" id="drill-panel" role="region" aria-live="polite">
+      <button class="drill-close" id="drill-close" aria-label="Close drill-down">Close ×</button>
+      <div class="drill-eyebrow" id="drill-eyebrow"></div>
+      <h4 id="drill-title"></h4>
+      <div id="drill-body"></div>
+    </div>
+
+    <div class="chart-grid">
+      <div class="chart-card tall">
+        <h3>Status by Segment</h3>
+        <div class="chart-sub">Stacked · Disclosed / Under Consideration / Not Disclosed · click to drill</div>
+        <div class="chart-canvas-wrap"><canvas id="chart-stacked" aria-label="Stacked bar chart of compliance status by market segment"></canvas></div>
+        <div class="chart-text-summary"><span class="sr-label">Summary</span><span id="summary-stacked"></span></div>
+      </div>
+      <div class="chart-card tall">
+        <h3>Aggregate Disclosed Share</h3>
+        <div class="chart-sub">Sum across segments · for non-disjoint segments, descriptive only</div>
+        <div class="chart-canvas-wrap"><canvas id="chart-donut" aria-label="Donut chart of aggregate disclosed share"></canvas></div>
+        <div class="chart-text-summary"><span class="sr-label">Summary</span><span id="summary-donut"></span></div>
+      </div>
+      <div class="chart-card span-2 tall">
+        <h3>Trend</h3>
+        <div class="chart-sub">Disclosed % over time · click a point for snapshot</div>
+        <div class="chart-canvas-wrap"><canvas id="chart-trend" aria-label="Trend line chart of disclosure rates over time"></canvas></div>
+        <div class="chart-text-summary"><span class="sr-label">Summary</span><span id="summary-trend"></span></div>
+      </div>
+    </div>
+
+    <h3 class="section-head">Best-Practice Sample Companies</h3>
+    <div class="section-sub">Illustrative · not exhaustive · the JPX list at primary source is authoritative</div>
+    <div class="table-scroll">
+      <table class="companies">
+        <thead><tr><th>Ticker</th><th>Company</th><th>Highlight</th><th>IR</th></tr></thead>
+        <tbody id="best-practice-tbody"></tbody>
+      </table>
+    </div>
+
+    <div class="sources-block">
+      <div>
+        <h4>Primary Source</h4>
+        <a href="${topic.primary_source || '#'}" target="_blank" rel="noopener">${escapeHtml(topic.primary_source || '')}</a>
+        ${(topic.secondary_sources && topic.secondary_sources.length) ? `
+          <div class="secondary">
+            <h4 style="margin-top:14px;">Secondary</h4>
+            ${topic.secondary_sources.map(s => `<a href="${s}" target="_blank" rel="noopener">${escapeHtml(s)}</a>`).join('')}
+          </div>` : ''}
+      </div>
+      <div>
+        <h4>Related Curriculum Post</h4>
+        ${topic.curriculum_slug ? `<a class="curriculum-link" href="${topic.curriculum_slug}" target="_blank" rel="noopener">Read the curriculum post →</a>` : `<span style="font-size:0.88rem;color:var(--text-dim);">No linked post.</span>`}
+      </div>
+    </div>
+  `;
+
+  // ---- best-practice table ----
+  const bp = (topic.sample_companies && topic.sample_companies.best_practice) || [];
+  const tbody = document.getElementById('best-practice-tbody');
+  if (bp.length) {
+    tbody.innerHTML = bp.map(co => `
+      <tr>
+        <td class="ticker">${escapeHtml(co.ticker || '—')}</td>
+        <td class="name">${escapeHtml(co.name_en || co.name_ja || '—')}${co.name_ja ? `<div style="font-size:0.78rem;color:var(--text-dim);font-family:var(--mono);">${escapeHtml(co.name_ja)}</div>` : ''}</td>
+        <td class="highlight">${escapeHtml(co.highlight || '')}</td>
+        <td class="link">${co.url ? `<a href="${co.url}" target="_blank" rel="noopener">IR →</a>` : '—'}</td>
+      </tr>
+    `).join('');
+  } else {
+    tbody.innerHTML = `<tr><td colspan="4" style="padding:24px;text-align:center;color:var(--text-dim);font-style:italic;">No sample companies listed for this topic.</td></tr>`;
+  }
+
+  // ---- charts ----
+  buildStackedChart(topic);
+  buildDonutChart(topic);
+  buildTrendChart(topic);
+
+  // ---- drill close handler ----
+  document.getElementById('drill-close').addEventListener('click', closeDrill);
+}
+
+// --- stacked bar: segments × status ---
+function buildStackedChart(topic) {
+  const ctx = document.getElementById('chart-stacked');
+  if (!ctx) return;
+  const labels = topic.segments.map(s => s.segment);
+  const disclosed = topic.segments.map(s => s.disclosed || 0);
+  const under     = topic.segments.map(s => s.under_consideration || 0);
+  const notd      = topic.segments.map(s => s.not_disclosed || 0);
+
+  const chart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [
+        { label: 'Disclosed',          data: disclosed, backgroundColor: PALETTE.ok,   borderWidth: 0 },
+        { label: 'Under Consideration',data: under,     backgroundColor: PALETTE.warn, borderWidth: 0 },
+        { label: 'Not Disclosed',      data: notd,      backgroundColor: PALETTE.bad,  borderWidth: 0 }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      indexAxis: 'y',
+      scales: {
+        x: { stacked: true, grid: { color: PALETTE.rule, drawBorder: false }, ticks: { color: PALETTE.dim, font: { family: "'DM Mono', monospace", size: 10 } } },
+        y: { stacked: true, grid: { display: false }, ticks: { color: PALETTE.ink, font: { size: 11 }, callback: function(value) {
+              // line-wrap long segment labels
+              const lbl = this.getLabelForValue(value);
+              if (lbl.length > 36) return lbl.match(/.{1,36}(\s|$)/g).slice(0,2).map(s=>s.trim());
+              return lbl;
+            } }
+        }
+      },
+      plugins: {
+        legend: { position: 'bottom', align: 'start' },
+        tooltip: {
+          callbacks: {
+            footer: (items) => {
+              const seg = topic.segments[items[0].dataIndex];
+              return seg && seg.total ? `Total: ${seg.total.toLocaleString()} (${(seg.disclosed_pct || 0).toFixed(1)}% disclosed)` : '';
+            }
+          }
+        }
+      },
+      onClick: (evt, elements) => {
+        if (!elements.length) return;
+        const el = elements[0];
+        const status = ['disclosed','under_consideration','not_disclosed'][el.datasetIndex];
+        const seg = topic.segments[el.index];
+        openDrill(topic, seg, status);
+      }
+    }
+  });
+  state.charts.push(chart);
+
+  // text summary
+  const summary = topic.segments.map(s =>
+    `${s.segment}: ${(s.disclosed_pct || 0).toFixed(1)}% disclosed (${(s.disclosed||0).toLocaleString()} of ${(s.total||0).toLocaleString()})`
+  ).join('; ') + '.';
+  document.getElementById('summary-stacked').textContent = summary;
+}
+
+// --- donut: aggregate share ---
+function buildDonutChart(topic) {
+  const ctx = document.getElementById('chart-donut');
+  if (!ctx) return;
+  const agg = aggregateCounts(topic);
+  const data = [agg.disclosed, agg.under, agg.notd];
+  const total = data.reduce((a,b)=>a+b,0) || 1;
+
+  const chart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: ['Disclosed', 'Under Consideration', 'Not Disclosed'],
+      datasets: [{
+        data,
+        backgroundColor: [PALETTE.ok, PALETTE.warn, PALETTE.bad],
+        borderColor: '#fff',
+        borderWidth: 2,
+        hoverOffset: 4
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      cutout: '62%',
+      plugins: {
+        legend: { position: 'bottom', align: 'center' },
+        tooltip: {
+          callbacks: {
+            label: (item) => {
+              const v = item.parsed;
+              const pct = (v / total * 100).toFixed(1);
+              return `${item.label}: ${v.toLocaleString()} (${pct}%)`;
+            }
+          }
+        }
+      }
+    },
+    plugins: [{
+      // center label plugin
+      id: 'donutCenter',
+      afterDraw(chart) {
+        const {ctx, chartArea: {left, right, top, bottom}} = chart;
+        const cx = (left + right) / 2, cy = (top + bottom) / 2;
+        const pct = ((agg.disclosed / total) * 100).toFixed(1);
+        ctx.save();
+        ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        ctx.fillStyle = PALETTE.ink;
+        ctx.font = "300 28px 'Noto Serif JP', serif";
+        ctx.fillText(`${pct}%`, cx, cy - 6);
+        ctx.fillStyle = PALETTE.dim;
+        ctx.font = "10px 'DM Mono', monospace";
+        ctx.fillText('DISCLOSED', cx, cy + 18);
+        ctx.restore();
+      }
+    }]
+  });
+  state.charts.push(chart);
+
+  document.getElementById('summary-donut').textContent =
+    `Across ${topic.segments.length} segment${topic.segments.length>1?'s':''}: ${agg.disclosed.toLocaleString()} disclosed, ${agg.under.toLocaleString()} under consideration, ${agg.notd.toLocaleString()} not disclosed. Aggregate disclosed share: ${((agg.disclosed/total)*100).toFixed(1)}%. Note: when segments overlap (e.g. ≥1 female vs ≥30%), this aggregate is descriptive rather than additive.`;
+}
+
+// --- trend line ---
+function buildTrendChart(topic) {
+  const ctx = document.getElementById('chart-trend');
+  if (!ctx || !topic.trend || !topic.trend.length) return;
+  const seriesKeys = detectTrendSeries(topic.trend);
+  const labels = topic.trend.map(p => p.date);
+
+  const datasets = seriesKeys.map((key, i) => {
+    const color = seriesColor(i);
+    return {
+      label: humanizeKey(key),
+      data: topic.trend.map(p => p[key] != null ? p[key] : null),
+      borderColor: color,
+      backgroundColor: color + '22',
+      pointBackgroundColor: topic.trend.map(p => p.target ? PALETTE.acc : color),
+      pointBorderColor: topic.trend.map(p => p.target ? PALETTE.acc : color),
+      pointStyle: topic.trend.map(p => p.target ? 'rectRot' : 'circle'),
+      pointRadius: 4,
+      pointHoverRadius: 6,
+      tension: 0.25,
+      borderWidth: 2,
+      spanGaps: true,
+      segment: {
+        borderDash: ctx => {
+          const idx = ctx.p1DataIndex;
+          if (topic.trend[idx] && topic.trend[idx].target) return [4, 4];
+          return undefined;
+        }
+      }
+    };
+  });
+
+  const chart = new Chart(ctx, {
+    type: 'line',
+    data: { labels, datasets },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      scales: {
+        x: { grid: { display: false }, ticks: { color: PALETTE.dim, font: { family: "'DM Mono', monospace", size: 10 } } },
+        y: { beginAtZero: true, max: 100, grid: { color: PALETTE.rule, drawBorder: false },
+             ticks: { color: PALETTE.dim, font: { family: "'DM Mono', monospace", size: 10 }, callback: v => v + '%' } }
+      },
+      plugins: {
+        legend: { position: 'bottom', align: 'start' },
+        tooltip: {
+          callbacks: {
+            label: (item) => {
+              const v = item.parsed.y;
+              return `${item.dataset.label}: ${v == null ? '—' : v.toFixed(1) + '%'}`;
+            },
+            footer: (items) => {
+              const idx = items[0].dataIndex;
+              const pt = topic.trend[idx];
+              if (pt && pt.target) return '(target value)';
+              if (pt && pt.estimate) return '(estimate)';
+              return '';
+            }
+          }
+        }
+      },
+      onClick: (evt, elements) => {
+        if (!elements.length) return;
+        const idx = elements[0].index;
+        openTrendSnapshot(topic, idx);
+      }
+    }
+  });
+  state.charts.push(chart);
+
+  const first = topic.trend[0], last = topic.trend[topic.trend.length - 1];
+  const lead = seriesKeys[0];
+  let summary = `Series: ${seriesKeys.map(humanizeKey).join('; ')}. `;
+  if (lead && first[lead] != null && last[lead] != null) {
+    summary += `${humanizeKey(lead)} moved from ${first[lead]}% on ${first.date} to ${last[lead]}% on ${last.date}.`;
+  }
+  document.getElementById('summary-trend').textContent = summary;
+}
+
+// --- drill-down (bar segment click) ---
+function openDrill(topic, segment, status) {
+  const statusLabel = { disclosed: 'Disclosed', under_consideration: 'Under Consideration', not_disclosed: 'Not Disclosed' }[status];
+  const statusCount = segment[status] || 0;
+
+  let body = '';
+  if (status === 'disclosed') {
+    // show best-practice subset
+    const bp = (topic.sample_companies && topic.sample_companies.best_practice) || [];
+    if (bp.length) {
+      body = `<p style="font-size:0.88rem;color:var(--text-mid);margin-bottom:8px;">Of the ${statusCount.toLocaleString()} disclosed issuers in this segment, illustrative best-practice examples:</p>`;
+      body += `<ul>` + bp.slice(0, 6).map(co =>
+        `<li><strong>${escapeHtml(co.ticker||'—')}</strong> · ${escapeHtml(co.name_en||'')} — ${escapeHtml(co.highlight||'')}${co.url ? ` <a href="${co.url}" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:0.78rem;">IR →</a>` : ''}</li>`
+      ).join('') + `</ul>`;
+    } else {
+      body = `<p style="font-size:0.88rem;color:var(--text-mid);">${statusCount.toLocaleString()} issuers disclosed in this segment. No best-practice sample listed for this topic.</p>`;
+    }
+  } else if (status === 'not_disclosed' || status === 'under_consideration') {
+    const nd = (topic.sample_companies && topic.sample_companies.not_disclosed) || [];
+    body = `<p style="font-size:0.88rem;color:var(--text-mid);margin-bottom:8px;">${statusCount.toLocaleString()} issuers ${statusLabel.toLowerCase()} in this segment.</p>`;
+    if (nd.length) {
+      body += `<ul>` + nd.map(n => `<li>${escapeHtml(n.category_en || n.note || '')}${n.estimate ? '<span class="estimate-flag">est</span>' : ''}</li>`).join('') + `</ul>`;
+    }
+    if (topic.primary_source) {
+      body += `<p style="margin-top:10px;font-size:0.86rem;"><a href="${topic.primary_source}" target="_blank" rel="noopener">View the full TSE / JPX roster →</a></p>`;
+    }
+  }
+
+  const panel = document.getElementById('drill-panel');
+  document.getElementById('drill-eyebrow').textContent = `${segment.segment} · ${statusLabel}`;
+  document.getElementById('drill-title').textContent = `${statusCount.toLocaleString()} issuer${statusCount===1?'':'s'}`;
+  document.getElementById('drill-body').innerHTML = body;
+  panel.classList.remove('hidden');
+  panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+// --- drill-down (trend point click) ---
+function openTrendSnapshot(topic, idx) {
+  const pt = topic.trend[idx];
+  if (!pt) return;
+  const keys = detectTrendSeries(topic.trend);
+  let body = `<p style="font-size:0.88rem;color:var(--text-mid);margin-bottom:8px;">Series values at this date:</p>`;
+  body += `<ul>` + keys.map(k => `<li><strong>${humanizeKey(k)}</strong>: ${pt[k] != null ? pt[k].toFixed(1) + '%' : '—'}</li>`).join('') + `</ul>`;
+  if (pt.target) body += `<p style="margin-top:8px;font-size:0.84rem;color:var(--accent-deep);">Target value (not actual).</p>`;
+  if (pt.estimate) body += `<p style="margin-top:8px;font-size:0.84rem;color:var(--warn);">Estimated value (curriculum dossier).</p>`;
+
+  const panel = document.getElementById('drill-panel');
+  document.getElementById('drill-eyebrow').textContent = `Trend Snapshot · ${pt.date}`;
+  document.getElementById('drill-title').textContent = pt.date;
+  document.getElementById('drill-body').innerHTML = body;
+  panel.classList.remove('hidden');
+  panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function closeDrill() {
+  const panel = document.getElementById('drill-panel');
+  if (panel) panel.classList.add('hidden');
+}
+
+// --- helpers ---
+function escapeHtml(s) {
+  if (s == null) return '';
+  return String(s)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+// --- tab strip render ---
+function renderTabs() {
+  const topics = state.data.topics;
+  const strip = document.getElementById('tab-strip');
+  const select = document.getElementById('tab-dropdown-select');
+  strip.innerHTML = '';
+  select.innerHTML = '';
+
+  topics.forEach((t, i) => {
+    const name = (state.lang === 'ja' && t.name_ja) ? t.name_ja : shortName(t);
+    const btn = document.createElement('button');
+    btn.className = 'tab' + (t.id === state.activeTopicId ? ' active' : '');
+    btn.setAttribute('role', 'tab');
+    btn.setAttribute('aria-selected', t.id === state.activeTopicId ? 'true' : 'false');
+    btn.setAttribute('data-topic-id', t.id);
+    btn.innerHTML = `<span class="tab-num">${String(i+1).padStart(2,'0')}</span>${escapeHtml(name)}`;
+    btn.addEventListener('click', () => switchTopic(t.id));
+    btn.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') { e.preventDefault(); const nx = topics[(i+1) % topics.length]; switchTopic(nx.id); document.querySelector(`[data-topic-id="${nx.id}"]`)?.focus(); }
+      if (e.key === 'ArrowLeft')  { e.preventDefault(); const nx = topics[(i-1+topics.length) % topics.length]; switchTopic(nx.id); document.querySelector(`[data-topic-id="${nx.id}"]`)?.focus(); }
+    });
+    strip.appendChild(btn);
+
+    const opt = document.createElement('option');
+    opt.value = t.id;
+    opt.textContent = name;
+    if (t.id === state.activeTopicId) opt.selected = true;
+    select.appendChild(opt);
+  });
+
+  select.onchange = () => switchTopic(select.value);
+
+  document.getElementById('topic-count').innerHTML = `Tracking <strong>${topics.length}</strong> Topics`;
+}
+
+// Short tab label — first comma-clause of name_en, or first 38 chars
+function shortName(t) {
+  const n = t.name_en || '';
+  const parens = n.split('(')[0].trim();
+  if (parens.length <= 42) return parens;
+  return parens.slice(0, 40).trim() + '…';
+}
+
+function switchTopic(id) {
+  if (id === state.activeTopicId) return;
+  state.activeTopicId = id;
+  document.querySelectorAll('.tab-strip button.tab').forEach(b => {
+    const active = b.getAttribute('data-topic-id') === id;
+    b.classList.toggle('active', active);
+    b.setAttribute('aria-selected', active ? 'true' : 'false');
+  });
+  document.getElementById('tab-dropdown-select').value = id;
+  renderTopic(id);
+}
+
+// --- language toggle ---
+function setLang(lang) {
+  state.lang = lang;
+  document.getElementById('lang-en').classList.toggle('current', lang === 'en');
+  document.getElementById('lang-ja').classList.toggle('current', lang === 'ja');
+  document.getElementById('lang-en').setAttribute('aria-pressed', lang === 'en' ? 'true' : 'false');
+  document.getElementById('lang-ja').setAttribute('aria-pressed', lang === 'ja' ? 'true' : 'false');
+  document.getElementById('title-en').style.display = lang === 'en' ? 'block' : 'none';
+  document.getElementById('title-ja').style.display = lang === 'ja' ? 'block' : 'none';
+  document.documentElement.setAttribute('lang', lang);
+  renderTabs();
+  if (state.activeTopicId) renderTopic(state.activeTopicId);
+}
+
+// --- bootstrap ---
+async function init() {
+  try {
+    const res = await fetch('../data/compliance.json');
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    state.data = await res.json();
+  } catch (err) {
+    console.warn('Fetch failed; using inline fallback:', err);
+    state.data = INLINE_FALLBACK;
+    // surface a soft notice
+    setTimeout(() => {
+      const banner = document.createElement('div');
+      banner.style.cssText = 'background:#f4eee4;border:1px solid #9a7838;border-left-width:3px;padding:10px 16px;margin-bottom:16px;font-family:DM Mono,monospace;font-size:11px;letter-spacing:0.12em;color:#8a682b;';
+      banner.innerHTML = 'NOTE: Live JSON unavailable (likely opened via file://). Showing inline fallback. Run a local server to load full data.';
+      const wrap = document.querySelector('main .wrap');
+      if (wrap) wrap.insertBefore(banner, wrap.firstChild);
+    }, 0);
+  }
+
+  // set as_of in header
+  document.getElementById('as-of-date').textContent = state.data.last_updated || '2026-05-17';
+
+  // default active topic
+  state.activeTopicId = state.data.topics[0]?.id;
+  renderTabs();
+  if (state.activeTopicId) renderTopic(state.activeTopicId);
+
+  // wire lang toggle
+  document.getElementById('lang-en').addEventListener('click', () => setLang('en'));
+  document.getElementById('lang-ja').addEventListener('click', () => setLang('ja'));
+}
+
+document.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>

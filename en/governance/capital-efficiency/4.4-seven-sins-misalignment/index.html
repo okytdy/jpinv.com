@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+<title>The Seven Sins of Cost-of-Capital Disclosure: read TSE&#x27;s &#x27;misalignment&#x27; booklet | JII Governance Curriculum</title>
+<meta name="description" content="The Seven Sins of Cost-of-Capital Disclosure: read TSE&#x27;s &#x27;misalignment&#x27; booklet — part of the JII Japan Governance Reform Curriculum.">
+<meta property="og:title" content="The Seven Sins of Cost-of-Capital Disclosure: read TSE&#x27;s &#x27;misalignment&#x27; booklet | JII Governance Curriculum">
+<meta property="og:description" content="The Seven Sins of Cost-of-Capital Disclosure: read TSE&#x27;s &#x27;misalignment&#x27; booklet — part of the JII Japan Governance Reform Curriculum.">
+<meta property="og:url" content="https://jpinv.com/en/governance/capital-efficiency/4.4-seven-sins-misalignment/">
+<link rel="canonical" href="https://jpinv.com/en/governance/capital-efficiency/4.4-seven-sins-misalignment/">
+<link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/capital-efficiency/4.4-seven-sins-misalignment/">
+<link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/capital-efficiency/4.4-seven-sins-misalignment/">
+<link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/capital-efficiency/4.4-seven-sins-misalignment/">
+
+<style>
+:root {
+  --ink:        #1a2a4a;
+  --ink-mid:    #172641;
+  --ink-soft:   #304466;
+  --rule:       #d6dee8;
+  --rule-soft:  #e8edf3;
+  --bg:         #ffffff;
+  --bg-mid:     #f5f7fa;
+  --bg-soft:    #fafbfc;
+  --text:       #1f2937;
+  --text-mid:   #4a5566;
+  --text-dim:   #5f6875;
+  --accent:     #9a7838;
+  --accent-deep:#9a7838;
+  --accent-soft:#f4eee4;
+  --bad:        #b91c1c;
+  --warn:       #8a682b;
+  --ok:         #2f6f4f;
+  --serif: 'Noto Serif JP', 'Yu Mincho', serif;
+  --sans:  'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  --mono:  'DM Mono', monospace;
+  --max: 1100px;
+  --pad: 88px;
+  --gutter: 48px;
+  --nav-h: 64px;
+  --measure: 720px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 400; line-height: 1.7; overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+a { color: var(--ink-soft); text-decoration: none; }
+a:hover { color: var(--ink); }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+@media (max-width: 768px) { :root { --gutter: 22px; --pad: 56px; } }
+strong { font-weight: 600; color: var(--ink); }
+em { font-style: normal; color: var(--ink); font-weight: 600; }
+.label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); }
+
+/* Nav (copied from jpinv.com base) */
+nav#main-nav { position: fixed; top:0; left:0; right:0; z-index:100; height: var(--nav-h); background: rgba(255,255,255,0.96); backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule); display: flex; align-items: center; transition: box-shadow 0.3s; }
+nav#main-nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; }
+.nav-logo { text-decoration: none; display: inline-flex; align-items: center; flex: 0 0 auto; min-width: max-content; white-space: nowrap; }
+.nav-logo-img { display: block; width: auto; height: 40px; max-width: none; object-fit: contain; object-position: left center; }
+.nav-logo-img--mobile { display: none; width: 32px; height: 32px; object-fit: contain; }
+.nav-center { flex: 1; display: flex; justify-content: center; }
+.nav-links { display: flex; gap: 22px; list-style: none; flex-wrap: nowrap; white-space: nowrap; }
+.nav-links a { font-family: var(--sans); font-size: 0.78rem; font-weight: 400; letter-spacing: 0.04em; color: var(--text); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--ink-soft); }
+.nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; margin-left: auto; }
+.nav-cta { padding: 8px 14px; font-size: 0.7rem; }
+.locale-switcher { display: inline-flex; align-items: center; gap: 0; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; }
+.locale-switcher a { color: var(--text-dim); border: 1px solid var(--rule); padding: 6px 9px; text-decoration: none; transition: all 0.2s; }
+.locale-switcher a + a { margin-left: -1px; }
+.locale-switcher a:hover, .locale-switcher a.current { color: var(--ink); border-color: var(--ink-mid); background: var(--bg-soft); position: relative; z-index: 1; }
+.hamburger { display: none; flex-shrink:0; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
+.hamburger span { display:block; width:22px; height:1px; background:var(--ink); transition: all 0.25s; }
+@media (max-width: 900px) { .nav-center, .nav-right .nav-cta { display:none; } .hamburger { display:flex; } }
+@media (max-width: 768px) { .nav-logo-img--desktop { display:none; } .nav-logo-img--mobile { display:block; } }
+.mobile-menu { display:none; position:fixed; top:var(--nav-h); left:0; right:0; background:var(--bg); border-bottom:1px solid var(--rule); z-index:99; padding:8px var(--gutter) 20px; flex-direction:column; gap:0; }
+.mobile-menu.open { display:flex; }
+.mobile-menu a { font-size:0.88rem; color:var(--text); text-decoration:none; padding:14px 0; border-bottom:1px solid var(--rule); letter-spacing:0.04em; }
+.mobile-menu a:last-child { border-bottom:none; }
+.mobile-menu .mobile-menu-cta { margin-top:12px; padding:13px 18px; text-align:center; color:#fff; border-bottom:none; }
+
+.btn { display: inline-block; text-decoration: none; font-family: var(--sans); font-size: 0.84rem; font-weight: 400; letter-spacing: 0.06em; padding: 13px 28px; transition: all 0.2s; cursor: pointer; border: none; }
+.btn-primary { background: var(--ink); color: #fff; }
+.btn-primary:hover { background: var(--ink-mid); color: #fff; }
+.btn-outline { border: 1px solid var(--ink-mid); color: var(--ink); background: transparent; }
+.btn-outline:hover { border-color: var(--ink); color: var(--ink); }
+.rule-accent { width: 32px; height: 2px; background: var(--accent); margin: 14px 0 22px; }
+
+/* Footer (mirror) */
+footer { border-top: 1px solid var(--rule); padding: 52px 0 28px; background: var(--bg-soft); font-size: 0.82rem; color: var(--text-dim); }
+footer .footer-grid { display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 32px; align-items: start; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+footer h2 { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.2em; color: var(--ink-soft); text-transform: uppercase; margin-bottom: 12px; font-weight: 500; }
+footer h3 { font-family: var(--serif); font-size: 1rem; font-weight: 400; color: var(--ink); margin-bottom: 8px; }
+footer ul { list-style: none; }
+footer ul li { padding: 4px 0; }
+footer ul li a { color: var(--text-mid); }
+footer ul li a:hover { color: var(--ink); }
+footer .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 18px; flex-wrap: wrap; gap: 12px; }
+footer .footer-locale-switcher a.current { font-weight: 600; color: var(--ink); }
+@media (max-width: 900px) { footer .footer-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 580px) { footer .footer-grid { grid-template-columns: 1fr; } }
+
+
+/* === Curriculum-specific === */
+main.curriculum { padding-top: var(--nav-h); }
+.curr-hero { padding: 96px 0 64px; border-bottom: 1px solid var(--rule); position: relative; overflow: hidden; }
+.curr-hero::before { content:''; position:absolute; inset:0;
+  background-image: linear-gradient(rgba(15,31,58,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(15,31,58,0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent);
+          mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent); }
+.curr-hero-inner { position:relative; z-index:2; max-width: 880px; }
+.curr-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.32em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 18px; }
+.curr-hero h1 { font-family: var(--serif); font-size: clamp(1.9rem, 4.4vw, 3.1rem); font-weight: 300; color: var(--ink-mid); line-height: 1.3; letter-spacing: 0.02em; margin: 0 0 22px; }
+.curr-hero h1 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
+.curr-hero .lede { font-size: 1.05rem; line-height: 1.85; color: var(--text); margin: 0 0 24px; max-width: 700px; }
+.curr-hero-meta { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
+.curr-hero-meta strong { color: var(--ink); font-family: var(--mono); }
+
+.crumbs { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; padding: 22px 0 0; }
+.crumbs a { color: var(--text-mid); }
+.crumbs a:hover { color: var(--ink); }
+.crumbs .sep { color: var(--rule); margin: 0 8px; }
+
+.theme-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; padding: 56px 0; }
+.theme-card { display: block; background: #fff; border: 1px solid var(--rule); padding: 30px 28px; position: relative; transition: all 0.2s; }
+.theme-card:hover { border-color: var(--ink-soft); box-shadow: 0 12px 32px rgba(15,31,58,0.08); transform: translateY(-2px); }
+.theme-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background: var(--accent); opacity: 0.85; }
+.theme-card-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; }
+.theme-card-name { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--ink-mid); margin: 10px 0 8px; line-height: 1.35; }
+.theme-card-period { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 14px; }
+.theme-card-desc { font-size: 0.92rem; line-height: 1.7; color: var(--text); margin-bottom: 18px; }
+.theme-card-list { font-size: 0.84rem; color: var(--text-mid); list-style: none; padding-top: 14px; border-top: 1px solid var(--rule-soft); }
+.theme-card-list li { padding: 5px 0; }
+.theme-card-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; }
+.theme-card-foot .arrow { color: var(--accent-deep); }
+
+.post-list { padding: 28px 0 56px; }
+.post-list-row { display: grid; grid-template-columns: 60px 1fr auto; gap: 22px; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--rule-soft); transition: all 0.18s; }
+.post-list-row:hover { background: var(--bg-mid); padding-left: 12px; padding-right: 12px; }
+.post-list-num { font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em; color: var(--accent-deep); font-weight: 500; }
+.post-list-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--ink-mid); line-height: 1.45; }
+.post-list-meta { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; white-space: nowrap; }
+@media (max-width: 600px) { .post-list-row { grid-template-columns: 50px 1fr; } .post-list-meta { grid-column: 1 / -1; padding-left: 72px; } }
+
+/* Post body */
+.post-body { padding: 48px 0 80px; }
+.post-content { max-width: var(--measure); margin: 0 auto; }
+.post-content > p, .post-content > ul, .post-content > ol, .post-content > blockquote, .post-content > pre, .post-content > table, .post-content > hr, .post-content > h2, .post-content > h3, .post-content > h4 { max-width: var(--measure); margin-left: auto; margin-right: auto; }
+.post-content h2 { font-family: var(--serif); font-size: 1.55rem; font-weight: 400; color: var(--ink-mid); line-height: 1.35; margin: 56px 0 14px; padding-top: 22px; border-top: 1px solid var(--rule-soft); }
+.post-content h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 500; color: var(--ink); margin: 36px 0 10px; line-height: 1.4; }
+.post-content h4 { font-family: var(--sans); font-size: 1rem; font-weight: 600; color: var(--ink); margin: 26px 0 8px; letter-spacing: 0.02em; }
+.post-content p { margin: 0 0 18px; font-size: 1rem; line-height: 1.85; color: var(--text); }
+.post-content p:first-of-type { font-size: 1.05rem; }
+.post-content ul, .post-content ol { margin: 0 0 22px; padding-left: 28px; }
+.post-content ul li, .post-content ol li { font-size: 0.97rem; line-height: 1.8; margin-bottom: 8px; color: var(--text); }
+.post-content ul li::marker { color: var(--accent-deep); }
+.post-content blockquote { margin: 30px 0; padding: 20px 24px; border-left: 3px solid var(--accent); background: var(--accent-soft); color: var(--ink-mid); font-style: normal; }
+.post-content blockquote p { margin-bottom: 8px; font-size: 0.97rem; }
+.post-content blockquote p:last-child { margin-bottom: 0; }
+.post-content blockquote strong { color: var(--ink); }
+.post-content code { background: #f0f0f0; color: var(--ink-mid); font-family: var(--mono); font-size: 0.88rem; padding: 2px 6px; border-radius: 3px; }
+.post-content pre { background: #f9f9fb; border: 1px solid var(--rule); padding: 18px 22px; overflow-x: auto; font-family: var(--mono); font-size: 0.85rem; line-height: 1.55; margin: 24px 0; }
+.post-content pre code { background: transparent; padding: 0; font-size: inherit; }
+.post-content a { color: var(--accent-deep); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; transition: text-decoration-color 0.18s; }
+.post-content a:hover { text-decoration-color: var(--accent-deep); }
+.post-content hr { border: none; border-top: 1px solid var(--rule); margin: 40px auto; max-width: 120px; }
+.post-content table { width: 100%; max-width: var(--measure); margin: 28px auto; border-collapse: collapse; font-size: 0.9rem; }
+.post-content th { background: var(--bg-mid); color: var(--ink-mid); font-family: var(--sans); font-weight: 600; text-align: left; padding: 12px 14px; border-bottom: 2px solid var(--rule); }
+.post-content td { padding: 10px 14px; border-bottom: 1px solid var(--rule-soft); vertical-align: top; color: var(--text); }
+.post-content tr:nth-child(even) td { background: #fafbfc; }
+
+/* Mermaid container */
+.mermaid-wrap { background: #fdfdfe; border: 1px solid var(--rule); padding: 22px 18px; margin: 28px 0; overflow-x: auto; }
+.mermaid { font-family: var(--sans); text-align: center; }
+
+/* Post header */
+.post-header { padding: 48px 0 28px; border-bottom: 1px solid var(--rule); }
+.post-header-inner { max-width: var(--measure); margin: 0 auto; }
+.post-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.28em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 14px; }
+.post-title { font-family: var(--serif); font-size: clamp(1.7rem, 3.6vw, 2.4rem); font-weight: 400; color: var(--ink-mid); line-height: 1.3; margin: 0 0 16px; letter-spacing: 0.005em; }
+.post-summary { font-size: 1.02rem; line-height: 1.8; color: var(--text); margin: 0 0 22px; max-width: 660px; }
+.post-meta { display: flex; gap: 26px; flex-wrap: wrap; padding-top: 18px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
+.post-meta span strong { color: var(--ink); font-family: var(--mono); }
+
+/* Post nav (prev/next) */
+.post-nav { max-width: var(--measure); margin: 56px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding-top: 36px; border-top: 1px solid var(--rule); }
+.post-nav-link { display: block; padding: 18px 20px; background: var(--bg-mid); border: 1px solid var(--rule); transition: all 0.18s; }
+.post-nav-link:hover { border-color: var(--ink-soft); background: #fff; transform: translateY(-1px); }
+.post-nav-dir { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px; }
+.post-nav-title { font-family: var(--serif); font-size: 0.94rem; color: var(--ink-mid); line-height: 1.4; }
+.post-nav-link.next { text-align: right; }
+@media (max-width: 640px) { .post-nav { grid-template-columns: 1fr; } .post-nav-link.next { text-align: left; } }
+
+/* Knowledge check */
+.kcheck { background: var(--bg-mid); padding: 72px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.kcheck-head { max-width: 720px; margin: 0 auto 36px; text-align: center; }
+.kcheck h2 { font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 300; color: var(--ink-mid); margin: 0 0 14px; line-height: 1.3; }
+.kcheck h2 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
+.kcheck p.lede { font-size: 0.98rem; line-height: 1.75; color: var(--text); }
+.kcheck-q { background: #fff; border: 1px solid var(--rule); padding: 28px 30px; margin-bottom: 18px; max-width: 760px; margin-left: auto; margin-right: auto; }
+.kcheck-q-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; margin-bottom: 12px; }
+.kcheck-q-text { font-family: var(--serif); font-size: 1.1rem; line-height: 1.5; color: var(--ink-mid); margin-bottom: 18px; }
+.kcheck-opts { display: grid; gap: 8px; }
+.kcheck-opt { display: block; padding: 12px 16px; background: var(--bg-soft); border: 1px solid var(--rule); text-align: left; font-family: var(--sans); font-size: 0.92rem; color: var(--text); cursor: pointer; transition: all 0.15s; }
+.kcheck-opt:hover { background: #fff; border-color: var(--ink-soft); }
+.kcheck-opt.correct { background: #e8f3ec; border-color: var(--ok); color: var(--ok); }
+.kcheck-opt.incorrect { background: #fbe9e9; border-color: var(--bad); color: var(--bad); }
+.kcheck-explain { margin-top: 16px; padding: 14px 18px; background: var(--accent-soft); border-left: 3px solid var(--accent); font-size: 0.9rem; line-height: 1.7; color: var(--ink-mid); display: none; }
+.kcheck-q.answered .kcheck-explain { display: block; }
+.kcheck-score { text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--text-dim); margin-top: 28px; text-transform: uppercase; }
+.kcheck-score strong { color: var(--ink-mid); font-family: var(--mono); }
+
+/* Stats / hero stats */
+.stat-band { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; padding: 56px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); background: var(--bg-soft); }
+.stat-item { padding: 0 18px; }
+.stat-num { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 300; color: var(--ink-mid); line-height: 1; margin-bottom: 8px; }
+.stat-num em { color: var(--accent-deep); font-weight: 400; font-style: normal; }
+.stat-label { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; }
+</style>
+</head>
+<body>
+<nav id="main-nav" role="navigation" aria-label="Main navigation">
+  <div class="wrap nav-inner">
+    <a href="/en/" class="nav-logo" aria-label="JII home">
+      <img class="nav-logo-img nav-logo-img--desktop" src="/assets/logo-jii-wordmark.svg" alt="Japan Investor Interface logo" width="282" height="40">
+      <img class="nav-logo-img nav-logo-img--mobile" src="/assets/logo-jii-monogram.svg" alt="Japan Investor Interface logo" width="32" height="32">
+    </a>
+    <div class="nav-center">
+      <ul class="nav-links" role="list">
+        <li><a href="/en/services/">Services</a></li>
+        <li><a href="/en/pricing/">Pricing</a></li>
+        <li><a href="/en/company/">Company</a></li>
+        <li><a href="/en/faq/">FAQ</a></li>
+        <li><a href="/en/compounders/">Compounders</a></li>
+        <li><a href="/en/governance/">Governance</a></li>
+      </ul>
+    </div>
+    <div class="nav-right">
+      <a href="/en/#contact" class="btn btn-primary nav-cta">Free 30-min call</a>
+      <span class="locale-switcher nav-locale-switcher" aria-label="Language switcher"><a href="/governance/capital-efficiency/4.4-seven-sins-misalignment/" data-locale-route lang="ja">JP</a><a href="/en/governance/capital-efficiency/4.4-seven-sins-misalignment/" class="current" aria-current="page" lang="en">EN</a></span>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" hidden>
+  <a href="/en/services/" onclick="toggleMenu()">Services</a>
+  <a href="/en/pricing/" onclick="toggleMenu()">Pricing</a>
+  <a href="/en/company/" onclick="toggleMenu()">Company</a>
+  <a href="/en/faq/" onclick="toggleMenu()">FAQ</a>
+  <a href="/en/compounders/" onclick="toggleMenu()">Compounders</a>
+  <a href="/en/governance/" onclick="toggleMenu()">Governance</a>
+  <a href="/governance/capital-efficiency/4.4-seven-sins-misalignment/" data-locale-route onclick="toggleMenu()" lang="ja">JP</a>
+  <a href="/en/#contact" class="btn btn-primary mobile-menu-cta" onclick="toggleMenu()">Book a free 30-min call</a>
+</nav>
+<main id="main-content" class="curriculum" tabindex="-1">
+<div class="wrap crumbs">
+  <a href="/en/">JII</a> <span class="sep">/</span>
+  <a href="/en/governance/">Governance Curriculum</a> <span class="sep">/</span>
+  <a href="/en/governance/capital-efficiency/">Capital Efficiency</a> <span class="sep">/</span>
+  Post 4.4
+</div>
+<header class="post-header">
+  <div class="wrap">
+    <div class="post-header-inner">
+      <div class="post-eyebrow">Theme 4 · POST 4.4</div>
+      <h1 class="post-title">The Seven Sins of Cost-of-Capital Disclosure: read TSE&#x27;s &#x27;misalignment&#x27; booklet</h1>
+      <p class="post-summary"></p>
+      <div class="post-meta">
+        <span>Theme: <strong>Capital Efficiency</strong></span>
+        <span>Reading: <strong> min</strong></span>
+        <span>Updated: <strong>2026-05-16</strong></span>
+      </div>
+    </div>
+  </div>
+</header>
+<section class="post-body">
+  <div class="wrap">
+    <article class="post-content">
+<h1>The Seven Sins of Cost-of-Capital Disclosure: read TSE's "misalignment" booklet</h1>
+<h2>TL;DR</h2>
+<ul>
+<li>On <strong>November 21, 2024</strong>, TSE published <strong>"Cases Where Companies Are Not Aligned With Investors' Perspectives"</strong> — a booklet distilled from interviews with <strong>over 300 institutional investors</strong> into 10 archetypal "misalignment" patterns. It is the single most useful document for self-diagnosing a weak cost-of-capital disclosure.</li>
+<li>We condense the 10 patterns into <strong>seven memorable sins</strong>, each with a real-world archetype and the alignment behaviour TSE explicitly endorses.</li>
+<li>The misalignment booklet is the <em>negative space</em> of the 55 named good-practice cases — what TSE wants you to <em>stop</em> doing. If a single passage in your CG Report or MTM matches one of these patterns, an investor reading from this booklet will catch it.</li>
+</ul>
+<hr>
+<h2>Why this booklet matters more than the good-practice cases</h2>
+<p>The TSE library has two qualitative books: the <strong>Key Points and Examples</strong> booklet (Feb 2024, refreshed late 2025) with <strong>55 named good-practice cases</strong>, and the <strong>Cases Where Companies Are Not Aligned</strong> booklet (Nov 2024). IR teams routinely study the former and skim the latter. The order should be reversed.</p>
+<p>The good-practice cases are aspirational — they show what a Hitachi or a Marui Group looks like. Most companies are not going to match Hitachi's segment-level ROIC tree in one annual cycle, and trying to imitate it line-for-line is its own failure mode. The misalignment booklet is <strong>operational</strong> — it tells you in plain language what an investor will mentally flag when they read your disclosure. The number of distinct things you need to <em>not</em> do is small. The number of ways to do good disclosure is large.</p>
+<p>The booklet's source data is unusual: TSE consulted <strong>more than 300 institutional investors</strong>, Japanese and overseas, on the disclosure patterns they found unconvincing. The 10 archetypes are not academic; they are the patterns investors actually complained about. The late-2025 refresh drew on additional input from over 400 investment firms.</p>
+<p>This post groups the 10 archetypes into <strong>seven sins</strong> for memorability, and contrasts each with the corresponding alignment behaviour.</p>
+<hr>
+<h2>Misalignment vs Alignment: the seven sins</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>The sin (misalignment)</th>
+<th>What it looks like in the wild</th>
+<th>What alignment looks like</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1</strong></td>
+<td><strong>Treating PBR as the target</strong></td>
+<td>MTM headline: "We will achieve PBR ≥ 1 by FY2026." No mention of cost of equity, equity spread, or ROE trajectory.</td>
+<td>Disclose the target equity spread or ROE level. PBR is the verdict; let it follow. <strong>Yamaji has been explicit:</strong> managing PBR directly is backwards.</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td><strong>Cost of equity far below investor consensus</strong></td>
+<td>Disclosed rE of 3–5% in a market where institutional consensus is 7–9%. Risk-free rate from the pre-NIRP-exit window; equity risk premium below 5%.</td>
+<td>Disclose rE in the <strong>7–9% range</strong> with CAPM inputs traceable: rf, β, ERP. Reference investor consensus explicitly.</td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td><strong>Boilerplate disclosure with no numbers</strong></td>
+<td>"We will manage in a manner conscious of cost of capital and corporate value." No WACC number, no ROE number, no KPI, no timeline.</td>
+<td>Specific number for WACC and rE. Specific ROE/ROIC targets with year-by-year trajectory. Segment-level ROIC where applicable.</td>
+</tr>
+<tr>
+<td><strong>4</strong></td>
+<td><strong>Promising ROE without a plan</strong></td>
+<td>"We target ROE of 10% by FY2027." No analysis of where the ROE will come from (margin? asset turnover? buyback denominator?), no risk discussion.</td>
+<td>Decompose the ROE target into operational levers (DuPont or ROIC tree). Show <strong>how</strong> each lever moves. Identify execution risks.</td>
+</tr>
+<tr>
+<td><strong>5</strong></td>
+<td><strong>MTM-as-substitute / shareholder-returns-as-substitute</strong></td>
+<td>"Our response to the TSE request is our existing MTM" or "Our response is to raise the dividend payout ratio to 50%."</td>
+<td>MTM and dividend policy are <em>one component</em>. Disclosure must also cover business portfolio, balance sheet, and growth investment. Buybacks alone do not change the equity spread.</td>
+</tr>
+<tr>
+<td><strong>6</strong></td>
+<td><strong>Disclosed once and stopped</strong></td>
+<td>Initial disclosure dated 2023-06. Latest update: same date. No engagement-led revisions.</td>
+<td>Annual (or more frequent) updates that visibly respond to investor dialogue. Show what changed and <strong>why</strong> — Step 5 of the PDCA.</td>
+</tr>
+<tr>
+<td><strong>7</strong></td>
+<td><strong>Misnaming the request as a regulation</strong></td>
+<td>"In compliance with TSE regulations..." or "as required by JPX..." Framing the response as defensive minimum compliance.</td>
+<td>Frame the response as a continuous management discipline, not a filing. The request is operational, not regulatory; the disclosure should be too.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>Sin #1 in detail: PBR is the verdict, not the goal</h2>
+<p>The most common single failure pattern in 2023–2024 Prime Market disclosures was inserting a PBR target into the MTM. The misalignment booklet specifically calls out the framing <strong>"promoting initiatives in its mid-term management plan to improve corporate value as a response to the request"</strong> — code for: announcing a generic MTM target as if it were the TSE response.</p>
+<p>The problem with a PBR target is that <strong>PBR is not a controlled variable</strong>. PBR = ROE × PER. Of the two factors, ROE is partly controlled by management (through profitability and capital structure); PER is set by the market based on expected future ROE relative to cost of equity. A company that hits its ROE target but fails to convince the market of sustainability will not get the PER expansion and will not get the PBR. Conversely, a company that lucks into a bullish market window can see PBR rise without doing anything to ROE.</p>
+<p>The alignment behaviour is to name the <em>equity spread</em> as the target — "we will move the equity spread (ROE − cost of equity) from −1.0 ppt today to +2.0 ppt by FY2027" — and to explain the operational path that gets there.</p>
+<p>JPX CEO <strong>Hiromi Yamaji</strong> has been unusually pointed on this in public addresses: PBR is the market's verdict on expected future residual income. Managing PBR directly is, in his repeated framing, <strong>"like trying to manage your fever instead of your infection."</strong></p>
+<hr>
+<h2>Sin #2 in detail: the cost-of-equity gap</h2>
+<p>This is the single most diagnostic disclosure choice a Japanese company makes. The cost of equity number, if disclosed at all, tells an investor immediately whether the company has actually done the work or is performing it.</p>
+<p><strong>The empirical reality, post-BOJ-NIRP-exit (2024 onward):</strong></p>
+<ul>
+<li>Risk-free rate (10y JGB): <strong>1.0–1.5%</strong> (was ~0.0–0.3% pre-2022).</li>
+<li>Equity risk premium (institutional consensus): <strong>5.5–7.0%</strong>.</li>
+<li>Beta: company-specific, but the broad market has β ≈ 1.0 by construction.</li>
+</ul>
+<p>A typical Japanese mid-cap with β ≈ 1.0 thus has a defensible cost of equity in the <strong>6.5–8.5% range</strong>; large-cap defensive names land around 6.0–7.5%; cyclical industrials and tech land 8.0–9.5%+. Disclosures below ~5% are the ones that get raised in investor meetings.</p>
+<p>The misalignment booklet flags companies disclosing rE numbers "far below the level recognised by investors." TSE does not specify a number — that would be price-control — but the message is clear: if your rE is materially below the 7–9% working band, the burden of proof is on you to defend it with traceable CAPM inputs. "Our internal hurdle rate is 4%" is not a defence.</p>
+<p>The alignment behaviour is to disclose rE <strong>with the CAPM inputs visible</strong>: rf = X%, β = Y, ERP = Z%. Investors can then check each input. Sensitivity to ERP (range 5–7%) and to β (range ±0.2) is best practice for the most rigorous disclosures.</p>
+<hr>
+<h2>Sin #3 in detail: the boilerplate problem</h2>
+<p>The single most common pattern in the first wave of disclosures (mid-2023 through early 2024) was boilerplate — paragraphs that paraphrased the request's own language back at it without committing to any number, any timeline, or any specific initiative. Sample boilerplate (composite, not from any specific issuer):</p>
+<blockquote>
+<p><em>"In response to the TSE's request, our company will continue to manage in a manner conscious of cost of capital and stock price, and will work to enhance corporate value over the medium to long term through dialogue with shareholders."</em></p>
+</blockquote>
+<p>This passage commits to nothing. It uses every word in the request without binding the company to any verifiable action. The misalignment booklet's archetype is exactly this language pattern — and the alignment behaviour is to replace each abstract verb with a specific number, timeline, or initiative.</p>
+<p>Alignment looks like:</p>
+<blockquote>
+<p><em>"Our WACC is 5.8% and our cost of equity is 8.1%. Consolidated ROE in FY2024 was 7.2%, an equity spread of −0.9 ppt. We target a consolidated ROE of 9.5% by FY2027, an equity spread of +1.4 ppt, driven by (i) operating margin expansion in Segment A from X% to Y%, (ii) reduction of cross-shareholdings from ¥Z bn to ¥W bn, and (iii) a return of ¥V bn to shareholders over the MTM period."</em></p>
+</blockquote>
+<p>This passage commits to seven numbers, three causal levers, and a timeline. An investor can disagree with the analysis, but they cannot dismiss it as boilerplate.</p>
+<hr>
+<h2>Sin #4 in detail: promising ROE without a plan</h2>
+<p>A subtle variant of the boilerplate sin is the <strong>bare ROE target</strong> — a stated ROE figure with no operational decomposition. "We target ROE of 10% by FY2027" is better than "we will work to improve capital efficiency," but only barely. The misalignment booklet flags ROE-without-plan as a separate archetype because it implies management has chosen a number rather than analysed a path.</p>
+<p>The alignment behaviour is to <strong>decompose the target via the DuPont or ROIC tree</strong>:</p>
+<blockquote>
+<p><strong>ROE = Net Margin × Asset Turnover × Equity Multiplier</strong></p>
+</blockquote>
+<p>For each factor, the disclosure should show:</p>
+<ul>
+<li>Current level vs. target level.</li>
+<li>The operational drivers expected to move it (e.g., product mix, pricing, opex reduction, working capital efficiency, capital structure).</li>
+<li>The execution risks and the contingency if a driver under-delivers.</li>
+</ul>
+<p>Hitachi's segment-level ROIC tree is the canonical exemplar. Asahi Kasei's recent MTM (FY2027 ROE 9%, ROIC 6%, with FY2030 aspirational ROE ≥12% / ROIC ≥8%) decomposes the trajectory by business unit. Tadano (2026 targets: ROIC 8.0%, ROE 9.5%, payout 30%) similarly attaches operational levers to each KPI.</p>
+<hr>
+<h2>Sin #5 in detail: shareholder-returns-as-substitute</h2>
+<p>The single most consequential sin, because it is also the most tempting. A buyback or dividend hike <em>does</em> boost ROE in the near term — by reducing the equity denominator — and <em>does</em> support the share price. It is therefore a fast, visible response to PBR-below-1 pressure. The 2024 record <strong>¥18 trillion</strong> of announced Japanese buybacks (Bloomberg / Japan Times) is in part the consequence of issuers reaching for this lever.</p>
+<p>The misalignment booklet's archetype is the company whose <strong>entire</strong> response is shareholder returns. This is misaligned for two reasons.</p>
+<p>First, it does not change the underlying unit economics of the business. A buyback that does not improve ROE-driven-by-margin-or-turnover does not change the long-run residual income. Sophisticated investors price through the buyback and look at the underlying business; the PER compresses to offset the ROE bump, and PBR does not durably improve.</p>
+<p>Second, it foregoes growth investment. The April 2026 Update (Post 4.5) explicitly emphasises this point: "Initiatives that are easier to undertake, such as enhancing shareholder returns, are making progress; sufficient progress has not been made in areas that many investors view as critical issues — including reviews of business portfolios, reassessment of management resources, and examination of optimal balance sheets."</p>
+<p>Alignment means treating shareholder returns as <strong>one of several</strong> capital-allocation levers, alongside growth capex, R&amp;D, human capital, M&amp;A, and balance-sheet optimisation. The disclosure should make clear the <strong>trade-off</strong>: why is the marginal yen returned to shareholders rather than invested? If the answer is "we have no positive-NPV growth opportunities," that itself is a strategic statement that should be discussed at board level and in dialogue with investors.</p>
+<hr>
+<h2>Sin #6 in detail: the one-and-done disclosure</h2>
+<p>The TSE request is explicit that the response is a <strong>continuous PDCA</strong>, not an annual filing. The misalignment booklet flags companies whose initial disclosure and latest-update dates are the same, particularly when the initial disclosure was 2023.</p>
+<p>The mechanic is straightforward: investors engage, management revises, disclosure reflects the revision. A disclosure that has not been revised in 12+ months suggests one of three things: (i) no investor dialogue is happening; (ii) dialogue is happening but the disclosure does not reflect it; or (iii) the disclosure was correct on day one and remains so unchanged (the most charitable but least common explanation).</p>
+<p>Alignment is visible iteration. Best-practice disclosers update the relevant section of their CG Report (or a dedicated cost-of-capital page on the IR site) at least annually, often more frequently. The update should show <strong>what changed and why</strong>: "Following dialogue with investors on our beta calculation, we revised our cost-of-equity input from 7.5% to 8.0%, narrowing the disclosed equity spread to +1.0 ppt from +1.5 ppt." That sentence is worth a hundred boilerplate ones.</p>
+<hr>
+<h2>Sin #7 in detail: misnaming the request</h2>
+<p>A subtle but reputationally damaging sin: framing the TSE request as a <em>regulation</em> and the disclosure as <em>compliance</em>. Language like "in compliance with TSE regulations" or "as required by JPX" is technically wrong (the request is not a regulation) and operationally damaging (it signals defensive minimum-effort posture).</p>
+<p>The request is a request. The disclosure is a continuous management discipline. The reason this distinction matters is that the framing leaks into the substance: companies that treat the request as compliance produce compliance-grade disclosure (boilerplate, low specificity, infrequent updates). Companies that treat it as operational discipline produce operational-grade disclosure (specific numbers, traceable inputs, regular iteration).</p>
+<p>The alignment behaviour is to frame the disclosure as an <strong>outward expression of an internal management discipline</strong> — the same discipline the board uses to allocate capital, review the business portfolio, and set the MTM. The request is the prompt; the management discipline is the substance.</p>
+<hr>
+<h2>The self-diagnostic</h2>
+<p>A 90-second self-diagnostic for any IR team:</p>
+<ol>
+<li><strong>Does your current disclosure mention a specific PBR target?</strong> If yes — sin #1. Reframe around equity spread.</li>
+<li><strong>Is your disclosed cost of equity below 6%?</strong> If yes — sin #2. Defend it with traceable CAPM inputs or revise upward.</li>
+<li><strong>Can a reader extract three specific numbers and a timeline from your disclosure?</strong> If no — sin #3. Add numbers.</li>
+<li><strong>Does your ROE target come with a decomposition?</strong> If no — sin #4. Build the DuPont or ROIC tree.</li>
+<li><strong>Is shareholder return the only specific initiative?</strong> If yes — sin #5. Add growth investment, portfolio review, or balance-sheet items.</li>
+<li><strong>Has your disclosure been updated in the last 12 months?</strong> If no — sin #6. Update.</li>
+<li><strong>Does your disclosure use the word "compliance" or "required"?</strong> If yes — sin #7. Reframe as a management discipline.</li>
+</ol>
+<p>If you pass all seven, you are in the top quartile of Japanese disclosure. If you fail two or more, you should expect an investor or analyst to raise them in your next engagement.</p>
+<hr>
+<h2>What this means for IR</h2>
+<ol>
+<li><strong>Read the misalignment booklet end-to-end at least once a year.</strong> Annual re-read alongside the late-2025 Key Points refresh is a low-cost discipline that catches drift. The booklet is short (under 30 pages) and uses real (anonymised) examples.</li>
+<li><strong>Audit your last three disclosures against the seven sins.</strong> Do not just check the latest version; check whether the historical disclosures show the <em>evolution</em> a continuous PDCA implies. Sin #6 is invisible from a single snapshot.</li>
+<li><strong>Build the self-diagnostic into the CG Report drafting cycle.</strong> Make the seven-question check a mandatory pre-publication step. The team running the cycle should be the team responsible for the IR programme — not the legal/secretariat team that traditionally owns the CG Report.</li>
+<li><strong>Calibrate cost-of-equity language with your IR advisor.</strong> This is the single most diagnostic disclosure choice. Aligning your rE to the investor consensus working range (7–9% for typical Prime issuers) and showing CAPM inputs is the cheapest credibility upgrade available.</li>
+<li><strong>Stop calling it compliance.</strong> Internal language matters. If the team uses "compliance with the TSE request" in board memos and IR briefings, the external disclosure will follow that frame. Train management to use "management discipline" or "ongoing initiative" instead.</li>
+</ol>
+<hr>
+<h2>Sources &amp; further reading</h2>
+<p><strong>Primary</strong>
+- TSE news release (Nov 21, 2024) on "Cases Where Companies Are Not Aligned": <a href="https://www.jpx.co.jp/english/news/1020/20241121-01.html">https://www.jpx.co.jp/english/news/1020/20241121-01.html</a>
+- "Key Points and Examples Considering the Investor's Point of View" (Feb 2024, EN PDF): <a href="https://www.jpx.co.jp/english/news/1020/u5j7e50000001bqd-att/240201en.pdf">https://www.jpx.co.jp/english/news/1020/u5j7e50000001bqd-att/240201en.pdf</a>
+- "Key Points" updated edition (late 2025, EN PDF): <a href="https://www.jpx.co.jp/english/news/1020/vk0khi000000gi14-att/vk0khi000000gi4d.pdf">https://www.jpx.co.jp/english/news/1020/vk0khi000000gi14-att/vk0khi000000gi4d.pdf</a>
+- TSE news release (Dec 26, 2025) on "Case Studies of Initiatives Toward Issue Resolution": <a href="https://www.jpx.co.jp/english/news/1020/20251226-01.html">https://www.jpx.co.jp/english/news/1020/20251226-01.html</a>
+- "Action to Implement Management Conscious of Cost of Capital and Stock Price" hub: <a href="https://www.jpx.co.jp/english/equities/follow-up/02.html">https://www.jpx.co.jp/english/equities/follow-up/02.html</a></p>
+<p><strong>Supporting</strong>
+- Yamaji presentation, Japan Securities Summit, March 6, 2024: <a href="https://www.icmagroup.org/assets/Slides_Mr.-Hiromi-Yamaji_JPX_Japan-Securities-Summit-6-March-2024.pdf">https://www.icmagroup.org/assets/Slides_Mr.-Hiromi-Yamaji_JPX_Japan-Securities-Summit-6-March-2024.pdf</a>
+- Harvard Law CGI commentary (Oct 21, 2025): <a href="https://corpgov.law.harvard.edu/2025/10/21/tokyo-stock-exchange-initiative-on-cost-of-capital-and-stock-price-conscious-management/">https://corpgov.law.harvard.edu/2025/10/21/tokyo-stock-exchange-initiative-on-cost-of-capital-and-stock-price-conscious-management/</a>
+- Dai-ichi Life Research Institute (Nov 2024): <a href="https://www.dlri.co.jp/english/report_en/202411YK.html">https://www.dlri.co.jp/english/report_en/202411YK.html</a>
+- Asahi Kasei MTM with ROIC/ROE targets: <a href="https://www.asahi-kasei.com/company/strategy/">https://www.asahi-kasei.com/company/strategy/</a>
+- Teijin Group MTM 2024–25: <a href="https://www.teijin.com/ir/management/vision/pdf/plan_pm_240513.pdf">https://www.teijin.com/ir/management/vision/pdf/plan_pm_240513.pdf</a></p>
+<hr>
+<h2>Cross-references</h2>
+<ul>
+<li><strong>Theme 4.1</strong> — PBR &lt; 1 Is Not a Target — It's a Verdict</li>
+<li><strong>Theme 4.2</strong> — WACC, ROIC, Equity Spread: the new vocabulary</li>
+<li><strong>Theme 4.3</strong> — The Shame-and-Showcase List</li>
+<li><strong>Theme 4.5</strong> — From Disclosure to Implementation: how the April 2026 Update rewrote the rules</li>
+<li><strong>Theme 5.2</strong> — The End-Game of Cross-Shareholdings</li>
+<li><strong>Theme 5.7</strong> — Collaborative Engagement After Stewardship Code 3.0</li>
+</ul>
+    </article>
+    <div class="post-nav"><a href="/en/governance/capital-efficiency/4.3-the-disclosure-list/" class="post-nav-link prev"><div class="post-nav-dir">← Previous</div><div class="post-nav-title">The Shame-and-Showcase List: how TSE polices participation through publication</div></a><a href="/en/governance/capital-efficiency/4.5-action-plan-2-update/" class="post-nav-link next"><div class="post-nav-dir">Next →</div><div class="post-nav-title">From Disclosure to Implementation: how the April 2026 Update rewrote the rules</div></a></div>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Japan Investor Interface Co., Ltd.</h3>
+        <p>Cross-border IR diagnostics for Japanese listed companies. The Foreign IR Diagnostic Card visualizes how foreign capital reads your IR.</p>
+      </div>
+      <div class="footer-col">
+        <h2>The diagnostic & plans</h2>
+        <ul>
+          <li><a href="/en/services/">The Diagnostic Card</a></li>
+          <li><a href="/en/pricing/">Light — Initial Diagnostic</a></li>
+          <li><a href="/en/pricing/">Standard — Disclosure Improvement</a></li>
+          <li><a href="/en/pricing/">Pro — Investor-Meeting Cycle</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Governance curriculum</h2>
+        <ul>
+          <li><a href="/en/governance/">Curriculum home</a></li>
+          <li><a href="/en/governance/foundations/">Theme 1 · Foundations</a></li>
+          <li><a href="/en/governance/capital-efficiency/">Theme 4 · Capital Efficiency</a></li>
+          <li><a href="/en/governance/toolbox/">IR Toolbox</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>JII Compounders</h2>
+        <ul>
+          <li><a href="/en/compounders/">All profiles</a></li>
+          <li><a href="/en/compounders/methodology/">Methodology</a></li>
+          <li><a href="https://japaninterface.substack.com/" rel="noopener" target="_blank">Substack</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Contact</h2>
+        <ul>
+          <li>Email <a href="mailto:info@jpinv.com">info@jpinv.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Japan Investor Interface Co., Ltd. · All rights reserved.</p>
+      <p class="footer-locale-switcher">Language: <a href="/en/" class="current" aria-current="page" lang="en">EN</a> / <a href="/" data-locale-route lang="ja">JP</a></p>
+    </div>
+  </div>
+</footer>
+<script>
+const nav = document.getElementById('main-nav');
+if (nav) window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+const hamburgerBtn = document.querySelector('.hamburger');
+function setMenuOpen(isOpen) { const menu = document.getElementById('mobileMenu'); if (!menu || !hamburgerBtn) return; menu.classList.toggle('open', isOpen); menu.hidden = !isOpen; hamburgerBtn.setAttribute('aria-expanded', String(isOpen)); }
+function toggleMenu() { const menu = document.getElementById('mobileMenu'); setMenuOpen(!(menu && menu.classList.contains('open'))); }
+document.addEventListener('click', (e) => { const menu = document.getElementById('mobileMenu'); if (menu && menu.classList.contains('open') && !menu.contains(e.target) && hamburgerBtn && !hamburgerBtn.contains(e.target)) setMenuOpen(false); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenuOpen(false); });
+</script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs';
+mermaid.initialize({ startOnLoad: true, theme: 'neutral', fontFamily: 'Noto Sans JP, Hiragino Kaku Gothic ProN, sans-serif', themeVariables: { primaryColor: '#f4eee4', primaryTextColor: '#1a2a4a', primaryBorderColor: '#9a7838', lineColor: '#304466', secondaryColor: '#f5f7fa', tertiaryColor: '#fafbfc' } });
+</script>
+</body>
+</html>

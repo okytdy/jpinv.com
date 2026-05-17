@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+<title>The Shame-and-Showcase List: how TSE polices participation through publication | JII Governance Curriculum</title>
+<meta name="description" content="The Shame-and-Showcase List: how TSE polices participation through publication — part of the JII Japan Governance Reform Curriculum.">
+<meta property="og:title" content="The Shame-and-Showcase List: how TSE polices participation through publication | JII Governance Curriculum">
+<meta property="og:description" content="The Shame-and-Showcase List: how TSE polices participation through publication — part of the JII Japan Governance Reform Curriculum.">
+<meta property="og:url" content="https://jpinv.com/en/governance/capital-efficiency/4.3-the-disclosure-list/">
+<link rel="canonical" href="https://jpinv.com/en/governance/capital-efficiency/4.3-the-disclosure-list/">
+<link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/capital-efficiency/4.3-the-disclosure-list/">
+<link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/capital-efficiency/4.3-the-disclosure-list/">
+<link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/capital-efficiency/4.3-the-disclosure-list/">
+
+<style>
+:root {
+  --ink:        #1a2a4a;
+  --ink-mid:    #172641;
+  --ink-soft:   #304466;
+  --rule:       #d6dee8;
+  --rule-soft:  #e8edf3;
+  --bg:         #ffffff;
+  --bg-mid:     #f5f7fa;
+  --bg-soft:    #fafbfc;
+  --text:       #1f2937;
+  --text-mid:   #4a5566;
+  --text-dim:   #5f6875;
+  --accent:     #9a7838;
+  --accent-deep:#9a7838;
+  --accent-soft:#f4eee4;
+  --bad:        #b91c1c;
+  --warn:       #8a682b;
+  --ok:         #2f6f4f;
+  --serif: 'Noto Serif JP', 'Yu Mincho', serif;
+  --sans:  'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  --mono:  'DM Mono', monospace;
+  --max: 1100px;
+  --pad: 88px;
+  --gutter: 48px;
+  --nav-h: 64px;
+  --measure: 720px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 400; line-height: 1.7; overflow-x: hidden; }
+img { max-width: 100%; display: block; }
+a { color: var(--ink-soft); text-decoration: none; }
+a:hover { color: var(--ink); }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+@media (max-width: 768px) { :root { --gutter: 22px; --pad: 56px; } }
+strong { font-weight: 600; color: var(--ink); }
+em { font-style: normal; color: var(--ink); font-weight: 600; }
+.label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); }
+
+/* Nav (copied from jpinv.com base) */
+nav#main-nav { position: fixed; top:0; left:0; right:0; z-index:100; height: var(--nav-h); background: rgba(255,255,255,0.96); backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule); display: flex; align-items: center; transition: box-shadow 0.3s; }
+nav#main-nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; }
+.nav-logo { text-decoration: none; display: inline-flex; align-items: center; flex: 0 0 auto; min-width: max-content; white-space: nowrap; }
+.nav-logo-img { display: block; width: auto; height: 40px; max-width: none; object-fit: contain; object-position: left center; }
+.nav-logo-img--mobile { display: none; width: 32px; height: 32px; object-fit: contain; }
+.nav-center { flex: 1; display: flex; justify-content: center; }
+.nav-links { display: flex; gap: 22px; list-style: none; flex-wrap: nowrap; white-space: nowrap; }
+.nav-links a { font-family: var(--sans); font-size: 0.78rem; font-weight: 400; letter-spacing: 0.04em; color: var(--text); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--ink-soft); }
+.nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; margin-left: auto; }
+.nav-cta { padding: 8px 14px; font-size: 0.7rem; }
+.locale-switcher { display: inline-flex; align-items: center; gap: 0; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; }
+.locale-switcher a { color: var(--text-dim); border: 1px solid var(--rule); padding: 6px 9px; text-decoration: none; transition: all 0.2s; }
+.locale-switcher a + a { margin-left: -1px; }
+.locale-switcher a:hover, .locale-switcher a.current { color: var(--ink); border-color: var(--ink-mid); background: var(--bg-soft); position: relative; z-index: 1; }
+.hamburger { display: none; flex-shrink:0; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
+.hamburger span { display:block; width:22px; height:1px; background:var(--ink); transition: all 0.25s; }
+@media (max-width: 900px) { .nav-center, .nav-right .nav-cta { display:none; } .hamburger { display:flex; } }
+@media (max-width: 768px) { .nav-logo-img--desktop { display:none; } .nav-logo-img--mobile { display:block; } }
+.mobile-menu { display:none; position:fixed; top:var(--nav-h); left:0; right:0; background:var(--bg); border-bottom:1px solid var(--rule); z-index:99; padding:8px var(--gutter) 20px; flex-direction:column; gap:0; }
+.mobile-menu.open { display:flex; }
+.mobile-menu a { font-size:0.88rem; color:var(--text); text-decoration:none; padding:14px 0; border-bottom:1px solid var(--rule); letter-spacing:0.04em; }
+.mobile-menu a:last-child { border-bottom:none; }
+.mobile-menu .mobile-menu-cta { margin-top:12px; padding:13px 18px; text-align:center; color:#fff; border-bottom:none; }
+
+.btn { display: inline-block; text-decoration: none; font-family: var(--sans); font-size: 0.84rem; font-weight: 400; letter-spacing: 0.06em; padding: 13px 28px; transition: all 0.2s; cursor: pointer; border: none; }
+.btn-primary { background: var(--ink); color: #fff; }
+.btn-primary:hover { background: var(--ink-mid); color: #fff; }
+.btn-outline { border: 1px solid var(--ink-mid); color: var(--ink); background: transparent; }
+.btn-outline:hover { border-color: var(--ink); color: var(--ink); }
+.rule-accent { width: 32px; height: 2px; background: var(--accent); margin: 14px 0 22px; }
+
+/* Footer (mirror) */
+footer { border-top: 1px solid var(--rule); padding: 52px 0 28px; background: var(--bg-soft); font-size: 0.82rem; color: var(--text-dim); }
+footer .footer-grid { display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 32px; align-items: start; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
+footer h2 { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.2em; color: var(--ink-soft); text-transform: uppercase; margin-bottom: 12px; font-weight: 500; }
+footer h3 { font-family: var(--serif); font-size: 1rem; font-weight: 400; color: var(--ink); margin-bottom: 8px; }
+footer ul { list-style: none; }
+footer ul li { padding: 4px 0; }
+footer ul li a { color: var(--text-mid); }
+footer ul li a:hover { color: var(--ink); }
+footer .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 18px; flex-wrap: wrap; gap: 12px; }
+footer .footer-locale-switcher a.current { font-weight: 600; color: var(--ink); }
+@media (max-width: 900px) { footer .footer-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 580px) { footer .footer-grid { grid-template-columns: 1fr; } }
+
+
+/* === Curriculum-specific === */
+main.curriculum { padding-top: var(--nav-h); }
+.curr-hero { padding: 96px 0 64px; border-bottom: 1px solid var(--rule); position: relative; overflow: hidden; }
+.curr-hero::before { content:''; position:absolute; inset:0;
+  background-image: linear-gradient(rgba(15,31,58,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(15,31,58,0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent);
+          mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent); }
+.curr-hero-inner { position:relative; z-index:2; max-width: 880px; }
+.curr-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.32em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 18px; }
+.curr-hero h1 { font-family: var(--serif); font-size: clamp(1.9rem, 4.4vw, 3.1rem); font-weight: 300; color: var(--ink-mid); line-height: 1.3; letter-spacing: 0.02em; margin: 0 0 22px; }
+.curr-hero h1 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
+.curr-hero .lede { font-size: 1.05rem; line-height: 1.85; color: var(--text); margin: 0 0 24px; max-width: 700px; }
+.curr-hero-meta { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
+.curr-hero-meta strong { color: var(--ink); font-family: var(--mono); }
+
+.crumbs { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; padding: 22px 0 0; }
+.crumbs a { color: var(--text-mid); }
+.crumbs a:hover { color: var(--ink); }
+.crumbs .sep { color: var(--rule); margin: 0 8px; }
+
+.theme-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; padding: 56px 0; }
+.theme-card { display: block; background: #fff; border: 1px solid var(--rule); padding: 30px 28px; position: relative; transition: all 0.2s; }
+.theme-card:hover { border-color: var(--ink-soft); box-shadow: 0 12px 32px rgba(15,31,58,0.08); transform: translateY(-2px); }
+.theme-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background: var(--accent); opacity: 0.85; }
+.theme-card-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; }
+.theme-card-name { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--ink-mid); margin: 10px 0 8px; line-height: 1.35; }
+.theme-card-period { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 14px; }
+.theme-card-desc { font-size: 0.92rem; line-height: 1.7; color: var(--text); margin-bottom: 18px; }
+.theme-card-list { font-size: 0.84rem; color: var(--text-mid); list-style: none; padding-top: 14px; border-top: 1px solid var(--rule-soft); }
+.theme-card-list li { padding: 5px 0; }
+.theme-card-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; }
+.theme-card-foot .arrow { color: var(--accent-deep); }
+
+.post-list { padding: 28px 0 56px; }
+.post-list-row { display: grid; grid-template-columns: 60px 1fr auto; gap: 22px; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--rule-soft); transition: all 0.18s; }
+.post-list-row:hover { background: var(--bg-mid); padding-left: 12px; padding-right: 12px; }
+.post-list-num { font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em; color: var(--accent-deep); font-weight: 500; }
+.post-list-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--ink-mid); line-height: 1.45; }
+.post-list-meta { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; white-space: nowrap; }
+@media (max-width: 600px) { .post-list-row { grid-template-columns: 50px 1fr; } .post-list-meta { grid-column: 1 / -1; padding-left: 72px; } }
+
+/* Post body */
+.post-body { padding: 48px 0 80px; }
+.post-content { max-width: var(--measure); margin: 0 auto; }
+.post-content > p, .post-content > ul, .post-content > ol, .post-content > blockquote, .post-content > pre, .post-content > table, .post-content > hr, .post-content > h2, .post-content > h3, .post-content > h4 { max-width: var(--measure); margin-left: auto; margin-right: auto; }
+.post-content h2 { font-family: var(--serif); font-size: 1.55rem; font-weight: 400; color: var(--ink-mid); line-height: 1.35; margin: 56px 0 14px; padding-top: 22px; border-top: 1px solid var(--rule-soft); }
+.post-content h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 500; color: var(--ink); margin: 36px 0 10px; line-height: 1.4; }
+.post-content h4 { font-family: var(--sans); font-size: 1rem; font-weight: 600; color: var(--ink); margin: 26px 0 8px; letter-spacing: 0.02em; }
+.post-content p { margin: 0 0 18px; font-size: 1rem; line-height: 1.85; color: var(--text); }
+.post-content p:first-of-type { font-size: 1.05rem; }
+.post-content ul, .post-content ol { margin: 0 0 22px; padding-left: 28px; }
+.post-content ul li, .post-content ol li { font-size: 0.97rem; line-height: 1.8; margin-bottom: 8px; color: var(--text); }
+.post-content ul li::marker { color: var(--accent-deep); }
+.post-content blockquote { margin: 30px 0; padding: 20px 24px; border-left: 3px solid var(--accent); background: var(--accent-soft); color: var(--ink-mid); font-style: normal; }
+.post-content blockquote p { margin-bottom: 8px; font-size: 0.97rem; }
+.post-content blockquote p:last-child { margin-bottom: 0; }
+.post-content blockquote strong { color: var(--ink); }
+.post-content code { background: #f0f0f0; color: var(--ink-mid); font-family: var(--mono); font-size: 0.88rem; padding: 2px 6px; border-radius: 3px; }
+.post-content pre { background: #f9f9fb; border: 1px solid var(--rule); padding: 18px 22px; overflow-x: auto; font-family: var(--mono); font-size: 0.85rem; line-height: 1.55; margin: 24px 0; }
+.post-content pre code { background: transparent; padding: 0; font-size: inherit; }
+.post-content a { color: var(--accent-deep); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; transition: text-decoration-color 0.18s; }
+.post-content a:hover { text-decoration-color: var(--accent-deep); }
+.post-content hr { border: none; border-top: 1px solid var(--rule); margin: 40px auto; max-width: 120px; }
+.post-content table { width: 100%; max-width: var(--measure); margin: 28px auto; border-collapse: collapse; font-size: 0.9rem; }
+.post-content th { background: var(--bg-mid); color: var(--ink-mid); font-family: var(--sans); font-weight: 600; text-align: left; padding: 12px 14px; border-bottom: 2px solid var(--rule); }
+.post-content td { padding: 10px 14px; border-bottom: 1px solid var(--rule-soft); vertical-align: top; color: var(--text); }
+.post-content tr:nth-child(even) td { background: #fafbfc; }
+
+/* Mermaid container */
+.mermaid-wrap { background: #fdfdfe; border: 1px solid var(--rule); padding: 22px 18px; margin: 28px 0; overflow-x: auto; }
+.mermaid { font-family: var(--sans); text-align: center; }
+
+/* Post header */
+.post-header { padding: 48px 0 28px; border-bottom: 1px solid var(--rule); }
+.post-header-inner { max-width: var(--measure); margin: 0 auto; }
+.post-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.28em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 14px; }
+.post-title { font-family: var(--serif); font-size: clamp(1.7rem, 3.6vw, 2.4rem); font-weight: 400; color: var(--ink-mid); line-height: 1.3; margin: 0 0 16px; letter-spacing: 0.005em; }
+.post-summary { font-size: 1.02rem; line-height: 1.8; color: var(--text); margin: 0 0 22px; max-width: 660px; }
+.post-meta { display: flex; gap: 26px; flex-wrap: wrap; padding-top: 18px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
+.post-meta span strong { color: var(--ink); font-family: var(--mono); }
+
+/* Post nav (prev/next) */
+.post-nav { max-width: var(--measure); margin: 56px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding-top: 36px; border-top: 1px solid var(--rule); }
+.post-nav-link { display: block; padding: 18px 20px; background: var(--bg-mid); border: 1px solid var(--rule); transition: all 0.18s; }
+.post-nav-link:hover { border-color: var(--ink-soft); background: #fff; transform: translateY(-1px); }
+.post-nav-dir { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px; }
+.post-nav-title { font-family: var(--serif); font-size: 0.94rem; color: var(--ink-mid); line-height: 1.4; }
+.post-nav-link.next { text-align: right; }
+@media (max-width: 640px) { .post-nav { grid-template-columns: 1fr; } .post-nav-link.next { text-align: left; } }
+
+/* Knowledge check */
+.kcheck { background: var(--bg-mid); padding: 72px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.kcheck-head { max-width: 720px; margin: 0 auto 36px; text-align: center; }
+.kcheck h2 { font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 300; color: var(--ink-mid); margin: 0 0 14px; line-height: 1.3; }
+.kcheck h2 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
+.kcheck p.lede { font-size: 0.98rem; line-height: 1.75; color: var(--text); }
+.kcheck-q { background: #fff; border: 1px solid var(--rule); padding: 28px 30px; margin-bottom: 18px; max-width: 760px; margin-left: auto; margin-right: auto; }
+.kcheck-q-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; margin-bottom: 12px; }
+.kcheck-q-text { font-family: var(--serif); font-size: 1.1rem; line-height: 1.5; color: var(--ink-mid); margin-bottom: 18px; }
+.kcheck-opts { display: grid; gap: 8px; }
+.kcheck-opt { display: block; padding: 12px 16px; background: var(--bg-soft); border: 1px solid var(--rule); text-align: left; font-family: var(--sans); font-size: 0.92rem; color: var(--text); cursor: pointer; transition: all 0.15s; }
+.kcheck-opt:hover { background: #fff; border-color: var(--ink-soft); }
+.kcheck-opt.correct { background: #e8f3ec; border-color: var(--ok); color: var(--ok); }
+.kcheck-opt.incorrect { background: #fbe9e9; border-color: var(--bad); color: var(--bad); }
+.kcheck-explain { margin-top: 16px; padding: 14px 18px; background: var(--accent-soft); border-left: 3px solid var(--accent); font-size: 0.9rem; line-height: 1.7; color: var(--ink-mid); display: none; }
+.kcheck-q.answered .kcheck-explain { display: block; }
+.kcheck-score { text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--text-dim); margin-top: 28px; text-transform: uppercase; }
+.kcheck-score strong { color: var(--ink-mid); font-family: var(--mono); }
+
+/* Stats / hero stats */
+.stat-band { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; padding: 56px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); background: var(--bg-soft); }
+.stat-item { padding: 0 18px; }
+.stat-num { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 300; color: var(--ink-mid); line-height: 1; margin-bottom: 8px; }
+.stat-num em { color: var(--accent-deep); font-weight: 400; font-style: normal; }
+.stat-label { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; }
+</style>
+</head>
+<body>
+<nav id="main-nav" role="navigation" aria-label="Main navigation">
+  <div class="wrap nav-inner">
+    <a href="/en/" class="nav-logo" aria-label="JII home">
+      <img class="nav-logo-img nav-logo-img--desktop" src="/assets/logo-jii-wordmark.svg" alt="Japan Investor Interface logo" width="282" height="40">
+      <img class="nav-logo-img nav-logo-img--mobile" src="/assets/logo-jii-monogram.svg" alt="Japan Investor Interface logo" width="32" height="32">
+    </a>
+    <div class="nav-center">
+      <ul class="nav-links" role="list">
+        <li><a href="/en/services/">Services</a></li>
+        <li><a href="/en/pricing/">Pricing</a></li>
+        <li><a href="/en/company/">Company</a></li>
+        <li><a href="/en/faq/">FAQ</a></li>
+        <li><a href="/en/compounders/">Compounders</a></li>
+        <li><a href="/en/governance/">Governance</a></li>
+      </ul>
+    </div>
+    <div class="nav-right">
+      <a href="/en/#contact" class="btn btn-primary nav-cta">Free 30-min call</a>
+      <span class="locale-switcher nav-locale-switcher" aria-label="Language switcher"><a href="/governance/capital-efficiency/4.3-the-disclosure-list/" data-locale-route lang="ja">JP</a><a href="/en/governance/capital-efficiency/4.3-the-disclosure-list/" class="current" aria-current="page" lang="en">EN</a></span>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" hidden>
+  <a href="/en/services/" onclick="toggleMenu()">Services</a>
+  <a href="/en/pricing/" onclick="toggleMenu()">Pricing</a>
+  <a href="/en/company/" onclick="toggleMenu()">Company</a>
+  <a href="/en/faq/" onclick="toggleMenu()">FAQ</a>
+  <a href="/en/compounders/" onclick="toggleMenu()">Compounders</a>
+  <a href="/en/governance/" onclick="toggleMenu()">Governance</a>
+  <a href="/governance/capital-efficiency/4.3-the-disclosure-list/" data-locale-route onclick="toggleMenu()" lang="ja">JP</a>
+  <a href="/en/#contact" class="btn btn-primary mobile-menu-cta" onclick="toggleMenu()">Book a free 30-min call</a>
+</nav>
+<main id="main-content" class="curriculum" tabindex="-1">
+<div class="wrap crumbs">
+  <a href="/en/">JII</a> <span class="sep">/</span>
+  <a href="/en/governance/">Governance Curriculum</a> <span class="sep">/</span>
+  <a href="/en/governance/capital-efficiency/">Capital Efficiency</a> <span class="sep">/</span>
+  Post 4.3
+</div>
+<header class="post-header">
+  <div class="wrap">
+    <div class="post-header-inner">
+      <div class="post-eyebrow">Theme 4 · POST 4.3</div>
+      <h1 class="post-title">The Shame-and-Showcase List: how TSE polices participation through publication</h1>
+      <p class="post-summary"></p>
+      <div class="post-meta">
+        <span>Theme: <strong>Capital Efficiency</strong></span>
+        <span>Reading: <strong> min</strong></span>
+        <span>Updated: <strong>2026-05-16</strong></span>
+      </div>
+    </div>
+  </div>
+</header>
+<section class="post-body">
+  <div class="wrap">
+    <article class="post-content">
+<h1>The Shame-and-Showcase List: how TSE polices participation through publication</h1>
+<h2>TL;DR</h2>
+<ul>
+<li>The <strong>monthly disclosure list</strong>, first published <strong>January 15, 2024</strong>, names every Prime and Standard Market company by its cost-of-capital-disclosure status — <strong>Disclosed</strong>, <strong>Under Consideration</strong>, or implicitly <strong>Not Disclosed</strong>. It is refreshed around the 15th of each month and serves as the operational backbone of TSE's soft-enforcement system.</li>
+<li>A <strong>January 2025 rule</strong> reclassifies companies stuck in "Under Consideration" for more than <strong>six months</strong> as "Not Disclosed" — closing the indefinite-future-action loophole.</li>
+<li>By <strong>March 13, 2026</strong>: ~<strong>93% of Prime (1,472 issuers) and ~51% of Standard (807 issuers)</strong> had disclosed. The list is now consumed directly by Japanese asset managers and overseas investor databases as a first-pass screen — inclusion is positive visibility; exclusion is a flag.</li>
+</ul>
+<hr>
+<h2>The mechanism: enforcement by publication</h2>
+<p>The Tokyo Stock Exchange does not have legal authority to fine or sanction listed companies for failing to disclose cost-of-capital initiatives. The March 2023 request (Post 4.1) is a <em>request</em> — 「お願い」 — not a regulation. So how, in two years, has the disclosure rate in the Prime Market climbed from zero to 93%?</p>
+<p>The answer is the monthly disclosure list. It is the operational mechanism that converts soft language into hard pressure. The list works because three independent audiences treat it as authoritative:</p>
+<ul>
+<li><strong>Domestic asset managers</strong> use it as a screen for proxy-voting and engagement targets.</li>
+<li><strong>Foreign investors</strong> use it as a translated-into-data signal of which companies are "in" the TSE programme and which are not.</li>
+<li><strong>Activists</strong> use it as a target list: a Prime Market issuer with no disclosure and PBR &lt; 1 is, almost by definition, a fundable campaign.</li>
+</ul>
+<p>The list does not say "this company is bad." It simply publishes who has and has not engaged. In a high-context business culture like Japan's, that is sufficient.</p>
+<hr>
+<h2>Timeline of the list</h2>
+<table>
+<thead>
+<tr>
+<th>Date</th>
+<th>Milestone</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>March 31, 2023</strong></td>
+<td>TSE issues the original request to Prime and Standard Market companies.</td>
+</tr>
+<tr>
+<td><strong>October 26, 2023</strong></td>
+<td>TSE announces it will publish a monthly disclosure list of disclosing companies.</td>
+</tr>
+<tr>
+<td><strong>January 15, 2024</strong></td>
+<td><strong>First list published.</strong> 1,115 disclosers: 815 Prime (49.2% of 1,656) + 300 Standard (18.5% of 1,619).</td>
+</tr>
+<tr>
+<td><strong>End-January 2024</strong></td>
+<td>899 Prime (54%) + 325 Standard (20%). Banking industry leads at <strong>98.5%</strong>.</td>
+</tr>
+<tr>
+<td><strong>February 1, 2024</strong></td>
+<td>TSE publishes the "Key Points and Examples Considering the Investor's Point of View" — the qualitative companion to the list.</td>
+</tr>
+<tr>
+<td><strong>November 21, 2024</strong></td>
+<td>"Cases Where Companies Are Not Aligned With Investors' Perspectives" published — the "misalignment" booklet (see Post 4.4).</td>
+</tr>
+<tr>
+<td><strong>January 2025</strong></td>
+<td>New rule: companies in "Under Consideration" status for more than <strong>6 months</strong> are reclassified as "Not Disclosed."</td>
+</tr>
+<tr>
+<td><strong>March 2025</strong></td>
+<td>Prime Market disclosure rate crosses <strong>90%</strong> for the first time.</td>
+</tr>
+<tr>
+<td><strong>December 26, 2025</strong></td>
+<td>"Case Studies of Companies' Initiatives Toward Issue Resolution" published — moving the discourse from "what to say" to "what we did."</td>
+</tr>
+<tr>
+<td><strong>March 13, 2026</strong></td>
+<td>Latest status: ~<strong>93% of Prime (1,472) and ~51% of Standard (807)</strong> disclosed. 1,129 Prime + 386 Standard have updated their disclosures at least once post-initial publication.</td>
+</tr>
+<tr>
+<td><strong>April 28, 2026</strong></td>
+<td>"Update to the Request" — formal pivot to "from disclosure to implementation" (see Post 4.5).</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>What the list contains</h2>
+<p>The published list (refreshed monthly at <a href="https://www.jpx.co.jp/english/equities/follow-up/nlsgeu000006xn3l.html">https://www.jpx.co.jp/english/equities/follow-up/nlsgeu000006xn3l.html</a>) is a flat table. Each row corresponds to one listed company and contains the following fields:</p>
+<ul>
+<li><strong>Company name</strong> (Japanese and English versions)</li>
+<li><strong>Ticker code</strong> (4-digit Securities Code)</li>
+<li><strong>Market segment</strong> (Prime / Standard)</li>
+<li><strong>Industry</strong> (TSE 33 industry classification)</li>
+<li><strong>Status</strong>: <strong>Disclosed</strong> or <strong>Under Consideration</strong></li>
+<li><strong>Date of initial disclosure</strong></li>
+<li><strong>Date of most recent update</strong></li>
+<li><strong>Link</strong> to the relevant section of the company's most recent Corporate Governance Report</li>
+</ul>
+<p>Companies that are neither "Disclosed" nor "Under Consideration" do not appear on the list — they are, implicitly, "Not Disclosed." This is the third state, and it is the one with reputational consequences.</p>
+<h3>The three-state classification</h3>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th>What it signals</th>
+<th>Investor read</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Disclosed (開示済)</strong></td>
+<td>Board has discussed cost of capital and stock price, and disclosed initiatives in the CG Report.</td>
+<td>Company is engaged with the request; quality of disclosure is the next question.</td>
+</tr>
+<tr>
+<td><strong>Under Consideration (検討中)</strong></td>
+<td>Company has acknowledged the request and committed to disclose, but has not yet done so.</td>
+<td>Acceptable as a transitional state; <strong>after 6 months, reclassified as Not Disclosed.</strong></td>
+</tr>
+<tr>
+<td><strong>Not Disclosed</strong> (implicit, by absence from the list)</td>
+<td>Company has not engaged, or has been stuck in "Under Consideration" beyond 6 months.</td>
+<td>Red flag for screens and engagement; potential activist target.</td>
+</tr>
+</tbody>
+</table>
+<p>The three-state system was deliberate. A binary "Disclosed / Not Disclosed" list would have produced compliance theatre — companies disclosing boilerplate just to get on the list. The intermediate "Under Consideration" status acknowledged that some companies genuinely needed time to do the work (e.g., quantifying cost of equity for the first time), while the <strong>January 2025 six-month rule</strong> prevented that intermediate state from becoming a permanent parking spot.</p>
+<hr>
+<h2>How to read the list — a worked walkthrough</h2>
+<p>Below is a representative mock of how a few rows of the list look. <strong>This is a mock for illustration</strong>; the live list is at the JPX URL above.</p>
+<table>
+<thead>
+<tr>
+<th>Company</th>
+<th>Ticker</th>
+<th>Segment</th>
+<th>Industry</th>
+<th>Status</th>
+<th>Initial disclosure</th>
+<th>Latest update</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hitachi, Ltd.</td>
+<td>6501</td>
+<td>Prime</td>
+<td>Electric Appliances</td>
+<td>Disclosed</td>
+<td>2023-06-22</td>
+<td>2025-12-19</td>
+</tr>
+<tr>
+<td>Marui Group Co., Ltd.</td>
+<td>8252</td>
+<td>Prime</td>
+<td>Retail Trade</td>
+<td>Disclosed</td>
+<td>2023-04-28</td>
+<td>2026-03-31</td>
+</tr>
+<tr>
+<td>Asahi Kasei Corporation</td>
+<td>3407</td>
+<td>Prime</td>
+<td>Chemicals</td>
+<td>Disclosed</td>
+<td>2023-07-31</td>
+<td>2025-11-14</td>
+</tr>
+<tr>
+<td>Tadano Ltd.</td>
+<td>6395</td>
+<td>Prime</td>
+<td>Machinery</td>
+<td>Disclosed</td>
+<td>2023-08-10</td>
+<td>2025-09-29</td>
+</tr>
+<tr>
+<td>[Mid-cap regional bank]</td>
+<td>83XX</td>
+<td>Prime</td>
+<td>Banks</td>
+<td>Disclosed</td>
+<td>2023-05-15</td>
+<td>2025-05-15</td>
+</tr>
+<tr>
+<td>[Mid-cap industrial]</td>
+<td>64XX</td>
+<td>Prime</td>
+<td>Machinery</td>
+<td>Under Consideration</td>
+<td>—</td>
+<td>2024-11-20</td>
+</tr>
+<tr>
+<td>[Small-cap services]</td>
+<td>96XX</td>
+<td>Standard</td>
+<td>Services</td>
+<td>Disclosed</td>
+<td>2024-02-18</td>
+<td>2024-02-18</td>
+</tr>
+</tbody>
+</table>
+<p>The list itself is sparse — it does not score quality, it just records participation. Three observations worth making when you scan a real version:</p>
+<p><strong>Observation 1 — Look at the gap between initial disclosure and latest update.</strong> A company whose "initial" and "latest" dates are the same has disclosed once and stopped. The TSE November 2024 misalignment booklet flagged this as a top failure pattern. Best-practice disclosers (Hitachi, Marui, Asahi Kasei, Mitsui) update at least annually, often more frequently when MTM revisions occur.</p>
+<p><strong>Observation 2 — Industry concentration matters.</strong> Banking, with strong FSA pressure and chronic PBR-below-1 exposure, led disclosure at <strong>98.5%</strong> by end-January 2024. Industries that lag — historically, smaller-cap services, real estate, and some industrials — are where activists hunt.</p>
+<p><strong>Observation 3 — "Under Consideration" with a stale latest-update date is the activist signal.</strong> A company with status "Under Consideration" whose latest movement is more than 6 months old is about to be reclassified as Not Disclosed under the January 2025 rule. That is a public, dated, exchange-published flag.</p>
+<hr>
+<h2>The disclosure-list dashboard: a maintainer's view</h2>
+<p>Sophisticated IR teams maintain an internal dashboard tracking their own company's status against peers. A minimum viable dashboard contains:</p>
+<ol>
+<li><strong>Own status</strong> — Disclosed / Under Consideration / Not Disclosed, with last-update date.</li>
+<li><strong>Peer group status</strong> — A defined list of 10–20 industry/size peers and their statuses.</li>
+<li><strong>Days since last update</strong> — Both for own company and for peers; longer than 12 months is a flag.</li>
+<li><strong>Disclosure-quality score</strong> — An internal qualitative read against the four expected disclosure dimensions: (i) cost of capital number, (ii) current-situation analysis, (iii) policies and KPIs, (iv) communication with investors.</li>
+<li><strong>Trigger events</strong> — Upcoming MTM, earnings, or governance-report cycles where the disclosure should be refreshed.</li>
+</ol>
+<p>We will publish a fuller version of this dashboard as a live component on jpinv.com, refreshed monthly when the JPX list is updated. The Theme 4.3 page on jpinv.com is the maintained version.</p>
+<hr>
+<h2>Why publication is sharper than regulation</h2>
+<p>It is worth pausing to note how unusual TSE's enforcement model is. A traditional regulator would say: "If you do not disclose by date X, you will be fined Y." TSE said: "We will publish a list every month of who has and has not disclosed."</p>
+<p>The model works because the underlying audience — Japanese institutional investors, foreign asset managers, activists — already cared. TSE did not need to invent enforcement; it merely needed to <strong>make participation visible</strong>. The list does three things that regulation cannot:</p>
+<p><strong>It is cheap.</strong> TSE does not need to investigate, prosecute, or sanction. A spreadsheet update each month is the entire enforcement infrastructure.</p>
+<p><strong>It is uniformly informative.</strong> Every market participant gets the same information at the same time. There is no information asymmetry between large and small investors about who has disclosed.</p>
+<p><strong>It is self-escalating.</strong> As more peers disclose, the marginal cost of non-disclosure rises — both reputationally and as an activist target. Companies that disclosed early in 2023 created the social proof for the laggards. The 93% Prime Market disclosure rate of March 2026 is the natural consequence of a self-escalating norm, not a regulatory deadline.</p>
+<p>This is the model the FSA and METI are now studying for application to other governance areas — most visibly English disclosure (Theme 5.1), where the same monthly-list mechanism has been adopted for the April 2025 mandate.</p>
+<hr>
+<h2>The companion documents: list + booklets</h2>
+<p>The list does not stand alone. It is anchored by a growing library of companion documents, each of which serves a specific function:</p>
+<ul>
+<li><strong>"Key Points and Examples Considering the Investor's Point of View"</strong> (Feb 2024; updated late 2025) — the qualitative companion. <strong>55 named good-practice case studies</strong> showing what TSE considers a substantive disclosure. Covered in Post 4.2.</li>
+<li><strong>"Cases Where Companies Are Not Aligned With Investors' Perspectives"</strong> (Nov 2024) — the <strong>10 archetypal misalignment patterns</strong>. Covered in Post 4.4.</li>
+<li><strong>"Case Studies of Companies' Initiatives Toward Issue Resolution"</strong> (Dec 2025) — process-focused case studies on how companies actually embedded cost-of-capital thinking in their organisations. Covered in Post 4.5.</li>
+<li><strong>"Update to the Request"</strong> (Apr 28, 2026) — the formal pivot to "from disclosure to implementation." Covered in Post 4.5.</li>
+</ul>
+<p>The four-document architecture is itself instructive. The list publishes <strong>who is engaged</strong>. The Key Points booklet shows <strong>what good looks like</strong>. The Misalignment booklet shows <strong>what unconvincing looks like</strong>. The Issue Resolution case studies show <strong>how the work actually gets done</strong>. The Update sets <strong>the next bar</strong>. Each layer reinforces the others; TSE has built a coherent soft-enforcement architecture rather than a single document.</p>
+<hr>
+<h2>What this means for IR</h2>
+<ol>
+<li><strong>Confirm your status on the list — monthly.</strong> Before any investor meeting, check that your company appears on the latest list with the status you expect. Discrepancies (e.g., your CG Report disclosure has not yet been reflected in the TSE list) should be raised with TSE immediately.</li>
+<li><strong>Never sit in "Under Consideration" past 5 months.</strong> The January 2025 six-month rule converts that status into "Not Disclosed." Treat 5 months as your internal deadline; build a buffer.</li>
+<li><strong>Update your disclosure at least annually.</strong> A "Latest update" date older than 12 months is a flag for sophisticated investors. Tie your disclosure refresh to the CG Report annual cycle or the MTM revision cycle — whichever is more frequent.</li>
+<li><strong>Benchmark against named peers, not industry averages.</strong> Build a peer list of 10–20 companies investors would compare you to and compare your status, update frequency, and disclosure quality against theirs. Industry averages obscure the right comparison.</li>
+<li><strong>Treat the list as a <em>disclosure system</em>, not a one-off filing.</strong> The list, the four booklets, and the Update form a coherent expectation set. Your disclosure should explicitly reflect awareness of each of them — what TSE considers good, what TSE considers misaligned, and what TSE expects next.</li>
+</ol>
+<hr>
+<h2>Sources &amp; further reading</h2>
+<p><strong>Primary</strong>
+- TSE news release (Oct 26, 2023) announcing the list: <a href="https://www.jpx.co.jp/english/news/1020/20231026-01.html">https://www.jpx.co.jp/english/news/1020/20231026-01.html</a>
+- TSE news release (Jan 15, 2024) — first list published: <a href="https://www.jpx.co.jp/english/news/1020/20240115-01.html">https://www.jpx.co.jp/english/news/1020/20240115-01.html</a>
+- Follow-Up List hub (EN): <a href="https://www.jpx.co.jp/english/equities/follow-up/nlsgeu000006xn3l.html">https://www.jpx.co.jp/english/equities/follow-up/nlsgeu000006xn3l.html</a>
+- Latest list PDF (EN): <a href="https://www.jpx.co.jp/english/equities/follow-up/nlsgeu000006xn3l-att/follow_up_list_e.pdf">https://www.jpx.co.jp/english/equities/follow-up/nlsgeu000006xn3l-att/follow_up_list_e.pdf</a>
+- "Status of Disclosure" (Mar 13, 2026): <a href="https://www.jpx.co.jp/english/equities/follow-up/uorii50000004sse-att/dh3otn0000006l3i.pdf">https://www.jpx.co.jp/english/equities/follow-up/uorii50000004sse-att/dh3otn0000006l3i.pdf</a></p>
+<p><strong>Supporting</strong>
+- "Key Points and Examples" (Feb 2024 first edition, EN PDF): <a href="https://www.jpx.co.jp/english/news/1020/u5j7e50000001bqd-att/240201en.pdf">https://www.jpx.co.jp/english/news/1020/u5j7e50000001bqd-att/240201en.pdf</a>
+- TSE news release (Feb 1, 2024) on the Key Points booklet: <a href="https://www.jpx.co.jp/english/news/1020/20240201-01.html">https://www.jpx.co.jp/english/news/1020/20240201-01.html</a>
+- TSE news release (Nov 21, 2024) on "Cases Where Companies Are Not Aligned": <a href="https://www.jpx.co.jp/english/news/1020/20241121-01.html">https://www.jpx.co.jp/english/news/1020/20241121-01.html</a>
+- TSE news release (Dec 26, 2025) on "Case Studies of Initiatives Toward Issue Resolution": <a href="https://www.jpx.co.jp/english/news/1020/20251226-01.html">https://www.jpx.co.jp/english/news/1020/20251226-01.html</a>
+- "Summary of Discussions of the Follow-up Council" (EN): <a href="https://www.jpx.co.jp/english/equities/follow-up/01.html">https://www.jpx.co.jp/english/equities/follow-up/01.html</a></p>
+<hr>
+<h2>Cross-references</h2>
+<ul>
+<li><strong>Theme 3.3</strong> — The March 2025 Cliff: end of transitional measures</li>
+<li><strong>Theme 4.1</strong> — PBR &lt; 1 Is Not a Target — It's a Verdict</li>
+<li><strong>Theme 4.2</strong> — WACC, ROIC, Equity Spread: the new vocabulary</li>
+<li><strong>Theme 4.4</strong> — The Seven Sins of Cost-of-Capital Disclosure</li>
+<li><strong>Theme 4.5</strong> — From Disclosure to Implementation</li>
+<li><strong>Theme 5.1</strong> — The English disclosure mandate (same publication-as-enforcement model)</li>
+</ul>
+    </article>
+    <div class="post-nav"><a href="/en/governance/capital-efficiency/4.2-cost-of-capital-vocabulary/" class="post-nav-link prev"><div class="post-nav-dir">← Previous</div><div class="post-nav-title">WACC, ROIC, Equity Spread: the new vocabulary every Japanese IR rep must own</div></a><a href="/en/governance/capital-efficiency/4.4-seven-sins-misalignment/" class="post-nav-link next"><div class="post-nav-dir">Next →</div><div class="post-nav-title">The Seven Sins of Cost-of-Capital Disclosure: read TSE&#x27;s &#x27;misalignment&#x27; booklet</div></a></div>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Japan Investor Interface Co., Ltd.</h3>
+        <p>Cross-border IR diagnostics for Japanese listed companies. The Foreign IR Diagnostic Card visualizes how foreign capital reads your IR.</p>
+      </div>
+      <div class="footer-col">
+        <h2>The diagnostic & plans</h2>
+        <ul>
+          <li><a href="/en/services/">The Diagnostic Card</a></li>
+          <li><a href="/en/pricing/">Light — Initial Diagnostic</a></li>
+          <li><a href="/en/pricing/">Standard — Disclosure Improvement</a></li>
+          <li><a href="/en/pricing/">Pro — Investor-Meeting Cycle</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Governance curriculum</h2>
+        <ul>
+          <li><a href="/en/governance/">Curriculum home</a></li>
+          <li><a href="/en/governance/foundations/">Theme 1 · Foundations</a></li>
+          <li><a href="/en/governance/capital-efficiency/">Theme 4 · Capital Efficiency</a></li>
+          <li><a href="/en/governance/toolbox/">IR Toolbox</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>JII Compounders</h2>
+        <ul>
+          <li><a href="/en/compounders/">All profiles</a></li>
+          <li><a href="/en/compounders/methodology/">Methodology</a></li>
+          <li><a href="https://japaninterface.substack.com/" rel="noopener" target="_blank">Substack</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Contact</h2>
+        <ul>
+          <li>Email <a href="mailto:info@jpinv.com">info@jpinv.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Japan Investor Interface Co., Ltd. · All rights reserved.</p>
+      <p class="footer-locale-switcher">Language: <a href="/en/" class="current" aria-current="page" lang="en">EN</a> / <a href="/" data-locale-route lang="ja">JP</a></p>
+    </div>
+  </div>
+</footer>
+<script>
+const nav = document.getElementById('main-nav');
+if (nav) window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
+const hamburgerBtn = document.querySelector('.hamburger');
+function setMenuOpen(isOpen) { const menu = document.getElementById('mobileMenu'); if (!menu || !hamburgerBtn) return; menu.classList.toggle('open', isOpen); menu.hidden = !isOpen; hamburgerBtn.setAttribute('aria-expanded', String(isOpen)); }
+function toggleMenu() { const menu = document.getElementById('mobileMenu'); setMenuOpen(!(menu && menu.classList.contains('open'))); }
+document.addEventListener('click', (e) => { const menu = document.getElementById('mobileMenu'); if (menu && menu.classList.contains('open') && !menu.contains(e.target) && hamburgerBtn && !hamburgerBtn.contains(e.target)) setMenuOpen(false); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenuOpen(false); });
+</script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs';
+mermaid.initialize({ startOnLoad: true, theme: 'neutral', fontFamily: 'Noto Sans JP, Hiragino Kaku Gothic ProN, sans-serif', themeVariables: { primaryColor: '#f4eee4', primaryTextColor: '#1a2a4a', primaryBorderColor: '#9a7838', lineColor: '#304466', secondaryColor: '#f5f7fa', tertiaryColor: '#fafbfc' } });
+</script>
+</body>
+</html>
