@@ -12,10 +12,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 
-<title>市場区分の見直し (テーマ 3) | JII ガバナンス改革カリキュラム</title>
-<meta name="description" content="市場区分の見直し(2022年 → 2025年)― 日本ガバナンス改革のテーマ 3。5記事。">
-<meta property="og:title" content="市場区分の見直し (テーマ 3) | JII ガバナンス改革カリキュラム">
-<meta property="og:description" content="市場区分の見直し(2022年 → 2025年)― 日本ガバナンス改革のテーマ 3。5記事。">
+<title>市場区分と上場維持基準を理解する | JII</title>
+<meta name="description" content="プライム・スタンダード・グロース、市場再編、流通株式比率、TOPIX見直しをIR実務の観点で読む。">
+<meta property="og:title" content="市場区分と上場維持基準を理解する | JII">
+<meta property="og:description" content="プライム・スタンダード・グロース、市場再編、流通株式比率、TOPIX見直しをIR実務の観点で読む。">
 <meta property="og:url" content="https://jpinv.com/governance/market-restructuring/">
 <link rel="canonical" href="https://jpinv.com/governance/market-restructuring/">
 <link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/market-restructuring/">
@@ -227,6 +227,52 @@ main.curriculum { padding-top: var(--nav-h); }
 .stat-num { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 300; color: var(--ink-mid); line-height: 1; margin-bottom: 8px; }
 .stat-num em { color: var(--accent-deep); font-weight: 400; font-style: normal; }
 .stat-label { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; }
+
+/* Reader-facing governance redesign */
+.issue-card[aria-current="true"] { border-color: var(--accent); background:#fff; box-shadow: inset 0 0 0 2px var(--accent-soft); }
+.issue-card[aria-current="true"] .issue-card-title::after { content:" 選択中"; font-family:var(--mono); font-size:10px; letter-spacing:.12em; color:var(--accent-deep); }
+.reader-hero { padding: 86px 0 52px; background: linear-gradient(180deg, #fff 0%, var(--bg-soft) 100%); border-bottom: 1px solid var(--rule); }
+.reader-hero .lede { max-width: 760px; }
+.issue-menu { padding: 46px 0 28px; background: #fff; }
+.issue-menu-head { display:flex; justify-content:space-between; gap:24px; align-items:end; margin-bottom:22px; }
+.issue-menu h2, .screen-roll h2, .practical-section h2 { font-family:var(--serif); font-size:clamp(1.45rem,2.6vw,2rem); font-weight:300; color:var(--ink-mid); line-height:1.35; }
+.issue-menu p, .screen-roll p, .practical-section p { color:var(--text-mid); line-height:1.8; }
+.issue-grid { display:grid; grid-template-columns: repeat(5, minmax(180px, 1fr)); gap:14px; }
+.issue-card { display:flex; flex-direction:column; gap:9px; min-height:178px; padding:18px 18px 16px; border:1px solid var(--rule); background:var(--bg-soft); color:inherit; text-decoration:none; border-radius:0; transition:transform .18s, box-shadow .18s, border-color .18s, background .18s; }
+.issue-card:hover, .issue-card:focus-visible { transform:translateY(-2px); border-color:var(--ink-soft); box-shadow:0 12px 28px rgba(15,31,58,.08); background:#fff; outline:3px solid transparent; }
+.issue-card:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
+.issue-card-num { font-family:var(--mono); font-size:10px; letter-spacing:.16em; color:var(--accent-deep); }
+.issue-card-title { font-family:var(--serif); font-size:1.06rem; line-height:1.45; color:var(--ink); }
+.issue-card-desc { font-size:.84rem; color:var(--text-mid); line-height:1.65; }
+.screen-roll { padding:70px 0; border-top:1px solid var(--rule-soft); scroll-margin-top:calc(var(--nav-h) + 18px); }
+.screen-roll:nth-of-type(even) { background:var(--bg-soft); }
+.screen-roll:target { box-shadow: inset 5px 0 0 var(--accent); }
+.screen-head { display:grid; grid-template-columns:minmax(0, .85fr) minmax(260px, .45fr); gap:34px; align-items:start; margin-bottom:28px; }
+.theme-chip { display:inline-block; font-family:var(--mono); font-size:10px; letter-spacing:.16em; color:var(--accent-deep); margin-bottom:10px; }
+.know-box { border:1px solid var(--rule); background:#fff; padding:20px 22px; }
+.know-box strong { display:block; margin-bottom:6px; }
+.article-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px; }
+.article-card { display:flex; flex-direction:column; gap:10px; padding:22px; border:1px solid var(--rule); background:#fff; color:inherit; text-decoration:none; min-height:230px; }
+.article-card:hover, .article-card:focus-visible { border-color:var(--ink-soft); box-shadow:0 10px 26px rgba(15,31,58,.07); }
+.article-card:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
+.article-num { font-family:var(--mono); font-size:11px; color:var(--accent-deep); letter-spacing:.12em; }
+.article-title { font-family:var(--serif); font-size:1.08rem; line-height:1.5; color:var(--ink-mid); }
+.article-summary { font-size:.9rem; line-height:1.75; color:var(--text-mid); flex:1; }
+.article-cta { font-family:var(--mono); font-size:10px; letter-spacing:.14em; color:var(--ink-soft); text-transform:uppercase; border-top:1px solid var(--rule-soft); padding-top:12px; }
+.toolbox-panel { display:grid; grid-template-columns:minmax(0,.85fr) minmax(280px,.6fr); gap:32px; align-items:start; }
+.toolbox-cats { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; list-style:none; }
+.toolbox-cats li { background:#fff; border:1px solid var(--rule); padding:12px 14px; font-size:.9rem; color:var(--ink-mid); }
+.path-list { display:grid; gap:12px; margin-top:18px; }
+.path-list a { display:block; border:1px solid var(--rule); background:#fff; padding:16px 18px; color:inherit; }
+.theme-overview { padding:52px 0 76px; }
+.theme-overview-grid { display:grid; grid-template-columns:minmax(0,.8fr) minmax(280px,.45fr); gap:28px; align-items:start; }
+.info-card { background:#fff; border:1px solid var(--rule); padding:22px; margin-bottom:16px; }
+.info-card h2, .info-card h3 { font-family:var(--serif); color:var(--ink-mid); font-weight:400; margin-bottom:10px; line-height:1.4; }
+.info-card p { color:var(--text-mid); line-height:1.8; }
+.source-note { font-size:.9rem; color:var(--text-mid); }
+@media (max-width: 980px) { .issue-grid { display:flex; overflow-x:auto; padding-bottom:10px; scroll-snap-type:x proximity; } .issue-card { flex:0 0 78%; max-width:360px; scroll-snap-align:start; } .screen-head, .toolbox-panel, .theme-overview-grid { grid-template-columns:1fr; } }
+@media (max-width: 620px) { .issue-menu-head { display:block; } .toolbox-cats { grid-template-columns:1fr; } .article-cards { grid-template-columns:1fr; } }
+
 </style>
 </head>
 <body>
@@ -266,63 +312,47 @@ main.curriculum { padding-top: var(--nav-h); }
   <a href="/#contact" class="btn btn-primary mobile-menu-cta" onclick="toggleMenu()">30分の無料相談</a>
 </nav>
 <main id="main-content" class="curriculum" tabindex="-1">
-<div class="wrap crumbs">
-  <a href="/">JII</a> <span class="sep">/</span>
-  <a href="/governance/">ガバナンス・カリキュラム</a> <span class="sep">/</span>
-  市場区分の見直し
-</div>
-<section class="curr-hero">
-  <div class="wrap">
-    <div class="curr-hero-inner">
-      <div class="curr-eyebrow">テーマ 3 · 2022年 → 2025年</div>
-      <h1>市場区分の見直し</h1>
-      <p class="lede"><strong>2022年4月のプライム・スタンダード・グロース3区分</strong>体制への移行、<strong>流通株式比率</strong>という新しい鍵概念、2025年3月の経過措置の崖、TOPIX 2.0、そして2030年のグロース市場改革まで。</p>
-      <div class="curr-hero-meta">
-        <span>記事数: <strong>5</strong></span>
-        <span>期間: <strong>2022年 → 2025年</strong></span>
-      </div>
-    </div>
-  </div>
+<div class="wrap crumbs"><a href="/">JII</a> <span class="sep">/</span> <a href="/governance/">ガバナンス</a> <span class="sep">/</span> テーマ 3</div>
+<section class="reader-hero">
+  <div class="wrap"><div class="curr-hero-inner"><div class="curr-eyebrow">テーマ 3 · 市場区分の見直し · 2022年 → 2025年</div><h1>市場区分と上場維持基準を理解する</h1><p class="lede">プライム・スタンダード・グロース、市場再編、流通株式比率、TOPIX見直しをIR実務の観点で読む。</p><p class="lede" style="font-size:.98rem;color:var(--text-mid);">市場再編の狙い、プライム・スタンダード・グロースの違い、流通株式比率、経過措置の終了、TOPIX見直しが企業行動と投資家説明に与える影響を整理します。</p></div></div>
 </section>
-<section class="post-list">
-  <div class="wrap">
-    <h2 style="font-family:var(--serif); font-size:1.6rem; font-weight:300; color:var(--ink-mid); margin-bottom:24px;">本テーマの記事一覧</h2>
-    <a href="/governance/market-restructuring/3.1-four-segments-to-three/" class="post-list-row" style="display:grid; color:inherit; text-decoration:none;">
-  <div class="post-list-num">3.1</div>
-  <div>
-    <div class="post-list-title">4区分から3区分へ ― 2022年4月の市場再編</div>
-    <div class="post-list-meta" style="margin-top:6px; text-transform:none; letter-spacing:0.04em; color:var(--text-dim);">日本語本文公開済み ― 一次資料リンク付き</div>
-  </div>
-  <div class="post-list-meta">記事 →</div>
-</a><a href="/governance/market-restructuring/3.2-tradable-share-ratio/" class="post-list-row" style="display:grid; color:inherit; text-decoration:none;">
-  <div class="post-list-num">3.2</div>
-  <div>
-    <div class="post-list-title">流通株式比率 ― 政策保有株を動かした一つの数値</div>
-    <div class="post-list-meta" style="margin-top:6px; text-transform:none; letter-spacing:0.04em; color:var(--text-dim);">日本語本文公開済み ― 一次資料リンク付き</div>
-  </div>
-  <div class="post-list-meta">記事 →</div>
-</a><a href="/governance/market-restructuring/3.3-transitional-measures-cliff/" class="post-list-row" style="display:grid; color:inherit; text-decoration:none;">
-  <div class="post-list-num">3.3</div>
-  <div>
-    <div class="post-list-title">2025年3月の崖 ― 経過措置の終了と改善期間</div>
-    <div class="post-list-meta" style="margin-top:6px; text-transform:none; letter-spacing:0.04em; color:var(--text-dim);">日本語本文公開済み ― 一次資料リンク付き</div>
-  </div>
-  <div class="post-list-meta">記事 →</div>
-</a><a href="/governance/market-restructuring/3.4-topix-reform/" class="post-list-row" style="display:grid; color:inherit; text-decoration:none;">
-  <div class="post-list-num">3.4</div>
-  <div>
-    <div class="post-list-title">TOPIX 2.0 ― 全銘柄インデックスから選別インデックスへ</div>
-    <div class="post-list-meta" style="margin-top:6px; text-transform:none; letter-spacing:0.04em; color:var(--text-dim);">日本語本文公開済み ― 一次資料リンク付き</div>
-  </div>
-  <div class="post-list-meta">記事 →</div>
-</a><a href="/governance/market-restructuring/3.5-growth-market-2030/" class="post-list-row" style="display:grid; color:inherit; text-decoration:none;">
-  <div class="post-list-num">3.5</div>
-  <div>
-    <div class="post-list-title">グロース市場2030年の崖 ― 100億円基準の意味</div>
-    <div class="post-list-meta" style="margin-top:6px; text-transform:none; letter-spacing:0.04em; color:var(--text-dim);">日本語本文公開済み ― 一次資料リンク付き</div>
-  </div>
-  <div class="post-list-meta">記事 →</div>
-</a>
+<section class="theme-overview">
+  <div class="wrap theme-overview-grid">
+    <div>
+      <div class="info-card"><h2>このテーマで分かること</h2><p>市場再編の狙い、プライム・スタンダード・グロースの違い、流通株式比率、経過措置の終了、TOPIX見直しが企業行動と投資家説明に与える影響を整理します。</p></div>
+      <div class="info-card"><h2>IR実務で問題になる場面</h2><p>市場区分の選択、上場維持基準、流通株式比率、指数採用の見通しについて、経営陣・投資家・社内関係部門に説明する場面。</p></div>
+      <div class="info-card"><h2>記事一覧</h2><div class="article-cards"><a href="/governance/market-restructuring/3.1-four-segments-to-three/" class="article-card">
+  <span class="article-num">記事 3.1</span>
+  <strong class="article-title">4区分から3区分へ ― 2022年4月の市場再編</strong>
+  <span class="article-summary">2022年4月4日の市場再編は、市場第一部・第二部・マザーズ・JASDAQという4区分を、プライム、スタンダード、グロースの3市場へ整理した。</span>
+  <span class="article-cta">この記事を読む →</span>
+</a><a href="/governance/market-restructuring/3.2-tradable-share-ratio/" class="article-card">
+  <span class="article-num">記事 3.2</span>
+  <strong class="article-title">流通株式比率 ― 政策保有株を動かした一つの数値</strong>
+  <span class="article-summary">流通株式比率は、固定的な大株主や政策保有株式を除いた実質的な市場流通性を測る指標であり、上場維持基準の中でも行動変容を促す力が大きい。</span>
+  <span class="article-cta">この記事を読む →</span>
+</a><a href="/governance/market-restructuring/3.3-transitional-measures-cliff/" class="article-card">
+  <span class="article-num">記事 3.3</span>
+  <strong class="article-title">2025年3月の崖 ― 経過措置の終了と改善期間</strong>
+  <span class="article-summary">2025年3月の経過措置終了は、形式的な先送りを認めず、基準未達企業に改善期間と上場廃止リスクを具体的に意識させる転換点となった。</span>
+  <span class="article-cta">この記事を読む →</span>
+</a><a href="/governance/market-restructuring/3.4-topix-reform/" class="article-card">
+  <span class="article-num">記事 3.4</span>
+  <strong class="article-title">TOPIX 2.0 ― 全銘柄インデックスから選別インデックスへ</strong>
+  <span class="article-summary">TOPIX改革は、市場区分改革と並ぶ構造改革であり、単なる全上場銘柄指数から、流動性と市場評価を反映する選別的なユニバースへ移行する。</span>
+  <span class="article-cta">この記事を読む →</span>
+</a><a href="/governance/market-restructuring/3.5-growth-market-2030/" class="article-card">
+  <span class="article-num">記事 3.5</span>
+  <strong class="article-title">グロース市場2030年の崖 ― 100億円基準の意味</strong>
+  <span class="article-summary">グロース市場改革では、2030年を見据えて時価総額100億円基準が焦点となり、上場後も成長を継続できる市場設計が問われている。</span>
+  <span class="article-cta">この記事を読む →</span>
+</a></div></div>
+    </div>
+    <aside>
+      <div class="info-card"><h3>まず読むなら</h3><p>まずは3.1で市場再編の全体像を押さえ、3.2で流通株式比率の定義を確認すると、政策保有株やTOPIXの論点がつながります。</p></div>
+      <div class="info-card"><h3>関連する公式資料</h3><p>東京証券取引所の市場区分見直し資料、上場維持基準、流通株式比率、TOPIX改革資料。</p><p><a href="/governance/toolbox/">資料室で確認する →</a></p></div>
+      <div class="info-card"><h3>テーマ情報</h3><p>記事番号: 3.1〜3.5<br>時期: 2022年 → 2025年<br>正式テーマ名: 市場区分の見直し</p></div>
+    </aside>
   </div>
 </section>
 </main>
@@ -343,12 +373,12 @@ main.curriculum { padding-top: var(--nav-h); }
         </ul>
       </div>
       <div class="footer-col">
-        <h2>ガバナンス・カリキュラム</h2>
+        <h2>ガバナンス解説</h2>
         <ul>
-          <li><a href="/governance/">カリキュラム・ホーム</a></li>
+          <li><a href="/governance/">ガバナンス・ホーム</a></li>
           <li><a href="/governance/foundations/">テーマ1 ― 基礎</a></li>
           <li><a href="/governance/capital-efficiency/">テーマ4 ― 資本効率</a></li>
-          <li><a href="/governance/toolbox/">IRツールボックス</a></li>
+          <li><a href="/governance/toolbox/">資料室</a></li>
         </ul>
       </div>
       <div class="footer-col">

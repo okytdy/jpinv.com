@@ -12,10 +12,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 
-<title>IRツールボックス | JII ガバナンス改革カリキュラム</title>
-<meta name="description" content="JPX・FSA・経済産業省・SSBJの公式資料を9カテゴリに整理した恒久的なリファレンス。">
-<meta property="og:title" content="IRツールボックス | JII ガバナンス改革カリキュラム">
-<meta property="og:description" content="JPX・FSA・経済産業省・SSBJの公式資料を9カテゴリに整理した恒久的なリファレンス。">
+<title>公式資料を探す | JII</title>
+<meta name="description" content="東証、金融庁、経済産業省などの公式資料を、IR実務で確認しやすい論点別に整理しています。">
+<meta property="og:title" content="公式資料を探す | JII">
+<meta property="og:description" content="東証、金融庁、経済産業省などの公式資料を、IR実務で確認しやすい論点別に整理しています。">
 <meta property="og:url" content="https://jpinv.com/governance/toolbox/">
 <link rel="canonical" href="https://jpinv.com/governance/toolbox/">
 <link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/toolbox/">
@@ -227,6 +227,52 @@ main.curriculum { padding-top: var(--nav-h); }
 .stat-num { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 300; color: var(--ink-mid); line-height: 1; margin-bottom: 8px; }
 .stat-num em { color: var(--accent-deep); font-weight: 400; font-style: normal; }
 .stat-label { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; }
+
+/* Reader-facing governance redesign */
+.issue-card[aria-current="true"] { border-color: var(--accent); background:#fff; box-shadow: inset 0 0 0 2px var(--accent-soft); }
+.issue-card[aria-current="true"] .issue-card-title::after { content:" 選択中"; font-family:var(--mono); font-size:10px; letter-spacing:.12em; color:var(--accent-deep); }
+.reader-hero { padding: 86px 0 52px; background: linear-gradient(180deg, #fff 0%, var(--bg-soft) 100%); border-bottom: 1px solid var(--rule); }
+.reader-hero .lede { max-width: 760px; }
+.issue-menu { padding: 46px 0 28px; background: #fff; }
+.issue-menu-head { display:flex; justify-content:space-between; gap:24px; align-items:end; margin-bottom:22px; }
+.issue-menu h2, .screen-roll h2, .practical-section h2 { font-family:var(--serif); font-size:clamp(1.45rem,2.6vw,2rem); font-weight:300; color:var(--ink-mid); line-height:1.35; }
+.issue-menu p, .screen-roll p, .practical-section p { color:var(--text-mid); line-height:1.8; }
+.issue-grid { display:grid; grid-template-columns: repeat(5, minmax(180px, 1fr)); gap:14px; }
+.issue-card { display:flex; flex-direction:column; gap:9px; min-height:178px; padding:18px 18px 16px; border:1px solid var(--rule); background:var(--bg-soft); color:inherit; text-decoration:none; border-radius:0; transition:transform .18s, box-shadow .18s, border-color .18s, background .18s; }
+.issue-card:hover, .issue-card:focus-visible { transform:translateY(-2px); border-color:var(--ink-soft); box-shadow:0 12px 28px rgba(15,31,58,.08); background:#fff; outline:3px solid transparent; }
+.issue-card:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
+.issue-card-num { font-family:var(--mono); font-size:10px; letter-spacing:.16em; color:var(--accent-deep); }
+.issue-card-title { font-family:var(--serif); font-size:1.06rem; line-height:1.45; color:var(--ink); }
+.issue-card-desc { font-size:.84rem; color:var(--text-mid); line-height:1.65; }
+.screen-roll { padding:70px 0; border-top:1px solid var(--rule-soft); scroll-margin-top:calc(var(--nav-h) + 18px); }
+.screen-roll:nth-of-type(even) { background:var(--bg-soft); }
+.screen-roll:target { box-shadow: inset 5px 0 0 var(--accent); }
+.screen-head { display:grid; grid-template-columns:minmax(0, .85fr) minmax(260px, .45fr); gap:34px; align-items:start; margin-bottom:28px; }
+.theme-chip { display:inline-block; font-family:var(--mono); font-size:10px; letter-spacing:.16em; color:var(--accent-deep); margin-bottom:10px; }
+.know-box { border:1px solid var(--rule); background:#fff; padding:20px 22px; }
+.know-box strong { display:block; margin-bottom:6px; }
+.article-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px; }
+.article-card { display:flex; flex-direction:column; gap:10px; padding:22px; border:1px solid var(--rule); background:#fff; color:inherit; text-decoration:none; min-height:230px; }
+.article-card:hover, .article-card:focus-visible { border-color:var(--ink-soft); box-shadow:0 10px 26px rgba(15,31,58,.07); }
+.article-card:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
+.article-num { font-family:var(--mono); font-size:11px; color:var(--accent-deep); letter-spacing:.12em; }
+.article-title { font-family:var(--serif); font-size:1.08rem; line-height:1.5; color:var(--ink-mid); }
+.article-summary { font-size:.9rem; line-height:1.75; color:var(--text-mid); flex:1; }
+.article-cta { font-family:var(--mono); font-size:10px; letter-spacing:.14em; color:var(--ink-soft); text-transform:uppercase; border-top:1px solid var(--rule-soft); padding-top:12px; }
+.toolbox-panel { display:grid; grid-template-columns:minmax(0,.85fr) minmax(280px,.6fr); gap:32px; align-items:start; }
+.toolbox-cats { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; list-style:none; }
+.toolbox-cats li { background:#fff; border:1px solid var(--rule); padding:12px 14px; font-size:.9rem; color:var(--ink-mid); }
+.path-list { display:grid; gap:12px; margin-top:18px; }
+.path-list a { display:block; border:1px solid var(--rule); background:#fff; padding:16px 18px; color:inherit; }
+.theme-overview { padding:52px 0 76px; }
+.theme-overview-grid { display:grid; grid-template-columns:minmax(0,.8fr) minmax(280px,.45fr); gap:28px; align-items:start; }
+.info-card { background:#fff; border:1px solid var(--rule); padding:22px; margin-bottom:16px; }
+.info-card h2, .info-card h3 { font-family:var(--serif); color:var(--ink-mid); font-weight:400; margin-bottom:10px; line-height:1.4; }
+.info-card p { color:var(--text-mid); line-height:1.8; }
+.source-note { font-size:.9rem; color:var(--text-mid); }
+@media (max-width: 980px) { .issue-grid { display:flex; overflow-x:auto; padding-bottom:10px; scroll-snap-type:x proximity; } .issue-card { flex:0 0 78%; max-width:360px; scroll-snap-align:start; } .screen-head, .toolbox-panel, .theme-overview-grid { grid-template-columns:1fr; } }
+@media (max-width: 620px) { .issue-menu-head { display:block; } .toolbox-cats { grid-template-columns:1fr; } .article-cards { grid-template-columns:1fr; } }
+
 </style>
 </head>
 <body>
@@ -266,52 +312,12 @@ main.curriculum { padding-top: var(--nav-h); }
   <a href="/#contact" class="btn btn-primary mobile-menu-cta" onclick="toggleMenu()">30分の無料相談</a>
 </nav>
 <main id="main-content" class="curriculum" tabindex="-1">
-<div class="wrap crumbs">
-  <a href="/">JII</a> <span class="sep">/</span>
-  <a href="/governance/">ガバナンス・カリキュラム</a> <span class="sep">/</span>
-  IR ツールボックス
-</div>
-<header class="post-header">
-  <div class="wrap">
-    <div class="post-header-inner">
-      <div class="post-eyebrow">★ 中核資料</div>
-      <h1 class="post-title">IR ツールボックス ― JPX・FSA・経済産業省・SSBJの全資料、索引化</h1>
-      <p class="post-summary">IR担当者が知っておくべきすべての公式資料(コード・ガイドライン・開示リスト・FAQ・ワーキング・グループ報告書・データ・ダッシュボード)を9カテゴリに整理した恒久的なリファレンス。月次で更新。</p>
-      <div class="post-meta">
-        <span>更新: <strong>2026-05-17</strong></span>
-        <span>カテゴリ: <strong>9</strong></span>
-        <span>状態: <strong>日本語本文公開済み</strong></span>
-      </div>
-    </div>
-  </div>
-</header>
-<section class="post-body">
-  <div class="wrap">
-    <article class="post-content">
-      <h2>このツールボックスの位置づけ</h2>
-      <p>このページは、IR担当者、経営企画、法務、サステナビリティ、取締役会事務局が、日々の開示・対話・社内説明で参照する公式資料を一か所に集めた索引である。コード、上場制度、開示リスト、好事例集、経済産業省ガイドライン、審議会資料、FAQ、データベースを、実務で探しやすい順序に並べている。</p>
-      <p>資料の価値は、単にリンクを保存することではない。どの資料が制度の根拠で、どの資料が実務上の解説で、どの資料が投資家との対話で引用しやすい事例集なのかを分けておくことで、IRチームは問い合わせ対応と社内説明の速度を上げられる。</p>
-      <h2>想定読者</h2>
-      <ul><li>プライム市場・スタンダード市場・グロース市場のIR担当者</li><li>コーポレートガバナンス報告書、有価証券報告書、統合報告書を担当する実務者</li><li>取締役会事務局、経営企画、法務、サステナビリティ部門</li><li>日本株を担当するアナリスト、機関投資家、アドバイザー</li></ul>
-      <h2>収録方針</h2>
-      <p>収録対象は、金融庁、東京証券取引所、日本取引所グループ、経済産業省、法務省、SSBJ、GPIFなどの一次資料を中心とする。民間の解説資料よりも、制度の原文、改訂履歴、FAQ、実務上の記載要領、好事例集、会議資料を優先する。</p>
-      <h2>A. コード類</h2>
-      <ul><li>コーポレートガバナンス・コード（2015年、2018年、2021年改訂）</li><li>スチュワードシップ・コード（2014年、2017年、2020年、2025年改訂）</li><li>アセットオーナー・プリンシプル（2024年）</li></ul>
-      <h2>B. 市場構造・上場制度</h2>
-      <p>市場区分見直し、上場維持基準、流通株式の定義、改善期間、グロース市場改革、TOPIX見直しなど、上場会社の市場区分と指数採用に関わる資料を確認する。</p>
-      <h2>C. 開示企業リスト</h2>
-      <p>資本コストや株価を意識した経営の実現に向けた対応状況、英文開示に関するリストなどは、外部規律と横比較のための重要資料である。単に掲載有無を見るのではなく、開示媒体、更新時期、取締役会での検討状況、投資者との対話の反映状況を確認する。</p>
-      <h2>D. 好事例・ケース集</h2>
-      <p>東証や金融庁が公表する好事例集は、開示文言を写すためではなく、投資家が何を評価しているかを読み取るために使う。資本コスト、ROE、ROIC、事業ポートフォリオ、株主還元、政策保有株式、英文開示などの観点で横断的に読むと実務に落とし込みやすい。</p>
-      <h2>E. ガイドライン（経済産業省）</h2>
-      <p>CGSガイドライン、グループ・ガバナンス・システムに関する実務指針、公正なM&Aの在り方に関する指針、企業買収における行動指針などは、コードの抽象的な原則を取締役会運営、グループ管理、M&A、買収提案対応に落とし込むための補助線である。</p>
-      <h2>F. 審議会・研究会資料</h2>
-      <p>次の制度変更は、突然現れるのではなく、金融庁、東証、経済産業省、法務省、SSBJ等の会議体で議論される。議事次第、配布資料、議事要旨を追うことで、IRチームは将来の開示負担と投資家の関心を早めに把握できる。</p>
-      <h2>更新方針</h2>
-      <p>本ツールボックスは、制度改訂、リスト更新、審議会資料の追加、FAQ改訂に合わせて継続的に見直す。実務で利用する際は、必ずリンク先の公式資料で最新版の日付を確認する。</p>
-    </article>
-  </div>
-</section>
+<div class="wrap crumbs"><a href="/">JII</a> <span class="sep">/</span> <a href="/governance/">ガバナンス</a> <span class="sep">/</span> 資料室</div>
+<section class="reader-hero"><div class="wrap"><div class="curr-hero-inner"><div class="curr-eyebrow">ガバナンス資料室</div><h1>公式資料を探す</h1><p class="lede">東証の要請文、金融庁のコード、経済産業省のガイドライン、英文開示や資本コスト開示の実務資料を、論点別に確認できます。</p><p class="lede" style="font-size:.98rem;color:var(--text-mid);">開示ルール、資本コスト対応、英文開示、政策保有株など、実務で確認する資料を論点別にまとめています。</p></div></div></section>
+<section class="theme-overview"><div class="wrap theme-overview-grid"><div>
+<div class="info-card"><h2>資料カテゴリ</h2><ul class="toolbox-cats"><li>コード・原則を確認する</li><li>市場区分・上場基準を確認する</li><li>資本コスト開示を確認する</li><li>英文開示を確認する</li><li>政策保有株・上場子会社を確認する</li><li>買収対応・M&amp;Aを確認する</li><li>サステナビリティ開示を確認する</li><li>投資家向け説明資料を確認する</li></ul></div>
+<div class="info-card"><h2>使い方</h2><p>投資家面談や社内説明で根拠資料を確認したいときは、まず論点を選び、該当する当局・取引所資料にあたります。必要に応じて各テーマの記事から制度背景も確認してください。</p></div>
+</div><aside><div class="info-card"><h3>主な発行主体</h3><p>金融庁、東京証券取引所・日本取引所グループ、経済産業省、サステナビリティ基準委員会、法務省、GPIFなど。</p></div><div class="info-card"><h3>テーマから探す</h3><p><a href="/governance/cg-code/">コード改訂を確認する →</a></p><p><a href="/governance/capital-efficiency/">資本コスト開示を確認する →</a></p><p><a href="/governance/frontier/">英文開示・政策保有株を確認する →</a></p></div></aside></div></section>
 </main>
 <footer>
   <div class="wrap">
@@ -330,12 +336,12 @@ main.curriculum { padding-top: var(--nav-h); }
         </ul>
       </div>
       <div class="footer-col">
-        <h2>ガバナンス・カリキュラム</h2>
+        <h2>ガバナンス解説</h2>
         <ul>
-          <li><a href="/governance/">カリキュラム・ホーム</a></li>
+          <li><a href="/governance/">ガバナンス・ホーム</a></li>
           <li><a href="/governance/foundations/">テーマ1 ― 基礎</a></li>
           <li><a href="/governance/capital-efficiency/">テーマ4 ― 資本効率</a></li>
-          <li><a href="/governance/toolbox/">IRツールボックス</a></li>
+          <li><a href="/governance/toolbox/">資料室</a></li>
         </ul>
       </div>
       <div class="footer-col">

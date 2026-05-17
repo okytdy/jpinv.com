@@ -12,10 +12,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 
-<title>コードの時代 (テーマ 2) | JII ガバナンス改革カリキュラム</title>
-<meta name="description" content="コードの時代(2015年 → 2021年)― 日本ガバナンス改革のテーマ 2。5記事。">
-<meta property="og:title" content="コードの時代 (テーマ 2) | JII ガバナンス改革カリキュラム">
-<meta property="og:description" content="コードの時代(2015年 → 2021年)― 日本ガバナンス改革のテーマ 2。5記事。">
+<title>会社と投資家の対話ルールを押さえる | JII</title>
+<meta name="description" content="コーポレートガバナンス・コード、CG報告書、取締役会、サステナビリティ、多様性など、対話の土台を整理する。">
+<meta property="og:title" content="会社と投資家の対話ルールを押さえる | JII">
+<meta property="og:description" content="コーポレートガバナンス・コード、CG報告書、取締役会、サステナビリティ、多様性など、対話の土台を整理する。">
 <meta property="og:url" content="https://jpinv.com/governance/cg-code/">
 <link rel="canonical" href="https://jpinv.com/governance/cg-code/">
 <link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/cg-code/">
@@ -227,6 +227,52 @@ main.curriculum { padding-top: var(--nav-h); }
 .stat-num { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 300; color: var(--ink-mid); line-height: 1; margin-bottom: 8px; }
 .stat-num em { color: var(--accent-deep); font-weight: 400; font-style: normal; }
 .stat-label { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; }
+
+/* Reader-facing governance redesign */
+.issue-card[aria-current="true"] { border-color: var(--accent); background:#fff; box-shadow: inset 0 0 0 2px var(--accent-soft); }
+.issue-card[aria-current="true"] .issue-card-title::after { content:" 選択中"; font-family:var(--mono); font-size:10px; letter-spacing:.12em; color:var(--accent-deep); }
+.reader-hero { padding: 86px 0 52px; background: linear-gradient(180deg, #fff 0%, var(--bg-soft) 100%); border-bottom: 1px solid var(--rule); }
+.reader-hero .lede { max-width: 760px; }
+.issue-menu { padding: 46px 0 28px; background: #fff; }
+.issue-menu-head { display:flex; justify-content:space-between; gap:24px; align-items:end; margin-bottom:22px; }
+.issue-menu h2, .screen-roll h2, .practical-section h2 { font-family:var(--serif); font-size:clamp(1.45rem,2.6vw,2rem); font-weight:300; color:var(--ink-mid); line-height:1.35; }
+.issue-menu p, .screen-roll p, .practical-section p { color:var(--text-mid); line-height:1.8; }
+.issue-grid { display:grid; grid-template-columns: repeat(5, minmax(180px, 1fr)); gap:14px; }
+.issue-card { display:flex; flex-direction:column; gap:9px; min-height:178px; padding:18px 18px 16px; border:1px solid var(--rule); background:var(--bg-soft); color:inherit; text-decoration:none; border-radius:0; transition:transform .18s, box-shadow .18s, border-color .18s, background .18s; }
+.issue-card:hover, .issue-card:focus-visible { transform:translateY(-2px); border-color:var(--ink-soft); box-shadow:0 12px 28px rgba(15,31,58,.08); background:#fff; outline:3px solid transparent; }
+.issue-card:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
+.issue-card-num { font-family:var(--mono); font-size:10px; letter-spacing:.16em; color:var(--accent-deep); }
+.issue-card-title { font-family:var(--serif); font-size:1.06rem; line-height:1.45; color:var(--ink); }
+.issue-card-desc { font-size:.84rem; color:var(--text-mid); line-height:1.65; }
+.screen-roll { padding:70px 0; border-top:1px solid var(--rule-soft); scroll-margin-top:calc(var(--nav-h) + 18px); }
+.screen-roll:nth-of-type(even) { background:var(--bg-soft); }
+.screen-roll:target { box-shadow: inset 5px 0 0 var(--accent); }
+.screen-head { display:grid; grid-template-columns:minmax(0, .85fr) minmax(260px, .45fr); gap:34px; align-items:start; margin-bottom:28px; }
+.theme-chip { display:inline-block; font-family:var(--mono); font-size:10px; letter-spacing:.16em; color:var(--accent-deep); margin-bottom:10px; }
+.know-box { border:1px solid var(--rule); background:#fff; padding:20px 22px; }
+.know-box strong { display:block; margin-bottom:6px; }
+.article-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px; }
+.article-card { display:flex; flex-direction:column; gap:10px; padding:22px; border:1px solid var(--rule); background:#fff; color:inherit; text-decoration:none; min-height:230px; }
+.article-card:hover, .article-card:focus-visible { border-color:var(--ink-soft); box-shadow:0 10px 26px rgba(15,31,58,.07); }
+.article-card:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
+.article-num { font-family:var(--mono); font-size:11px; color:var(--accent-deep); letter-spacing:.12em; }
+.article-title { font-family:var(--serif); font-size:1.08rem; line-height:1.5; color:var(--ink-mid); }
+.article-summary { font-size:.9rem; line-height:1.75; color:var(--text-mid); flex:1; }
+.article-cta { font-family:var(--mono); font-size:10px; letter-spacing:.14em; color:var(--ink-soft); text-transform:uppercase; border-top:1px solid var(--rule-soft); padding-top:12px; }
+.toolbox-panel { display:grid; grid-template-columns:minmax(0,.85fr) minmax(280px,.6fr); gap:32px; align-items:start; }
+.toolbox-cats { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; list-style:none; }
+.toolbox-cats li { background:#fff; border:1px solid var(--rule); padding:12px 14px; font-size:.9rem; color:var(--ink-mid); }
+.path-list { display:grid; gap:12px; margin-top:18px; }
+.path-list a { display:block; border:1px solid var(--rule); background:#fff; padding:16px 18px; color:inherit; }
+.theme-overview { padding:52px 0 76px; }
+.theme-overview-grid { display:grid; grid-template-columns:minmax(0,.8fr) minmax(280px,.45fr); gap:28px; align-items:start; }
+.info-card { background:#fff; border:1px solid var(--rule); padding:22px; margin-bottom:16px; }
+.info-card h2, .info-card h3 { font-family:var(--serif); color:var(--ink-mid); font-weight:400; margin-bottom:10px; line-height:1.4; }
+.info-card p { color:var(--text-mid); line-height:1.8; }
+.source-note { font-size:.9rem; color:var(--text-mid); }
+@media (max-width: 980px) { .issue-grid { display:flex; overflow-x:auto; padding-bottom:10px; scroll-snap-type:x proximity; } .issue-card { flex:0 0 78%; max-width:360px; scroll-snap-align:start; } .screen-head, .toolbox-panel, .theme-overview-grid { grid-template-columns:1fr; } }
+@media (max-width: 620px) { .issue-menu-head { display:block; } .toolbox-cats { grid-template-columns:1fr; } .article-cards { grid-template-columns:1fr; } }
+
 </style>
 </head>
 <body>
@@ -266,63 +312,47 @@ main.curriculum { padding-top: var(--nav-h); }
   <a href="/#contact" class="btn btn-primary mobile-menu-cta" onclick="toggleMenu()">30分の無料相談</a>
 </nav>
 <main id="main-content" class="curriculum" tabindex="-1">
-<div class="wrap crumbs">
-  <a href="/">JII</a> <span class="sep">/</span>
-  <a href="/governance/">ガバナンス・カリキュラム</a> <span class="sep">/</span>
-  コードの時代
-</div>
-<section class="curr-hero">
-  <div class="wrap">
-    <div class="curr-hero-inner">
-      <div class="curr-eyebrow">テーマ 2 · 2015年 → 2021年</div>
-      <h1>コードの時代</h1>
-      <p class="lede"><strong>2015年コーポレートガバナンス・コード</strong>とその2018年・2021年改訂を、コンプライ・オア・エクスプレインの仕組みとコーポレートガバナンス報告書の読み方とともに解説。並行して経済産業省のCGS・GGS・公正M&A・買収防衛ガイドラインの体系も整理。</p>
-      <div class="curr-hero-meta">
-        <span>記事数: <strong>5</strong></span>
-        <span>期間: <strong>2015年 → 2021年</strong></span>
-      </div>
-    </div>
-  </div>
+<div class="wrap crumbs"><a href="/">JII</a> <span class="sep">/</span> <a href="/governance/">ガバナンス</a> <span class="sep">/</span> テーマ 2</div>
+<section class="reader-hero">
+  <div class="wrap"><div class="curr-hero-inner"><div class="curr-eyebrow">テーマ 2 · コーポレートガバナンス・コード · 2015年 → 2021年</div><h1>会社と投資家の対話ルールを押さえる</h1><p class="lede">コーポレートガバナンス・コード、CG報告書、取締役会、サステナビリティ、多様性など、対話の土台を整理する。</p><p class="lede" style="font-size:.98rem;color:var(--text-mid);">2015年コードの構造、2018年改訂で入った資本コスト、2021年改訂で強まったプライム市場・サステナビリティ・多様性の要請を、CG報告書の読み方と合わせて確認します。</p></div></div>
 </section>
-<section class="post-list">
-  <div class="wrap">
-    <h2 style="font-family:var(--serif); font-size:1.6rem; font-weight:300; color:var(--ink-mid); margin-bottom:24px;">本テーマの記事一覧</h2>
-    <a href="/governance/cg-code/2.1-cg-code-2015-primer/" class="post-list-row" style="display:grid; color:inherit; text-decoration:none;">
-  <div class="post-list-num">2.1</div>
-  <div>
-    <div class="post-list-title">2015年コーポレートガバナンス・コード ― コンプライ・オア・エクスプレインの基礎</div>
-    <div class="post-list-meta" style="margin-top:6px; text-transform:none; letter-spacing:0.04em; color:var(--text-dim);">日本語本文公開済み ― 一次資料リンク付き</div>
-  </div>
-  <div class="post-list-meta">記事 →</div>
-</a><a href="/governance/cg-code/2.2-cg-code-2018-revision/" class="post-list-row" style="display:grid; color:inherit; text-decoration:none;">
-  <div class="post-list-num">2.2</div>
-  <div>
-    <div class="post-list-title">2018年改訂 ― 資本効率がコードに入った瞬間</div>
-    <div class="post-list-meta" style="margin-top:6px; text-transform:none; letter-spacing:0.04em; color:var(--text-dim);">日本語本文公開済み ― 一次資料リンク付き</div>
-  </div>
-  <div class="post-list-meta">記事 →</div>
-</a><a href="/governance/cg-code/2.3-cg-code-2021-revision/" class="post-list-row" style="display:grid; color:inherit; text-decoration:none;">
-  <div class="post-list-num">2.3</div>
-  <div>
-    <div class="post-list-title">2021年改訂 ― プライム市場・サステナビリティ・多様性</div>
-    <div class="post-list-meta" style="margin-top:6px; text-transform:none; letter-spacing:0.04em; color:var(--text-dim);">日本語本文公開済み ― 一次資料リンク付き</div>
-  </div>
-  <div class="post-list-meta">記事 →</div>
-</a><a href="/governance/cg-code/2.4-reading-a-cg-report/" class="post-list-row" style="display:grid; color:inherit; text-decoration:none;">
-  <div class="post-list-num">2.4</div>
-  <div>
-    <div class="post-list-title">コーポレートガバナンス報告書を15分で読む方法</div>
-    <div class="post-list-meta" style="margin-top:6px; text-transform:none; letter-spacing:0.04em; color:var(--text-dim);">日本語本文公開済み ― 一次資料リンク付き</div>
-  </div>
-  <div class="post-list-meta">記事 →</div>
-</a><a href="/governance/cg-code/2.5-meti-guideline-family/" class="post-list-row" style="display:grid; color:inherit; text-decoration:none;">
-  <div class="post-list-num">2.5</div>
-  <div>
-    <div class="post-list-title">コード vs ガイドライン ― 経済産業省の体系</div>
-    <div class="post-list-meta" style="margin-top:6px; text-transform:none; letter-spacing:0.04em; color:var(--text-dim);">日本語本文公開済み ― 一次資料リンク付き</div>
-  </div>
-  <div class="post-list-meta">記事 →</div>
-</a>
+<section class="theme-overview">
+  <div class="wrap theme-overview-grid">
+    <div>
+      <div class="info-card"><h2>このテーマで分かること</h2><p>2015年コードの構造、2018年改訂で入った資本コスト、2021年改訂で強まったプライム市場・サステナビリティ・多様性の要請を、CG報告書の読み方と合わせて確認します。</p></div>
+      <div class="info-card"><h2>IR実務で問題になる場面</h2><p>投資家面談で「コードのどの原則に基づく説明か」「CG報告書のどこに書いているか」を聞かれたとき、法務・総務・IRが同じ前提で答える必要がある場面。</p></div>
+      <div class="info-card"><h2>記事一覧</h2><div class="article-cards"><a href="/governance/cg-code/2.1-cg-code-2015-primer/" class="article-card">
+  <span class="article-num">記事 2.1</span>
+  <strong class="article-title">2015年コーポレートガバナンス・コード ― コンプライ・オア・エクスプレインの基礎</strong>
+  <span class="article-summary">2015年コードの要点は、5つの基本原則、30の原則、38の補充原則という構造と、コンプライ・オア・エクスプレインによるソフトロー運用にある。</span>
+  <span class="article-cta">この記事を読む →</span>
+</a><a href="/governance/cg-code/2.2-cg-code-2018-revision/" class="article-card">
+  <span class="article-num">記事 2.2</span>
+  <strong class="article-title">2018年改訂 ― 資本効率がコードに入った瞬間</strong>
+  <span class="article-summary">2018年改訂では資本コスト、政策保有株式、CEO後継者計画、企業年金のアセットオーナー機能が前面に出た。</span>
+  <span class="article-cta">この記事を読む →</span>
+</a><a href="/governance/cg-code/2.3-cg-code-2021-revision/" class="article-card">
+  <span class="article-num">記事 2.3</span>
+  <strong class="article-title">2021年改訂 ― プライム市場・サステナビリティ・多様性</strong>
+  <span class="article-summary">2021年改訂は、2022年4月の市場区分見直しを背景に、プライム市場上場会社への独立社外取締役、スキル・マトリックス、TCFD相当の気候開示、英文開示、電子議決権行使などを強めた。</span>
+  <span class="article-cta">この記事を読む →</span>
+</a><a href="/governance/cg-code/2.4-reading-a-cg-report/" class="article-card">
+  <span class="article-num">記事 2.4</span>
+  <strong class="article-title">コーポレートガバナンス報告書を15分で読む方法</strong>
+  <span class="article-summary">コーポレートガバナンス報告書は、コードへの対応状況、取締役会構成、政策保有株式、関連当事者、株主・ステークホルダー対応を短時間で読むための最重要資料である。</span>
+  <span class="article-cta">この記事を読む →</span>
+</a><a href="/governance/cg-code/2.5-meti-guideline-family/" class="article-card">
+  <span class="article-num">記事 2.5</span>
+  <strong class="article-title">コード vs ガイドライン ― 経済産業省の体系</strong>
+  <span class="article-summary">経済産業省のCGSガイドライン、公正なM&amp;Aの在り方に関する指針、グループ・ガバナンス実務指針などは、コードを実務に落とすための詳細な補助線として機能する。</span>
+  <span class="article-cta">この記事を読む →</span>
+</a></div></div>
+    </div>
+    <aside>
+      <div class="info-card"><h3>まず読むなら</h3><p>まずは2.1でコードの仕組みを確認し、2.4でCG報告書の読み方を押さえると、改訂論点を実務に落とし込みやすくなります。</p></div>
+      <div class="info-card"><h3>関連する公式資料</h3><p>金融庁・東京証券取引所のコーポレートガバナンス・コード、CG報告書様式、経済産業省のCGSガイドライン等。</p><p><a href="/governance/toolbox/">資料室で確認する →</a></p></div>
+      <div class="info-card"><h3>テーマ情報</h3><p>記事番号: 2.1〜2.5<br>時期: 2015年 → 2021年<br>正式テーマ名: コーポレートガバナンス・コード</p></div>
+    </aside>
   </div>
 </section>
 </main>
@@ -343,12 +373,12 @@ main.curriculum { padding-top: var(--nav-h); }
         </ul>
       </div>
       <div class="footer-col">
-        <h2>ガバナンス・カリキュラム</h2>
+        <h2>ガバナンス解説</h2>
         <ul>
-          <li><a href="/governance/">カリキュラム・ホーム</a></li>
+          <li><a href="/governance/">ガバナンス・ホーム</a></li>
           <li><a href="/governance/foundations/">テーマ1 ― 基礎</a></li>
           <li><a href="/governance/capital-efficiency/">テーマ4 ― 資本効率</a></li>
-          <li><a href="/governance/toolbox/">IRツールボックス</a></li>
+          <li><a href="/governance/toolbox/">資料室</a></li>
         </ul>
       </div>
       <div class="footer-col">
