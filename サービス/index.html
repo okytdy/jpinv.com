@@ -392,7 +392,6 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
 .contact-info-grid a { color: var(--text); text-decoration: none; }
 .contact-info-grid a:hover { color: var(--ink-soft); }
 
-
 /* FOOTER */
 footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rule); color: var(--text-mid); }
 .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 36px; margin-bottom: 38px; }
@@ -417,7 +416,6 @@ footer { background: #fff; padding: 64px 0 44px; border-top: 1px solid var(--rul
 @media (max-width: 900px) { .company-info-row--paired { grid-template-columns: 1fr; } }
 @media (max-width: 540px) { .company-info-band { padding: 20px 18px; } .company-info-list { gap: 16px; } .company-info-item { grid-template-columns: 1fr; gap: 6px; } .company-info-item dt { padding-top: 0; } }
 .footer-bottom { padding-top: 22px; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 14px; font-size: 0.7rem; color: var(--text-dim); }
-
 
 /* WCAG 2.1 AA accessibility helpers */
 .skip-link {
@@ -456,7 +454,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
 }
-
 
 @supports (content-visibility: auto) {
   body > section:not(#top):not(.hero), main > section:not(#top):not(.hero), footer { content-visibility: auto; contain-intrinsic-size: auto 720px; }
@@ -1017,7 +1014,17 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   }
 </style>
 <script src="/assets/locale-switcher.js" defer></script>
-</head>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "url": "https://jpinv.com/サービス//",
+  "name": "サービス｜英文IRを一貫させる翻訳・通訳・診断｜JII",
+  "description": "単発のIR英訳・通訳から、年度をまたいだ英文IR診断まで。用語集と翻訳メモリを一元管理し、開示資料・面談・IRサイトを同じ論理と同じ言葉で整えます。",
+  "inLanguage": "ja"
+}
+</script></head>
 <body>
 <a class="skip-link" href="#main-content">本文へ移動</a>
 <nav id="main-nav" role="navigation" aria-label="メインナビゲーション">
