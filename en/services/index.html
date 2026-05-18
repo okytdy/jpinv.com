@@ -223,11 +223,29 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
 
 .diag-foot { display: flex; justify-content: space-between; padding-top: 12px; margin-top: 14px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.12em; color: var(--text-dim); text-transform: uppercase; flex-wrap: wrap; gap: 6px; }
 
+/* SERVICE OPTIONS */
+.service-options-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: stretch; margin-top: 34px; }
+@media (max-width: 920px) { .service-options-grid { grid-template-columns: 1fr; } }
+.service-option { background: #fff; border: 1px solid var(--rule); padding: 34px 30px 28px; display: flex; flex-direction: column; position: relative; overflow: hidden; transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s; }
+.service-option::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.24s; }
+.service-option:hover { border-color: var(--accent); box-shadow: 0 14px 32px rgba(15,31,58,0.08); transform: translateY(-2px); }
+.service-option:hover::before { transform: scaleX(1); }
+.service-option-title { font-family: var(--sans); font-size: clamp(1.08rem, 1.7vw, 1.32rem); letter-spacing: 0.02em; color: var(--ink); font-weight: 600; line-height: 1.35; margin-bottom: 14px; }
+.service-option-summary { font-family: var(--serif); font-size: 1.12rem; line-height: 1.5; color: var(--ink); letter-spacing: 0.02em; margin-bottom: 18px; }
+.service-option-list { list-style: none; margin: 0 0 18px; display: flex; flex-direction: column; gap: 12px; }
+.service-option-list li { display: grid; grid-template-columns: 74px 1fr; gap: 12px; align-items: start; }
+.service-option-list b { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); font-weight: 600; padding-top: 0.28em; }
+.service-option-list span { font-family: var(--sans); font-size: 0.9rem; line-height: 1.6; color: var(--text); }
+.service-option-pills { display: flex; flex-wrap: wrap; gap: 8px; margin: auto 0 18px; padding-top: 4px; }
+.service-option-pill { font-family: var(--sans); font-size: 0.76rem; line-height: 1; color: var(--ink); background: var(--bg-soft); border: 1px solid var(--rule-soft); padding: 8px 10px; }
+.service-option-link { margin-top: auto; padding-top: 22px; font-family: var(--sans); font-size: 0.84rem; color: var(--ink); text-decoration: none; border-top: 1px solid var(--rule-soft); display: inline-flex; align-items: center; gap: 8px; }
+.service-option-link:hover { color: var(--accent); }
+
 /* SELF-CHECK */
 .selfcheck { max-width: 800px; }
 .selfcheck-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 @media (max-width: 700px) { .selfcheck-grid { grid-template-columns: 1fr; } }
-.selfcheck-opt { background: var(--bg-soft); border: 1px solid var(--rule); color: var(--ink); text-align: left; padding: 16px 18px; cursor: pointer; transition: all 0.2s; font-family: var(--sans); font-size: 0.9rem; line-height: 1.45; }
+.selfcheck-opt { background: var(--bg-soft); border: 1px solid var(--rule); color: var(--ink); text-align: left; padding: 18px 22px; min-height: 60px; cursor: pointer; transition: all 0.2s; font-family: var(--sans); font-size: 0.98rem; line-height: 1.5; }
 .selfcheck-opt:hover, .selfcheck-opt.active { border-color: var(--ink-soft); background: var(--rule-soft); color: var(--ink); }
 .selfcheck-result { margin-top: 22px; padding: 22px 24px; background: var(--bg-soft); border: 1px solid var(--rule); display: none; }
 .selfcheck-result.show { display: block; }
@@ -284,10 +302,10 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
 .plan-card .btn { margin-top: auto; align-self: flex-start; }
 
 /* CASES */
-.case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--rule); }
+.case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; background: transparent; }
 @media (max-width: 880px) { .case-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 540px) { .case-grid { grid-template-columns: 1fr; } }
-.case-card { background: var(--bg-soft); padding: 22px 24px; }
+.case-card { background: #fff; border: 1px solid var(--rule); padding: 22px 24px; }
 .case-card .case-tag { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; }
 .case-card h4, .case-card h3 { font-family: var(--sans); color: var(--ink); font-size: 1rem; margin: 6px 0 8px; font-weight: 500; line-height: 1.4; }
 .case-card p { font-size: 0.82rem; line-height: 1.55; }
@@ -480,25 +498,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   <div class="hero-glow" aria-hidden="true"></div>
   <div class="wrap">
     <div class="hero-body">
-      <div class="hero-eyebrow"><span class="label">Services — IR translation, interpretation, diagnostic retainers</span></div>
+      <div class="hero-eyebrow"><span class="label">Cross-border IR services</span></div>
       <div class="hero-title"><h1 class="mincho-xl">One English voice for Japanese IR.</h1></div>
       <p class="hero-sub">The problem is rarely English alone. Earnings releases, AGM notices, integrated reports, timely disclosures, IR websites, and investor-meeting Q&amp;A often speak in different words. JII keeps one term base and one translation memory for each client, then applies them across disclosure materials and meetings. Start with one document or one meeting, or retain us to diagnose how foreign investors are actually reading the story.</p>
       <div class="hero-ctas"><a href="#contact" class="btn btn-primary">Send an RFQ</a><a href="#tracks" class="btn btn-outline">Choose a service</a></div>
     </div>
   </div>
 </section>
-<!-- TRUST STRIP -->
-<section id="trust" aria-label="Confidentiality, primary contact, scope, business hours" style="background:var(--bg-soft);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:36px 0">
-  <div class="wrap">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px" class="trust-strip">
-      <div><span class="label" style="color:var(--accent)">Confidentiality</span><p style="font-size:0.82rem;line-height:1.7;margin-top:8px;color:var(--text)">NDA by default. For pre-disclosure materials, we log the document, timing, and personnel involved.</p></div>
-      <div><span class="label" style="color:var(--accent)">Founder-led</span><p style="font-size:0.82rem;line-height:1.7;margin-top:8px;color:var(--text)">Translation, interpretation, and diagnostics are handled directly by Teddy Okuyama.</p></div>
-      <div><span class="label" style="color:var(--accent)">Scope</span><p style="font-size:0.82rem;line-height:1.7;margin-top:8px;color:var(--text)">Japanese listed companies. IR, disclosure, and foreign-investor communication only.</p></div>
-      <div><span class="label" style="color:var(--accent)">Response</span><p style="font-size:0.82rem;line-height:1.7;margin-top:8px;color:var(--text)">Weekdays 9:00–18:00 JST. RFQs are normally answered within one business day.</p></div>
-    </div>
-  </div>
-</section>
-<style>@media (max-width: 768px) { .trust-strip { grid-template-columns: 1fr 1fr !important; } } @media (max-width: 480px) { .trust-strip { grid-template-columns: 1fr !important; } }</style>
 <!-- DUAL TRACK ARCHITECTURE -->
 <section id="tracks" aria-label="Service overview — two ways in">
   <div class="wrap">
@@ -521,6 +527,41 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
         <p>The Foreign IR Diagnostic Card shows where investors stop, what they cannot underwrite, and which three fixes should move into the next disclosure, Q&amp;A, or meeting-prep cycle.</p>
         <p><a href="/en/pricing/" style="border-bottom:1px solid var(--ink);font-size:0.85rem">See retainer pricing →</a></p>
       </div>
+    </div>
+    <div class="service-options-grid reveal" aria-label="Three service modes">
+      <article class="service-option">
+        <h3 class="service-option-title">A — Human translation</h3>
+        <p class="service-option-summary">For disclosure and IR materials that will represent the company externally.</p>
+        <ul class="service-option-list">
+          <li><b>Use</b><span>Earnings summaries, earnings decks, AGM notices, integrated reports, and timely disclosures.</span></li>
+          <li><b>Check</b><span>Prior wording, term-base updates, numbers, names, and investor-facing English.</span></li>
+          <li><b>Timing</b><span>Normally 2–5 business days, depending on volume and format.</span></li>
+        </ul>
+        <div class="service-option-pills"><span class="service-option-pill">No AI</span><span class="service-option-pill">Publication-ready</span><span class="service-option-pill">Terminology carried forward</span></div>
+        <a class="service-option-link" href="#contact" data-rfq-service="translation">Ask about human translation →</a>
+      </article>
+      <article class="service-option">
+        <h3 class="service-option-title">B — AI draft + specialist review</h3>
+        <p class="service-option-summary">For faster drafts that still need IR-specialist judgment before use.</p>
+        <ul class="service-option-list">
+          <li><b>Use</b><span>Internal checks, pre-review drafts, supporting materials, and time-sensitive rough translations.</span></li>
+          <li><b>Check</b><span>Expression, numbers, legal / disclosure terms, and consistency with past materials.</span></li>
+          <li><b>AI</b><span>The AI scope is agreed in advance; no-AI handling remains available for sensitive work.</span></li>
+        </ul>
+        <div class="service-option-pills"><span class="service-option-pill">1–3 business days</span><span class="service-option-pill">Specialist review</span><span class="service-option-pill">Cost control</span></div>
+        <a class="service-option-link" href="#contact" data-rfq-service="translation">Ask about reviewed AI draft →</a>
+      </article>
+      <article class="service-option">
+        <h3 class="service-option-title">C — IR meeting interpretation</h3>
+        <p class="service-option-summary">For meetings where the document language and spoken answers need to match.</p>
+        <ul class="service-option-list">
+          <li><b>Use</b><span>1-on-1s, IR Days, earnings calls, roadshows, and broker conferences.</span></li>
+          <li><b>Prep</b><span>Materials read-in, expected Q&amp;A, terminology alignment, and briefing before the meeting.</span></li>
+          <li><b>Mode</b><span>Online, half-day, full-day, consecutive, or simultaneous, scoped to the meeting.</span></li>
+        </ul>
+        <div class="service-option-pills"><span class="service-option-pill">Pre-briefing</span><span class="service-option-pill">Shared terminology</span><span class="service-option-pill">Optional notes</span></div>
+        <a class="service-option-link" href="#contact" data-rfq-service="interpretation">Ask about interpretation →</a>
+      </article>
     </div>
     <div class="selfcheck reveal" style="margin-top:36px" aria-label="Service selector">
       <p class="selfcheck-prompt">Choose the closest current problem.</p>

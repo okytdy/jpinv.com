@@ -640,9 +640,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     flex: 0 0 auto; scroll-snap-align: start;
     background: #fff; color: var(--text);
     border: 1px solid var(--rule);
-    padding: 11px 18px; font-family: var(--sans); font-size: 0.86rem;
+    padding: 15px 24px; font-family: var(--sans); font-size: 1rem;
     cursor: pointer; transition: all 0.18s;
     white-space: nowrap;
+    min-height: 52px;
   }
   .chip:hover { border-color: var(--ink-soft); color: var(--ink); }
   .chip.is-selected {
@@ -657,35 +658,32 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   }
   .scard {
     background: #fff; border: 1px solid var(--rule);
-    padding: 32px 30px 28px; display: flex; flex-direction: column;
-    transition: border-color 0.2s, box-shadow 0.2s;
+    padding: 34px 30px 28px; display: flex; flex-direction: column;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    position: relative; overflow: hidden;
   }
-  .scard:hover { border-color: var(--accent); }
+  .scard::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.24s; }
+  .scard:hover { border-color: var(--accent); box-shadow: 0 14px 32px rgba(15,31,58,0.08); transform: translateY(-2px); }
+  .scard:hover::before { transform: scaleX(1); }
   .scard-eyebrow {
-    font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.2em;
-    text-transform: uppercase; color: var(--ink-soft); font-weight: 500;
-    margin-bottom: 12px;
+    font-family: var(--sans); font-size: clamp(1.08rem, 1.7vw, 1.32rem); letter-spacing: 0.03em;
+    color: var(--ink); font-weight: 600; line-height: 1.35;
+    margin-bottom: 14px;
   }
-  .scard h3 {
-    font-family: var(--serif); font-weight: 300; color: var(--ink);
-    font-size: 1.55rem; letter-spacing: 0.04em; line-height: 1.35;
-    margin: 0 0 18px;
+  .scard-summary {
+    font-family: var(--serif); font-size: 1.18rem; line-height: 1.55; color: var(--ink);
+    letter-spacing: 0.03em; margin-bottom: 18px;
   }
-  .scard-divider { height: 1px; background: var(--rule-soft); margin: 4px 0 22px; }
-  .scard dl { margin: 0 0 18px; }
-  .scard dt {
-    font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em;
-    text-transform: uppercase; color: var(--ink-soft); font-weight: 500;
-    margin-top: 14px;
-  }
-  .scard dt:first-child { margin-top: 0; }
-  .scard dd {
-    margin: 6px 0 0; font-family: var(--sans); font-size: 0.9rem;
-    line-height: 1.7; color: var(--text);
-  }
+  .scard-divider { height: 1px; background: var(--rule-soft); margin: 0 0 20px; }
+  .scard-list { list-style: none; margin: 0 0 18px; display: flex; flex-direction: column; gap: 12px; }
+  .scard-list li { display: grid; grid-template-columns: 72px 1fr; gap: 12px; align-items: start; }
+  .scard-list b { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); font-weight: 600; padding-top: 0.28em; }
+  .scard-list span { font-family: var(--sans); font-size: 0.94rem; line-height: 1.7; color: var(--text); }
+  .scard-pills { display: flex; flex-wrap: wrap; gap: 8px; margin: auto 0 18px; padding-top: 4px; }
+  .scard-pill { font-family: var(--sans); font-size: 0.76rem; line-height: 1; color: var(--ink); background: var(--bg-soft); border: 1px solid var(--rule-soft); padding: 8px 10px; }
   .scard .price-line {
-    font-family: var(--serif); font-weight: 400; font-size: 1.15rem;
-    color: var(--ink); letter-spacing: 0.02em; margin-top: 4px;
+    font-family: var(--serif); font-weight: 400; font-size: 1.2rem;
+    color: var(--ink); letter-spacing: 0.02em;
   }
   .scard-cta {
     margin-top: auto; padding-top: 22px;
@@ -831,9 +829,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   /* ---------- CASE CARDS ---------- */
   .case-grid {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+    background: transparent;
   }
   .case {
-    background: var(--bg-soft); padding: 30px 28px; border: 0;
+    background: #fff; padding: 30px 28px; border: 1px solid var(--rule);
     display: flex; flex-direction: column; gap: 14px;
   }
   .case-num {
@@ -1063,15 +1062,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   <!-- =================== HERO =================== -->
   <section class="hero">
     <div class="wrap">
-      <div class="hero-eyebrow">サービス<span class="dot">·</span>IR-FIRST<span class="dot">·</span>NDA READY</div>
+      <div class="hero-eyebrow">海外投資家向けIR支援</div>
       <h1 class="hero-h1">IRの言葉を、<br class="desktop">海外投資家の論理に揃える。</h1>
       <p class="hero-sub">決算短信・説明資料・招集通知・IR面談まで、<br class="desktop">用語と論理を年度をまたいで一つに保ちます。</p>
-      <ul class="trust-strip">
-        <li>NDA 標準締結</li>
-        <li>代表が直接担当</li>
-        <li>外部委託なし</li>
-        <li>通常 1営業日返信</li>
-      </ul>
       <div class="hero-ctas">
         <a class="btn-primary" href="#rfq" data-cta="estimate">概算を依頼<span class="arr">→</span></a>
         <a class="btn-outline" href="#rfq" data-cta="nda">NDAを先に依頼<span class="arr">→</span></a>
@@ -1103,61 +1096,52 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   <section class="section">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">仕上げ方</span>
-        <h2 class="h-section">どう仕上げるか</h2>
+        <h2 class="h-section">ご依頼内容に合わせた3つの進め方</h2>
         <div class="h-rule"></div>
-        <p class="section-sub">3つの仕上げ方から選び、必要に応じて組み合わせます。</p>
+        <p class="section-sub">資料の重要度、機密性、納期に合わせて最適な進め方をご提案します。必要に応じて、翻訳・レビュー・通訳を同じ用語方針で組み合わせます。</p>
       </div>
 
       <div class="cards-3">
 
         <article class="scard">
           <div class="scard-eyebrow">A — 人間翻訳</div>
+          <p class="scard-summary">開示・IR資料を、最初から最後まで人の手で英訳します。</p>
           <div class="scard-divider"></div>
-          <dl>
-            <dt>向いている案件</dt>
-            <dd>決算短信・説明資料・招集通知の英訳本番</dd>
-            <dt>含まれる作業</dt>
-            <dd>過去開示との整合 / 用語集の更新 / 数値・固有名詞チェック / IR文脈の自然な英語</dd>
-            <dt>標準納期</dt>
-            <dd>2〜5営業日（資料規模による）</dd>
-            <dt>参考価格</dt>
-            <dd class="price-line">¥50,000〜</dd>
-          </dl>
+          <ul class="scard-list">
+            <li><b>用途</b><span>決算短信、説明資料、招集通知など対外公表前提の資料。</span></li>
+            <li><b>確認</b><span>過去開示との整合、用語集更新、数値・固有名詞、IR文脈の自然さ。</span></li>
+            <li><b>納期</b><span>2〜5営業日（資料規模により調整）。</span></li>
+            <li><b>参考</b><span class="price-line">¥50,000〜</span></li>
+          </ul>
+          <div class="scard-pills"><span class="scard-pill">AI不使用</span><span class="scard-pill">公表資料向け</span><span class="scard-pill">用語継承</span></div>
           <a class="scard-cta" href="#rfq" data-preselect-type="単発翻訳">このサービスで相談<span class="arr">→</span></a>
         </article>
 
         <article class="scard">
           <div class="scard-eyebrow">B — AI初稿＋専門チェック</div>
+          <p class="scard-summary">初稿作成を効率化し、IR専門チェックで実務に使える英文へ整えます。</p>
           <div class="scard-divider"></div>
-          <dl>
-            <dt>向いている案件</dt>
-            <dd>社内向け確認、レビュー前ドラフト、補助資料</dd>
-            <dt>含まれる作業</dt>
-            <dd>AIによる初稿生成 / IR専門者による表現・数値・法令用語の確認 / 用語集反映</dd>
-            <dt>AI利用範囲</dt>
-            <dd>事前明示。機密度の高い案件はAI未使用も選択可。</dd>
-            <dt>標準納期</dt>
-            <dd>1〜3営業日</dd>
-            <dt>参考価格</dt>
-            <dd class="price-line">¥30,000〜</dd>
-          </dl>
+          <ul class="scard-list">
+            <li><b>用途</b><span>社内確認、レビュー前ドラフト、補助資料、短納期の下訳。</span></li>
+            <li><b>確認</b><span>表現、数値、法令用語、過去資料との用語整合を人が確認。</span></li>
+            <li><b>AI</b><span>利用範囲は事前に明示。機密度に応じてAI不使用も選択できます。</span></li>
+            <li><b>参考</b><span class="price-line">¥30,000〜</span></li>
+          </ul>
+          <div class="scard-pills"><span class="scard-pill">1〜3営業日</span><span class="scard-pill">専門チェック</span><span class="scard-pill">費用調整</span></div>
           <a class="scard-cta" href="#rfq" data-preselect-type="単発翻訳">このサービスで相談<span class="arr">→</span></a>
         </article>
 
         <article class="scard">
           <div class="scard-eyebrow">C — IR面談通訳</div>
+          <p class="scard-summary">資料の言葉と面談での説明がずれないよう、事前準備から通訳まで支援します。</p>
           <div class="scard-divider"></div>
-          <dl>
-            <dt>向いている案件</dt>
-            <dd>1on1 / IRデイ / 決算説明会 / 海外ロードショー</dd>
-            <dt>含まれる作業</dt>
-            <dd>資料事前読込 / 想定Q&amp;A整理 / 当日通訳 / 論点メモ（任意）</dd>
-            <dt>形式</dt>
-            <dd>オンライン / 半日 / 終日</dd>
-            <dt>参考価格</dt>
-            <dd class="price-line">オンライン ¥20,000〜</dd>
-          </dl>
+          <ul class="scard-list">
+            <li><b>用途</b><span>1on1、IRデイ、決算説明会、海外ロードショー。</span></li>
+            <li><b>準備</b><span>資料読込、想定Q&amp;A整理、当日の論点共有。</span></li>
+            <li><b>形式</b><span>オンライン、半日、終日。逐次・同時通訳は案件ごとに設計。</span></li>
+            <li><b>参考</b><span class="price-line">オンライン ¥20,000〜</span></li>
+          </ul>
+          <div class="scard-pills"><span class="scard-pill">事前ブリーフ</span><span class="scard-pill">用語統一</span><span class="scard-pill">論点メモ可</span></div>
           <a class="scard-cta" href="#rfq" data-preselect-type="単発通訳">このサービスで相談<span class="arr">→</span></a>
         </article>
 
@@ -1345,7 +1329,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     <div class="wrap">
       <div class="section-head">
         <span class="eyebrow">過去の対応事例</span>
-        <h2 class="h-section">最近の実績（匿名化）</h2>
+        <h2 class="h-section">社名非公開の対応実績</h2>
         <div class="h-rule"></div>
       </div>
       <div class="case-grid">
@@ -1356,8 +1340,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
           <div class="case-meta">アナリストレポート英訳／アナリストコール通訳／投資家面談通訳　｜　継続契約</div>
           <p class="case-ronten-h">論点</p>
           <ul class="case-ronten">
-            <li>アナリストレポート全件で、翻訳品質と用語運用の一貫性を担保。</li>
-            <li>通訳業務では、ブローカーの見解を投資家へ、投資家の見解を発行会社へと、双方向の意図を一つの声で橋渡し。</li>
+            <li>レポート英訳の品質と用語運用を継続的に統一。</li>
+            <li>投資家・発行会社・ブローカー間の意図を同じ文脈で橋渡し。</li>
           </ul>
         </article>
 
@@ -1367,8 +1351,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
           <div class="case-meta">日本株プログラム向けの通訳業務　｜　長期パートナーシップ</div>
           <p class="case-ronten-h">論点</p>
           <ul class="case-ronten">
-            <li>過去には来日出張の日程組成（発行会社との面談アレンジ）まで含めて運営。</li>
-            <li>以降、複数回にわたり通訳業務を継続的に受託。</li>
+            <li>来日出張時の面談アレンジから当日の通訳まで支援。</li>
+            <li>複数回の案件で、同じ投資方針・用語前提を継続。</li>
           </ul>
         </article>
 
@@ -1378,8 +1362,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
           <div class="case-meta">決算説明会トランスクリプト翻訳（長期契約）、小売業の戦略資料、決算短信・適時開示・ニュースリリースなど</div>
           <p class="case-ronten-h">論点</p>
           <ul class="case-ronten">
-            <li>文書種別ごとに用語集・翻訳メモリを整備し、発信媒体が変わっても一貫した英文IRを維持。</li>
-            <li>開示タイミングに合わせた継続運用体制。</li>
+            <li>文書種別ごとに用語集・翻訳メモリを整備。</li>
+            <li>開示スケジュールに合わせ、媒体をまたいだ英文IRの一貫性を維持。</li>
           </ul>
         </article>
 
