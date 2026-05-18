@@ -111,20 +111,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
 </style>
 <script src="/assets/locale-switcher.js" defer></script>
-
-<meta property="og:image" content="https://jpinv.com/assets/logo-jii-wordmark.svg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://jpinv.com/assets/logo-jii-wordmark.svg">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "url": "https://jpinv.com/compounders/universe//",
-  "name": "銘柄ユニバース｜JII Compounders日本株リスト",
-  "description": "長く稼ぎ続ける日本の上場企業を時価総額、EV/EBIT、収益性、フリーキャッシュフロー利回りで比較できるJII Compoundersの銘柄一覧です。",
-  "inLanguage": "ja"
-}
-</script></head>
+</head>
 <body>
 <a class="skip-link" href="#main-content">本文へ移動</a>
 <main id="main-content" tabindex="-1">
@@ -1108,7 +1095,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     </tr>
     <tr data-status="active" data-mc="6715" data-roce="29.05" data-evebit="5.04" data-fcfy="4.75" data-score="5.76" data-sec="58430">
       <td class="cell-rank">64</td>
-      <td class="cell-tk">5843</td>
+      <td class="cell-tk"><a href="/compounders/5843/">5843</a></td>
       <td class="cell-name">ニッポンインシュア株式会社</td>
       <td class="cell-ind">その他金融業</td>
       <td class="cell-num">¥6.7bn</td>
@@ -1227,33 +1214,4 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   let curFilter = "all";
   let curSort = {key:"mc", dir:"desc"};
   function applyFilter() {
-    rows.forEach(r => {
-      const s = r.dataset.status;
-      const show = curFilter === "all" ||
-                   (curFilter === "active" && s === "active") ||
-                   (curFilter === "near_miss" && s.startsWith("near_miss"));
-      r.classList.toggle("row-hidden", !show);
-    });
-  }
-  function applySort() {
-    const key = curSort.key, dir = curSort.dir === "asc" ? 1 : -1;
-    const sorted = rows.slice().sort((a,b) => {
-      const av = parseFloat(a.dataset[key])||0;
-      const bv = parseFloat(b.dataset[key])||0;
-      return (av - bv) * dir;
-    });
-    sorted.forEach(r => tbody.appendChild(r));
-  }
-  document.querySelectorAll("[data-filter]").forEach(b => b.addEventListener("click", () => {
-    document.querySelectorAll("[data-filter]").forEach(x => x.classList.remove("active"));
-    b.classList.add("active"); curFilter = b.dataset.filter; applyFilter();
-  }));
-  document.querySelectorAll(".sort-trigger").forEach(b => b.addEventListener("click", () => {
-    document.querySelectorAll(".sort-trigger").forEach(x => x.classList.remove("active"));
-    b.classList.add("active"); curSort = {key:b.dataset.sort, dir:b.dataset.dir}; applySort();
-  }));
-  applySort();
-})();
-</script>
-</body>
-</html>
+    rows.fo

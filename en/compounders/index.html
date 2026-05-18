@@ -108,6 +108,7 @@
     .universe-cta { width: 100%; justify-content: center; padding: 14px 20px; }
   }
 
+
   .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
   @media (max-width: 760px) {
     .grid { grid-template-columns: 1fr; }
@@ -155,6 +156,7 @@
   }
   .placeholder .label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 8px; }
   .placeholder .msg { font-family: var(--serif); font-size: 1rem; color: var(--text-mid); line-height: 1.55; max-width: 320px; }
+
 
   /* Company-call request form */
   .company-call-cta { margin-top: 42px; }
@@ -260,20 +262,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
 </style>
 <script src="/assets/locale-switcher.js" defer></script>
-
-<meta property="og:image" content="https://jpinv.com/assets/logo-jii-wordmark.svg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://jpinv.com/assets/logo-jii-wordmark.svg">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "url": "https://jpinv.com/en/compounders//",
-  "name": "JII Compounders | Japanese Equity Profiles for Global Investors",
-  "description": "JII Compounders profiles Japanese listed companies through the lens of global investors, focusing on valuation, disclosure, capital efficiency, and compounding quality.",
-  "inLanguage": "en"
-}
-</script></head>
+</head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
@@ -323,6 +312,37 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     </div>
 
     <div class="grid" id="profile-grid">
+
+                  <a class="card" href="/en/compounders/5843/" data-date="2026-05-19" data-ticker="5843">
+        <div class="card-head">
+          <span class="card-ticker">TSE STANDARD · 5843</span>
+          <span class="card-sector">Rent-Debt Guarantee · Pure-Play Specialty Credit</span>
+        </div>
+        <h3 class="card-name">Nippon Insure Co., Ltd.</h3>
+        <p class="card-jp">ニッポンインシュア株式会社</p>
+        <p class="card-hook"><b>Nippon Insure&apos;s renewal-stack compounding is intact. The market is no longer paying for the FY9/25 inflection as a permanent slope.</b><br><br>FY9/25 operating profit grew +81.5% as the renewal/monthly premium stack hit absorption, then the FY9/26 guide reset to +16.4% and the stock handed back roughly a third from the August-2025 peak. H1 FY9/26 already booked 67% of full-year OP guide. Three specific disclosures &mdash; initial-contract transparency, a restated payout policy, and a related-party decomposition &mdash; could reweight a 32% ROCE business now trading at 5.3x forward EV/EBIT.</p>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">Last Close</div>
+            <div class="card-stat-val">¥2,418</div>
+          </div>
+          <div>
+            <div class="card-stat-label">EV / EBIT</div>
+            <div class="card-stat-val">5.3<small>x</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ROCE</div>
+            <div class="card-stat-val">32<small>%</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">Net Cash / MC</div>
+            <div class="card-stat-val">33<small>%</small></div>
+          </div>
+        </div>
+        <div class="card-meta-row">
+          <span>Published 19 May 2026</span>
+        </div>
+      </a>
 
                   <a class="card" href="/en/compounders/4058/" data-date="2026-05-18" data-ticker="4058">
         <div class="card-head">
@@ -645,20 +665,4 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
         return (b.dataset.date || '').localeCompare(a.dataset.date || '');
       });
       // Re-append cards in sort order, then placeholders at the end
-      cards.concat(placeholders).forEach(function (el) { grid.appendChild(el); });
-      btnDate.classList.toggle('active', mode === 'date');
-      btnTicker.classList.toggle('active', mode === 'ticker');
-      try { localStorage.setItem('jii_compounders_sort', mode); } catch (e) {}
-    }
-
-    var saved;
-    try { saved = localStorage.getItem('jii_compounders_sort'); } catch (e) { saved = null; }
-    applySort(saved === 'ticker' ? 'ticker' : 'date');
-
-    btnDate.addEventListener('click', function () { applySort('date'); });
-    btnTicker.addEventListener('click', function () { applySort('ticker'); });
-  })();
-</script>
-
-</body>
-</html>
+      car
