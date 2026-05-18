@@ -448,6 +448,561 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 @supports (content-visibility: auto) {
   body > section:not(#top):not(.hero), main > section:not(#top):not(.hero), footer { content-visibility: auto; contain-intrinsic-size: auto 720px; }
 }
+
+/* ============================================================
+   CLAUDE DESIGN — page-specific styles for Services rebuild
+   2026-05-18. Source tokens live in site-wide :root above.
+   ============================================================ */
+  /* ============================================================
+     Services page — local layout. All tokens come from JII.
+     ============================================================ */
+
+  *, *::before, *::after { box-sizing: border-box; }
+  body { margin: 0; }
+  img { display: block; max-width: 100%; }
+  button { font: inherit; }
+
+  /* Japanese line-break handling — keep phrases whole; never break mid-phrase. */
+  h1, h2, h3, .hero-sub, .section-sub, .acc-trigger, .scard dd, .case-body,
+  .conf-panel p, .case-tag, .method-chip, ul.case-ronten li, .dx-card p, .dx-pull-body {
+    word-break: keep-all;
+    line-break: strict;
+    overflow-wrap: anywhere;
+  }
+  /* Hard breaks rendered only on desktop. */
+  br.desktop { display: inline; }
+  @media (max-width: 768px) {
+    br.desktop { display: none; }
+  }
+
+  /* Skip link */
+  .skip-link {
+    position: absolute; top: -40px; left: 12px; z-index: 200;
+    background: var(--ink); color: #fff; padding: 8px 12px;
+    text-decoration: none; font-family: var(--mono); font-size: 0.7rem;
+    letter-spacing: 0.12em; border-radius: 4px;
+  }
+  .skip-link:focus { top: 12px; }
+
+  /* ---------- NAV ---------- */
+  .site-nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    height: var(--nav-h); background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--rule);
+    transition: box-shadow 0.3s;
+  }
+  .site-nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
+  .nav-inner {
+    height: 100%; display: flex; align-items: center; gap: 16px;
+  }
+  .nav-brand { display: inline-flex; align-items: center; text-decoration: none; flex: 0 0 auto; }
+  .nav-brand .wordmark { height: 38px; width: auto; display: block; }
+  .nav-brand .monogram { display: none; height: 32px; width: 32px; }
+  .nav-links {
+    flex: 1; display: flex; justify-content: center; gap: 20px;
+    list-style: none; margin: 0; padding: 0;
+    white-space: nowrap;
+  }
+  .nav-links a {
+    font-family: var(--sans); font-size: 0.78rem; font-weight: 400;
+    letter-spacing: 0.02em; color: var(--text);
+    text-decoration: none; padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .nav-links a.is-active { color: var(--ink); border-bottom-color: var(--ink); }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+  .locale {
+    display: inline-flex; align-items: center;
+    font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em;
+  }
+  .locale a {
+    padding: 6px 9px; text-decoration: none; color: var(--text-dim);
+    border: 1px solid var(--rule);
+  }
+  .locale a + a { margin-left: -1px; }
+  .locale a.is-active { color: var(--ink); border-color: var(--ink-mid); background: var(--bg-soft); }
+  .nav-cta {
+    display: inline-block; background: var(--ink); color: #fff; text-decoration: none;
+    padding: 8px 13px; font-family: var(--sans); font-size: 0.68rem;
+    letter-spacing: 0.06em; transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--ink-mid); }
+  .nav-burger { display: none; }
+
+  /* ---------- LAYOUT PRIMITIVES ---------- */
+  main { padding-top: var(--nav-h); }
+  .section { padding: var(--pad) 0; border-top: 1px solid var(--rule); }
+  .section:first-of-type { border-top: none; }
+  .section.alt { background: var(--bg-soft); }
+  .section.alt-mid { background: var(--bg-mid); }
+
+  .section-head { max-width: 640px; margin-bottom: 44px; position: relative; }
+  .section-head.with-toggle {
+    display: flex; align-items: flex-end; justify-content: space-between; gap: 24px;
+    max-width: none;
+  }
+  .section-head.with-toggle .section-head-inner { max-width: 640px; }
+  .eyebrow {
+    display: inline-block;
+    font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--ink-soft); font-weight: 500;
+    margin-bottom: 14px;
+  }
+  h2.h-section {
+    font: var(--type-h1); letter-spacing: 0.04em; color: var(--ink);
+    margin: 0; font-weight: 300;
+  }
+  .h-rule { width: 32px; height: 2px; background: var(--accent); margin: 16px 0 22px; }
+  .section-sub {
+    font-family: var(--sans); font-size: 0.96rem; line-height: 1.85;
+    color: var(--text); margin: 0; max-width: 640px;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    position: relative; overflow: hidden;
+    padding: clamp(72px, 10vw, 132px) 0 clamp(64px, 8vw, 104px);
+    border-top: none;
+    background:
+      radial-gradient(540px 540px at calc(100% - 60px) 8%, rgba(26,42,74,0.025), transparent 60%),
+      linear-gradient(to bottom, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.6) 35%, rgba(255,255,255,0.96) 100%),
+      repeating-linear-gradient(0deg, rgba(26,42,74,0.025) 0 1px, transparent 1px 64px),
+      repeating-linear-gradient(90deg, rgba(26,42,74,0.025) 0 1px, transparent 1px 64px),
+      #fff;
+  }
+  .hero-eyebrow {
+    font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--ink-soft); font-weight: 500;
+    margin-bottom: 28px;
+  }
+  .hero-eyebrow .dot { color: var(--accent); margin: 0 10px; }
+  h1.hero-h1 {
+    font: var(--type-display-jp); letter-spacing: 0.04em; color: var(--ink);
+    font-weight: 300; margin: 0 0 26px; max-width: 940px;
+  }
+  .hero-sub {
+    font-family: var(--sans); font-size: 1.02rem; line-height: 1.85;
+    color: var(--text); max-width: 680px; margin: 0 0 32px;
+  }
+  .trust-strip {
+    display: flex; flex-wrap: wrap; gap: 6px 14px;
+    margin: 0 0 38px; padding: 0; list-style: none;
+    font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--ink-soft);
+  }
+  .trust-strip li { display: inline-flex; align-items: center; }
+  .trust-strip li + li::before {
+    content: "·"; margin-right: 14px; color: var(--accent);
+    font-size: 1rem; letter-spacing: 0;
+  }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn-primary, .btn-outline {
+    display: inline-flex; align-items: center; gap: 10px;
+    text-decoration: none; cursor: pointer;
+    font-family: var(--sans); font-size: 0.86rem; font-weight: 400;
+    letter-spacing: 0.06em; padding: 14px 26px; border: 1px solid transparent;
+    transition: all 0.2s;
+  }
+  .btn-primary { background: var(--ink); color: #fff; }
+  .btn-primary:hover { background: var(--ink-mid); }
+  .btn-outline { background: transparent; color: var(--ink); border-color: var(--ink-mid); }
+  .btn-outline:hover { border-color: var(--ink); }
+  .btn-primary .arr, .btn-outline .arr { font-family: var(--serif); font-size: 1rem; line-height: 1; }
+
+  /* ---------- USE-CASE CHIPS ---------- */
+  .chips-wrap {
+    margin-top: 6px;
+    overflow-x: auto; overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+    scrollbar-width: thin;
+  }
+  .chips {
+    display: inline-flex; gap: 10px; padding: 4px 0 18px;
+  }
+  .chip {
+    flex: 0 0 auto; scroll-snap-align: start;
+    background: #fff; color: var(--text);
+    border: 1px solid var(--rule);
+    padding: 11px 18px; font-family: var(--sans); font-size: 0.86rem;
+    cursor: pointer; transition: all 0.18s;
+    white-space: nowrap;
+  }
+  .chip:hover { border-color: var(--ink-soft); color: var(--ink); }
+  .chip.is-selected {
+    border-color: var(--ink); color: var(--ink);
+    background: var(--bg-soft);
+  }
+
+  /* ---------- SERVICE CARDS ---------- */
+  .cards-3 {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    align-items: stretch;
+  }
+  .scard {
+    background: #fff; border: 1px solid var(--rule);
+    padding: 32px 30px 28px; display: flex; flex-direction: column;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .scard:hover { border-color: var(--accent); }
+  .scard-eyebrow {
+    font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--ink-soft); font-weight: 500;
+    margin-bottom: 12px;
+  }
+  .scard h3 {
+    font-family: var(--serif); font-weight: 300; color: var(--ink);
+    font-size: 1.55rem; letter-spacing: 0.04em; line-height: 1.35;
+    margin: 0 0 18px;
+  }
+  .scard-divider { height: 1px; background: var(--rule-soft); margin: 4px 0 22px; }
+  .scard dl { margin: 0 0 18px; }
+  .scard dt {
+    font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--ink-soft); font-weight: 500;
+    margin-top: 14px;
+  }
+  .scard dt:first-child { margin-top: 0; }
+  .scard dd {
+    margin: 6px 0 0; font-family: var(--sans); font-size: 0.9rem;
+    line-height: 1.7; color: var(--text);
+  }
+  .scard .price-line {
+    font-family: var(--serif); font-weight: 400; font-size: 1.15rem;
+    color: var(--ink); letter-spacing: 0.02em; margin-top: 4px;
+  }
+  .scard-cta {
+    margin-top: auto; padding-top: 22px;
+    font-family: var(--sans); font-size: 0.84rem; color: var(--ink);
+    text-decoration: none; border-top: 1px solid var(--rule-soft);
+    display: inline-flex; align-items: center; gap: 8px;
+    padding-bottom: 0; padding-left: 0; padding-right: 0;
+  }
+  .scard-cta:hover { color: var(--accent); }
+  .scard-cta .arr { font-family: var(--serif); }
+
+  /* ---------- PRICING TABLE ---------- */
+  .seg {
+    display: inline-flex; border: 1px solid var(--rule); background: #fff;
+    flex-shrink: 0;
+  }
+  .seg button {
+    background: transparent; border: 0; cursor: pointer;
+    padding: 9px 18px; font-family: var(--sans); font-size: 0.82rem;
+    color: var(--text-dim); letter-spacing: 0.04em;
+    transition: all 0.18s;
+  }
+  .seg button + button { border-left: 1px solid var(--rule); }
+  .seg button.is-active { background: var(--ink); color: #fff; }
+
+  .price-table-wrap {
+    overflow-x: auto; -webkit-overflow-scrolling: touch;
+    border: 1px solid var(--rule); background: #fff;
+  }
+  table.price-table {
+    width: 100%; min-width: 720px; border-collapse: collapse;
+    font-family: var(--sans);
+  }
+  table.price-table thead th {
+    font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--ink-soft); font-weight: 500;
+    text-align: left; padding: 16px 22px; background: var(--bg-mid);
+    border-bottom: 1px solid var(--rule);
+  }
+  table.price-table tbody td {
+    padding: 22px 22px; border-bottom: 1px solid var(--rule-soft);
+    vertical-align: top; color: var(--text); font-size: 0.92rem;
+  }
+  table.price-table tbody tr:last-child td { border-bottom: 0; }
+  table.price-table tbody td.doc {
+    color: var(--ink); font-weight: 500; font-size: 0.96rem;
+  }
+  table.price-table tbody td.price {
+    font-family: var(--serif); font-weight: 400; color: var(--ink);
+    font-size: 1.02rem; letter-spacing: 0.02em;
+  }
+  table.price-table tbody td.muted { color: var(--text-dim); }
+  table.price-table tbody td.lead {
+    font-family: var(--sans); color: var(--ink); font-size: 0.95rem; font-weight: 500;
+  }
+  /* Highlight pulse */
+  table.price-table tbody tr.flash td {
+    background: var(--accent-soft);
+    transition: background 1.4s ease 0.6s;
+  }
+  .price-foot {
+    margin-top: 18px; font-size: 0.8rem; color: var(--text-mid); line-height: 1.85;
+  }
+  .price-foot p { margin: 0; }
+  .recurring-cta { margin-top: 28px; }
+  .recurring-cta a {
+    font-family: var(--sans); font-size: 0.9rem; color: var(--ink);
+    text-decoration: none; border-bottom: 1px solid var(--rule);
+    padding-bottom: 4px; transition: border-color 0.2s;
+  }
+  .recurring-cta a:hover { border-bottom-color: var(--accent); }
+
+  /* ---------- METHOD (毎回ゼロから書かない) ---------- */
+  .method-chips {
+    display: flex; flex-wrap: wrap; gap: 20px 32px; margin-top: 4px;
+  }
+  .method-chip {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-family: var(--sans); font-size: 0.95rem; color: var(--ink);
+  }
+  .method-chip::before {
+    content: ""; width: 8px; height: 8px; border-radius: 50%;
+    background: var(--accent); flex-shrink: 0;
+  }
+
+  /* ---------- DIAGNOSTIC CARD SECTION ---------- */
+  .dx-pull {
+    margin: 8px 0 48px;
+    background: #fff;
+    border-top: 2px solid var(--accent);
+    border-bottom: 1px solid var(--rule);
+    padding: 40px 44px 36px;
+  }
+  .dx-pull-q {
+    font-family: var(--serif); font-weight: 300; color: var(--ink);
+    font-size: clamp(1.25rem, 2.4vw, 1.65rem); line-height: 1.5;
+    letter-spacing: 0.04em; margin: 0 0 18px;
+  }
+  .dx-pull-body {
+    font-family: var(--sans); font-size: 0.96rem; line-height: 1.95;
+    color: var(--text); margin: 0; max-width: 760px;
+  }
+  .dx-deliverables {
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px;
+    margin-top: 8px;
+  }
+  .dx-card {
+    background: var(--bg-soft); padding: 28px 24px 26px;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .dx-card-num {
+    font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.16em;
+    color: var(--accent); font-weight: 500;
+  }
+  .dx-card h3 {
+    font-family: var(--serif); font-weight: 400; color: var(--ink);
+    font-size: 1.08rem; line-height: 1.45; letter-spacing: 0.03em;
+    margin: 0;
+  }
+  .dx-card p {
+    margin: 0; font-family: var(--sans); font-size: 0.84rem;
+    line-height: 1.8; color: var(--text);
+  }
+  .dx-cta-row {
+    margin-top: 48px;
+    display: flex; gap: 20px 28px; align-items: center;
+    justify-content: center; flex-wrap: wrap;
+  }
+  .dx-secondary {
+    font-family: var(--sans); font-size: 0.9rem; color: var(--ink);
+    text-decoration: none; border-bottom: 1px solid var(--rule);
+    padding-bottom: 4px; transition: border-color 0.2s;
+  }
+  .dx-secondary:hover { border-bottom-color: var(--accent); }
+  @media (max-width: 1024px) {
+    .dx-deliverables { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .dx-deliverables { grid-template-columns: 1fr; }
+    .dx-pull { padding: 30px 24px 26px; }
+  }
+
+  /* ---------- CASE CARDS ---------- */
+  .case-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px;
+  }
+  .case {
+    background: var(--bg-soft); padding: 30px 28px; border: 0;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .case-num {
+    font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--accent); font-weight: 500;
+  }
+  .case-tag {
+    font-family: var(--sans); font-weight: 500; color: var(--ink);
+    font-size: 1rem; line-height: 1.5;
+  }
+  .case-meta {
+    font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.12em;
+    color: var(--text-dim); padding-bottom: 14px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .case-body {
+    font-family: var(--sans); font-size: 0.88rem; line-height: 1.85;
+    color: var(--text);
+  }
+  .case-body strong { font-weight: 500; color: var(--ink); }
+  .case-ronten-h {
+    font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--ink-soft); font-weight: 500;
+    margin: 4px 0 -4px;
+  }
+  ul.case-ronten {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  ul.case-ronten li {
+    position: relative; padding-left: 16px;
+    font-family: var(--sans); font-size: 0.88rem; line-height: 1.85;
+    color: var(--text);
+  }
+  ul.case-ronten li::before {
+    content: ""; position: absolute; left: 0; top: 0.7em;
+    width: 6px; height: 1px; background: var(--accent);
+  }
+
+  /* ---------- ACCORDION ---------- */
+  .acc {
+    border-top: 1px solid var(--rule);
+    max-width: 880px;
+  }
+  .acc-item { border-bottom: 1px solid var(--rule); }
+  .acc-trigger {
+    width: 100%; background: none; border: 0; cursor: pointer;
+    text-align: left; padding: 22px 44px 22px 0;
+    font-family: var(--sans); font-weight: 500; color: var(--ink);
+    font-size: 1rem; letter-spacing: 0.02em; line-height: 1.5;
+    position: relative;
+  }
+  .acc-trigger .caret {
+    position: absolute; right: 4px; top: 50%;
+    transform: translateY(-50%); color: var(--ink-soft);
+    font-family: var(--mono); font-size: 0.9rem; line-height: 1;
+    transition: transform 0.2s, color 0.2s;
+  }
+  .acc-trigger[aria-expanded="true"] .caret {
+    transform: translateY(-50%) rotate(90deg); color: var(--accent);
+  }
+  .acc-panel {
+    overflow: hidden; max-height: 0;
+    transition: max-height 0.3s ease;
+  }
+  .acc-panel-inner {
+    padding: 0 0 24px; max-width: 720px;
+    font-family: var(--sans); font-size: 0.92rem; line-height: 1.85;
+    color: var(--text);
+  }
+  .acc-panel-inner p { margin: 0; }
+  .acc-panel-inner p + p { margin-top: 10px; }
+  .acc-panel-inner a {
+    color: var(--ink); border-bottom: 1px solid var(--rule); padding-bottom: 1px;
+    text-decoration: none;
+  }
+  .acc-panel-inner a:hover { border-bottom-color: var(--accent); }
+
+  /* ---------- RFQ FORM ---------- */
+  .rfq-toggle-row {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+    margin: 6px 0 38px; max-width: 720px;
+  }
+  .rfq-toggle-row button {
+    background: #fff; border: 1px solid var(--rule); cursor: pointer;
+    padding: 18px 22px; font-family: var(--sans); font-size: 0.95rem;
+    color: var(--ink); text-align: center; letter-spacing: 0.04em;
+    transition: all 0.18s;
+  }
+  .rfq-toggle-row button:hover { border-color: var(--ink-soft); }
+  .rfq-toggle-row button.is-active {
+    background: var(--ink); color: #fff; border-color: var(--ink);
+  }
+
+  .form-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 20px 24px;
+    max-width: 720px;
+  }
+  .form-grid .span-2 { grid-column: 1 / -1; }
+  .field { display: flex; flex-direction: column; gap: 8px; }
+  .field label {
+    font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--text-dim); font-weight: 500;
+  }
+  .field label .req { color: var(--bad); margin-left: 4px; letter-spacing: 0; }
+  .field input, .field select, .field textarea {
+    width: 100%; background: #fff; color: var(--text);
+    border: 1px solid var(--rule); padding: 12px 14px;
+    font-family: var(--sans); font-size: 0.92rem; font-weight: 400;
+    outline: none; transition: border-color 0.15s, background 0.15s;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus {
+    border-color: var(--ink-soft);
+  }
+  .field select {
+    appearance: none; -webkit-appearance: none;
+    background-image:
+      linear-gradient(45deg, transparent 50%, var(--ink-soft) 50%),
+      linear-gradient(-45deg, transparent 50%, var(--ink-soft) 50%);
+    background-position:
+      calc(100% - 18px) 50%,
+      calc(100% - 12px) 50%;
+    background-size: 6px 6px;
+    background-repeat: no-repeat;
+    padding-right: 36px;
+  }
+  .field textarea { resize: vertical; min-height: 132px; font-family: var(--sans); }
+  .form-submit { margin-top: 28px; max-width: 720px; }
+  .form-help {
+    margin: 18px 0 0; font-size: 0.82rem; color: var(--text-mid);
+    line-height: 1.85; max-width: 720px;
+  }
+  .form-help a { color: var(--ink); border-bottom: 1px solid var(--rule); text-decoration: none; }
+
+  /* ---------- CONFIRMATION PANEL ---------- */
+  .conf-panel {
+    background: var(--accent-soft); padding: 32px 36px; margin-top: 44px;
+    max-width: 720px; border-left: 3px solid var(--accent);
+    font-family: var(--sans); color: var(--ink); line-height: 1.95;
+    font-size: 0.95rem;
+  }
+  .conf-panel p { margin: 0; }
+  .conf-panel p + p { margin-top: 4px; }
+  .conf-panel a { color: var(--ink); border-bottom: 1px solid var(--accent); text-decoration: none; }
+
+  /* ---------- FOOTER ---------- */
+  .site-foot {
+    border-top: 1px solid var(--rule); padding: 32px 0; background: #fff;
+  }
+  .site-foot p {
+    margin: 0; text-align: center;
+    font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em;
+    color: var(--text-dim); line-height: 1.85;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .nav-brand .wordmark { display: none; }
+    .nav-brand .monogram { display: block; }
+    .cards-3, .case-grid { grid-template-columns: 1fr; }
+    .section-head.with-toggle { flex-direction: column; align-items: flex-start; }
+    .section-head.with-toggle .section-head-inner { max-width: 100%; }
+    .form-grid { grid-template-columns: 1fr; }
+    .rfq-toggle-row { grid-template-columns: 1fr; }
+    h1.hero-h1 { font-size: clamp(1.7rem, 8vw, 2.4rem); }
+    .hero-ctas .btn-primary, .hero-ctas .btn-outline { width: 100%; justify-content: center; }
+  }
+  @media (max-width: 560px) {
+    .scard { padding: 26px 22px 22px; }
+    .case { padding: 26px 22px; }
+    .conf-panel { padding: 26px 22px; }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 </style>
 <script src="/assets/locale-switcher.js" defer></script>
 </head>
@@ -491,441 +1046,535 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   <a href="#contact" class="btn btn-primary mobile-menu-cta" onclick="presetInquiry('30分無料相談'); toggleMenu()">30分無料相談を予約する</a>
 </nav>
 <main id="main-content" tabindex="-1">
-<!-- HERO -->
-<section id="top" aria-label="Services / サービス">
-  <div class="hero-texture" aria-hidden="true"></div>
-  <div class="hero-glow" aria-hidden="true"></div>
-  <div class="wrap">
-    <div class="hero-body">
-      <div class="hero-eyebrow"><span class="label">サービス｜IR英訳・通訳・診断リテイナー</span></div>
-      <div class="hero-title"><h1 class="mincho-xl">英文同時開示の時代。<br>IR の声を一つに。</h1></div>
-      <p class="hero-sub">英文 IR の課題は、英語力だけではありません。決算短信、招集通知、統合報告書、適時開示、IR サイト、面談 Q&amp;A が、それぞれ別の言葉で語られることです。JII は、お客様 1 社につき 1 本の用語集と翻訳メモリを持ち、開示資料から投資家面談まで同じ論理・同じ訳語で整えます。必要な入口は二つ。まず一案件を任せる。あるいは、年度を通じて海外投資家への伝わり方を診断する。<a href="#trust" style="border-bottom:1px solid var(--ink)">機密保持・対応体制を見る</a></p>
-      <div class="hero-ctas"><a href="#contact" class="btn btn-primary">お見積り・ご相談</a><a href="#tracks" class="btn btn-outline">サービスを選ぶ</a></div>
-    </div>
-  </div>
-</section>
-<!-- TRUST STRIP -->
-<section id="trust" aria-label="機密保持・代表担当・営業時間" style="background:var(--bg-soft);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:36px 0">
-  <div class="wrap">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px" class="trust-strip">
-      <div><span class="label" style="color:var(--accent)">機密保持</span><p style="font-size:0.82rem;line-height:1.7;margin-top:8px;color:var(--text)">個別 NDA を標準締結。開示前資料は、関与者・対象文書・作業時点を記録します。</p></div>
-      <div><span class="label" style="color:var(--accent)">代表者が直接担当</span><p style="font-size:0.82rem;line-height:1.7;margin-top:8px;color:var(--text)">翻訳・通訳・診断は屋山テディが直接担当。窓口を一本化し、判断を速くします。</p></div>
-      <div><span class="label" style="color:var(--accent)">対象</span><p style="font-size:0.82rem;line-height:1.7;margin-top:8px;color:var(--text)">日本の上場企業向け。IR・開示・海外投資家対応に特化しています。</p></div>
-      <div><span class="label" style="color:var(--accent)">返信目安</span><p style="font-size:0.82rem;line-height:1.7;margin-top:8px;color:var(--text)">平日 9:00–18:00。通常 1 営業日以内に、見積りまたは確認事項をご連絡します。</p></div>
-    </div>
-  </div>
-</section>
-<style>@media (max-width: 768px) { .trust-strip { grid-template-columns: 1fr 1fr !important; } } @media (max-width: 480px) { .trust-strip { grid-template-columns: 1fr !important; } }</style>
-<!-- DUAL TRACK ARCHITECTURE -->
-<section id="tracks" aria-label="サービスの全体像 — 二つの入り口">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="label">サービスの全体像</span>
-      <div class="rule-accent"></div>
-      <h2 class="mincho-lg">入口は二つ。土台は一つ。</h2>
-      <p>単発でも継続でも、目的は同じです。海外投資家が読む資料と、面談で聞く説明を、同じ投資ストーリーにそろえること。まずは必要なところから始められます。</p>
-    </div>
-    <div class="why-grid reveal">
-      <div class="why-card">
-        <span class="label">Track A ｜ 今回の案件を仕上げる</span>
-        <h3>英訳・レビュー・通訳を、一件から。</h3>
-        <p>決算短信、適時開示、決算説明資料、統合報告書、IR サイト、IR デイ、1on1 面談。文書単位・面談単位でお受けします。既存の用語集があれば尊重し、なければ初回案件から整備します。</p>
-        <p><a href="#standalone-translation" style="border-bottom:1px solid var(--ink);font-size:0.85rem">単発メニューを見る →</a></p>
-      </div>
-      <div class="why-card is-diag">
-        <span class="label">Track B ｜ 年度を通じて整える</span>
-        <h3>英文 IR の伝わり方を、四半期ごとに点検。</h3>
-        <p>海外 IR 診断カードで、投資家がどこで理解を止めるのかを可視化します。優先順位を三つに絞り、次の開示・Q&amp;A・面談準備へ反映します。</p>
-        <p><a href="/料金/" style="border-bottom:1px solid var(--ink);font-size:0.85rem">リテイナー料金を見る →</a></p>
-      </div>
-    </div>
-    <div class="selfcheck reveal" style="margin-top:36px" aria-label="サービス選択ナビゲーター">
-      <p class="selfcheck-prompt">いま一番近い課題を選んでください。</p>
-      <div class="selfcheck-grid">
-        <button type="button" class="selfcheck-opt" data-rec="light">一度だけ品質を見たい。まずは資料 1 本から。</button>
-        <button type="button" class="selfcheck-opt" data-rec="standard">毎四半期、英文資料の用語や説明が揺れる。</button>
-        <button type="button" class="selfcheck-opt" data-rec="pro">海外投資家との面談はあるが、投資判断につながらない。</button>
-        <button type="button" class="selfcheck-opt" data-rec="standard">中計・資本配分方針を英語で通し切りたい。</button>
-      </div>
-      <div class="selfcheck-result" id="selfcheck-result" aria-live="polite">
-        <span class="sr-tag" id="sr-tag">推奨</span>
-        <h3 id="sr-title">おすすめの進め方</h3>
-        <p id="sr-body"></p>
-        <a id="sr-link" href="#contact">この内容で相談する →</a>
-      </div>
-    </div>
-    <div class="cta-band reveal" aria-label="まずは単発から">
-      <div>
-        <span class="label">推奨の進め方</span>
-        <h3>初回からリテイナーを前提にする必要はありません。</h3>
-        <p>まずは 1 件の英訳・レビュー・通訳で、品質、進行、判断の速さを確認してください。継続支援は、その後で十分です。</p>
-      </div>
-      <div class="cta-actions"><a href="#contact" class="btn btn-primary">単発のお見積りを依頼</a></div>
-    </div>
-  </div>
-</section>
-<!-- DIFFERENTIATOR — central TB/TM/SKILLs/AI -->
-<section id="differentiator" aria-label="JII の差別化 — 用語集・翻訳メモリ・AI 支援の一元管理" style="background:var(--bg-mid);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="label">当社の独自性</span>
-      <div class="rule-accent"></div>
-      <h2 class="mincho-lg">案件ごとの英語ではなく、会社としての英語をつくる。</h2>
-      <p>翻訳会社が変わるたびに訳語が変わる。資料ごとにトーンが違う。過去版との整合確認に時間がかかる。JII はその手戻りを減らすため、用語集・翻訳メモリ・チェック手順を一元管理します。AI は下訳の置き換えではなく、表記揺れや過去訳との不一致を見つける制作支援として使います。</p>
-    </div>
-    <div class="receive-grid reveal">
-      <div class="receive-card"><span class="num">01</span><h3>用語集の中央管理</h3><p>会社名、役職名、事業セグメント、KPI、社内固有表現を 1 本に集約。文書をまたいでも訳語をそろえます。</p></div>
-      <div class="receive-card"><span class="num">02</span><h3>翻訳メモリの中央管理</h3><p>過去の原文・訳文を蓄積し、決算短信、統合報告書、招集通知の間で再利用。年度比較もしやすくします。</p></div>
-      <div class="receive-card"><span class="num">03</span><h3>AI 制作支援ツールの共同開発</h3><p>社内用語ガイドや自動チェックを、実際の資料形式に合わせて整備。継続案件で精度を上げます。</p></div>
-      <div class="receive-card"><span class="num">04</span><h3>自動化資産はお客様にお渡し可能</h3><p>共同で整えた用語ガイドやチェック用スクリプトは、ご希望に応じてお渡しできます。社内利用や将来の引き継ぎにも使えます。</p></div>
-      <div class="receive-card"><span class="num">05</span><h3>業界相場を意識した料金体系</h3><p>毎回ゼロから訳す工程を減らし、品質と費用のバランスを取りやすくします。詳細は <a href="/料金/" style="border-bottom:1px solid var(--ink)">料金ページ</a> をご覧ください。</p></div>
-      <div class="receive-card"><span class="num">06</span><h3>機密保持と取扱記録</h3><p>個別 NDA を標準締結。開示前情報の取扱記録を残し、財務翻訳の標準実務に沿って管理します。</p></div>
-    </div>
-  </div>
-</section>
-<!-- STANDALONE TRANSLATION MENU -->
-<section id="standalone-translation" aria-label="単発の英訳メニュー">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="label">Track A ｜ 単発 英訳</span>
-      <div class="rule-accent"></div>
-      <h2 class="mincho-lg">必要な資料を、一つずつ。</h2>
-      <p>開示・IR の主要資料に対応します。優先するのは、正確性、過去資料との整合、海外投資家に伝わる論理です。</p>
-    </div>
-    <div class="case-grid reveal">
-      <div class="case-card"><span class="case-tag">法定・適時</span><h3>決算短信 英訳</h3><p>四半期決算短信／年度決算短信。財務諸表・注記・サマリー情報まで。文字数単価ベースで個別お見積り。</p></div>
-      <div class="case-card"><span class="case-tag">法定・適時</span><h3>株主総会招集通知 英訳</h3><p>狭義の招集通知、添付書類（事業報告および計算書類）、参考書類、決議通知まで。</p></div>
-      <div class="case-card"><span class="case-tag">法定・適時</span><h3>適時開示リリース 英訳</h3><p>業績予想の修正、配当変更、M&amp;A、自社株買い、株式分割等のリリースを投資家視点で英訳。</p></div>
-      <div class="case-card"><span class="case-tag">法定・適時</span><h3>有価証券報告書 英訳</h3><p>全訳またはサマリー英訳。経理関連書類との整合を保ちます。</p></div>
-      <div class="case-card"><span class="case-tag">法定・適時</span><h3>コーポレートガバナンス報告書 英訳</h3><p>取締役会構成、報酬、後継者計画、政策保有株式まで投資家フレームで英文化。<a href="/サービス/disclosure-review/" style="border-bottom:1px solid var(--ink);font-size:0.78rem;display:inline-block;margin-top:6px">詳細 →</a></p></div>
-      <div class="case-card"><span class="case-tag">IR・任意開示</span><h3>決算説明会資料 英訳</h3><p>PowerPoint そのままに英訳。決算短信・統合報告書との用語整合まで管理します。<a href="/サービス/earnings-review/" style="border-bottom:1px solid var(--ink);font-size:0.78rem;display:inline-block;margin-top:6px">詳細 →</a></p></div>
-      <div class="case-card"><span class="case-tag">IR・任意開示</span><h3>統合報告書 英訳</h3><p>価値創造ストーリー、資本配分の方針、ESG との接続、ガバナンス開示までを一貫した声で。</p></div>
-      <div class="case-card"><span class="case-tag">IR・任意開示</span><h3>中期経営計画・社長メッセージ 英訳</h3><p>3〜5 年の中計、CEO／CFO メッセージ、社外取締役メッセージを、見通しの確度を保ったまま英訳します。</p></div>
-      <div class="case-card"><span class="case-tag">IR・任意開示</span><h3>サステナビリティ・ESG レポート 英訳</h3><p>気候関連（TCFD・TNFD）、人的資本、サプライチェーン開示を、定型文化させずに具体性のある英文に。</p></div>
-      <div class="case-card"><span class="case-tag">IR・任意開示</span><h3>英文財務諸表 作成</h3><p>日本語の財務諸表から、IFRS／日本基準／米国基準ベースの英文財務諸表を作成。</p></div>
-      <div class="case-card"><span class="case-tag">IR・任意開示</span><h3>IR ウェブサイト 英訳</h3><p>英文 IR ページの全面英訳・部分改訂・サイト構成の整理まで。</p></div>
-      <div class="case-card"><span class="case-tag">IR・任意開示</span><h3>英文 IR レビュー・校閲</h3><p>既存英訳のネイティブチェック・用語整合チェック・投資家視点でのレビュー。<a href="/サービス/english-review/" style="border-bottom:1px solid var(--ink);font-size:0.78rem;display:inline-block;margin-top:6px">詳細 →</a></p></div>
-    </div>
-    <div class="cta-band reveal" aria-label="単発英訳のお見積り">
-      <div>
-        <span class="label">単発英訳のお見積り</span>
-        <h3>文字数・ページ数・分量の目安をお知らせください</h3>
-        <p>翻訳元の文字数（和訳の場合は英語のワード数）をベースに、文書種別・既存資産の有無・納期から個別にお見積りいたします。</p>
-      </div>
-      <div class="cta-actions"><a href="#contact" class="btn btn-primary" data-rfq-service="translation" data-rfq-source="services_translation_menu">英訳のお見積りを依頼</a></div>
-    </div>
-  </div>
-</section>
-<!-- STANDALONE INTERPRETATION MENU -->
-<section id="standalone-interpretation" aria-label="単発の通訳メニュー" style="background:var(--bg-mid);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="label">Track A ｜ 単発 通訳</span>
-      <div class="rule-accent"></div>
-      <h2 class="mincho-lg">面談の意図まで、双方向でつなぐ。</h2>
-      <p>IR デイ、1on1、決算説明会、ロードショーに対応します。逐次・同時、対面・オンライン、機材手配までご相談ください。<a href="/サービス/interpretation/" style="border-bottom:1px solid var(--ink);font-size:0.85rem">通訳サービスの詳細を見る →</a></p>
-    </div>
-    <div class="case-grid reveal">
-      <div class="case-card"><span class="case-tag">面談</span><h3>機関投資家 1on1 通訳</h3><p>海外機関投資家との 1 対 1 ミーティングで、質問の意図と経営の意図を双方向で正確に接続。逐次通訳。</p></div>
-      <div class="case-card"><span class="case-tag">説明会</span><h3>決算説明会 通訳</h3><p>会場での同時通訳（ブース通訳）または逐次通訳。決算説明資料との用語整合まで事前に整えます。</p></div>
-      <div class="case-card"><span class="case-tag">IR Day</span><h3>IR デイ / Capital Markets Day 通訳</h3><p>半日〜1 日の IR デイでの社長／CFO 講演、Q&amp;A セッション。同時通訳ペアまたは逐次通訳。</p></div>
-      <div class="case-card"><span class="case-tag">面談</span><h3>カンファレンス面談 通訳</h3><p>証券会社主催カンファレンスでの個別面談、登壇／パネル通訳。</p></div>
-      <div class="case-card"><span class="case-tag">出張</span><h3>海外ロードショー 帯同通訳</h3><p>香港・シンガポール・ロンドン・ニューヨーク等の連続面談を帯同。</p></div>
-      <div class="case-card"><span class="case-tag">株主総会</span><h3>株主総会 通訳</h3><p>定時株主総会・臨時株主総会での通訳。外国人株主対応まで。</p></div>
-    </div>
-    <div class="cta-band reveal" aria-label="単発通訳のお見積り">
-      <div>
-        <span class="label">単発通訳のお見積り</span>
-        <h3>日時・場所・人数・通訳方式をお知らせください</h3>
-        <p>半日・一日・同時通訳ペアの構成、対面／オンライン／ハイブリッドの別、機材手配の要否をお伺いし、業界標準の日額単価でお見積りいたします。</p>
-      </div>
-      <div class="cta-actions"><a href="#contact" class="btn btn-primary" data-rfq-service="interpretation" data-rfq-source="services_interpretation_menu">通訳のお見積りを依頼</a></div>
-    </div>
-  </div>
-</section>
-<!-- DIAGNOSTIC CARD -->
-<section id="card" aria-label="診断カードとは — Track B の中核">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="label">Track B ｜ 診断リテイナーの中核</span>
-      <div class="rule-accent"></div>
-      <h2 class="mincho-lg">海外 IR 診断カードとは</h2>
-      <p>英文資料をきれいにするだけでは、投資判断までは動きません。診断カードは、海外投資家がどこで止まり、どの論点が不足し、次に何を直すべきかを 12 項目・24 点で整理する社内共有用の一枚です。</p>
-      <div class="section-cta reveal"><a href="/料金/" class="btn btn-outline">リテイナーの料金を見る</a><a href="#contact" class="btn btn-primary" data-rfq-service="diagnostic" data-rfq-document="earnings_presentation" data-rfq-source="services_primary" data-rfq-message="サービスページ上部CTA：海外IR診断カードの対象資料・所要期間・見積を相談したいです。">診断について相談する</a></div>
-    </div>
 
-    <div class="card-layout">
-      <div class="card-explain reveal">
-        <p>海外投資家が資料を読んだときに <strong>どこで止まり、何を判断できないか</strong> を項目ごとに整理します。</p>
-        <p>抽象的な感想ではなく、資料・面談の具体例に基づいて、次に直す箇所を絞ります。<strong>翻訳、レビュー、面談準備を同じ優先順位で動かすための基準</strong> です。</p>
-        <ul>
-          <li>12項目・24点満点のスコアカード</li>
-          <li>海外投資家から見た優先課題（上位3点）</li>
-          <li>具体例（IR資料・面談からの引用）</li>
-          <li>改善優先順位と次の一手</li>
-          <li>IR部・CFO室・経営企画で社内共有可</li>
-        </ul>
-        <p class="card-note">※ 右の図は構造のサンプルです。実際の診断は、御社固有の資料・面談に基づいて作成します。</p>
+  <!-- =================== HERO =================== -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-eyebrow">サービス<span class="dot">·</span>IR-FIRST<span class="dot">·</span>NDA READY</div>
+      <h1 class="hero-h1">IRの言葉を、<br class="desktop">海外投資家の論理に揃える。</h1>
+      <p class="hero-sub">決算短信・説明資料・招集通知・IR面談まで、<br class="desktop">用語と論理を年度をまたいで一つに保ちます。</p>
+      <ul class="trust-strip">
+        <li>NDA 標準締結</li>
+        <li>代表が直接担当</li>
+        <li>外部委託なし</li>
+        <li>通常 1営業日返信</li>
+      </ul>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="#rfq" data-cta="estimate">概算を依頼<span class="arr">→</span></a>
+        <a class="btn-outline" href="#rfq" data-cta="nda">NDAを先に依頼<span class="arr">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== USE CASES =================== -->
+  <section class="section alt">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">ご依頼内容からお選びください</span>
+        <h2 class="h-section">用途から選ぶ</h2>
+        <div class="h-rule"></div>
+      </div>
+      <div class="chips-wrap" id="chipsWrap">
+        <div class="chips" role="tablist" aria-label="用途から選ぶ">
+          <button class="chip" data-target="row-tanshin">決算短信</button>
+          <button class="chip" data-target="row-setsumei">決算説明資料</button>
+          <button class="chip" data-target="row-shoshu">招集通知・統合報告書</button>
+          <button class="chip" data-target="row-tsuyaku">IR面談通訳</button>
+          <button class="chip" data-target="row-recurring">継続サポート</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== HOW WE FINISH =================== -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">仕上げ方</span>
+        <h2 class="h-section">どう仕上げるか</h2>
+        <div class="h-rule"></div>
+        <p class="section-sub">3つの仕上げ方から選び、必要に応じて組み合わせます。</p>
       </div>
 
-      <!-- mock card -->
-      <div class="diag-card reveal" aria-label="診断カード サンプル">
-        <div class="diag-card-head">
-          <div>
-            <div class="diag-card-id">SAMPLE / 構造サンプル</div>
-            <div class="diag-card-title">JII 海外IR診断カード v4</div>
+      <div class="cards-3">
+
+        <article class="scard">
+          <div class="scard-eyebrow">A — 人間翻訳</div>
+          <div class="scard-divider"></div>
+          <dl>
+            <dt>向いている案件</dt>
+            <dd>決算短信・説明資料・招集通知の英訳本番</dd>
+            <dt>含まれる作業</dt>
+            <dd>過去開示との整合 / 用語集の更新 / 数値・固有名詞チェック / IR文脈の自然な英語</dd>
+            <dt>標準納期</dt>
+            <dd>2〜5営業日（資料規模による）</dd>
+            <dt>参考価格</dt>
+            <dd class="price-line">¥50,000〜</dd>
+          </dl>
+          <a class="scard-cta" href="#rfq" data-preselect-type="単発翻訳">このサービスで相談<span class="arr">→</span></a>
+        </article>
+
+        <article class="scard">
+          <div class="scard-eyebrow">B — AI初稿＋専門チェック</div>
+          <div class="scard-divider"></div>
+          <dl>
+            <dt>向いている案件</dt>
+            <dd>社内向け確認、レビュー前ドラフト、補助資料</dd>
+            <dt>含まれる作業</dt>
+            <dd>AIによる初稿生成 / IR専門者による表現・数値・法令用語の確認 / 用語集反映</dd>
+            <dt>AI利用範囲</dt>
+            <dd>事前明示。機密度の高い案件はAI未使用も選択可。</dd>
+            <dt>標準納期</dt>
+            <dd>1〜3営業日</dd>
+            <dt>参考価格</dt>
+            <dd class="price-line">¥30,000〜</dd>
+          </dl>
+          <a class="scard-cta" href="#rfq" data-preselect-type="単発翻訳">このサービスで相談<span class="arr">→</span></a>
+        </article>
+
+        <article class="scard">
+          <div class="scard-eyebrow">C — IR面談通訳</div>
+          <div class="scard-divider"></div>
+          <dl>
+            <dt>向いている案件</dt>
+            <dd>1on1 / IRデイ / 決算説明会 / 海外ロードショー</dd>
+            <dt>含まれる作業</dt>
+            <dd>資料事前読込 / 想定Q&amp;A整理 / 当日通訳 / 論点メモ（任意）</dd>
+            <dt>形式</dt>
+            <dd>オンライン / 半日 / 終日</dd>
+            <dt>参考価格</dt>
+            <dd class="price-line">オンライン ¥20,000〜</dd>
+          </dl>
+          <a class="scard-cta" href="#rfq" data-preselect-type="単発通訳">このサービスで相談<span class="arr">→</span></a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== PRICING =================== -->
+  <section class="section alt">
+    <div class="wrap">
+      <div class="section-head with-toggle">
+        <div class="section-head-inner">
+          <span class="eyebrow">概算ガイド</span>
+          <h2 class="h-section">料金の目安</h2>
+          <div class="h-rule"></div>
+          <p class="section-sub">文字数・ページ数・レイアウト有無で変動します。1営業日以内に概算を提示します。</p>
+        </div>
+        <div class="seg" role="tablist" aria-label="料金タイプ" id="priceSeg">
+          <button type="button" class="is-active" data-tab="oneshot" aria-selected="true">単発</button>
+          <button type="button" data-tab="recurring" aria-selected="false">定期運用</button>
+        </div>
+      </div>
+
+      <!-- One-shot table -->
+      <div class="price-table-wrap" data-tab="oneshot">
+        <table class="price-table">
+          <thead>
+            <tr>
+              <th scope="col">文書</th>
+              <th scope="col">人間翻訳</th>
+              <th scope="col">AI初稿＋チェック</th>
+              <th scope="col">標準納期</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="row-tanshin">
+              <td class="doc">決算短信</td>
+              <td class="price">¥50,000〜</td>
+              <td class="price">¥30,000〜</td>
+              <td class="muted">1〜2営業日</td>
+            </tr>
+            <tr id="row-setsumei">
+              <td class="doc">決算説明資料</td>
+              <td class="price">¥150,000〜</td>
+              <td class="price">¥80,000〜</td>
+              <td class="muted">3〜5営業日</td>
+            </tr>
+            <tr id="row-shoshu">
+              <td class="doc">招集通知</td>
+              <td class="price">¥120,000〜</td>
+              <td class="price">¥70,000〜</td>
+              <td class="muted">5営業日</td>
+            </tr>
+            <tr>
+              <td class="doc">統合報告書</td>
+              <td class="muted">別途見積</td>
+              <td class="muted">別途見積</td>
+              <td class="muted">内容確認</td>
+            </tr>
+            <tr id="row-tsuyaku">
+              <td class="doc">IR面談通訳（オンライン）</td>
+              <td class="muted">—</td>
+              <td class="muted">—</td>
+              <td class="price">¥20,000〜</td>
+            </tr>
+            <tr>
+              <td class="doc">IR面談通訳（半日）</td>
+              <td class="muted">—</td>
+              <td class="muted">—</td>
+              <td class="muted">別途見積</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="price-foot" data-tab="oneshot">
+        <p>※ 上記は本体価格、税別。レイアウト作業を含む場合、図表多数の場合は別途見積。</p>
+        <p>※ 短納期（24時間以内）はオプション。</p>
+      </div>
+
+      <!-- Recurring table (hidden by default) -->
+      <div class="price-table-wrap" data-tab="recurring" hidden>
+        <table class="price-table">
+          <thead>
+            <tr>
+              <th scope="col">プラン</th>
+              <th scope="col">含まれるもの</th>
+              <th scope="col">料金</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="row-recurring">
+              <td class="lead">Light</td>
+              <td>海外IR診断カード（初回診断・単発）</td>
+              <td>¥200,000<span style="display:block;font-size:0.78em;color:var(--text-dim);margin-top:2px">単発</span></td>
+            </tr>
+            <tr>
+              <td class="lead">Standard</td>
+              <td>海外IR診断レビュー＋短信4本／年・用語集更新・前回訳反映・優先納期枠</td>
+              <td>¥100,000<span style="display:block;font-size:0.78em;color:var(--text-dim);margin-top:2px">/月</span></td>
+            </tr>
+            <tr>
+              <td class="lead">Pro</td>
+              <td>Standard＋決算説明資料 年2回・IR面談通訳 月1回まで</td>
+              <td>¥200,000<span style="display:block;font-size:0.78em;color:var(--text-dim);margin-top:2px">/月</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="font-size:0.78rem;line-height:1.7;color:var(--text-mid);margin-top:14px">※ 招集通知・統合報告書は別途見積。<br>※ 表示は税別。</p>
+      </div>
+      <div class="recurring-cta" data-tab="recurring" hidden>
+        <a href="#rfq" data-preselect-type="継続サポート">四半期サイクルで相談する →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== METHOD =================== -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">運用方針</span>
+        <h2 class="h-section">毎回ゼロから書かない。</h2>
+        <div class="h-rule"></div>
+        <p class="section-sub">用語集と翻訳メモリを年度をまたいで運用するため、開示・面談・IRサイトの英語が同じ言葉と同じ論理で揃います。</p>
+      </div>
+      <div class="method-chips">
+        <span class="method-chip">用語集を顧客ごとに管理</span>
+        <span class="method-chip">過去訳を全件参照（翻訳メモリ）</span>
+        <span class="method-chip">IR文脈の判断は屋山テディが直接</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== DIAGNOSTIC CARD =================== -->
+  <section class="section alt">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">主要サービス</span>
+        <h2 class="h-section">海外IR診断カードとは</h2>
+        <div class="h-rule"></div>
+        <p class="section-sub">御社のIR資料と面談の様子を12項目、24点で点検し、<br class="desktop">海外投資家からどう見えているか・どこで理解が止まっているかを整理した一枚です。<br class="desktop">IR・CFO室・経営企画でそのまま社内資料として使えます。</p>
+      </div>
+
+      <div class="dx-pull">
+        <p class="dx-pull-q">「英語にする前に、海外投資家には何が伝わっていないか？」</p>
+        <p class="dx-pull-body">資本配分・差別化・成長前提など、投資判断に直結する論点が、伝わる順序・伝わる粒度になっているかを点検し、見直しの優先順位までお示しします。</p>
+      </div>
+
+      <div class="dx-deliverables">
+        <article class="dx-card">
+          <div class="dx-card-num">01</div>
+          <h3>診断カード本体</h3>
+          <p>12項目、24点のスコアカードと総合所見。1ファイルで社内共有可。</p>
+        </article>
+        <article class="dx-card">
+          <div class="dx-card-num">02</div>
+          <h3>伝わっていない上位3点</h3>
+          <p>投資判断に最も影響している、伝わっていない論点を3点に絞ってご提示。</p>
+        </article>
+        <article class="dx-card">
+          <div class="dx-card-num">03</div>
+          <h3>具体例 / 引用</h3>
+          <p>御社のIR資料や面談記録から、伝わりにくくなっている具体的な箇所を引用。</p>
+        </article>
+        <article class="dx-card">
+          <div class="dx-card-num">04</div>
+          <h3>改善優先順位</h3>
+          <p>「次の決算で直すべきもの」「中期で整えるもの」を分けて提示。</p>
+        </article>
+        <article class="dx-card">
+          <div class="dx-card-num">05</div>
+          <h3>社内ウォークスルー</h3>
+          <p>IR部・CFO室・経営企画と、診断結果を読み合わせる60分のセッション。</p>
+        </article>
+      </div>
+
+      <div class="dx-cta-row">
+        <a class="btn-primary" href="#rfq" data-preselect-type="海外IR診断カード">診断カードの見積を依頼する<span class="arr">→</span></a>
+        <a class="dx-secondary" href="#rfq" data-preselect-type="海外IR診断カード">対象資料について相談する　→</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== CASES =================== -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">過去の対応事例</span>
+        <h2 class="h-section">最近の実績（匿名化）</h2>
+        <div class="h-rule"></div>
+      </div>
+      <div class="case-grid">
+
+        <article class="case">
+          <div class="case-num">Case 01</div>
+          <div class="case-tag">国内独立系証券会社（中小型株専門）</div>
+          <div class="case-meta">アナリストレポート英訳／アナリストコール通訳／投資家面談通訳　｜　継続契約</div>
+          <p class="case-ronten-h">論点</p>
+          <ul class="case-ronten">
+            <li>アナリストレポート全件で、翻訳品質と用語運用の一貫性を担保。</li>
+            <li>通訳業務では、ブローカーの見解を投資家へ、投資家の見解を発行会社へと、双方向の意図を一つの声で橋渡し。</li>
+          </ul>
+        </article>
+
+        <article class="case">
+          <div class="case-num">Case 02</div>
+          <div class="case-tag">香港拠点ヘッジファンド</div>
+          <div class="case-meta">日本株プログラム向けの通訳業務　｜　長期パートナーシップ</div>
+          <p class="case-ronten-h">論点</p>
+          <ul class="case-ronten">
+            <li>過去には来日出張の日程組成（発行会社との面談アレンジ）まで含めて運営。</li>
+            <li>以降、複数回にわたり通訳業務を継続的に受託。</li>
+          </ul>
+        </article>
+
+        <article class="case">
+          <div class="case-num">Case 03</div>
+          <div class="case-tag">ディスクロージャー・IR資料の継続英訳（複数社）</div>
+          <div class="case-meta">決算説明会トランスクリプト翻訳（長期契約）、小売業の戦略資料、決算短信・適時開示・ニュースリリースなど</div>
+          <p class="case-ronten-h">論点</p>
+          <ul class="case-ronten">
+            <li>文書種別ごとに用語集・翻訳メモリを整備し、発信媒体が変わっても一貫した英文IRを維持。</li>
+            <li>開示タイミングに合わせた継続運用体制。</li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== CONFIDENTIALITY ACCORDION =================== -->
+  <section class="section alt">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">情報管理・運用方針</span>
+        <h2 class="h-section">セキュリティと運用について</h2>
+        <div class="h-rule"></div>
+        <p class="section-sub">上場企業の未公表情報の取扱いを前提に、以下の方針で業務を運用しております。</p>
+      </div>
+      <div class="acc" data-acc>
+        <div class="acc-item">
+          <button class="acc-trigger" aria-expanded="false" aria-controls="acc-nda">秘密保持契約（NDA）<span class="caret">▸</span></button>
+          <div class="acc-panel" id="acc-nda" role="region">
+            <div class="acc-panel-inner"><p>ご依頼ごとに秘密保持契約（NDA）を締結いたします。当社ひな型のご提示、貴社書式でのご締結、いずれも承ります。関与者・対象文書・作業時点を記録のうえ、社内で厳格に管理いたします。</p></div>
           </div>
-          <div class="diag-card-meta">
-            企業: ◯◯株式会社<br>
-            時期: FY26 Q1<br>
-            観察元: IR資料 + 面談3件
+        </div>
+        <div class="acc-item">
+          <button class="acc-trigger" aria-expanded="false" aria-controls="acc-mpi">未公表情報の取扱い<span class="caret">▸</span></button>
+          <div class="acc-panel" id="acc-mpi" role="region">
+            <div class="acc-panel-inner"><p>未公表の重要情報を含む資料は、秘密保持契約締結後にご共有ください。お問い合わせ時点では、案件の概要のみで結構です。受領後は、アクセス権限と保管期間（原則90日）を明示のうえ管理いたします。</p></div>
           </div>
         </div>
-
-        <div class="diag-score">
-          <div class="diag-score-num">13<em> / 24</em></div>
-          <div class="diag-score-label">合計スコア</div>
-        </div>
-        <div class="diag-meter"><div class="diag-meter-fill" style="width:54%"></div></div>
-        <div class="diag-meter-marks"><span>0</span><span>12</span><span>24</span></div>
-
-        <div class="diag-grid-label">12項目スコアカード</div>
-        <div class="diag-grid">
-          <div class="diag-item ok"><span class="dot"></span><span class="diag-item-label">投資ハイライト</span></div>
-          <div class="diag-item half"><span class="dot"></span><span class="diag-item-label">事業セグメント説明</span></div>
-          <div class="diag-item bad"><span class="dot"></span><span class="diag-item-label">資本配分方針</span></div>
-          <div class="diag-item half"><span class="dot"></span><span class="diag-item-label">ROIC / 利益率推移</span></div>
-          <div class="diag-item ok"><span class="dot"></span><span class="diag-item-label">中計の前提条件</span></div>
-          <div class="diag-item bad"><span class="dot"></span><span class="diag-item-label">競合との差別化</span></div>
-          <div class="diag-item half"><span class="dot"></span><span class="diag-item-label">業績見通しの感応度</span></div>
-          <div class="diag-item ok"><span class="dot"></span><span class="diag-item-label">ガバナンス開示</span></div>
-          <div class="diag-item bad"><span class="dot"></span><span class="diag-item-label">株主還元ロジック</span></div>
-          <div class="diag-item half"><span class="dot"></span><span class="diag-item-label">Q&amp;A の応答品質</span></div>
-          <div class="diag-item ok"><span class="dot"></span><span class="diag-item-label">英文IRページ構成</span></div>
-          <div class="diag-item bad"><span class="dot"></span><span class="diag-item-label">アクティビスト想定問</span></div>
-        </div>
-
-        <div class="diag-foot">
-          <span>社内利用: IR部 / CFO室 / 経営企画</span>
-          <span>機密 / NDA可</span>
-        </div>
-      </div>
-    </div>
-    <div class="cta-band reveal" aria-label="サービスの次のアクション">
-      <div>
-        <span class="label">次のアクション</span>
-        <h3>まずは直近のIR資料を前提に診断範囲を確認します。</h3>
-        <p>決算説明資料・英文IRページ・面談Q&amp;Aなど、いま見てほしい資料種別をフォームに入れてお送りください。</p>
-      </div>
-      <div class="cta-actions">
-        <a href="#contact" class="btn btn-outline" data-rfq-service="diagnostic" data-rfq-document="earnings_presentation" data-rfq-source="services_secondary" data-rfq-message="サービス詳細後CTA：直近の決算説明資料を対象に、海外IR診断カードの見積と進め方を相談したいです。">サービス内容を相談する</a>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- WHY — translation vs. diagnostic: complementary, not hierarchical -->
-<section id="why" aria-label="単発と継続のちがい">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="label">Track A と Track B のちがい</span>
-      <div class="rule-accent"></div>
-      <h2 class="mincho-lg">単発は納品物、継続は改善サイクル。</h2>
-      <p>単発は、目の前の文書や面談を確実に仕上げるサービスです。継続は、資料・Q&amp;A・面談で同じ課題が戻ってこないよう、優先順位を更新し続けるサービスです。</p>
-    </div>
-    <div class="why-grid reveal">
-      <div class="why-card">
-        <span class="label">Track A ｜ 単発が答えるのは</span>
-        <h3>「この文書を、いま、正確かつ整った英文に。」</h3>
-        <p>決算短信、統合報告書、適時開示、通訳を文書単位・面談単位で納品します。初回案件から用語を残すため、次の資料にもつながります。</p>
-      </div>
-      <div class="why-card is-diag">
-        <span class="label">Track B ｜ 継続が答えるのは</span>
-        <h3>「年度をまたいで、英文 IR 全体を整え続ける。」</h3>
-        <p>四半期・年度の開示サイクルに合わせ、資本配分、競争優位、成長前提の伝わり方を点検します。診断カードで優先課題を絞り、次の開示と面談に反映します。</p>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- RECEIVE -->
-<section id="receive" aria-label="Track B ｜ 診断リテイナーの納品物">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="label">Track B ｜ 診断リテイナーで受け取るもの</span>
-      <div class="rule-accent"></div>
-      <h2 class="mincho-lg">継続契約で受け取るもの</h2>
-      <p>Light / Standard / Pro では、同じ中核成果物を四半期または年度ごとに更新します。必要に応じて単発版も設計できます。</p>
-    </div>
-    <div class="receive-grid reveal">
-      <div class="receive-card"><span class="num">01</span><h3>診断カード本体</h3><p>12項目・24点のスコアカードと総合所見。1ファイルで社内共有可。</p></div>
-      <div class="receive-card"><span class="num">02</span><h3>伝わっていない上位3点</h3><p>投資判断に最も影響している、伝わっていない論点を3点に絞ってご提示。</p></div>
-      <div class="receive-card"><span class="num">03</span><h3>具体例 / 引用</h3><p>御社のIR資料や面談記録から、伝わりにくくなっている具体的な箇所を引用。</p></div>
-      <div class="receive-card"><span class="num">04</span><h3>改善優先順位</h3><p>「次の決算で直すべきもの」「中期で整えるもの」を分けて提示。</p></div>
-      <div class="receive-card"><span class="num">05</span><h3>社内ウォークスルー</h3><p>IR部・CFO室・経営企画と、診断結果を読み合わせる60分のセッション。</p></div>
-      <div class="receive-card"><span class="num">06</span><h3>次の一手のご提案</h3><p>翻訳・通訳・開示見直しなど、診断結果を実際にどう動かすかの選択肢を整理してお渡しします。</p></div>
-    </div>
-  </div>
-</section>
-<!-- PROCESS -->
-<section id="process" aria-label="Track B ｜ 診断から実行へ">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="label">Track B ｜ 診断から実行へ</span>
-      <div class="rule-accent"></div>
-      <h2 class="mincho-lg">診断を、次の開示に戻す。</h2>
-      <p>見つけた課題を並べるだけでは終わりません。次に直す三つを決め、資料・Q&amp;A・面談準備に戻します。</p>
-    </div>
-    <div class="process-flow reveal">
-      <div class="process-step"><h3>資料 / 面談観察</h3><p>IR資料・IRページ・直近面談を点検対象として収集。</p></div>
-      <div class="process-step"><h3>診断カード</h3><p>12項目・24点で点検し、伝わっていない上位3点を整理。</p></div>
-      <div class="process-step"><h3>優先順位</h3><p>次の決算で直す / 中期で整えるを切り分け、社内で合意。</p></div>
-      <div class="process-step"><h3>開示 / Q&amp;A / 面談</h3><p>開示の見直し・面談準備・通訳など、実際の対応に落としていきます。</p></div>
-      <div class="process-step"><h3>翌四半期で再点検</h3><p>面談で得た反応を次回以降の診断に反映し、改善のサイクルを回します。</p></div>
-    </div>
-  </div>
-</section>
-<!-- CASES -->
-<section id="cases" aria-label="ご利用ケース">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="label">ご利用ケース</span>
-      <div class="rule-accent"></div>
-      <h2 class="mincho-lg">ご相談が多い場面</h2>
-    </div>
-    <div class="case-grid reveal">
-      <div class="case-card"><span class="case-tag">Case A ｜ 単発</span><h3>決算短信を一度、お試しで英訳してほしい</h3><p>業者選定中。まずは一案件だけ、品質と進め方を見たい。Track A の単発英訳でお受けします。</p></div>
-      <div class="case-card"><span class="case-tag">Case B ｜ 単発</span><h3>来月の IR デイで通訳が必要</h3><p>同時通訳ペア・機材手配を含めて相談したい。Track A の単発通訳でお受けします。</p></div>
-      <div class="case-card"><span class="case-tag">単発 → 継続</span><h3>複数業者でブレた英文 IR を、用語からそろえ直したい</h3><p>過去の英訳資産を整理し、用語集・翻訳メモリを構築。単発の整備案件から始めて、継続支援へ移行する典型ケース。</p></div>
-      <div class="case-card"><span class="case-tag">Case C ｜ 継続</span><h3>海外 IR を続けているが投資につながらない</h3><p>面談はあるが買い注文に至らない。どこで伝わっていないのかを継続的に整理したい。Track B の診断リテイナー向き。</p></div>
-      <div class="case-card"><span class="case-tag">Case D ｜ 継続</span><h3>中計・資本配分方針を説明する</h3><p>新中計の前提・ROIC 目標・株主還元の考え方を、海外投資家にまっすぐ届けたい。Track B の Standard / Pro 向き。</p></div>
-      <div class="case-card"><span class="case-tag">Case E ｜ 継続</span><h3>アクティビスト／重要株主対応</h3><p>主要株主が変わり、論点を整理して説明軸を作り直す必要がある。Pro 推奨。</p></div>
-    </div>
-  </div>
-</section>
-<!-- CONTACT -->
-<section id="contact" aria-label="翻訳・IRコミュニケーションのお見積り依頼">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="label">お見積り依頼</span>
-      <div class="rule-accent"></div>
-      <h2 class="mincho-lg">翻訳・IR支援の<span class="nowrap">お見積り依頼</span></h2>
-      <p>ご希望の内容、資料の種類、言語、納期の目安をお知らせください。内容を確認のうえ、通常1営業日以内にお見積りまたは確認事項をご連絡します。</p>
-    </div>
-    <div class="contact-grid">
-      <div class="reveal">
-        <div class="form-success" id="form-success" hidden tabindex="-1" role="status" aria-live="polite">
-          <h3>お見積り依頼を受け付けました</h3>
-          <p>送信ありがとうございます。内容を確認のうえ、通常1営業日以内にお見積り、確認事項、今後の進め方をご連絡します。</p>
-        </div>
-        <form class="contact-form" id="inquiry-form" novalidate data-recaptcha-site-key="">
-          <input type="hidden" name="form_type" value="rfq-ja">
-          <input type="hidden" name="_subject" value="JP inquiry from jpinv.com">
-          <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" value="">
-          <div class="form-grid">
-            <div class="form-row">
-              <label for="company_name">会社名<span class="form-required" aria-hidden="true">*</span></label>
-              <input id="company_name" name="company_name" type="text" autocomplete="organization" placeholder="株式会社◯◯" required aria-describedby="company_name-error" aria-invalid="false">
-              <p class="form-field-error" id="company_name-error" role="alert" aria-live="assertive" aria-atomic="true"></p>
-            </div>
-            <div class="form-row">
-              <label for="contact_name">ご担当者名<span class="form-required" aria-hidden="true">*</span></label>
-              <input id="contact_name" name="contact_name" type="text" autocomplete="name" placeholder="山田 太郎" required aria-describedby="contact_name-error" aria-invalid="false">
-              <p class="form-field-error" id="contact_name-error" role="alert" aria-live="assertive" aria-atomic="true"></p>
-            </div>
-            <div class="form-row full">
-              <label for="work_email">メールアドレス（勤務先）<span class="form-required" aria-hidden="true">*</span></label>
-              <input id="work_email" name="work_email" type="email" autocomplete="email" placeholder="your@company.com" required aria-describedby="work_email-desc work_email-error" aria-invalid="false">
-              <p class="form-description" id="work_email-desc">お見積りや確認事項のご連絡先として使用します。</p>
-              <p class="form-field-error" id="work_email-error" role="alert" aria-live="assertive" aria-atomic="true"></p>
-            </div>
-            <div class="form-row">
-              <label for="service_type">ご希望のサービス<span class="form-required" aria-hidden="true">*</span></label>
-              <select id="service_type" name="service_type" required aria-describedby="service_type-error" aria-invalid="false">
-                <option value="">選択してください</option>
-                <option value="translation">IR・開示資料の翻訳</option>
-                <option value="editing_review">英文開示のレビュー・編集</option>
-                <option value="interpretation">投資家面談の通訳</option>
-                <option value="diagnostic">海外IR診断・改善提案</option>
-                <option value="other">その他・未定</option>
-              </select>
-              <p class="form-field-error" id="service_type-error" role="alert" aria-live="assertive" aria-atomic="true"></p>
-            </div>
-            <div class="form-row">
-              <label for="document_type">資料の種類<span class="form-required" aria-hidden="true">*</span></label>
-              <select id="document_type" name="document_type" required aria-describedby="document_type-error" aria-invalid="false">
-                <option value="">選択してください</option>
-                <option value="earnings_release">決算短信・決算説明資料</option>
-                <option value="annual_report">統合報告書・有価証券報告書</option>
-                <option value="presentation">投資家向けプレゼン</option>
-                <option value="meeting_script">面談スクリプト・Q&amp;A</option>
-                <option value="website_disclosure">Webサイト・適時開示</option>
-                <option value="other">その他・未定</option>
-              </select>
-              <p class="form-field-error" id="document_type-error" role="alert" aria-live="assertive" aria-atomic="true"></p>
-            </div>
-            <div class="form-row">
-              <label for="source_language">翻訳元の言語<span class="form-required" aria-hidden="true">*</span></label>
-              <select id="source_language" name="source_language" required aria-describedby="source_language-error" aria-invalid="false">
-                <option value="">選択してください</option>
-                <option value="ja">日本語</option>
-                <option value="en">英語</option>
-                <option value="other">その他</option>
-              </select>
-              <p class="form-field-error" id="source_language-error" role="alert" aria-live="assertive" aria-atomic="true"></p>
-            </div>
-            <div class="form-row">
-              <label for="target_language">納品する言語<span class="form-required" aria-hidden="true">*</span></label>
-              <select id="target_language" name="target_language" required aria-describedby="target_language-error" aria-invalid="false">
-                <option value="">選択してください</option>
-                <option value="en">英語</option>
-                <option value="ja">日本語</option>
-                <option value="bilingual">日英併記・双方向</option>
-                <option value="other">その他</option>
-              </select>
-              <p class="form-field-error" id="target_language-error" role="alert" aria-live="assertive" aria-atomic="true"></p>
-            </div>
-            <div class="form-row">
-              <label for="turnaround_date">ご希望納期<span class="form-required" aria-hidden="true">*</span></label>
-              <input id="turnaround_date" name="turnaround_date" type="date" required aria-describedby="turnaround_date-desc turnaround_date-error" aria-invalid="false">
-              <p class="form-description" id="turnaround_date-desc">未確定の場合は、おおよその日付で構いません。</p>
-              <p class="form-field-error" id="turnaround_date-error" role="alert" aria-live="assertive" aria-atomic="true"></p>
-            </div>
-            <div class="form-row">
-              <label for="estimated_volume">分量の目安<span class="form-required" aria-hidden="true">*</span></label>
-              <input id="estimated_volume" name="estimated_volume" type="text" placeholder="例：20ページ、8,000字、60分の面談" required aria-describedby="estimated_volume-error" aria-invalid="false">
-              <p class="form-field-error" id="estimated_volume-error" role="alert" aria-live="assertive" aria-atomic="true"></p>
-            </div>
-            <div class="form-row full">
-              <label for="message">ご相談内容・ご要望<span class="form-required" aria-hidden="true">*</span></label>
-              <textarea id="message" name="message" placeholder="用途、対象となる投資家、資料の状況、機密情報の有無、ご希望の成果物などをご記入ください。" required minlength="20" aria-describedby="message-desc message-error" aria-invalid="false"></textarea>
-              <p class="form-description" id="message-desc">資料の共有が必要な場合は、受付メールへの返信でお送りください。NDA締結後の共有にも対応します。</p>
-              <p class="form-field-error" id="message-error" role="alert" aria-live="assertive" aria-atomic="true"></p>
+        <div class="acc-item">
+          <button class="acc-trigger" aria-expanded="false" aria-controls="acc-ai">生成AIの利用方針<span class="caret">▸</span></button>
+          <div class="acc-panel" id="acc-ai" role="region">
+            <div class="acc-panel-inner">
+              <p>人間翻訳サービスでは、生成AIを使用いたしません。</p>
+              <p>AI初稿＋専門チェックでは、初稿生成のみにAIを利用し、学習目的での使用および第三者への送信は一切行いません。</p>
+              <p>機密度の高い案件は、AI不使用でのご対応も承ります。</p>
             </div>
           </div>
-          <button type="submit" class="form-submit" id="form-submit-btn">お見積りを依頼する</button>
-          <p class="form-status" id="form-status" role="status" aria-live="polite" aria-atomic="true"></p>
-          <p class="form-help">迷惑送信防止の確認は、送信時にのみ行います。送信できない場合は、同じ内容を <a href="mailto:info@jpinv.com">info@jpinv.com</a> までお送りください。</p>
-        </form>
-      </div>
-      <div class="contact-side reveal">
-        <h3>ご依頼後の流れ</h3>
-        <ul>
-          <li>通常1営業日以内にご連絡</li>
-          <li>必要に応じてNDAを締結</li>
-          <li>範囲・納期・成果物を確認</li>
-          <li>お見積りまたは追加確認事項をご案内</li>
-        </ul>
-        <div class="contact-info-grid">
-          <div>
-            <h3>連絡先</h3>
-            <dl>
-              <dt>メール</dt><dd><a href="mailto:info@jpinv.com">info@jpinv.com</a></dd>
-            </dl>
+        </div>
+        <div class="acc-item">
+          <button class="acc-trigger" aria-expanded="false" aria-controls="acc-team">ご対応体制<span class="caret">▸</span></button>
+          <div class="acc-panel" id="acc-team" role="region">
+            <div class="acc-panel-inner"><p>翻訳・通訳・診断業務は、代表の屋山テディが直接担当いたします。外部委託は行っておりません。決算期等の繁忙期は、受注件数を調整したうえで、納期と品質の維持を優先いたします。</p></div>
+          </div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-trigger" aria-expanded="false" aria-controls="acc-priv">個人情報の取扱い・データ保管<span class="caret">▸</span></button>
+          <div class="acc-panel" id="acc-priv" role="region">
+            <div class="acc-panel-inner"><p>個人情報は、当社プライバシーポリシーに準拠して取扱います。お預かりした原稿および納品物は、別途のお取り決めがない限り、納品から90日後に削除いたします。</p></div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- =================== FAQ =================== -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">FAQ</span>
+        <h2 class="h-section">よくあるご質問</h2>
+        <div class="h-rule"></div>
+      </div>
+      <div class="acc" data-acc>
+        <div class="acc-item">
+          <button class="acc-trigger" aria-expanded="false" aria-controls="faq-1">短納期（24時間以内）は対応できますか<span class="caret">▸</span></button>
+          <div class="acc-panel" id="faq-1" role="region">
+            <div class="acc-panel-inner"><p>ご相談ください。短信4ページ程度であれば追加料金で対応可能です。</p></div>
+          </div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-trigger" aria-expanded="false" aria-controls="faq-2">過去に他社で翻訳した資料の継続案件は受けられますか<span class="caret">▸</span></button>
+          <div class="acc-panel" id="faq-2" role="region">
+            <div class="acc-panel-inner"><p>はい。過去訳を読み込み、用語集化したうえで継続します。</p></div>
+          </div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-trigger" aria-expanded="false" aria-controls="faq-3">統合報告書のような大型案件はどう進みますか<span class="caret">▸</span></button>
+          <div class="acc-panel" id="faq-3" role="region">
+            <div class="acc-panel-inner"><p>章単位で分割し、用語集を先に確定。レビューを2回挟みます。</p></div>
+          </div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-trigger" aria-expanded="false" aria-controls="faq-4">通訳のみのご依頼も可能ですか<span class="caret">▸</span></button>
+          <div class="acc-panel" id="faq-4" role="region">
+            <div class="acc-panel-inner"><p>可能です。事前資料がない場合でも、公開IR資料から準備します。</p></div>
+          </div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-trigger" aria-expanded="false" aria-controls="faq-5">海外IR診断カードとは何ですか<span class="caret">▸</span></button>
+          <div class="acc-panel" id="faq-5" role="region">
+            <div class="acc-panel-inner"><p>自社の英文IRを海外投資家視点で点検する、12項目24点のスコアカードです。詳しくは <a href="/サービス/diagnostic/">/サービス/diagnostic/</a></p></div>
+          </div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-trigger" aria-expanded="false" aria-controls="faq-6">海外投資家からの問い合わせ対応もお願いできますか<span class="caret">▸</span></button>
+          <div class="acc-panel" id="faq-6" role="region">
+            <div class="acc-panel-inner"><p>継続契約（Standard以上）で対応します。お見積り時にご相談ください。</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== RFQ FORM =================== -->
+  <section class="section alt" id="rfq">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Step 1 of 1</span>
+        <h2 class="h-section">お見積り・ご相談はこちら</h2>
+        <div class="h-rule"></div>
+        <p class="section-sub">資料・納期が未確定でも構いません。NDA締結後に詳細をお預かりします。</p>
+      </div>
+
+      <div class="rfq-toggle-row">
+        <button type="button" class="is-active" data-rfq-mode="estimate">概算を依頼</button>
+        <button type="button" data-rfq-mode="nda">NDAを先に依頼</button>
+      </div>
+
+      <form id="rfqForm" method="POST" action="https://formspree.io/f/mdayglyl" novalidate="false">
+        <input type="hidden" name="locale" value="ja">
+        <input type="hidden" name="_subject" value="[jpinv] 概算依頼 — Services page">
+        <div class="form-grid">
+
+          <div class="field">
+            <label for="f-company">会社名 <span class="req">*</span></label>
+            <input id="f-company" name="company" type="text" autocomplete="organization" required placeholder="◯◯株式会社">
+          </div>
+
+          <div class="field">
+            <label for="f-name">ご担当者 <span class="req">*</span></label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required placeholder="例：山田 太郎">
+          </div>
+
+          <div class="field">
+            <label for="f-email">会社メール <span class="req">*</span></label>
+            <input id="f-email" name="email" type="email" autocomplete="email" required placeholder="name@company.co.jp">
+          </div>
+
+          <div class="field">
+            <label for="f-type">依頼種別 <span class="req">*</span></label>
+            <select id="f-type" name="service_type" required>
+              <option value="" disabled selected>選択してください</option>
+              <option>単発翻訳</option>
+              <option>単発通訳</option>
+              <option>継続サポート</option>
+              <option>海外IR診断カード</option>
+              <option>NDA先行（資料は後日）</option>
+              <option>その他</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="f-doc">文書種別</label>
+            <select id="f-doc" name="document_type">
+              <option value="">—</option>
+              <option>決算短信</option>
+              <option>決算説明資料</option>
+              <option>招集通知</option>
+              <option>統合報告書</option>
+              <option>適時開示</option>
+              <option>面談（通訳）</option>
+              <option>その他</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="f-lang">言語</label>
+            <select id="f-lang" name="language">
+              <option>JP→EN</option>
+              <option>EN→JP</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="f-deadline">希望納期</label>
+            <input id="f-deadline" name="deadline" type="date">
+          </div>
+
+          <div class="field">
+            <label for="f-volume">想定分量</label>
+            <input id="f-volume" name="volume" type="text" placeholder="例：20ページ、8,000字、60分の面談">
+          </div>
+
+          <div class="field span-2">
+            <label for="f-notes">ご相談内容</label>
+            <textarea id="f-notes" name="notes" placeholder="背景・社内タイミング・過去訳の有無など、概要をご記入ください。"></textarea>
+          </div>
+
+        </div>
+
+        <div class="form-submit">
+          <button type="submit" class="btn-primary">概算を依頼する<span class="arr">→</span></button>
+        </div>
+
+        <p class="form-help">通常1営業日以内にご返信します。送信エラーの際は <a href="mailto:info@jpinv.com">info@jpinv.com</a> までご連絡ください。</p>
+      </form>
+
+      <!-- =================== CONFIRMATION PANEL =================== -->
+      <aside class="conf-panel" aria-label="返信について">
+        <p>通常 1営業日以内に返信します。</p>
+        <p>資料はNDA締結後に共有いただけます。</p>
+        <p>連絡先：<a href="mailto:info@jpinv.com">info@jpinv.com</a></p>
+      </aside>
+
+    </div>
+  </section>
+
 </main>
 <!-- FOOTER -->
 <footer>
@@ -1048,260 +1697,175 @@ const revealObs = new IntersectionObserver(entries => {
 }, { threshold: 0.07, rootMargin: '0px 0px -28px 0px' });
 document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
-// Self-check interaction
-const recommendations = {
-  light:    { tag: 'おすすめ: 単発から', title: 'まずは 1 件で品質と進め方を確認', body: '決算説明資料、適時開示、IR サイトなど、直近で必要な資料からお受けします。初回案件で用語集と翻訳メモリの土台も作ります。', value: 'translation', link: '#standalone-translation' },
-  standard: { tag: 'おすすめ: Standard', title: '四半期サイクルに組み込む', body: '用語、説明、投資ストーリーが毎回揺れる場合は、診断カードで優先課題を三つに絞り、次の開示へ戻す運用が有効です。', value: 'diagnostic', link: '/料金/' },
-  pro:      { tag: 'おすすめ: Pro', title: '面談前後まで含めて改善する', body: '面談はあるのに投資判断につながらない場合は、資料だけでなく Q&A、通訳、面談後の反応まで一つのサイクルで見ます。', value: 'diagnostic', link: '/料金/' }
-};
-document.querySelectorAll('.selfcheck-opt').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.selfcheck-opt').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const rec = recommendations[btn.dataset.rec];
-    if (!rec) return;
-    document.getElementById('sr-tag').textContent = rec.tag;
-    document.getElementById('sr-title').textContent = rec.title;
-    document.getElementById('sr-body').textContent = rec.body;
-    const link = document.getElementById('sr-link');
-    link.href = rec.link;
-    link.textContent = rec.value === 'translation' ? '単発メニューを見る →' : (rec.tag.includes('Standard') ? 'Standardプランを見る →' : 'Proプランを見る →');
-    document.getElementById('selfcheck-result').classList.add('show');
-    document.getElementById('service_type').value = rec.value || 'diagnostic';
-  });
-});
+/* ============================================================
+   CLAUDE DESIGN — page interactions (chips, pricing toggle,
+   accordions, RFQ mode). Wraps in DOMContentLoaded just in case.
+   ============================================================ */
+(function () {
+  'use strict';
 
+  // ============================================================
+  // Nav scrolled state (null-safe — site nav handles its own scroll
+  // state in the earlier inline script; this is a no-op fallback.)
+  // ============================================================
+  var nav = document.getElementById('main-nav') || document.getElementById('siteNav');
+  // (No additional scroll listener needed — main-nav already has one.)
 
-function setSelectIfValid(name, value) {
-  const field = inquiryForm && inquiryForm.elements[name];
-  if (!field || !value) return;
-  const option = Array.from(field.options || []).find(opt => opt.value === value);
-  if (option) field.value = value;
-}
+  // ============================================================
+  // In-memory state
+  // ============================================================
+  var state = {
+    selectedUseCase: null,
+    pricingTab: 'oneshot',
+    rfqMode: 'estimate',
+  };
 
-function appendMessageContext(message) {
-  const field = inquiryForm && inquiryForm.elements.message;
-  if (!field || !message) return;
-  if (!field.value.trim()) field.value = message;
-  else if (!field.value.includes(message)) field.value = `${field.value.trim()}
+  // ============================================================
+  // Use-case chips → smooth scroll + 2s highlight on matching row
+  // ============================================================
+  var chips = document.querySelectorAll('.chip');
+  chips.forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      var targetId = chip.getAttribute('data-target');
+      state.selectedUseCase = targetId;
+      chips.forEach(function (c) { c.classList.toggle('is-selected', c === chip); });
 
-${message}`;
-  field.dispatchEvent(new Event('input', { bubbles: true }));
-}
+      // If chip points to recurring row but we're on the one-shot tab, swap tabs first.
+      if (targetId === 'row-recurring' && state.pricingTab !== 'recurring') {
+        setPricingTab('recurring');
+      } else if (targetId !== 'row-recurring' && state.pricingTab !== 'oneshot') {
+        setPricingTab('oneshot');
+      }
 
-function applyRfqContext(context = {}) {
-  if (!inquiryForm) return;
-  setSelectIfValid('service_type', context.service || context.service_type);
-  setSelectIfValid('document_type', context.document || context.document_type);
-  setSelectIfValid('source_language', context.source || context.source_language);
-  setSelectIfValid('target_language', context.target || context.target_language);
-  const ctaContext = document.getElementById('cta_context');
-  const ctaSource = document.getElementById('cta_source');
-  if (ctaContext && context.message) ctaContext.value = context.message;
-  if (ctaSource && context.source_id) ctaSource.value = context.source_id;
-  appendMessageContext(context.message || 'CTAからの見積依頼です。対象資料・納期・機密性について相談したいです。');
-}
+      var row = document.getElementById(targetId);
+      if (!row) return;
+      var rect = row.getBoundingClientRect();
+      var navH = (nav && (nav && nav.offsetHeight)) || 64;
+      var y = window.scrollY + rect.top - navH - 32;
+      window.scrollTo({ top: y, behavior: 'smooth' });
 
-document.querySelectorAll('[data-rfq-service], [data-rfq-document], [data-rfq-message]').forEach((link) => {
-  link.addEventListener('click', () => {
-    applyRfqContext({
-      service: link.dataset.rfqService,
-      document: link.dataset.rfqDocument,
-      source: link.dataset.rfqSourceLanguage,
-      target: link.dataset.rfqTargetLanguage,
-      source_id: link.dataset.rfqSource,
-      message: link.dataset.rfqMessage
+      // Highlight pulse
+      document.querySelectorAll('.price-table tr.flash').forEach(function (r) {
+        r.classList.remove('flash');
+      });
+      // Use requestAnimationFrame to ensure removal -> re-add triggers transition.
+      requestAnimationFrame(function () {
+        row.classList.add('flash');
+        setTimeout(function () { row.classList.remove('flash'); }, 2000);
+      });
     });
   });
-});
 
-function applyRfqParams() {
-  const params = new URLSearchParams(window.location.search);
-  if (![...params.keys()].some(key => ['service_type', 'document_type', 'source_language', 'target_language', 'cta_context', 'cta_source'].includes(key))) return;
-  applyRfqContext({
-    service_type: params.get('service_type'),
-    document_type: params.get('document_type'),
-    source_language: params.get('source_language'),
-    target_language: params.get('target_language'),
-    source_id: params.get('cta_source') || 'url_param',
-    message: params.get('cta_context')
+  // ============================================================
+  // Pricing toggle
+  // ============================================================
+  var segBtns = document.querySelectorAll('#priceSeg button');
+  function setPricingTab(tab) {
+    state.pricingTab = tab;
+    segBtns.forEach(function (b) {
+      var active = b.getAttribute('data-tab') === tab;
+      b.classList.toggle('is-active', active);
+      b.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+    document.querySelectorAll('[data-tab]').forEach(function (el) {
+      if (el.tagName === 'BUTTON') return; // skip seg buttons themselves
+      var match = el.getAttribute('data-tab') === tab;
+      if (match) el.removeAttribute('hidden');
+      else el.setAttribute('hidden', '');
+    });
+  }
+  segBtns.forEach(function (b) {
+    b.addEventListener('click', function () {
+      setPricingTab(b.getAttribute('data-tab'));
+    });
   });
-}
 
-function presetInquiry(value) {
-  const sel = document.getElementById('service_type');
-  if (sel && value) sel.value = value.includes('interpret') ? 'interpretation' : 'diagnostic';
-}
-
-// Inquiry form submission
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mdayglyl';
-const inquiryForm = document.getElementById('inquiry-form');
-const submitBtn = document.getElementById('form-submit-btn');
-const statusEl = document.getElementById('form-status');
-const successBox = document.getElementById('form-success');
-const recaptchaField = document.getElementById('g-recaptcha-response');
-const fieldRules = {
-  company_name: { required: true },
-  contact_name: { required: true },
-  work_email: { required: true, email: true },
-  service_type: { required: true },
-  document_type: { required: true },
-  source_language: { required: true },
-  target_language: { required: true },
-  turnaround_date: { required: true, futureDate: true },
-  estimated_volume: { required: true },
-  message: { required: true, minLength: 20 }
-};
-const formMessages = {
-  required: '必須項目です。',
-  email: '勤務先のメールアドレスを正しく入力してください。',
-  futureDate: '希望納期は今日以降の日付を入力してください。',
-  minLength: 'ご相談内容・ご要望は20文字以上で入力してください。',
-  reviewFields: '入力内容をご確認ください。',
-  verifying: '迷惑送信防止の確認を行っています…',
-  sending: '送信中…',
-  submit: 'お見積りを依頼する',
-  recaptchaFailed: '迷惑送信防止の確認を完了できませんでした。通信状況をご確認のうえ、もう一度お試しください。',
-  serverValidation: '入力内容を確認できませんでした。表示されたエラーをご確認のうえ、もう一度お試しください。',
-  failed: '送信できませんでした。少し時間をおいて、もう一度お試しください。',
-  network: '通信エラーが発生しました。少し時間をおいて、もう一度お試しください。'
-};
-
-function setStatus(message, state) {
-  statusEl.textContent = message || '';
-  if (state) statusEl.dataset.state = state;
-  else delete statusEl.dataset.state;
-}
-
-function setFieldError(field, message) {
-  const error = document.getElementById(`${field.name}-error`);
-  field.setAttribute('aria-invalid', message ? 'true' : 'false');
-  if (error) error.textContent = message || '';
-}
-
-function validateField(field) {
-  const rules = fieldRules[field.name];
-  if (!rules) return true;
-  const value = field.value.trim();
-  let message = '';
-  if (rules.required && !value) message = formMessages.required;
-  else if (rules.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) message = formMessages.email;
-  else if (rules.futureDate && value) {
-    const selected = new Date(`${value}T00:00:00`);
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    if (Number.isNaN(selected.getTime()) || selected < today) message = formMessages.futureDate;
-  } else if (rules.minLength && value.length < rules.minLength) message = formMessages.minLength;
-  setFieldError(field, message);
-  return !message;
-}
-
-function validateForm() {
-  let firstInvalid = null;
-  Object.keys(fieldRules).forEach((name) => {
-    const field = inquiryForm.elements[name];
-    if (field && !validateField(field) && !firstInvalid) firstInvalid = field;
+  // ============================================================
+  // Accordions
+  // ============================================================
+  document.querySelectorAll('[data-acc] .acc-trigger').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var expanded = btn.getAttribute('aria-expanded') === 'true';
+      var panel = document.getElementById(btn.getAttribute('aria-controls'));
+      btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+      if (!panel) return;
+      if (expanded) {
+        panel.style.maxHeight = '0px';
+      } else {
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      }
+    });
   });
-  if (firstInvalid) {
-    firstInvalid.focus();
-    setStatus(formMessages.reviewFields);
+
+  // ============================================================
+  // RFQ mode toggle + Hero CTA preselect
+  // ============================================================
+  var typeSelect = document.getElementById('f-type');
+  var rfqBtns = document.querySelectorAll('[data-rfq-mode]');
+
+  function setRfqMode(mode, scroll) {
+    state.rfqMode = mode;
+    rfqBtns.forEach(function (b) {
+      b.classList.toggle('is-active', b.getAttribute('data-rfq-mode') === mode);
+    });
+    if (mode === 'nda') {
+      selectByValue(typeSelect, 'NDA先行（資料は後日）');
+    } else {
+      // Don't clobber a user choice for estimate — only ensure the placeholder isn't lingering on "NDA先行"
+      if (typeSelect.value === 'NDA先行（資料は後日）') {
+        typeSelect.value = '';
+      }
+    }
+    if (scroll) {
+      var rfq = document.getElementById('rfq');
+      var navH = (nav && (nav && nav.offsetHeight)) || 64;
+      var y = window.scrollY + rfq.getBoundingClientRect().top - navH + 1;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  }
+
+  function selectByValue(sel, val) {
+    for (var i = 0; i < sel.options.length; i++) {
+      if (sel.options[i].value === val || sel.options[i].textContent === val) {
+        sel.selectedIndex = i;
+        return true;
+      }
+    }
     return false;
   }
-  setStatus('');
-  return true;
-}
 
-function loadRecaptchaScript(siteKey) {
-  if (window.grecaptcha && window.grecaptcha.ready) return Promise.resolve();
-  const existing = document.querySelector('script[data-rfq-recaptcha]');
-  if (existing) return new Promise((resolve, reject) => { existing.addEventListener('load', resolve, { once: true }); existing.addEventListener('error', reject, { once: true }); });
-  return new Promise((resolve, reject) => {
-    const script = document.createElement('script');
-    script.src = `https://www.google.com/recaptcha/api.js?render=${encodeURIComponent(siteKey)}`;
-    script.async = true;
-    script.defer = true;
-    script.dataset.rfqRecaptcha = 'true';
-    script.onload = resolve;
-    script.onerror = reject;
-    document.head.appendChild(script);
-  });
-}
-
-async function getRecaptchaToken() {
-  const siteKey = inquiryForm.dataset.recaptchaSiteKey;
-  if (!siteKey) return '';
-  setStatus(formMessages.verifying, 'info');
-  await loadRecaptchaScript(siteKey);
-  return new Promise((resolve, reject) => {
-    window.grecaptcha.ready(() => {
-      window.grecaptcha.execute(siteKey, { action: 'rfq_ja' }).then(resolve).catch(reject);
+  rfqBtns.forEach(function (b) {
+    b.addEventListener('click', function () {
+      setRfqMode(b.getAttribute('data-rfq-mode'), false);
     });
   });
-}
 
-function applyServerErrors(errors) {
-  if (!Array.isArray(errors)) return false;
-  let applied = false;
-  errors.forEach((err) => {
-    const name = err.field || err.name || err.code;
-    const field = name && inquiryForm.elements[name];
-    if (field) {
-      setFieldError(field, err.message || formMessages.serverValidation);
-      applied = true;
-    }
-  });
-  return applied;
-}
-
-Object.keys(fieldRules).forEach((name) => {
-  const field = inquiryForm.elements[name];
-  if (!field) return;
-  field.addEventListener('blur', () => validateField(field));
-  field.addEventListener('input', () => { if (field.getAttribute('aria-invalid') === 'true') validateField(field); });
-  field.addEventListener('change', () => validateField(field));
-});
-
-inquiryForm.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  if (!validateForm()) return;
-  submitBtn.disabled = true;
-  submitBtn.textContent = formMessages.sending;
-  try {
-    const token = await getRecaptchaToken();
-    if (recaptchaField) recaptchaField.value = token;
-  } catch (err) {
-    setStatus(formMessages.recaptchaFailed);
-    submitBtn.disabled = false;
-    submitBtn.textContent = formMessages.submit;
-    return;
-  }
-  setStatus(formMessages.sending, 'info');
-  try {
-    const data = new FormData(inquiryForm);
-    const res = await fetch(FORMSPREE_ENDPOINT, {
-      method: 'POST',
-      body: data,
-      headers: { 'Accept': 'application/json' }
+  // Hero CTAs
+  document.querySelectorAll('[data-cta]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var mode = a.getAttribute('data-cta') === 'nda' ? 'nda' : 'estimate';
+      // Let the native anchor scroll handle navigation; we just preselect.
+      setRfqMode(mode, false);
     });
-    if (res.ok) {
-      inquiryForm.reset();
-      Object.keys(fieldRules).forEach((name) => { const field = inquiryForm.elements[name]; if (field) setFieldError(field, ''); });
-      inquiryForm.style.display = 'none';
-      successBox.hidden = false;
-      successBox.focus();
-    } else {
-      const json = await res.json().catch(() => ({}));
-      const hasFieldErrors = applyServerErrors(json.errors);
-      setStatus(hasFieldErrors ? formMessages.serverValidation : ((json.errors && json.errors[0] && json.errors[0].message) || formMessages.failed));
-      submitBtn.disabled = false;
-      submitBtn.textContent = formMessages.submit;
-    }
-  } catch (err) {
-    setStatus(formMessages.network);
-    submitBtn.disabled = false;
-    submitBtn.textContent = formMessages.submit;
-  }
-});
+  });
+
+  // Card CTAs — preselect service_type
+  document.querySelectorAll('[data-preselect-type]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var v = a.getAttribute('data-preselect-type');
+      selectByValue(typeSelect, v);
+      // Reset rfq mode toggle UI to estimate (since this isn't NDA-first)
+      if (v !== 'NDA先行（資料は後日）') {
+        rfqBtns.forEach(function (b) {
+          b.classList.toggle('is-active', b.getAttribute('data-rfq-mode') === 'estimate');
+        });
+        state.rfqMode = 'estimate';
+      }
+    });
+  });
+
+})();
 </script>
+
 </body>
 </html>
