@@ -320,7 +320,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
         </div>
         <h3 class="card-name">Nippon Insure Co., Ltd.</h3>
         <p class="card-jp">ニッポンインシュア株式会社</p>
-        <p class="card-hook"><b>Nippon Insure stands behind rent that Japan&apos;s traditional cosigner economy can no longer supply, and the demographic shift keeps widening that role. The compounding shows up in the income statement; the multiple has stopped paying for it.</b><br><br>FY9/25 operating profit grew 81.5% as the renewal and monthly premium book reached the scale at which its growth outpaced new-contract growth. Management then guided FY9/26 to a 16.4% increase, and the stock gave back roughly a third from its August-2025 peak. The first half of FY9/26 &mdash; a 28.6% operating margin against a 20.9% full-year guide, booking 67% of guided operating profit &mdash; suggested the truth sits between the two. Three disclosures, none requiring higher earnings, could reweight a 32% return-on-capital business now trading at 5.3x forward operating profit: a quarterly initial-contract trajectory, a restated capital-return framework, and a multi-year decomposition of the related-party transaction with Miyoshi Real Estate.</p>
+        <p class="card-hook"><b>Nippon Insure stands behind the rent of Japanese tenants who can no longer supply a human cosigner &mdash; a role demographics keep widening. The recurring book compounds with each new lease; the multiple turns on a debate management could close itself.</b><br><br>Three debates remain: whether the first-half operating margin is slope or timing, whether new-contract volume returns as the Nagoya branch matures, and how much retained capital a 32% return-on-capital balance sheet should redeploy. Three disclosures &mdash; an initial-contract trajectory by channel, a restated capital-return framework, and a decomposition of the Miyoshi Real Estate related-party transaction &mdash; could close most of that gap.</p>
         <div class="card-stats">
           <div>
             <div class="card-stat-label">Last Close</div>
@@ -651,18 +651,4 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   (function () {
     var grid = document.getElementById('profile-grid');
     if (!grid) return;
-    var btnDate = document.getElementById('sort-date');
-    var btnTicker = document.getElementById('sort-ticker');
-
-    function applySort(mode) {
-      var cards = Array.prototype.slice.call(grid.querySelectorAll('a.card'));
-      var placeholders = Array.prototype.slice.call(grid.querySelectorAll('.placeholder'));
-      cards.sort(function (a, b) {
-        if (mode === 'ticker') {
-          return parseInt(a.dataset.ticker, 10) - parseInt(b.dataset.ticker, 10);
-        }
-        // default: date desc
-        return (b.dataset.date || '').localeCompare(a.dataset.date || '');
-      });
-      // Re-append cards in sort order, then placeholders at the end
-      car
+    var btnDate = d
