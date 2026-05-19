@@ -313,6 +313,37 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
     <div class="grid" id="profile-grid">
 
+                  <a class="card" href="/en/compounders/4071/" data-date="2026-05-19" data-ticker="4071">
+        <div class="card-head">
+          <span class="card-ticker">TSE PRIME · 4071</span>
+          <span class="card-sector">HR &amp; Marketing SaaS · Japanese-NLP Compounder</span>
+        </div>
+        <h3 class="card-name">Plus Alpha Consulting Co., Ltd.</h3>
+        <p class="card-jp">株式会社プラスアルファ・コンサルティング</p>
+        <p class="card-hook"><b>Plus Alpha Consulting reads the unstructured Japanese text behind corporate HR &mdash; a moat seventeen years of language tuning built. Talent Palette compounds with every enterprise renewal; the multiple turns on a capital-return debate an activist has just opened.</b><br><br>Three debates: whether the FY9/26 guide is conservative or front-loaded, whether partner OEMs are a real second engine, and how much of a 46% return-on-capital balance sheet&apos;s ¥14.5bn cash management chooses to return. Three disclosures &mdash; a Mynavi OEM revenue line, a recurring buyback authorization, and a quarterly Talent Palette ARPU decomposition &mdash; could close most of that gap.</p>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">Last Close</div>
+            <div class="card-stat-val">¥2,301</div>
+          </div>
+          <div>
+            <div class="card-stat-label">EV / EBIT</div>
+            <div class="card-stat-val">11.1<small>x</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ROCE</div>
+            <div class="card-stat-val">46<small>%</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">Net Cash / MC</div>
+            <div class="card-stat-val">15<small>%</small></div>
+          </div>
+        </div>
+        <div class="card-meta-row">
+          <span>Published 19 May 2026</span>
+        </div>
+      </a>
+
                   <a class="card" href="/en/compounders/5843/" data-date="2026-05-19" data-ticker="5843">
         <div class="card-head">
           <span class="card-ticker">TSE STANDARD · 5843</span>
@@ -320,7 +351,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
         </div>
         <h3 class="card-name">Nippon Insure Co., Ltd.</h3>
         <p class="card-jp">ニッポンインシュア株式会社</p>
-        <p class="card-hook"><b>Nippon Insure stands behind the rent of Japanese tenants who can no longer supply a human cosigner &mdash; a role demographics keep widening. The recurring book compounds with each new lease; the multiple turns on a debate management could close itself.</b><br><br>Three debates remain: whether the first-half operating margin is slope or timing, whether new-contract volume returns as the Nagoya branch matures, and how much retained capital a 32% return-on-capital balance sheet should redeploy. Three disclosures &mdash; an initial-contract trajectory by channel, a restated capital-return framework, and a decomposition of the Miyoshi Real Estate related-party transaction &mdash; could close most of that gap.</p>
+        <p class="card-hook"><b>Nippon Insure&apos;s renewal-stack compounding is intact. The market is no longer paying for the FY9/25 inflection as a permanent slope.</b><br><br>FY9/25 operating profit grew +81.5% as the renewal/monthly premium stack hit absorption, then the FY9/26 guide reset to +16.4% and the stock handed back roughly a third from the August-2025 peak. H1 FY9/26 already booked 67% of full-year OP guide. Three specific disclosures &mdash; initial-contract transparency, a restated payout policy, and a related-party decomposition &mdash; could reweight a 32% ROCE business now trading at 5.3x forward EV/EBIT.</p>
         <div class="card-stats">
           <div>
             <div class="card-stat-label">Last Close</div>
@@ -651,4 +682,24 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   (function () {
     var grid = document.getElementById('profile-grid');
     if (!grid) return;
-    var btnDate = d
+    var btnDate = document.getElementById('sort-date');
+    var btnTicker = document.getElementById('sort-ticker');
+
+    function applySort(mode) {
+      var cards = Array.prototype.slice.call(grid.querySelectorAll('a.card'));
+      var placeholders = Array.prototype.slice.call(grid.querySelectorAll('.placeholder'));
+      cards.sort(function (a, b) {
+        if (mode === 'ticker') {
+          return parseInt(a.dataset.ticker, 10) - parseInt(b.dataset.ticker, 10);
+        }
+        // default: date desc
+        return (b.dataset.date || '').localeCompare(a.dataset.date || '');
+      });
+      // Re-append cards in sort order, then placeholders at the end
+      car
+  });
+})();
+</script>
+
+</body>
+</html>
