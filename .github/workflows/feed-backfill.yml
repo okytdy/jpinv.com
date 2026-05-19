@@ -86,6 +86,22 @@ jobs:
           set -euo pipefail
           git config user.name  "jii-feed-bot"
           git config user.email "feed-bot@users.noreply.github.com"
+
+          # The backfill output is a strict superset of anything the 30-min
+          # incremental cron could have added during this run (backfill walks
+          # `lookback_days` back through today; cron only adds today/yesterday).
+          # So if origin has moved during our run, the safe move is: snapshot
+          # our outputs, hard-reset to latest origin/main, restore our outputs,
+          # commit, push. Avoids merge-conflict resolution entirely.
+          TMPDIR="$(mktemp -d)"
+          cp -r compounders/feed/data "$TMPDIR/data"
+
+          git fetch origin main
+          git reset --hard origin/main
+
+          rm -rf compounders/feed/data
+          cp -r "$TMPDIR/data" compounders/feed/data
+
           git add compounders/feed/data/
           git commit -m "feed: backfill ${{ github.event.inputs.lookback_days }}d @ ${{ github.run_id }}"
           git push
