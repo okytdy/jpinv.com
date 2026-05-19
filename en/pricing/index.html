@@ -962,7 +962,7 @@ function applyRfqContext(context = {}) {
   setSelectIfValid('source_language', context.source || context.source_language);
   setSelectIfValid('target_language', context.target || context.target_language);
   const ctaContext = document.getElementById('cta_context');
-  const ctaSource = doconst ctaSource = document.getElementById('cta_source');
+  const ctaSource = document.getElementById('cta_source');
   if (ctaContext && context.message) ctaContext.value = context.message;
   if (ctaSource && context.source_id) ctaSource.value = context.source_id;
   appendMessageContext(context.message || 'RFQ opened from a CTA. I would like to discuss scope, timing, confidentiality, and estimate.');
