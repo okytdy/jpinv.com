@@ -1,0 +1,104 @@
+name: feed-backfill
+
+# JII Compounders -- Capital-Allocation Inflection Feed (one-shot backfill).
+# Walks EDINET + TDnet `lookback_days` days back through today, runs the
+# classifier, and commits the resulting JSON to compounders/feed/data/.
+# Intentionally manual-only: this job can take hours and should never race
+# the 30-min incremental cron. Spec: compounders/feed/_SPEC.md, section 7.
+
+on:
+  workflow_dispatch:
+    inputs:
+      lookback_days:
+        description: 'How many days to walk back from today (30..1095, default 730).'
+        required: false
+        default: '730'
+
+permissions:
+  contents: write    # so the job can commit and push the refreshed JSON
+
+concurrency:
+  # Only one backfill at a time -- the user must not be able to launch two
+  # in parallel via repeated "Run workflow" clicks.
+  group: feed-backfill
+  cancel-in-progress: false
+
+jobs:
+  backfill:
+    name: Backfill disclosures and rebuild feed
+    runs-on: ubuntu-latest
+    timeout-minutes: 360   # 6h ceiling -- EDINET 3.5s rate-limit * 730 days
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          # Need full token persistence so the later push step can write back.
+          persist-credentials: true
+          fetch-depth: 1
+
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Python dependencies
+        timeout-minutes: 3
+        run: |
+          set -euo pipefail
+          if [ -f tools/requirements.txt ]; then
+            pip install --disable-pip-version-check -r tools/requirements.txt
+          else
+            echo "tools/requirements.txt missing -- falling back to inline install"
+            pip install --disable-pip-version-check requests beautifulsoup4 lxml
+          fi
+
+      - name: Run feed_refresh.py in backfill mode
+        id: backfill
+        timeout-minutes: 355
+        continue-on-error: false
+        env:
+          EDINET_API_KEY: ${{ secrets.EDINET_API_KEY }}
+          FEED_MODE: backfill
+          FEED_BACKFILL_LOOKBACK_DAYS: ${{ github.event.inputs.lookback_days }}
+          PYTHONUNBUFFERED: '1'
+        run: |
+          set -euo pipefail
+          python tools/feed_refresh.py
+
+      - name: Check for changes under compounders/feed/data/
+        id: diff
+        run: |
+          set -euo pipefail
+          if [ -n "$(git status --porcelain compounders/feed/data/)" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            # Best-effort count of newly-added rows in feed.json for the run summary.
+            added=$(git diff --unified=0 -- compounders/feed/data/feed.json 2>/dev/null | grep -cE '^\+\s*"id":' || true)
+            echo "added=${added:-0}" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "added=0" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit and push backfilled data
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          set -euo pipefail
+          git config user.name  "jii-feed-bot"
+          git config user.email "feed-bot@users.noreply.github.com"
+          git add compounders/feed/data/
+          git commit -m "feed: backfill ${{ github.event.inputs.lookback_days }}d @ ${{ github.run_id }}"
+          git push
+
+      - name: Job summary
+        if: always()
+        run: |
+          {
+            echo "## Feed backfill"
+            echo ""
+            echo "- mode: backfill"
+            echo "- lookback_days: ${{ github.event.inputs.lookback_days }}"
+            echo "- changed: ${{ steps.diff.outputs.changed }}"
+            echo "- new rows appended: ${{ steps.diff.outputs.added }}"
+            echo "- run id: ${{ github.run_id }}"
+          } >> "$GITHUB_STEP_SUMMARY"

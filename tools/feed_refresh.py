@@ -9,6 +9,10 @@ Reads `EDINET_API_KEY` from env. Two modes via `FEED_MODE` env var:
     incremental  (default)  - pulls today and yesterday only
     backfill                 - walks today-730d through today
 
+The backfill window can be overridden via `FEED_BACKFILL_LOOKBACK_DAYS`
+(bounded to 30..1095 inclusive). Out-of-range or non-integer values fall
+back to the 730-day default with a warning.
+
 Outputs (relative to repo root, computed from __file__):
     compounders/feed/data/feed.json
     compounders/feed/data/index.json
@@ -65,7 +69,36 @@ ARCHIVE_DIR = FEED_DIR / "archive"
 FEED_ROW_CAP = 5_000  # spec Section 4
 
 INCREMENTAL_LOOKBACK_DAYS = 1     # today and yesterday
-BACKFILL_LOOKBACK_DAYS = 730      # 2 years
+BACKFILL_LOOKBACK_DAYS = 730      # 2 years (default; override via env)
+BACKFILL_LOOKBACK_MIN = 30
+BACKFILL_LOOKBACK_MAX = 1095      # 3 years - hard ceiling
+
+
+def _resolve_backfill_lookback() -> int:
+    """Return the backfill window length in days, honouring the
+    `FEED_BACKFILL_LOOKBACK_DAYS` env var when present and in range.
+    Out-of-range or non-integer values fall back to the default with a
+    warning so the run still completes."""
+    raw = os.environ.get("FEED_BACKFILL_LOOKBACK_DAYS")
+    if raw is None or raw.strip() == "":
+        return BACKFILL_LOOKBACK_DAYS
+    try:
+        n = int(raw.strip())
+    except ValueError:
+        LOG.warning(
+            "FEED_BACKFILL_LOOKBACK_DAYS=%r is not an integer; using default %d.",
+            raw, BACKFILL_LOOKBACK_DAYS,
+        )
+        return BACKFILL_LOOKBACK_DAYS
+    if n < BACKFILL_LOOKBACK_MIN or n > BACKFILL_LOOKBACK_MAX:
+        LOG.warning(
+            "FEED_BACKFILL_LOOKBACK_DAYS=%d outside [%d..%d]; using default %d.",
+            n, BACKFILL_LOOKBACK_MIN, BACKFILL_LOOKBACK_MAX,
+            BACKFILL_LOOKBACK_DAYS,
+        )
+        return BACKFILL_LOOKBACK_DAYS
+    LOG.info("Backfill lookback overridden via env: %d days.", n)
+    return n
 
 
 # ---------------------------------------------------------------------------
@@ -101,7 +134,8 @@ def _write_json(path: Path, data) -> None:
 def _resolve_window(mode: str) -> tuple[_dt.date, _dt.date]:
     today_jst = _dt.datetime.now(JST).date()
     if mode == "backfill":
-        return today_jst - _dt.timedelta(days=BACKFILL_LOOKBACK_DAYS), today_jst
+        lookback = _resolve_backfill_lookback()
+        return today_jst - _dt.timedelta(days=lookback), today_jst
     # default: incremental
     return today_jst - _dt.timedelta(days=INCREMENTAL_LOOKBACK_DAYS), today_jst
 
