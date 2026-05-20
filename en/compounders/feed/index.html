@@ -214,7 +214,7 @@
 </main>
 <footer class="footer">
   <div class="wrap" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;max-width:var(--max);">
-    <span><a href="/en/compounders/methodology/#p6">Principle 6 · IR improvement is a re-rating lever</a> · <a href="/en/compounders/">All Compounder Profiles</a></span>
+    <span><a href="/en/compounders/methodology/#p6">About this feed</a> · <a href="/en/compounders/">All Compounder Profiles</a></span>
     <span>Japan Investor Interface Co., Ltd.</span>
     <span class="footer-locale-switcher">Language: <a href="/en/compounders/feed/" class="current" aria-current="page" lang="en">EN</a> · <a href="/compounders/feed/" data-locale-route lang="ja">JP</a></span>
   </div>
@@ -328,7 +328,7 @@
 
   function renderEmpty(){
     var msg = state.mode === "ticker"
-      ? 'No Principle-6 disclosures in the last 24 months — this name has not given the market a reason to re-rate.'
+      ? 'No capital-allocation disclosures from this ticker in the last 24 months. Management has not announced buybacks, dividend changes, cross-shareholding unwinds, take-privates, or cost-of-capital framework updates in this window. For investors hunting re-rating catalysts at the capital-policy level, this name has been quiet — the first qualifying disclosure will appear here automatically.'
       : 'No disclosures match the current filter. Toggle class chips to widen the view.';
     $feed.innerHTML = '<div class="feed-empty">' + escapeHTML(msg) + '</div>';
   }

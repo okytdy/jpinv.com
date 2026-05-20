@@ -273,6 +273,11 @@ Return STRICT JSON with these keys (omit none, set unknown to empty string):
   "translation_en_brief": "2-3 short paragraphs in plain English explaining the disclosure: what was filed, the key terms, and any stated rationale. Suitable for an institutional non-Japanese reader. Max 1500 chars."
 }
 
+CRITICAL: Output is investor-facing on a public website. Use plain language any
+institutional investor would understand. Do NOT use internal/proprietary terms
+("Principle-6", "JII", "watch universe", "compounder" as a category, etc.).
+Describe disclosures factually using standard market terminology.
+
 Output ONLY the JSON object. No prose, no markdown fences."""
 
 

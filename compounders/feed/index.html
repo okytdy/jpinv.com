@@ -211,7 +211,7 @@
 </main>
 <footer class="footer">
   <div class="wrap" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;max-width:var(--max);">
-    <span><a href="/compounders/methodology/#p6">着眼点6 · 開示は評価を動かす経営施策</a> · <a href="/compounders/">すべての銘柄レポート</a></span>
+    <span><a href="/compounders/methodology/#p6">このフィードについて</a> · <a href="/compounders/">すべての銘柄レポート</a></span>
     <span>Japan Investor Interface Co., Ltd.</span>
     <span class="footer-locale-switcher">言語: <a href="/compounders/feed/" class="current" aria-current="page" lang="ja">JP</a> · <a href="/en/compounders/feed/" data-locale-route lang="en">EN</a></span>
   </div>
@@ -330,7 +330,7 @@
 
   function renderEmpty(){
     var msg = state.mode === "ticker"
-      ? '過去24ヶ月、プリンシプル6に該当する開示はありません — マルチプル再評価の材料を市場に与えていません。'
+      ? '過去24ヶ月、この銘柄からは資本配分に関する開示はありません。自社株買い、配当方針、政策保有株式縮減、MBO、資本コスト経営についての方針変更は出ていません — これらはマルチプル拡大の前段階としてしばしば現れる類の開示です。該当する開示が出れば自動的にこのページに表示されます。'
       : '該当する開示はありません。チップで開示クラスを切り替えてください。';
     $feed.innerHTML = '<div class="feed-empty">' + escapeHTML(msg) + '</div>';
   }

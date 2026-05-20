@@ -532,7 +532,7 @@ def _match_coc(d: dict) -> MatchResult:
     name_en, name_jp = _enrich_names_from_jpx(d)
     summary_en = (
         f"{name_en} published a cost-of-capital / capital-efficiency disclosure "
-        f"({flavour_en}). Signals management is engaging with the Principle-6 framework."
+        f"({flavour_en}). Management focus on capital-efficiency targets and shareholder returns."
     )
     summary_jp = (
         f"{name_jp}が資本コスト・株価を意識した"
