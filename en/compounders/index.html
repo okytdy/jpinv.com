@@ -292,34 +292,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .cap-feed-row-name { font-family: var(--serif); color: var(--ink-mid); }
   .cap-feed-row-class { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; padding: 3px 8px; border: 1px solid var(--accent); color: var(--accent-deep); background: var(--accent-soft); white-space: nowrap; }
   .cap-feed-row-tag { font-family: var(--sans); color: var(--text-mid); flex: 1 1 auto; }
+  .cap-feed-row-source { margin-left: auto; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-deep); border-bottom: 1px solid var(--accent); padding-bottom: 1px; white-space: nowrap; }
+  .cap-feed-row:hover .cap-feed-row-source { color: var(--ink-mid); border-color: var(--ink-mid); }
+  .cap-feed-hint { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin: 4px auto 14px; max-width: 1100px; }
   .cap-feed-footnote { max-width: 1100px; margin: 14px auto 0; font-family: var(--sans); font-size: 11.5px; color: var(--text-dim); line-height: 1.7; font-style: italic; }
 
-  .cap-feed-row-read { margin-left: auto; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-deep); border-bottom: 1px solid var(--accent); padding-bottom: 1px; cursor: pointer; background: transparent; border-top: 0; border-left: 0; border-right: 0; padding-top: 0; padding-left: 0; padding-right: 0; }
-  .cap-feed-row-read:hover { color: var(--ink-mid); border-color: var(--ink-mid); }
-  .cap-feed-row-read:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-  /* ---- Translation modal ---- */
-  .cap-feed-modal { position: fixed; inset: 0; z-index: 1000; display: none; align-items: center; justify-content: center; padding: 24px; }
-  .cap-feed-modal.open { display: flex; }
-  .cap-feed-modal-backdrop { position: absolute; inset: 0; background: rgba(15, 25, 45, 0.55); cursor: pointer; }
-  .cap-feed-modal-card { position: relative; background: var(--bg); border: 1px solid var(--rule); max-width: 760px; width: 100%; max-height: 88vh; overflow-y: auto; padding: 40px 48px 32px; box-shadow: 0 20px 60px rgba(15, 25, 45, 0.25); z-index: 1; }
-  .cap-feed-modal-close { position: absolute; top: 14px; right: 18px; background: transparent; border: 0; font-size: 24px; color: var(--text-dim); cursor: pointer; line-height: 1; padding: 6px; }
-  .cap-feed-modal-close:hover { color: var(--ink-mid); }
-  .cap-feed-modal-eyebrow { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.22em; color: var(--accent-deep); text-transform: uppercase; margin-bottom: 12px; font-weight: 500; }
-  .cap-feed-modal-title { font-family: var(--serif); font-size: clamp(1.3rem, 2.4vw, 1.65rem); font-weight: 300; color: var(--ink-mid); margin: 0 0 18px; letter-spacing: 0.02em; line-height: 1.4; }
-  .cap-feed-modal-summary { font-family: var(--serif); font-size: 15px; font-style: italic; color: var(--accent-deep); margin: 0 0 22px; line-height: 1.7; padding-bottom: 18px; border-bottom: 1px solid var(--rule-soft); }
-  .cap-feed-modal-brief { font-size: 14px; line-height: 1.85; color: var(--text); }
-  .cap-feed-modal-brief p { margin: 0 0 14px; }
-  .cap-feed-modal-brief p:last-child { margin-bottom: 0; }
-  .cap-feed-modal-loading, .cap-feed-modal-error { padding: 40px 0; text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; }
-  .cap-feed-modal-footer { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--rule); display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap; }
-  .cap-feed-modal-disclaimer { font-family: var(--sans); font-size: 11.5px; color: var(--text-dim); line-height: 1.65; font-style: italic; margin: 0; flex: 1 1 320px; }
-  .cap-feed-modal-disclaimer b { color: var(--text-mid); font-weight: 500; font-style: normal; }
-  .cap-feed-modal-original { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-deep); border-bottom: 1px solid var(--accent); padding-bottom: 1px; white-space: nowrap; }
-  .cap-feed-modal-original:hover { color: var(--ink-mid); border-color: var(--ink-mid); }
   @media (max-width: 760px) {
-    .cap-feed-modal-card { padding: 32px 24px 24px; }
-    .cap-feed-modal-title { font-size: 1.2rem; }
-  }
+      }
 
   @media (max-width: 760px) {
     .cap-feed-row-ts { min-width: 0; flex-basis: 100%; }
@@ -587,6 +566,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
         <input type="text" class="cap-feed-search" id="cap-feed-search" placeholder="Search ticker (e.g. 4776)" aria-label="Search by ticker" maxlength="5">
         <a class="cap-feed-viewall" href="/en/compounders/feed/">View full feed →</a>
       </div>
+      <p class="cap-feed-hint">Hover any row for a one-line summary &middot; click to open the source disclosure (Japanese).</p>
       <div class="cap-feed-list" id="cap-feed-list" aria-live="polite">
         <div class="cap-feed-loading">Loading…</div>
       </div>
@@ -857,12 +837,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
       var name = feedIsJa ? (r.name_jp || r.name_en || '') : (r.name_en || r.name_jp || '');
       var summary = feedIsJa ? (r.summary_jp || r.summary_en || '') : (r.summary_en || r.summary_jp || '');
       var docUrl = r.doc_url || '#';
-      var docId = r.id || '';
-      var canRead = !!(r.has_translation && docId);
-      var readBtn = canRead
-        ? '<button class="cap-feed-row-read" type="button" data-doc-id="'+esc(docId)+'" data-doc-url="'+esc(docUrl)+'">Read in English &rarr;</button>'
-        : '';
-      return '<div class="cap-feed-row" data-doc-url="'+esc(docUrl)+'" title="'+esc(summary)+'" role="link" tabindex="0">'+
+      return '<a class="cap-feed-row" href="'+esc(docUrl)+'" target="_blank" rel="noopener" title="'+esc(summary)+'">'+
         '<div class="cap-feed-row-line1">'+
           '<span class="cap-feed-row-ts">'+esc(fmtTS(r.ts))+'</span>'+
           '<span class="cap-feed-row-tk">'+esc(r.ticker || '')+'</span>'+
@@ -871,9 +846,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
         '</div>'+
         '<div class="cap-feed-row-line2">'+
           '<span class="cap-feed-row-tag">'+esc(r.tag_en || r.tag || '')+'</span>'+
-          readBtn+
+          '<span class="cap-feed-row-source">View source (JP) &rarr;</span>'+
         '</div>'+
-      '</div>';
+      '</a>';
     }).join('');
   }
   function filterFeed(){
@@ -890,89 +865,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     .then(function(rows){ allRows = Array.isArray(rows) ? rows : []; filterFeed(); })
     .catch(function(){ $list.innerHTML = '<div class="cap-feed-empty">'+L.empty+'</div>'; });
 })();
-
-  // ---- Translation modal ----
-  (function(){
-    var modal = document.getElementById('cap-feed-modal');
-    var listEl = document.getElementById('cap-feed-list');
-    if (!modal || !listEl) return;
-    var bodyEl = modal.querySelector('.cap-feed-modal-body');
-    var originalLink = document.getElementById('cap-feed-modal-original');
-    function escHtml(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; }); }
-    function openModal(docId, docUrl){
-      bodyEl.innerHTML = '<div class="cap-feed-modal-loading">Loading…</div>';
-      originalLink.href = docUrl || '#';
-      modal.classList.add('open');
-      document.body.style.overflow = 'hidden';
-      fetch('/compounders/feed/data/translated/' + encodeURIComponent(docId) + '.json', { cache: 'no-store' })
-        .then(function(r){ if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
-        .then(function(data){
-          var html = '';
-          if (data.title_en) html += '<h2 class="cap-feed-modal-title" id="cap-feed-modal-title">' + escHtml(data.title_en) + '</h2>';
-          if (data.summary_en) html += '<p class="cap-feed-modal-summary">' + escHtml(data.summary_en) + '</p>';
-          if (data.translation_en_brief) {
-            html += '<div class="cap-feed-modal-brief">';
-            var paragraphs = String(data.translation_en_brief).split(/\n\s*\n+/);
-            paragraphs.forEach(function(p){
-              var t = p.trim();
-              if (t) html += '<p>' + escHtml(t) + '</p>';
-            });
-            html += '</div>';
-          }
-          if (!html) html = '<div class="cap-feed-modal-error">Translation content unavailable.</div>';
-          bodyEl.innerHTML = html;
-        })
-        .catch(function(){
-          bodyEl.innerHTML = '<div class="cap-feed-modal-error">Translation not available for this disclosure.</div>';
-        });
-    }
-    function closeModal(){
-      modal.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-    listEl.addEventListener('click', function(e){
-      var readBtn = e.target.closest('.cap-feed-row-read');
-      if (readBtn) {
-        e.preventDefault();
-        e.stopPropagation();
-        openModal(readBtn.dataset.docId, readBtn.dataset.docUrl);
-        return;
-      }
-      var row = e.target.closest('.cap-feed-row');
-      if (row && row.dataset.docUrl) {
-        window.open(row.dataset.docUrl, '_blank', 'noopener');
-      }
-    });
-    listEl.addEventListener('keydown', function(e){
-      if (e.key !== 'Enter') return;
-      var row = e.target.closest('.cap-feed-row');
-      if (row && row.dataset.docUrl) {
-        window.open(row.dataset.docUrl, '_blank', 'noopener');
-      }
-    });
-    modal.addEventListener('click', function(e){
-      if (e.target.hasAttribute && e.target.hasAttribute('data-close')) closeModal();
-    });
-    document.addEventListener('keydown', function(e){
-      if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
-    });
-  })();
 </script>
-
-<div class="cap-feed-modal" id="cap-feed-modal" role="dialog" aria-modal="true" aria-labelledby="cap-feed-modal-title">
-  <div class="cap-feed-modal-backdrop" data-close></div>
-  <div class="cap-feed-modal-card">
-    <button class="cap-feed-modal-close" type="button" aria-label="Close" data-close>&times;</button>
-    <div class="cap-feed-modal-eyebrow">English brief &middot; AI-generated</div>
-    <div class="cap-feed-modal-body">
-      <div class="cap-feed-modal-loading">Loading&hellip;</div>
-    </div>
-    <div class="cap-feed-modal-footer">
-      <p class="cap-feed-modal-disclaimer"><b>Translation generated by AI from the original Japanese disclosure.</b> Provided for convenience only; the original Japanese disclosure prevails in case of any discrepancy.</p>
-      <a class="cap-feed-modal-original" id="cap-feed-modal-original" href="#" target="_blank" rel="noopener">View original (Japanese) &rarr;</a>
-    </div>
-  </div>
-</div>
 
 </body>
 </html>
