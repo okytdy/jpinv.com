@@ -341,6 +341,37 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
     <div class="grid" id="profile-grid">
 
+      <a class="card" href="/compounders/4168/" data-date="2026-05-21" data-ticker="4168">
+        <div class="card-head">
+          <span class="card-ticker">東証グロース · 4168</span>
+          <span class="card-sector">ノーコード モバイルDXプラットフォーム・マルチプロダクトSaaS</span>
+        </div>
+        <h3 class="card-name">株式会社ヤプリ</h3>
+        <p class="card-jp">Yappli, Inc.</p>
+        <p class="card-hook"><b>ヤプリのマルチプロダクト戦略は過去最高の営業利益率を実現中。だがマルチプルはFY27税効果ランオフと「未定」の自社株買いを今も織り込んでいる。</b><br><br>株価は2025年4月安値から初配宣言で+116%上昇し2025年8月に¥1,263の高値、その後2025年11月のチューズモンスター買収（のれん87%）と2026年2月のFY27純利益正常化開示により約40%押し戻した。FY26 Q1は営業利益率23.2%・解約率0.86%・LTV/CAC 6.6倍の過去最高値を更新、配当は¥15へ第2次増配。3つの具体的な開示・資本政策レバー &mdash; 公式化された総還元政策、領域別解約率の透明化、M&amp;A規律フレーム &mdash; が24% ROCEで現在フォワードEV/EBIT 8.5倍の企業の評価を再形成しうる。</p>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">終値</div>
+            <div class="card-stat-val">¥745</div>
+          </div>
+          <div>
+            <div class="card-stat-label">EV / EBIT</div>
+            <div class="card-stat-val">8.5<small>x</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ROCE</div>
+            <div class="card-stat-val">24<small>%</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ネットキャッシュ / 時価総額</div>
+            <div class="card-stat-val">11<small>%</small></div>
+          </div>
+        </div>
+        <div class="card-meta-row">
+          <span>2026年5月21日公開</span>
+        </div>
+      </a>
+
       <a class="card" href="/compounders/4071/" data-date="2026-05-19" data-ticker="4071">
         <div class="card-head">
           <span class="card-ticker">東証プライム · 4071</span>
@@ -551,6 +582,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
       <div class="cap-feed-list" id="cap-feed-list" aria-live="polite">
         <div class="cap-feed-loading">読み込み中…</div>
       </div>
+      <p class="cap-feed-footnote">翻訳および要約は自動生成です。正確な情報は原文（日本語）の開示資料をご参照ください。</p>
     </section>
 
     <section class="company-call-cta" id="company-call-request" aria-label="企業面談リクエスト">
@@ -823,25 +855,4 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
         '<span class="cap-feed-row-tk">'+esc(r.ticker || '')+'</span>'+
         '<span class="cap-feed-row-name">'+esc(name)+'</span>'+
         '<span class="cap-feed-row-class">'+esc(r.class || '')+'</span>'+
-        '<span class="cap-feed-row-tag">'+esc(r.tag_jp || r.tag || '')+'</span>'+
-      '</a>';
-    }).join('');
-  }
-  function filterFeed(){
-    var q = ($search.value || '').trim().toUpperCase();
-    var rows = !q ? allRows.slice(0, 10) : allRows.filter(function(r){
-      return r.ticker && r.ticker.toUpperCase().indexOf(q) === 0;
-    }).slice(0, 10);
-    if (q && !rows.length){ $list.innerHTML = '<div class="cap-feed-empty">'+L.noMatch+'</div>'; return; }
-    renderRows(rows);
-  }
-  $search.addEventListener('input', filterFeed);
-  fetch('/compounders/feed/data/feed.json', { cache: 'no-store' })
-    .then(function(r){ return r.json(); })
-    .then(function(rows){ allRows = Array.isArray(rows) ? rows : []; filterFeed(); })
-    .catch(function(){ $list.innerHTML = '<div class="cap-feed-empty">'+L.empty+'</div>'; });
-})();
-</script>
-
-</body>
-</html>
+        '<span class="cap-feed-row-tag">'+esc(r.tag_j

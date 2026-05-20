@@ -359,6 +359,37 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
     <div class="grid" id="profile-grid">
 
+                  <a class="card" href="/en/compounders/4168/" data-date="2026-05-21" data-ticker="4168">
+        <div class="card-head">
+          <span class="card-ticker">TSE GROWTH · 4168</span>
+          <span class="card-sector">No-code Mobile DX Platform · Multi-product engagement SaaS</span>
+        </div>
+        <h3 class="card-name">Yappli, Inc.</h3>
+        <p class="card-jp">株式会社ヤプリ</p>
+        <p class="card-hook"><b>Yappli&apos;s multi-product pivot is delivering a record operating margin, but the multiple still discounts an FY27 tax-shield runoff and a &quot;未定&quot; buyback policy.</b><br><br>The stock rose +116% from the April-2025 trough to ¥1,263 in August 2025 on the inauguration of the first-ever dividend, then handed back roughly 40% as the November-2025 Choose Monster acquisition (87% goodwill) and the February-2026 FY27 normalisation disclosure compressed the multiple. Q1 FY26 just printed a record operating margin of 23.2%, churn 0.86%, and LTV/CAC 6.6x, with the dividend revised up a second time to ¥15. Three specific disclosures &mdash; a formula-based capital-return policy, cohort-level churn transparency, and an M&amp;A discipline framework &mdash; could reweight a 24% return-on-capital business now trading at 8.5x forward EV/EBIT.</p>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">Last Close</div>
+            <div class="card-stat-val">¥745</div>
+          </div>
+          <div>
+            <div class="card-stat-label">EV / EBIT</div>
+            <div class="card-stat-val">8.5<small>x</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ROCE</div>
+            <div class="card-stat-val">24<small>%</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">Net Cash / MC</div>
+            <div class="card-stat-val">11<small>%</small></div>
+          </div>
+        </div>
+        <div class="card-meta-row">
+          <span>Published 21 May 2026</span>
+        </div>
+      </a>
+
                   <a class="card" href="/en/compounders/4071/" data-date="2026-05-19" data-ticker="4071">
         <div class="card-head">
           <span class="card-ticker">TSE PRIME · 4071</span>
@@ -571,6 +602,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
         <div class="cap-feed-loading">Loading…</div>
       </div>
       <p class="cap-feed-footnote">Source disclosures (EDINET, TDnet) are filed in Japanese. Linked PDFs and viewer pages are Japanese-only.</p>
+      <p class="cap-feed-footnote">Translations and summaries are automated. Always refer to the original Japanese disclosure for authoritative information.</p>
     </section>
 
     <section class="company-call-cta" id="company-call-request" aria-label="Request a company call">
@@ -843,29 +875,4 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
           '<span class="cap-feed-row-tk">'+esc(r.ticker || '')+'</span>'+
           '<span class="cap-feed-row-name">'+esc(name)+'</span>'+
           '<span class="cap-feed-row-class">'+esc(r.class || '')+'</span>'+
-        '</div>'+
-        '<div class="cap-feed-row-line2">'+
-          '<span class="cap-feed-row-tag">'+esc(r.tag_en || r.tag || '')+'</span>'+
-          '<span class="cap-feed-row-source">View source (JP) &rarr;</span>'+
-        '</div>'+
-      '</a>';
-    }).join('');
-  }
-  function filterFeed(){
-    var q = ($search.value || '').trim().toUpperCase();
-    var rows = !q ? allRows.slice(0, 10) : allRows.filter(function(r){
-      return r.ticker && r.ticker.toUpperCase().indexOf(q) === 0;
-    }).slice(0, 10);
-    if (q && !rows.length){ $list.innerHTML = '<div class="cap-feed-empty">'+L.noMatch+'</div>'; return; }
-    renderRows(rows);
-  }
-  $search.addEventListener('input', filterFeed);
-  fetch('/compounders/feed/data/feed.json', { cache: 'no-store' })
-    .then(function(r){ return r.json(); })
-    .then(function(rows){ allRows = Array.isArray(rows) ? rows : []; filterFeed(); })
-    .catch(function(){ $list.innerHTML = '<div class="cap-feed-empty">'+L.empty+'</div>'; });
-})();
-</script>
-
-</body>
-</html>
+        '</div
