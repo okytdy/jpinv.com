@@ -260,6 +260,43 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
 }
 
+
+  /* ---- Gallery search input (cap-at-6 + filter) ---- */
+  .gallery-search { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.04em; color: var(--ink-mid); padding: 7px 11px; border: 1px solid var(--rule); background: var(--bg); width: 240px; margin-right: 14px; }
+  .gallery-search:focus { outline: none; border-color: var(--ink-mid); }
+  .gallery-search::placeholder { color: var(--text-dim); }
+  .card.is-hidden { display: none; }
+  @media (max-width: 760px) {
+    .gallery-search { width: 100%; margin-right: 0; margin-bottom: 8px; }
+  }
+
+  /* ---- Capital-Allocation Inflection Feed widget ---- */
+  .cap-feed { padding: 64px 28px 56px; border-top: 1px solid var(--rule); background: var(--bg-soft); margin-top: 24px; }
+  .cap-feed-head { margin: 0 auto 24px; max-width: 1100px; }
+  .cap-feed-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.24em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 12px; }
+  .cap-feed-title { font-family: var(--serif); font-size: clamp(1.4rem, 2.6vw, 1.85rem); font-weight: 300; color: var(--ink-mid); margin: 0 0 12px; letter-spacing: 0.02em; line-height: 1.35; }
+  .cap-feed-lede { font-size: 14px; color: var(--text-mid); margin: 0; max-width: 860px; line-height: 1.85; }
+  .cap-feed-controls { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; margin: 0 auto 14px; padding-bottom: 12px; border-bottom: 1px solid var(--rule); max-width: 1100px; }
+  .cap-feed-search { font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em; color: var(--ink-mid); padding: 8px 12px; border: 1px solid var(--rule); background: var(--bg); width: 260px; }
+  .cap-feed-search:focus { outline: none; border-color: var(--ink-mid); }
+  .cap-feed-viewall { margin-left: auto; font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--accent-deep); text-transform: uppercase; border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
+  .cap-feed-viewall:hover { color: var(--ink-mid); border-color: var(--ink-mid); }
+  .cap-feed-list { max-width: 1100px; margin: 0 auto; }
+  .cap-feed-loading, .cap-feed-empty { padding: 36px 0; text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; }
+  .cap-feed-row { display: flex; gap: 14px; align-items: center; padding: 12px 4px; border-bottom: 1px solid var(--rule-soft); font-size: 13px; flex-wrap: wrap; transition: background 0.1s; color: var(--text); text-decoration: none; }
+  .cap-feed-row:hover { background: var(--bg); color: var(--text); }
+  .cap-feed-row-ts { font-family: var(--mono); font-size: 11px; color: var(--text-dim); white-space: nowrap; min-width: 130px; letter-spacing: 0.04em; }
+  .cap-feed-row-tk { font-family: var(--mono); font-weight: 500; color: var(--accent-deep); }
+  .cap-feed-row-name { font-family: var(--serif); color: var(--ink-mid); }
+  .cap-feed-row-class { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; padding: 3px 8px; border: 1px solid var(--accent); color: var(--accent-deep); background: var(--accent-soft); white-space: nowrap; }
+  .cap-feed-row-tag { font-family: var(--sans); color: var(--text-mid); }
+  .cap-feed-footnote { max-width: 1100px; margin: 14px auto 0; font-family: var(--sans); font-size: 11.5px; color: var(--text-dim); line-height: 1.7; font-style: italic; }
+  @media (max-width: 760px) {
+    .cap-feed-row-ts { min-width: 0; flex-basis: 100%; }
+    .cap-feed-search { width: 100%; }
+    .cap-feed-viewall { margin-left: 0; }
+  }
+
 </style>
 <script src="/assets/locale-switcher.js" defer></script>
 </head>
@@ -501,11 +538,30 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
       <div class="placeholder">
         <div class="label">Next profile</div>
-        <div class="msg">More Japanese listed compounders in queue. Subscribe via Substack below to be notified when each profile lands.</div>
+        <div class="msg">More Japanese listed compounders in queue. <a href="#substack-cta">Subscribe via Substack</a> below to be notified when each profile lands.</div>
       </div>
 
     </div>
 
+
+    
+    <!-- Capital-Allocation Inflection Feed widget. Pulls /compounders/feed/data/feed.json,
+         shows the 10 most-recent rows, supports prefix-ticker search. Full archive at /en/compounders/feed/. -->
+    <section class="cap-feed" aria-label="Capital-Allocation Inflection Feed">
+      <div class="cap-feed-head">
+        <div class="cap-feed-eyebrow">LIVE · TSE-WIDE · AUTO-REFRESHED EVERY 30 MIN</div>
+        <h2 class="cap-feed-title">Capital-Allocation Inflection Feed</h2>
+        <p class="cap-feed-lede">A live screen across the entire TSE for the eight classes of corporate disclosure that signal the capital-policy catalyst is firing: cost-of-capital management, buyback authorisations, treasury cancellations, material dividend changes, cross-shareholding unwinds, take-privates, ROIC/ROCE-linked comp revisions, and governance-code flips on the capital-policy principles.</p>
+      </div>
+      <div class="cap-feed-controls">
+        <input type="text" class="cap-feed-search" id="cap-feed-search" placeholder="Search ticker (e.g. 4776)" aria-label="Search by ticker" maxlength="5">
+        <a class="cap-feed-viewall" href="/en/compounders/feed/">View full feed →</a>
+      </div>
+      <div class="cap-feed-list" id="cap-feed-list" aria-live="polite">
+        <div class="cap-feed-loading">Loading…</div>
+      </div>
+      <p class="cap-feed-footnote">Source disclosures (EDINET, TDnet) are filed in Japanese. Linked PDFs and viewer pages are Japanese-only.</p>
+    </section>
 
     <section class="company-call-cta" id="company-call-request" aria-label="Request a company call">
       <div class="company-call-card">
@@ -576,7 +632,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     </section>
 
     <!-- Substack CTA replaces the contact-form subscription path -->
-    <div class="substack-cta">
+    <div class="substack-cta" id="substack-cta">
       <div class="substack-cta-text">
         <div class="substack-cta-eyebrow">Distribution · Substack</div>
         <h3 class="substack-cta-title">Get each Compounder Profile in your inbox.</h3>
@@ -698,6 +754,99 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
       // Re-append cards in sort order, then placeholders at the end
       car
   });
+})();
+</script>
+
+
+<script>
+(function(){
+  // ---- Cap-at-6 + name/ticker filter for the profile gallery ----
+  var grid = document.getElementById('profile-grid');
+  var galleryControls = document.querySelector('.gallery-controls');
+  if (grid && galleryControls) {
+    var isJa = document.documentElement.lang === 'ja';
+    var search = document.createElement('input');
+    search.type = 'text';
+    search.className = 'gallery-search';
+    search.id = 'profile-search';
+    search.placeholder = isJa ? '銘柄コード・社名で検索' : 'Search by ticker or name';
+    search.setAttribute('aria-label', isJa ? '銘柄レポート検索' : 'Search profiles');
+    search.maxLength = 50;
+    galleryControls.insertBefore(search, galleryControls.firstChild);
+
+    var CAP = 6;
+    function applyCap(){
+      var q = (search.value || '').trim().toUpperCase();
+      var cards = Array.prototype.slice.call(grid.querySelectorAll('a.card'));
+      var matchCount = 0;
+      cards.forEach(function(card, i){
+        var ticker = (card.dataset.ticker || '').toUpperCase();
+        var nameEl = card.querySelector('.card-name');
+        var nameAltEl = card.querySelector('.card-jp');
+        var nameText = ((nameEl ? nameEl.textContent : '') + ' ' + (nameAltEl ? nameAltEl.textContent : '')).toUpperCase();
+        var matches = !q || ticker.indexOf(q) === 0 || nameText.indexOf(q) !== -1;
+        if (q) {
+          card.classList.toggle('is-hidden', !matches);
+          if (matches) matchCount++;
+        } else {
+          // No query → cap at first CAP visible cards in DOM order.
+          card.classList.toggle('is-hidden', i >= CAP);
+        }
+      });
+    }
+    // Re-apply cap whenever sort order changes — buttons reorder the DOM.
+    ['sort-date','sort-ticker'].forEach(function(id){
+      var b = document.getElementById(id);
+      if (b) b.addEventListener('click', function(){ setTimeout(applyCap, 0); });
+    });
+    search.addEventListener('input', applyCap);
+    applyCap();
+  }
+
+  // ---- Inflection feed widget ----
+  var $search = document.getElementById('cap-feed-search');
+  var $list = document.getElementById('cap-feed-list');
+  if (!$search || !$list) return;
+  var feedIsJa = document.documentElement.lang === 'ja';
+  var L = feedIsJa
+    ? { empty: '直近の対象開示はまだありません。', noMatch: '該当する銘柄の開示はありません。' }
+    : { empty: 'No recent matching disclosures yet.', noMatch: 'No disclosures for this ticker.' };
+  var allRows = [];
+  function fmtTS(iso){
+    if (!iso) return '';
+    var d = new Date(iso);
+    if (isNaN(d.getTime())) return iso;
+    function pad(n){ return n<10?'0'+n:''+n; }
+    var jst = new Date(d.getTime() + (9*60 - d.getTimezoneOffset()) * 60000);
+    return jst.getUTCFullYear()+'-'+pad(jst.getUTCMonth()+1)+'-'+pad(jst.getUTCDate())+' '+pad(jst.getUTCHours())+':'+pad(jst.getUTCMinutes())+' JST';
+  }
+  function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; }); }
+  function renderRows(rows){
+    if (!rows.length){ $list.innerHTML = '<div class="cap-feed-empty">'+L.empty+'</div>'; return; }
+    $list.innerHTML = rows.map(function(r){
+      var name = feedIsJa ? (r.name_jp || r.name_en || '') : (r.name_en || r.name_jp || '');
+      return '<a class="cap-feed-row" href="'+esc(r.doc_url || '#')+'" target="_blank" rel="noopener">'+
+        '<span class="cap-feed-row-ts">'+esc(fmtTS(r.ts))+'</span>'+
+        '<span class="cap-feed-row-tk">'+esc(r.ticker || '')+'</span>'+
+        '<span class="cap-feed-row-name">'+esc(name)+'</span>'+
+        '<span class="cap-feed-row-class">'+esc(r.class || '')+'</span>'+
+        '<span class="cap-feed-row-tag">'+esc(r.tag || '')+'</span>'+
+      '</a>';
+    }).join('');
+  }
+  function filterFeed(){
+    var q = ($search.value || '').trim().toUpperCase();
+    var rows = !q ? allRows.slice(0, 10) : allRows.filter(function(r){
+      return r.ticker && r.ticker.toUpperCase().indexOf(q) === 0;
+    }).slice(0, 10);
+    if (q && !rows.length){ $list.innerHTML = '<div class="cap-feed-empty">'+L.noMatch+'</div>'; return; }
+    renderRows(rows);
+  }
+  $search.addEventListener('input', filterFeed);
+  fetch('/compounders/feed/data/feed.json', { cache: 'no-store' })
+    .then(function(r){ return r.json(); })
+    .then(function(rows){ allRows = Array.isArray(rows) ? rows : []; filterFeed(); })
+    .catch(function(){ $list.innerHTML = '<div class="cap-feed-empty">'+L.empty+'</div>'; });
 })();
 </script>
 
