@@ -309,6 +309,11 @@ def _run_enrich_backfill() -> int:
 
 def main() -> int:
     mode = (os.environ.get("FEED_MODE") or "incremental").strip().lower()
+    # enrich_backfill: separate dispatch that walks existing feed.json rows and
+    # runs the enricher on those that lack tag_en. No EDINET / TDnet calls; no
+    # new rows added. Used by .github/workflows/feed-enrich-backfill.yml.
+    if mode == "enrich_backfill":
+        return _run_enrich_backfill()
     if mode not in ("incremental", "backfill"):
         LOG.warning("Unknown FEED_MODE=%s; defaulting to incremental.", mode)
         mode = "incremental"

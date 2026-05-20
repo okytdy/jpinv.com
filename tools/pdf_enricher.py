@@ -38,6 +38,22 @@ from typing import Optional
 
 import requests
 
+from jpx_master import lookup as _jpx_lookup
+
+# PyMuPDF for PDF text extraction. If unavailable, all PDF fetches degrade to
+# returning None and rows skip Tier-B regex. We surface this loudly in logs so
+# a missing dependency isn't silently swallowed.
+try:
+    import fitz  # noqa: F401
+    _PYMUPDF_AVAILABLE = True
+except Exception as _e:
+    _PYMUPDF_AVAILABLE = False
+    import logging as _log
+    _log.getLogger(__name__).error(
+        "PyMuPDF (fitz) unavailable - PDF enrichment will be NO-OP. "
+        "Install with: pip install pymupdf. Error: %s", _e
+    )
+
 LOG = logging.getLogger(__name__)
 JST = _dt.timezone(_dt.timedelta(hours=9))
 
@@ -99,8 +115,9 @@ def _fetch_pdf_text(url: str) -> Optional[str]:
             if len(buf) > _PDF_FETCH_MAX_BYTES:
                 LOG.warning("PDF %s exceeded %dB cap, truncating", url, _PDF_FETCH_MAX_BYTES)
                 break
-        # Parse
-        import fitz  # PyMuPDF
+        # Parse - skip immediately if PyMuPDF didn't import
+        if not _PYMUPDF_AVAILABLE:
+            return None
         doc = fitz.open(stream=bytes(buf), filetype="pdf")
         text_parts = []
         for i in range(min(_MAX_PAGES, len(doc))):
@@ -355,6 +372,17 @@ def enrich(row: dict, llm_api_key: Optional[str] = None, budget=None) -> dict:
     doc_id = row.get("id")
     if not doc_id:
         return row
+
+    # Always refresh name_en / name_jp from JPX. This fixes legacy rows that
+    # were classified before the JPX integration shipped (where name_en was
+    # just a copy of the scraped Japanese name).
+    ticker = (row.get("ticker") or "").strip()
+    if ticker:
+        jpx = _jpx_lookup(ticker) or {}
+        if jpx.get("name_en"):
+            row["name_en"] = jpx["name_en"]
+        if jpx.get("name_jp"):
+            row["name_jp"] = jpx["name_jp"]
 
     cache = _load_cache()
     cached = cache.get(doc_id)
