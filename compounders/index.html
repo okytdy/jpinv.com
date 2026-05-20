@@ -855,4 +855,25 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
         '<span class="cap-feed-row-tk">'+esc(r.ticker || '')+'</span>'+
         '<span class="cap-feed-row-name">'+esc(name)+'</span>'+
         '<span class="cap-feed-row-class">'+esc(r.class || '')+'</span>'+
-        '<span class="cap-feed-row-tag">'+esc(r.tag_j
+        '<span class="cap-feed-row-tag">'+esc(r.tag_jp || r.tag || '')+'</span>'+
+      '</a>';
+    }).join('');
+  }
+  function filterFeed(){
+    var q = ($search.value || '').trim().toUpperCase();
+    var rows = !q ? allRows.slice(0, 10) : allRows.filter(function(r){
+      return r.ticker && r.ticker.toUpperCase().indexOf(q) === 0;
+    }).slice(0, 10);
+    if (q && !rows.length){ $list.innerHTML = '<div class="cap-feed-empty">'+L.noMatch+'</div>'; return; }
+    renderRows(rows);
+  }
+  $search.addEventListener('input', filterFeed);
+  fetch('/compounders/feed/data/feed.json', { cache: 'no-store' })
+    .then(function(r){ return r.json(); })
+    .then(function(rows){ allRows = Array.isArray(rows) ? rows : []; filterFeed(); })
+    .catch(function(){ $list.innerHTML = '<div class="cap-feed-empty">'+L.empty+'</div>'; });
+})();
+</script>
+
+</body>
+</html>

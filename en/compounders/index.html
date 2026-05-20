@@ -794,9 +794,17 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
         return (b.dataset.date || '').localeCompare(a.dataset.date || '');
       });
       // Re-append cards in sort order, then placeholders at the end
-      car
-  });
-})();
+      cards.concat(placeholders).forEach(function (el) { grid.appendChild(el); });
+      btnDate.classList.toggle('active', mode === 'date');
+      btnTicker.classList.toggle('active', mode === 'ticker');
+      try { localStorage.setItem('jii_compounders_sort', mode); } catch (e) {}
+    }
+    var saved;
+    try { saved = localStorage.getItem('jii_compounders_sort'); } catch (e) { saved = null; }
+    applySort(saved === 'ticker' ? 'ticker' : 'date');
+    btnDate.addEventListener('click', function () { applySort('date'); });
+    btnTicker.addEventListener('click', function () { applySort('ticker'); });
+  })();
 </script>
 
 
@@ -875,4 +883,29 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
           '<span class="cap-feed-row-tk">'+esc(r.ticker || '')+'</span>'+
           '<span class="cap-feed-row-name">'+esc(name)+'</span>'+
           '<span class="cap-feed-row-class">'+esc(r.class || '')+'</span>'+
-        '</div
+        '</div>'+
+        '<div class="cap-feed-row-line2">'+
+          '<span class="cap-feed-row-tag">'+esc(r.tag_en || r.tag || '')+'</span>'+
+          '<span class="cap-feed-row-source">View source (JP) &rarr;</span>'+
+        '</div>'+
+      '</a>';
+    }).join('');
+  }
+  function filterFeed(){
+    var q = ($search.value || '').trim().toUpperCase();
+    var rows = !q ? allRows.slice(0, 10) : allRows.filter(function(r){
+      return r.ticker && r.ticker.toUpperCase().indexOf(q) === 0;
+    }).slice(0, 10);
+    if (q && !rows.length){ $list.innerHTML = '<div class="cap-feed-empty">'+L.noMatch+'</div>'; return; }
+    renderRows(rows);
+  }
+  $search.addEventListener('input', filterFeed);
+  fetch('/compounders/feed/data/feed.json', { cache: 'no-store' })
+    .then(function(r){ return r.json(); })
+    .then(function(rows){ allRows = Array.isArray(rows) ? rows : []; filterFeed(); })
+    .catch(function(){ $list.innerHTML = '<div class="cap-feed-empty">'+L.empty+'</div>'; });
+})();
+</script>
+
+</body>
+</html>
