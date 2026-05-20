@@ -254,6 +254,16 @@ _MBO_RE = re.compile(
 
 def _match_mbo(d: dict) -> MatchResult:
     title = d.get("title_jp", "") or ""
+    # GUARD: An issuer's tender offer for its OWN treasury shares
+    # (自己株式の公開買付け) is a BUYBACK method, not a take-private.
+    # Pattern: treasury marker appears BEFORE tender marker, tight co-location.
+    # This catches "自己株式の公開買付け" (real bug) but spares
+    # "公開買付けの開始及び自己株式の取得" (real MBO with treasury sub-step).
+    if re.search(
+        r"(?:自己株式|自社株式|自己株)[^。\n]{0,8}(?:公開買付|公開買い付け|TOB|ＴＯＢ)",
+        title,
+    ):
+        return _EMPTY
     if not _MBO_RE.search(title):
         return _EMPTY
     if "MBO" in title or "ＭＢＯ" in title:
@@ -299,8 +309,15 @@ def _match_mbo(d: dict) -> MatchResult:
 # --- BUYBACK ----------------------------------------------------------------
 
 _BUYBACK_RE = re.compile(
-    r"自己(株式|株券)[^。\n]{0,12}"
-    r"(取得|買付|買い付け)"
+    # Treasury-stock markers — formal forms AND the 自社 variant.
+    # Also catches the short-form 自己株 when paired with TOB/公開買付 (issuer self-tender).
+    r"(?:"
+    r"自己(?:株式|株券)[^。\n]{0,12}(?:取得|買付|買い付け)"
+    r"|"
+    r"自社株式[^。\n]{0,12}(?:取得|買付|買い付け)"
+    r"|"
+    r"自己株(?!式|券)[^。\n]{0,8}(?:TOB|ＴＯＢ|公開買付|公開買い付け)"
+    r")"
 )
 
 

@@ -130,12 +130,22 @@ def _read_json(path: Path, default):
 
 
 def _write_json(path: Path, data) -> None:
+    # Atomic write: serialize to a sibling tempfile, fsync, then os.replace.
+    # Prevents truncated JSON files if the process is killed mid-write
+    # (which corrupted ~765 by-ticker/*.json files on 2026-05-18..20).
     path.parent.mkdir(parents=True, exist_ok=True)
     text = json.dumps(data, sort_keys=True, indent=2, ensure_ascii=False)
     if not text.endswith("\n"):
         text += "\n"
-    with path.open("w", encoding="utf-8") as fh:
+    tmp = path.with_suffix(path.suffix + ".tmp")
+    with tmp.open("w", encoding="utf-8") as fh:
         fh.write(text)
+        fh.flush()
+        try:
+            os.fsync(fh.fileno())
+        except OSError:
+            pass  # fsync unsupported on some filesystems; replace is still atomic
+    os.replace(tmp, path)
 
 
 # ---------------------------------------------------------------------------

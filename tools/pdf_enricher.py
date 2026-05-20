@@ -276,6 +276,20 @@ Return STRICT JSON with these keys (omit none, set unknown to empty string):
 CRITICAL: Output is investor-facing on a public website. Use plain language any
 institutional investor would understand. Do NOT use internal/proprietary terms
 ("Principle-6", "JII", "watch universe", "compounder" as a category, etc.).
+
+CRITICAL distinction on tender offers: If the issuer itself is buying its OWN
+shares via a tender offer (自己株式の公開買付け / self-tender / treasury-stock
+tender), this is a BUYBACK method (analogous to ToSTNeT-3 or open-market
+purchase). NEVER call this a "take-private", "MBO", "tender offer for the
+company", or anything implying a change-of-control transaction. The classifier
+should have classified it as BUYBACK, not MBO; if you see MBO class but the
+text describes issuer-self-tender, override the language to "Buyback (self-
+tender)" in tag_en and treat it as a buyback in summary_en.
+
+True take-privates / MBO involve a THIRD PARTY (not the issuer) acquiring the
+company's shares with intent to delist. Phrases like 完全子会社化, 非公開化,
+スクイーズアウト, or an external acquirer named in the filing are the markers.
+
 Describe disclosures factually using standard market terminology.
 
 Output ONLY the JSON object. No prose, no markdown fences."""
