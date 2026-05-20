@@ -69,6 +69,15 @@ BY_TICKER_DIR = FEED_DIR / "by-ticker"
 ARCHIVE_DIR = FEED_DIR / "archive"
 LEDGER_PATH = _SCRIPT_DIR / "llm_ledger.json"
 
+# ---------------------------------------------------------------------------
+# LLM enrichment globals - read once at module import time.
+# ANTHROPIC_API_KEY is optional; if missing, enricher falls back to Tier-B
+# (regex only). BudgetLedger persists to disk and short-circuits LLM calls
+# past the $9 MTD cap defined in tools/llm_budget.py.
+# ---------------------------------------------------------------------------
+_ANTHROPIC_KEY = os.environ.get("ANTHROPIC_API_KEY", "").strip()
+_BUDGET = _BudgetLedger.load(LEDGER_PATH)
+
 FEED_ROW_CAP = 5_000  # spec Section 4
 
 INCREMENTAL_LOOKBACK_DAYS = 1     # today and yesterday
