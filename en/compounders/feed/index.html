@@ -361,7 +361,7 @@
     state.mode = "ticker";
     state.feed = [];
     $feed.innerHTML = '<div class="feed-loading">Loading ' + escapeHTML(ticker) + '…</div>';
-    fetchJSON("data/by-ticker/" + encodeURIComponent(ticker) + ".json")
+    fetchJSON("/compounders/feed/data/by-ticker/" + encodeURIComponent(ticker) + ".json")
       .then(function(rows){
         state.feed = Array.isArray(rows) ? rows : (rows && rows.rows ? rows.rows : []);
         if (!state.feed.length) renderEmpty(); else renderInitial();
@@ -443,7 +443,7 @@
   function loadAllFeed(){
     state.mode = "all";
     $feed.innerHTML = '<div class="feed-loading">Loading feed…</div>';
-    fetchJSON("data/feed.json")
+    fetchJSON("/compounders/feed/data/feed.json")
       .then(function(rows){
         var arr = Array.isArray(rows) ? rows : (rows && rows.rows ? rows.rows : []);
         if (!arr.length) { renderPlaceholder(); state.feed = []; return; }
@@ -456,13 +456,13 @@
       });
   }
 
-  fetchJSON("data/_meta.json").then(function(m){
+  fetchJSON("/compounders/feed/data/_meta.json").then(function(m){
     state.meta = m;
     if (m && m.last_refresh_iso) $lastRefresh.textContent = m.last_refresh_iso;
     else $lastRefresh.textContent = "—";
   }).catch(function(){ $lastRefresh.textContent = "—"; });
 
-  fetchJSON("data/index.json").then(function(idx){
+  fetchJSON("/compounders/feed/data/index.json").then(function(idx){
     state.index = idx || {};
   }).catch(function(){ state.index = {}; });
 
