@@ -1,0 +1,46 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.venv/
+venv/
+env/
+
+# --- Atomic-write tempfiles ---
+# Created by _write_json() in tools/feed_refresh.py — should be cleaned up
+# on os.replace(), but leaving this guard in case a crash leaves one behind.
+*.tmp
+
+# --- Debug / recovery backups ---
+# Patterns used during the 2026-05-20 buyback-bug recovery.
+*.broken-bak
+*.fromhead
+*.zombie
+
+# --- Editor / IDE ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- OS / filesystem junk ---
+.AppleDouble
+.LSOverride
+
+# --- Local secrets / credentials ---
+# Never commit API keys or tokens
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+secrets.json
