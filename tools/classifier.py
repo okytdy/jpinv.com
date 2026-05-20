@@ -350,7 +350,7 @@ def _match_buyback(d: dict) -> MatchResult:
     name_en = d.get("name_en") or d.get("name_jp", "")
     name_jp = d.get("name_jp", "")
     summary_en = (
-        f"{name_en} authorised a share buyback"
+        f"{name_en} authorized a share buyback"
         + (f" of {' / '.join(parts_en)}" if parts_en else "")
         + ". Direct return of capital and a signal management views shares as undervalued."
     )

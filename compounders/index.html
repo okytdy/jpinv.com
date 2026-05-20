@@ -542,7 +542,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
       <div class="cap-feed-head">
         <div class="cap-feed-eyebrow">LIVE · 東証全体 · 30分ごと自動更新</div>
         <h2 class="cap-feed-title">資本政策インフレクション・フィード</h2>
-        <p class="cap-feed-lede">マルチプル再評価を示唆する開示だけを抽出したライブ・スクリーン。資本コスト経営、自社株買い、政策保有株式縮減、配当方針改定、MBO、コーポレートガバナンス・コードの遵守区分変更など、プリンシプル6に該当する事象を東証全体から拾います。</p>
+        <p class="cap-feed-lede">日本の上場会社が、資本の還元や配分について何か重要な発表をするたびに自動更新されるスクリーン。自社株買い、増配、TOB・MBO、自己株式の消却などを対象とします。金融庁のEDINET APIと東証のTDnetから30分ごとに直接取得し、決算短信や月次売上といった定型開示は除外しています。</p>
       </div>
       <div class="cap-feed-controls">
         <input type="text" class="cap-feed-search" id="cap-feed-search" placeholder="銘柄コード (例：4776)" aria-label="銘柄コード検索" maxlength="5">
@@ -817,7 +817,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     if (!rows.length){ $list.innerHTML = '<div class="cap-feed-empty">'+L.empty+'</div>'; return; }
     $list.innerHTML = rows.map(function(r){
       var name = feedIsJa ? (r.name_jp || r.name_en || '') : (r.name_en || r.name_jp || '');
-      return '<a class="cap-feed-row" href="'+esc(r.doc_url || '#')+'" target="_blank" rel="noopener">'+
+      var summary = feedIsJa ? (r.summary_jp || r.summary_en || '') : (r.summary_en || r.summary_jp || '');
+      return '<a class="cap-feed-row" href="'+esc(r.doc_url || '#')+'" target="_blank" rel="noopener" title="'+esc(summary)+'">'+
         '<span class="cap-feed-row-ts">'+esc(fmtTS(r.ts))+'</span>'+
         '<span class="cap-feed-row-tk">'+esc(r.ticker || '')+'</span>'+
         '<span class="cap-feed-row-name">'+esc(name)+'</span>'+

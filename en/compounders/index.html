@@ -551,7 +551,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
       <div class="cap-feed-head">
         <div class="cap-feed-eyebrow">LIVE · TSE-WIDE · AUTO-REFRESHED EVERY 30 MIN</div>
         <h2 class="cap-feed-title">Capital-Allocation Inflection Feed</h2>
-        <p class="cap-feed-lede">A live screen across the entire TSE for the eight classes of corporate disclosure that signal the capital-policy catalyst is firing: cost-of-capital management, buyback authorisations, treasury cancellations, material dividend changes, cross-shareholding unwinds, take-privates, ROIC/ROCE-linked comp revisions, and governance-code flips on the capital-policy principles.</p>
+        <p class="cap-feed-lede">A constantly-updated screen of every Japanese company that just announced something material about how it returns or allocates capital &mdash; buybacks, dividend hikes, take-privates, treasury cancellations, and the like. Pulled directly from the FSA's EDINET API and the TSE's TDnet feed every half hour, filtered to remove earnings reports and other routine filings.</p>
       </div>
       <div class="cap-feed-controls">
         <input type="text" class="cap-feed-search" id="cap-feed-search" placeholder="Search ticker (e.g. 4776)" aria-label="Search by ticker" maxlength="5">
@@ -825,7 +825,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     if (!rows.length){ $list.innerHTML = '<div class="cap-feed-empty">'+L.empty+'</div>'; return; }
     $list.innerHTML = rows.map(function(r){
       var name = feedIsJa ? (r.name_jp || r.name_en || '') : (r.name_en || r.name_jp || '');
-      return '<a class="cap-feed-row" href="'+esc(r.doc_url || '#')+'" target="_blank" rel="noopener">'+
+      var summary = feedIsJa ? (r.summary_jp || r.summary_en || '') : (r.summary_en || r.summary_jp || '');
+      return '<a class="cap-feed-row" href="'+esc(r.doc_url || '#')+'" target="_blank" rel="noopener" title="'+esc(summary)+'">'+
         '<span class="cap-feed-row-ts">'+esc(fmtTS(r.ts))+'</span>'+
         '<span class="cap-feed-row-tk">'+esc(r.ticker || '')+'</span>'+
         '<span class="cap-feed-row-name">'+esc(name)+'</span>'+

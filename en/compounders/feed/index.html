@@ -149,7 +149,7 @@
     <div class="hero-eyebrow">JII COMPOUNDERS &middot; FEED</div>
     <h1>Capital-Allocation Inflection Feed</h1>
     <p class="hero-tagline">Only the disclosures that move the multiple.</p>
-    <p class="lede">A live screen across the entire TSE for the eight classes of corporate disclosure that are direct evidence the capital-policy catalyst is firing: cost-of-capital management plans, buyback authorisations, treasury cancellations, material dividend changes, cross-shareholding unwind programmes, take-privates, comp-KPI revisions that introduce capital-efficiency metrics, and governance-code &ldquo;explain → comply&rdquo; flips on the capital-policy principles. This is <a href="/en/compounders/methodology/#p6">Principle 6 of the methodology</a> &mdash; IR improvement is a re-rating lever &mdash; extended beyond the ~80-name standing watch universe to every listed name on the TSE. The intent is discovery: surface inflections at names not yet in JII coverage so a PM can decide whether to start work. Listings are factual summaries of public disclosures, not recommendations.</p>
+    <p class="lede">A constantly-updated screen of every Japanese company that just announced something material about how it returns or allocates capital &mdash; buybacks, dividend hikes, take-privates, treasury cancellations, and the like. Pulled directly from the FSA's EDINET API and the TSE's TDnet feed every half hour, filtered to remove earnings reports and other routine filings.</p>
   </header>
 
   <div class="controls" role="region" aria-label="Feed filters">
@@ -160,11 +160,11 @@
       </div>
       <div class="chips" role="group" aria-label="Filter by disclosure class">
         <button class="chip active" data-cls="COC" title="Cost-of-capital management plan. Initial publication, or material update, or introduction of ROIC/WACC/ROE targets into the mid-term plan; numeric targets must move at least 10% to qualify.">Cost-of-capital</button>
-        <button class="chip active" data-cls="BUYBACK" title="Buyback authorisation at scale. Threshold: at least 1% of shares outstanding, or at least JPY1bn for sub-JPY100bn market-cap names.">Buyback</button>
+        <button class="chip active" data-cls="BUYBACK" title="Buyback authorization at scale. Threshold: at least 1% of shares outstanding, or at least JPY1bn for sub-JPY100bn market-cap names.">Buyback</button>
         <button class="chip active" data-cls="CANCEL" title="Treasury cancellation. Threshold: at least 0.5% of shares outstanding.">Cancellation</button>
         <button class="chip active" data-cls="DIV" title="Material dividend change. Payout-ratio jump at least 10pp, special div at least the recurring annual, first-ever dividend, or introduction of a progressive policy.">Dividend</button>
-        <button class="chip active" data-cls="CROSS" title="Cross-shareholding unwind framed as policy or programme (not a single tactical sale). Material threshold: explicit reduction policy, or specific sales over JPY500M.">Cross-shareholding</button>
-        <button class="chip active" data-cls="MBO" title="Take-private or tender. TOB, MBO, or full subsidiarisation by parent. Any disclosure qualifies.">Take-private</button>
+        <button class="chip active" data-cls="CROSS" title="Cross-shareholding unwind framed as policy or program (not a single tactical sale). Material threshold: explicit reduction policy, or specific sales over JPY500M.">Cross-shareholding</button>
+        <button class="chip active" data-cls="MBO" title="Take-private or tender. TOB, MBO, or full subsidiarization by parent. Any disclosure qualifies.">Take-private</button>
         <button class="chip active" data-cls="COMP" title="Comp-linked KPI revision. Must add a capital-efficiency metric (ROIC/ROCE/TSR) to executive compensation.">Comp KPI</button>
         <button class="chip active" data-cls="GOV" title="Governance-code signal. Flip from 'explain' to 'comply' on a capital-policy principle (1-4, 1-5, 5-2).">Governance</button>
       </div>
@@ -249,7 +249,7 @@
   var $lastRefresh = document.getElementById("last-refresh");
 
   function fetchJSON(url) {
-    return fetch(url, {cache:"no-cache"}).then(function(r){
+    return fetch(url, {cache:"no-store"}).then(function(r){
       if (!r.ok) throw new Error("HTTP " + r.status);
       return r.json();
     });

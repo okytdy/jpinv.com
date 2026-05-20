@@ -149,7 +149,7 @@
     <div class="hero-eyebrow">JII COMPOUNDERS &middot; FEED</div>
     <h1>資本政策インフレクション・フィード</h1>
     <p class="hero-tagline">マルチプルを動かす開示だけ。</p>
-    <p class="lede">日本の上場全銘柄を対象に、「資本コストや株価を意識した経営」「自己株式取得・消却」「配当方針の転換」「政策保有株式の縮減」「TOB／MBO」「役員報酬への資本効率指標の導入」「コーポレートガバナンス・コード対応の変更」といった、評価倍率を動かしうる開示だけを抽出して時系列で並べています。これは <a href="/compounders/methodology/#p6">6つの着眼点・着眼点6（開示は評価を動かす経営施策）</a> を、ユニバース80銘柄にとどまらず東証全体に拡張したライブ・スクリーンです。読者は、まだJII Compoundersのカバレッジに入っていない名柄でも、触媒が動き出した瞬間を見つけることを想定しています。掲載は事実関係の整理であり、推奨ではありません。</p>
+    <p class="lede">日本の上場会社が、資本の還元や配分について何か重要な発表をするたびに自動更新されるスクリーン。自社株買い、増配、TOB・MBO、自己株式の消却などを対象とします。金融庁のEDINET APIと東証のTDnetから30分ごとに直接取得し、決算短信や月次売上といった定型開示は除外しています。</p>
   </header>
 
   <div class="controls" role="region" aria-label="フィード絞り込み">
@@ -246,7 +246,7 @@
   var $lastRefresh = document.getElementById("last-refresh");
 
   function fetchJSON(url) {
-    return fetch(url, {cache:"no-cache"}).then(function(r){
+    return fetch(url, {cache:"no-store"}).then(function(r){
       if (!r.ok) throw new Error("HTTP " + r.status);
       return r.json();
     });
