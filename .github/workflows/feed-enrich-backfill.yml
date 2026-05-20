@@ -1,0 +1,124 @@
+name: feed-enrich-backfill
+
+# JII Compounders -- one-time enrichment backfill.
+# Walks existing rows in compounders/feed/data/feed.json that lack tag_en
+# (i.e. were classified before the PDF enricher shipped), runs Tier-B regex
+# + Tier-C LLM on each, commits the upgraded JSON.
+#
+# Cost-protected by tools/llm_budget.py: hard stops at $9 MTD. Daily cap of 50
+# calls is bypassed in this mode (workflow runs once, processes until budget
+# exhausted or all rows done).
+
+on:
+  workflow_dispatch:
+    inputs:
+      note:
+        description: 'Optional note for the run summary (e.g. "round 1 of 3")'
+        required: false
+        default: 'enrichment backfill'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: feed-enrich-backfill
+  cancel-in-progress: false
+
+jobs:
+  enrich:
+    name: Enrich existing feed rows
+    runs-on: ubuntu-latest
+    timeout-minutes: 350    # PDF fetch + LLM per row averages ~5-8s; 1010 rows fits in 4-5h
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 1
+
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Python dependencies
+        timeout-minutes: 4
+        run: |
+          set -euo pipefail
+          pip install --disable-pip-version-check -r tools/requirements.txt
+
+      - name: Run feed_refresh.py in enrich_backfill mode
+        id: enrich
+        timeout-minutes: 340
+        env:
+          EDINET_API_KEY: ${{ secrets.EDINET_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          FEED_MODE: enrich_backfill
+          PYTHONUNBUFFERED: '1'
+        run: |
+          set -euo pipefail
+          python tools/feed_refresh.py
+
+      - name: Read ledger state
+        id: ledger
+        if: always()
+        run: |
+          set -euo pipefail
+          if [ -f tools/llm_ledger.json ]; then
+            mtd=$(python3 -c "import json; print(json.load(open('tools/llm_ledger.json'))['mtd_cost_usd'])")
+            calls=$(python3 -c "import json; print(json.load(open('tools/llm_ledger.json'))['calls_this_month'])")
+            echo "mtd=${mtd}" >> "$GITHUB_OUTPUT"
+            echo "calls=${calls}" >> "$GITHUB_OUTPUT"
+          else
+            echo "mtd=0" >> "$GITHUB_OUTPUT"
+            echo "calls=0" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Check for changes
+        id: diff
+        run: |
+          set -euo pipefail
+          if [ -n "$(git status --porcelain compounders/feed/data/ tools/llm_summary_cache.json tools/llm_ledger.json)" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit and push
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          set -euo pipefail
+          git config user.name  "jii-feed-bot"
+          git config user.email "feed-bot@users.noreply.github.com"
+
+          TMPDIR="$(mktemp -d)"
+          cp -r compounders/feed/data "$TMPDIR/data"
+          cp tools/llm_summary_cache.json "$TMPDIR/llm_summary_cache.json"
+          cp tools/llm_ledger.json "$TMPDIR/llm_ledger.json"
+
+          git fetch origin main
+          git reset --hard origin/main
+
+          rm -rf compounders/feed/data
+          cp -r "$TMPDIR/data" compounders/feed/data
+          cp "$TMPDIR/llm_summary_cache.json" tools/llm_summary_cache.json
+          cp "$TMPDIR/llm_ledger.json" tools/llm_ledger.json
+
+          git add compounders/feed/data/ tools/llm_summary_cache.json tools/llm_ledger.json
+          git commit -m "feed: enrich-backfill @ ${{ github.run_id }} (MTD $${{ steps.ledger.outputs.mtd }})"
+          git push
+
+      - name: Job summary
+        if: always()
+        run: |
+          {
+            echo "## Enrichment backfill"
+            echo ""
+            echo "- mode: enrich_backfill"
+            echo "- note: ${{ github.event.inputs.note }}"
+            echo "- LLM calls this month: ${{ steps.ledger.outputs.calls }}"
+            echo "- MTD cost: \$${{ steps.ledger.outputs.mtd }} of \$9 hard cap"
+            echo "- changed: ${{ steps.diff.outputs.changed }}"
+            echo "- run id: ${{ github.run_id }}"
+          } >> "$GITHUB_STEP_SUMMARY"

@@ -42,6 +42,8 @@ if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
 from classifier import classify  # noqa: E402
+from pdf_enricher import enrich as _enrich_row  # noqa: E402
+from llm_budget import BudgetLedger as _BudgetLedger  # noqa: E402
 from edinet_client import EdinetClient  # noqa: E402
 from tdnet_scraper import TdnetScraper  # noqa: E402
 
@@ -65,6 +67,7 @@ INDEX_JSON = FEED_DIR / "index.json"
 META_JSON = FEED_DIR / "_meta.json"
 BY_TICKER_DIR = FEED_DIR / "by-ticker"
 ARCHIVE_DIR = FEED_DIR / "archive"
+LEDGER_PATH = _SCRIPT_DIR / "llm_ledger.json"
 
 FEED_ROW_CAP = 5_000  # spec Section 4
 
@@ -262,6 +265,48 @@ def _update_meta(
 # ---------------------------------------------------------------------------
 
 
+
+def _run_enrich_backfill() -> int:
+    """Enrich existing feed.json rows that lack tag_en or doc_title_en.
+
+    Used for the one-time backfill of 1,010+ rows accumulated before the
+    enricher shipped. Rate-limited by the BudgetLedger; safe to run repeatedly.
+    Existing tag/summary fields are preserved if enrichment fails.
+    """
+    LOG.info("feed_refresh: enrich_backfill mode")
+    rows = _read_json(FEED_JSON, default=[])
+    if not isinstance(rows, list):
+        LOG.error("feed.json is not a list - aborting")
+        return 2
+    candidates = [r for r in rows if isinstance(r, dict) and not r.get("tag_en")]
+    LOG.info("enrich_backfill: %d candidate rows need enrichment", len(candidates))
+    enriched_n = 0
+    for r in candidates:
+        try:
+            before_method = r.get("enrichment_method")
+            _enrich_row(r, llm_api_key=_ANTHROPIC_KEY, budget=_BUDGET)
+            if r.get("enrichment_method") and r.get("enrichment_method") != before_method:
+                enriched_n += 1
+        except Exception as e:
+            LOG.warning("enrich_backfill: row %s failed: %s", r.get("id"), e)
+        # Stop early if budget exhausted (defensive; budget itself short-circuits LLM calls)
+        st = _BUDGET.status()
+        if st["mtd_cost_usd"] >= st["hard_cap_usd"]:
+            LOG.warning("enrich_backfill: MTD budget exhausted at $%.2f - stopping", st["mtd_cost_usd"])
+            break
+
+    _write_json(FEED_JSON, rows)
+    _write_json(INDEX_JSON, _rebuild_index(rows))
+    _rebuild_by_ticker(rows, {r.get("ticker", "") for r in rows if r.get("ticker")})
+    meta = _read_json(META_JSON, default={})
+    if isinstance(meta, dict):
+        meta["last_enrich_backfill_n"] = enriched_n
+        meta["last_enrich_backfill_iso"] = _dt.datetime.now(JST).isoformat(timespec="seconds")
+        _write_json(META_JSON, meta)
+    LOG.info("enrich_backfill: enriched %d rows", enriched_n)
+    return 0
+
+
 def main() -> int:
     mode = (os.environ.get("FEED_MODE") or "incremental").strip().lower()
     if mode not in ("incremental", "backfill"):
@@ -296,6 +341,12 @@ def main() -> int:
         row = classify(raw)
         if row is None:
             continue
+        # Enrich the row: JPX names + PDF Tier-B regex + Tier-C LLM (if budget allows).
+        # Idempotent: same doc_id never re-summarised. Fails-soft on any error.
+        try:
+            row = _enrich_row(row, llm_api_key=_ANTHROPIC_KEY, budget=_BUDGET)
+        except Exception as _e:
+            LOG.warning("enrich failed for %s: %s", row.get("id"), _e)
         seen_ids.add(row["id"])
         new_rows.append(row)
         if raw.get("source") == "EDINET":

@@ -823,7 +823,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
         '<span class="cap-feed-row-tk">'+esc(r.ticker || '')+'</span>'+
         '<span class="cap-feed-row-name">'+esc(name)+'</span>'+
         '<span class="cap-feed-row-class">'+esc(r.class || '')+'</span>'+
-        '<span class="cap-feed-row-tag">'+esc(r.tag || '')+'</span>'+
+        '<span class="cap-feed-row-tag">'+esc(r.tag_jp || r.tag || '')+'</span>'+
       '</a>';
     }).join('');
   }

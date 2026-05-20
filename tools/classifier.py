@@ -18,6 +18,8 @@ from __future__ import annotations
 import csv
 import re
 from datetime import datetime, timezone, timedelta
+
+from jpx_master import lookup as _jpx_lookup
 from pathlib import Path
 from typing import Callable, Optional, Tuple
 
@@ -222,6 +224,17 @@ def _is_excluded(title: str, body: Optional[str]) -> bool:
 
 # ---------------------------------------------------------------------------
 # Per-class matchers
+
+def _enrich_names_from_jpx(disclosure: dict) -> tuple[str, str]:
+    """Return (name_en, name_jp) preferring JPX official names over scraped names."""
+    ticker = disclosure.get("ticker") or ""
+    jpx = _jpx_lookup(ticker) or {}
+    raw_jp = disclosure.get("name_jp", "")
+    raw_en = disclosure.get("name_en", "") or raw_jp
+    name_jp = jpx.get("name_jp") or raw_jp
+    name_en = jpx.get("name_en") or raw_en
+    return name_en, name_jp
+
 # Each returns (matched, tag, summary_en, summary_jp).
 # ---------------------------------------------------------------------------
 
@@ -269,8 +282,7 @@ def _match_mbo(d: dict) -> MatchResult:
     tag_suffix = f" · {_fmt_yen(aggregate_yen)}" if aggregate_yen else ""
     tag = f"{kind_en}{tag_suffix}"[:60]
 
-    name_en = d.get("name_en") or d.get("name_jp", "")
-    name_jp = d.get("name_jp", "")
+    name_en, name_jp = _enrich_names_from_jpx(d)
     summary_en = (
         f"{kind_en} disclosed for {name_en}"
         + (f" at {_fmt_yen(aggregate_yen)}." if aggregate_yen else ".")
@@ -347,8 +359,7 @@ def _match_buyback(d: dict) -> MatchResult:
     tag_body = " · ".join(parts_en) if parts_en else "size TBC"
     tag = f"Buyback · {tag_body}"[:60]
 
-    name_en = d.get("name_en") or d.get("name_jp", "")
-    name_jp = d.get("name_jp", "")
+    name_en, name_jp = _enrich_names_from_jpx(d)
     summary_en = (
         f"{name_en} authorized a share buyback"
         + (f" of {' / '.join(parts_en)}" if parts_en else "")
@@ -404,8 +415,7 @@ def _match_cancel(d: dict) -> MatchResult:
     tag_body = " · ".join(parts_en) if parts_en else "size TBC"
     tag = f"Cancellation · {tag_body}"[:60]
 
-    name_en = d.get("name_en") or d.get("name_jp", "")
-    name_jp = d.get("name_jp", "")
+    name_en, name_jp = _enrich_names_from_jpx(d)
     summary_en = (
         f"{name_en} cancelled treasury stock"
         + (f" ({' / '.join(parts_en)})" if parts_en else "")
@@ -477,8 +487,7 @@ def _match_div(d: dict) -> MatchResult:
     tag_suffix = " · " + " · ".join(tag_extras) if tag_extras else ""
     tag = f"Dividend · {flavour_en}{tag_suffix}"[:60]
 
-    name_en = d.get("name_en") or d.get("name_jp", "")
-    name_jp = d.get("name_jp", "")
+    name_en, name_jp = _enrich_names_from_jpx(d)
     summary_en = (
         f"{name_en} announced a material dividend change ({flavour_en})"
         + (f" totalling {_fmt_yen(yen)}." if yen else ".")
@@ -520,8 +529,7 @@ def _match_coc(d: dict) -> MatchResult:
         flavour_en, flavour_jp = "capital-efficiency target", "資本効率目標"
 
     tag = f"Cost-of-capital · {flavour_en}"[:60]
-    name_en = d.get("name_en") or d.get("name_jp", "")
-    name_jp = d.get("name_jp", "")
+    name_en, name_jp = _enrich_names_from_jpx(d)
     summary_en = (
         f"{name_en} published a cost-of-capital / capital-efficiency disclosure "
         f"({flavour_en}). Signals management is engaging with the Principle-6 framework."
@@ -569,8 +577,7 @@ def _match_cross(d: dict) -> MatchResult:
     parts_jp.append("方針" if is_policy else "売却")
 
     tag = ("Cross-holding · " + " · ".join(parts_en))[:60]
-    name_en = d.get("name_en") or d.get("name_jp", "")
-    name_jp = d.get("name_jp", "")
+    name_en, name_jp = _enrich_names_from_jpx(d)
     summary_en = (
         f"{name_en} disclosed a cross-shareholding unwind "
         + ("policy" if is_policy else "sale")
@@ -617,8 +624,7 @@ def _match_comp(d: dict) -> MatchResult:
         .replace("ＥＰＳ", "EPS")
     )
     tag = f"Comp · adds {kpi} linkage"[:60]
-    name_en = d.get("name_en") or d.get("name_jp", "")
-    name_jp = d.get("name_jp", "")
+    name_en, name_jp = _enrich_names_from_jpx(d)
     summary_en = (
         f"{name_en} revised exec compensation to add {kpi} linkage. "
         f"Aligns management pay with capital-efficiency outcomes."
@@ -670,8 +676,7 @@ def _match_gov(d: dict) -> MatchResult:
         flavour_en, flavour_jp = "CG report update", "CG報告書更新"
 
     tag = f"Governance · {flavour_en}"[:60]
-    name_en = d.get("name_en") or d.get("name_jp", "")
-    name_jp = d.get("name_jp", "")
+    name_en, name_jp = _enrich_names_from_jpx(d)
     summary_en = (
         f"{name_en} updated its corporate governance report ({flavour_en}). "
         f"Signals movement on capital-policy principles."
@@ -751,6 +756,7 @@ def classify(disclosure: dict) -> Optional[dict]:
                 "name_jp": name_jp,
                 "class": class_code,
                 "tag": tag,
+                "doc_title_jp": disclosure.get("title_jp", ""),
                 "summary_en": summary_en,
                 "summary_jp": summary_jp,
                 "source": source,
