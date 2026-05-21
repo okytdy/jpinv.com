@@ -289,7 +289,17 @@ def _run_enrich_backfill() -> int:
     if not isinstance(rows, list):
         LOG.error("feed.json is not a list - aborting")
         return 2
-    candidates = [r for r in rows if isinstance(r, dict) and not r.get("tag_en")]
+    # Candidate = any row that's incomplete on enrichment:
+    #   - lacks tag_en entirely (never enriched), OR
+    #   - has only Tier-B regex result but no LLM summary yet (Tier-B-only, can be upgraded
+    #     to Tier-C when budget allows; pdf_enricher.enrich now respects this).
+    def _needs_enrich(r: dict) -> bool:
+        if not r.get("tag_en"):
+            return True
+        if not r.get("summary_en") and r.get("enrichment_method") != "tier_c_llm":
+            return True
+        return False
+    candidates = [r for r in rows if isinstance(r, dict) and _needs_enrich(r)]
     LOG.info("enrich_backfill: %d candidate rows need enrichment", len(candidates))
     enriched_n = 0
     for r in candidates:
