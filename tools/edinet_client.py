@@ -180,12 +180,23 @@ class EdinetClient:
             LOG.warning("EDINET unexpected payload shape for %s", date_str)
             return []
         # DIAGNOSTIC (temp - remove after EDINET pipeline confirmed working)
+        from collections import Counter as _Counter
         _md = payload.get("metadata") or {}
-        _sample_types = [str(r.get("docTypeCode") or "") for r in results[:5]]
+        _type_counts = _Counter(str(r.get("docTypeCode") or "") for r in results)
+        _p6_counts = {t: _type_counts.get(t, 0) for t in sorted(PRINCIPLE6_DOC_TYPES)}
+        _p6_total = sum(_p6_counts.values())
         LOG.info(
-            "EDINET DIAG %s: count=%d md_status=%s md_message=%r sample_docTypes=%s",
-            date_str, len(results), _md.get("status"), _md.get("message"), _sample_types,
+            "EDINET DIAG %s: total=%d md_status=%s p6_filter_passes=%d by_p6_type=%s top5_all_types=%s",
+            date_str, len(results), _md.get("status"),
+            _p6_total, _p6_counts, _type_counts.most_common(5),
         )
+        # Log titles of any 350 (CG report) docs to see actual EDINET docDescription strings
+        _three_fifty = [r for r in results if str(r.get("docTypeCode") or "") == "350"]
+        for _r in _three_fifty[:5]:
+            LOG.info(
+                "EDINET DIAG 350-sample: docID=%s secCode=%r filerName=%r docDescription=%r",
+                _r.get("docID"), _r.get("secCode"), _r.get("filerName"), _r.get("docDescription"),
+            )
         return results
 
     def get_document_metadata(self, doc_id: str) -> dict:
@@ -234,19 +245,26 @@ class EdinetClient:
             )
             return
 
+        # DIAGNOSTIC (temp) - count yields per day
+        _yield_counter = {"yielded": 0, "rejected_type": 0, "rejected_no_docid": 0}
         for date in _iter_dates(start_date, end_date):
             try:
                 rows = self.list_documents(date)
             except Exception as exc:  # noqa: BLE001 - we re-raise after log
                 LOG.error("EDINET fetch failed for %s: %s", date, exc)
                 raise
+            _per_day_yield = 0
             for row in rows:
                 doc_type = str(row.get("docTypeCode") or "").strip()
                 if doc_type not in PRINCIPLE6_DOC_TYPES:
+                    _yield_counter["rejected_type"] += 1
                     continue
                 doc_id = str(row.get("docID") or "").strip()
                 if not doc_id:
+                    _yield_counter["rejected_no_docid"] += 1
                     continue
+                _yield_counter["yielded"] += 1
+                _per_day_yield += 1
                 submitted_at_raw = (
                     row.get("submitDateTime") or row.get("submitDate") or ""
                 )
@@ -265,6 +283,8 @@ class EdinetClient:
                     "market_cap_jpy": None,
                     "_doc_type_code": doc_type,
                 }
+            LOG.info("EDINET DIAG iter %s: per_day_yielded=%d", date, _per_day_yield)
+        LOG.info("EDINET DIAG iter TOTAL: %s", _yield_counter)
 
 
 # ---------------------------------------------------------------------------
