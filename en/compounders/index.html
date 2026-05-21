@@ -827,4 +827,38 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 </script>
 
 
-<scr
+<script>
+(function(){
+  // ---- Recent Profiles reel: prev/next arrow navigation ----
+  var reel = document.querySelector('.reel');
+  var prev = document.querySelector('.reel-prev');
+  var next = document.querySelector('.reel-next');
+  if (!reel || !next) return;
+
+  function step(){
+    var firstCard = reel.querySelector('.card--reel');
+    if (!firstCard) return reel.clientWidth * 0.9;
+    var styles = window.getComputedStyle(reel);
+    var gap = parseFloat(styles.columnGap || styles.gap || '24') || 24;
+    return firstCard.getBoundingClientRect().width + gap;
+  }
+
+  function updateArrows(){
+    var max = reel.scrollWidth - reel.clientWidth;
+    var x = reel.scrollLeft;
+    // Hide prev when at the start, hide next when at the end (with a 4px tolerance).
+    if (prev) prev.hidden = x <= 4;
+    if (next) next.hidden = x >= max - 4;
+  }
+
+  if (next) next.addEventListener('click', function(){ reel.scrollBy({ left: step(), behavior: 'smooth' }); });
+  if (prev) prev.addEventListener('click', function(){ reel.scrollBy({ left: -step(), behavior: 'smooth' }); });
+
+  reel.addEventListener('scroll', updateArrows, { passive: true });
+  window.addEventListener('resize', updateArrows);
+  updateArrows();
+})();
+</script>
+
+</body>
+</html>
