@@ -81,11 +81,11 @@ nav.scrolled{box-shadow:0 4px 24px rgba(15,31,58,0.08)}
 .hamburger span{display:block;width:22px;height:1px;background:var(--ink);transition:all 0.25s}
 @media(max-width:900px){.nav-center,.nav-right .nav-cta{display:none}.hamburger{display:flex}}
 @media(max-width:768px){.nav-logo-img--desktop{display:none}.nav-logo-img--mobile{display:block}}
-.mobile-menu{display:none;position:fixed;top:var(--nav-h);left:0;right:0;background:var(--bg);border-bottom:1px solid var(--rule);z-index:99;padding:8px var(--gutter) 20px;flex-direction:column}
-.mobile-menu.open{display:flex}
+.mobile-menu{display:flex;position:fixed;top:0;right:0;bottom:0;width:min(82vw,360px);background:#fff;border-left:1px solid var(--rule);box-shadow:-20px 0 36px rgba(10,20,40,.16);z-index:130;padding:calc(var(--nav-h) + 8px) var(--gutter) 20px;flex-direction:column;overflow-y:auto;transform:translateX(100%);opacity:0;visibility:hidden;pointer-events:none;transition:transform .26s ease,opacity .26s ease,visibility 0s linear .26s}
+.mobile-menu.open{transform:translateX(0);opacity:1;visibility:visible;pointer-events:auto;transition:transform .26s ease,opacity .26s ease}
 .mobile-menu a{font-size:0.88rem;color:var(--text);text-decoration:none;padding:14px 0;border-bottom:1px solid var(--rule);letter-spacing:0.04em}
 .mobile-menu a:last-child{border-bottom:none}
-.mobile-menu .mobile-menu-cta{margin-top:12px;padding:13px 18px;text-align:center;color:#fff;border-bottom:none}
+.mobile-menu .mobile-menu-cta{margin-top:12px;padding:13px 18px;text-align:center;color:#fff;border-bottom:none}.menu-backdrop{position:fixed;inset:var(--nav-h) 0 0 0;background:rgba(15,31,58,.34);z-index:125;opacity:0;pointer-events:none;transition:opacity .22s ease}.menu-backdrop.open{opacity:1;pointer-events:auto}
 
 /* BUTTONS */
 .btn-primary,.btn-outline{display:inline-block;text-decoration:none;font-family:var(--sans);font-size:0.84rem;font-weight:400;letter-spacing:0.06em;padding:13px 28px;transition:all 0.2s;cursor:pointer;border:none}
@@ -264,6 +264,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     </button>
   </div>
 </nav>
+<div class="menu-backdrop" id="menuBackdrop" hidden></div>
 <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" hidden>
   <a href="/en/services/" onclick="toggleMenu()">Services</a>
   <a href="/en/pricing/" onclick="toggleMenu()">Pricing</a>
@@ -726,7 +727,12 @@ function setMenuOpen(isOpen) {
   const menu = document.getElementById('mobileMenu');
   if (!menu || !hamburgerBtn) return;
   menu.classList.toggle('open', isOpen);
-  menu.hidden = !isOpen;
+  menu.hidden = false;
+  const backdrop = document.getElementById('menuBackdrop');
+  if (backdrop) {
+    backdrop.classList.toggle('open', isOpen);
+    backdrop.hidden = false;
+  }
   hamburgerBtn.setAttribute('aria-expanded', String(isOpen));
   hamburgerBtn.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
 }
