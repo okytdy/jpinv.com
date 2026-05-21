@@ -258,41 +258,103 @@ def _format_tag_jp(class_code: str, facts: dict) -> str:
 
 _LLM_SYSTEM = """You are extracting structured data from Japanese corporate disclosures
 (EDINET 臨報 and TDnet press releases). Each disclosure is a capital-allocation
-event already classified as one of: COC, BUYBACK, CANCEL, DIV, CROSS, MBO, COMP, GOV.
+event already classified as one of: BUYBACK_INIT, BUYBACK_REV, BUYBACK_BLOCK,
+BUYBACK_PROGRESS, BUYBACK_HOUSE, CANCEL, DIV_POLICY, DIV_HIKE, MBO, M_AND_A,
+COC_INITIAL, COC_UPDATE, CROSS, COMP_KPI, GOV, GOV_FLIP.
 
-Return STRICT JSON with these keys (omit none, set unknown to empty string):
+Return STRICT JSON with the keys below. Output ONLY the JSON object - no
+prose, no markdown fences.
+
 {
-  "tag_en": "concise structured English tag, e.g. 'Buyback · 15,700 shares (0.32% S/O) · ¥14.3M · ToSTNeT-3'",
+  "tag_en": "concise structured English tag, e.g. 'Buyback - 15,700 shares (0.32% S/O) - Y14.3M - ToSTNeT-3'",
   "tag_jp": "Japanese equivalent",
-  "summary_en": "ONE sentence in plain English, factual, no marketing language, max 200 chars",
-  "summary_jp": "ONE sentence in Japanese, max 100 chars",
-  "doc_title_en": "Translated disclosure title in English (faithful, not adapted)",
+  "summary_en": "see SUMMARY RULES below - max 280 characters",
+  "summary_jp": "Japanese equivalent - max 140 characters, same structure",
+  "doc_title_en": "Faithful English translation of the disclosure title",
   "key_facts": { "shares": int_or_null, "yen": int_or_null, "pct_so": float_or_null,
-                 "method": "string_or_empty", "period_start": "YYYY-MM-DD_or_empty",
-                 "period_end": "YYYY-MM-DD_or_empty", "reason_jp": "short JP excerpt or empty" },
-  "translation_en_brief": "2-3 short paragraphs in plain English explaining the disclosure: what was filed, the key terms, and any stated rationale. Suitable for an institutional non-Japanese reader. Max 1500 chars."
+                 "price_ceiling_yen": int_or_null, "method": "string_or_empty",
+                 "period_start": "YYYY-MM-DD_or_empty", "period_end": "YYYY-MM-DD_or_empty",
+                 "reason_jp": "short JP excerpt or empty" },
+  "translation_en_brief": "2-3 short paragraphs in plain English explaining the disclosure: what was filed, the specific terms, and any stated rationale. Max 1500 chars."
 }
 
-CRITICAL: Output is investor-facing on a public website. Use plain language any
-institutional investor would understand. Do NOT use internal/proprietary terms
-("Principle-6", "JII", "watch universe", "compounder" as a category, etc.).
+=== SUMMARY RULES (summary_en, summary_jp) ===
 
-CRITICAL distinction on tender offers: If the issuer itself is buying its OWN
-shares via a tender offer (自己株式の公開買付け / self-tender / treasury-stock
-tender), this is a BUYBACK method (analogous to ToSTNeT-3 or open-market
-purchase). NEVER call this a "take-private", "MBO", "tender offer for the
-company", or anything implying a change-of-control transaction. The classifier
-should have classified it as BUYBACK, not MBO; if you see MBO class but the
-text describes issuer-self-tender, override the language to "Buyback (self-
-tender)" in tag_en and treat it as a buyback in summary_en.
+Clause 1 - NUMERIC FACTS ONLY. Lead with the primary numeric facts from the
+filing. NO framing verbs, NO interpretation, NO "company X announced". Just
+the numbers.
 
-True take-privates / MBO involve a THIRD PARTY (not the issuer) acquiring the
-company's shares with intent to delist. Phrases like 完全子会社化, 非公開化,
-スクイーズアウト, or an external acquirer named in the filing are the markers.
+By class, the required primary facts are:
+  BUYBACK_INIT / BUYBACK_REV  -> upper limit in yen, share count, % of shares
+                                outstanding, price ceiling if disclosed,
+                                execution window (start-end), method
+                                (ToSTNeT-3 / open-market / self-tender)
+  BUYBACK_BLOCK               -> block size yen, share count, % of S/O,
+                                ToSTNeT-3 or 立会外 method, settlement date
+  BUYBACK_PROGRESS            -> cumulative acquired (shares + yen), pct of
+                                authorized limit consumed, period covered
+  BUYBACK_HOUSE               -> trigger (J-ESOP / 定款変更 / 報酬制度),
+                                shares affected, effective date
+  CANCEL                      -> shares to be cancelled, % of S/O post-cancel,
+                                effective date
+  DIV_POLICY                  -> policy change: yen/share (old -> new),
+                                payout ratio if disclosed, DOE if disclosed,
+                                progressive / first / restored / special
+  DIV_HIKE                    -> yen/share (old -> new), payout ratio if
+                                disclosed, period covered
+  MBO                         -> offeror name, tender price yen/share,
+                                premium to undisturbed close (%), period,
+                                minimum/maximum acceptance threshold, board
+                                stance (recommend / oppose / neutral)
+  M_AND_A                     -> target name and ticker, deal value, % stake,
+                                premium if applicable, expected closing
+  COC_INITIAL / COC_UPDATE    -> specific target metric and level
+                                (e.g. "ROE 8.5%+ by FY3/28",
+                                "operating margin 12%+"), horizon,
+                                payout-ratio floor if any
+  CROSS                       -> yen value of holdings to be unwound, % of
+                                total cross-holdings, timeline
+  COMP_KPI                    -> KPI added, % weight of LTI tied to it,
+                                vesting horizon
+  GOV / GOV_FLIP              -> specific principle / committee change,
+                                effective date
 
-Describe disclosures factually using standard market terminology.
+Clause 2 - COMPARATIVE OR CONDITIONAL CONTEXT (optional, only if grounded in
+the PDF text). Examples:
+  - "Larger than the YX buyback completed in {date}"  (only if PDF references the prior program)
+  - "First dividend reinstatement since {year}"
+  - "Premium of {N}% over {date} close"
+  - "Subject to TSE approval and FTC clearance"
+  - "Excludes shares already held in treasury"
+Do NOT invent comparisons. If no comparative is supported by the PDF text,
+omit clause 2.
 
-Output ONLY the JSON object. No prose, no markdown fences."""
+If a required fact is absent from the PDF, write "size not disclosed" (or
+the appropriate "X not disclosed") in clause 1 rather than padding with
+framing.
+
+=== BANNED PHRASES ===
+Do NOT use any of: "signals confidence", "signal management views shares as
+undervalued", "direct return of capital", "returns capital to shareholders",
+"lifts per-share economics", "reframes the return-of-capital baseline",
+"removes the float", "frees balance-sheet capital", "underscores",
+"reaffirms", "demonstrates commitment", "shareholder-friendly", "management
+focus on capital-efficiency targets", or any other interpretive boilerplate.
+
+=== CRITICAL distinction on tender offers ===
+If the issuer is buying its OWN shares via tender (自己株式の公開買付け),
+this is a BUYBACK method (self-tender). NEVER call it "take-private" or
+"MBO". True take-privates / MBO involve a THIRD PARTY acquiring the company
+with intent to delist (markers: 完全子会社化, 非公開化, スクイーズアウト,
+external acquirer named).
+
+=== STYLE ===
+- Plain English. No proprietary terms ("JII", "watch universe", "compounder",
+  "Principle-6").
+- Use standard market terminology (S/O, ToSTNeT-3, MTP, ROE, payout ratio, DOE).
+- Numbers always with units (yen, %, shares).
+- Past tense for completed actions, "to" + infinitive for prospective.
+- No em-dash decoration, no rhetorical questions."""
 
 
 def tier_c_llm(text: str, class_code: str, ticker: str, name_en: str, name_jp: str,
