@@ -77,7 +77,7 @@
   .row-tk { font-family:var(--mono); font-weight:500; color:var(--accent-deep); border-bottom:1px solid var(--accent); padding-bottom:1px; cursor:pointer; }
   .row-tk:hover { color:var(--ink-mid); border-color:var(--ink-mid); }
   .row-name { font-family:var(--serif); color:var(--ink-mid); }
-  .row-class { font-family:var(--mono); font-size:10px; letter-spacing:0.14em; text-transform:uppercase; padding:3px 8px; border:1px solid var(--accent); color:var(--accent-deep); background:var(--accent-soft); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; min-width:0; flex:0 1 auto; max-width:100%; }
+  .row-class { font-family:var(--mono); font-size:10px; letter-spacing:0.14em; text-transform:uppercase; padding:3px 8px; border:1px solid var(--accent); color:var(--accent-deep); background:var(--accent-soft); white-space:nowrap; }
   .row-tag { font-family:var(--sans); color:var(--text-mid); }
   .row-arrow { margin-left:auto; font-family:var(--serif); color:var(--text-dim); font-size:14px; transition:transform 0.18s; }
   .row.open .row-arrow { transform:rotate(90deg); color:var(--ink-mid); }
@@ -285,7 +285,7 @@
       +   '<span class="row-ts" title="' + escapeHTML(row.ts) + '">' + escapeHTML(formatTS(row.ts)) + '</span>'
       +   '<span class="row-tk" data-ticker="' + escapeHTML(row.ticker) + '" role="button" tabindex="0">' + escapeHTML(row.ticker) + '</span>'
       +   '<span class="row-name">' + escapeHTML(nameEn) + '</span>'
-      +   '<span class="row-class" title="' + escapeHTML(clsLabel + (tag ? ' · ' + tag : '')) + '">' + escapeHTML(clsLabel) + (tag ? ' · ' + escapeHTML(tag) : '') + '</span>'
+      +   '<span class="row-class">' + escapeHTML(clsLabel) + (tag ? ' · ' + escapeHTML(tag) : '') + '</span>'
       +   '<span class="row-arrow">›</span>'
       + '</div>'
       + '<div class="row-expand">'
@@ -456,4 +456,18 @@
       });
   }
 
-  fetchJSON("/compounders/feed/da
+  fetchJSON("/compounders/feed/data/_meta.json").then(function(m){
+    state.meta = m;
+    if (m && m.last_refresh_iso) $lastRefresh.textContent = m.last_refresh_iso;
+    else $lastRefresh.textContent = "—";
+  }).catch(function(){ $lastRefresh.textContent = "—"; });
+
+  fetchJSON("/compounders/feed/data/index.json").then(function(idx){
+    state.index = idx || {};
+  }).catch(function(){ state.index = {}; });
+
+  loadAllFeed();
+})();
+</script>
+</body>
+</html>
