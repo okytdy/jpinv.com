@@ -1,5 +1,7 @@
 # Capital-Allocation Inflection Feed -- Pre-Push QA Report
 
+> **HISTORICAL SNAPSHOT** — preserved as-shipped. The EDINET integration described in checklist items, dependency tables, and failure modes below was removed on 2026-05-21 (commit `2a11a02`); the feed now polls TDnet only. See `compounders/feed/_SPEC.md` History entry for the full story.
+
 **Status: PASS (deploy-artifact scope) -- live-run verification pending first cron**
 
 Date: 2026-05-17

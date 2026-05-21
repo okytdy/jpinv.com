@@ -1,13 +1,15 @@
-# JII Compounders Feed v2 — Expansion Beyond EDINET + TDnet
+# JII Compounders Feed v2 — Expansion Beyond TDnet
 
-**Status:** design draft, 2026-05-19. Frozen scope is v1; this document specifies the v2 expansion.
+**Status:** design draft, 2026-05-19 (EDINET references purged 2026-05-21). Frozen scope is v1; this document specifies the v2 expansion.
 **Author:** planning subagent. **Reviewer:** PM (single-person team — engineering hours are the binding constraint).
+
+> **Note (2026-05-21, commit 2a11a02):** The EDINET integration was removed from the codebase. docType 350 was wrongly assumed to be CG reports — it's actually 大量保有報告書 (large-shareholder reports); CG reports actually flow through TDnet; and the remaining docTypes had no body content for matchers. v1 is now TDnet-only. This document has been edited to reflect that — historical EDINET mentions kept only where they describe a *rejected* path.
 
 ---
 
 ## 0. Premise
 
-v1 catches anything that crosses EDINET or TDnet. That covers 開示 — the legally-required surface. v2 targets **pre-開示 inflection signal**: language that flips in management voice before (or in lieu of) a formal disclosure. Three candidate corpora: briefing decks, integrated reports, transcript Q&As. Below, each evaluated against the same seven dimensions.
+v1 catches anything that crosses TDnet — the legally-required disclosure surface. v2 targets **pre-開示 inflection signal**: language that flips in management voice before (or in lieu of) a formal disclosure. Three candidate corpora: briefing decks, integrated reports, transcript Q&As. Below, each evaluated against the same seven dimensions.
 
 ---
 
@@ -31,7 +33,7 @@ v1 catches anything that crosses EDINET or TDnet. That covers 開示 — the leg
 
 ## 2. Integrated reports (統合報告書)
 
-**Acquisition.** No central registry. Three options: (a) crawl each company's IR page (3,800 sites, no consistent path) — brittle; (b) parse the YUHO (有価証券報告書) for the cross-reference URL — works only for EDINET filers and only after the YUHO is filed (annual, lagged); (c) Disclosure Net / GPIF's listing — partial coverage, not complete. Realistic path: TDnet sometimes carries 「統合報告書発行のお知らせ」 announcements — start there, then fetch the PDF from the linked URL. Coverage will be ~60% of names that publish one (the rest just quietly post to their IR page).
+**Acquisition.** No central registry. Two options: (a) crawl each company's IR page (3,800 sites, no consistent path) — brittle; (b) Disclosure Net / GPIF's listing — partial coverage, not complete. Realistic path: TDnet sometimes carries 「統合報告書発行のお知らせ」 announcements — start there, then fetch the PDF from the linked URL. Coverage will be ~60% of names that publish one (the rest just quietly post to their IR page). (A previously-considered third option — parsing the YUHO cross-reference URL via EDINET — is no longer on the table since EDINET ingest was removed from v1.)
 
 **Volume / cadence.** ~900 firms publish integrated reports annually (rising ~10%/yr). Almost all are 60–150 pages, JP-only, dense. Cluster: July–October. ~5–10/day at peak, near-zero off-season.
 
@@ -78,7 +80,7 @@ v1 catches anything that crosses EDINET or TDnet. That covers 開示 — the leg
 - **適時開示 RSS / "TDnet RSS feeds."** No official RSS; the few third-party mirrors lag and break. Direct HTML scrape (v1's choice) is more reliable.
 - **X/Twitter scraping for IR officer posts.** Signal exists (occasional JP IR accounts pre-announce tone shifts) but API costs + ToS + noise ratio make it not worth it for a single PM.
 - **GPIF / METI ESG database crawls.** Slow, batch-released annually, no new signal beyond YUHO.
-- **Shared-research / 株探 / Kabutan event tags.** Useful as a *validation* set, not a source — they post-process the same EDINET+TDnet stream we already consume.
+- **Shared-research / 株探 / Kabutan event tags.** Useful as a *validation* set, not a source — they post-process the same TDnet stream we already consume.
 - **Bloomberg BCAP / FactSet capital-allocation feeds.** Cost-prohibitive at single-seat scale; their classifier is generic, not Principle-6-tuned.
 - **OpenAI / Claude as the classifier (no regex).** Tempting but the per-document cost at 15k decks/yr + 900 IRs/yr + backfill is real, and the v1 regex pipeline already works — wrong place to introduce LLM cost. Use LLMs only for the *excerpt summary* field, not the trigger decision.
 
