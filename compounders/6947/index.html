@@ -29,10 +29,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   /* ============================================================
-     JII Compounders · v7
-     Methodology: see JII/3 Pipeline/_JII_COMPOUNDERS_STANDARD.md
-     Palette: lifted from jpinv.com.
-     Font sizes bumped vs v6 for readability.
+     JII Compounders · Profile page
+     Methodology: https://jpinv.com/en/compounders/methodology/
      ============================================================ */
   :root {
     --ink:        #1a2a4a;
@@ -391,26 +389,28 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
   <!-- ============ MASTHEAD ============ -->
   <header class="masthead">
-    <div class="masthead-left">
-      <div class="brand-mono">J<span class="brand-mono-bar">|</span>I</div>
-      <span class="brand-eyebrow">Japan Investor Interface · Compounder 銘柄レポート</span>
+    <div class="masthead-inner">
+      <div class="brand">
+        <span class="brand-mono">J<span class="pipe">|</span>I</span>
+        <span class="brand-eyebrow">Japan Investor Interface · Compounder 銘柄レポート</span>
+      </div>
+      <div class="head-main">
+        <div class="head-ticker-row">
+          <span class="head-ticker">東証プライム · 6947 · 3月期</span>
+          <span class="head-co-jp">Zuken Inc.</span>
+        </div>
+        <div class="head-co">株式会社図研</div>
+        <div class="head-industry">電子設計自動化 · プリント基板 / ワイヤハーネスCAD · MBSE</div>
+      </div>
     </div>
-    <div class="masthead-right">
-      <span class="head-ticker">東証プライム · 6947 · 3月期</span>
-      <span class="head-co-jp">ZUKEN INC.</span>
-      <h3 class="head-co">株式会社図研</h3>
-      <div class="head-industry">電子設計自動化 · プリント基板 / ワイヤハーネスCAD · MBSE</div>
-    </div>
-  </header>
 
-  <!-- ============ STAT STRIP ============ -->
-  <div class="stat-strip">
+    <div class="stat-strip">
     <div class="stat">
       <div class="stat-label">終値</div>
       <div class="stat-val">¥4,820<small>2026年5月21日</small></div>
       <div class="stat-ctx"><span class="dn">−17%</span> 2025年7月高値 · <span class="up">+55%</span> 2024年8月安値</div>
     </div>
-    <div class="stat">
+<div class="stat">
       <div class="stat-label">時価総額 / EV</div>
       <div class="stat-val">¥1,016<small>億 / EV ¥655億</small></div>
       <div class="stat-ctx">ネットキャッシュ <b>¥361億</b>（時価総額の36%）· FY3/26総還元 <b>134%</b></div>
@@ -436,6 +436,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
       <div class="stat-ctx">自己株 <b>117万株（5.3%）</b> · 金子家 <b>24%</b> · Artisan <b>8.1%</b> · 60日売買代金 <b>¥2.75億</b></div>
     </div>
   </div>
+  </header>
+  
 
   <!-- ============ 01 · REGIME ============ -->
   <section class="section">
@@ -558,7 +560,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     <div class="section-head">
       <div class="section-num">03 · 資本効率レバー</div>
       <h2 class="section-title">マルチプルを動かす3つの開示・資本政策レバー</h2>
-      <p class="section-sub">TB Module 9（資本効率の死角分析）から抽出した3つのレバー。利益増を必要とせずに <b>マルチプルを動かす</b> 開示・資本政策の選択肢。</p>
+      <p class="section-sub">資本効率上の死角から抽出した、利益増を必要とせずに <b>マルチプルを動かしうる</b> 3つの開示・資本政策レバー。</p>
     </div>
 
     <div class="cat-grid">
@@ -567,36 +569,41 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
         <div class="cat-num">レバー 01 · 資本政策</div>
         <div class="cat-title">総還元政策の再設定 &mdash; キャッシュドラッグ算術の解消</div>
         <div class="cat-viz">
-          <div class="cat-viz-label">FY3/26資本配分 vs 営業キャッシュフロー</div>
+          <div class="cat-viz-label">FY3/26キャッシュフロー＋FY3/27支払予定の宣言済期末配当</div>
           <div class="cat-viz-bar-row">
-            <div class="cat-viz-bar-label">営業CF</div>
+            <div class="cat-viz-bar-label">営業キャッシュフロー</div>
             <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:100%;background:#1a2a4a"></div></div>
-            <div class="cat-viz-bar-val">¥61.3億</div>
-          </div>
-          <div class="cat-viz-bar-row">
-            <div class="cat-viz-bar-label">配当支払</div>
-            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:35%;background:#b08a4a"></div></div>
-            <div class="cat-viz-bar-val">¥21.5億</div>
-          </div>
-          <div class="cat-viz-bar-row">
-            <div class="cat-viz-bar-label">自己株買い実行</div>
-            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:49%;background:#b08a4a"></div></div>
-            <div class="cat-viz-bar-val">¥30.0億</div>
+            <div class="cat-viz-bar-val">+¥61.3億</div>
           </div>
           <div class="cat-viz-bar-row">
             <div class="cat-viz-bar-label">設備投資</div>
             <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:12%;background:#7a8290"></div></div>
-            <div class="cat-viz-bar-val">¥7.6億</div>
+            <div class="cat-viz-bar-val">−¥7.6億</div>
           </div>
           <div class="cat-viz-bar-row">
-            <div class="cat-viz-bar-label">キャッシュ残余</div>
-            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:4%;background:#b88a3a"></div></div>
-            <div class="cat-viz-bar-val">¥2.2億</div>
+            <div class="cat-viz-bar-label">FY3/26期間中の配当支払</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:35%;background:#b08a4a"></div></div>
+            <div class="cat-viz-bar-val">−¥21.5億</div>
           </div>
-          <div class="cat-viz-cap">FY3/26総還元134%（ROE13.0%下） · 現預金・有価証券¥361億（時価総額の35.5%） · 10年連続のキャッシュ積み上がり、減速</div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">自己株買い（2026年1月完了）</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:49%;background:#b08a4a"></div></div>
+            <div class="cat-viz-bar-val">−¥30.0億</div>
+          </div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label"><b>= FY3/26 キャッシュ純増減</b></div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:4%;background:#b88a3a"></div></div>
+            <div class="cat-viz-bar-val"><b>+¥2.2億</b></div>
+          </div>
+          <div class="cat-viz-bar-row" style="margin-top:8px;padding-top:8px;border-top:1px dashed #cfd4dc;">
+            <div class="cat-viz-bar-label">FY3/26期末配当 <span style="font-size:11px;color:#5a6470;">（2026年6月支払予定）</span></div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:52%;background:#b91c1c"></div></div>
+            <div class="cat-viz-bar-val">−¥31.6億</div>
+          </div>
+          <div class="cat-viz-cap">FY3/26期間中は自己株買いが営業CFの約96%を吸収しキャッシュはほぼ横ばい。<b>134%</b>の総還元数値は、宣言済みのFY3/26期末配当（¥150/株 × 21.08百万株 ≈ ¥31.6億）を加算した先行コミットを表し、当該キャッシュ流出はFY3/27に発生する。</div>
         </div>
         <div class="cat-takeaway">
-          ROCE <b>13.0%</b>・ネットキャッシュが時価総額の<b>35.5%</b>を成している企業が、総還元率<b>134%</b>を実行して余剰を吸収し始めたが、それでもFY3/26のキャッシュ残高は10年平均<b>~¥30億</b>に対しなお<b>¥20億</b>増加した。<b>政策の再設定</b> &mdash; DOEフロアを5%から7%へ段階引き上げ、配当を上回る経常的な自己株買い認可付きでフリーキャッシュフローの100%を総還元フロアとして公表、または時価総額に対するキャッシュ比率25%を上限とし超過分は自己株買いで吸収するルール &mdash; が、過剰資本のバランスシートを「観察対象」から「再評価イベント」へ転換させる。留保される1円が越えるべきハードルは本業の投下資本利益率であって、預金利回りではない。経営コストは取締役会決議1本＋資本政策スライド1枚。
+          FY3/26期間中、営業キャッシュフロー<b>¥61.3億</b>は設備投資¥7.6億、FY3/26期中の配当支払¥21.5億（FY3/25期末＋FY3/26中間）、および2026年1月に完了した¥30.0億の自己株買いの原資となり、残余<b>¥2.2億</b>がキャッシュに積み上がった。総還元率<b>134%</b>の見出し数値は先行コミットを示すもの：宣言済みFY3/26期末配当<b>¥150/株</b>（≈¥31.6億、2026年6月支払予定）と既に実行された自己株買い¥30.0億を、FY3/26純利益¥54.0億に対する比率として表したものである。FY3/26中にキャッシュ残高がほぼ横ばいだったのは、宣言済み総還元のうち最大の支払い（期末配当）がまだ流出していないためで、FY3/27ではこの¥31.6億が6月の一括支払いとして吸収される。論点は、経営陣が増配に加えて経常的な自己株買い認可を追加するか、それともこの一回限りの期末流出を吸収させた上でキャッシュ積み上がりを以前のペースに戻すか、にある。<b>政策の再設定</b> &mdash; DOEフロアを5%から7%へ段階引き上げ、配当を上回る経常的な自己株買い認可付きでフリーキャッシュフローの100%を総還元フロアとして公表、または時価総額に対するキャッシュ比率25%を上限とし超過分は自己株買いで吸収するルール &mdash; が、過剰資本のバランスシートを「観察対象」から「再評価イベント」へ転換させる。留保される1円が越えるべきハードルは本業の投下資本利益率であって、預金利回りではない。経営コストは取締役会決議1本＋資本政策スライド1枚。
         </div>
         <div class="cat-meta">
           <div><dt>経営コスト</dt><dd>取締役会決議＋IR資料1スライド</dd></div>
@@ -766,7 +773,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
       <div class="sotp-card">
         <div class="sotp-head">ピアマルチプル ラダー · 2026-05-21</div>
-        <div class="sotp-name">buffett-code ML分類ピアセット · 現時点株価でEV再算定（Standard §7）</div>
+        <div class="sotp-name">上場日本ソフトウェアピアセット · 現時点スナップショット株価でEV再算定</div>
         <div class="sotp-row"><span class="k"><b>6947 図研（本プロファイル）</b></span><span class="v"><b>9.8x fwd · ROCE 13%</b></span></div>
         <div class="sotp-row"><span class="k">4828 ビジネスエンジニアリング（21%持分法）</span><span class="v">~14x fwd · ROCE 13%</span></div>
         <div class="sotp-row"><span class="k">4312 サイバネットシステム</span><span class="v">~11x fwd · ROCE 11%</span></div>

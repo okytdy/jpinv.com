@@ -29,10 +29,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   /* ============================================================
-     JII Compounders · v7
-     Methodology: see JII/3 Pipeline/_JII_COMPOUNDERS_STANDARD.md
-     Palette: lifted from jpinv.com.
-     Font sizes bumped vs v6 for readability.
+     JII Compounders · Profile page
+     Methodology: https://jpinv.com/en/compounders/methodology/
      ============================================================ */
   :root {
     --ink:        #1a2a4a;
@@ -391,26 +389,28 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
   <!-- ============ MASTHEAD ============ -->
   <header class="masthead">
-    <div class="masthead-left">
-      <div class="brand-mono">J<span class="brand-mono-bar">|</span>I</div>
-      <span class="brand-eyebrow">Japan Investor Interface · Compounder Profile</span>
+    <div class="masthead-inner">
+      <div class="brand">
+        <span class="brand-mono">J<span class="pipe">|</span>I</span>
+        <span class="brand-eyebrow">Japan Investor Interface · Compounder Profile</span>
+      </div>
+      <div class="head-main">
+        <div class="head-ticker-row">
+          <span class="head-ticker">TSE PRIME · 6947 · FY end MAR</span>
+          <span class="head-co-jp">株式会社図研</span>
+        </div>
+        <div class="head-co">Zuken Inc.</div>
+        <div class="head-industry">Electronic Design Automation · PCB / Wire-harness CAD · MBSE</div>
+      </div>
     </div>
-    <div class="masthead-right">
-      <span class="head-ticker">TSE PRIME · 6947 · March year-end</span>
-      <span class="head-co-jp">ZUKEN INC.</span>
-      <h3 class="head-co">Zuken Inc.</h3>
-      <div class="head-industry">Electronic Design Automation · PCB / Wire-harness CAD · MBSE</div>
-    </div>
-  </header>
 
-  <!-- ============ STAT STRIP ============ -->
-  <div class="stat-strip">
+    <div class="stat-strip">
     <div class="stat">
       <div class="stat-label">Last Close</div>
       <div class="stat-val">¥4,820<small>May 21, 2026</small></div>
       <div class="stat-ctx"><span class="dn">−17%</span> from Jul-25 peak · <span class="up">+55%</span> off Aug-24 trough</div>
     </div>
-    <div class="stat">
+<div class="stat">
       <div class="stat-label">Market Cap / EV</div>
       <div class="stat-val">¥101.6<small>bn / ¥65.5bn EV</small></div>
       <div class="stat-ctx">net cash <b>¥36.1bn</b> (36% of cap) · FY3/26 total payout <b>134%</b></div>
@@ -436,6 +436,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
       <div class="stat-ctx">treasury <b>1.17M (5.3%)</b> · Kaneko family <b>24%</b> · Artisan <b>8.1%</b> · 60d turnover <b>¥275M</b></div>
     </div>
   </div>
+  </header>
+  
 
   <!-- ============ 01 · REGIME ============ -->
   <section class="section">
@@ -558,7 +560,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     <div class="section-head">
       <div class="section-num">03 · CATALYST</div>
       <h2 class="section-title">Capital-Efficiency Levers</h2>
-      <p class="section-sub">Three disclosure or capital-policy levers drawn from the company's blind spots in the TB Module 9 analysis. Each could reweight the multiple <b>without</b> requiring higher earnings.</p>
+      <p class="section-sub">Three disclosure or capital-policy levers drawn from the company's disclosed capital-efficiency blind spots. Each could reweight the multiple <b>without</b> requiring higher earnings.</p>
     </div>
 
     <div class="cat-grid">
@@ -567,36 +569,41 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
         <div class="cat-num">LEVER 01 · CAPITAL POLICY</div>
         <div class="cat-title">Restate the total-return policy &mdash; close the cash-drag arithmetic</div>
         <div class="cat-viz">
-          <div class="cat-viz-label">FY3/26 cash deployment vs the operating-cash generation</div>
+          <div class="cat-viz-label">FY3/26 cash flow + the FY3/26 dividend declared but payable in FY3/27</div>
           <div class="cat-viz-bar-row">
             <div class="cat-viz-bar-label">Operating cash flow</div>
             <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:100%;background:#1a2a4a"></div></div>
-            <div class="cat-viz-bar-val">¥6.13bn</div>
-          </div>
-          <div class="cat-viz-bar-row">
-            <div class="cat-viz-bar-label">Dividends paid</div>
-            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:35%;background:#b08a4a"></div></div>
-            <div class="cat-viz-bar-val">¥2.15bn</div>
-          </div>
-          <div class="cat-viz-bar-row">
-            <div class="cat-viz-bar-label">Buyback executed</div>
-            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:49%;background:#b08a4a"></div></div>
-            <div class="cat-viz-bar-val">¥3.00bn</div>
+            <div class="cat-viz-bar-val">+¥6.13bn</div>
           </div>
           <div class="cat-viz-bar-row">
             <div class="cat-viz-bar-label">Capex</div>
             <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:12%;background:#7a8290"></div></div>
-            <div class="cat-viz-bar-val">¥0.76bn</div>
+            <div class="cat-viz-bar-val">−¥0.76bn</div>
           </div>
           <div class="cat-viz-bar-row">
-            <div class="cat-viz-bar-label">Residual to cash</div>
-            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:4%;background:#b88a3a"></div></div>
-            <div class="cat-viz-bar-val">¥0.22bn</div>
+            <div class="cat-viz-bar-label">Dividends paid in FY3/26</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:35%;background:#b08a4a"></div></div>
+            <div class="cat-viz-bar-val">−¥2.15bn</div>
           </div>
-          <div class="cat-viz-cap">FY3/26 total payout 134% on ROE 13.0% · cash &amp; securities ¥36.1bn (35.5% of cap) · ten consecutive years of cash pile growth, decelerating</div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">Buyback completed Jan-2026</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:49%;background:#b08a4a"></div></div>
+            <div class="cat-viz-bar-val">−¥3.00bn</div>
+          </div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label"><b>= Net to cash · FY3/26</b></div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:4%;background:#b88a3a"></div></div>
+            <div class="cat-viz-bar-val"><b>+¥0.22bn</b></div>
+          </div>
+          <div class="cat-viz-bar-row" style="margin-top:8px;padding-top:8px;border-top:1px dashed #cfd4dc;">
+            <div class="cat-viz-bar-label">FY3/26 year-end div <span style="font-size:11px;color:#5a6470;">(payable Jun-2026)</span></div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:52%;background:#b91c1c"></div></div>
+            <div class="cat-viz-bar-val">−¥3.16bn</div>
+          </div>
+          <div class="cat-viz-cap">During FY3/26 the buyback absorbed ~96% of operating cash flow and cash was essentially flat. The <b>134%</b> total-payout figure adds the declared FY3/26 year-end dividend (¥150/share × 21.08M shares ≈ ¥3.16bn), which lands as a cash outflow in FY3/27.</div>
         </div>
         <div class="cat-takeaway">
-          A <b>134%</b> total payout on a <b>13.0%</b> return on capital employed business that already runs <b>35.5%</b> net cash to capitalization has begun to absorb the surplus, but the cash balance still grew by roughly <b>¥2bn</b> in FY3/26 against a ten-year average of <b>~¥3bn</b>. <b>Restating the policy</b> &mdash; a stepped DOE floor of 7% rather than 5%, a total-return floor expressed as 100% of free cash flow with an explicit recurring buyback authorization above the dividend, or a cash-to-market-cap ceiling at 25% above which buybacks step up &mdash; would convert the over-capitalized balance sheet from observation into a re-rating event. The hurdle every retained yen must clear is the operating-business return on capital, not the deposit yield it currently earns. Costs management one board resolution and one capital-policy slide.
+          During FY3/26 itself, <b>¥6.13bn</b> of operating cash flow funded <b>¥0.76bn</b> of capex, <b>¥2.15bn</b> of dividends paid (the FY3/25 year-end portion plus the FY3/26 interim), and the <b>¥3.00bn</b> buyback completed in January 2026 &mdash; leaving a <b>¥0.22bn</b> residual that flowed to cash. The headline <b>134%</b> total-payout figure is forward-looking: it adds the declared FY3/26 year-end dividend of <b>¥150/share</b> (~¥3.16bn, payable June 2026) to the executed buyback, against FY3/26 net income of ¥5.40bn. The cash pile was therefore essentially flat through FY3/26 only because most of the declared payout has not yet flowed out; FY3/27 absorbs that <b>¥3.16bn</b> outflow in a single June payment. The open question is whether management adds a recurring buyback authorization on top of the dividend step, or accepts the one-time year-end outflow and lets the cash pile resume its prior pace. <b>Restating the policy</b> &mdash; a stepped DOE floor of 7% rather than 5%, a total-return floor expressed as 100% of free cash flow with an explicit recurring buyback authorization above the dividend, or a cash-to-market-cap ceiling at 25% above which buybacks step up &mdash; would convert the over-capitalized balance sheet from observation into a re-rating event. The hurdle every retained yen must clear is the operating-business return on capital, not the deposit yield it currently earns. Costs management one board resolution and one capital-policy slide.
         </div>
         <div class="cat-meta">
           <div><dt>Cost to mgmt</dt><dd>One board resolution + one IR slide</dd></div>
@@ -766,7 +773,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
       <div class="sotp-card">
         <div class="sotp-head">PEER MULTIPLE LADDER · 2026-05-21</div>
-        <div class="sotp-name">buffett-code ML-classified peer set · EV recomputed at current price (Standard §7)</div>
+        <div class="sotp-name">Listed JP software peer set · EV recomputed at current snapshot price</div>
         <div class="sotp-row"><span class="k"><b>6947 Zuken (this profile)</b></span><span class="v"><b>9.8x fwd · ROCE 13%</b></span></div>
         <div class="sotp-row"><span class="k">4828 Business Engineering (21% affiliate)</span><span class="v">~14x fwd · ROCE 13%</span></div>
         <div class="sotp-row"><span class="k">4312 Cybernet Systems</span><span class="v">~11x fwd · ROCE 11%</span></div>
