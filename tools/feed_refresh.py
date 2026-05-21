@@ -5,7 +5,7 @@ Entry point for the GitHub Actions cron defined by:
     3 Pipeline/5 Assets/Website/jpinv.com/compounders/feed/_SPEC.md
     Section 4 (Storage shape), Section 7 (Backfill), Section 8 (Update loop).
 
-Reads `EDINET_API_KEY` from env. Two modes via `FEED_MODE` env var:
+Reads TDnet via tdnet_scraper. Two modes via `FEED_MODE` env var:
     incremental  (default)  - pulls today and yesterday only
     backfill                 - walks today-730d through today
 
@@ -44,7 +44,6 @@ if str(_SCRIPT_DIR) not in sys.path:
 from classifier import classify  # noqa: E402
 from pdf_enricher import enrich as _enrich_row  # noqa: E402
 from llm_budget import BudgetLedger as _BudgetLedger  # noqa: E402
-from edinet_client import EdinetClient  # noqa: E402
 from tdnet_scraper import TdnetScraper  # noqa: E402
 
 LOG = logging.getLogger("feed_refresh")
@@ -170,13 +169,9 @@ def _resolve_window(mode: str) -> tuple[_dt.date, _dt.date]:
 def _gather_disclosures(
     start: _dt.date,
     end: _dt.date,
-    edinet: EdinetClient,
     tdnet: TdnetScraper,
 ) -> Iterator[dict]:
-    """Yield raw disclosure dicts from both sources, EDINET first, then
-    TDnet. Errors propagate."""
-    for d in edinet.iter_disclosures(start, end):
-        yield d
+    """Yield raw disclosure dicts from TDnet. Errors propagate."""
     for d in tdnet.iter_disclosures(start, end):
         yield d
 
@@ -189,7 +184,7 @@ def _classify_new(
     composed id is already in the seen-set. Yields classified feed rows
     (not the raw disclosure)."""
     for disc in disclosures:
-        composed_id = f"{disc.get('source', 'EDINET')}-{disc.get('doc_id', '')}"
+        composed_id = f"{disc.get('source', 'TDnet')}-{disc.get('doc_id', '')}"
         if composed_id in seen_ids:
             continue
         row = classify(disc)
@@ -256,7 +251,6 @@ def _update_meta(
     meta: dict,
     new_count: int,
     last_iso: str,
-    last_edinet_doc_id: Optional[str],
     run_iso: str,
     error: Optional[str],
 ) -> dict:
@@ -265,8 +259,6 @@ def _update_meta(
     meta["run_count"] = int(meta.get("run_count") or 0) + 1
     if last_iso:
         meta["last_match_iso"] = last_iso
-    if last_edinet_doc_id:
-        meta["last_edinet_doc_id"] = last_edinet_doc_id
     meta["last_append_count"] = new_count
     err_log = meta.get("error_log") or []
     if not isinstance(err_log, list):
@@ -329,7 +321,7 @@ def _run_enrich_backfill() -> int:
 def main() -> int:
     mode = (os.environ.get("FEED_MODE") or "incremental").strip().lower()
     # enrich_backfill: separate dispatch that walks existing feed.json rows and
-    # runs the enricher on those that lack tag_en. No EDINET / TDnet calls; no
+    # runs the enricher on those that lack tag_en. No TDnet calls; no
     # new rows added. Used by .github/workflows/feed-enrich-backfill.yml.
     if mode == "enrich_backfill":
         return _run_enrich_backfill()
@@ -337,8 +329,6 @@ def main() -> int:
         LOG.warning("Unknown FEED_MODE=%s; defaulting to incremental.", mode)
         mode = "incremental"
 
-    api_key = os.environ.get("EDINET_API_KEY", "")
-    edinet = EdinetClient(api_key=api_key)
     tdnet = TdnetScraper()
 
     start, end = _resolve_window(mode)
@@ -354,12 +344,11 @@ def main() -> int:
     }
 
     new_rows: list[dict] = []
-    last_edinet_doc_id: Optional[str] = None
     last_match_iso: str = ""
 
     # Streamed pipeline: gather -> dedupe-by-id -> classify -> collect.
-    for raw in _gather_disclosures(start, end, edinet, tdnet):
-        composed_id = f"{raw.get('source', 'EDINET')}-{raw.get('doc_id', '')}"
+    for raw in _gather_disclosures(start, end, tdnet):
+        composed_id = f"{raw.get('source', 'TDnet')}-{raw.get('doc_id', '')}"
         if composed_id in seen_ids:
             continue
         row = classify(raw)
@@ -373,8 +362,6 @@ def main() -> int:
             LOG.warning("enrich failed for %s: %s", row.get("id"), _e)
         seen_ids.add(row["id"])
         new_rows.append(row)
-        if raw.get("source") == "EDINET":
-            last_edinet_doc_id = raw.get("doc_id") or last_edinet_doc_id
         ts = row.get("ts", "")
         if ts > last_match_iso:
             last_match_iso = ts
@@ -415,7 +402,6 @@ def main() -> int:
         meta=meta,
         new_count=len(new_rows),
         last_iso=last_match_iso or (kept[0]["ts"] if kept else ""),
-        last_edinet_doc_id=last_edinet_doc_id,
         run_iso=run_iso,
         error=None,
     )
