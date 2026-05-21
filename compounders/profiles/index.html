@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>銘柄レポート一覧 · JII Compounders</title>
+<meta name="description" content="全てのJII Compounder銘柄レポート。市場区分で絞り込み、銘柄コード・社名で検索できます。">
+<meta property="og:title" content="銘柄レポート一覧 · JII Compounders">
+<meta property="og:description" content="全てのJII Compounder銘柄レポート。市場区分で絞り込み、銘柄コード・社名で検索できます。">
+<meta property="og:url" content="https://jpinv.com/compounders/profiles/">
+<link rel="canonical" href="https://jpinv.com/compounders/profiles/">
+<link rel="alternate" hreflang="ja" href="https://jpinv.com/compounders/profiles/">
+<link rel="alternate" hreflang="en" href="https://jpinv.com/en/compounders/profiles/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a2a4a; --ink-mid: #172641; --ink-soft: #304466;
+    --rule: #d6dee8; --rule-soft: #e8edf3;
+    --bg: #ffffff; --bg-mid: #f5f7fa; --bg-soft: #fafbfc;
+    --text: #1f2937; --text-mid: #4a5566; --text-dim: #7a8290;
+    --accent: #b08a4a; --accent-deep: #9a7838; --accent-soft: #f4eee4;
+    --serif: 'Noto Serif JP', 'Yu Mincho', serif;
+    --sans: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+    --mono: 'DM Mono', monospace;
+    --max: 1100px;
+  }
+  *,*::before,*::after { box-sizing: border-box; }
+  html,body { margin:0; padding:0; background: var(--bg); color: var(--text); font-family: var(--sans); }
+  body { font-size: 15px; line-height: 1.7; }
+  a { color: var(--ink-soft); text-decoration: none; }
+  a:hover { color: var(--ink); }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 28px; }
+
+  .topbar { padding: 22px 0 16px; border-bottom: 1px solid var(--rule); background: var(--bg); }
+  .topbar-inner { display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap; }
+  .back-link { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-deep); border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
+  .back-link:hover { color: var(--ink); border-color: var(--ink-mid); }
+  .lang-switch { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; }
+  .lang-switch a { color: var(--ink-soft); padding: 5px 10px; border: 1px solid var(--rule); margin-left: 6px; }
+  .lang-switch a.current { background: var(--bg-soft); border-color: var(--ink-mid); color: var(--ink-mid); }
+
+  .page-head { padding: 36px 0 12px; }
+  .page-h1 { font-family: var(--serif); font-size: clamp(1.6rem, 3.4vw, 2.3rem); font-weight: 300; color: var(--ink-mid); margin: 0 0 10px; letter-spacing: 0.02em; }
+  .page-intro { color: var(--text-mid); margin: 0 0 24px; max-width: 760px; }
+
+  /* Sticky controls bar */
+  .controls { position: sticky; top: 0; z-index: 50; background: var(--bg); padding: 14px 0; border-bottom: 1px solid var(--rule); display: flex; gap: 24px; align-items: center; flex-wrap: wrap; margin-bottom: 24px; }
+  .ctrl-group { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .ctrl-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; color: var(--text-dim); text-transform: uppercase; margin-right: 4px; font-weight: 500; }
+  .btn { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: var(--text-mid); text-transform: uppercase; padding: 6px 12px; border: 1px solid var(--rule); background: var(--bg); cursor: pointer; transition: all 0.15s; }
+  .btn:hover { color: var(--ink); border-color: var(--ink-soft); }
+  .btn.active { color: var(--ink-mid); border-color: var(--ink-mid); background: var(--bg-soft); }
+  .search-input { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.04em; color: var(--ink-mid); padding: 7px 11px; border: 1px solid var(--rule); background: var(--bg); width: 240px; margin-left: auto; }
+  .search-input:focus { outline: none; border-color: var(--ink-mid); }
+  .search-input::placeholder { color: var(--text-dim); }
+  @media (max-width:760px) { .search-input { width: 100%; margin-left: 0; } }
+
+  /* Card grid */
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; padding-bottom: 60px; }
+  @media (max-width:760px) { .grid { grid-template-columns: 1fr; gap: 18px; } }
+
+  .card { display: block; padding: 26px 26px 22px; border: 1px solid var(--rule); background: var(--bg); transition: border-color 0.2s, transform 0.2s; }
+  .card:hover { border-color: var(--ink-soft); transform: translateY(-2px); }
+  .card-head { display: flex; gap: 10px; align-items: center; margin-bottom: 14px; flex-wrap: wrap; }
+  .card-ticker { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--accent-deep); text-transform: uppercase; padding: 3px 9px; border: 1px solid var(--accent); background: var(--accent-soft); border-radius: 0; font-weight: 500; }
+  .card-sector { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; color: var(--text-dim); text-transform: uppercase; }
+  .card-segment { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; padding: 2px 7px; border: 1px solid var(--rule); color: var(--text-dim); background: var(--bg-soft); border-radius: 0; margin-left: auto; }
+  .card-name { font-family: var(--serif); font-size: 1.25rem; font-weight: 400; color: var(--ink-mid); margin: 0 0 4px; letter-spacing: 0.01em; }
+  .card-jp { font-family: var(--sans); font-size: 0.78rem; color: var(--text-dim); margin: 0 0 14px; letter-spacing: 0.04em; }
+  .card-hook { font-size: 0.92rem; line-height: 1.7; color: var(--text); margin: 0 0 18px; }
+  .card-hook b { color: var(--ink-mid); font-weight: 500; }
+  .card-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; padding-top: 14px; border-top: 1px solid var(--rule-soft); }
+  .card-stat-label { font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 4px; }
+  .card-stat-val { font-family: var(--mono); font-size: 0.92rem; color: var(--ink-mid); font-weight: 500; }
+  .card-stat-val small { font-size: 0.72rem; color: var(--text-mid); margin-left: 2px; }
+  .card-meta-row { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; margin-top: 14px; }
+
+  .empty-state { padding: 40px 0; text-align: center; color: var(--text-dim); font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; }
+
+  .footnote { font-family: var(--sans); font-size: 11.5px; color: var(--text-dim); font-style: italic; line-height: 1.7; padding: 18px 0 40px; border-top: 1px solid var(--rule-soft); margin-top: 24px; }
+
+  .card.is-hidden { display: none; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="back-link" href="/compounders/">← Compoundersへ戻る</a>
+    <div class="lang-switch">
+      <a class="current" href="/compounders/profiles/">JA</a>
+      <a class="" href="/en/compounders/profiles/">EN</a>
+    </div>
+  </div>
+</div>
+
+<div class="wrap page-head">
+  <h1 class="page-h1">銘柄レポート一覧</h1>
+  <p class="page-intro">全てのJII Compounder銘柄レポート。市場区分で絞り込み、銘柄コード・社名で検索できます。</p>
+</div>
+
+<div class="wrap">
+
+  <div class="controls" role="region" aria-label="市場区分 / 並べ替え">
+    <div class="ctrl-group">
+      <span class="ctrl-label">市場区分</span>
+      <button class="btn active" data-seg="all">全て</button>
+      <button class="btn" data-seg="PRIME">プライム</button>
+      <button class="btn" data-seg="STANDARD">スタンダード</button>
+      <button class="btn" data-seg="GROWTH">グロース</button>
+    </div>
+    <div class="ctrl-group">
+      <span class="ctrl-label">並べ替え</span>
+      <button class="btn sort-trigger active" data-sort="date">新着順</button>
+      <button class="btn sort-trigger" data-sort="ticker">コード順</button>
+    </div>
+    <input type="text" class="search-input" id="profile-search" placeholder="銘柄コード・社名で検索" aria-label="銘柄レポート検索" maxlength="50">
+  </div>
+
+  <div class="grid" id="profile-grid">
+
+      <a class="card" data-segment="GROWTH" href="/compounders/4168/" data-date="2026-05-21" data-ticker="4168">
+        <div class="card-head">
+          <span class="card-ticker">東証グロース · 4168</span>
+          <span class="card-sector">ノーコード モバイルDXプラットフォーム・マルチプロダクトSaaS</span>
+          <span class="card-segment" data-segment="GROWTH">GROWTH</span>
+        </div>
+        <h3 class="card-name">株式会社ヤプリ</h3>
+        <p class="card-jp">Yappli, Inc.</p>
+        <p class="card-hook"><b>ヤプリは、ノーコードでネイティブアプリを構築・運用する、解約率1%未満を継続するモバイルSaaSの中堅銘柄。焦点は成長率の減速そのものより、Q1の営業利益率23.2%の構造性と資本配分政策の制度化にある。</b><br><br>見極める論点は3つ：営業利益率23.2%が構造的か一時的か、資本還元政策が制度化されるか、そしてマルチプロダクト戦略のクロスセル密度。確認すべき開示は、12カ月ローリングでの総還元政策、領域別解約率とNRR、YFC初年度の単独業績。</p>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">終値</div>
+            <div class="card-stat-val">¥745</div>
+          </div>
+          <div>
+            <div class="card-stat-label">EV / EBIT</div>
+            <div class="card-stat-val">8.5<small>x</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ROCE</div>
+            <div class="card-stat-val">24<small>%</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ネットキャッシュ / 時価総額</div>
+            <div class="card-stat-val">11<small>%</small></div>
+          </div>
+        </div>
+        <div class="card-meta-row">
+          <span>2026年5月21日公開</span>
+        </div>
+      </a>
+
+      <a class="card" data-segment="STANDARD" href="/compounders/5843/" data-date="2026-05-19" data-ticker="5843">
+        <div class="card-head">
+          <span class="card-ticker">東証スタンダード · 5843</span>
+          <span class="card-sector">家賃債務保証・東証スタンダード唯一の専業上場</span>
+          <span class="card-segment" data-segment="STANDARD">STANDARD</span>
+        </div>
+        <h3 class="card-name">ニッポンインシュア株式会社</h3>
+        <p class="card-jp">Nippon Insure Co., Ltd.</p>
+        <p class="card-hook"><b>ニッポンインシュアは、人的連帯保証人を出せない日本の借主の家賃をストックで支える、東証スタンダード唯一の家賃債務保証専業。焦点はFY9/25営業益+81.5%の傾きの再現ではなく、その下に重なる更新ストックの厚みと資本還元政策の継続性にある。</b><br><br>見極める論点は3つ：H1営業利益率の傾きが恒久か期ずれか、名古屋支店の立ち上げで新規契約数が再加速するか、そしてROCE 32%・ネットキャッシュ¥22.6億に対する還元方針の制度化。確認すべき開示は、初回契約のチャネル別軌跡、配当方針の再構築、三好不動産関連取引の分解。</p>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">終値</div>
+            <div class="card-stat-val">¥2,418</div>
+          </div>
+          <div>
+            <div class="card-stat-label">EV / EBIT</div>
+            <div class="card-stat-val">5.3<small>x</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ROCE</div>
+            <div class="card-stat-val">32<small>%</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ネットキャッシュ / 時価総額</div>
+            <div class="card-stat-val">33<small>%</small></div>
+          </div>
+        </div>
+        <div class="card-meta-row">
+          <span>2026年5月19日公開</span>
+        </div>
+      </a>
+
+      <a class="card" data-segment="PRIME" href="/compounders/4071/" data-date="2026-05-19" data-ticker="4071">
+        <div class="card-head">
+          <span class="card-ticker">東証プライム · 4071</span>
+          <span class="card-sector">HR・マーケティングSaaS · 日本語NLP複利型</span>
+          <span class="card-segment" data-segment="PRIME">PRIME</span>
+        </div>
+        <h3 class="card-name">株式会社プラスアルファ・コンサルティング</h3>
+        <p class="card-jp">Plus Alpha Consulting Co., Ltd.</p>
+        <p class="card-hook"><b>プラスアルファは、タレントパレットの単価上昇と顧客ミックス改善で利益を積み上げる、国内SaaSの高収益銘柄。焦点は成長率そのものより、再現性のある利益成長と資本政策の継続性にある。</b><br><br>見極める論点は3つ：FY9/26ガイダンスの上方修正余地、マイナビOEMが第2成長レッグとして立つか、そしてROCE 46%・ネットキャッシュ¥145.6億に対する還元運用の平準化。確認すべき開示は、OEM売上の独立線、自社株買いの継続方針、タレントパレットARPUの四半期分解。</p>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">終値</div>
+            <div class="card-stat-val">¥2,394</div>
+          </div>
+          <div>
+            <div class="card-stat-label">EV / EBIT</div>
+            <div class="card-stat-val">11.6<small>x</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ROCE</div>
+            <div class="card-stat-val">46<small>%</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ネットキャッシュ / 時価総額</div>
+            <div class="card-stat-val">14<small>%</small></div>
+          </div>
+        </div>
+        <div class="card-meta-row">
+          <span>2026年5月19日公開</span>
+        </div>
+      </a>
+
+      <a class="card" data-segment="GROWTH" href="/compounders/4058/" data-date="2026-05-18" data-ticker="4058">
+        <div class="card-head">
+          <span class="card-ticker">東証グロース · 4058</span>
+          <span class="card-sector">クラウドビジネスSaaS · 安否確認 · kintone連携 · NotePM</span>
+          <span class="card-segment" data-segment="GROWTH">GROWTH</span>
+        </div>
+        <h3 class="card-name">トヨクモ株式会社</h3>
+        <p class="card-jp">Toyokumo, Inc.</p>
+        <p class="card-hook"><b>ピーク比49%安のトヨクモは、「3本柱SaaS」への期待が抜けた水準にある。再評価の鍵は、NotePM買収が既存顧客基盤で本当に稼げているかを示せるかだ。</b><br><br>5月14日の1Qは広告費を14.5%減らして営業利益80.5%増、営業利益率43.2%。利益の強さは見えた。次に市場が見たいのは、製品別採算、44億円のネットキャッシュの使い道、プロジェクト・モード買収の回収状況である。ここが開示されれば、8.8倍のEV/EBITに乗る不透明性ディスカウントは縮小し得る。</p>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">終値</div>
+            <div class="card-stat-val">¥1,943</div>
+          </div>
+          <div>
+            <div class="card-stat-label">EV / EBIT</div>
+            <div class="card-stat-val">8.8<small>x</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ROCE</div>
+            <div class="card-stat-val">44<small>%</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ネットキャッシュ / 時価総額</div>
+            <div class="card-stat-val">21<small>%</small></div>
+          </div>
+        </div>
+        <div class="card-meta-row">
+          <span>2026年5月18日公開</span>
+        </div>
+      </a>
+
+      <a class="card" data-segment="PRIME" href="/compounders/4776/" data-date="2026-05-15" data-ticker="4776">
+        <div class="card-head">
+          <span class="card-ticker">東証プライム · 4776</span>
+          <span class="card-sector">グループウェア・ノーコードSaaS</span>
+          <span class="card-segment" data-segment="PRIME">PRIME</span>
+        </div>
+        <h3 class="card-name">サイボウズ株式会社</h3>
+        <p class="card-jp">Cybozu, Inc.</p>
+        <p class="card-hook"><b>株価が大きく調整した理由は、事業の質が落ちたからではなく、FY25の利益急増をどこまで持続的な実力として見てよいかが分かりにくくなったことです。</b><br><br>市場は、kintoneのARPA上昇が値上げ一巡後も続くのか、米国事業への投資回収が見えるのか、5月14日に発表した30億円の自己株式取得が継続的な資本政策につながるのかを見ています。IRが優先すべきは、ARPAの内訳、米国事業の投資回収基準、株主還元方針の3点です。</p>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">終値</div>
+            <div class="card-stat-val">¥2,197</div>
+          </div>
+          <div>
+            <div class="card-stat-label">EV / EBIT</div>
+            <div class="card-stat-val">8.9<small>x</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ROCE</div>
+            <div class="card-stat-val">68<small>%</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ネットキャッシュ / 時価総額</div>
+            <div class="card-stat-val">8<small>%</small></div>
+          </div>
+        </div>
+        <div class="card-meta-row">
+          <span>2026年5月15日公開</span>
+        </div>
+      </a>
+
+      <a class="card" data-segment="GROWTH" href="/compounders/4475/" data-date="2026-05-14" data-ticker="4475">
+        <div class="card-head">
+          <span class="card-ticker">東証グロース · 4475</span>
+          <span class="card-sector">クラウドセキュリティ · ID &amp; DLP SaaS</span>
+          <span class="card-segment" data-segment="GROWTH">GROWTH</span>
+        </div>
+        <h3 class="card-name">HENNGE K.K.</h3>
+        <p class="card-jp">ＨＥＮＮＧＥ株式会社</p>
+        <p class="card-hook"><b>株価下落の原因は業績悪化ではなく、ARR成長率の鈍化とPro化の見えにくさです。</b><br><br>市場は、+30%台だったARR成長が+14.7%へ落ちた理由、既存顧客のPro移行がどの程度進んでいるか、先行投資で営業利益率がどこまで下がるかを見ています。IRが優先すべきは、モジュール別ARR、Pro絶対ARRとアップグレード率、自社株買いルールの3点です。</p>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">直近終値</div>
+            <div class="card-stat-val">¥1,016</div>
+          </div>
+          <div>
+            <div class="card-stat-label">EV / EBIT</div>
+            <div class="card-stat-val">12.5<small>倍</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ROCE</div>
+            <div class="card-stat-val">~48<small>%</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ネットキャッシュ / 時価総額</div>
+            <div class="card-stat-val">22<small>%</small></div>
+          </div>
+        </div>
+        <div class="card-meta-row">
+          <span>2026年5月14日 公開</span>
+        </div>
+      </a>
+
+      <a class="card" data-segment="PRIME" href="/compounders/4194/" data-date="2026-05-12" data-ticker="4194">
+        <div class="card-head">
+          <span class="card-ticker">東証プライム · 4194</span>
+          <span class="card-sector">人材・採用支援</span>
+          <span class="card-segment" data-segment="PRIME">PRIME</span>
+        </div>
+        <h3 class="card-name">Visional, Inc.</h3>
+        <p class="card-jp">株式会社ビジョナル</p>
+        <p class="card-hook"><b>株価が伸び悩む理由は業績悪化ではなく、成長投資と資本効率のつながりがまだ見えにくいことです。</b><br><br>市場は、HRMOSが買収効果を除いてどれだけ伸びているか、社内版BizReachがどのKPIで回収されるのか、約700億円の現金をどのリターンで使うのかを見ています。IRが優先すべきは、既存ARR、投資回収基準、資本配分方針の3点です。</p>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">直近終値</div>
+            <div class="card-stat-val">¥7,337</div>
+          </div>
+          <div>
+            <div class="card-stat-label">EV / EBIT</div>
+            <div class="card-stat-val">9.8<small>倍</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ROCE</div>
+            <div class="card-stat-val">~35<small>%</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ネットキャッシュ / 時価総額</div>
+            <div class="card-stat-val">24<small>%</small></div>
+          </div>
+        </div>
+        <div class="card-meta-row">
+          <span>2026年5月12日 公開</span>
+        </div>
+      </a>
+
+  </div>
+
+  <div class="empty-state" id="empty-state" hidden>該当する銘柄はありません。</div>
+
+  <p class="footnote">翻訳および要約は自動生成です。正確な情報は原文（日本語）の開示資料をご参照ください。</p>
+</div>
+
+<script>
+(function(){
+  var grid = document.getElementById('profile-grid');
+  var empty = document.getElementById('empty-state');
+  if (!grid) return;
+  var state = { seg: 'all', sort: 'date', q: '' };
+
+  function apply() {
+    var cards = Array.prototype.slice.call(grid.querySelectorAll('a.card'));
+    // sort
+    cards.sort(function(a, b) {
+      if (state.sort === 'ticker') {
+        return parseInt(a.dataset.ticker, 10) - parseInt(b.dataset.ticker, 10);
+      }
+      return (b.dataset.date || '').localeCompare(a.dataset.date || '');
+    });
+    cards.forEach(function(c) { grid.appendChild(c); });
+    // filter
+    var q = state.q.toUpperCase();
+    var visible = 0;
+    cards.forEach(function(c) {
+      var segOK = state.seg === 'all' || (c.dataset.segment || '').toUpperCase() === state.seg;
+      var nameEl = c.querySelector('.card-name');
+      var altEl = c.querySelector('.card-jp');
+      var nameTxt = ((nameEl ? nameEl.textContent : '') + ' ' + (altEl ? altEl.textContent : '')).toUpperCase();
+      var tickerTxt = (c.dataset.ticker || '').toUpperCase();
+      var qOK = !q || tickerTxt.indexOf(q) === 0 || nameTxt.indexOf(q) !== -1;
+      var show = segOK && qOK;
+      c.classList.toggle('is-hidden', !show);
+      if (show) visible++;
+    });
+    if (empty) empty.hidden = visible > 0;
+  }
+
+  document.querySelectorAll('.btn[data-seg]').forEach(function(b) {
+    b.addEventListener('click', function() {
+      document.querySelectorAll('.btn[data-seg]').forEach(function(x) { x.classList.remove('active'); });
+      b.classList.add('active');
+      state.seg = b.dataset.seg;
+      apply();
+    });
+  });
+  document.querySelectorAll('.btn.sort-trigger').forEach(function(b) {
+    b.addEventListener('click', function() {
+      document.querySelectorAll('.btn.sort-trigger').forEach(function(x) { x.classList.remove('active'); });
+      b.classList.add('active');
+      state.sort = b.dataset.sort;
+      apply();
+    });
+  });
+  var s = document.getElementById('profile-search');
+  if (s) s.addEventListener('input', function(e) { state.q = (e.target.value || '').trim(); apply(); });
+
+  apply();
+})();
+</script>
+
+</body>
+</html>
