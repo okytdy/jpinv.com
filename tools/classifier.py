@@ -906,7 +906,7 @@ def classify(disclosure: dict) -> Optional[dict]:
         )
         if matched:
             class_code = class_override or default_class
-            source = disclosure.get("source", "EDINET")
+            source = disclosure.get("source", "TDnet")
             doc_id = disclosure.get("doc_id", "")
             ticker = str(disclosure.get("ticker", "") or "").strip()
             ts = _normalise_ts(disclosure.get("submitted_at", ""))
@@ -940,14 +940,14 @@ def classify(disclosure: dict) -> Optional[dict]:
 
 def _make_disclosure(**overrides) -> dict:
     base = {
-        "source": "EDINET",
+        "source": "TDnet",
         "doc_id": "S100TEST",
         "submitted_at": "2026-05-17T08:23:00+09:00",
         "ticker": "4776",
         "name_jp": "サイボウズ株式会社",
         "name_en": "Cybozu, Inc.",
         "title_jp": "",
-        "doc_url": "https://disclosure2.edinet-fsa.go.jp/EKW0EZ0001.aspx?docID=S100TEST",
+        "doc_url": "https://www.release.tdnet.info/inbs/S100TEST.pdf",
         "body_jp": None,
         "shares_outstanding": None,
         "market_cap_jpy": None,

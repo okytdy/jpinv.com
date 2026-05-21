@@ -257,7 +257,7 @@ def _format_tag_jp(class_code: str, facts: dict) -> str:
 # ---------------------------------------------------------------------------
 
 _LLM_SYSTEM = """You are extracting structured data from Japanese corporate disclosures
-(EDINET 臨報 and TDnet press releases). Each disclosure is a capital-allocation
+(TDnet press releases). Each disclosure is a capital-allocation
 event already classified as one of: BUYBACK_INIT, BUYBACK_REV, BUYBACK_BLOCK,
 BUYBACK_PROGRESS, BUYBACK_HOUSE, CANCEL, DIV_POLICY, DIV_HIKE, MBO, M_AND_A,
 COC_INITIAL, COC_UPDATE, CROSS, COMP_KPI, GOV, GOV_FLIP.
