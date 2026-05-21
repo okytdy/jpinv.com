@@ -179,6 +179,13 @@ class EdinetClient:
         if not isinstance(results, list):
             LOG.warning("EDINET unexpected payload shape for %s", date_str)
             return []
+        # DIAGNOSTIC (temp - remove after EDINET pipeline confirmed working)
+        _md = payload.get("metadata") or {}
+        _sample_types = [str(r.get("docTypeCode") or "") for r in results[:5]]
+        LOG.info(
+            "EDINET DIAG %s: count=%d md_status=%s md_message=%r sample_docTypes=%s",
+            date_str, len(results), _md.get("status"), _md.get("message"), _sample_types,
+        )
         return results
 
     def get_document_metadata(self, doc_id: str) -> dict:
@@ -293,3 +300,4 @@ __all__ = [
     "EDINET_DOCUMENTS_URL",
     "EDINET_DOCUMENT_URL",
 ]
+                                                                                                             

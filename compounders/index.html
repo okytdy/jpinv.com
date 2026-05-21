@@ -528,8 +528,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
       </a>
 
     </div>
-
-
+      <button type="button" class="reel-nav reel-next" aria-label="次へ">&rsaquo;</button>
+    </div>
     
     <!-- Capital Allocation Signals widget. Pulls /compounders/feed/data/feed.json,
          shows the 10 most-recent rows, supports prefix-ticker search. Full archive at /compounders/feed/. -->
@@ -615,8 +615,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
             <p>ありがとうございます。15分の事前確認について、折り返しご連絡します。</p>
           </div>
         </div>
-      <button type="button" class="reel-nav reel-next" aria-label="次へ">&rsaquo;</button>
-    </div>
   </div>
 </section>
 
@@ -801,24 +799,4 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
 <script>
 (function(){
-  var reel = document.querySelector('.reel');
-  var wrap = document.querySelector('.reel-wrap');
-  if (!reel || !wrap) return;
-  var prev = wrap.querySelector('.reel-prev');
-  var next = wrap.querySelector('.reel-next');
-  if (!prev || !next) return;
-  var STEP = 364;  // card width 340 + gap 24
-  function updateArrows() {
-    prev.hidden = reel.scrollLeft <= 4;
-    next.hidden = reel.scrollLeft >= (reel.scrollWidth - reel.clientWidth - 4);
-  }
-  prev.addEventListener('click', function(){ reel.scrollBy({left:-STEP, behavior:'smooth'}); });
-  next.addEventListener('click', function(){ reel.scrollBy({left: STEP, behavior:'smooth'}); });
-  reel.addEventListener('scroll', updateArrows, {passive:true});
-  window.addEventListener('resize', updateArrows);
-  updateArrows();
-})();
-</script>
-
-</body>
-</html>
+  var
