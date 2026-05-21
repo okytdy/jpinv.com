@@ -206,17 +206,17 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
   .hero-stat-label { max-width: 100px; }
   .diag-card { padding: 20px 16px 16px; }
 }
-/* Mobile drawer — base state is off-canvas right; .open slides it in. Display is always flex so transitions run; visibility/opacity/pointer-events keep it inert when closed. */
-.mobile-menu { display: flex; position: fixed; top: 0; right: 0; bottom: 0; width: min(82vw, 360px); max-width: 360px; background: #fff; border-left: 1px solid var(--rule); box-shadow: -20px 0 36px rgba(10,20,40,0.16); z-index: 1300; padding: calc(var(--nav-h) + 12px) 22px 24px; flex-direction: column; gap: 0; overflow-y: auto; -webkit-overflow-scrolling: touch; transform: translate3d(100%, 0, 0); opacity: 0; visibility: hidden; pointer-events: none; transition: transform .28s ease, opacity .28s ease, visibility 0s linear .28s; }
-.mobile-menu.open { transform: translate3d(0, 0, 0); opacity: 1; visibility: visible; pointer-events: auto; transition: transform .28s ease, opacity .28s ease, visibility 0s linear 0s; }
-.mobile-menu a { display: block; font-size: 0.95rem; color: var(--text); text-decoration: none; padding: 16px 0; border-bottom: 1px solid var(--rule); letter-spacing: 0.04em; }
-.mobile-menu a:last-child { border-bottom: none; }
-.mobile-menu .mobile-menu-cta { margin-top: 16px; padding: 14px 18px; text-align: center; color: #fff; border-bottom: none; }
-.menu-backdrop { position: fixed; inset: 0; background: rgba(15,31,58,0.42); z-index: 1290; opacity: 0; pointer-events: none; transition: opacity .24s ease; }
-.menu-backdrop.open { opacity: 1; pointer-events: auto; }
-/* Desktop: keep drawer completely out of the picture. */
-@media (min-width: 901px) { .mobile-menu, .menu-backdrop { display: none !important; } }
+/* Mobile menu — full-screen white overlay. Solid #fff background covers everything behind it, so the previous "text-overlaps-text" bug is impossible. No transforms, no transitions, no positioning math — just display:none / display:flex. */
+.mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; width: 100vw; height: 100vh; background: #ffffff; z-index: 99999; padding: 72px 28px 32px; overflow-y: auto; -webkit-overflow-scrolling: touch; box-sizing: border-box; }
+.mobile-menu.open { display: flex; flex-direction: column; }
+.mobile-menu .menu-close { position: absolute; top: 16px; right: 16px; background: transparent; border: 1px solid var(--ink-mid, #2c3e6b); color: var(--ink, #1a2a4a); font-family: var(--mono, monospace); font-size: 0.7rem; letter-spacing: 0.12em; padding: 10px 16px; cursor: pointer; line-height: 1; }
+.mobile-menu .menu-close:hover { background: var(--ink, #1a2a4a); color: #fff; }
+.mobile-menu a { display: block; font-family: var(--serif, serif); font-size: 1.15rem; color: var(--ink, #1a2a4a); text-decoration: none; padding: 18px 0; border-bottom: 1px solid var(--rule, #d6dee8); letter-spacing: 0.02em; }
+.mobile-menu a:last-of-type { border-bottom: none; }
+.mobile-menu .mobile-menu-cta { margin-top: 24px; padding: 16px 20px; text-align: center; color: #fff; background: var(--ink, #1a2a4a); border-bottom: none; font-family: var(--sans, sans-serif); font-size: 0.95rem; letter-spacing: 0.04em; }
 body.menu-open { overflow: hidden; }
+/* Desktop: never show the mobile overlay. */
+@media (min-width: 901px) { .mobile-menu { display: none !important; } }
 
 /* BUTTONS */
 .btn { display: inline-block; text-decoration: none; font-family: var(--sans); font-size: 0.84rem; font-weight: 400; letter-spacing: 0.06em; padding: 13px 28px; transition: all 0.2s; cursor: pointer; border: none; }
@@ -534,9 +534,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     </button>
   </div>
 </nav>
-<div class="menu-backdrop" id="menuBackdrop" aria-hidden="true"></div>
-
 <nav class="mobile-menu" id="mobileMenu" aria-label="モバイルナビゲーション">
+  <button type="button" class="menu-close" onclick="toggleMenu()" aria-label="メニューを閉じる">CLOSE ✕</button>
   <a href="/サービス/" onclick="toggleMenu()">サービス</a>
   <a href="/料金/" onclick="toggleMenu()">料金</a>
   <a href="/会社概要/" onclick="toggleMenu()">会社概要</a>
@@ -1092,36 +1091,24 @@ window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 40);
 }, { passive: true });
 
-// Mobile menu (right-side drawer)
-const hamburgerBtn = document.querySelector('.hamburger');
+// Mobile menu — full-screen overlay. Single source of truth: .open class on #mobileMenu.
 function setMenuOpen(isOpen) {
   const menu = document.getElementById('mobileMenu');
-  const backdrop = document.getElementById('menuBackdrop');
-  if (!menu || !hamburgerBtn) return;
+  const btn = document.querySelector('.hamburger');
+  if (!menu) return;
   menu.classList.toggle('open', isOpen);
-  if (backdrop) backdrop.classList.toggle('open', isOpen);
   document.body.classList.toggle('menu-open', isOpen);
-  hamburgerBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-  hamburgerBtn.setAttribute('aria-label', isOpen ? (document.documentElement.lang === 'ja' ? 'メニューを閉じる' : 'Close menu') : (document.documentElement.lang === 'ja' ? 'メニューを開く' : 'Open menu'));
-  if (isOpen) {
-    const firstLink = menu.querySelector('a, button');
-    if (firstLink) firstLink.focus({ preventScroll: true });
+  if (btn) {
+    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    btn.setAttribute('aria-label', isOpen ? (document.documentElement.lang === 'ja' ? 'メニューを閉じる' : 'Close menu') : (document.documentElement.lang === 'ja' ? 'メニューを開く' : 'Open menu'));
   }
 }
 function toggleMenu() {
   const menu = document.getElementById('mobileMenu');
   setMenuOpen(!(menu && menu.classList.contains('open')));
 }
-// Backdrop tap closes the drawer.
-const _mm_backdrop = document.getElementById('menuBackdrop');
-if (_mm_backdrop) _mm_backdrop.addEventListener('click', () => setMenuOpen(false));
-
-window.addEventListener('resize', () => {
-  if (window.innerWidth > 900) setMenuOpen(false);
-});
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') setMenuOpen(false);
-});
+window.addEventListener('resize', () => { if (window.innerWidth > 900) setMenuOpen(false); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenuOpen(false); });
 
 // FAQ accordion
 function toggleFaq(btn) {
