@@ -5,6 +5,10 @@
 **Lives at:** `https://jpinv.com/en/compounders/feed/` (EN), `https://jpinv.com/compounders/feed/` (JP).
 **Repo path:** `compounders/feed/` inside the existing jpinv.com GitHub Pages repo.
 
+### History
+
+- **2026-05-21 — EDINET removed (commit `2a11a02`, follow-up `d21dee2`).** The EDINET integration was a no-op from day one: docType 350 was assumed to be CG reports but is actually 大量保有報告書 (large-shareholder reports); real CG reports flow through TDnet, not EDINET; and the remaining docTypes had no body content for the classifier matchers to bind to. The pipeline now polls TDnet only. Sections below that previously listed EDINET as a data source have been rewritten; this History entry is preserved so future devs do not re-introduce the integration without understanding why it was pulled.
+
 ---
 
 ## 1. Reader and purpose
@@ -34,11 +38,10 @@ Eight classes. Each row in the feed is tagged with exactly one class. The classi
 
 | Source | Endpoint | Auth | Purpose | Refresh |
 |---|---|---|---|---|
-| EDINET API (FSA) | `https://api.edinet-fsa.go.jp/api/v2/documents.json` + `/documents/{docID}` | API key (free, registered) | Structured 臨報 / 有報 / コーポレートガバナンス報告書 | 30 min |
-| TDnet | `https://www.release.tdnet.info/inbs/I_main_00.html` and daily index pages | None (polite HTML scrape, 1 req/sec) | Same-day press releases that miss EDINET, especially 自己株式取得 and 配当修正 | 15 min during 09:00–16:00 JST, hourly off-hours |
+| TDnet | `https://www.release.tdnet.info/inbs/I_main_00.html` and daily index pages | None (polite HTML scrape, 1 req/sec) | Same-day press releases — 自己株式取得, 配当修正, コーポレートガバナンス報告書, 中期経営計画, and the other Principle-6 disclosure types in §2 | 15 min during 09:00–16:00 JST, hourly off-hours |
 | TSE listed company master | JPX official CSV | None | Ticker → name, sector, market, market-cap-tier | Daily |
 
-EDINET DB (the paid third-party) is **not used** in v1. We only need disclosure metadata; the free official API delivers that.
+TDnet is the sole disclosure source. See the History entry at the top of this file for why EDINET was dropped on 2026-05-21.
 
 ## 4. Storage shape (committed JSON in the repo)
 
@@ -52,7 +55,7 @@ compounders/feed/
       4475.json
       ...                 ← only created when a ticker has ≥1 match
     index.json            ← {ticker → match_count, last_match_iso} for the search box
-    _meta.json            ← last_refresh_iso, last_edinet_doc_id, run_count, error_log
+    _meta.json            ← last_refresh_iso, last_tdnet_doc_id, run_count, error_log
   index.html              ← EN page (also at en/compounders/feed/)
   index-ja.html           ← JP page
 ```
@@ -60,7 +63,7 @@ compounders/feed/
 `feed.json` row shape:
 ```json
 {
-  "id": "EDINET-S100ABCD-2026-05-17T08:23:00Z",
+  "id": "TDNET-140120260517512345-2026-05-17T08:23:00Z",
   "ts": "2026-05-17T08:23:00+09:00",
   "ticker": "4776",
   "name_en": "Cybozu, Inc.",
@@ -69,8 +72,8 @@ compounders/feed/
   "tag": "Buyback · 2.1% of S/O · ¥3.0bn",
   "summary_en": "Authorised buyback of up to 1,400,000 shares (2.1% of S/O) for ¥3.0bn, through 2026-11-14.",
   "summary_jp": "自己株式 140 万株 (発行済 2.1%) 上限 30 億円 を 2026 年 11 月 14 日まで取得決議。",
-  "source": "EDINET",
-  "doc_url": "https://disclosure2.edinet-fsa.go.jp/...",
+  "source": "TDnet",
+  "doc_url": "https://www.release.tdnet.info/inbs/...",
   "profile_url": "/en/compounders/4776/"
 }
 ```
@@ -82,7 +85,7 @@ compounders/feed/
 Single page, three regions:
 1. **Header bar.** Title "Capital-Allocation Inflection Feed", one-sentence positioning ("Only the disclosures that move the multiple."), filter chips for the 8 classes (default all on), and a search box.
 2. **Search box.** Type a 4-digit ticker → instantly filters feed to that ticker. If the ticker has no matches in 2 years, show a one-line "No Principle-6 disclosures in the last 24 months — this name has not given the market a reason to re-rate."
-3. **Feed list.** Reverse-chronological, virtualised for performance. Each row: timestamp (relative + absolute on hover), ticker (linked to EDINET/TDnet source AND to JII profile when one exists), class chip, one-line tag, expandable for the EN/JP summary.
+3. **Feed list.** Reverse-chronological, virtualised for performance. Each row: timestamp (relative + absolute on hover), ticker (linked to the TDnet source PDF AND to the JII profile when one exists), class chip, one-line tag, expandable for the EN/JP summary.
 
 Filtering and search are pure client-side over `feed.json` (so they work on GitHub Pages). No backend.
 
@@ -92,7 +95,7 @@ Filtering and search are pure client-side over `feed.json` (so they work on GitH
 
 ## 7. Backfill (2 years)
 
-One-shot job, run locally by Claude during this build, that walks EDINET 2024-05-17 → today and TDnet daily indexes for the same range, runs every match through the classifier, and produces the initial `feed.json` + per-ticker JSONs. Result is committed once. After that, the cron only appends new matches.
+One-shot job, run locally by Claude during this build, that walks TDnet daily indexes from 2024-05-17 → today, runs every match through the classifier, and produces the initial `feed.json` + per-ticker JSONs. Result is committed once. After that, the cron only appends new matches.
 
 ## 8. Update loop (GitHub Actions cron)
 

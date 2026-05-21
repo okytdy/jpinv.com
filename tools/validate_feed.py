@@ -42,6 +42,8 @@ FEED_ROW_CAP = 5_000
 
 VALID_CLASSES = {"COC", "BUYBACK", "CANCEL", "DIV", "CROSS", "MBO",
                  "COMP", "GOV"}
+# Live source is TDnet only. EDINET remains accepted for legacy by-ticker
+# sample seed rows that predate the EDINET-removal cleanup.
 VALID_SOURCES = {"EDINET", "TDnet"}
 
 # Tickers in the JPX master are 4-char alphanumeric (e.g. 4776, 409A).
@@ -53,7 +55,7 @@ REQUIRED_ROW_KEYS = {
 }
 
 REQUIRED_META_KEYS = {
-    "last_refresh_iso", "last_edinet_doc_id", "run_count", "error_log",
+    "last_refresh_iso", "run_count", "error_log",
 }
 
 MAX_ISSUES_PER_FILE = 50  # cap stdout noise on a catastrophically broken run

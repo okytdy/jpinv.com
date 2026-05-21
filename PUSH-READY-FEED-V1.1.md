@@ -1,5 +1,7 @@
 # PUSH-READY · Capital-Allocation Inflection Feed (v1.1)
 
+> **HISTORICAL SNAPSHOT** — preserved as-shipped. The EDINET integration referenced below was removed on 2026-05-21 (commit `2a11a02`); the feed now polls TDnet only. See `compounders/feed/_SPEC.md` History entry for the full story.
+
 **Date:** 2026-05-19
 **Repo:** jpinv.com on GitHub · branch `main`
 **Status:** Live data path unblocked. Sample-data contamination removed. One-click backfill workflow added. Ready to push.

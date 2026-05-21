@@ -30,7 +30,7 @@ JST = _dt.timezone(_dt.timedelta(hours=9))
 # Hard policy values - do not weaken without an explicit user decision.
 HARD_CAP_USD = 9.00         # stop completely at $9 MTD
 SOFT_CAP_USD = 7.00         # warn at $7 MTD
-DAILY_CALL_CAP = 50         # max LLM calls per JST day
+DAILY_CALL_CAP = 250        # max LLM calls per JST day (bumped from 50 on 2026-05-21 to clear ~1030-row historical backfill; cost capped by $9 MTD)
 MAX_INPUT_CHARS = 5_000     # truncate PDFs before sending
 MAX_OUTPUT_TOKENS = 900     # ~$0.0045 ceiling per call at Haiku output rate
 MAX_PER_CALL_USD = 0.012    # belt-and-suspenders per-call clip

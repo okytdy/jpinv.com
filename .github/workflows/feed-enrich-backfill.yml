@@ -52,7 +52,6 @@ jobs:
         id: enrich
         timeout-minutes: 340
         env:
-          EDINET_API_KEY: ${{ secrets.EDINET_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           FEED_MODE: enrich_backfill
           PYTHONUNBUFFERED: '1'

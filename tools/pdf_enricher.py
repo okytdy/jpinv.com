@@ -257,7 +257,7 @@ def _format_tag_jp(class_code: str, facts: dict) -> str:
 # ---------------------------------------------------------------------------
 
 _LLM_SYSTEM = """You are extracting structured data from Japanese corporate disclosures
-(EDINET 臨報 and TDnet press releases). Each disclosure is a capital-allocation
+(TDnet press releases). Each disclosure is a capital-allocation
 event already classified as one of: BUYBACK_INIT, BUYBACK_REV, BUYBACK_BLOCK,
 BUYBACK_PROGRESS, BUYBACK_HOUSE, CANCEL, DIV_POLICY, DIV_HIKE, MBO, M_AND_A,
 COC_INITIAL, COC_UPDATE, CROSS, COMP_KPI, GOV, GOV_FLIP.
@@ -468,12 +468,19 @@ def enrich(row: dict, llm_api_key: Optional[str] = None, budget=None) -> dict:
     cache = _load_cache()
     cached = cache.get(doc_id)
     if cached:
-        # Already enriched. Just merge.
+        # Merge cached enrichment into row.
         for k, v in cached.items():
             if k in ("translation_en_brief",):  # large fields go to per-doc file, not feed.json
                 continue
             row[k] = v
-        return row
+        # If cached as Tier-C (has LLM summary), we're done.
+        # If cached as Tier-B-only AND we now have LLM capacity, fall through to
+        # attempt the Tier-C upgrade (re-fetches the PDF once per upgrade; the cache
+        # entry will then be replaced with the Tier-C version).
+        is_tier_b_only = cached.get("enrichment_method") == "tier_b_regex"
+        have_llm_capacity = bool(llm_api_key) and budget is not None
+        if not (is_tier_b_only and have_llm_capacity):
+            return row
 
     class_code = row.get("class", "")
     pdf_text = _fetch_pdf_text(row.get("doc_url", ""))

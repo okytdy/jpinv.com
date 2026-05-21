@@ -1,5 +1,7 @@
 # PUSH-READY · Capital-Allocation Inflection Feed (v1)
 
+> **HISTORICAL SNAPSHOT** — preserved as-shipped. The EDINET integration described below was removed on 2026-05-21 (commit `2a11a02`) after diagnostic logging proved it had been a silent no-op since day one (docType 350 was 大量保有報告書, not CG reports; CG reports actually flow via TDnet; other docTypes had no body content for matchers). For current pipeline architecture see `compounders/feed/_SPEC.md` History entry.
+
 **Date:** 2026-05-17
 **Repo:** jpinv.com on GitHub · branch `main`
 **Status:** Code complete. Two human-action bottlenecks before live data flows. Page renders today against sample data.

@@ -1,7 +1,7 @@
 name: feed-backfill
 
 # JII Compounders -- Capital-Allocation Inflection Feed (one-shot backfill).
-# Walks EDINET + TDnet `lookback_days` days back through today, runs the
+# Walks TDnet `lookback_days` days back through today, runs the
 # classifier, and commits the resulting JSON to compounders/feed/data/.
 # Intentionally manual-only: this job can take hours and should never race
 # the 30-min incremental cron. Spec: compounders/feed/_SPEC.md, section 7.
@@ -27,7 +27,7 @@ jobs:
   backfill:
     name: Backfill disclosures and rebuild feed
     runs-on: ubuntu-latest
-    timeout-minutes: 360   # 6h ceiling -- EDINET 3.5s rate-limit * 730 days
+    timeout-minutes: 360   # 6h ceiling -- TDnet pagination over 730 days
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -58,7 +58,6 @@ jobs:
         timeout-minutes: 355
         continue-on-error: false
         env:
-          EDINET_API_KEY: ${{ secrets.EDINET_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           FEED_MODE: backfill
           FEED_BACKFILL_LOOKBACK_DAYS: ${{ github.event.inputs.lookback_days }}
