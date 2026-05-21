@@ -105,7 +105,7 @@ jobs:
           cp "$TMPDIR/llm_ledger.json" tools/llm_ledger.json
 
           git add compounders/feed/data/ tools/llm_summary_cache.json tools/llm_ledger.json
-          git commit -m "feed: enrich-backfill @ ${{ github.run_id }} (MTD $${{ steps.ledger.outputs.mtd }})"
+          git commit -m "feed: enrich-backfill @ ${{ github.run_id }} (MTD \$${{ steps.ledger.outputs.mtd }})"
           git push
 
       - name: Job summary
