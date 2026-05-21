@@ -195,8 +195,8 @@ nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
   .hero-ctas { flex-direction: column; }
   .hero-ctas .btn { width: 100%; text-align: center; }
 }
-.mobile-menu { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--rule); z-index: 99; padding: 8px var(--gutter) 20px; flex-direction: column; gap: 0; }
-.mobile-menu.open { display: flex; }
+.mobile-menu { display: flex; position: fixed; top: var(--nav-h); left: 0; right: 0; background: #fff; border-bottom: 1px solid var(--rule); box-shadow: 0 20px 36px rgba(10, 20, 40, 0.12); z-index: 120; padding: 8px var(--gutter) 20px; flex-direction: column; gap: 0; max-height: calc(100dvh - var(--nav-h)); overflow-y: auto; transform: translateY(-14px); opacity: 0; visibility: hidden; pointer-events: none; transition: transform 0.24s ease, opacity 0.24s ease, visibility 0s linear 0.24s; }
+.mobile-menu.open { transform: translateY(0); opacity: 1; visibility: visible; pointer-events: auto; transition: transform 0.24s ease, opacity 0.24s ease; }
 .mobile-menu a { font-size: 0.88rem; color: var(--text); text-decoration: none; padding: 14px 0; border-bottom: 1px solid var(--rule); letter-spacing: 0.04em; }
 .mobile-menu a:last-child { border-bottom: none; }
 .mobile-menu .mobile-menu-cta { margin-top: 12px; padding: 13px 18px; text-align: center; color: #fff; border-bottom: none; }
@@ -971,7 +971,8 @@ function setMenuOpen(isOpen) {
   const menu = document.getElementById('mobileMenu');
   if (!menu || !hamburgerBtn) return;
   menu.classList.toggle('open', isOpen);
-  menu.hidden = !isOpen;
+  menu.hidden = false;
+  document.body.style.overflow = isOpen ? 'hidden' : '';
   hamburgerBtn.setAttribute('aria-expanded', isOpen.toString());
   hamburgerBtn.setAttribute('aria-label', isOpen ? (document.documentElement.lang === 'ja' ? 'メニューを閉じる' : 'Close menu') : (document.documentElement.lang === 'ja' ? 'メニューを開く' : 'Open menu'));
   if (isOpen) {
@@ -988,6 +989,10 @@ document.addEventListener('click', (e) => {
   if (menu && menu.classList.contains('open') && !menu.contains(e.target) && !hamburgerBtn.contains(e.target)) {
     setMenuOpen(false);
   }
+});
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 900) setMenuOpen(false);
 });
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') setMenuOpen(false);
