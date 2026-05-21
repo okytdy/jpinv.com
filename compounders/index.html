@@ -546,7 +546,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
       </div>
       <div class="cap-feed-controls">
         <input type="text" class="cap-feed-search" id="cap-feed-search" placeholder="銘柄コード (例：4776)" aria-label="銘柄コード検索" maxlength="5">
-        <button type="button" class="cap-feed-show-low" id="cap-feed-show-low" aria-pressed="false">低シグナルも表示</button>
         <a class="cap-feed-viewall" href="/compounders/feed/">フィード全体を見る →</a>
       </div>
       <div class="cap-feed-list" id="cap-feed-list" aria-live="polite">
@@ -772,7 +771,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   }
   function filterFeed(){
     var q = ($search.value || '').trim().toUpperCase();
-    var showLow = ($showLowToggle && $showLowToggle.dataset.active === '1');
+    var showLow = false;
     var pool = allRows.filter(function(r){
       // Default: hide signal_score < 2 unless toggle is on
       if (!showLow && (r.signal_score || 0) < 2) return false;

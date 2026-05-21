@@ -564,7 +564,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
       </div>
       <div class="cap-feed-controls">
         <input type="text" class="cap-feed-search" id="cap-feed-search" placeholder="Search ticker (e.g. 4776)" aria-label="Search by ticker" maxlength="5">
-        <button type="button" class="cap-feed-show-low" id="cap-feed-show-low" aria-pressed="false">Show low-signal</button>
         <a class="cap-feed-viewall" href="/en/compounders/feed/">View full feed →</a>
       </div>
       <p class="cap-feed-hint">Hover any row for a one-line summary &middot; click to open the source disclosure (Japanese).</p>
@@ -797,7 +796,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   }
   function filterFeed(){
     var q = ($search.value || '').trim().toUpperCase();
-    var showLow = ($showLowToggle && $showLowToggle.dataset.active === '1');
+    var showLow = false;
     var pool = allRows.filter(function(r){
       // Default: hide signal_score < 2 unless toggle is on
       if (!showLow && (r.signal_score || 0) < 2) return false;
