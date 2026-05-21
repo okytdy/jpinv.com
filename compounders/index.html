@@ -276,6 +276,19 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .card-viewall-arrow { font-family:var(--serif); font-size:48px; color:var(--accent-deep); line-height:1; display:block; margin-bottom:14px; }
   .card-viewall-label { font-family:var(--mono); font-size:11.5px; letter-spacing:0.18em; text-transform:uppercase; color:var(--ink-mid); }
 
+  .cap-feed-show-low { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--text-mid); text-transform: uppercase; padding: 7px 12px; border: 1px solid var(--rule); background: var(--bg); cursor: pointer; transition: all 0.15s; }
+  .cap-feed-show-low:hover { color: var(--ink); border-color: var(--ink-soft); }
+  .cap-feed-show-low.active { color: var(--ink-mid); border-color: var(--ink-mid); background: var(--bg-soft); }
+
+  /* Reel navigation arrows */
+  .reel-wrap { position: relative; }
+  .reel-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; background: var(--bg); border: 1px solid var(--rule); cursor: pointer; z-index: 10; box-shadow: 0 2px 8px rgba(15,31,58,0.08); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 22px; color: var(--ink-mid); transition: all 0.15s; }
+  .reel-nav:hover { border-color: var(--ink-mid); color: var(--ink); }
+  .reel-nav[hidden] { display: none; }
+  .reel-prev { left: -22px; }
+  .reel-next { right: -22px; }
+  @media (max-width:760px) { .reel-nav { display: none; } }
+
   /* ---- Capital Allocation Signals widget ---- */
   .cap-feed { padding: 64px 28px 56px; border-top: 1px solid var(--rule); background: var(--bg-soft); margin-top: 24px; }
   .cap-feed-head { margin: 0 auto 24px; max-width: 1100px; }
@@ -350,7 +363,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
       <a class="reel-viewall-link" href="/compounders/profiles/">全レポートを見る &rarr;</a>
     </div>
 
-    <div class="reel" role="region" aria-label="最近のレポート">
+    <div class="reel-wrap">
+      <button type="button" class="reel-nav reel-prev" aria-label="前へ" hidden>&lsaquo;</button>
+      <div class="reel" role="region" aria-label="最近のレポート">
 
       <a class="card card--reel" href="/compounders/4168/" data-date="2026-05-21" data-ticker="4168">
         <div class="card-head">
@@ -526,6 +541,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
       </div>
       <div class="cap-feed-controls">
         <input type="text" class="cap-feed-search" id="cap-feed-search" placeholder="銘柄コード (例：4776)" aria-label="銘柄コード検索" maxlength="5">
+        <button type="button" class="cap-feed-show-low" id="cap-feed-show-low" aria-pressed="false">低シグナルも表示</button>
         <a class="cap-feed-viewall" href="/compounders/feed/">フィード全体を見る →</a>
       </div>
       <div class="cap-feed-list" id="cap-feed-list" aria-live="polite">
@@ -599,8 +615,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
             <p>ありがとうございます。15分の事前確認について、折り返しご連絡します。</p>
           </div>
         </div>
-      </div>
-    </section>
+      <button type="button" class="reel-nav reel-next" aria-label="次へ">&rsaquo;</button>
+    </div>
+  </div>
+</section>
 
     <div class="substack-cta" id="substack-cta">
       <div class="substack-cta-text">
@@ -726,7 +744,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     var d = new Date(iso);
     if (isNaN(d.getTime())) return iso;
     function pad(n){ return n<10?'0'+n:''+n; }
-    var jst = new Date(d.getTime() + (9*60 - d.getTimezoneOffset()) * 60000);
+    var jst = new Date(d.getTime() + 9*3600*1000);
     return jst.getUTCFullYear()+'-'+pad(jst.getUTCMonth()+1)+'-'+pad(jst.getUTCDate())+' '+pad(jst.getUTCHours())+':'+pad(jst.getUTCMinutes())+' JST';
   }
   function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; }); }
@@ -735,6 +753,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     $list.innerHTML = rows.map(function(r){
       var name = feedIsJa ? (r.name_jp || r.name_en || '') : (r.name_en || r.name_jp || '');
       var summary = feedIsJa ? (r.summary_jp || r.summary_en || '') : (r.summary_en || r.summary_jp || '');
+      if (!summary) {
+        var ftag = feedIsJa ? (r.tag_jp || r.tag_en || r.tag || '') : (r.tag_en || r.tag_jp || r.tag || '');
+        var fclass = r['class'] || '';
+        summary = ftag + (ftag && fclass ? ' · ' : '') + fclass;
+      }
       return '<a class="cap-feed-row" href="'+esc(r.doc_url || '#')+'" target="_blank" rel="noopener" title="'+esc(summary)+'">'+
         '<span class="cap-feed-row-ts">'+esc(fmtTS(r.ts))+'</span>'+
         '<span class="cap-feed-row-tk">'+esc(r.ticker || '')+'</span>'+
@@ -746,17 +769,54 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   }
   function filterFeed(){
     var q = ($search.value || '').trim().toUpperCase();
-    var rows = !q ? allRows.slice(0, 10) : allRows.filter(function(r){
+    var showLow = ($showLowToggle && $showLowToggle.dataset.active === '1');
+    var pool = allRows.filter(function(r){
+      // Default: hide signal_score < 2 unless toggle is on
+      if (!showLow && (r.signal_score || 0) < 2) return false;
+      return true;
+    });
+    var rows = !q ? pool.slice(0, 10) : pool.filter(function(r){
       return r.ticker && r.ticker.toUpperCase().indexOf(q) === 0;
     }).slice(0, 10);
     if (q && !rows.length){ $list.innerHTML = '<div class="cap-feed-empty">'+L.noMatch+'</div>'; return; }
     renderRows(rows);
+  }
+  var $showLowToggle = document.getElementById('cap-feed-show-low');
+  if ($showLowToggle) {
+    $showLowToggle.dataset.active = '0';
+    $showLowToggle.addEventListener('click', function(){
+      $showLowToggle.dataset.active = ($showLowToggle.dataset.active === '1') ? '0' : '1';
+      $showLowToggle.classList.toggle('active');
+      filterFeed();
+    });
   }
   $search.addEventListener('input', filterFeed);
   fetch('/compounders/feed/data/feed.json', { cache: 'no-store' })
     .then(function(r){ return r.json(); })
     .then(function(rows){ allRows = Array.isArray(rows) ? rows : []; filterFeed(); })
     .catch(function(){ $list.innerHTML = '<div class="cap-feed-empty">'+L.empty+'</div>'; });
+})();
+</script>
+
+
+<script>
+(function(){
+  var reel = document.querySelector('.reel');
+  var wrap = document.querySelector('.reel-wrap');
+  if (!reel || !wrap) return;
+  var prev = wrap.querySelector('.reel-prev');
+  var next = wrap.querySelector('.reel-next');
+  if (!prev || !next) return;
+  var STEP = 364;  // card width 340 + gap 24
+  function updateArrows() {
+    prev.hidden = reel.scrollLeft <= 4;
+    next.hidden = reel.scrollLeft >= (reel.scrollWidth - reel.clientWidth - 4);
+  }
+  prev.addEventListener('click', function(){ reel.scrollBy({left:-STEP, behavior:'smooth'}); });
+  next.addEventListener('click', function(){ reel.scrollBy({left: STEP, behavior:'smooth'}); });
+  reel.addEventListener('scroll', updateArrows, {passive:true});
+  window.addEventListener('resize', updateArrows);
+  updateArrows();
 })();
 </script>
 
