@@ -311,13 +311,6 @@ body.menu-open { overflow: hidden; }
 .selfcheck-result a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink); margin-top: 12px; display: inline-block; font-size: 0.8rem; }
 
 /* WHY (translation vs diagnostic) */
-.why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
-@media (max-width: 760px) { .why-grid { grid-template-columns: 1fr; } }
-.why-card { background: var(--bg-soft); border: 1px solid var(--rule); padding: 28px 30px; }
-.why-card.is-diag { background: var(--bg-mid); border-left: 2px solid var(--accent); }
-.why-card .label { display: block; margin-bottom: 10px; }
-.why-card h3 { font-family: var(--sans); font-size: 1rem; color: var(--ink); margin-bottom: 14px; font-weight: 500; line-height: 1.5; }
-.why-card p { font-size: 0.85rem; line-height: 1.8; }
 
 /* RECEIVE GRID */
 .receive-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--rule); }
@@ -608,29 +601,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
         <h3 id="sr-title">IR資料を英語で整えたい</h3>
         <p id="sr-body">決算説明資料・統合報告書・IRサイトなど、海外投資家に読まれる英文開示を確認・改善します。</p>
         <a href="#plans" id="sr-link">関連サービスを見る →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WHY -->
-<section id="why" aria-label="翻訳の前に診断">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="label">翻訳と診断の違い</span>
-      <div class="rule-accent"></div>
-      <h2 class="mincho-lg">翻訳の前に、診断が必要な理由</h2>
-    </div>
-    <div class="why-grid reveal">
-      <div class="why-card">
-        <span class="label">翻訳が答えるのは</span>
-        <h3>「これを英語でどう言うか？」</h3>
-        <p>英語表現としては正確に直せます。ただし、海外投資家が投資判断のために必要としている情報があるか・どんな順序で出ているかまでは、翻訳の領域では扱いません。</p>
-      </div>
-      <div class="why-card is-diag">
-        <span class="label">診断カードが答えるのは</span>
-        <h3>「英語にする前に、海外投資家には何が伝わっていないか？」</h3>
-        <p>資本配分・差別化・成長前提など、投資判断に直結する論点が、伝わる順序・伝わる粒度になっているかを点検し、見直しの優先順位までお示しします。</p>
       </div>
     </div>
   </div>
