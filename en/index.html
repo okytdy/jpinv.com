@@ -560,7 +560,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 <section id="services" aria-label="Services overview">
   <div class="wrap">
     <div class="cta-band reveal">
-      <div><span class="label">Services</span><h2>Scope of Overseas IR Support</h2><p>JII supports communication with global investors through English disclosure support, IR translation, IR interpretation, and Overseas IR Diagnostics. Overseas IR Support consists of four paths: English Disclosure Support, IR Translation, IR Interpretation, and Overseas IR Diagnostics.</p></div>
+      <div><span class="label">Services</span><h2>Scope of Overseas IR Support</h2><p>JII supports communication with global investors through English Disclosure Review, Investor Meetings, and Overseas IR Diagnostics. These three service domains make one-off and recurring support clearer.</p></div>
       <div class="cta-actions"><a href="/en/services/" class="btn btn-primary">View service details</a></div>
     </div>
   </div>
@@ -570,7 +570,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 <section id="pricing" aria-label="Pricing overview">
   <div class="wrap">
     <div class="section-head reveal"><span class="label">Service paths</span><div class="rule-accent"></div><h2 class="mincho-lg">How we support overseas IR</h2><p>Choose the path that matches your current need.</p></div>
-    <div class="hero-ctas reveal"><a href="/en/services/" class="btn btn-outline">English Disclosure Support</a><a href="/en/services/" class="btn btn-outline">IR Translation</a><a href="/en/services/" class="btn btn-outline">IR Interpretation</a><a href="/en/services/" class="btn btn-primary">Overseas IR Diagnostics</a></div>
+    <div class="hero-ctas reveal"><a class="btn btn-outline" aria-disabled="true">English Disclosure Review · One-off</a><a class="btn btn-outline" aria-disabled="true">Investor Meetings · One-off</a><a class="btn btn-primary" aria-disabled="true">Overseas IR Diagnostics · Recurring</a></div>
   </div>
 </section>
 
@@ -993,9 +993,9 @@ const revealObs = new IntersectionObserver(entries => {
 document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
 const recommendations = {
-  materials: { tag: 'Use case', title: 'I need English IR materials', body: 'Support for earnings materials, integrated reports, IR websites, and investor-facing English disclosure.', value: 'English Disclosure Support' },
-  meetings: { tag: 'Use case', title: 'I need support for investor meetings', body: 'Interpretation and communication support for earnings briefings, one-on-one meetings, and overseas investor meetings.', value: 'IR Interpretation' },
-  diagnostic: { tag: 'Use case', title: 'I want to diagnose how overseas investors see our IR', body: 'A review of IR materials, English disclosure, IR websites, and meeting communication from the perspective of overseas investors.', value: 'Overseas IR Diagnostics' }
+  materials: { tag: 'Use case', title: 'I need English IR materials reviewed', body: 'We review and improve earnings materials, integrated reports, IR websites, and investor-facing English disclosure.', value: 'English Disclosure Review' },
+  meetings: { tag: 'Use case', title: 'I need support for investor meetings', body: 'We support one-on-one meetings, earnings briefings, and overseas investor meetings through interpretation, preparation, and post-meeting issue tracking.', value: 'Investor Meetings' },
+  diagnostic: { tag: 'Use case', title: 'I want to improve overseas IR continuously', body: 'We review disclosure, materials, and meeting communication each quarter and clarify how overseas investors are likely to see them.', value: 'Overseas IR Diagnostics' }
 };
 document.querySelectorAll('.selfcheck-opt').forEach(btn => {
   btn.addEventListener('click', () => {
