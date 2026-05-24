@@ -353,7 +353,7 @@ body.menu-open { overflow: hidden; }
 /* CASES */
 .case-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2px; background: var(--rule); }
 @media (max-width: 880px) { .case-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 720px) { .case-grid { grid-template-columns: 1fr; } }
+@media (max-width: 720px) { .case-grid, .cards-3 { grid-template-columns: 1fr; } }
 .case-card { background: var(--bg-soft); padding: 28px 26px; display: flex; flex-direction: column; min-height: 100%; }
 .case-card .case-tag { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; }
 .case-card h4, .case-card h3 { font-family: var(--sans); color: var(--ink); font-size: 1.2rem; margin: 0 0 12px; font-weight: 600; line-height: 1.45; }
@@ -362,6 +362,23 @@ body.menu-open { overflow: hidden; }
 .case-card .case-sub-links { margin-top: 12px; font-size: 0.82rem; line-height: 1.8; color: var(--ink-soft); }
 .case-card .case-sub-links a { color: var(--ink-soft); text-decoration: underline; text-underline-offset: 2px; }
 .case-card .case-sub-links .sep { opacity: 0.55; margin: 0 0.45em; }
+
+.cards-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; align-items:stretch; }
+.scard { background:#fff; border:1px solid var(--rule); padding:34px 30px 28px; display:flex; flex-direction:column; position:relative; overflow:hidden; transition:border-color .2s, box-shadow .2s, transform .2s; }
+.scard::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--accent); transform:scaleX(0); transform-origin:left; transition:transform .24s; }
+.scard:hover { border-color:var(--accent); box-shadow:0 14px 32px rgba(15,31,58,.08); transform:translateY(-2px); }
+.scard:hover::before { transform:scaleX(1); }
+.scard-eyebrow { font-family:var(--sans); font-size:clamp(1.08rem,1.7vw,1.32rem); letter-spacing:.03em; color:var(--ink); font-weight:600; line-height:1.35; margin-bottom:14px; }
+.scard-summary { font-family:var(--serif); font-size:1.18rem; line-height:1.55; color:var(--ink); letter-spacing:.03em; margin-bottom:18px; }
+.scard-divider { height:1px; background:var(--rule-soft); margin:0 0 20px; }
+.scard-label { font-family:var(--mono); font-size:.62rem; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:10px; }
+.scard-links { list-style:none; margin:0 0 14px; border-top:1px solid var(--rule-soft); }
+.scard-links li { border-bottom:1px solid var(--rule-soft); }
+.scard-links a { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px 0; color:var(--text); text-decoration:none; font-size:.9rem; line-height:1.6; white-space:nowrap; }
+.scard-links a:hover { color:var(--ink); text-decoration:underline; text-underline-offset:3px; }
+.scard-cta { margin-top:auto; padding-top:22px; font-family:var(--sans); font-size:.84rem; color:var(--ink); text-decoration:none; border-top:1px solid var(--rule-soft); display:inline-flex; align-items:center; gap:8px; }
+.scard-cta:hover { color:var(--accent); }
+.scard-cta .arr { font-family:var(--serif); }
 
 /* ABOUT */
 #about { background: var(--bg-mid); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
@@ -566,29 +583,62 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     <div class="section-head reveal">
       <span class="label">WHAT WE DO</span>
       <div class="rule-accent"></div>
-      <h2 class="mincho-lg">必要な支援を、資料・面談・継続改善の単位で選ぶ</h2>
-      <p>決算・開示・IR資料の英訳、投資家面談の通訳、海外投資家に伝わりにくい論点の継続改善まで、必要な場面からご相談いただけます。</p>
+      <h2 class="mincho-lg">資料・面談・改善の3つの領域で海外IRを支援する</h2>
+      <p>英文開示やIR資料の英訳、投資家面談の通訳、Q&amp;A・開示表現の見直しを通じて、海外IRの実務を継続的に支援します。</p>
     </div>
-    <div class="case-grid reveal">
-      <article class="case-card">
-        <h3>翻訳</h3>
-        <p>決算短信、決算説明会資料、招集通知、有価証券報告書、統合報告書、IRサイトなどを、海外投資家が読みやすい英語に整えます。</p>
-        <a class="case-main-link" href="/サービス/">翻訳サービスを見る →</a>
-        <p class="case-sub-links"><a href="/サービス/#english-disclosure-support">英文開示支援</a><span class="sep">・</span><a href="/サービス/#earnings-summary-translation">決算短信翻訳</a><span class="sep">・</span><a href="/サービス/#agm-convocation-translation">招集通知英訳</a></p>
+    <div class="cards-3 reveal">
+      <article class="scard">
+        <div class="scard-eyebrow">翻訳</div>
+        <p class="scard-summary">決算・開示・IR資料を、海外投資家が読みやすい英語にします。</p>
+        <div class="scard-divider"></div>
+        <p class="scard-label">対応サービス</p>
+        <ul class="scard-links">
+          <li><a href="/サービス/english-disclosure-support/">英文開示支援 <span aria-hidden="true">→</span></a></li>
+          <li><a href="/サービス/earnings-summary-translation/">決算短信翻訳 <span aria-hidden="true">→</span></a></li>
+          <li><a href="/サービス/earnings-presentation-translation/">決算説明会資料英訳 <span aria-hidden="true">→</span></a></li>
+          <li><a href="/サービス/timely-disclosure-translation/">適時開示英訳 <span aria-hidden="true">→</span></a></li>
+          <li><a href="/サービス/agm-convocation-translation/">招集通知英訳 <span aria-hidden="true">→</span></a></li>
+          <li><a href="/サービス/annual-securities-report-translation/">有価証券報告書英訳 <span aria-hidden="true">→</span></a></li>
+          <li><a href="/サービス/integrated-report-translation/">統合報告書英訳 <span aria-hidden="true">→</span></a></li>
+          <li><a href="/サービス/ir-site-translation/">IRサイト英訳 <span aria-hidden="true">→</span></a></li>
+        </ul>
+        <a class="scard-cta" href="/サービス/english-disclosure-support/">翻訳サービスの詳細を見る<span class="arr">→</span></a>
       </article>
-      <article class="case-card">
-        <h3>通訳</h3>
-        <p>投資家1on1、決算説明会、IR Day、海外ロードショーなどで、質問意図と経営回答を正確につなぎます。</p>
-        <a class="case-main-link" href="/サービス/">通訳サービスを見る →</a>
-        <p class="case-sub-links"><a href="/サービス/#investor-meeting-interpretation">IR通訳</a><span class="sep">・</span><a href="/サービス/#investor-meeting-interpretation">投資家面談通訳</a><span class="sep">・</span><a href="/サービス/#roadshow-interpretation">海外IRロードショー通訳</a></p>
+
+      <article class="scard">
+        <div class="scard-eyebrow">通訳</div>
+        <p class="scard-summary">海外投資家との説明会・面談で、質問意図と経営の回答を正確につなぎます。</p>
+        <div class="scard-divider"></div>
+        <p class="scard-label">対応サービス</p>
+        <ul class="scard-links">
+          <li><a href="/サービス/investor-meeting-interpretation/">投資家面談通訳 <span aria-hidden="true">→</span></a></li>
+          <li><a href="/サービス/earnings-briefing-interpretation/">決算説明会通訳 <span aria-hidden="true">→</span></a></li>
+          <li><a href="/サービス/overseas-roadshow-interpretation/">海外ロードショー通訳 <span aria-hidden="true">→</span></a></li>
+          <li><a href="/サービス/ir-day-interpretation/">IR Day通訳 <span aria-hidden="true">→</span></a></li>
+          <li><a href="/サービス/ir-conference-interpretation/">IRカンファレンス通訳 <span aria-hidden="true">→</span></a></li>
+          <li><a href="/サービス/ir-interpreter/">IR通訳（投資家面談・決算説明会） <span aria-hidden="true">→</span></a></li>
+          <li><a href="/サービス/shareholders-meeting-interpretation/">株主総会通訳 <span aria-hidden="true">→</span></a></li>
+        </ul>
+        <a class="scard-cta" href="/サービス/ir-interpretation/">通訳サービスの詳細を見る<span class="arr">→</span></a>
       </article>
-      <article class="case-card">
-        <h3>継続支援</h3>
-        <p>資料・開示・面談Q&Aを四半期ごとに見直し、海外投資家に伝わりにくい論点を継続的に改善します。</p>
-        <a class="case-main-link" href="/サービス/">継続支援の詳細を見る →</a>
-        <p class="case-sub-links"><a href="/サービス/overseas-ir-diagnostics/">海外IR診断</a><span class="sep">・</span><a href="/サービス/ir-diagnosis-card/">診断カード</a><span class="sep">・</span><a href="/サービス/quarterly-disclosure-improvement/">四半期表示改善</a></p>
+
+      <article class="scard">
+        <div class="scard-eyebrow">継続支援</div>
+        <p class="scard-summary">海外投資家に伝わりにくい論点を診断カードで可視化し、資料・開示・面談Q&amp;Aを四半期ごとに改善します。</p>
+        <div class="scard-divider"></div>
+        <p class="scard-label">対応サービス</p>
+        <ul class="scard-links">
+          <li><a href="/サービス/overseas-ir-diagnostics/">海外IR診断 <span aria-hidden="true">→</span></a></li>
+          <li><a href="/サービス/ir-diagnosis-card/">診断カード <span aria-hidden="true">→</span></a></li>
+          <li><a href="/サービス/internal-ir-walkthrough/">社内ウォークスルー <span aria-hidden="true">→</span></a></li>
+          <li><a href="/サービス/equity-story-design/">ストーリー設計 <span aria-hidden="true">→</span></a></li>
+          <li><a href="/サービス/quarterly-disclosure-improvement/">四半期開示改善 <span aria-hidden="true">→</span></a></li>
+          <li><a href="/サービス/investor-meeting-prep-qa/">面談準備・Q&amp;A <span aria-hidden="true">→</span></a></li>
+          <li><a href="/サービス/dedicated-ir-support/">専属IR伴走 <span aria-hidden="true">→</span></a></li>
+        </ul>
+        <a class="scard-cta" href="/サービス/dedicated-ir-support/">継続支援の詳細を見る<span class="arr">→</span></a>
       </article>
-    </div>
+    </div></div>
   </div>
 </section>
 <!-- JII COMPOUNDERS LAUNCH CALLOUT -->
