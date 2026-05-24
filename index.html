@@ -351,13 +351,17 @@ body.menu-open { overflow: hidden; }
 .plan-card .btn { margin-top: auto; align-self: flex-start; }
 
 /* CASES */
-.case-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--rule); }
+.case-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2px; background: var(--rule); }
 @media (max-width: 880px) { .case-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 540px) { .case-grid { grid-template-columns: 1fr; } }
-.case-card { background: var(--bg-soft); padding: 22px 24px; }
+@media (max-width: 720px) { .case-grid { grid-template-columns: 1fr; } }
+.case-card { background: var(--bg-soft); padding: 28px 26px; display: flex; flex-direction: column; min-height: 100%; }
 .case-card .case-tag { font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; }
-.case-card h4, .case-card h3 { font-family: var(--sans); color: var(--ink); font-size: 0.95rem; margin: 6px 0 8px; font-weight: 500; line-height: 1.5; }
-.case-card p { font-size: 0.78rem; line-height: 1.7; }
+.case-card h4, .case-card h3 { font-family: var(--sans); color: var(--ink); font-size: 1.2rem; margin: 0 0 12px; font-weight: 600; line-height: 1.45; }
+.case-card p { font-size: 0.95rem; line-height: 1.9; margin: 0; }
+.case-card .case-main-link { margin-top: 18px; display: inline-block; font-size: 0.9rem; font-weight: 500; }
+.case-card .case-sub-links { margin-top: 12px; font-size: 0.82rem; line-height: 1.8; color: var(--ink-soft); }
+.case-card .case-sub-links a { color: var(--ink-soft); text-decoration: underline; text-underline-offset: 2px; }
+.case-card .case-sub-links .sep { opacity: 0.55; margin: 0 0.45em; }
 
 /* ABOUT */
 #about { background: var(--bg-mid); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
@@ -560,15 +564,30 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 <section id="what-we-do" aria-label="提供サービス">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="label">What we do</span>
+      <span class="label">WHAT WE DO</span>
       <div class="rule-accent"></div>
-      <h2 class="mincho-lg">提供サービス</h2>
-      <p>まずは3つの実務支援から対応します。詳細はサービスページをご覧ください。</p>
+      <h2 class="mincho-lg">必要な支援を、資料・面談・継続改善の単位で選ぶ</h2>
+      <p>決算・開示・IR資料の英訳、投資家面談の通訳、海外投資家に伝わりにくい論点の継続改善まで、必要な場面からご相談いただけます。</p>
     </div>
     <div class="case-grid reveal">
-      <article class="case-card"><h3>英文開示支援</h3><p>決算説明資料・統合報告書・IRサイトなど、海外投資家に読まれる英文開示の整備を支援します。決算短信に特化したご相談は<a href="/サービス/決算短信翻訳/">決算短信翻訳</a>をご覧ください。</p><a href="/サービス/英文開示支援/">英文開示支援を見る →</a></article>
-      <article class="case-card"><h3>IR翻訳</h3><p>IR資料の英訳・品質確認・表現統一を通じて、投資家に伝わる翻訳実務を支援します。</p><a href="/サービス/">サービスを見る →</a></article>
-      <article class="case-card"><h3>IR通訳</h3><p>投資家面談・説明会での通訳と事前準備を行い、質疑応答の精度向上を支援します。</p><a href="/サービス/IR通訳/">IR通訳ページを見る →</a></article>
+      <article class="case-card">
+        <h3>翻訳</h3>
+        <p>決算短信、決算説明会資料、招集通知、有価証券報告書、統合報告書、IRサイトなどを、海外投資家が読みやすい英語に整えます。</p>
+        <a class="case-main-link" href="/サービス/">翻訳サービスを見る →</a>
+        <p class="case-sub-links"><a href="/サービス/英文開示支援/">英文開示支援</a><span class="sep">・</span><a href="/サービス/決算短信翻訳/">決算短信翻訳</a><span class="sep">・</span><a href="/サービス/招集通知翻訳/">招集通知英訳</a></p>
+      </article>
+      <article class="case-card">
+        <h3>通訳</h3>
+        <p>投資家1on1、決算説明会、IR Day、海外ロードショーなどで、質問意図と経営回答を正確につなぎます。</p>
+        <a class="case-main-link" href="/サービス/">通訳サービスを見る →</a>
+        <p class="case-sub-links"><a href="/サービス/IR通訳/">IR通訳</a><span class="sep">・</span><a href="/サービス/investor-meeting-interpretation/">投資家面談通訳</a><span class="sep">・</span><a href="/サービス/overseas-ir-roadshow-interpretation/">海外IRロードショー通訳</a></p>
+      </article>
+      <article class="case-card">
+        <h3>継続支援</h3>
+        <p>資料・開示・面談Q&Aを四半期ごとに見直し、海外投資家に伝わりにくい論点を継続的に改善します。</p>
+        <a class="case-main-link" href="/サービス/">継続支援の詳細を見る →</a>
+        <p class="case-sub-links"><a href="/サービス/overseas-ir-diagnostics/">海外IR診断</a><span class="sep">・</span><a href="/サービス/ir-diagnosis-card/">診断カード</a><span class="sep">・</span><a href="/サービス/quarterly-disclosure-improvement/">四半期表示改善</a></p>
+      </article>
     </div>
   </div>
 </section>
