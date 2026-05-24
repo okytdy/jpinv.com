@@ -828,15 +828,14 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
       </div>
 
       <div class="sotp-card">
-        <div class="sotp-head">ピア倍率ラダー · 2026年5月22日時点</div>
-        <div class="sotp-name">上場日本単一セグメントB2B SaaSピアセット · 現時点スナップショット株価でEV再算定</div>
-        <div class="sotp-row"><span class="k"><b>3984 ユーザーローカル（本レポート）</b></span><span class="v"><b>8.6倍予想 · ROCE 24%</b></span></div>
-        <div class="sotp-row"><span class="k">3922 PR TIMES</span><span class="v">~16〜18倍予想 推定</span></div>
-        <div class="sotp-row"><span class="k">4165 プレイド</span><span class="v">未黒字 · NM</span></div>
-        <div class="sotp-row"><span class="k">4382 HEROZ</span><span class="v">~25倍予想 推定 · プロジェクト比率高</span></div>
-        <div class="sotp-row"><span class="k">5574 ABEJA</span><span class="v">~30倍予想 推定 · 早期段階</span></div>
-        <div class="sotp-row"><span class="k">3655 ブレインパッド</span><span class="v">~13倍予想 推定 · コンサル比率高</span></div>
-        <div class="sotp-foot">ユーザーローカルは上場日本SaaS小型株帯の下端に位置 — ギャップは現金の重みと単一セグメントの不透明性であり、事業の質ではない</div>
+        <div class="sotp-head">ピア倍率ラダー · 2026年5月22日時点スナップショット</div>
+        <div class="sotp-name">上場日本単一セグメントB2B SaaSピアセット · スナップショット時点の株価でEV再算定 · 各社直近決算短信のトレーリング12ヶ月EBITDAを使用</div>
+        <div class="sotp-row"><span class="k"><b>3984 ユーザーローカル（本レポート）</b></span><span class="v"><b>予想8.6倍 · 実績7.9倍 · ROCE 24%</b></span></div>
+        <div class="sotp-row"><span class="k">3922 PR TIMES</span><span class="v">実績5.7倍 · ネットキャッシュ時価総額比~28%</span></div>
+        <div class="sotp-row"><span class="k">4165 プレイド</span><span class="v">実績15.3倍 · CXプラットフォーム</span></div>
+        <div class="sotp-row"><span class="k">4382 HEROZ</span><span class="v">実績34.7倍 · プロジェクト比率高</span></div>
+        <div class="sotp-row"><span class="k">5574 ABEJA</span><span class="v">実績38.2倍 · 早期段階</span></div>
+        <div class="sotp-foot">トレーリングベースで見ると、ユーザーローカルは上場日本単一セグメントSaaS帯の下端でPR TIMESと並び、AI-DX寄りのピア（プレイド・HEROZ・ABEJA）よりも大幅に低い倍率で取引されている。トレーリング倍率はトレーリング12ヶ月EBITDAを用いており、トレーリング営業利益ではない。ユーザーローカルの予想倍率はFY26ガイダンス営業利益¥2,207Mを使用。ピア予想倍率は各社の予想ガイダンスを別途取得・別途日付管理する必要があるため算出していない。EVは全てスナップショット日（2026年5月22日）の終値で再算定。</div>
       </div>
 
       <div class="sotp-card">
@@ -909,31 +908,4 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
       </p>
       <p class="d-jp-note">
         This material is not an investment advisory or agency business under Japan's Financial Instruments and Exchange Act, and is not intended to solicit or recommend the purchase, sale, or other transaction of any specific securities. This material is an analytical study published for educational and research purposes. JII (Japan Investor Interface Co., Ltd.) bears no responsibility for any investment decisions made based on the contents of this material. All investment decisions should be made based on your own responsibility and independent research.
-      </p>
-    </div>
-  </section>
-
-  <div class="meth">
-    <span><a href="/compounders/">すべての銘柄レポート</a> · <a href="/compounders/methodology/">分析手法</a></span>
-    <span>株式会社ジャパン・インベスター・インターフェース</span>
-  </div>
-
-</article>
-
-
-<!-- ============================== SHARE BAR · WIRING ============================== -->
-<script>
-(function(){
-  var root = document.getElementById('jii-share');
-  if(!root) return;
-  var text = root.dataset.shareText;
-  var url = root.dataset.shareUrl;
-  var subject = root.dataset.shareSubject;
-  var copyLabel = root.dataset.copyLabel;
-  var copiedLabel = root.dataset.copiedLabel;
-  var e = encodeURIComponent;
-
-  var x = root.querySelector('.share-x');
-  if(x) x.href = 'https://twitter.com/intent/tweet?text=' + e(text) + '&url=' + e(url);
-  var em = root.querySelector('.share-em');
-  if(em) em.href =
+ 
