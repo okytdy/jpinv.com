@@ -3,53 +3,84 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>招集通知翻訳｜議案・添付書類・役職名まで整合させる英訳支援 | JII</title>
-<meta name="description" content="株主総会の招集通知翻訳に特化。招集通知本文、事業報告、計算書類関連、参考書類、議案関連資料を対象に、役職名・部署名・固有名詞・候補者経歴まで整合させた英訳を支援します。">
-<link rel="canonical" href="https://jpinv.com/サービス/招集通知翻訳/">
-<link rel="alternate" hreflang="ja" href="https://jpinv.com/サービス/招集通知翻訳/">
+<title>招集通知英訳・株主総会招集通知 英訳支援｜株主総会資料・電子提供に対応｜JII</title>
+<meta name="description" content="招集通知英訳（株主総会招集通知 英訳・招集通知 翻訳）を、発送日・電子提供日から逆算した進行で支援。招集通知本文、株主総会資料、電子提供措置事項の範囲整理から、TDnet登録時の扱い・自社サイト掲載・訂正差分反映まで当社が伴走します。">
+<link rel="canonical" href="https://jpinv.com/サービス/shareholder-meeting-notice-translation/">
+<link rel="alternate" hreflang="ja" href="https://jpinv.com/サービス/shareholder-meeting-notice-translation/">
+<link rel="alternate" hreflang="en" href="https://jpinv.com/en/services/shareholder-meeting-notice-translation/">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#1a2a4a;--ink-mid:#172641;--ink-soft:#304466;--rule:#d6dee8;--bg:#fff;--bg-soft:#fafbfc;--text:#1f2937;--accent:#9a7838;--serif:'Noto Serif JP','Yu Mincho',serif;--sans:'Noto Sans JP','Yu Gothic',sans-serif;--mono:'DM Mono',monospace;--max:1100px;--gutter:44px;--pad:60px}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.8}.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}section{padding:var(--pad) 0;border-bottom:1px solid var(--rule)}
-.label{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;color:var(--ink-soft);text-transform:uppercase}.rule-accent{width:34px;height:2px;background:var(--accent);margin:14px 0 22px}.mincho-xl{font-family:var(--serif);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:400;line-height:1.45;color:var(--ink)}.mincho-lg{font-family:var(--serif);font-size:clamp(1.3rem,2.6vw,1.9rem);font-weight:400;line-height:1.5;color:var(--ink)}
-.hero{padding:72px 0 56px;background:var(--bg-soft)}.lead{max-width:840px;font-size:.98rem}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{border:1px solid var(--rule);padding:18px;background:#fff}.faq-item{border-top:1px solid var(--rule);padding:16px 0}.faq-item:last-child{border-bottom:1px solid var(--rule)}.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}.btn{display:inline-block;text-decoration:none;font-size:.84rem;letter-spacing:.05em;padding:13px 24px}.btn-primary{background:var(--ink);color:#fff}.btn-outline{border:1px solid var(--ink-mid);color:var(--ink)}
-@media(max-width:900px){:root{--gutter:22px;--pad:44px}.grid{grid-template-columns:1fr}.hero-ctas{flex-direction:column}.hero-ctas .btn{width:100%;text-align:center}}
+:root{--ink:#1a2a4a;--ink-mid:#172641;--ink-soft:#304466;--rule:#d6dee8;--bg:#fff;--bg-mid:#f5f7fa;--bg-soft:#fafbfc;--text:#1f2937;--text-mid:#4a5566;--accent:#9a7838;--serif:'Noto Serif JP','Yu Mincho',serif;--sans:'Noto Sans JP','Yu Gothic',sans-serif;--mono:'DM Mono',monospace;--max:1100px;--gutter:44px;--pad:60px}
+*,*::before,*::after{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.8}a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}section{padding:var(--pad) 0;border-bottom:1px solid var(--rule)}
+.label{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;color:var(--ink-soft);text-transform:uppercase}.rule-accent{width:34px;height:2px;background:var(--accent);margin:14px 0 22px}
+.mincho-xl{font-family:var(--serif);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:400;line-height:1.45;color:var(--ink)}.mincho-lg{font-family:var(--serif);font-size:clamp(1.3rem,2.6vw,1.9rem);font-weight:400;line-height:1.5;color:var(--ink)}
+.btn{display:inline-block;text-decoration:none;font-size:.84rem;letter-spacing:.05em;padding:13px 24px}.btn-primary{background:var(--ink);color:#fff}.btn-outline{border:1px solid var(--ink-mid);color:var(--ink)}
+.hero{padding:72px 0 56px;background:var(--bg-soft)}.lead{max-width:840px;font-size:.98rem}.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin:26px 0 10px}
+.ServiceProblemGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.ServiceProblemCard{border:1px solid var(--rule);background:#fff;padding:18px;display:grid;gap:8px}.ServiceProblemCard .meta{display:flex;justify-content:space-between;align-items:center}.ServiceProblemCard .tag{font-size:.72rem;background:var(--bg-mid);padding:2px 8px;border-radius:999px;color:var(--ink-soft)}.ServiceProblemCard .num{font-family:var(--mono);font-size:.8rem;color:var(--ink-soft)}.ServiceProblemCard h3{margin:0;font-size:1rem;color:var(--ink);line-height:1.5}.ServiceProblemCard p{margin:0;font-size:.9rem;line-height:1.65}
+.ServiceUseCaseAccordion .acc-item{border:1px solid var(--rule);margin-bottom:10px;background:#fff}.ServiceUseCaseAccordion button{width:100%;text-align:left;background:none;border:0;padding:16px;font-size:1rem;color:var(--ink);display:flex;justify-content:space-between;align-items:center;cursor:pointer}.ServiceUseCaseAccordion button:focus-visible{outline:2px solid #4967a6;outline-offset:2px}.ServiceUseCaseAccordion .panel{padding:0 16px 16px;display:none}.ServiceUseCaseAccordion .panel p{margin:0;font-size:.9rem;line-height:1.65}.ServiceUseCaseAccordion .acc-item.open .panel{display:block}
+.ServiceProcessTimeline{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.process-step{border:1px solid var(--rule);padding:14px;background:#fff}.process-step .no{font-family:var(--mono);color:var(--ink-soft);font-size:.74rem}.process-step h3{margin:6px 0;font-size:.96rem}.process-step p{margin:0;font-size:.88rem}
+.ServiceDifferentiatorGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.diff-card{border:1px solid var(--rule);padding:16px;background:#fff}.diff-card h3{margin:0 0 8px;font-size:1rem;color:var(--ink)}.diff-card p{margin:0;font-size:.88rem;line-height:1.65;color:var(--text-mid)}
+.cta-box{border:1px solid var(--rule);background:var(--bg-soft);padding:24px}
+.ServiceRelatedMap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.related-col{border:1px solid var(--rule);padding:16px}.related-col h3{margin:0 0 8px}.related-col ul{list-style:none;padding:0;margin:0}.related-col li{margin:8px 0}
+@media(max-width:900px){:root{--gutter:22px;--pad:44px}.ServiceProblemGrid,.ServiceProcessTimeline,.ServiceDifferentiatorGrid,.ServiceRelatedMap{grid-template-columns:1fr}.hero-ctas{flex-direction:column}.hero-ctas .btn{width:100%;text-align:center}}
 </style>
 </head>
 <body>
 <section class="hero"><div class="wrap">
-  <span class="label">Shareholder Meeting Convocation Notice Translation</span>
-  <h1 class="mincho-xl">招集通知翻訳</h1>
+  <span class="label">招集通知英訳 / Shareholder Meeting Notice Translation</span>
+  <h1 class="mincho-xl">招集通知英訳を、株主総会実務の進行に合わせて設計する</h1>
   <div class="rule-accent"></div>
-  <p class="lead">本ページは、<strong>株主総会の開示資料</strong>を対象にした招集通知翻訳専用ページです。一般的なIR資料全般ではなく、議案構成、添付書類、役職名、候補者情報の整合が求められる文書実務に特化して、海外株主向けの英訳を支援します。</p>
-  <div class="hero-ctas"><a class="btn btn-primary" href="/お問い合わせ/?rfq_service=IR・開示資料の翻訳&document_type=株主総会招集通知&source_language=日本語&target_language=英語">招集通知翻訳を相談する</a><a class="btn btn-outline" href="/料金/">料金を見る</a></div>
+  <p class="lead">招集通知英訳（株主総会招集通知 英訳）は、発送準備・電子提供・社内承認が並行する中で進みます。招集通知本文に加え、参考書類などの株主総会資料や電子提供措置事項をどこまで英語化するかを先に決めないと、確認負荷が後半に集中します。Notice of Convocation of the Annual General Meeting of Shareholders の実務で、当社は招集通知 翻訳の範囲と進め方を運用に合わせて設計します。</p>
+  <div class="hero-ctas">
+    <a class="btn btn-primary" href="/お問い合わせ/?rfq_service=IR・開示資料の翻訳&document_type=招集通知&source_language=日本語&target_language=英語">見積を依頼する</a>
+    <a class="btn btn-outline" href="/お問い合わせ/" onclick="try{sessionStorage.setItem('jii_inquiry_context','30分無料相談');}catch(e){}">30分無料相談を申し込む</a>
+  </div>
 </div></section>
-
-<section><div class="wrap"><h2 class="mincho-lg">対応範囲（招集通知関連ドキュメント）</h2><div class="grid">
-  <article class="card"><h3>招集通知本文</h3><p>日時・場所・目的事項・議決権行使案内など、株主への案内文を法務・IR双方の文脈で読み替えます。</p></article>
-  <article class="card"><h3>事業報告</h3><p>事業の経過、対処すべき課題、ガバナンス関連記載を、既存の英文開示と語彙を合わせて表現します。</p></article>
-  <article class="card"><h3>計算書類関連</h3><p>貸借対照表、損益計算書、注記、監査関連記載など、会計用語の連続性を維持して英訳します。</p></article>
-  <article class="card"><h3>参考書類</h3><p>議案の提案理由、候補者属性、社外要件、独立性判断など、判断材料となる記述を過不足なく整理します。</p></article>
-  <article class="card"><h3>議案関連資料</h3><p>定款変更、取締役選任、報酬改定、自己株関連など、議案タイプごとに表現の型をそろえて訳出します。</p></article>
+<section><div class="wrap"><h2 class="mincho-lg">よくある課題</h2><div class="ServiceProblemGrid">
+<article class="ServiceProblemCard"><div class="meta"><span class="tag">納期</span><span class="num">01</span></div><h3>発送日から逆算すると、英訳確認に使える時間が極端に短い</h3><p>日本語最終化・版下調整・印刷工程が重なるため、初稿だけでなく最終差分確認の時間を最初から確保する必要があります。</p></article>
+<article class="ServiceProblemCard"><div class="meta"><span class="tag">範囲</span><span class="num">02</span></div><h3>招集通知本文と株主総会資料のどこまでを英訳対象にするか毎回ぶれる</h3><p>参考書類・事業報告・監査報告・電子提供事項で必要な英語の粒度は異なります。公開範囲を先に整理することが重要です。</p></article>
+<article class="ServiceProblemCard"><div class="meta"><span class="tag">更新</span><span class="num">03</span></div><h3>訂正・差し替え時に、どこまで英語へ反映済みか追いにくい</h3><p>議案や参考書類の一部改定が後半で入ると、英語側の反映漏れリスクが高まります。差分管理の設計が不可欠です。</p></article>
+<article class="ServiceProblemCard"><div class="meta"><span class="tag">用語</span><span class="num">04</span></div><h3>役員選任・報酬・監査関連の表現が年度ごとに揺れる</h3><p>過年度招集通知との用語整合が取れないと、海外投資家にとって継続比較しづらい英文資料になります。</p></article>
+<article class="ServiceProblemCard"><div class="meta"><span class="tag">判断</span><span class="num">05</span></div><h3>全文英訳か要約英訳かの判断基準が毎年ぶれる</h3><p>読者、掲載媒体、運用負荷を整理しないまま進めると、納期・コスト・品質のバランスが崩れやすくなります。</p></article>
+<article class="ServiceProblemCard"><div class="meta"><span class="tag">連携</span><span class="num">06</span></div><h3>招集通知と関連資料の提出・掲載区分が関係者間でずれやすい</h3><p>東証提出やTDnet登録時の扱い、自社サイト掲載の分け方が揃わないと、最終局面で手戻りが増えます。</p></article>
 </div></div></section>
-
-<section><div class="wrap"><h2 class="mincho-lg">なぜ総会資料は「直訳」で足りないのか</h2><p>招集通知は、株主が議決権行使を判断するための文書です。文言の正確性だけでなく、議案間の論理関係、候補者比較の見やすさ、添付書類との参照整合まで含めて設計する必要があります。JIIでは単純な言い換えではなく、読み手が判断に必要な情報を取りこぼさない構成で英訳します。</p></div></section>
-
-<section><div class="wrap"><h2 class="mincho-lg">役職名・部署名・固有名詞・候補者経歴の整合</h2><p>総会資料では、同一人物の肩書・部署名・委員会名がページをまたいで繰り返し登場します。表記ゆれは信頼性を損なうため、案件ごとに対訳表を作成し、候補者経歴の年次・職歴・兼任情報まで照合して統一します。会社名や製品名など固有名詞の英表記は、既存の有報・統合報告書・適時開示との一致を優先します。</p></div></section>
-
-<section><div class="wrap"><h2 class="mincho-lg">年度開示全体との用語整合の進め方</h2><p>招集通知だけを独立処理せず、決算短信、有価証券報告書、統合報告書、IRサイト英語版の既存表現を参照して基準語彙を固定します。年度内で用語を使い分けると海外投資家の理解コストが上がるため、総会資料を年次開示チェーンの一部として位置づけて運用します。</p><p>関連サービスとして、<a href="/サービス/決算短信翻訳/">決算短信翻訳</a>や<a href="/サービス/annual-securities-report-translation/">有価証券報告書英訳</a>との連携にも対応します。</p></div></section>
-
-<section><div class="wrap"><h2 class="mincho-lg">機密情報の取扱い（NDA・AI利用方針）</h2><p>NDA締結を前提に、未公表議案や候補者情報のアクセス範囲を案件単位で制御します。AI利用は、要約補助・整合確認など限定用途にとどめ、最終原稿は人手での対訳確認・体裁確認を実施します。機密度に応じて、AI不使用運用にも対応可能です。</p></div></section>
-
-<section id="faq"><div class="wrap"><h2 class="mincho-lg">FAQ</h2>
-<div class="faq-item"><h3>Q1. 招集通知だけを単発で依頼できますか？</h3><p>A. はい、可能です。単発案件でも、過去の英訳開示との整合を確認したうえで返却します。</p></div>
-<div class="faq-item"><h3>Q2. 候補者経歴の英語表現まで見てもらえますか？</h3><p>A. 対応可能です。職歴・役職名・兼任先の表記を資料内および過年度資料間で統一します。</p></div>
-<div class="faq-item"><h3>Q3. 株主総会資料以外のIR資料も同時に依頼できますか？</h3><p>A. 可能です。ただし本ページは株主総会開示資料向けの案内です。その他資料は対象ページで要件を分けて設計します。</p></div>
-<div class="hero-ctas"><a class="btn btn-primary" href="/お問い合わせ/?rfq_service=IR・開示資料の翻訳&document_type=株主総会招集通知&source_language=日本語&target_language=英語">総会開示資料の英訳を相談する</a><a class="btn btn-outline" href="/サービス/">サービス一覧へ戻る</a></div>
-</div></section>
-
-<section><div class="wrap"><h2 class="mincho-lg">ご相談（CTA）</h2><p>招集通知本文のみ、添付書類を含む一式、議案関連資料のみなど、必要範囲に応じてお見積りします。納期、参考資料、既存英訳の有無をご共有ください。</p><div class="hero-ctas"><a class="btn btn-primary" href="/お問い合わせ/">お問い合わせ</a><a class="btn btn-outline" href="/会社概要/">会社概要を見る</a></div></div></section>
-</body></html>
+<section><div class="wrap"><h2 class="mincho-lg">このような場合にご相談ください</h2><div class="ServiceUseCaseAccordion" id="usecase-accordion">
+<article class="acc-item open"><button aria-expanded="true" aria-controls="uc-1" id="btn-uc-1">短納期で招集通知英訳を回しつつ、日本語版の確定を遅らせたくない<span>＋</span></button><div class="panel" id="uc-1" role="region" aria-labelledby="btn-uc-1"><p>発送日基準でマイルストーンを設定し、先行確認箇所と最終確定箇所を分けて進めます。日本語版優先の実務を維持しながら英語側の遅延を抑えます。</p></div></article>
+<article class="acc-item"><button aria-expanded="false" aria-controls="uc-2" id="btn-uc-2">招集通知本文と株主総会資料の英訳範囲を整理したい<span>＋</span></button><div class="panel" id="uc-2" role="region" aria-labelledby="btn-uc-2"><p>全文英訳と一部英訳の線引きを、参考書類・事業報告・監査報告・電子提供事項ごとに決めます。英語版の掲載範囲も合わせて整理します。</p></div></article>
+<article class="acc-item"><button aria-expanded="false" aria-controls="uc-3" id="btn-uc-3">議案・役員選任・報酬関連の表現を過年度とそろえたい<span>＋</span></button><div class="panel" id="uc-3" role="region" aria-labelledby="btn-uc-3"><p>過年度招集通知、関連IR資料、社内用語集を参照し、継続比較しやすい英語表現へ統一します。</p></div></article>
+<article class="acc-item"><button aria-expanded="false" aria-controls="uc-4" id="btn-uc-4">訂正・差し替え時の英語反映を可視化したい<span>＋</span></button><div class="panel" id="uc-4" role="region" aria-labelledby="btn-uc-4"><p>日本語変更点に対応する英語更新箇所を紐づけ、反映ステータスを追える形で進行します。最終確認の負荷を抑えます。</p></div></article>
+<article class="acc-item"><button aria-expanded="false" aria-controls="uc-5" id="btn-uc-5">発送・電子提供・掲載の進行に合わせて英語版を回したい<span>＋</span></button><div class="panel" id="uc-5" role="region" aria-labelledby="btn-uc-5"><p>発送日と電子提供日から逆算して確認順を決め、最終盤の差し替えにも追従しやすい形で進めます。関係者ごとの確認ポイントも明確化します。</p></div></article>
+<article class="acc-item"><button aria-expanded="false" aria-controls="uc-6" id="btn-uc-6">招集通知と関連資料を関係者が確認しやすい形にしたい<span>＋</span></button><div class="panel" id="uc-6" role="region" aria-labelledby="btn-uc-6"><p>招集通知本文と関連資料の区分をそろえ、TDnet登録時のタイトル・掲載単位や自社サイト掲載で迷いにくい英語原稿に整理します。</p></div></article>
+</div></div></section>
+<section><div class="wrap"><h2 class="mincho-lg">進め方</h2><div class="ServiceProcessTimeline"><article class="process-step"><div class="no">01</div><h3>対象範囲と日程の確認</h3><p>株主総会招集通知 英訳の対象範囲、発送日、電子提供日、掲載予定を確認します。</p></article><article class="process-step"><div class="no">02</div><h3>過年度資料・用語・資料区分の整理</h3><p>過年度招集通知英訳、議案類型、役職表記を突き合わせ、招集通知本文と株主総会資料の区分を揃えます。</p></article><article class="process-step"><div class="no">03</div><h3>英訳作成と差分更新対応</h3><p>初稿作成後も日本語改定に追従し、議案・注記・関連項目の整合を維持します。</p></article><article class="process-step"><div class="no">04</div><h3>最終確認と掲載・提出運用への受け渡し</h3><p>日英整合、反映漏れ、TDnet登録時の扱いと自社サイト掲載体裁を確認し、運用に載せやすい形で納品します。</p></article></div></div></section>
+<section><div class="wrap"><h2 class="mincho-lg">当社が支援すること</h2><div class="ServiceDifferentiatorGrid">
+<article class="diff-card"><h3>発送日逆算の進行管理</h3><p>最終日だけでなく、初稿・差分・最終反映の各締切を設計し、短納期でも手戻りを抑えます。</p></article>
+<article class="diff-card"><h3>招集通知本文と関連資料の範囲整理</h3><p>議案番号、役職名、参考書類の対応を日英で紐づけ、招集通知本文と株主総会資料の区分を明確にします。</p></article>
+<article class="diff-card"><h3>全文英訳/要約英訳の運用設計</h3><p>対象読者と媒体要件を踏まえ、参考書類・事業報告・監査報告の英訳範囲を整理します。</p></article>
+<article class="diff-card"><h3>過年度との継続性</h3><p>前年表現との整合を重視し、海外投資家が年度比較しやすい英語に整えます。</p></article>
+<article class="diff-card"><h3>訂正・差し替えへの追従</h3><p>変更管理を前提にした運用で、最終局面の反映漏れリスクを抑制します。</p></article>
+<article class="diff-card"><h3>発送・電子提供を見据えた進行</h3><p>法務・IR・印刷会社・Web担当の実作業に合わせ、発送日と電子提供日を基準に実行可能な英訳フローを組み立てます。</p></article>
+</div></div></section>
+<section><div class="wrap cta-box"><h2 class="mincho-lg">招集通知英訳のご相談</h2><p>株主総会招集通知 英訳の短納期対応、招集通知本文と株主総会資料の範囲設計、全文英訳/要約英訳の判断、訂正差分対応、電子提供と掲載運用の整理まで実務論点からご相談いただけます。</p><div class="hero-ctas"><a class="btn btn-primary" href="/お問い合わせ/?rfq_service=IR・開示資料の翻訳&document_type=招集通知&source_language=日本語&target_language=英語">見積を依頼する</a><a class="btn btn-outline" href="/お問い合わせ/" onclick="try{sessionStorage.setItem('jii_inquiry_context','30分無料相談');}catch(e){}">30分無料相談を申し込む</a></div></div></section>
+<section><div class="wrap"><h2 class="mincho-lg">関連サービス</h2><div class="ServiceRelatedMap"><article class="related-col"><h3>あわせてご相談いただける内容</h3><ul><li><a href="/サービス/kessan-tanshin-translation/">決算短信英訳</a></li><li><a href="/サービス/timely-disclosure-translation/">適時開示英訳</a></li><li><a href="/サービス/interpretation/">決算説明会通訳</a></li><li><a href="/サービス/earnings-presentation-translation/">IR資料英訳</a></li></ul></article><article class="related-col"><h3>発注前に確認する</h3><ul><li><a href="/料金/">料金</a></li><li><a href="/faq/">FAQ</a></li><li><a href="/お問い合わせ/">お問い合わせフォーム</a></li></ul></article><article class="related-col"><h3>サービス一覧</h3><ul><li><a href="/サービス/">サービス一覧</a></li></ul></article></div></div></section>
+<script>
+(function(){
+  var root=document.getElementById('usecase-accordion');
+  if(!root) return;
+  root.querySelectorAll('button').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var item=btn.closest('.acc-item');
+      var open=item.classList.contains('open');
+      item.classList.toggle('open',!open);
+      btn.setAttribute('aria-expanded',String(!open));
+    });
+  });
+})();
+</script>
+</body>
+</html>
