@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>3984 User Local | JII Compounder Profile</title>
+<meta name="description" content="A JII Compounder Profile on 3984 User Local, covering single-segment SaaS economics, the AI-DX growth premium debate, the cash policy, and investor scenarios.">
+<meta property="og:title" content="3984 User Local | JII Compounder Profile">
+<meta property="og:description" content="A JII Compounder Profile on 3984 User Local, covering single-segment SaaS economics, the AI-DX growth premium debate, the cash policy, and investor scenarios.">
+<meta property="og:url" content="https://jpinv.com/en/compounders/3984/">
+<link rel="canonical" href="https://jpinv.com/en/compounders/3984/">
+<link rel="alternate" hreflang="en" href="https://jpinv.com/en/compounders/3984/">
+<link rel="alternate" hreflang="ja" href="https://jpinv.com/compounders/3984/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://jpinv.com/og/3984.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="JII Compounder Profile · 3984">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jpinv.com/og/6947.png">
+<meta name="twitter:image:alt" content="JII Compounder Profile · 6947">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     JII Compounders · Profile page
+     Methodology: https://jpinv.com/en/compounders/methodology/
+     ============================================================ */
+  :root {
+    --ink:        #1a2a4a;
+    --ink-mid:    #172641;
+    --ink-soft:   #304466;
+    --rule:       #d6dee8;
+    --rule-soft:  #e8edf3;
+    --bg:         #ffffff;
+    --bg-mid:    #f5f7fa;
+    --bg-soft:   #fafbfc;
+    --text:       #1f2937;
+    --text-mid:  #4a5566;
+    --text-dim:  #5f6875;
+    --accent:    #9a7838;
+    --accent-deep:#9a7838;
+    --accent-soft:#f4eee4;
+    --bad:       #b91c1c;
+    --warn:      #8a682b;
+    --ok:        #2f6f4f;
+    --serif: 'Noto Serif JP', 'Yu Mincho', serif;
+    --sans:  'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+    --mono:  'DM Mono', monospace;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg-mid); }
+  body { display: flex; justify-content: center; padding: 30px 0; font-family: var(--sans); color: var(--text); font-size: 14px; line-height: 1.65; }
+
+  .card {
+    background: var(--bg); color: var(--text); width: 100%; max-width: 1200px; margin: 0 auto;
+    box-shadow: 0 30px 80px rgba(15,31,58,0.10), 0 1px 3px rgba(15,31,58,0.06);
+    border: 1px solid var(--rule);
+  }
+
+  /* ---- MASTHEAD ---- */
+  .masthead { position: relative; overflow: hidden; background: var(--bg); border-bottom: 1px solid var(--rule); }
+  .masthead::before {
+    content:''; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(15,31,58,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(15,31,58,0.04) 1px, transparent 1px);
+    background-size: 64px 64px;
+    -webkit-mask-image: linear-gradient(180deg, transparent, black 12%, black 88%, transparent);
+            mask-image: linear-gradient(180deg, transparent, black 12%, black 88%, transparent);
+    pointer-events: none;
+  }
+  .masthead::after {
+    content:''; position: absolute; width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(15,31,58,0.045) 0%, transparent 70%);
+    top: -160px; right: -200px; pointer-events: none;
+  }
+  .masthead-inner { position: relative; z-index: 2; padding: 32px 56px 28px; display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: end; }
+
+  .brand { display: flex; flex-direction: column; gap: 4px; align-items: flex-start; }
+  .brand-home-link { display:flex; flex-direction:column; gap:4px; align-items:flex-start; color:inherit; text-decoration:none; }
+  .brand-home-link:hover .brand-mono, .brand-home-link:hover .brand-eyebrow { color:var(--ink); }
+  .brand-home-link:focus-visible { outline:2px solid var(--accent); outline-offset:6px; }
+  .brand-mono { font-family: var(--serif); font-size: 28px; font-weight: 300; letter-spacing: 0.04em; color: var(--ink-mid); line-height: 1; }
+  .brand-mono .pipe { color: var(--accent); font-weight: 200; margin: 0 4px; }
+  .brand-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; color: var(--accent-deep); text-transform: uppercase; margin-top: 12px; font-weight: 500; }
+
+  .head-main { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; text-align: right; }
+  .report-locale { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 8px; }
+  .report-locale a { color: var(--ink-soft); padding: 5px 10px; border: 1px solid var(--rule); margin-left: 6px; text-decoration: none; }
+  .report-locale a.current { background: var(--bg-soft); border-color: var(--ink-mid); color: var(--ink-mid); }
+  .head-ticker-row { display: flex; align-items: baseline; gap: 16px; }
+  .head-ticker { font-family: var(--mono); font-size: 12px; color: var(--ink-soft); letter-spacing: 0.18em; }
+  .head-co-jp { font-family: var(--serif); font-size: 14.5px; color: var(--text-mid); letter-spacing: 0.04em; }
+  .head-co { font-family: var(--serif); font-size: 40px; font-weight: 300; color: var(--ink-mid); line-height: 1.05; letter-spacing: 0.01em; margin-top: 4px; }
+  .head-industry { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-top: 6px; }
+
+  /* Stat strip (font sizes bumped) */
+  .stat-strip { display: grid; grid-template-columns: 1.05fr 1.05fr 1.1fr 1.05fr 1.1fr 1.1fr; gap: 0; border-top: 1px solid var(--rule); position: relative; z-index: 2; background: var(--bg-soft); }
+  .stat { padding: 15px 18px; border-right: 1px solid var(--rule); text-align: left; }
+  .stat:last-child { border-right: none; }
+  .stat-label { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 7px; font-weight: 500; }
+  .stat-val { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--ink-mid); line-height: 1.05; }
+  .stat-val small { font-family: var(--mono); font-size: 11px; color: var(--text-dim); margin-left: 4px; font-weight: 400; letter-spacing: 0.04em; }
+  .stat-ctx { font-family: var(--mono); font-size: 10.5px; color: var(--text-mid); margin-top: 6px; letter-spacing: 0.04em; line-height: 1.45; }
+  .stat-ctx .dn { color: var(--bad); font-weight: 500; }
+  .stat-ctx .up { color: var(--ok); font-weight: 500; }
+  .stat-ctx b { color: var(--ink-mid); font-weight: 500; }
+
+  /* ---- SECTIONS (font sizes bumped) ---- */
+  .section { padding: 36px 56px 36px; border-bottom: 1px solid var(--rule); }
+  .section.gem { background: linear-gradient(180deg, rgba(176,138,74,0.055) 0%, rgba(176,138,74,0.01) 60%); }
+  .section-head { margin-bottom: 22px; display: flex; flex-direction: column; gap: 8px; max-width: 1080px; }
+  .section-num { font-family: var(--mono); font-size: 10px; letter-spacing: 0.26em; color: var(--accent-deep); font-weight: 500; }
+  .section-title { font-family: var(--serif); font-size: 30px; font-weight: 300; color: var(--ink-mid); margin: 0; letter-spacing: 0.01em; line-height: 1.2; }
+  .section-sub { font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--text-mid); line-height: 1.55; margin: 0; }
+  .section-sub b { color: var(--ink-mid); font-weight: 500; font-style: normal; }
+
+  /* ---- CHART (TradingView widget) ---- */
+  .chart-wrap { background: var(--bg-soft); border: 1px solid var(--rule); padding: 0; }
+  .chart-meta { display: flex; justify-content: space-between; align-items: baseline; padding: 16px 22px 14px; border-bottom: 1px solid var(--rule); flex-wrap: wrap; gap: 10px; }
+  .chart-title { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; }
+  .chart-key-levels { display: flex; gap: 22px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; }
+  .chart-key-levels span { color: var(--text-mid); }
+  .chart-key-levels b { color: var(--ink-mid); font-weight: 500; }
+  .chart-key-levels .peak b { color: var(--ok); }
+  .chart-key-levels .trough b { color: var(--bad); }
+  .tv-container { position: relative; height: 460px; }
+  .chart-legend { display: flex; gap: 22px; padding: 12px 22px; background: var(--bg-soft); border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.06em; color: var(--text-mid); flex-wrap: wrap; }
+  .chart-legend .leg-item { display: inline-flex; align-items: center; gap: 7px; }
+  .chart-legend .leg-swatch { display: inline-block; width: 16px; height: 3px; }
+  .chart-legend .leg-swatch.dashed { background: repeating-linear-gradient(90deg, var(--accent) 0 4px, transparent 4px 7px); height: 2px; }
+  .chart-legend .leg-swatch.candle { width: 10px; height: 12px; border-left: 3px solid var(--ok); border-right: 3px solid var(--bad); background: var(--text-dim); }
+  .chart-legend .leg-swatch.hist { background: rgba(48,68,102,0.45); }
+
+  /* ---- REGIME narrative ---- */
+  .regime-narr { font-family: var(--serif); font-size: 15px; color: var(--text); line-height: 1.85; max-width: 1080px; margin-top: 26px; }
+  .regime-narr p { margin: 0 0 16px; }
+  .regime-narr p:last-child { margin-bottom: 0; }
+  .regime-narr b { color: var(--ink-mid); font-weight: 500; }
+  .regime-narr .pin { font-family: var(--mono); font-size: 10.5px; font-weight: 500; letter-spacing: 0.16em; color: var(--accent-deep); margin-right: 8px; }
+  .regime-narr .up { color: var(--ok); font-weight: 500; }
+  .regime-narr .dn { color: var(--bad); font-weight: 500; }
+  .regime-narr .neutral { color: var(--ink-soft); font-weight: 500; }
+
+  /* ---- CONTENTION (font sizes bumped) ---- */
+  .ct-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px; }
+  .ct-card { background: var(--bg-mid); border: 1px solid var(--rule); border-left: 2px solid var(--accent); padding: 22px 22px 18px; }
+  .ct-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--accent-deep); text-transform: uppercase; margin-bottom: 10px; font-weight: 500; }
+  .ct-q { font-family: var(--serif); font-size: 16px; color: var(--ink-mid); line-height: 1.35; margin-bottom: 14px; font-weight: 400; }
+  .ct-side { display: flex; gap: 11px; margin-bottom: 11px; align-items: flex-start; }
+  .ct-side-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; padding: 2px 7px; border: 1px solid; flex: none; min-width: 42px; text-align: center; line-height: 1.4; font-weight: 500; }
+  .ct-side-tag.bull { color: var(--ok); border-color: var(--ok); }
+  .ct-side-tag.bear { color: var(--bad); border-color: var(--bad); }
+  .ct-side-text { font-family: var(--sans); font-size: 13px; color: var(--text); line-height: 1.55; }
+  .ct-side-text b { color: var(--ink-mid); font-weight: 500; }
+  .ct-proof { font-family: var(--mono); font-size: 10px; letter-spacing: 0.05em; color: var(--text-mid); margin-top: 14px; padding-top: 11px; border-top: 1px solid var(--rule); }
+  .ct-proof span { color: var(--accent-deep); text-transform: uppercase; letter-spacing: 0.14em; font-weight: 500; }
+
+  /* ---- CATALYST (font sizes bumped) ---- */
+  .cat-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px; }
+  .cat-card { background: var(--bg); border: 1px solid var(--rule); border-top: 2px solid var(--accent); padding: 22px; }
+  .cat-num { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--accent-deep); margin-bottom: 10px; font-weight: 500; }
+  .cat-title { font-family: var(--serif); font-size: 16.5px; color: var(--ink-mid); line-height: 1.3; font-weight: 400; margin-bottom: 14px; }
+  .cat-viz { background: var(--bg-mid); border: 1px solid var(--rule-soft); padding: 13px 15px; margin: 10px 0 14px; }
+  .cat-viz-label { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 9px; font-weight: 500; }
+  .cat-viz-bar-row { display: flex; align-items: center; gap: 9px; margin: 6px 0; font-family: var(--mono); font-size: 11px; }
+  .cat-viz-bar-label { width: 100px; color: var(--text-mid); font-size: 11px; }
+  .cat-viz-bar-track { flex: 1; height: 16px; background: var(--bg); border: 1px solid var(--rule-soft); position: relative; }
+  .cat-viz-bar-fill { height: 100%; }
+  .cat-viz-bar-val { width: 64px; text-align: right; color: var(--ink-mid); font-size: 11px; font-weight: 500; }
+  .cat-viz-cap { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; color: var(--accent-deep); text-transform: uppercase; margin-top: 9px; padding-top: 7px; border-top: 1px dashed var(--rule); font-weight: 500; }
+  .cat-takeaway { font-family: var(--sans); font-size: 13px; color: var(--text); line-height: 1.65; margin-top: 4px; }
+  .cat-takeaway b { color: var(--ink-mid); font-weight: 500; }
+  .cat-meta { display: flex; gap: 16px; margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--rule); }
+  .cat-meta div { flex: 1; }
+  .cat-meta dt { font-family: var(--mono); font-size: 9px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 4px; font-weight: 500; }
+  .cat-meta dd { margin: 0; font-family: var(--sans); font-size: 12.5px; color: var(--ink-mid); font-weight: 500; }
+
+  /* ---- VALUATION as 3 scenario cards ---- */
+  .scn-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px; }
+  .scn-card { padding: 24px 22px 20px; border: 1px solid var(--rule); position: relative; display: flex; flex-direction: column; }
+  .scn-card.bear { background: linear-gradient(180deg, rgba(185,28,28,0.045) 0%, rgba(185,28,28,0.01) 100%); border-top: 3px solid var(--bad); }
+  .scn-card.base { background: linear-gradient(180deg, rgba(15,31,58,0.04) 0%, rgba(15,31,58,0.005) 100%); border-top: 3px solid var(--ink-soft); }
+  .scn-card.bull { background: linear-gradient(180deg, rgba(47,111,79,0.045) 0%, rgba(47,111,79,0.01) 100%); border-top: 3px solid var(--ok); }
+  .scn-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500; }
+  .scn-tag.bear { color: var(--bad); }
+  .scn-tag.base { color: var(--ink-soft); }
+  .scn-tag.bull { color: var(--ok); }
+  .scn-price { font-family: var(--serif); font-size: 30px; font-weight: 300; color: var(--ink-mid); line-height: 1.1; margin: 8px 0 4px; letter-spacing: 0.01em; }
+  .scn-delta { font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: 0.04em; margin-bottom: 4px; }
+  .scn-delta.dn { color: var(--bad); }
+  .scn-delta.flat { color: var(--text-mid); }
+  .scn-delta.up { color: var(--ok); }
+  .scn-mult { font-family: var(--mono); font-size: 11px; color: var(--text-dim); letter-spacing: 0.06em; margin-bottom: 16px; }
+  .scn-prem { font-family: var(--serif); font-size: 14px; color: var(--ink-mid); line-height: 1.55; padding: 12px 14px; background: rgba(255,255,255,0.65); border: 1px solid var(--rule-soft); margin-bottom: 14px; }
+  .scn-prem b { color: var(--ink-mid); font-weight: 500; }
+  .scn-driver-head { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 8px; font-weight: 500; padding-top: 4px; }
+  .scn-drivers { list-style: none; margin: 0; padding: 0; }
+  .scn-drivers li { font-family: var(--sans); font-size: 12.5px; color: var(--text); line-height: 1.5; padding: 6px 0 6px 18px; position: relative; }
+  .scn-drivers li::before { content:''; position: absolute; left: 0; top: 12px; width: 8px; height: 1px; background: var(--text-dim); }
+  .scn-drivers li b { color: var(--ink-mid); font-weight: 500; }
+
+  /* SOTP */
+  .sotp { margin-top: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .sotp-card { background: var(--bg); border: 1px solid var(--rule); border-top: 2px solid var(--ink-soft); padding: 20px 22px; }
+  .sotp-head { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; }
+  .sotp-name { font-family: var(--serif); font-size: 18px; color: var(--ink-mid); margin-top: 6px; font-weight: 400; margin-bottom: 10px; }
+  .sotp-row { display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px dashed var(--rule-soft); font-size: 13px; }
+  .sotp-row:last-of-type { border: none; }
+  .sotp-row .k { color: var(--text-mid); }
+  .sotp-row .v { color: var(--ink-mid); font-family: var(--mono); font-weight: 500; }
+  .sotp-foot { margin-top: 12px; padding-top: 11px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; letter-spacing: 0.05em; color: var(--ink-mid); }
+  .sotp-foot b { color: var(--accent-deep); font-weight: 500; }
+
+  /* ---- DISCLAIMER ---- */
+  .disclaimer { padding: 32px 56px 30px; background: var(--bg-soft); border-top: 2px solid var(--rule); }
+  .disclaimer-head { margin-bottom: 16px; }
+  .d-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; color: var(--text-dim); text-transform: uppercase; font-weight: 500; }
+  .d-title { font-family: var(--serif); font-size: 22px; font-weight: 300; color: var(--ink-mid); margin: 6px 0 0; letter-spacing: 0.01em; }
+  .disclaimer-body { font-family: var(--sans); font-size: 11.5px; color: var(--text-mid); line-height: 1.75; max-width: 1080px; }
+  .disclaimer-body p { margin: 0 0 11px; }
+  .disclaimer-body b { color: var(--ink-mid); font-weight: 500; }
+  .d-jp-note { font-family: var(--serif); font-size: 11px; color: var(--text-dim); line-height: 1.8; padding-top: 8px; margin-top: 12px; border-top: 1px solid var(--rule); }
+
+  /* Methodology link (small footer) */
+  .meth { padding: 16px 56px; background: var(--bg); border-top: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: center; font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
+  .meth a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  .meth a:hover { color: var(--ink); }
+
+  /* ---- SHARE BAR ---- */
+  .share-bar { padding: 30px 56px 28px; background: var(--bg); border-top: 1px solid var(--rule); }
+  .share-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 14px; }
+  .share-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent-deep); font-weight: 500; }
+  .share-sub { font-family: var(--serif); font-size: 13px; color: var(--text-mid); letter-spacing: 0.02em; }
+  .share-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+  .share-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 9px 14px;
+    font-family: var(--sans); font-size: 12px; font-weight: 500; letter-spacing: 0.02em;
+    color: var(--ink-mid); background: var(--bg);
+    border: 1px solid var(--rule);
+    text-decoration: none; cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+  }
+  .share-btn:hover { border-color: var(--accent); color: var(--accent-deep); background: var(--accent-soft); }
+  .share-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .share-btn svg { width: 14px; height: 14px; flex-shrink: 0; fill: currentColor; }
+  .share-btn.copied { background: var(--accent-soft); border-color: var(--accent); color: var(--accent-deep); }
+  .share-perm { font-family: var(--mono); font-size: 10px; color: var(--text-dim); margin-top: 16px; letter-spacing: 0.06em; }
+  .share-perm code { font-family: var(--mono); background: var(--bg-soft); padding: 2px 6px; border: 1px solid var(--rule-soft); color: var(--ink-mid); }
+
+  /* ============================================================
+     RESPONSIVE — Mobile reading view
+     Preserves the desktop report aesthetic above 900px;
+     gracefully collapses on tablets and phones.
+     ============================================================ */
+
+  /* Tablet & landscape phones */
+  @media (max-width: 1100px) {
+    body { padding: 16px 0; }
+  }
+
+  @media (max-width: 900px) {
+    .stat-strip { grid-template-columns: 1fr 1fr 1fr; }
+    .stat-strip .stat:nth-child(3n) { border-right: none; }
+    .stat-strip .stat:nth-child(n+4) { border-top: 1px solid var(--rule); }
+    .ct-grid, .cat-grid, .scn-grid { grid-template-columns: 1fr 1fr; }
+    .sotp { grid-template-columns: 1fr; }
+    .section { padding: 32px 36px 32px; }
+    .masthead-inner { padding: 28px 36px 24px; }
+    .disclaimer, .share-bar { padding-left: 36px; padding-right: 36px; }
+  }
+
+  /* Phone — full single-column reading view */
+  @media (max-width: 760px) {
+    body { display: block; padding: 0; font-size: 15px; line-height: 1.7; background: var(--bg); }
+    .card { width: 100%; max-width: 100%; border-left: 0; border-right: 0; box-shadow: none; }
+
+    /* Masthead → stacked */
+    .masthead-inner { grid-template-columns: 1fr; padding: 26px 18px 22px; gap: 16px; align-items: stretch; }
+    .head-main { align-items: flex-start; text-align: left; }
+    .head-ticker-row { flex-wrap: wrap; gap: 10px; }
+    .head-co { font-size: 30px; }
+    .head-co-jp { font-size: 13.5px; }
+    .brand-mono { font-size: 24px; }
+
+    /* Stat strip → 2 columns */
+    .stat-strip { grid-template-columns: 1fr 1fr; }
+    .stat { padding: 13px 16px; border-bottom: 1px solid var(--rule); }
+    .stat:nth-child(2n) { border-right: none; }
+    .stat:nth-last-child(-n+2) { border-bottom: none; }
+    .stat-val { font-size: 19px; }
+
+    /* Section padding & headings */
+    .section { padding: 28px 18px 28px; }
+    .section-head { margin-bottom: 18px; }
+    .section-title { font-size: 24px; line-height: 1.25; }
+    .section-sub { font-size: 14px; }
+
+    /* Chart */
+    .tv-container { height: 320px; }
+    .chart-meta { padding: 13px 16px 11px; }
+    .chart-key-levels { gap: 14px; row-gap: 6px; }
+    .chart-legend { padding: 10px 16px; gap: 14px; row-gap: 6px; }
+
+    /* Narrative & dense-text bumps */
+    .regime-narr { font-size: 15px; line-height: 1.8; margin-top: 22px; }
+    .ct-card, .cat-card, .scn-card, .sotp-card { padding: 20px 18px; }
+    .ct-side-text { font-size: 14px; }
+    .ct-q { font-size: 16.5px; }
+    .cat-takeaway { font-size: 14px; }
+    .cat-title { font-size: 17px; }
+    .cat-viz-bar-label { width: 80px; font-size: 10.5px; }
+    .cat-viz-bar-val { width: 56px; font-size: 10.5px; }
+    .scn-drivers li { font-size: 14px; line-height: 1.55; }
+    .scn-price { font-size: 28px; }
+    .scn-prem { font-size: 14px; }
+
+    /* Grids → single column */
+    .ct-grid, .cat-grid, .scn-grid, .sotp { grid-template-columns: 1fr; gap: 16px; }
+
+    /* Disclaimer */
+    .disclaimer { padding: 26px 18px 24px; }
+    .d-title { font-size: 22px; line-height: 1.3; }
+    .disclaimer-body { font-size: 13.5px; line-height: 1.75; }
+
+    /* Share bar */
+    .share-bar { padding: 24px 18px 22px; }
+    .share-head { flex-wrap: wrap; gap: 8px; }
+    .share-btn { font-size: 13px; padding: 10px 14px; }
+
+    /* Meth footer */
+    .meth { padding: 14px 18px; flex-direction: column; gap: 6px; text-align: center; letter-spacing: 0.12em; }
+  }
+
+/* WCAG 2.1 AA accessibility helpers */
+.skip-link {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  transform: translateY(-150%);
+  padding: 10px 14px;
+  background: var(--ink, #1a2a4a);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(15,31,58,0.18);
+}
+.skip-link:focus, .skip-link:focus-visible { transform: translateY(0); outline: 3px solid var(--accent, #9a7838); outline-offset: 3px; }
+main:focus { outline: none; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, [tabindex]:focus-visible {
+  outline: 3px solid var(--accent, #9a7838);
+  outline-offset: 3px;
+}
+.form-row input:focus-visible, .form-row select:focus-visible, .form-row textarea:focus-visible { outline: 3px solid var(--accent, #9a7838); outline-offset: 2px; }
+.form-field-error:empty { min-height: 0; }
+.mobile-menu[hidden] { display: none !important; }
+.mobile-menu a:focus-visible { outline-offset: -2px; }
+@media (max-width: 360px) {
+  .wrap { padding-left: 16px; padding-right: 16px; }
+  .hero-ctas, .cta-row, .share-btns, .week-nav, .toolbar { align-items: stretch; flex-direction: column; }
+  .btn, .form-submit, .mobile-menu-cta, .share-btn { width: 100%; justify-content: center; text-align: center; }
+  .nav-logo-img--desktop { display: none !important; }
+  .nav-logo-img--mobile { display: block !important; }
+  .nav-inner { gap: 10px; }
+  .nav-right { gap: 6px; }
+  .locale-switcher a, .nav-locale-switcher a { min-width: 36px; min-height: 36px; display: inline-flex; align-items: center; justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+}
+
+</style>
+<script src="/assets/locale-switcher.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<main id="main-content" tabindex="-1">
+<article class="card">
+
+  <!-- ============================== MASTHEAD ============================== -->
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div class="brand">
+        <span class="brand-mono">J<span class="pipe">|</span>I</span>
+        <span class="brand-eyebrow">Japan Investor Interface · Compounder Profile</span>
+      </div>
+      <div class="head-main">
+        <div class="head-ticker-row">
+          <span class="head-ticker">TSE PRIME · 3984 · FY end JUN</span>
+          <span class="head-co-jp">株式会社ユーザーローカル</span>
+        </div>
+        <div class="head-co">User Local, Inc.</div>
+        <div class="head-industry">Single-segment SaaS · Web analytics · Social listening · Enterprise generative AI</div>
+      </div>
+    </div>
+
+    <div class="stat-strip">
+      <div class="stat">
+        <div class="stat-label">Last Close</div>
+        <div class="stat-val">¥1,791<small>May 22, 2026</small></div>
+        <div class="stat-ctx"><span class="dn">−24%</span> from May-24 peak · <span class="up">+36%</span> off Apr-25 trough</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Market Cap / EV</div>
+        <div class="stat-val">¥28<small>bn / ¥19bn EV</small></div>
+        <div class="stat-ctx">net cash <b>¥9.4bn</b> (33% of cap) · zero interest-bearing debt</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">EV / EBIT · forward</div>
+        <div class="stat-val">8.6<small>x</small></div>
+        <div class="stat-ctx">vs JP SaaS-microcap median ~12&ndash;14x est. · the gap is the cash and the opacity, not the operating quality</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">ROCE · trailing</div>
+        <div class="stat-val">24<small>%</small></div>
+        <div class="stat-ctx">FY23&ndash;FY25 trend: 23% · 25% · 24% &mdash; <b>steady low-to-mid 20s</b>; dragged by half the balance sheet sitting in cash</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Operating Margin · group</div>
+        <div class="stat-val">43<small>% · FY25</small></div>
+        <div class="stat-ctx">9M FY26 actual <b>48.0%</b> (+280bps YoY) · FY26 guide implies 41.8% &mdash; conservative on the print so far</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Shares &amp; Float</div>
+        <div class="stat-val">15.9<small>M sh · ~32% float</small></div>
+        <div class="stat-ctx">founder-CEO Masao Ito holds <b>38%</b> direct · top-10 holders 67% · treasury 351,839 sh (2.2%)</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================== 1 · REGIME ============================== -->
+  <section class="section">
+    <div class="section-head">
+      <div class="section-num">01 · REGIME</div>
+      <h2 class="section-title">Price Action · 24 Months</h2>
+      <p class="section-sub">User Local sells SaaS tools that decode unstructured Japanese text and web-behavior data for enterprise marketing teams and IT departments, and the trailing two years of the share price are the story of investors first paying a generative-AI premium for the same business, then unpaying it, then beginning to ask whether the cash pile on the balance sheet is part of the case rather than incidental to it. The arc is best read alongside the corpus the company has been accumulating since 2008.</p>
+    </div>
+
+    <div class="chart-wrap">
+      <div class="chart-meta">
+        <div class="chart-title">3984 vs TOPIX · 24 months · daily candles + volume</div>
+        <div class="chart-key-levels">
+          <span class="peak">Peak <b>¥2,347</b> · 2024-05-14</span>
+          <span class="trough">Trough <b>¥1,313</b> · 2025-04-07</span>
+          <span>Today <b>¥1,791</b></span>
+        </div>
+      </div>
+      <div class="tv-container" id="chart-3984"></div>
+      <div class="chart-legend">
+        <span class="leg-item"><span class="leg-swatch candle"></span>User Local · daily candles</span>
+        <span class="leg-item"><span class="leg-swatch dashed"></span>60-day SMA</span>
+        <span class="leg-item"><span class="leg-swatch" style="background:rgba(122,130,144,0.85)"></span>TOPIX rebased (1308.T)</span>
+        <span class="leg-item"><span class="leg-swatch hist"></span>Volume</span>
+      </div>
+      <script src="https://unpkg.com/lightweight-charts@4.2.0/dist/lightweight-charts.standalone.production.js"></script>
+      <script>
+      const CHART_DATA = {"candles":[{"time":"2024-05-10","open":2206.0,"high":2228.0,"low":2179.0,"close":2212.0},{"time":"2024-05-13","open":2213.0,"high":2323.0,"low":2213.0,"close":2309.0},{"time":"2024-05-14","open":2385.0,"high":2411.0,"low":2330.0,"close":2347.0},{"time":"2024-05-15","open":2347.0,"high":2361.0,"low":2306.0,"close":2321.0},{"time":"2024-05-16","open":2355.0,"high":2367.0,"low":2269.0,"close":2295.0},{"time":"2024-05-17","open":2245.0,"high":2246.0,"low":2205.0,"close":2230.0},{"time":"2024-05-20","open":2240.0,"high":2268.0,"low":2210.0,"close":2214.0},{"time":"2024-05-21","open":2208.0,"high":2240.0,"low":2164.0,"close":2174.0},{"time":"2024-05-22","open":2151.0,"high":2170.0,"low":2120.0,"close":2123.0},{"time":"2024-05-23","open":2159.0,"high":2176.0,"low":2057.0,"close":2064.0},{"time":"2024-05-24","open":2021.0,"high":2042.0,"low":2001.0,"close":2028.0},{"time":"2024-05-27","open":2019.0,"high":2028.0,"low":2001.0,"close":2023.0},{"time":"2024-05-28","open":2047.0,"high":2106.0,"low":2043.0,"close":2091.0},{"time":"2024-05-29","open":2100.0,"high":2100.0,"low":2010.0,"close":2017.0},{"time":"2024-05-30","open":1989.0,"high":2021.0,"low":1955.0,"close":2007.0},{"time":"2024-05-31","open":1973.0,"high":2047.0,"low":1970.0,"close":2045.0},{"time":"2024-06-03","open":2045.0,"high":2066.0,"low":2012.0,"close":2012.0},{"time":"2024-06-04","open":2018.0,"high":2113.0,"low":2018.0,"close":2099.0},{"time":"2024-06-05","open":2096.0,"high":2108.0,"low":2047.0,"close":2055.0},{"time":"2024-06-06","open":2079.0,"high":2079.0,"low":2012.0,"close":2020.0},{"time":"2024-06-07","open":2036.0,"high":2096.0,"low":2035.0,"close":2074.0},{"time":"2024-06-10","open":2032.0,"high":2057.0,"low":2031.0,"close":2050.0},{"time":"2024-06-11","open":2044.0,"high":2060.0,"low":2016.0,"close":2025.0},{"time":"2024-06-12","open":2045.0,"high":2080.0,"low":2002.0,"close":2022.0},{"time":"2024-06-13","open":2038.0,"high":2052.0,"low":2005.0,"close":2010.0},{"time":"2024-06-14","open":1980.0,"high":2055.0,"low":1961.0,"close":2049.0},{"time":"2024-06-17","open":2044.0,"high":2044.0,"low":1947.0,"close":1969.0},{"time":"2024-06-18","open":2003.0,"high":2042.0,"low":1976.0,"close":1996.0},{"time":"2024-06-19","open":1983.0,"high":1999.0,"low":1942.0,"close":1954.0},{"time":"2024-06-20","open":1950.0,"high":1981.0,"low":1946.0,"close":1971.0},{"time":"2024-06-21","open":1971.0,"high":2000.0,"low":1959.0,"close":1984.0},{"time":"2024-06-24","open":1996.0,"high":2023.0,"low":1993.0,"close":2019.0},{"time":"2024-06-25","open":2028.0,"high":2040.0,"low":2008.0,"close":2018.0},{"time":"2024-06-26","open":2023.0,"high":2055.0,"low":2015.0,"close":2038.0},{"time":"2024-06-27","open":2032.0,"high":2063.0,"low":2023.0,"close":2055.0},{"time":"2024-06-28","open":2060.0,"high":2070.0,"low":1990.0,"close":1992.0},{"time":"2024-07-01","open":2000.0,"high":2004.0,"low":1937.0,"close":1937.0},{"time":"2024-07-02","open":1930.0,"high":1952.0,"low":1916.0,"close":1945.0},{"time":"2024-07-03","open":1945.0,"high":1995.0,"low":1937.0,"close":1987.0},{"time":"2024-07-04","open":1997.0,"high":2055.0,"low":1993.0,"close":2030.0},{"time":"2024-07-05","open":2025.0,"high":2091.0,"low":2021.0,"close":2080.0},{"time":"2024-07-08","open":2101.0,"high":2124.0,"low":2088.0,"close":2124.0},{"time":"2024-07-09","open":2120.0,"high":2138.0,"low":2067.0,"close":2093.0},{"time":"2024-07-10","open":2074.0,"high":2095.0,"low":2043.0,"close":2075.0},{"time":"2024-07-11","open":2089.0,"high":2094.0,"low":2024.0,"close":2063.0},{"time":"2024-07-12","open":2069.0,"high":2179.0,"low":2069.0,"close":2164.0},{"time":"2024-07-16","open":2179.0,"high":2202.0,"low":2166.0,"close":2195.0},{"time":"2024-07-17","open":2220.0,"high":2246.0,"low":2189.0,"close":2200.0},{"time":"2024-07-18","open":2150.0,"high":2202.0,"low":2122.0,"close":2165.0},{"time":"2024-07-19","open":2173.0,"high":2191.0,"low":2139.0,"close":2150.0},{"time":"2024-07-22","open":2144.0,"high":2172.0,"low":2097.0,"close":2158.0},{"time":"2024-07-23","open":2169.0,"high":2175.0,"low":2105.0,"close":2123.0},{"time":"2024-07-24","open":2121.0,"high":2165.0,"low":2090.0,"close":2091.0},{"time":"2024-07-25","open":2045.0,"high":2062.0,"low":1996.0,"close":1996.0},{"time":"2024-07-26","open":2002.0,"high":2054.0,"low":1998.0,"close":2029.0},{"time":"2024-07-29","open":2055.0,"high":2086.0,"low":2029.0,"close":2076.0},{"time":"2024-07-30","open":2067.0,"high":2067.0,"low":2001.0,"close":2045.0},{"time":"2024-07-31","open":2036.0,"high":2058.0,"low":1990.0,"close":2058.0},{"time":"2024-08-01","open":2058.0,"high":2068.0,"low":1973.0,"close":1983.0},{"time":"2024-08-02","open":1899.0,"high":1908.0,"low":1780.0,"close":1780.0},{"time":"2024-08-05","open":1620.0,"high":1642.0,"low":1380.0,"close":1380.0},{"time":"2024-08-06","open":1575.0,"high":1648.0,"low":1550.0,"close":1641.0},{"time":"2024-08-07","open":1601.0,"high":1768.0,"low":1601.0,"close":1730.0},{"time":"2024-08-08","open":1712.0,"high":1782.0,"low":1684.0,"close":1738.0},{"time":"2024-08-09","open":1600.0,"high":1685.0,"low":1560.0,"close":1685.0},{"time":"2024-08-13","open":1681.0,"high":1744.0,"low":1631.0,"close":1740.0},{"time":"2024-08-14","open":1769.0,"high":1795.0,"low":1692.0,"close":1753.0},{"time":"2024-08-15","open":1738.0,"high":1785.0,"low":1736.0,"close":1767.0},{"time":"2024-08-16","open":1835.0,"high":1850.0,"low":1788.0,"close":1843.0},{"time":"2024-08-19","open":1842.0,"high":1853.0,"low":1763.0,"close":1769.0},{"time":"2024-08-20","open":1809.0,"high":1859.0,"low":1803.0,"close":1839.0},{"time":"2024-08-21","open":1813.0,"high":1838.0,"low":1797.0,"close":1800.0},{"time":"2024-08-22","open":1806.0,"high":1830.0,"low":1790.0,"close":1813.0},{"time":"2024-08-23","open":1800.0,"high":1810.0,"low":1774.0,"close":1805.0},{"time":"2024-08-26","open":1800.0,"high":1862.0,"low":1797.0,"close":1855.0},{"time":"2024-08-27","open":1890.0,"high":1926.0,"low":1855.0,"close":1925.0},{"time":"2024-08-28","open":1925.0,"high":1926.0,"low":1858.0,"close":1885.0},{"time":"2024-08-29","open":1868.0,"high":1918.0,"low":1862.0,"close":1872.0},{"time":"2024-08-30","open":1876.0,"high":1902.0,"low":1865.0,"close":1880.0},{"time":"2024-09-02","open":1912.0,"high":1912.0,"low":1868.0,"close":1895.0},{"time":"2024-09-03","open":1912.0,"high":2015.0,"low":1910.0,"close":2012.0},{"time":"2024-09-04","open":1932.0,"high":1974.0,"low":1889.0,"close":1900.0},{"time":"2024-09-05","open":1872.0,"high":1987.0,"low":1872.0,"close":1935.0},{"time":"2024-09-06","open":1943.0,"high":1956.0,"low":1886.0,"close":1902.0},{"time":"2024-09-09","open":1825.0,"high":1885.0,"low":1780.0,"close":1876.0},{"time":"2024-09-10","open":1911.0,"high":1956.0,"low":1901.0,"close":1933.0},{"time":"2024-09-11","open":1933.0,"high":1955.0,"low":1842.0,"close":1872.0},{"time":"2024-09-12","open":1900.0,"high":1948.0,"low":1890.0,"close":1938.0},{"time":"2024-09-13","open":1918.0,"high":1926.0,"low":1870.0,"close":1882.0},{"time":"2024-09-17","open":1897.0,"high":1904.0,"low":1841.0,"close":1866.0},{"time":"2024-09-18","open":1882.0,"high":1896.0,"low":1833.0,"close":1872.0},{"time":"2024-09-19","open":1912.0,"high":1966.0,"low":1905.0,"close":1933.0},{"time":"2024-09-20","open":1964.0,"high":1970.0,"low":1948.0,"close":1953.0},{"time":"2024-09-24","open":1967.0,"high":1967.0,"low":1922.0,"close":1928.0},{"time":"2024-09-25","open":1915.0,"high":1927.0,"low":1870.0,"close":1870.0},{"time":"2024-09-26","open":1906.0,"high":1935.0,"low":1893.0,"close":1927.0},{"time":"2024-09-27","open":1936.0,"high":1967.0,"low":1936.0,"close":1963.0},{"time":"2024-09-30","open":1883.0,"high":1925.0,"low":1857.0,"close":1857.0},{"time":"2024-10-01","open":1891.0,"high":1895.0,"low":1850.0,"close":1885.0},{"time":"2024-10-02","open":1852.0,"high":1874.0,"low":1835.0,"close":1851.0},{"time":"2024-10-03","open":1907.0,"high":1907.0,"low":1858.0,"close":1869.0},{"time":"2024-10-04","open":1852.0,"high":1893.0,"low":1852.0,"close":1861.0},{"time":"2024-10-07","open":1901.0,"high":1905.0,"low":1855.0,"close":1860.0},{"time":"2024-10-08","open":1856.0,"high":1856.0,"low":1807.0,"close":1821.0},{"time":"2024-10-09","open":1827.0,"high":1855.0,"low":1817.0,"close":1844.0},{"time":"2024-10-10","open":1852.0,"high":1852.0,"low":1805.0,"close":1805.0},{"time":"2024-10-11","open":1820.0,"high":1831.0,"low":1796.0,"close":1796.0},{"time":"2024-10-15","open":1814.0,"high":1866.0,"low":1794.0,"close":1862.0},{"time":"2024-10-16","open":1822.0,"high":1841.0,"low":1804.0,"close":1816.0},{"time":"2024-10-17","open":1819.0,"high":1839.0,"low":1777.0,"close":1790.0},{"time":"2024-10-18","open":1790.0,"high":1818.0,"low":1781.0,"close":1797.0},{"time":"2024-10-21","open":1795.0,"high":1846.0,"low":1785.0,"close":1816.0},{"time":"2024-10-22","open":1819.0,"high":1819.0,"low":1753.0,"close":1754.0},{"time":"2024-10-23","open":1748.0,"high":1758.0,"low":1715.0,"close":1743.0},{"time":"2024-10-24","open":1716.0,"high":1768.0,"low":1704.0,"close":1768.0},{"time":"2024-10-25","open":1768.0,"high":1770.0,"low":1709.0,"close":1716.0},{"time":"2024-10-28","open":1703.0,"high":1788.0,"low":1703.0,"close":1783.0},{"time":"2024-10-29","open":1801.0,"high":1868.0,"low":1801.0,"close":1851.0},{"time":"2024-10-30","open":1860.0,"high":1882.0,"low":1831.0,"close":1861.0},{"time":"2024-10-31","open":1861.0,"high":1880.0,"low":1840.0,"close":1869.0},{"time":"2024-11-01","open":1832.0,"high":1869.0,"low":1810.0,"close":1828.0},{"time":"2024-11-05","open":1868.0,"high":1879.0,"low":1820.0,"close":1866.0},{"time":"2024-11-06","open":1860.0,"high":1874.0,"low":1833.0,"close":1856.0},{"time":"2024-11-07","open":1878.0,"high":1888.0,"low":1830.0,"close":1849.0},{"time":"2024-11-08","open":1845.0,"high":1920.0,"low":1845.0,"close":1898.0},{"time":"2024-11-11","open":1900.0,"high":1907.0,"low":1871.0,"close":1904.0},{"time":"2024-11-12","open":1919.0,"high":1934.0,"low":1874.0,"close":1891.0},{"time":"2024-11-13","open":1905.0,"high":1930.0,"low":1892.0,"close":1915.0},{"time":"2024-11-14","open":1920.0,"high":2091.0,"low":1865.0,"close":2015.0},{"time":"2024-11-15","open":1987.0,"high":2074.0,"low":1958.0,"close":2046.0},{"time":"2024-11-18","open":2000.0,"high":2070.0,"low":1986.0,"close":2028.0},{"time":"2024-11-19","open":2036.0,"high":2136.0,"low":2036.0,"close":2108.0},{"time":"2024-11-20","open":2130.0,"high":2159.0,"low":2036.0,"close":2051.0},{"time":"2024-11-21","open":2032.0,"high":2050.0,"low":1981.0,"close":2038.0},{"time":"2024-11-22","open":2044.0,"high":2050.0,"low":1968.0,"close":1992.0},{"time":"2024-11-25","open":1996.0,"high":2030.0,"low":1983.0,"close":1999.0},{"time":"2024-11-26","open":2027.0,"high":2050.0,"low":1999.0,"close":2034.0},{"time":"2024-11-27","open":2015.0,"high":2020.0,"low":1924.0,"close":1953.0},{"time":"2024-11-28","open":1920.0,"high":1988.0,"low":1916.0,"close":1963.0},{"time":"2024-11-29","open":1975.0,"high":2082.0,"low":1963.0,"close":2070.0},{"time":"2024-12-02","open":2080.0,"high":2119.0,"low":2016.0,"close":2020.0},{"time":"2024-12-03","open":2015.0,"high":2020.0,"low":1984.0,"close":2009.0},{"time":"2024-12-04","open":2013.0,"high":2013.0,"low":1955.0,"close":1993.0},{"time":"2024-12-05","open":2010.0,"high":2045.0,"low":1992.0,"close":2023.0},{"time":"2024-12-06","open":1982.0,"high":2010.0,"low":1956.0,"close":1985.0},{"time":"2024-12-09","open":1978.0,"high":2029.0,"low":1977.0,"close":2013.0},{"time":"2024-12-10","open":2012.0,"high":2012.0,"low":1928.0,"close":1928.0},{"time":"2024-12-11","open":1940.0,"high":1976.0,"low":1934.0,"close":1955.0},{"time":"2024-12-12","open":1973.0,"high":2001.0,"low":1932.0,"close":1932.0},{"time":"2024-12-13","open":1904.0,"high":1983.0,"low":1882.0,"close":1938.0},{"time":"2024-12-16","open":1901.0,"high":1927.0,"low":1898.0,"close":1907.0},{"time":"2024-12-17","open":1909.0,"high":1916.0,"low":1858.0,"close":1874.0},{"time":"2024-12-18","open":1874.0,"high":1897.0,"low":1846.0,"close":1881.0},{"time":"2024-12-19","open":1841.0,"high":1894.0,"low":1841.0,"close":1873.0},{"time":"2024-12-20","open":1873.0,"high":1900.0,"low":1850.0,"close":1850.0},{"time":"2024-12-23","open":1850.0,"high":1895.0,"low":1850.0,"close":1860.0},{"time":"2024-12-24","open":1863.0,"high":1863.0,"low":1829.0,"close":1830.0},{"time":"2024-12-25","open":1830.0,"high":1869.0,"low":1822.0,"close":1839.0},{"time":"2024-12-26","open":1835.0,"high":1838.0,"low":1798.0,"close":1800.0},{"time":"2024-12-27","open":1811.0,"high":1850.0,"low":1797.0,"close":1809.0},{"time":"2024-12-30","open":1798.0,"high":1844.0,"low":1791.0,"close":1812.0},{"time":"2025-01-06","open":1827.0,"high":1862.0,"low":1810.0,"close":1838.0},{"time":"2025-01-07","open":1874.0,"high":1898.0,"low":1848.0,"close":1888.0},{"time":"2025-01-08","open":1865.0,"high":1867.0,"low":1828.0,"close":1853.0},{"time":"2025-01-09","open":1860.0,"high":1870.0,"low":1813.0,"close":1837.0},{"time":"2025-01-10","open":1827.0,"high":1853.0,"low":1820.0,"close":1820.0},{"time":"2025-01-14","open":1818.0,"high":1839.0,"low":1805.0,"close":1805.0},{"time":"2025-01-15","open":1822.0,"high":1844.0,"low":1772.0,"close":1773.0},{"time":"2025-01-16","open":1790.0,"high":1790.0,"low":1748.0,"close":1754.0},{"time":"2025-01-17","open":1750.0,"high":1756.0,"low":1717.0,"close":1718.0},{"time":"2025-01-20","open":1728.0,"high":1762.0,"low":1724.0,"close":1755.0},{"time":"2025-01-21","open":1759.0,"high":1762.0,"low":1726.0,"close":1753.0},{"time":"2025-01-22","open":1762.0,"high":1779.0,"low":1747.0,"close":1765.0},{"time":"2025-01-23","open":1766.0,"high":1791.0,"low":1748.0,"close":1775.0},{"time":"2025-01-24","open":1789.0,"high":1809.0,"low":1778.0,"close":1801.0},{"time":"2025-01-27","open":1807.0,"high":1829.0,"low":1788.0,"close":1806.0},{"time":"2025-01-28","open":1780.0,"high":1920.0,"low":1777.0,"close":1906.0},{"time":"2025-01-29","open":1915.0,"high":1974.0,"low":1910.0,"close":1929.0},{"time":"2025-01-30","open":1878.0,"high":1909.0,"low":1862.0,"close":1887.0},{"time":"2025-01-31","open":1870.0,"high":1875.0,"low":1823.0,"close":1824.0},{"time":"2025-02-03","open":1818.0,"high":1818.0,"low":1776.0,"close":1797.0},{"time":"2025-02-04","open":1824.0,"high":1839.0,"low":1814.0,"close":1837.0},{"time":"2025-02-05","open":1841.0,"high":1885.0,"low":1841.0,"close":1873.0},{"time":"2025-02-06","open":1888.0,"high":1898.0,"low":1864.0,"close":1882.0},{"time":"2025-02-07","open":1899.0,"high":1915.0,"low":1877.0,"close":1894.0},{"time":"2025-02-10","open":1894.0,"high":1919.0,"low":1873.0,"close":1900.0},{"time":"2025-02-12","open":1934.0,"high":1945.0,"low":1900.0,"close":1909.0},{"time":"2025-02-13","open":1840.0,"high":1910.0,"low":1790.0,"close":1881.0},{"time":"2025-02-14","open":1853.0,"high":1932.0,"low":1848.0,"close":1908.0},{"time":"2025-02-17","open":1913.0,"high":1933.0,"low":1858.0,"close":1858.0},{"time":"2025-02-18","open":1884.0,"high":1885.0,"low":1855.0,"close":1859.0},{"time":"2025-02-19","open":1858.0,"high":1884.0,"low":1840.0,"close":1878.0},{"time":"2025-02-20","open":1852.0,"high":1871.0,"low":1802.0,"close":1802.0},{"time":"2025-02-21","open":1813.0,"high":1855.0,"low":1797.0,"close":1807.0},{"time":"2025-02-25","open":1772.0,"high":1784.0,"low":1759.0,"close":1762.0},{"time":"2025-02-26","open":1762.0,"high":1767.0,"low":1710.0,"close":1730.0},{"time":"2025-02-27","open":1732.0,"high":1741.0,"low":1712.0,"close":1723.0},{"time":"2025-02-28","open":1700.0,"high":1711.0,"low":1677.0,"close":1685.0},{"time":"2025-03-03","open":1718.0,"high":1731.0,"low":1698.0,"close":1731.0},{"time":"2025-03-04","open":1730.0,"high":1730.0,"low":1691.0,"close":1701.0},{"time":"2025-03-05","open":1704.0,"high":1735.0,"low":1700.0,"close":1717.0},{"time":"2025-03-06","open":1724.0,"high":1747.0,"low":1708.0,"close":1721.0},{"time":"2025-03-07","open":1710.0,"high":1748.0,"low":1700.0,"close":1732.0},{"time":"2025-03-10","open":1730.0,"high":1747.0,"low":1720.0,"close":1736.0},{"time":"2025-03-11","open":1720.0,"high":1745.0,"low":1677.0,"close":1742.0},{"time":"2025-03-12","open":1740.0,"high":1750.0,"low":1730.0,"close":1739.0},{"time":"2025-03-13","open":1747.0,"high":1758.0,"low":1699.0,"close":1708.0},{"time":"2025-03-14","open":1702.0,"high":1719.0,"low":1694.0,"close":1707.0},{"time":"2025-03-17","open":1720.0,"high":1742.0,"low":1715.0,"close":1728.0},{"time":"2025-03-18","open":1728.0,"high":1741.0,"low":1714.0,"close":1725.0},{"time":"2025-03-19","open":1718.0,"high":1735.0,"low":1711.0,"close":1721.0},{"time":"2025-03-21","open":1721.0,"high":1744.0,"low":1710.0,"close":1711.0},{"time":"2025-03-24","open":1729.0,"high":1729.0,"low":1707.0,"close":1711.0},{"time":"2025-03-25","open":1709.0,"high":1720.0,"low":1694.0,"close":1704.0},{"time":"2025-03-26","open":1706.0,"high":1718.0,"low":1705.0,"close":1714.0},{"time":"2025-03-27","open":1704.0,"high":1736.0,"low":1700.0,"close":1736.0},{"time":"2025-03-28","open":1729.0,"high":1737.0,"low":1697.0,"close":1714.0},{"time":"2025-03-31","open":1693.0,"high":1693.0,"low":1667.0,"close":1668.0},{"time":"2025-04-01","open":1686.0,"high":1686.0,"low":1661.0,"close":1665.0},{"time":"2025-04-02","open":1665.0,"high":1670.0,"low":1650.0,"close":1665.0},{"time":"2025-04-03","open":1594.0,"high":1640.0,"low":1585.0,"close":1617.0},{"time":"2025-04-04","open":1585.0,"high":1596.0,"low":1488.0,"close":1534.0},{"time":"2025-04-07","open":1374.0,"high":1417.0,"low":1313.0,"close":1313.0},{"time":"2025-04-08","open":1424.0,"high":1491.0,"low":1424.0,"close":1444.0},{"time":"2025-04-09","open":1417.0,"high":1426.0,"low":1358.0,"close":1387.0},{"time":"2025-04-10","open":1547.0,"high":1548.0,"low":1491.0,"close":1521.0},{"time":"2025-04-11","open":1481.0,"high":1551.0,"low":1462.0,"close":1551.0},{"time":"2025-04-14","open":1580.0,"high":1620.0,"low":1576.0,"close":1601.0},{"time":"2025-04-15","open":1602.0,"high":1602.0,"low":1572.0,"close":1579.0},{"time":"2025-04-16","open":1579.0,"high":1580.0,"low":1526.0,"close":1536.0},{"time":"2025-04-17","open":1515.0,"high":1548.0,"low":1515.0,"close":1542.0},{"time":"2025-04-18","open":1565.0,"high":1590.0,"low":1564.0,"close":1583.0},{"time":"2025-04-21","open":1595.0,"high":1608.0,"low":1578.0,"close":1584.0},{"time":"2025-04-22","open":1592.0,"high":1600.0,"low":1568.0,"close":1575.0},{"time":"2025-04-23","open":1594.0,"high":1615.0,"low":1580.0,"close":1601.0},{"time":"2025-04-24","open":1600.0,"high":1604.0,"low":1588.0,"close":1598.0},{"time":"2025-04-25","open":1598.0,"high":1642.0,"low":1598.0,"close":1641.0},{"time":"2025-04-28","open":1634.0,"high":1673.0,"low":1634.0,"close":1660.0},{"time":"2025-04-30","open":1662.0,"high":1662.0,"low":1620.0,"close":1656.0},{"time":"2025-05-01","open":1650.0,"high":1657.0,"low":1628.0,"close":1650.0},{"time":"2025-05-02","open":1650.0,"high":1668.0,"low":1629.0,"close":1668.0},{"time":"2025-05-07","open":1675.0,"high":1687.0,"low":1662.0,"close":1684.0},{"time":"2025-05-08","open":1697.0,"high":1704.0,"low":1658.0,"close":1689.0},{"time":"2025-05-09","open":1755.0,"high":1805.0,"low":1720.0,"close":1780.0},{"time":"2025-05-12","open":1782.0,"high":1782.0,"low":1710.0,"close":1730.0},{"time":"2025-05-13","open":1770.0,"high":1770.0,"low":1710.0,"close":1721.0},{"time":"2025-05-14","open":1739.0,"high":1759.0,"low":1712.0,"close":1742.0},{"time":"2025-05-15","open":1731.0,"high":1777.0,"low":1731.0,"close":1761.0},{"time":"2025-05-16","open":1761.0,"high":1812.0,"low":1761.0,"close":1809.0},{"time":"2025-05-19","open":1811.0,"high":1833.0,"low":1767.0,"close":1777.0},{"time":"2025-05-20","open":1772.0,"high":1783.0,"low":1746.0,"close":1761.0},{"time":"2025-05-21","open":1761.0,"high":1795.0,"low":1749.0,"close":1750.0},{"time":"2025-05-22","open":1732.0,"high":1843.0,"low":1726.0,"close":1797.0},{"time":"2025-05-23","open":1800.0,"high":1829.0,"low":1798.0,"close":1811.0},{"time":"2025-05-26","open":1794.0,"high":1854.0,"low":1794.0,"close":1846.0},{"time":"2025-05-27","open":1845.0,"high":1858.0,"low":1839.0,"close":1842.0},{"time":"2025-05-28","open":1855.0,"high":1856.0,"low":1813.0,"close":1818.0},{"time":"2025-05-29","open":1844.0,"high":1849.0,"low":1830.0,"close":1835.0},{"time":"2025-05-30","open":1839.0,"high":1899.0,"low":1839.0,"close":1884.0},{"time":"2025-06-02","open":1887.0,"high":1909.0,"low":1874.0,"close":1899.0},{"time":"2025-06-03","open":1900.0,"high":1903.0,"low":1870.0,"close":1883.0},{"time":"2025-06-04","open":1885.0,"high":1894.0,"low":1831.0,"close":1846.0},{"time":"2025-06-05","open":1842.0,"high":1879.0,"low":1842.0,"close":1846.0},{"time":"2025-06-06","open":1846.0,"high":1864.0,"low":1833.0,"close":1836.0},{"time":"2025-06-09","open":1845.0,"high":1892.0,"low":1845.0,"close":1892.0},{"time":"2025-06-10","open":1896.0,"high":1902.0,"low":1852.0,"close":1858.0},{"time":"2025-06-11","open":1863.0,"high":1891.0,"low":1863.0,"close":1887.0},{"time":"2025-06-12","open":1887.0,"high":1925.0,"low":1870.0,"close":1915.0},{"time":"2025-06-13","open":1924.0,"high":1933.0,"low":1840.0,"close":1866.0},{"time":"2025-06-16","open":1889.0,"high":1892.0,"low":1851.0,"close":1873.0},{"time":"2025-06-17","open":1874.0,"high":1908.0,"low":1865.0,"close":1871.0},{"time":"2025-06-18","open":1865.0,"high":1883.0,"low":1862.0,"close":1869.0},{"time":"2025-06-19","open":1864.0,"high":1901.0,"low":1859.0,"close":1870.0},{"time":"2025-06-20","open":1856.0,"high":1862.0,"low":1831.0,"close":1840.0},{"time":"2025-06-23","open":1819.0,"high":1832.0,"low":1808.0,"close":1814.0},{"time":"2025-06-24","open":1850.0,"high":1884.0,"low":1849.0,"close":1877.0},{"time":"2025-06-25","open":1877.0,"high":1908.0,"low":1861.0,"close":1908.0},{"time":"2025-06-26","open":1906.0,"high":1915.0,"low":1874.0,"close":1891.0},{"time":"2025-06-27","open":1888.0,"high":1914.0,"low":1868.0,"close":1882.0},{"time":"2025-06-30","open":1905.0,"high":1915.0,"low":1890.0,"close":1897.0},{"time":"2025-07-01","open":1897.0,"high":1897.0,"low":1847.0,"close":1849.0},{"time":"2025-07-02","open":1827.0,"high":1843.0,"low":1805.0,"close":1805.0},{"time":"2025-07-03","open":1807.0,"high":1814.0,"low":1790.0,"close":1790.0},{"time":"2025-07-04","open":1812.0,"high":1815.0,"low":1775.0,"close":1775.0},{"time":"2025-07-07","open":1775.0,"high":1816.0,"low":1774.0,"close":1785.0},{"time":"2025-07-08","open":1796.0,"high":1838.0,"low":1790.0,"close":1828.0},{"time":"2025-07-09","open":1820.0,"high":1830.0,"low":1813.0,"close":1822.0},{"time":"2025-07-10","open":1829.0,"high":1830.0,"low":1795.0,"close":1804.0},{"time":"2025-07-11","open":1815.0,"high":1825.0,"low":1796.0,"close":1802.0},{"time":"2025-07-14","open":1803.0,"high":1829.0,"low":1798.0,"close":1820.0},{"time":"2025-07-15","open":1820.0,"high":1828.0,"low":1808.0,"close":1815.0},{"time":"2025-07-16","open":1822.0,"high":1862.0,"low":1810.0,"close":1833.0},{"time":"2025-07-17","open":1824.0,"high":1855.0,"low":1824.0,"close":1846.0},{"time":"2025-07-18","open":1846.0,"high":1852.0,"low":1806.0,"close":1810.0},{"time":"2025-07-22","open":1801.0,"high":1831.0,"low":1795.0,"close":1815.0},{"time":"2025-07-23","open":1838.0,"high":1854.0,"low":1803.0,"close":1851.0},{"time":"2025-07-24","open":1854.0,"high":1863.0,"low":1841.0,"close":1851.0},{"time":"2025-07-25","open":1856.0,"high":1878.0,"low":1842.0,"close":1848.0},{"time":"2025-07-28","open":1850.0,"high":1860.0,"low":1840.0,"close":1860.0},{"time":"2025-07-29","open":1850.0,"high":1861.0,"low":1840.0,"close":1854.0},{"time":"2025-07-30","open":1855.0,"high":1875.0,"low":1851.0,"close":1872.0},{"time":"2025-07-31","open":1884.0,"high":1912.0,"low":1884.0,"close":1912.0},{"time":"2025-08-01","open":1912.0,"high":1956.0,"low":1909.0,"close":1956.0},{"time":"2025-08-04","open":1905.0,"high":1963.0,"low":1905.0,"close":1963.0},{"time":"2025-08-05","open":1977.0,"high":1996.0,"low":1969.0,"close":1994.0},{"time":"2025-08-06","open":1995.0,"high":2003.0,"low":1971.0,"close":1971.0},{"time":"2025-08-07","open":2000.0,"high":2052.0,"low":1976.0,"close":2011.0},{"time":"2025-08-08","open":2111.0,"high":2127.0,"low":2033.0,"close":2068.0},{"time":"2025-08-12","open":2056.0,"high":2096.0,"low":2010.0,"close":2090.0},{"time":"2025-08-13","open":2090.0,"high":2135.0,"low":2041.0,"close":2113.0},{"time":"2025-08-14","open":2089.0,"high":2100.0,"low":2055.0,"close":2085.0},{"time":"2025-08-15","open":2073.0,"high":2092.0,"low":2073.0,"close":2087.0},{"time":"2025-08-18","open":2116.0,"high":2138.0,"low":2090.0,"close":2132.0},{"time":"2025-08-19","open":2131.0,"high":2138.0,"low":2093.0,"close":2125.0},{"time":"2025-08-20","open":2120.0,"high":2120.0,"low":2045.0,"close":2045.0},{"time":"2025-08-21","open":2045.0,"high":2071.0,"low":2038.0,"close":2056.0},{"time":"2025-08-22","open":2043.0,"high":2045.0,"low":2017.0,"close":2036.0},{"time":"2025-08-25","open":2050.0,"high":2167.0,"low":2050.0,"close":2160.0},{"time":"2025-08-26","open":2194.0,"high":2199.0,"low":2115.0,"close":2140.0},{"time":"2025-08-27","open":2113.0,"high":2123.0,"low":2086.0,"close":2102.0},{"time":"2025-08-28","open":2140.0,"high":2140.0,"low":2101.0,"close":2112.0},{"time":"2025-08-29","open":2103.0,"high":2121.0,"low":2097.0,"close":2100.0},{"time":"2025-09-01","open":2080.0,"high":2117.0,"low":2068.0,"close":2076.0},{"time":"2025-09-02","open":2082.0,"high":2097.0,"low":2043.0,"close":2050.0},{"time":"2025-09-03","open":2050.0,"high":2070.0,"low":2049.0,"close":2054.0},{"time":"2025-09-04","open":2037.0,"high":2055.0,"low":2014.0,"close":2021.0},{"time":"2025-09-05","open":2013.0,"high":2030.0,"low":1990.0,"close":2017.0},{"time":"2025-09-08","open":2046.0,"high":2107.0,"low":2046.0,"close":2072.0},{"time":"2025-09-09","open":2076.0,"high":2130.0,"low":2072.0,"close":2125.0},{"time":"2025-09-10","open":2125.0,"high":2129.0,"low":2084.0,"close":2100.0},{"time":"2025-09-11","open":2100.0,"high":2122.0,"low":2085.0,"close":2112.0},{"time":"2025-09-12","open":2110.0,"high":2110.0,"low":2032.0,"close":2037.0},{"time":"2025-09-16","open":2049.0,"high":2079.0,"low":2027.0,"close":2065.0},{"time":"2025-09-17","open":2080.0,"high":2121.0,"low":2053.0,"close":2085.0},{"time":"2025-09-18","open":2085.0,"high":2135.0,"low":2059.0,"close":2108.0},{"time":"2025-09-19","open":2093.0,"high":2093.0,"low":2032.0,"close":2054.0},{"time":"2025-09-22","open":2060.0,"high":2103.0,"low":2048.0,"close":2052.0},{"time":"2025-09-24","open":2057.0,"high":2068.0,"low":2025.0,"close":2043.0},{"time":"2025-09-25","open":2043.0,"high":2045.0,"low":2020.0,"close":2036.0},{"time":"2025-09-26","open":2034.0,"high":2041.0,"low":2017.0,"close":2020.0},{"time":"2025-09-29","open":2026.0,"high":2034.0,"low":1991.0,"close":2004.0},{"time":"2025-09-30","open":2008.0,"high":2022.0,"low":1992.0,"close":2005.0},{"time":"2025-10-01","open":2001.0,"high":2012.0,"low":1958.0,"close":1960.0},{"time":"2025-10-02","open":1960.0,"high":1973.0,"low":1919.0,"close":1919.0},{"time":"2025-10-03","open":1937.0,"high":1946.0,"low":1914.0,"close":1919.0},{"time":"2025-10-06","open":1999.0,"high":2024.0,"low":1970.0,"close":2017.0},{"time":"2025-10-07","open":2020.0,"high":2043.0,"low":1993.0,"close":2025.0},{"time":"2025-10-08","open":2009.0,"high":2067.0,"low":2007.0,"close":2030.0},{"time":"2025-10-09","open":2022.0,"high":2040.0,"low":2001.0,"close":2008.0},{"time":"2025-10-10","open":2000.0,"high":2000.0,"low":1955.0,"close":1957.0},{"time":"2025-10-14","open":1919.0,"high":1930.0,"low":1873.0,"close":1880.0},{"time":"2025-10-15","open":1880.0,"high":1937.0,"low":1880.0,"close":1928.0},{"time":"2025-10-16","open":1946.0,"high":1960.0,"low":1925.0,"close":1926.0},{"time":"2025-10-17","open":1909.0,"high":1916.0,"low":1872.0,"close":1876.0},{"time":"2025-10-20","open":1886.0,"high":1957.0,"low":1886.0,"close":1957.0},{"time":"2025-10-21","open":1975.0,"high":1997.0,"low":1937.0,"close":1970.0},{"time":"2025-10-22","open":1970.0,"high":1982.0,"low":1953.0,"close":1963.0},{"time":"2025-10-23","open":1940.0,"high":1966.0,"low":1927.0,"close":1938.0},{"time":"2025-10-24","open":1940.0,"high":1966.0,"low":1934.0,"close":1966.0},{"time":"2025-10-27","open":1975.0,"high":2005.0,"low":1966.0,"close":1992.0},{"time":"2025-10-28","open":1974.0,"high":1978.0,"low":1952.0,"close":1960.0},{"time":"2025-10-29","open":1951.0,"high":1953.0,"low":1894.0,"close":1895.0},{"time":"2025-10-30","open":1920.0,"high":1930.0,"low":1905.0,"close":1920.0},{"time":"2025-10-31","open":1930.0,"high":1996.0,"low":1930.0,"close":1962.0},{"time":"2025-11-04","open":1962.0,"high":1975.0,"low":1937.0,"close":1939.0},{"time":"2025-11-05","open":1907.0,"high":1921.0,"low":1853.0,"close":1899.0},{"time":"2025-11-06","open":1918.0,"high":1940.0,"low":1901.0,"close":1931.0},{"time":"2025-11-07","open":1903.0,"high":1942.0,"low":1900.0,"close":1903.0},{"time":"2025-11-10","open":1936.0,"high":1944.0,"low":1924.0,"close":1934.0},{"time":"2025-11-11","open":1941.0,"high":1957.0,"low":1925.0,"close":1937.0},{"time":"2025-11-12","open":1937.0,"high":1978.0,"low":1937.0,"close":1964.0},{"time":"2025-11-13","open":2033.0,"high":2078.0,"low":1972.0,"close":1987.0},{"time":"2025-11-14","open":1984.0,"high":1984.0,"low":1912.0,"close":1928.0},{"time":"2025-11-17","open":1928.0,"high":1970.0,"low":1927.0,"close":1942.0},{"time":"2025-11-18","open":1931.0,"high":1950.0,"low":1912.0,"close":1944.0},{"time":"2025-11-19","open":1949.0,"high":1960.0,"low":1913.0,"close":1933.0},{"time":"2025-11-20","open":1945.0,"high":1988.0,"low":1945.0,"close":1954.0},{"time":"2025-11-21","open":1935.0,"high":1981.0,"low":1924.0,"close":1963.0},{"time":"2025-11-25","open":1985.0,"high":1985.0,"low":1918.0,"close":1926.0},{"time":"2025-11-26","open":1961.0,"high":1994.0,"low":1952.0,"close":1990.0},{"time":"2025-11-27","open":1970.0,"high":1970.0,"low":1949.0,"close":1950.0},{"time":"2025-11-28","open":1926.0,"high":1948.0,"low":1923.0,"close":1938.0},{"time":"2025-12-01","open":1938.0,"high":1941.0,"low":1899.0,"close":1911.0},{"time":"2025-12-02","open":1917.0,"high":1935.0,"low":1905.0,"close":1905.0},{"time":"2025-12-03","open":1927.0,"high":1935.0,"low":1897.0,"close":1925.0},{"time":"2025-12-04","open":1912.0,"high":1941.0,"low":1910.0,"close":1929.0},{"time":"2025-12-05","open":1905.0,"high":1941.0,"low":1905.0,"close":1925.0},{"time":"2025-12-08","open":1940.0,"high":1972.0,"low":1940.0,"close":1972.0},{"time":"2025-12-09","open":1961.0,"high":1974.0,"low":1931.0,"close":1939.0},{"time":"2025-12-10","open":1939.0,"high":1955.0,"low":1915.0,"close":1920.0},{"time":"2025-12-11","open":1920.0,"high":1920.0,"low":1865.0,"close":1868.0},{"time":"2025-12-12","open":1871.0,"high":1894.0,"low":1869.0,"close":1880.0},{"time":"2025-12-15","open":1880.0,"high":1929.0,"low":1876.0,"close":1927.0},{"time":"2025-12-16","open":1912.0,"high":1912.0,"low":1895.0,"close":1909.0},{"time":"2025-12-17","open":1909.0,"high":1919.0,"low":1897.0,"close":1910.0},{"time":"2025-12-18","open":1908.0,"high":1924.0,"low":1896.0,"close":1906.0},{"time":"2025-12-19","open":1914.0,"high":1941.0,"low":1912.0,"close":1924.0},{"time":"2025-12-22","open":1937.0,"high":1940.0,"low":1907.0,"close":1921.0},{"time":"2025-12-23","open":1905.0,"high":1925.0,"low":1898.0,"close":1908.0},{"time":"2025-12-24","open":1908.0,"high":1935.0,"low":1906.0,"close":1910.0},{"time":"2025-12-25","open":1919.0,"high":1928.0,"low":1918.0,"close":1925.0},{"time":"2025-12-26","open":1923.0,"high":1928.0,"low":1911.0,"close":1922.0},{"time":"2025-12-29","open":1913.0,"high":1977.0,"low":1907.0,"close":1957.0},{"time":"2025-12-30","open":1957.0,"high":1957.0,"low":1922.0,"close":1944.0},{"time":"2026-01-05","open":1944.0,"high":1950.0,"low":1908.0,"close":1936.0},{"time":"2026-01-06","open":1949.0,"high":1981.0,"low":1949.0,"close":1968.0},{"time":"2026-01-07","open":1961.0,"high":1983.0,"low":1945.0,"close":1971.0},{"time":"2026-01-08","open":1968.0,"high":2020.0,"low":1961.0,"close":2009.0},{"time":"2026-01-09","open":2000.0,"high":2016.0,"low":1980.0,"close":1996.0},{"time":"2026-01-13","open":2004.0,"high":2017.0,"low":1979.0,"close":1984.0},{"time":"2026-01-14","open":1971.0,"high":2016.0,"low":1971.0,"close":2003.0},{"time":"2026-01-15","open":1991.0,"high":2048.0,"low":1991.0,"close":2048.0},{"time":"2026-01-16","open":2048.0,"high":2057.0,"low":2013.0,"close":2037.0},{"time":"2026-01-19","open":2057.0,"high":2057.0,"low":2014.0,"close":2024.0},{"time":"2026-01-20","open":2020.0,"high":2042.0,"low":1983.0,"close":2025.0},{"time":"2026-01-21","open":1985.0,"high":2010.0,"low":1971.0,"close":2002.0},{"time":"2026-01-22","open":1998.0,"high":2002.0,"low":1960.0,"close":1977.0},{"time":"2026-01-23","open":1976.0,"high":2003.0,"low":1969.0,"close":1984.0},{"time":"2026-01-26","open":1976.0,"high":1980.0,"low":1945.0,"close":1948.0},{"time":"2026-01-27","open":1959.0,"high":1978.0,"low":1931.0,"close":1956.0},{"time":"2026-01-28","open":1939.0,"high":1939.0,"low":1908.0,"close":1910.0},{"time":"2026-01-29","open":1910.0,"high":1924.0,"low":1872.0,"close":1897.0},{"time":"2026-01-30","open":1873.0,"high":1891.0,"low":1846.0,"close":1852.0},{"time":"2026-02-02","open":1855.0,"high":1874.0,"low":1819.0,"close":1819.0},{"time":"2026-02-03","open":1825.0,"high":1867.0,"low":1825.0,"close":1855.0},{"time":"2026-02-04","open":1831.0,"high":1837.0,"low":1790.0,"close":1800.0},{"time":"2026-02-05","open":1790.0,"high":1840.0,"low":1790.0,"close":1817.0},{"time":"2026-02-06","open":1783.0,"high":1783.0,"low":1719.0,"close":1719.0},{"time":"2026-02-09","open":1740.0,"high":1740.0,"low":1719.0,"close":1738.0},{"time":"2026-02-10","open":1744.0,"high":1773.0,"low":1743.0,"close":1753.0},{"time":"2026-02-12","open":1749.0,"high":1763.0,"low":1732.0,"close":1740.0},{"time":"2026-02-13","open":1715.0,"high":1733.0,"low":1620.0,"close":1633.0},{"time":"2026-02-16","open":1650.0,"high":1673.0,"low":1618.0,"close":1653.0},{"time":"2026-02-17","open":1620.0,"high":1644.0,"low":1592.0,"close":1600.0},{"time":"2026-02-18","open":1599.0,"high":1607.0,"low":1544.0,"close":1573.0},{"time":"2026-02-19","open":1599.0,"high":1601.0,"low":1550.0,"close":1553.0},{"time":"2026-02-20","open":1559.0,"high":1597.0,"low":1556.0,"close":1591.0},{"time":"2026-02-24","open":1561.0,"high":1568.0,"low":1518.0,"close":1521.0},{"time":"2026-02-25","open":1533.0,"high":1555.0,"low":1528.0,"close":1548.0},{"time":"2026-02-26","open":1559.0,"high":1608.0,"low":1548.0,"close":1603.0},{"time":"2026-02-27","open":1630.0,"high":1657.0,"low":1620.0,"close":1649.0},{"time":"2026-03-02","open":1600.0,"high":1600.0,"low":1561.0,"close":1565.0},{"time":"2026-03-03","open":1552.0,"high":1552.0,"low":1500.0,"close":1502.0},{"time":"2026-03-04","open":1480.0,"high":1513.0,"low":1461.0,"close":1474.0},{"time":"2026-03-05","open":1504.0,"high":1544.0,"low":1497.0,"close":1518.0},{"time":"2026-03-06","open":1522.0,"high":1554.0,"low":1505.0,"close":1554.0},{"time":"2026-03-09","open":1510.0,"high":1537.0,"low":1494.0,"close":1533.0},{"time":"2026-03-10","open":1560.0,"high":1610.0,"low":1548.0,"close":1587.0},{"time":"2026-03-11","open":1595.0,"high":1613.0,"low":1583.0,"close":1599.0},{"time":"2026-03-12","open":1590.0,"high":1595.0,"low":1549.0,"close":1562.0},{"time":"2026-03-13","open":1541.0,"high":1547.0,"low":1524.0,"close":1524.0},{"time":"2026-03-16","open":1520.0,"high":1548.0,"low":1520.0,"close":1526.0},{"time":"2026-03-17","open":1550.0,"high":1550.0,"low":1511.0,"close":1511.0},{"time":"2026-03-18","open":1532.0,"high":1543.0,"low":1517.0,"close":1543.0},{"time":"2026-03-19","open":1516.0,"high":1521.0,"low":1473.0,"close":1473.0},{"time":"2026-03-23","open":1443.0,"high":1452.0,"low":1419.0,"close":1426.0},{"time":"2026-03-24","open":1462.0,"high":1479.0,"low":1440.0,"close":1461.0},{"time":"2026-03-25","open":1466.0,"high":1489.0,"low":1466.0,"close":1478.0},{"time":"2026-03-26","open":1480.0,"high":1480.0,"low":1419.0,"close":1431.0},{"time":"2026-03-27","open":1420.0,"high":1444.0,"low":1420.0,"close":1439.0},{"time":"2026-03-30","open":1380.0,"high":1388.0,"low":1350.0,"close":1384.0},{"time":"2026-03-31","open":1386.0,"high":1424.0,"low":1380.0,"close":1408.0},{"time":"2026-04-01","open":1437.0,"high":1497.0,"low":1435.0,"close":1474.0},{"time":"2026-04-02","open":1483.0,"high":1498.0,"low":1432.0,"close":1440.0},{"time":"2026-04-03","open":1465.0,"high":1490.0,"low":1451.0,"close":1456.0},{"time":"2026-04-06","open":1459.0,"high":1475.0,"low":1451.0,"close":1459.0},{"time":"2026-04-07","open":1464.0,"high":1491.0,"low":1456.0,"close":1472.0},{"time":"2026-04-08","open":1500.0,"high":1544.0,"low":1495.0,"close":1535.0},{"time":"2026-04-09","open":1522.0,"high":1522.0,"low":1490.0,"close":1495.0},{"time":"2026-04-10","open":1490.0,"high":1492.0,"low":1448.0,"close":1458.0},{"time":"2026-04-13","open":1433.0,"high":1454.0,"low":1428.0,"close":1448.0},{"time":"2026-04-14","open":1452.0,"high":1504.0,"low":1452.0,"close":1468.0},{"time":"2026-04-15","open":1498.0,"high":1517.0,"low":1495.0,"close":1508.0},{"time":"2026-04-16","open":1578.0,"high":1583.0,"low":1554.0,"close":1576.0},{"time":"2026-04-17","open":1577.0,"high":1600.0,"low":1567.0,"close":1575.0},{"time":"2026-04-20","open":1574.0,"high":1575.0,"low":1556.0,"close":1565.0},{"time":"2026-04-21","open":1585.0,"high":1600.0,"low":1569.0,"close":1580.0},{"time":"2026-04-22","open":1593.0,"high":1629.0,"low":1586.0,"close":1608.0},{"time":"2026-04-23","open":1595.0,"high":1605.0,"low":1555.0,"close":1577.0},{"time":"2026-04-24","open":1555.0,"high":1579.0,"low":1554.0,"close":1567.0},{"time":"2026-04-27","open":1571.0,"high":1589.0,"low":1547.0,"close":1554.0},{"time":"2026-04-28","open":1550.0,"high":1563.0,"low":1540.0,"close":1559.0},{"time":"2026-04-30","open":1559.0,"high":1566.0,"low":1532.0,"close":1544.0},{"time":"2026-05-01","open":1540.0,"high":1549.0,"low":1532.0,"close":1540.0},{"time":"2026-05-07","open":1600.0,"high":1605.0,"low":1576.0,"close":1600.0},{"time":"2026-05-08","open":1736.0,"high":1833.0,"low":1723.0,"close":1793.0},{"time":"2026-05-11","open":1814.0,"high":1845.0,"low":1786.0,"close":1812.0},{"time":"2026-05-12","open":1796.0,"high":1807.0,"low":1723.0,"close":1724.0},{"time":"2026-05-13","open":1726.0,"high":1753.0,"low":1721.0,"close":1745.0},{"time":"2026-05-14","open":1745.0,"high":1745.0,"low":1691.0,"close":1700.0},{"time":"2026-05-15","open":1710.0,"high":1732.0,"low":1679.0,"close":1702.0},{"time":"2026-05-18","open":1717.0,"high":1730.0,"low":1693.0,"close":1706.0},{"time":"2026-05-19","open":1723.0,"high":1746.0,"low":1709.0,"close":1729.0},{"time":"2026-05-20","open":1767.0,"high":1778.0,"low":1719.0,"close":1736.0},{"time":"2026-05-21","open":1773.0,"high":1783.0,"low":1746.0,"close":1758.0},{"time":"2026-05-22","open":1760.0,"high":1796.0,"low":1755.0,"close":1791.0}],"topix_rebased":[{"time":"2024-05-10","value":2212.0},{"time":"2024-05-13","value":2209.669943820225},{"time":"2024-05-14","value":2212.0},{"time":"2024-05-15","value":2217.436797752809},{"time":"2024-05-16","value":2219.7668539325846},{"time":"2024-05-17","value":2225.9803370786517},{"time":"2024-05-20","value":2260.931179775281},{"time":"2024-05-21","value":2239.9606741573034},{"time":"2024-05-22","value":2219.7668539325846},{"time":"2024-05-23","value":2234.5238764044943},{"time":"2024-05-24","value":2224.426966292135},{"time":"2024-05-27","value":2243.067415730337},{"time":"2024-05-28","value":2246.174157303371},{"time":"2024-05-29","value":2223.6502808988766},{"time":"2024-05-30","value":2213.553370786517},{"time":"2024-05-31","value":2250.057584269663},{"time":"2024-06-03","value":2271.0280898876404},{"time":"2024-06-04","value":2261.7078651685392},{"time":"2024-06-05","value":2229.0870786516857},{"time":"2024-06-06","value":2236.0772471910113},{"time":"2024-06-07","value":2233.7471910112363},{"time":"2024-06-10","value":2257.824438202247},{"time":"2024-06-11","value":2252.387640449438},{"time":"2024-06-12","value":2235.300561797753},{"time":"2024-06-13","value":2215.106741573034},{"time":"2024-06-14","value":2228.310393258427},{"time":"2024-06-17","value":2187.9227528089887},{"time":"2024-06-18","value":2204.233146067416},{"time":"2024-06-19","value":2213.553370786517},{"time":"2024-06-20","value":2212.7766853932585},{"time":"2024-06-21","value":2207.3398876404494},{"time":"2024-06-24","value":2223.6502808988766},{"time":"2024-06-25","value":2258.6011235955057},{"time":"2024-06-26","value":2271.0280898876404},{"time":"2024-06-27","value":2265.5912921348317},{"time":"2024-06-28","value":2282.678370786517},{"time":"2024-07-01","value":2291.998595505618},{"time":"2024-07-02","value":2317.629213483146},{"time":"2024-07-03","value":2329.2794943820227},{"time":"2024-07-04","value":2353.356741573034},{"time":"2024-07-05","value":2297.435393258427},{"time":"2024-07-08","value":2288.115168539326},{"time":"2024-07-09","value":2307.532303370787},{"time":"2024-07-10","value":2325.3960674157306},{"time":"2024-07-11","value":2345.5898876404494},{"time":"2024-07-12","value":2305.97893258427},{"time":"2024-07-16","value":2325.3960674157306},{"time":"2024-07-17","value":2326.1727528089887},{"time":"2024-07-18","value":2287.3384831460676},{"time":"2024-07-19","value":2267.1446629213483},{"time":"2024-07-22","value":2250.8342696629215},{"time":"2024-07-23","value":2255.494382022472},{"time":"2024-07-24","value":2223.6502808988766},{"time":"2024-07-25","value":2156.8553370786517},{"time":"2024-07-26","value":2154.5252808988766},{"time":"2024-07-29","value":2200.349719101124},{"time":"2024-07-30","value":2211.2233146067415},{"time":"2024-07-31","value":2231.4171348314608},{"time":"2024-08-01","value":2155.301966292135},{"time":"2024-08-02","value":2019.3820224719102},{"time":"2024-08-05","value":1778.6095505617977},{"time":"2024-08-06","value":1911.422752808989},{"time":"2024-08-07","value":2024.8188202247193},{"time":"2024-08-08","value":1953.363764044944},{"time":"2024-08-09","value":1979.7710674157304},{"time":"2024-08-13","value":2038.799157303371},{"time":"2024-08-14","value":2059.7696629213483},{"time":"2024-08-15","value":2072.1966292134834},{"time":"2024-08-16","value":2133.554775280899},{"time":"2024-08-19","value":2105.5941011235955},{"time":"2024-08-20","value":2132.0014044943823},{"time":"2024-08-21","value":2121.9044943820227},{"time":"2024-08-22","value":2128.11797752809},{"time":"2024-08-23","value":2138.991573033708},{"time":"2024-08-26","value":2119.574438202247},{"time":"2024-08-27","value":2136.661516853933},{"time":"2024-08-28","value":2143.6516853932585},{"time":"2024-08-29","value":2145.2050561797755},{"time":"2024-08-30","value":2158.4087078651687},{"time":"2024-09-02","value":2163.845505617978},{"time":"2024-09-03","value":2175.495786516854},{"time":"2024-09-04","value":2097.050561797753},{"time":"2024-09-05","value":2086.176966292135},{"time":"2024-09-06","value":2069.0898876404494},{"time":"2024-09-09","value":2055.1095505617977},{"time":"2024-09-10","value":2052.002808988764},{"time":"2024-09-11","value":2014.7219101123596},{"time":"2024-09-12","value":2065.2064606741574},{"time":"2024-09-13","value":2049.6727528089887},{"time":"2024-09-17","value":2039.5758426966293},{"time":"2024-09-18","value":2039.5758426966293},{"time":"2024-09-19","value":2083.8469101123596},{"time":"2024-09-20","value":2102.487359550562},{"time":"2024-09-24","value":2118.0210674157306},{"time":"2024-09-25","value":2112.5842696629215},{"time":"2024-09-26","value":2160.7387640449438},{"time":"2024-09-27","value":2205.0098314606744},{"time":"2024-09-30","value":2130.4480337078653},{"time":"2024-10-01","value":2161.5154494382023},{"time":"2024-10-02","value":2130.4480337078653},{"time":"2024-10-03","value":2159.185393258427},{"time":"2024-10-04","value":2165.3988764044943},{"time":"2024-10-07","value":2203.4564606741574},{"time":"2024-10-08","value":2170.058988764045},{"time":"2024-10-09","value":2178.6025280898875},{"time":"2024-10-10","value":2181.7092696629215},{"time":"2024-10-11","value":2179.379213483146},{"time":"2024-10-15","value":2193.3595505617977},{"time":"2024-10-16","value":2163.845505617978},{"time":"2024-10-17","value":2163.0688202247193},{"time":"2024-10-18","value":2163.0688202247193},{"time":"2024-10-21","value":2155.301966292135},{"time":"2024-10-22","value":2130.4480337078653},{"time":"2024-10-23","value":2118.7977528089887},{"time":"2024-10-24","value":2121.9044943820227},{"time":"2024-10-25","value":2104.040730337079},{"time":"2024-10-28","value":2137.438202247191},{"time":"2024-10-29","value":2155.301966292135},{"time":"2024-10-30","value":2178.6025280898875},{"time":"2024-10-31","value":2164.6221910112363},{"time":"2024-11-01","value":2126.5646067415732},{"time":"2024-11-05","value":2145.981741573034},{"time":"2024-11-06","value":2171.612359550562},{"time":"2024-11-07","value":2209.669943820225},{"time":"2024-11-08","value":2201.1264044943823},{"time":"2024-11-11","value":2201.1264044943823},{"time":"2024-11-12","value":2203.4564606741574},{"time":"2024-11-13","value":2177.8258426966295},{"time":"2024-11-14","value":2173.942415730337},{"time":"2024-11-15","value":2179.379213483146},{"time":"2024-11-18","value":2168.5056179775283},{"time":"2024-11-19","value":2177.049157303371},{"time":"2024-11-20","value":2172.3890449438204},{"time":"2024-11-21","value":2160.7387640449438},{"time":"2024-11-22","value":2166.9522471910113},{"time":"2024-11-25","value":2175.495786516854},{"time":"2024-11-26","value":2161.5154494382023},{"time":"2024-11-27","value":2142.875},{"time":"2024-11-28","value":2158.4087078651687},{"time":"2024-11-29","value":2151.4185393258426},{"time":"2024-12-02","value":2180.1558988764045},{"time":"2024-12-03","value":2208.8932584269664},{"time":"2024-12-04","value":2198.0196629213483},{"time":"2024-12-05","value":2199.5730337078653},{"time":"2024-12-06","value":2188.699438202247},{"time":"2024-12-09","value":2195.6896067415732},{"time":"2024-12-10","value":2202.679775280899},{"time":"2024-12-11","value":2209.669943820225},{"time":"2024-12-12","value":2232.1938202247193},{"time":"2024-12-13","value":2213.553370786517},{"time":"2024-12-16","value":2201.1264044943823},{"time":"2024-12-17","value":2191.0294943820227},{"time":"2024-12-18","value":2191.806179775281},{"time":"2024-12-19","value":2180.1558988764045},{"time":"2024-12-20","value":2175.495786516854},{"time":"2024-12-23","value":2196.4662921348317},{"time":"2024-12-24","value":2194.1362359550562},{"time":"2024-12-25","value":2198.0196629213483},{"time":"2024-12-26","value":2225.9803370786517},{"time":"2024-12-27","value":2255.494382022472},{"time":"2024-12-30","value":2241.5140449438204},{"time":"2025-01-06","value":2220.5435393258426},{"time":"2025-01-07","value":2243.067415730337},{"time":"2025-01-08","value":2229.8637640449438},{"time":"2025-01-09","value":2204.233146067416},{"time":"2025-01-10","value":2187.1460674157306},{"time":"2025-01-14","value":2159.9620786516857},{"time":"2025-01-15","value":2169.2823033707864},{"time":"2025-01-16","value":2163.845505617978},{"time":"2025-01-17","value":2159.185393258427},{"time":"2025-01-20","value":2184.0393258426966},{"time":"2025-01-21","value":2184.816011235955},{"time":"2025-01-22","value":2205.786516853933},{"time":"2025-01-23","value":2224.426966292135},{"time":"2025-01-24","value":2219.7668539325846},{"time":"2025-01-27","value":2221.320224719101},{"time":"2025-01-28","value":2221.320224719101},{"time":"2025-01-29","value":2236.0772471910113},{"time":"2025-01-30","value":2239.9606741573034},{"time":"2025-01-31","value":2250.057584269663},{"time":"2025-02-03","value":2193.3595505617977},{"time":"2025-02-04","value":2203.4564606741574},{"time":"2025-02-05","value":2209.669943820225},{"time":"2025-02-06","value":2215.883426966292},{"time":"2025-02-07","value":2203.4564606741574},{"time":"2025-02-10","value":2203.4564606741574},{"time":"2025-02-12","value":2201.9030898876404},{"time":"2025-02-13","value":2228.310393258427},{"time":"2025-02-14","value":2220.5435393258426},{"time":"2025-02-17","value":2228.310393258427},{"time":"2025-02-18","value":2236.85393258427},{"time":"2025-02-19","value":2229.8637640449438},{"time":"2025-02-20","value":2202.679775280899},{"time":"2025-02-21","value":2205.0098314606744},{"time":"2025-02-25","value":2197.24297752809},{"time":"2025-02-26","value":2191.0294943820227},{"time":"2025-02-27","value":2207.3398876404494},{"time":"2025-02-28","value":2160.7387640449438},{"time":"2025-03-03","value":2202.679775280899},{"time":"2025-03-04","value":2181.7092696629215},{"time":"2025-03-05","value":2189.4761235955057},{"time":"2025-03-06","value":2216.6601123595506},{"time":"2025-03-07","value":2184.816011235955},{"time":"2025-03-10","value":2174.7191011235955},{"time":"2025-03-11","value":2152.195224719101},{"time":"2025-03-12","value":2170.058988764045},{"time":"2025-03-13","value":2178.6025280898875},{"time":"2025-03-14","value":2186.369382022472},{"time":"2025-03-17","value":2216.6601123595506},{"time":"2025-03-18","value":2242.290730337079},{"time":"2025-03-19","value":2252.387640449438},{"time":"2025-03-21","value":2260.1544943820227},{"time":"2025-03-24","value":2249.2808988764045},{"time":"2025-03-25","value":2253.941011235955},{"time":"2025-03-26","value":2269.474719101124},{"time":"2025-03-27","value":2267.1446629213483},{"time":"2025-03-28","value":2244.620786516854},{"time":"2025-03-31","value":2163.845505617978},{"time":"2025-04-01","value":2169.2823033707864},{"time":"2025-04-02","value":2154.5252808988766},{"time":"2025-04-03","value":2097.8272471910113},{"time":"2025-04-04","value":2022.488764044944},{"time":"2025-04-07","value":1870.2584269662923},{"time":"2025-04-08","value":1981.3244382022474},{"time":"2025-04-09","value":1910.6460674157304},{"time":"2025-04-10","value":2068.313202247191},{"time":"2025-04-11","value":2007.7317415730338},{"time":"2025-04-14","value":2033.362359550562},{"time":"2025-04-15","value":2047.3426966292136},{"time":"2025-04-16","value":2035.6924157303372},{"time":"2025-04-17","value":2062.099719101124},{"time":"2025-04-18","value":2085.4002808988766},{"time":"2025-04-21","value":2058.99297752809},{"time":"2025-04-22","value":2061.3230337078653},{"time":"2025-04-23","value":2106.370786516854},{"time":"2025-04-24","value":2111.0308988764045},{"time":"2025-04-25","value":2143.6516853932585},{"time":"2025-04-28","value":2158.4087078651687},{"time":"2025-04-30","value":2173.165730337079},{"time":"2025-05-01","value":2180.932584269663},{"time":"2025-05-02","value":2191.806179775281},{"time":"2025-05-07","value":2194.1362359550562},{"time":"2025-05-08","value":2202.679775280899},{"time":"2025-05-09","value":2224.426966292135},{"time":"2025-05-12","value":2236.85393258427},{"time":"2025-05-13","value":2260.931179775281},{"time":"2025-05-14","value":2250.057584269663},{"time":"2025-05-15","value":2230.6404494382023},{"time":"2025-05-16","value":2232.1938202247193},{"time":"2025-05-19","value":2230.6404494382023},{"time":"2025-05-20","value":2231.4171348314608},{"time":"2025-05-21","value":2227.5337078651687},{"time":"2025-05-22","value":2212.0},{"time":"2025-05-23","value":2230.6404494382023},{"time":"2025-05-26","value":2243.8441011235955},{"time":"2025-05-27","value":2258.6011235955057},{"time":"2025-05-28","value":2260.1544943820227},{"time":"2025-05-29","value":2292.7752808988766},{"time":"2025-05-30","value":2284.231741573034},{"time":"2025-06-02","value":2262.4845505617977},{"time":"2025-06-03","value":2259.377808988764},{"time":"2025-06-04","value":2267.921348314607},{"time":"2025-06-05","value":2246.9508426966295},{"time":"2025-06-06","value":2262.4845505617977},{"time":"2025-06-09","value":2269.474719101124},{"time":"2025-06-10","value":2268.6980337078653},{"time":"2025-06-11","value":2274.911516853933},{"time":"2025-06-12","value":2266.36797752809},{"time":"2025-06-13","value":2244.620786516854},{"time":"2025-06-16","value":2263.2612359550562},{"time":"2025-06-17","value":2271.804775280899},{"time":"2025-06-18","value":2290.445224719101},{"time":"2025-06-19","value":2274.1348314606744},{"time":"2025-06-20","value":2260.1544943820227},{"time":"2025-06-23","value":2250.8342696629215},{"time":"2025-06-24","value":2266.36797752809},{"time":"2025-06-25","value":2268.6980337078653},{"time":"2025-06-26","value":2286.561797752809},{"time":"2025-06-27","value":2319.182584269663},{"time":"2025-06-30","value":2325.3960674157306},{"time":"2025-07-01","value":2308.308988764045},{"time":"2025-07-02","value":2305.2022471910113},{"time":"2025-07-03","value":2308.308988764045},{"time":"2025-07-04","value":2308.308988764045},{"time":"2025-07-07","value":2240.737359550562},{"time":"2025-07-08","value":2245.3974719101125},{"time":"2025-07-09","value":2253.941011235955},{"time":"2025-07-10","value":2239.183988764045},{"time":"2025-07-11","value":2250.8342696629215},{"time":"2025-07-14","value":2250.8342696629215},{"time":"2025-07-15","value":2250.8342696629215},{"time":"2025-07-16","value":2246.174157303371},{"time":"2025-07-17","value":2263.2612359550562},{"time":"2025-07-18","value":2259.377808988764},{"time":"2025-07-22","value":2260.931179775281},{"time":"2025-07-23","value":2333.1629213483147},{"time":"2025-07-24","value":2373.550561797753},{"time":"2025-07-25","value":2351.803370786517},{"time":"2025-07-28","value":2335.49297752809},{"time":"2025-07-29","value":2317.629213483146},{"time":"2025-07-30","value":2327.7261235955057},{"time":"2025-07-31","value":2346.366573033708},{"time":"2025-08-01","value":2350.25},{"time":"2025-08-04","value":2323.066011235955},{"time":"2025-08-05","value":2341.7064606741574},{"time":"2025-08-06","value":2365.7837078651687},{"time":"2025-08-07","value":2382.0941011235955},{"time":"2025-08-08","value":2410.8314606741574},{"time":"2025-08-12","value":2444.22893258427},{"time":"2025-08-13","value":2463.6460674157306},{"time":"2025-08-14","value":2438.7921348314608},{"time":"2025-08-15","value":2477.6264044943823},{"time":"2025-08-18","value":2487.7233146067415},{"time":"2025-08-19","value":2484.616573033708},{"time":"2025-08-20","value":2470.6362359550562},{"time":"2025-08-21","value":2458.2092696629215},{"time":"2025-08-22","value":2469.0828651685392},{"time":"2025-08-25","value":2475.296348314607},{"time":"2025-08-26","value":2451.995786516854},{"time":"2025-08-27","value":2446.558988764045},{"time":"2025-08-28","value":2462.0926966292136},{"time":"2025-08-29","value":2449.665730337079},{"time":"2025-09-01","value":2440.345505617978},{"time":"2025-09-02","value":2457.432584269663},{"time":"2025-09-03","value":2430.248595505618},{"time":"2025-09-04","value":2455.102528089888},{"time":"2025-09-05","value":2476.0730337078653},{"time":"2025-09-08","value":2504.0337078651687},{"time":"2025-09-09","value":2494.7134831460676},{"time":"2025-09-10","value":2502.4803370786517},{"time":"2025-09-11","value":2509.470505617978},{"time":"2025-09-12","value":2521.120786516854},{"time":"2025-09-16","value":2528.8876404494385},{"time":"2025-09-17","value":2507.1404494382023},{"time":"2025-09-18","value":2518.790730337079},{"time":"2025-09-19","value":2505.5870786516857},{"time":"2025-09-22","value":2522.674157303371},{"time":"2025-09-24","value":2528.11095505618},{"time":"2025-09-25","value":2538.9845505617977},{"time":"2025-09-26","value":2539.7612359550562},{"time":"2025-09-29","value":2518.790730337079},{"time":"2025-09-30","value":2524.227528089888},{"time":"2025-10-01","value":2491.606741573034},{"time":"2025-10-02","value":2486.169943820225},{"time":"2025-10-03","value":2518.0140449438204},{"time":"2025-10-06","value":2594.129213483146},{"time":"2025-10-07","value":2595.682584269663},{"time":"2025-10-08","value":2600.3426966292136},{"time":"2025-10-09","value":2621.313202247191},{"time":"2025-10-10","value":2575.4887640449438},{"time":"2025-10-14","value":2521.8974719101125},{"time":"2025-10-15","value":2563.061797752809},{"time":"2025-10-16","value":2575.4887640449438},{"time":"2025-10-17","value":2555.294943820225},{"time":"2025-10-20","value":2611.99297752809},{"time":"2025-10-21","value":2614.3230337078653},{"time":"2025-10-22","value":2627.5266853932585},{"time":"2025-10-23","value":2618.2064606741574},{"time":"2025-10-27","value":2674.127808988764},{"time":"2025-10-28","value":2643.060393258427},{"time":"2025-10-29","value":2636.8469101123596},{"time":"2025-10-30","value":2654.7106741573034},{"time":"2025-10-31","value":2681.11797752809},{"time":"2025-11-04","value":2663.254213483146},{"time":"2025-11-05","value":2630.633426966292},{"time":"2025-11-06","value":2664.807584269663},{"time":"2025-11-07","value":2654.7106741573034},{"time":"2025-11-10","value":2672.574438202247},{"time":"2025-11-11","value":2674.127808988764},{"time":"2025-11-12","value":2703.6418539325846},{"time":"2025-11-13","value":2719.9522471910113},{"time":"2025-11-14","value":2701.311797752809},{"time":"2025-11-17","value":2693.544943820225},{"time":"2025-11-18","value":2622.0898876404494},{"time":"2025-11-19","value":2614.3230337078653},{"time":"2025-11-20","value":2654.7106741573034},{"time":"2025-11-21","value":2653.933988764045},{"time":"2025-11-25","value":2648.4971910112363},{"time":"2025-11-26","value":2698.2050561797755},{"time":"2025-11-27","value":2709.078651685393},{"time":"2025-11-28","value":2717.6221910112363},{"time":"2025-12-01","value":2686.554775280899},{"time":"2025-12-02","value":2687.3314606741574},{"time":"2025-12-03","value":2681.8946629213483},{"time":"2025-12-04","value":2730.8258426966295},{"time":"2025-12-05","value":2704.4185393258426},{"time":"2025-12-08","value":2723.8356741573034},{"time":"2025-12-09","value":2724.612359550562},{"time":"2025-12-10","value":2730.049157303371},{"time":"2025-12-11","value":2701.311797752809},{"time":"2025-12-12","value":2761.116573033708},{"time":"2025-12-15","value":2760.3398876404494},{"time":"2025-12-16","value":2713.7387640449438},{"time":"2025-12-17","value":2712.185393258427},{"time":"2025-12-18","value":2706.748595505618},{"time":"2025-12-19","value":2727.7191011235955},{"time":"2025-12-22","value":2740.1460674157306},{"time":"2025-12-23","value":2754.9030898876404},{"time":"2025-12-24","value":2744.0294943820227},{"time":"2025-12-25","value":2749.4662921348317},{"time":"2025-12-26","value":2751.0196629213483},{"time":"2025-12-29","value":2761.116573033708},{"time":"2025-12-30","value":2748.6896067415732},{"time":"2026-01-05","value":2801.504213483146},{"time":"2026-01-06","value":2850.435393258427},{"time":"2026-01-07","value":2827.1348314606744},{"time":"2026-01-08","value":2804.61095505618},{"time":"2026-01-09","value":2833.3483146067415},{"time":"2026-01-13","value":2898.5898876404494},{"time":"2026-01-14","value":2933.540730337079},{"time":"2026-01-15","value":2956.0646067415732},{"time":"2026-01-16","value":2948.297752808989},{"time":"2026-01-19","value":2942.86095505618},{"time":"2026-01-20","value":2924.220505617978},{"time":"2026-01-21","value":2893.929775280899},{"time":"2026-01-22","value":2913.3469101123596},{"time":"2026-01-23","value":2921.8904494382023},{"time":"2026-01-26","value":2860.532303370787},{"time":"2026-01-27","value":2867.5224719101125},{"time":"2026-01-28","value":2847.328651685393},{"time":"2026-01-29","value":2857.425561797753},{"time":"2026-01-30","value":2878.3960674157306},{"time":"2026-02-02","value":2852.7654494382023},{"time":"2026-02-03","value":2935.0941011235955},{"time":"2026-02-04","value":2944.4143258426966},{"time":"2026-02-05","value":2945.9676966292136},{"time":"2026-02-06","value":2982.4719101123596},{"time":"2026-02-09","value":3052.373595505618},{"time":"2026-02-10","value":3109.0716292134834},{"time":"2026-02-12","value":3126.1587078651687},{"time":"2026-02-13","value":3079.557584269663},{"time":"2026-02-16","value":3058.5870786516857},{"time":"2026-02-17","value":3032.179775280899},{"time":"2026-02-18","value":3068.683988764045},{"time":"2026-02-19","value":3103.6348314606744},{"time":"2026-02-20","value":3067.907303370787},{"time":"2026-02-24","value":3071.790730337079},{"time":"2026-02-25","value":3102.0814606741574},{"time":"2026-02-26","value":3131.595505617978},{"time":"2026-02-27","value":3173.536516853933},{"time":"2026-03-02","value":3140.915730337079},{"time":"2026-03-03","value":3043.053370786517},{"time":"2026-03-04","value":2931.2106741573034},{"time":"2026-03-05","value":2986.3553370786517},{"time":"2026-03-06","value":2998.782303370787},{"time":"2026-03-09","value":2883.056179775281},{"time":"2026-03-10","value":2953.7345505617977},{"time":"2026-03-11","value":2983.248595505618},{"time":"2026-03-12","value":2939.754213483146},{"time":"2026-03-13","value":2922.6671348314608},{"time":"2026-03-16","value":2907.9101123595506},{"time":"2026-03-17","value":2923.4438202247193},{"time":"2026-03-18","value":2998.0056179775283},{"time":"2026-03-19","value":2910.240168539326},{"time":"2026-03-23","value":2802.2808988764045},{"time":"2026-03-24","value":2872.182584269663},{"time":"2026-03-25","value":2944.4143258426966},{"time":"2026-03-26","value":2940.5308988764045},{"time":"2026-03-27","value":2939.754213483146},{"time":"2026-03-30","value":2876.8426966292136},{"time":"2026-03-31","value":2844.2219101123596},{"time":"2026-04-01","value":2987.9087078651687},{"time":"2026-04-02","value":2937.424157303371},{"time":"2026-04-03","value":2966.938202247191},{"time":"2026-04-06","value":2966.161516853933},{"time":"2026-04-07","value":2974.7050561797755},{"time":"2026-04-08","value":3073.3441011235955},{"time":"2026-04-09","value":3040.7233146067415},{"time":"2026-04-10","value":3042.2766853932585},{"time":"2026-04-13","value":3027.5196629213483},{"time":"2026-04-14","value":3053.1502808988766},{"time":"2026-04-15","value":3066.35393258427},{"time":"2026-04-16","value":3102.858146067416},{"time":"2026-04-17","value":3060.1404494382023},{"time":"2026-04-20","value":3073.3441011235955},{"time":"2026-04-21","value":3067.907303370787},{"time":"2026-04-22","value":3048.490168539326},{"time":"2026-04-23","value":3020.5294943820227},{"time":"2026-04-24","value":3020.5294943820227},{"time":"2026-04-27","value":3040.7233146067415},{"time":"2026-04-28","value":3069.4606741573034},{"time":"2026-04-30","value":3027.5196629213483},{"time":"2026-05-01","value":3029.0730337078653},{"time":"2026-05-07","value":3124.6053370786517},{"time":"2026-05-08","value":3113.731741573034},{"time":"2026-05-11","value":3123.051966292135},{"time":"2026-05-12","value":3148.682584269663},{"time":"2026-05-13","value":3190.623595505618},{"time":"2026-05-14","value":3158.002808988764},{"time":"2026-05-15","value":3143.245786516854},{"time":"2026-05-18","value":3112.178370786517},{"time":"2026-05-19","value":3135.47893258427},{"time":"2026-05-20","value":3091.2078651685397},{"time":"2026-05-21","value":3136.2556179775283},{"time":"2026-05-22","value":3166.546348314607}],"sma60":[{"time":"2024-08-02","value":2074.3},{"time":"2024-08-05","value":2060.4},{"time":"2024-08-06","value":2049.3},{"time":"2024-08-07","value":2039.0},{"time":"2024-08-08","value":2029.3},{"time":"2024-08-09","value":2019.2},{"time":"2024-08-13","value":2011.0},{"time":"2024-08-14","value":2003.3},{"time":"2024-08-15","value":1996.5},{"time":"2024-08-16","value":1991.8},{"time":"2024-08-19","value":1986.9},{"time":"2024-08-20","value":1983.8},{"time":"2024-08-21","value":1980.1},{"time":"2024-08-22","value":1975.4},{"time":"2024-08-23","value":1971.9},{"time":"2024-08-26","value":1969.4},{"time":"2024-08-27","value":1967.4},{"time":"2024-08-28","value":1965.2},{"time":"2024-08-29","value":1961.5},{"time":"2024-08-30","value":1958.5},{"time":"2024-09-02","value":1956.5},{"time":"2024-09-03","value":1955.4},{"time":"2024-09-04","value":1952.9},{"time":"2024-09-05","value":1951.4},{"time":"2024-09-06","value":1949.4},{"time":"2024-09-09","value":1947.2},{"time":"2024-09-10","value":1945.3},{"time":"2024-09-11","value":1943.7},{"time":"2024-09-12","value":1942.7},{"time":"2024-09-13","value":1941.5},{"time":"2024-09-17","value":1939.7},{"time":"2024-09-18","value":1937.9},{"time":"2024-09-19","value":1936.4},{"time":"2024-09-20","value":1935.3},{"time":"2024-09-24","value":1933.5},{"time":"2024-09-25","value":1930.4},{"time":"2024-09-26","value":1929.3},{"time":"2024-09-27","value":1929.8},{"time":"2024-09-30","value":1928.3},{"time":"2024-10-01","value":1926.6},{"time":"2024-10-02","value":1923.6},{"time":"2024-10-03","value":1920.1},{"time":"2024-10-04","value":1915.7},{"time":"2024-10-07","value":1911.8},{"time":"2024-10-08","value":1907.6},{"time":"2024-10-09","value":1904.0},{"time":"2024-10-10","value":1898.0},{"time":"2024-10-11","value":1891.3},{"time":"2024-10-15","value":1885.7},{"time":"2024-10-16","value":1879.9},{"time":"2024-10-17","value":1873.9},{"time":"2024-10-18","value":1867.9},{"time":"2024-10-21","value":1862.8},{"time":"2024-10-22","value":1857.1},{"time":"2024-10-23","value":1852.9},{"time":"2024-10-24","value":1848.6},{"time":"2024-10-25","value":1842.6},{"time":"2024-10-28","value":1838.2},{"time":"2024-10-29","value":1834.8},{"time":"2024-10-30","value":1832.7},{"time":"2024-10-31","value":1834.2},{"time":"2024-11-01","value":1841.7},{"time":"2024-11-05","value":1845.4},{"time":"2024-11-06","value":1847.5},{"time":"2024-11-07","value":1849.4},{"time":"2024-11-08","value":1852.9},{"time":"2024-11-11","value":1855.7},{"time":"2024-11-12","value":1858.0},{"time":"2024-11-13","value":1860.4},{"time":"2024-11-14","value":1863.3},{"time":"2024-11-15","value":1867.9},{"time":"2024-11-18","value":1871.0},{"time":"2024-11-19","value":1876.2},{"time":"2024-11-20","value":1880.2},{"time":"2024-11-21","value":1884.0},{"time":"2024-11-22","value":1886.3},{"time":"2024-11-25","value":1887.5},{"time":"2024-11-26","value":1890.0},{"time":"2024-11-27","value":1891.4},{"time":"2024-11-28","value":1892.8},{"time":"2024-11-29","value":1895.7},{"time":"2024-12-02","value":1895.8},{"time":"2024-12-03","value":1897.6},{"time":"2024-12-04","value":1898.6},{"time":"2024-12-05","value":1900.6},{"time":"2024-12-06","value":1902.4},{"time":"2024-12-09","value":1903.8},{"time":"2024-12-10","value":1904.7},{"time":"2024-12-11","value":1905.0},{"time":"2024-12-12","value":1905.8},{"time":"2024-12-13","value":1907.0},{"time":"2024-12-16","value":1907.6},{"time":"2024-12-17","value":1906.6},{"time":"2024-12-18","value":1905.4},{"time":"2024-12-19","value":1904.5},{"time":"2024-12-20","value":1904.2},{"time":"2024-12-23","value":1903.0},{"time":"2024-12-24","value":1900.8},{"time":"2024-12-25","value":1900.5},{"time":"2024-12-26","value":1899.1},{"time":"2024-12-27","value":1898.4},{"time":"2024-12-30","value":1897.5},{"time":"2025-01-06","value":1897.1},{"time":"2025-01-07","value":1897.5},{"time":"2025-01-08","value":1898.1},{"time":"2025-01-09","value":1898.0},{"time":"2025-01-10","value":1898.2},{"time":"2025-01-14","value":1898.4},{"time":"2025-01-15","value":1896.9},{"time":"2025-01-16","value":1895.8},{"time":"2025-01-17","value":1894.7},{"time":"2025-01-20","value":1894.0},{"time":"2025-01-21","value":1892.9},{"time":"2025-01-22","value":1893.1},{"time":"2025-01-23","value":1893.6},{"time":"2025-01-24","value":1894.2},{"time":"2025-01-27","value":1895.7},{"time":"2025-01-28","value":1897.7},{"time":"2025-01-29","value":1899.0},{"time":"2025-01-30","value":1899.5},{"time":"2025-01-31","value":1898.7},{"time":"2025-02-03","value":1898.2},{"time":"2025-02-04","value":1897.7},{"time":"2025-02-05","value":1898.0},{"time":"2025-02-06","value":1898.5},{"time":"2025-02-07","value":1898.5},{"time":"2025-02-10","value":1898.4},{"time":"2025-02-12","value":1898.7},{"time":"2025-02-13","value":1898.1},{"time":"2025-02-14","value":1896.3},{"time":"2025-02-17","value":1893.2},{"time":"2025-02-18","value":1890.4},{"time":"2025-02-19","value":1886.6},{"time":"2025-02-20","value":1882.4},{"time":"2025-02-21","value":1878.6},{"time":"2025-02-25","value":1874.7},{"time":"2025-02-26","value":1870.2},{"time":"2025-02-27","value":1865.1},{"time":"2025-02-28","value":1860.6},{"time":"2025-03-03","value":1856.7},{"time":"2025-03-04","value":1850.6},{"time":"2025-03-05","value":1845.5},{"time":"2025-03-06","value":1840.7},{"time":"2025-03-07","value":1836.4},{"time":"2025-03-10","value":1831.6},{"time":"2025-03-11","value":1827.5},{"time":"2025-03-12","value":1823.0},{"time":"2025-03-13","value":1819.3},{"time":"2025-03-14","value":1815.2},{"time":"2025-03-17","value":1811.8},{"time":"2025-03-18","value":1808.2},{"time":"2025-03-19","value":1805.1},{"time":"2025-03-21","value":1802.4},{"time":"2025-03-24","value":1799.6},{"time":"2025-03-25","value":1796.8},{"time":"2025-03-26","value":1794.5},{"time":"2025-03-27","value":1792.4},{"time":"2025-03-28","value":1790.5},{"time":"2025-03-31","value":1787.7},{"time":"2025-04-01","value":1785.4},{"time":"2025-04-02","value":1783.0},{"time":"2025-04-03","value":1779.8},{"time":"2025-04-04","value":1774.7},{"time":"2025-04-07","value":1765.1},{"time":"2025-04-08","value":1758.3},{"time":"2025-04-09","value":1750.8},{"time":"2025-04-10","value":1745.8},{"time":"2025-04-11","value":1741.6},{"time":"2025-04-14","value":1738.7},{"time":"2025-04-15","value":1735.8},{"time":"2025-04-16","value":1732.8},{"time":"2025-04-17","value":1729.2},{"time":"2025-04-18","value":1726.4},{"time":"2025-04-21","value":1723.3},{"time":"2025-04-22","value":1720.0},{"time":"2025-04-23","value":1716.7},{"time":"2025-04-24","value":1713.2},{"time":"2025-04-25","value":1708.8},{"time":"2025-04-28","value":1704.3},{"time":"2025-04-30","value":1700.5},{"time":"2025-05-01","value":1697.6},{"time":"2025-05-02","value":1695.4},{"time":"2025-05-07","value":1692.9},{"time":"2025-05-08","value":1689.8},{"time":"2025-05-09","value":1688.1},{"time":"2025-05-12","value":1685.4},{"time":"2025-05-13","value":1682.4},{"time":"2025-05-14","value":1679.6},{"time":"2025-05-15","value":1677.6},{"time":"2025-05-16","value":1676.0},{"time":"2025-05-19","value":1674.6},{"time":"2025-05-20","value":1673.0},{"time":"2025-05-21","value":1670.8},{"time":"2025-05-22","value":1670.8},{"time":"2025-05-23","value":1670.8},{"time":"2025-05-26","value":1672.2},{"time":"2025-05-27","value":1674.1},{"time":"2025-05-28","value":1675.7},{"time":"2025-05-29","value":1678.2},{"time":"2025-05-30","value":1680.7},{"time":"2025-06-02","value":1684.0},{"time":"2025-06-03","value":1686.8},{"time":"2025-06-04","value":1688.9},{"time":"2025-06-05","value":1690.8},{"time":"2025-06-06","value":1692.4},{"time":"2025-06-09","value":1694.9},{"time":"2025-06-10","value":1696.9},{"time":"2025-06-11","value":1699.9},{"time":"2025-06-12","value":1703.4},{"time":"2025-06-13","value":1705.7},{"time":"2025-06-16","value":1708.1},{"time":"2025-06-17","value":1710.6},{"time":"2025-06-18","value":1713.3},{"time":"2025-06-19","value":1715.9},{"time":"2025-06-20","value":1718.2},{"time":"2025-06-23","value":1719.8},{"time":"2025-06-24","value":1722.2},{"time":"2025-06-25","value":1725.4},{"time":"2025-06-26","value":1729.2},{"time":"2025-06-27","value":1732.8},{"time":"2025-06-30","value":1736.6},{"time":"2025-07-01","value":1740.5},{"time":"2025-07-02","value":1745.0},{"time":"2025-07-03","value":1753.0},{"time":"2025-07-04","value":1758.5},{"time":"2025-07-07","value":1765.1},{"time":"2025-07-08","value":1770.2},{"time":"2025-07-09","value":1774.8},{"time":"2025-07-10","value":1778.1},{"time":"2025-07-11","value":1781.8},{"time":"2025-07-14","value":1786.6},{"time":"2025-07-15","value":1791.1},{"time":"2025-07-16","value":1795.3},{"time":"2025-07-17","value":1799.7},{"time":"2025-07-18","value":1803.6},{"time":"2025-07-22","value":1807.2},{"time":"2025-07-23","value":1811.4},{"time":"2025-07-24","value":1814.9},{"time":"2025-07-25","value":1818.0},{"time":"2025-07-28","value":1821.4},{"time":"2025-07-29","value":1824.8},{"time":"2025-07-30","value":1828.2},{"time":"2025-07-31","value":1832.0},{"time":"2025-08-01","value":1836.5},{"time":"2025-08-04","value":1839.5},{"time":"2025-08-05","value":1843.9},{"time":"2025-08-06","value":1848.1},{"time":"2025-08-07","value":1852.5},{"time":"2025-08-08","value":1857.7},{"time":"2025-08-12","value":1862.3},{"time":"2025-08-13","value":1868.0},{"time":"2025-08-14","value":1873.3},{"time":"2025-08-15","value":1879.0},{"time":"2025-08-18","value":1884.5},{"time":"2025-08-19","value":1889.8},{"time":"2025-08-20","value":1893.1},{"time":"2025-08-21","value":1896.7},{"time":"2025-08-22","value":1900.3},{"time":"2025-08-25","value":1905.7},{"time":"2025-08-26","value":1910.0},{"time":"2025-08-27","value":1913.4},{"time":"2025-08-28","value":1917.2},{"time":"2025-08-29","value":1921.4},{"time":"2025-09-01","value":1925.2},{"time":"2025-09-02","value":1928.8},{"time":"2025-09-03","value":1931.5},{"time":"2025-09-04","value":1934.2},{"time":"2025-09-05","value":1936.4},{"time":"2025-09-08","value":1939.0},{"time":"2025-09-09","value":1943.3},{"time":"2025-09-10","value":1947.1},{"time":"2025-09-11","value":1951.1},{"time":"2025-09-12","value":1953.9},{"time":"2025-09-16","value":1957.2},{"time":"2025-09-17","value":1961.3},{"time":"2025-09-18","value":1966.2},{"time":"2025-09-19","value":1969.1},{"time":"2025-09-22","value":1971.5},{"time":"2025-09-24","value":1974.0},{"time":"2025-09-25","value":1976.6},{"time":"2025-09-26","value":1978.7},{"time":"2025-09-29","value":1981.2},{"time":"2025-09-30","value":1984.6},{"time":"2025-10-01","value":1987.4},{"time":"2025-10-02","value":1989.8},{"time":"2025-10-03","value":1992.0},{"time":"2025-10-06","value":1995.2},{"time":"2025-10-07","value":1998.6},{"time":"2025-10-08","value":2002.3},{"time":"2025-10-09","value":2005.8},{"time":"2025-10-10","value":2008.1},{"time":"2025-10-14","value":2009.2},{"time":"2025-10-15","value":2010.7},{"time":"2025-10-16","value":2012.1},{"time":"2025-10-17","value":2013.2},{"time":"2025-10-20","value":2015.5},{"time":"2025-10-21","value":2017.5},{"time":"2025-10-22","value":2019.4},{"time":"2025-10-23","value":2020.9},{"time":"2025-10-24","value":2022.7},{"time":"2025-10-27","value":2025.0},{"time":"2025-10-28","value":2026.4},{"time":"2025-10-29","value":2026.1},{"time":"2025-10-30","value":2025.5},{"time":"2025-10-31","value":2025.5},{"time":"2025-11-04","value":2024.6},{"time":"2025-11-05","value":2023.4},{"time":"2025-11-06","value":2022.1},{"time":"2025-11-07","value":2019.3},{"time":"2025-11-10","value":2016.7},{"time":"2025-11-11","value":2013.8},{"time":"2025-11-12","value":2011.8},{"time":"2025-11-13","value":2010.1},{"time":"2025-11-14","value":2006.7},{"time":"2025-11-17","value":2003.7},{"time":"2025-11-18","value":2002.0},{"time":"2025-11-19","value":1999.9},{"time":"2025-11-20","value":1998.5},{"time":"2025-11-21","value":1995.3},{"time":"2025-11-25","value":1991.7},{"time":"2025-11-26","value":1989.8},{"time":"2025-11-27","value":1987.1},{"time":"2025-11-28","value":1984.4},{"time":"2025-12-01","value":1981.7},{"time":"2025-12-02","value":1979.3},{"time":"2025-12-03","value":1977.1},{"time":"2025-12-04","value":1975.6},{"time":"2025-12-05","value":1974.0},{"time":"2025-12-08","value":1972.4},{"time":"2025-12-09","value":1969.3},{"time":"2025-12-10","value":1966.3},{"time":"2025-12-11","value":1962.2},{"time":"2025-12-12","value":1959.6},{"time":"2025-12-15","value":1957.3},{"time":"2025-12-16","value":1954.4},{"time":"2025-12-17","value":1951.1},{"time":"2025-12-18","value":1948.6},{"time":"2025-12-19","value":1946.5},{"time":"2025-12-22","value":1944.4},{"time":"2025-12-23","value":1942.3},{"time":"2025-12-24","value":1940.5},{"time":"2025-12-25","value":1939.2},{"time":"2025-12-26","value":1937.8},{"time":"2025-12-29","value":1937.7},{"time":"2025-12-30","value":1938.1},{"time":"2026-01-05","value":1938.4},{"time":"2026-01-06","value":1937.6},{"time":"2026-01-07","value":1936.7},{"time":"2026-01-08","value":1936.3},{"time":"2026-01-09","value":1936.2},{"time":"2026-01-13","value":1936.6},{"time":"2026-01-14","value":1938.7},{"time":"2026-01-15","value":1940.7},{"time":"2026-01-16","value":1942.5},{"time":"2026-01-19","value":1945.0},{"time":"2026-01-20","value":1946.1},{"time":"2026-01-21","value":1946.6},{"time":"2026-01-22","value":1946.9},{"time":"2026-01-23","value":1947.6},{"time":"2026-01-26","value":1947.3},{"time":"2026-01-27","value":1946.7},{"time":"2026-01-28","value":1945.9},{"time":"2026-01-29","value":1945.9},{"time":"2026-01-30","value":1944.8},{"time":"2026-02-02","value":1942.4},{"time":"2026-02-03","value":1941.0},{"time":"2026-02-04","value":1939.4},{"time":"2026-02-05","value":1937.5},{"time":"2026-02-06","value":1934.4},{"time":"2026-02-09","value":1931.1},{"time":"2026-02-10","value":1928.1},{"time":"2026-02-12","value":1924.3},{"time":"2026-02-13","value":1918.4},{"time":"2026-02-16","value":1913.8},{"time":"2026-02-17","value":1908.2},{"time":"2026-02-18","value":1902.0},{"time":"2026-02-19","value":1895.6},{"time":"2026-02-20","value":1889.6},{"time":"2026-02-24","value":1882.2},{"time":"2026-02-25","value":1875.9},{"time":"2026-02-26","value":1869.5},{"time":"2026-02-27","value":1864.5},{"time":"2026-03-02","value":1858.2},{"time":"2026-03-03","value":1851.4},{"time":"2026-03-04","value":1844.2},{"time":"2026-03-05","value":1837.5},{"time":"2026-03-06","value":1831.2},{"time":"2026-03-09","value":1824.7},{"time":"2026-03-10","value":1818.2},{"time":"2026-03-11","value":1812.6},{"time":"2026-03-12","value":1806.6},{"time":"2026-03-13","value":1800.9},{"time":"2026-03-16","value":1795.0},{"time":"2026-03-17","value":1788.0},{"time":"2026-03-18","value":1782.0},{"time":"2026-03-19","value":1774.7},{"time":"2026-03-23","value":1766.7},{"time":"2026-03-24","value":1759.0},{"time":"2026-03-25","value":1751.6},{"time":"2026-03-26","value":1743.6},{"time":"2026-03-27","value":1735.8},{"time":"2026-03-30","value":1726.8},{"time":"2026-03-31","value":1718.2},{"time":"2026-04-01","value":1710.1},{"time":"2026-04-02","value":1701.7},{"time":"2026-04-03","value":1693.7},{"time":"2026-04-06","value":1685.2},{"time":"2026-04-07","value":1676.9},{"time":"2026-04-08","value":1669.0},{"time":"2026-04-09","value":1660.7},{"time":"2026-04-10","value":1651.9},{"time":"2026-04-13","value":1642.7},{"time":"2026-04-14","value":1633.0},{"time":"2026-04-15","value":1624.2},{"time":"2026-04-16","value":1616.7},{"time":"2026-04-17","value":1609.2},{"time":"2026-04-20","value":1601.9},{"time":"2026-04-21","value":1595.3},{"time":"2026-04-22","value":1589.0},{"time":"2026-04-23","value":1582.9},{"time":"2026-04-24","value":1576.4},{"time":"2026-04-27","value":1570.5},{"time":"2026-04-28","value":1564.8},{"time":"2026-04-30","value":1559.7},{"time":"2026-05-01","value":1555.0},{"time":"2026-05-07","value":1550.8},{"time":"2026-05-08","value":1550.7},{"time":"2026-05-11","value":1550.6},{"time":"2026-05-12","value":1550.7},{"time":"2026-05-13","value":1550.8},{"time":"2026-05-14","value":1549.9},{"time":"2026-05-15","value":1549.3},{"time":"2026-05-18","value":1550.5},{"time":"2026-05-19","value":1551.8},{"time":"2026-05-20","value":1554.0},{"time":"2026-05-21","value":1557.1},{"time":"2026-05-22","value":1561.1}],"volume":[{"time":"2024-05-10","value":187800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-05-13","value":267800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-05-14","value":213600.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-05-15","value":127400.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-05-16","value":143300.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-05-17","value":132100.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-05-20","value":146700.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-05-21","value":131400.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-05-22","value":162200.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-05-23","value":197600.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-05-24","value":126100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-05-27","value":100800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-05-28","value":111900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-05-29","value":133600.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-05-30","value":126500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-05-31","value":86500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-06-03","value":56000.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-06-04","value":151900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-06-05","value":66800.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-06-06","value":110200.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-06-07","value":67400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-06-10","value":51900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-06-11","value":62700.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-06-12","value":107400.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-06-13","value":73700.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-06-14","value":115900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-06-17","value":179500.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-06-18","value":98500.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-06-19","value":106200.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-06-20","value":57000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-06-21","value":65800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-06-24","value":60300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-06-25","value":67800.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-06-26","value":63600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-06-27","value":70700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-06-28","value":111600.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-07-01","value":189600.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-07-02","value":75600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-07-03","value":86600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-07-04","value":91000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-07-05","value":92400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-07-08","value":101100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-07-09","value":146200.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-07-10","value":73600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-07-11","value":87800.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-07-12","value":171500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-07-16","value":120100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-07-17","value":94400.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-07-18","value":94000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-07-19","value":76900.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-07-22","value":96400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-07-23","value":85600.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-07-24","value":94800.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-07-25","value":144100.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-07-26","value":70200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-07-29","value":82400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-07-30","value":73800.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-07-31","value":60900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-08-01","value":98300.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-08-02","value":212100.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-08-05","value":476100.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-08-06","value":302500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-08-07","value":185100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-08-08","value":192200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-08-09","value":445000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-08-13","value":164800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-08-14","value":155800.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-08-15","value":85100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-08-16","value":167600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-08-19","value":105200.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-08-20","value":89000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-08-21","value":70300.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-08-22","value":44100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-08-23","value":40200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-08-26","value":104000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-08-27","value":82300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-08-28","value":90600.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-08-29","value":36000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-08-30","value":36800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-09-02","value":60300.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-09-03","value":167500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-09-04","value":170800.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-09-05","value":118800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-09-06","value":79700.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-09-09","value":128800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-09-10","value":104800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-09-11","value":98300.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-09-12","value":87300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-09-13","value":93800.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-09-17","value":58500.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-09-18","value":42400.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-09-19","value":85900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-09-20","value":66800.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-09-24","value":64000.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-09-25","value":74200.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-09-26","value":115200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-09-27","value":58700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-09-30","value":93000.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-10-01","value":68100.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-10-02","value":70400.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-10-03","value":47000.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-10-04","value":43800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-10-07","value":48100.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-10-08","value":72000.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-10-09","value":81600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-10-10","value":61300.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-10-11","value":54600.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-10-15","value":109400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-10-16","value":70000.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-10-17","value":82400.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-10-18","value":42800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-10-21","value":74200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-10-22","value":75000.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-10-23","value":56700.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-10-24","value":82300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-10-25","value":64200.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-10-28","value":55300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-10-29","value":102700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-10-30","value":67500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-10-31","value":37600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-11-01","value":60100.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-11-05","value":32900.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-11-06","value":54000.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-11-07","value":67800.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-11-08","value":105300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-11-11","value":52000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-11-12","value":66600.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-11-13","value":152600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-11-14","value":427000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-11-15","value":145500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-11-18","value":111100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-11-19","value":194800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-11-20","value":140200.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-11-21","value":88600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-11-22","value":104800.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-11-25","value":81200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-11-26","value":97200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-11-27","value":108200.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-11-28","value":52600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-11-29","value":116000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-12-02","value":191300.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-12-03","value":74900.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-12-04","value":71200.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-12-05","value":89000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-12-06","value":141500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-12-09","value":88500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-12-10","value":101300.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-12-11","value":71600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-12-12","value":105700.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-12-13","value":99400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-12-16","value":75600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-12-17","value":93500.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-12-18","value":49900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-12-19","value":57700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-12-20","value":64800.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-12-23","value":57700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-12-24","value":53600.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-12-25","value":76400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-12-26","value":126400.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-12-27","value":110200.0,"color":"rgba(150,50,60,0.45)"},{"time":"2024-12-30","value":87900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-01-06","value":138100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-01-07","value":137100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-01-08","value":101000.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-01-09","value":104900.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-01-10","value":62500.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-01-14","value":97200.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-01-15","value":114200.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-01-16","value":87000.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-01-17","value":59400.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-01-20","value":65200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-01-21","value":48100.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-01-22","value":33700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-01-23","value":55500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-01-24","value":184700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-01-27","value":58100.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-01-28","value":148200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-01-29","value":134200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-01-30","value":162300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-01-31","value":72900.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-02-03","value":76900.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-02-04","value":38400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-02-05","value":64400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-02-06","value":58100.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-02-07","value":57200.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-02-10","value":67700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-02-12","value":127000.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-02-13","value":314600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-02-14","value":135700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-02-17","value":70200.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-02-18","value":65100.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-02-19","value":55100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-02-20","value":99800.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-02-21","value":140300.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-02-25","value":77100.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-02-26","value":99800.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-02-27","value":61000.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-02-28","value":106100.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-03-03","value":55400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-03-04","value":63100.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-03-05","value":64500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-03-06","value":72700.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-03-07","value":65500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-03-10","value":48300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-03-11","value":87300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-03-12","value":47500.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-03-13","value":54200.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-03-14","value":30100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-03-17","value":39500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-03-18","value":37500.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-03-19","value":23600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-03-21","value":39400.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-03-24","value":26400.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-03-25","value":34600.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-03-26","value":27200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-03-27","value":39000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-03-28","value":38400.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-03-31","value":74700.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-04-01","value":50000.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-04-02","value":40800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-04-03","value":87300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-04-04","value":156300.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-04-07","value":207300.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-04-08","value":121200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-04-09","value":96500.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-04-10","value":90600.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-04-11","value":91100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-04-14","value":78500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-04-15","value":35700.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-04-16","value":23600.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-04-17","value":17400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-04-18","value":19000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-04-21","value":14900.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-04-22","value":14600.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-04-23","value":34200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-04-24","value":20500.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-04-25","value":36700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-04-28","value":38700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-04-30","value":16500.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-05-01","value":20000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-05-02","value":34400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-05-07","value":38400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-05-08","value":102600.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-05-09","value":198900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-05-12","value":146800.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-05-13","value":74700.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-05-14","value":46200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-05-15","value":40500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-05-16","value":74400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-05-19","value":58200.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-05-20","value":58000.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-05-21","value":60300.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-05-22","value":75700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-05-23","value":32500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-05-26","value":47500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-05-27","value":27400.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-05-28","value":55300.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-05-29","value":35500.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-05-30","value":96800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-06-02","value":82400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-06-03","value":53600.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-06-04","value":54700.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-06-05","value":39100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-06-06","value":30000.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-06-09","value":49600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-06-10","value":58400.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-06-11","value":43500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-06-12","value":65700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-06-13","value":67900.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-06-16","value":31100.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-06-17","value":41000.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-06-18","value":27900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-06-19","value":30300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-06-20","value":49600.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-06-23","value":42400.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-06-24","value":49100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-06-25","value":44400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-06-26","value":51300.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-06-27","value":41200.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-06-30","value":39600.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-07-01","value":37200.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-07-02","value":36200.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-07-03","value":35000.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-07-04","value":24800.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-07-07","value":28900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-07-08","value":34800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-07-09","value":18100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-07-10","value":30600.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-07-11","value":19100.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-07-14","value":33200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-07-15","value":18900.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-07-16","value":39700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-07-17","value":20700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-07-18","value":25800.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-07-22","value":35400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-07-23","value":60200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-07-24","value":55900.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-07-25","value":67300.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-07-28","value":47700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-07-29","value":38100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-07-30","value":43700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-07-31","value":64300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-08-01","value":102600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-08-04","value":53800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-08-05","value":59100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-08-06","value":65700.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-08-07","value":152800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-08-08","value":308600.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-08-12","value":190700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-08-13","value":124500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-08-14","value":95300.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-08-15","value":93300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-08-18","value":98900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-08-19","value":85000.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-08-20","value":80600.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-08-21","value":35400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-08-22","value":45500.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-08-25","value":171000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-08-26","value":94200.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-08-27","value":92100.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-08-28","value":112800.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-08-29","value":46600.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-09-01","value":83700.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-09-02","value":74600.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-09-03","value":53900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-09-04","value":54500.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-09-05","value":71200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-09-08","value":75500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-09-09","value":80800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-09-10","value":63200.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-09-11","value":65300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-09-12","value":77000.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-09-16","value":90000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-09-17","value":119500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-09-18","value":86300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-09-19","value":96900.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-09-22","value":46000.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-09-24","value":48700.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-09-25","value":37500.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-09-26","value":57500.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-09-29","value":76400.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-09-30","value":54300.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-10-01","value":102600.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-10-02","value":127800.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-10-03","value":105700.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-10-06","value":85300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-10-07","value":41900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-10-08","value":73600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-10-09","value":34100.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-10-10","value":43900.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-10-14","value":97200.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-10-15","value":51200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-10-16","value":34600.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-10-17","value":44400.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-10-20","value":41300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-10-21","value":68200.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-10-22","value":52600.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-10-23","value":27400.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-10-24","value":25200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-10-27","value":40700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-10-28","value":35200.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-10-29","value":48700.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-10-30","value":50700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-10-31","value":68700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-11-04","value":49900.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-11-05","value":75400.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-11-06","value":47200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-11-07","value":40300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-11-10","value":27400.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-11-11","value":43900.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-11-12","value":70600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-11-13","value":145000.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-11-14","value":86300.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-11-17","value":96200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-11-18","value":51100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-11-19","value":40400.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-11-20","value":57300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-11-21","value":33600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-11-25","value":54500.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-11-26","value":79600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-11-27","value":61500.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-11-28","value":49100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-12-01","value":87700.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-12-02","value":141400.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-12-03","value":47600.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-12-04","value":40000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-12-05","value":81800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-12-08","value":52900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-12-09","value":79300.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-12-10","value":38400.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-12-11","value":75900.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-12-12","value":41300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-12-15","value":46000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-12-16","value":36700.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-12-17","value":32900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-12-18","value":43500.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-12-19","value":35100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-12-22","value":41800.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-12-23","value":60600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-12-24","value":52800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-12-25","value":47700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-12-26","value":65600.0,"color":"rgba(150,50,60,0.45)"},{"time":"2025-12-29","value":63400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-12-30","value":33800.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-01-05","value":54300.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-01-06","value":64800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-01-07","value":54400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-01-08","value":97000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-01-09","value":55100.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-01-13","value":54200.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-01-14","value":47400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-01-15","value":58900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-01-16","value":33800.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-01-19","value":45300.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-01-20","value":43900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-01-21","value":53200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-01-22","value":67500.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-01-23","value":61300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-01-26","value":88900.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-01-27","value":48800.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-01-28","value":73100.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-01-29","value":175700.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-01-30","value":133100.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-02-02","value":107000.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-02-03","value":79500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-02-04","value":157100.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-02-05","value":117700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-02-06","value":137400.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-02-09","value":119200.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-02-10","value":86800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-02-12","value":225700.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-02-13","value":354000.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-02-16","value":231000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-02-17","value":251100.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-02-18","value":164000.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-02-19","value":316400.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-02-20","value":155200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-02-24","value":195100.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-02-25","value":93900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-02-26","value":196800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-02-27","value":147100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-03-02","value":118600.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-03-03","value":163200.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-03-04","value":158000.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-03-05","value":129000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-03-06","value":93800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-03-09","value":155200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-03-10","value":138900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-03-11","value":73000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-03-12","value":72500.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-03-13","value":59600.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-03-16","value":59100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-03-17","value":55800.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-03-18","value":44700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-03-19","value":131700.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-03-23","value":87600.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-03-24","value":64700.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-03-25","value":54100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-03-26","value":73300.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-03-27","value":64400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-03-30","value":253300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-03-31","value":123800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-04-01","value":153300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-04-02","value":57900.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-04-03","value":59500.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-04-06","value":47100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-04-07","value":59700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-04-08","value":88600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-04-09","value":82900.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-04-10","value":93000.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-04-13","value":84400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-04-14","value":76500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-04-15","value":80400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-04-16","value":143100.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-04-17","value":73600.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-04-20","value":81400.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-04-21","value":53500.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-04-22","value":74900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-04-23","value":96700.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-04-24","value":80800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-04-27","value":59600.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-04-28","value":63600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-04-30","value":70100.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-05-01","value":48700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-05-07","value":141500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-05-08","value":659700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-05-11","value":228700.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-05-12","value":227500.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-05-13","value":193200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-05-14","value":162900.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-05-15","value":96400.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-05-18","value":96000.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-05-19","value":70200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-05-20","value":156200.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-05-21","value":96400.0,"color":"rgba(150,50,60,0.45)"},{"time":"2026-05-22","value":70800.0,"color":"rgba(48,68,102,0.45)"}],"peak":{"time":"2024-05-14","value":2347.0},"trough":{"time":"2025-04-07","value":1313.0}};
+      (function() {
+        var container = document.getElementById('chart-3984');
+        if (!container || typeof LightweightCharts === 'undefined') return;
+        var chart = LightweightCharts.createChart(container, {
+          autoSize: true,
+          layout: {
+            background: { type: 'solid', color: '#fafbfc' },
+            textColor: '#4a5566',
+            fontFamily: "'DM Mono', monospace",
+            fontSize: 11,
+          },
+          grid: {
+            vertLines: { color: 'rgba(15,31,58,0.04)' },
+            horzLines: { color: 'rgba(15,31,58,0.04)' },
+          },
+          rightPriceScale: {
+            borderColor: '#d6dee8',
+            scaleMargins: { top: 0.08, bottom: 0.24 },
+          },
+          timeScale: {
+            borderColor: '#d6dee8',
+            timeVisible: false,
+            secondsVisible: false,
+          },
+          crosshair: { mode: 1 },
+        });
+        var topixSeries = chart.addLineSeries({
+          color: 'rgba(122,130,144,0.85)',
+          lineWidth: 1.5,
+          priceLineVisible: false,
+          lastValueVisible: true,
+        });
+        topixSeries.setData(CHART_DATA.topix_rebased);
+        var smaSeries = chart.addLineSeries({
+          color: '#b08a4a',
+          lineWidth: 1.5,
+          lineStyle: 2,
+          priceLineVisible: false,
+          lastValueVisible: false,
+        });
+        smaSeries.setData(CHART_DATA.sma60);
+        var candleSeries = chart.addCandlestickSeries({
+          upColor: '#2f6f4f',
+          downColor: '#b91c1c',
+          borderUpColor: '#2f6f4f',
+          borderDownColor: '#b91c1c',
+          wickUpColor: '#2f6f4f',
+          wickDownColor: '#b91c1c',
+        });
+        candleSeries.setData(CHART_DATA.candles);
+        candleSeries.setMarkers([
+          { time: CHART_DATA.peak.time,   position: 'aboveBar', color: '#2f6f4f', shape: 'arrowDown', text: '¥' + '2,347 peak' },
+          { time: CHART_DATA.trough.time, position: 'belowBar', color: '#b91c1c', shape: 'arrowUp',   text: '¥' + '1,313 trough' },
+        ]);
+        var volumeSeries = chart.addHistogramSeries({
+          color: 'rgba(48,68,102,0.45)',
+          priceFormat: { type: 'volume' },
+          priceScaleId: 'volume',
+        });
+        volumeSeries.setData(CHART_DATA.volume);
+        chart.priceScale('volume').applyOptions({
+          scaleMargins: { top: 0.82, bottom: 0 },
+          borderColor: '#d6dee8',
+        });
+        chart.timeScale().fitContent();
+      })();
+      </script>
+    </div>
+
+    <div class="regime-narr">
+      <p>
+        <span class="pin">01 · THE RALLY</span>
+        User Local has been listed since 2017 and reports as a single segment of a single fiscal entity &mdash; no subsidiaries, no equity-method affiliates, no goodwill, no consolidation eliminations. What it sells is a stack of three product families on one SaaS rail. The oldest family is the Digital Marketing line: <b>User Insight</b>, on the market since 2008, gives an enterprise's marketing team a heatmap of where readers' attention lingers on a Japanese web page; <b>Social Insight</b>, on the market since 2012, listens to what Japanese consumers say about a brand across social platforms; <b>Media Insight</b> serves publishers. The middle family is the AI DX line: <b>Support Chatbot</b>, on the market since 2017, and <b>ChatAI</b>, the company's enterprise generative-AI service launched in January 2024, with retrieval-augmented generation against the customer's own document store, multi-model routing, and fixed-fee pricing. The third family is a portfolio of free and freemium tools that operate as a marketing funnel. Underneath the three families sits a proprietary corpus the company says exceeds <b>340 billion records</b>, accumulated organically since 2008 from User Insight customers and since 2012 from Social Insight; the corpus is what lets User Local train models on first-party data rather than pay token fees to external LLM vendors for every query. Operating leverage on this base is the flywheel: a hundred-and-twelve-person company with a single Tokyo office paying ¥182M in annual rent produced FY25 operating profit of <b>¥1,971M</b> on revenue of <b>¥4,582M</b> &mdash; a 43% operating margin from an entirely organic capital base. Through the spring and summer of 2024 the share traded at the wider AI-hype multiple the Japanese smallcap market briefly extended to anything ChatAI-adjacent, peaking at <b>¥2,347</b> on May 14, 2024.
+      </p>
+      <p>
+        <span class="pin">02 · THE REVERSAL</span>
+        Through the autumn and winter of 2024 the broader Japanese AI-smallcap bid faded, and User Local's share drifted with it &mdash; not on a company-specific disclosure but on the relative-multiple compression that took the entire ChatAI-adjacent cohort lower. The trough came on April 7, 2025 at <b>¥1,313</b>, a 44% drawdown from the May 2024 peak on no incremental news from the company itself. The FY25 results landed on August 7, 2025: revenue <b>¥4,582M (+17.3%)</b>, operating profit <b>¥1,971M (+14.1%)</b>, net income <b>¥1,429M (+20.6%)</b>, with operating-profit growth visibly held back by the costs of the Tokyo Minato headquarters relocation in March 2025. The FY26 guide that came with the print called for revenue ¥5,284M (+15.3%), operating profit ¥2,207M (+12.0%), and net income ¥1,523M (+6.6%) &mdash; conservative-looking even on the day, given that FY26 was the first clean comparison year against the relocation drag. The annual dividend rose to ¥14 from ¥8. From August through the winter the share moved sideways: investors had reasonable evidence of an operating-leverage step that the relocation had postponed, but the second debate &mdash; whether the cash on the balance sheet was an M&amp;A reserve, a permanent feature of the founder's risk tolerance, or capital that would eventually be returned &mdash; had not yet been answered.
+      </p>
+      <p>
+        <span class="pin">03 · WHERE WE STAND NOW</span>
+        Three disclosures in February and May 2026 began answering the second debate. On <b>February 12, 2026</b> the Q2 tanshin reported 1H operating profit <b>¥1,217M (+21.6%)</b> with a first interim dividend of ¥10. On <b>February 13, 2026</b> the board authorized the purchase of up to <b>500,000 shares (3.12% of issued capital), capped at ¥1,000M</b>, through August 5 2026. On <b>May 7, 2026</b> the Q3 tanshin reported 9M operating profit <b>¥1,889M (+24.4%)</b> and net income <b>¥1,384M (+31.9%)</b>: 9M progress against the FY26 guide of <b>85.6% on operating profit and 90.9% on net income</b> &mdash; the bottom line was already at nine-tenths of the full-year plan with three months still to run. The same May 7 disclosure raised the year-end dividend from ¥10 to ¥14 (taking annual payout from a planned ¥20 to ¥24, a 25% payout ratio), introduced the company's first shareholder-benefit program, and cancelled 100,000 treasury shares. The share closed Friday May 22 at <b>¥1,791</b>, 24% below the May 2024 peak and 36% above the April 2025 trough. What the next four quarters will resolve is whether the FY26 guide proves structurally conservative or back-loaded, whether the company will name a recurring-revenue percentage that lets outside investors price the AI-DX line on its own terms, and whether the February buyback and the May dividend raise prove to be the first step in a multi-year capital-return path or a one-time response to a public market that had stopped paying for the cash.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================== 2 · CONTENTION ============================== -->
+  <section class="section">
+    <div class="section-head">
+      <div class="section-num">02 · CONTENTION</div>
+      <h2 class="section-title">Live Investor Debates</h2>
+      <p class="section-sub">Three open questions surface in the company's recent quarterly disclosures and in the IR briefing materials. Each one settles a different part of the multiple.</p>
+    </div>
+
+    <div class="ct-grid">
+
+      <div class="ct-card">
+        <div class="ct-tag">DEBATE 01 · GUIDE CONSERVATISM</div>
+        <div class="ct-q">Is the FY26 guide structurally conservative, or has the 9M outperformance pulled forward growth that Q4 will reabsorb?</div>
+        <div class="ct-side">
+          <span class="ct-side-tag bull">BULL</span>
+          <span class="ct-side-text">Bulls point to a 9M FY26 progression already at <b>85.6% of operating-profit guide</b> and <b>90.9% of net-income guide</b>, against the cleanest comparison year since the FY25 relocation drag. The 9M operating margin printed at <b>48.0%</b>, 280 basis points above a year earlier; the FY26 guide arithmetic implies a Q4 operating margin near 22%, which would require a spending step the company has not signaled. The view holds if Q4 FY26 lands with full-year operating profit at or above <b>¥2,300M</b>.</span>
+        </div>
+        <div class="ct-side">
+          <span class="ct-side-tag bear">BEAR</span>
+          <span class="ct-side-text">Bears note that FY25 carried ~¥180M of HQ-relocation costs concentrated in late FY25; FY26 benefits from their absence without underlying operating leverage being as steep as the 9M print suggests. The AI-DX line is also seasonally weighted to Q2 and Q3, as public-sector procurement favors fiscal-year-start budgets. Management's choice not to revise FY26 upward on May 7 is consistent with knowing the print is ahead of the underlying pace. The view holds if Q4 FY26 reports operating-profit growth under <b>+15% year-on-year</b> and the full year settles within ±2% of guide.</span>
+        </div>
+      </div>
+
+      <div class="ct-card">
+        <div class="ct-tag">DEBATE 02 · AI-DX REVENUE MIX</div>
+        <div class="ct-q">Is ChatAI carrying the growth premium the multiple needs, or are the legacy analytics products still doing most of the work?</div>
+        <div class="ct-side">
+          <span class="ct-side-tag bull">BULL</span>
+          <span class="ct-side-text">Bulls observe that ChatAI's reference accounts read like a Japanese B2B SaaS crossing from category-leadership into category-defining: <b>Kyoto Prefecture</b>'s deployment across ~8,000 prefectural employees and the <b>AEON Group</b> rollout across more than fifteen group companies, both cited as standing accounts in the Q2 briefing. The 1H operating-profit growth of <b>+21.6%</b> on revenue growth of <b>+17.7%</b> implies an incremental operating margin near 50%. The view holds if the FY26 results briefing discloses, for the first time, a <b>recurring-revenue percentage or a ChatAI-specific ARR figure above 25% of total revenue</b>.</span>
+        </div>
+        <div class="ct-side">
+          <span class="ct-side-tag bear">BEAR</span>
+          <span class="ct-side-text">Bears note that the company has reported as one segment since listing, and the same single line covers analytics products compounding for fifteen years and a generative-AI product compounding for one. The 9M outperformance is consistent with either reading. The market cannot price a generative-AI premium against a revenue line whose composition is undisclosed; the silence itself may signal the AI-DX contribution is not yet material enough to break out. The view holds if FY27 reporting continues with only the single-segment line.</span>
+        </div>
+      </div>
+
+      <div class="ct-card">
+        <div class="ct-tag">DEBATE 03 · CASH POLICY FOLLOW-THROUGH</div>
+        <div class="ct-q">Was the February buyback plus the May dividend raise the first step in a multi-year path, or a one-time response to a market that had stopped paying for the cash?</div>
+        <div class="ct-side">
+          <span class="ct-side-tag bull">BULL</span>
+          <span class="ct-side-text">Bulls argue that the May 7 disclosure was unusual in carrying <b>three return-of-capital changes</b> in one notice &mdash; the dividend raise from ¥10 to ¥14 (lifting annual payout from 16% to 25%), a first-ever shareholder-benefit program, and the cancellation of 100,000 treasury shares &mdash; on top of February's <b>¥1,000M / 500,000-share buyback</b>. The four moves look like an internal pivot rather than a defensive gesture. The view holds if the FY26 results pack announces <b>a recurring buyback for FY27 or a payout-ratio floor at or above 30%</b>.</span>
+        </div>
+        <div class="ct-side">
+          <span class="ct-side-tag bear">BEAR</span>
+          <span class="ct-side-text">Bears observe that the ¥1,000M buyback is roughly <b>11% of the ¥9.4bn cash balance</b>; even at full execution, the cash line ends FY26 close to flat year-on-year, because retained earnings outrun the combined dividend and buyback flow. The founder-CEO holds 38% directly, and Japanese single-founder small-caps with this concentration historically keep optionality for an acquisition that may never come. The view holds if the FY27 capital-allocation slide reiterates the ~25% payout target without naming a cash ceiling, and the FY26 buyback executes at less than 70%.</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================== 3 · CATALYST ============================== -->
+  <section class="section gem">
+    <div class="section-head">
+      <div class="section-num">03 · CATALYST</div>
+      <h2 class="section-title">Capital-Efficiency Levers</h2>
+      <p class="section-sub">Three disclosure or capital-policy levers visible in the company's recent filings. Each could reweight the multiple <b>without</b> requiring higher earnings.</p>
+    </div>
+
+    <div class="cat-grid">
+
+      <div class="cat-card">
+        <div class="cat-num">LEVER 01 · DISCLOSURE</div>
+        <div class="cat-title">A recurring-revenue percentage and a ChatAI ARR line</div>
+        <div class="cat-viz">
+          <div class="cat-viz-label">What the FY26 results pack could publish that today's pack does not</div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">FY25 total revenue (disclosed)</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:100%;background:#1a2a4a"></div></div>
+            <div class="cat-viz-bar-val">¥4,582M</div>
+          </div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">Digital Marketing SaaS revenue</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:55%;background:#7a8290"></div></div>
+            <div class="cat-viz-bar-val">undisclosed</div>
+          </div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">AI DX SaaS revenue (ChatAI etc.)</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:35%;background:#b91c1c"></div></div>
+            <div class="cat-viz-bar-val">undisclosed</div>
+          </div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">Recurring-revenue %</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:50%;background:#b88a3a"></div></div>
+            <div class="cat-viz-bar-val">undisclosed</div>
+          </div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">ChatAI ARR / contract count</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:30%;background:#b91c1c"></div></div>
+            <div class="cat-viz-bar-val">undisclosed</div>
+          </div>
+          <div class="cat-viz-cap">single-segment, single-line reporter · no product mix · no recurring breakout</div>
+        </div>
+        <div class="cat-takeaway">
+          The whole company runs on one revenue line, and outside investors price the AI-DX growth piece at whatever blended multiple they apply to a Japanese SaaS micro-cap, because they have no way of pricing it on its own. One supplementary slide each quarter showing <b>(i) a recurring-revenue percentage of total sales, (ii) a ChatAI contract count and ARR figure with cohort retention, and (iii) gross profit by product family</b> would convert the AI-DX premium debate from inference into observation. The change costs management three numbers in the IR pack; the multiple effect operates on the discount investors currently price for opacity.
+        </div>
+        <div class="cat-meta">
+          <div><dt>Cost to mgmt</dt><dd>Three numbers in the IR pack</dd></div>
+          <div><dt>Earliest trigger</dt><dd>FY26 results briefing · August 2026</dd></div>
+        </div>
+      </div>
+
+      <div class="cat-card">
+        <div class="cat-num">LEVER 02 · CAPITAL POLICY</div>
+        <div class="cat-title">A cash-balance ceiling and a recurring total-return commitment</div>
+        <div class="cat-viz">
+          <div class="cat-viz-label">Five-year cash trajectory · ¥M, fiscal-year-end balance</div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">FY21 (Jun 2021)</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:50%;background:#1a2a4a"></div></div>
+            <div class="cat-viz-bar-val">¥4,696</div>
+          </div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">FY22 (Jun 2022)</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:57%;background:#1a2a4a"></div></div>
+            <div class="cat-viz-bar-val">¥5,320</div>
+          </div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">FY23 (Jun 2023)</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:68%;background:#1a2a4a"></div></div>
+            <div class="cat-viz-bar-val">¥6,367</div>
+          </div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">FY24 (Jun 2024)</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:82%;background:#1a2a4a"></div></div>
+            <div class="cat-viz-bar-val">¥7,677</div>
+          </div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">FY25 (Jun 2025)</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:91%;background:#1a2a4a"></div></div>
+            <div class="cat-viz-bar-val">¥8,546</div>
+          </div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">Q3 FY26 (Mar 2026)</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:100%;background:#b91c1c"></div></div>
+            <div class="cat-viz-bar-val">¥9,394</div>
+          </div>
+          <div class="cat-viz-cap">cash has risen every year for five years · the ¥1,000M FY26 buyback is 11% of today's balance</div>
+        </div>
+        <div class="cat-takeaway">
+          The arithmetic underneath the chart is the case. FY25 net income was <b>¥1,429M</b>; the dividend cost ¥225M (16% payout); capital expenditure cost ¥260M (¥182M of it the one-time Tokyo office move); net cash still rose <b>¥869M</b>. The company has never made an acquisition. The trailing return on capital is 24%, but every retained yen earns four-tenths of a percent in bank deposits. Naming a concrete ceiling &mdash; <b>a 30% payout-ratio floor</b>, <b>a recurring 3%-of-shares buyback</b>, or <b>operating-cash capped near ¥3bn against ¥1.2bn of total liabilities</b> &mdash; would convert four years of mechanical cash growth into a multi-period commitment. Unless management names one, the cash pile just keeps growing &mdash; mechanically, every year.
+        </div>
+        <div class="cat-meta">
+          <div><dt>Cost to mgmt</dt><dd>One board resolution</dd></div>
+          <div><dt>Earliest trigger</dt><dd>FY26 results · August 2026</dd></div>
+        </div>
+      </div>
+
+      <div class="cat-card">
+        <div class="cat-num">LEVER 03 · DISCLOSURE</div>
+        <div class="cat-title">A founder-succession paragraph in the YUHO</div>
+        <div class="cat-viz">
+          <div class="cat-viz-label">Ownership and decision-making concentration · top-10 holders (FY25 YUHO)</div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">Masao Ito (founder-CEO)</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:100%;background:#1a2a4a"></div></div>
+            <div class="cat-viz-bar-val">37.9%</div>
+          </div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">Master Trust Bank (trust)</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:30%;background:#7a8290"></div></div>
+            <div class="cat-viz-bar-val">11.4%</div>
+          </div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">JP Custody Bank (trust)</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:15%;background:#7a8290"></div></div>
+            <div class="cat-viz-bar-val">5.8%</div>
+          </div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">Top-10 holders combined</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:88%;background:#b08a4a"></div></div>
+            <div class="cat-viz-bar-val">67.1%</div>
+          </div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">Free float (residual)</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:32%;background:#2f6f4f"></div></div>
+            <div class="cat-viz-bar-val">~32%</div>
+          </div>
+          <div class="cat-viz-cap">no published succession plan · no named deputy-CEO bench · CEO Ito holds 38% directly</div>
+        </div>
+        <div class="cat-takeaway">
+          Founder-CEO Masao Ito holds <b>37.9% of outstanding stock directly</b> and chairs every meaningful capital-allocation decision; CFO Daisuke Iwamoto handles operations and IR. The current YUHO carries no succession paragraph, names no deputy-CEO bench, and does not describe how the company would continue if the founder stepped aside or was unavailable. Institutional investors apply a key-person discount of roughly <b>100&ndash;200 basis points</b> to cost of equity in this shape, which translates into a five-to-ten percent intrinsic-value drag without ever appearing on an income statement. A short YUHO section that <b>profiles a No.2 and No.3 in product and technology, names the board's governance escalation path, and articulates the founder's holding-period intention</b> would compress that discount.
+        </div>
+        <div class="cat-meta">
+          <div><dt>Cost to mgmt</dt><dd>One YUHO paragraph + one slide</dd></div>
+          <div><dt>Earliest trigger</dt><dd>FY26 YUHO filing · Sep 2026</dd></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================== 4 · VALUATION ============================== -->
+  <section class="section">
+    <div class="section-head">
+      <div class="section-num">04 · VALUATION</div>
+      <h2 class="section-title">Scenario Pathways</h2>
+      <p class="section-sub">Three internally-consistent scenarios across the next four quarters. Each describes a different bundle of disclosure and operating outcomes &mdash; no single scenario is forecast; they are <b>analytical bookends</b>.</p>
+    </div>
+
+    <div class="scn-grid">
+
+      <div class="scn-card bear">
+        <div class="scn-tag bear">BEAR SCENARIO</div>
+        <div class="scn-price">¥1,400 &ndash; ¥1,700</div>
+        <div class="scn-delta dn">−22% to −5%</div>
+        <div class="scn-mult">implied multiple · ~6&ndash;8x EV/EBIT (fwd)</div>
+        <div class="scn-prem">
+          Q4 operating-profit growth decelerates, FY26 lands inside the ¥2,207M guide, and <b>none of the three disclosure or capital-policy levers lands</b>.
+        </div>
+        <div class="scn-driver-head">What would have to happen</div>
+        <ul class="scn-drivers">
+          <li>Full-year FY26 operating profit settles within ±2% of the ¥2,207M guide.</li>
+          <li>No recurring-revenue percentage, no ChatAI ARR, no per-product margin disclosure at the FY26 1H or full-year briefing.</li>
+          <li>February 2026 buyback executes at less than 70% of the ¥1,000M authorization by 5 August 2026.</li>
+          <li>No follow-on buyback announced; no stated cash-balance ceiling; no FY27 payout-ratio framework.</li>
+          <li>No succession paragraph in the FY26 YUHO.</li>
+        </ul>
+        <p style="font-family: var(--serif); font-size: 12.5px; color: var(--text-mid); line-height: 1.6; margin: 12px 0 0; font-style: italic;">The bear band of ¥1,400&ndash;¥1,700 implies roughly 6&ndash;8x FY26 forward enterprise value to operating profit &mdash; near the Japanese private-buyer 7&ndash;10x range. The band is multiple-driven, conditioned on the market continuing to discount the cash pile and the disclosure opacity rather than re-rating either.</p>
+      </div>
+
+      <div class="scn-card base">
+        <div class="scn-tag base">BASE SCENARIO</div>
+        <div class="scn-price">¥1,950 &ndash; ¥2,300</div>
+        <div class="scn-delta up">+9% to +28%</div>
+        <div class="scn-mult">implied multiple · ~9&ndash;11x EV/EBIT (fwd)</div>
+        <div class="scn-prem">
+          Operating leverage carries through Q4, FY26 lands a few percent above guide, and <b>one of the three levers lands</b>.
+        </div>
+        <div class="scn-driver-head">What would have to happen</div>
+        <ul class="scn-drivers">
+          <li>Full-year FY26 operating profit lands at <b>¥2.3&ndash;¥2.4bn</b> (4&ndash;9% above guide) as 9M operating leverage carries through to year-end.</li>
+          <li>One of the three levers lands &mdash; most likely the recurring-revenue percentage at the FY26 results briefing.</li>
+          <li>February buyback executes at or near full ¥1,000M by 5 August 2026; FY27 dividend payout maintained at ~25%.</li>
+          <li>No further capital-return commitment beyond what is already announced; cash balance holds roughly flat year-on-year.</li>
+        </ul>
+      </div>
+
+      <div class="scn-card bull">
+        <div class="scn-tag bull">BULL SCENARIO</div>
+        <div class="scn-price">¥2,600 &ndash; ¥3,000</div>
+        <div class="scn-delta up">+45% to +68%</div>
+        <div class="scn-mult">implied multiple · ~13&ndash;16x EV/EBIT (fwd)</div>
+        <div class="scn-prem">
+          <b>Two of the three levers land</b>, the AI-DX line is given a name, and the capital-return policy moves from one-off to formula-based.
+        </div>
+        <div class="scn-driver-head">What would have to happen</div>
+        <ul class="scn-drivers">
+          <li>FY26 operating profit lands at or above <b>¥2.4bn</b> with full-year revenue at or above ¥5,500M.</li>
+          <li>FY26 results pack publishes a recurring-revenue percentage and ChatAI ARR figure for the first time &mdash; Lever 01 delivered.</li>
+          <li>FY27 capital-allocation slide names a stated payout-ratio floor at or above 30% or a recurring buyback authorization &mdash; Lever 02 delivered.</li>
+          <li>Q2 or Q3 FY27 guidance revised upward, breaking the multi-year pattern of guide-held-through-the-year.</li>
+        </ul>
+        <p style="font-family: var(--serif); font-size: 12.5px; color: var(--text-mid); line-height: 1.6; margin: 12px 0 0; font-style: italic;">The bull band of ¥2,600&ndash;¥3,000 still sits below the May 2024 peak of ¥2,347 on a per-share basis only if the multiple expands materially against today's 8.6x; the case is multiple-arithmetic, not earnings-revision. A return toward the AI-hype peak would also require Lever 03 (the succession paragraph), which is the slowest of the three to land and sits outside this four-quarter scenario.</p>
+      </div>
+
+    </div>
+
+    <!-- SOTP -->
+    <div class="sotp">
+      <div class="sotp-card">
+        <div class="sotp-head">SUM-OF-PARTS · CORE SAAS BUSINESS</div>
+        <div class="sotp-name">Digital Marketing SaaS + AI DX SaaS combined (single segment)</div>
+        <div class="sotp-row"><span class="k">FY25 revenue (combined)</span><span class="v">¥4,582M</span></div>
+        <div class="sotp-row"><span class="k">FY26 guide revenue</span><span class="v">¥5,284M</span></div>
+        <div class="sotp-row"><span class="k">FY26 guide operating profit</span><span class="v">¥2,207M</span></div>
+        <div class="sotp-row"><span class="k">Operating margin (group, fwd)</span><span class="v">~41.8%</span></div>
+        <div class="sotp-row"><span class="k">Peer EV/EBIT band (listed JP SaaS, single-segment)</span><span class="v">~12&ndash;14x est.</span></div>
+        <div class="sotp-foot">Mid-case implied EV: <b>~¥26&ndash;31bn</b> at 12&ndash;14x FY26 forward operating profit</div>
+      </div>
+
+      <div class="sotp-card">
+        <div class="sotp-head">SUM-OF-PARTS · NET CASH</div>
+        <div class="sotp-name">Cash and deposits on the balance sheet (33% of market cap)</div>
+        <div class="sotp-row"><span class="k">Net cash at Q3 FY26-end (Mar 2026)</span><span class="v">¥9,394M</span></div>
+        <div class="sotp-row"><span class="k">Working-capital need (est.)</span><span class="v">~¥1,300M</span></div>
+        <div class="sotp-row"><span class="k">Surplus to stated policy</span><span class="v">~¥8,100M</span></div>
+        <div class="sotp-row"><span class="k">FY26 announced buyback authorization</span><span class="v">¥1,000M</span></div>
+        <div class="sotp-row"><span class="k">Implied cash EV contribution</span><span class="v">¥9,394M at face</span></div>
+        <div class="sotp-foot">Cash earning ~0.4% bank-deposit yield against a 24% trailing operating return &mdash; the value drag is the disclosure of how it will be deployed</div>
+      </div>
+
+      <div class="sotp-card">
+        <div class="sotp-head">PEER MULTIPLE LADDER · 2026-05-22 snapshot</div>
+        <div class="sotp-name">Listed JP single-segment B2B SaaS peer set · EV recomputed at current snapshot price</div>
+        <div class="sotp-row"><span class="k"><b>3984 User Local (this profile)</b></span><span class="v"><b>8.6x fwd · 24% ROCE</b></span></div>
+        <div class="sotp-row"><span class="k">3922 PR TIMES</span><span class="v">~16&ndash;18x fwd est.</span></div>
+        <div class="sotp-row"><span class="k">4165 PLAID</span><span class="v">unprofitable · NM</span></div>
+        <div class="sotp-row"><span class="k">4382 HEROZ</span><span class="v">~25x fwd est. · project-revenue mix</span></div>
+        <div class="sotp-row"><span class="k">5574 ABEJA</span><span class="v">~30x fwd est. · earlier stage</span></div>
+        <div class="sotp-row"><span class="k">3655 BrainPad</span><span class="v">~13x fwd est. · consulting-heavy</span></div>
+        <div class="sotp-foot">User Local sits at the low end of the listed JP small-cap SaaS band &mdash; the gap is the cash-pile drag and the single-segment opacity, not operating quality</div>
+      </div>
+
+      <div class="sotp-card">
+        <div class="sotp-head">SOTP CROSS-CHECK · TOTAL</div>
+        <div class="sotp-name">Core SaaS business + net cash &mdash; total per-share implied range</div>
+        <div class="sotp-row"><span class="k">Core operating-business EV (mid-case)</span><span class="v">~¥28bn</span></div>
+        <div class="sotp-row"><span class="k">Net cash (face)</span><span class="v">¥9.4bn</span></div>
+        <div class="sotp-row"><span class="k">Implied equity value (face)</span><span class="v">~¥37bn</span></div>
+        <div class="sotp-row"><span class="k">Per share (15.9M sh)</span><span class="v">~¥2,330</span></div>
+        <div class="sotp-row"><span class="k">vs current price ¥1,791</span><span class="v">implied uplift ~30%</span></div>
+        <div class="sotp-foot">Public market currently prices the operating business at <b>~9x</b> and applies a discount to the cash &mdash; SOTP supports BASE on operating multiple alone before any cash policy lands</div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ============================== SHARE BAR ============================== -->
+  <section class="share-bar" id="jii-share"
+           data-share-text="User Local (3984) — single-segment Japanese SaaS at 8.6x forward EV/EBIT, 33% of cap in net cash, 24% ROCE. A founder-led 112-person company with no subsidiaries, no acquisitions in 20 years, and a cash pile that has risen every fiscal year for five years. Three disclosure and capital-policy levers — a recurring-revenue percentage, a cash-balance ceiling, and a succession paragraph — could close most of the gap."
+           data-share-url="https://jpinv.com/en/compounders/3984/"
+           data-share-subject="JII Compounders · 3984 User Local"
+           data-copy-label="Copy link"
+           data-copied-label="Copied to clipboard">
+    <div class="share-head">
+      <span class="share-eyebrow">Share</span>
+      <span class="share-sub">Send this profile.</span>
+    </div>
+    <div class="share-btns">
+      <a class="share-btn share-x" target="_blank" rel="noopener" aria-label="Share on X">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        <span>X</span>
+      </a>
+      <a class="share-btn share-em" aria-label="Share via email">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5z"/></svg>
+        <span>Email</span>
+      </a>
+      <button type="button" class="share-btn share-cp" aria-label="Copy link">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11z"/></svg>
+        <span class="lbl">Copy link</span>
+      </button>
+    </div>
+    <div class="share-perm">Permalink · <code id="jii-share-url-display"></code></div>
+  </section>
+
+  <!-- ============================== DISCLAIMER ============================== -->
+  <section class="disclaimer">
+    <div class="disclaimer-head">
+      <span class="d-eyebrow">Important Disclaimer · 重要なご注意</span>
+      <h2 class="d-title">This is not investment advice.</h2>
+    </div>
+    <div class="disclaimer-body">
+      <p>
+        <b>Japan Investor Interface Co., Ltd. (&quot;JII&quot;)</b> is an investor-relations (IR) consultancy. JII is <b>not</b> a registered investment advisor, financial advisor, broker-dealer, or securities firm in any jurisdiction. JII is <b>not</b> registered as a Financial Instruments Business Operator (金融商品取引業者) under Japan&apos;s Financial Instruments and Exchange Act. JII does not have a 投資助言・代理業 registration and does not provide investment advice or solicit the purchase, sale, or holding of any security.
+      </p>
+      <p>
+        <b>JII Compounders is an editorial publication.</b> Each profile is an analytical study of how publicly disclosed information about a Japanese listed company has been received by the market. It is intended for educational and research purposes for IR professionals, finance students, journalists, and other readers interested in corporate disclosure practice. <b>Nothing in this publication constitutes a recommendation, opinion, suggestion, or solicitation to buy, sell, or hold any security, derivative, or other financial instrument.</b> Price targets, scenario ranges, multiples, and comparable-company references are illustrative of analytical method only and must not be interpreted as JII&apos;s investment opinion. JII does not have an investment opinion on any security discussed.
+      </p>
+      <p>
+        <b>No reliance.</b> The information presented may be incomplete, out of date, or incorrect. Forward-looking statements are inherently uncertain. Past price performance does not indicate future results. Estimates and scenario figures are not predictions and may not be achieved. JII makes no representation or warranty, express or implied, regarding the accuracy, completeness, timeliness, or reliability of any information in this publication.
+      </p>
+      <p>
+        <b>No fiduciary or advisory relationship.</b> Reading this publication does not create any advisory, fiduciary, or professional relationship between you and JII. Before making any investment, tax, accounting, legal, or other decision, you should consult qualified, licensed advisors in your jurisdiction and conduct your own independent due diligence based on primary disclosures issued by the company concerned.
+      </p>
+      <p>
+        <b>Conflicts &amp; positions.</b> JII may provide paid IR diagnostic, translation, or interpretation services to Japanese listed companies, including companies discussed in this publication. JII does not trade in or hold positions in the securities of companies profiled. Where a JII engagement exists with a profiled company, that fact will be disclosed at the top of the profile.
+      </p>
+      <p>
+        <b>Trademarks &amp; data.</b> Company names, logos, tickers, and product names referenced are the property of their respective owners. Share-price data is licensed from third-party providers. TradingView is a trademark of TradingView, Inc. All rights reserved.
+      </p>
+      <p class="d-jp-note">
+        本資料は、日本の金融商品取引法に基づく投資助言・代理業ではなく、特定の有価証券の売買その他の取引の勧誘・推奨を目的とするものではありません。本資料は教育・研究を目的とした分析記事であり、JII（株式会社ジャパン・インベスター・インターフェース）は、本資料の内容に基づく投資判断について一切の責任を負いません。投資の判断はご自身の責任と独立した調査に基づいて行ってください。
+      </p>
+    </div>
+  </section>
+
+  <div class="meth">
+    <span><a href="/en/compounders/">All Compounder Profiles</a> · <a href="/en/compounders/methodology/">Methodology</a></span>
+    <span>Japan Investor Interface Co., Ltd.</span>
+  </div>
+
+</article>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+
+<!-- ============================== SHARE BAR · WIRING ============================== -->
+<script>
+(function(){
+  var root = document.getElementById('jii-share');
+  if(!root) return;
+  var text = root.dataset.shareText;
+  var url = root.dataset.shareUrl;
+  var subject = root.dataset.shareSubject;
+  var copyLabel = root.dataset.copyLabel;
+  var copiedLabel = root.dataset.copiedLabel;
+  var e = encodeURIComponent;
+
+  var x = root.querySelector('.share-x');
+  if(x) x.href = 'https://twitter.com/intent/tweet?text=' + e(text) + '&url=' + e(url);
+  var em = root.querySelector('.share-em');
+  if(em) em.href = 'mailto:?subject=' + e(subject) + '&body=' + e(text + '\n\n' + url);
+
+  var perm = document.getElementById('jii-share-url-display');
+  if(perm) perm.textContent = url;
+
+  var cp = root.querySelector('.share-cp');
+  if(cp) cp.addEventListener('click', function(){
+    var btn = this;
+    var lbl = btn.querySelector('.lbl');
+    var doFlash = function(){
+      lbl.textContent = copiedLabel;
+      btn.classList.add('copied');
+      setTimeout(function(){ lbl.textContent = copyLabel; btn.classList.remove('copied'); }, 2400);
+    };
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(url).then(doFlash, function(){});
+    } else {
+      var ta = document.createElement('textarea');
+      ta.value = url; document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); doFlash(); } catch(_){}
+      document.body.removeChild(ta);
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
