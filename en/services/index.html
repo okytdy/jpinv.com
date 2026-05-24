@@ -122,12 +122,11 @@ body.menu-open{overflow:hidden}
 .scard-eyebrow{font-family:var(--mono);font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:14px}
 .scard-summary{font-family:var(--serif);font-size:1.12rem;line-height:1.55;color:var(--ink);letter-spacing:0.02em;margin-bottom:18px}
 .scard-divider{height:1px;background:var(--rule);margin:6px 0 18px}
-.scard-list{list-style:none;margin:0 0 18px;display:flex;flex-direction:column;gap:12px}
-.scard-list li{display:grid;grid-template-columns:74px 1fr;gap:12px;align-items:start}
-.scard-list b{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-soft);font-weight:600;padding-top:0.28em}
-.scard-list span{font-family:var(--sans);font-size:0.9rem;line-height:1.65;color:var(--text)}
-.scard-pills{display:flex;flex-wrap:wrap;gap:8px;margin:auto 0 18px;padding-top:4px}
-.scard-pill{font-size:0.76rem;color:var(--ink);background:var(--bg-soft);border:1px solid var(--rule-soft);padding:8px 10px}
+.scard-label{font-family:var(--mono);font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px}
+.scard-links{list-style:none;margin:0 0 14px;border-top:1px solid var(--rule-soft)}
+.scard-links li{border-bottom:1px solid var(--rule-soft)}
+.scard-links a{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;color:var(--text);text-decoration:none;font-size:0.86rem;line-height:1.55}
+.scard-links a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
 .scard-cta{margin-top:auto;padding-top:18px;font-size:0.84rem;color:var(--ink);text-decoration:none;border-top:1px solid var(--rule-soft);display:inline-flex;align-items:center;gap:8px}
 .scard-cta:hover{color:var(--accent)}
 .price-line a:hover{color:var(--ink)}
@@ -299,41 +298,64 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   <section class="section">
     <div class="wrap">
       <div class="section-head">
-        <h2 class="h-section">Services by assignment type</h2>
+        <h2 class="h-section">Choose the service you need</h2>
         <div class="h-rule"></div>
-        <p class="section-sub">We adjust by importance, confidentiality, and deadline. Translation, review, and interpretation can run under one shared terminology policy.</p>
+        <p class="section-sub">Document translation, investor-meeting interpretation, and ongoing overseas IR improvement. Select the scenario you need now.</p>
       </div>
 
       <div class="cards-3">
-
         <article class="scard">
-          <div class="scard-eyebrow">A &mdash; English translation of IR documents</div>
-          <p class="scard-summary">We translate earnings summaries, integrated reports, AGM notices, and other IR documents from first draft to final delivery.</p>
+          <div class="scard-eyebrow">A &mdash; Translation</div>
+          <p class="scard-summary">We make earnings, disclosure, and IR materials readable for overseas investors.</p>
           <div class="scard-divider"></div>
-          <ul class="scard-list">
-            <li><b>Use</b><span>Earnings summaries, presentations, AGM notices, integrated reports, securities reports, and other documents intended for public release.</span></li>
-            <li><b>Checks</b><span>Consistency with past disclosures, glossary updates, checks on numbers and proper nouns, and natural IR phrasing.</span></li>
-            <li><b>Turnaround</b><span>Usually two to five business days, based on volume. Faster turnaround is possible on request.</span></li>
-            <li><b>Reference</b><span class="price-line"><a href="/en/pricing/#standalone" style="color:inherit;text-decoration:underline">Unit rates on the pricing page</a></span></li>
+          <p class="scard-label">Included services</p>
+          <ul class="scard-links">
+            <li><a href="/en/services/earnings-summary-translation/">Earnings Summary Translation<span class="arr">&rarr;</span></a></li>
+            <li><a href="/en/services/earnings-presentation-translation/">Earnings Presentation Translation<span class="arr">&rarr;</span></a></li>
+            <li><a href="/en/services/timely-disclosure-translation/">Timely Disclosure Translation<span class="arr">&rarr;</span></a></li>
+            <li><a href="/en/services/shareholder-meeting-notice-translation/">Shareholder Meeting Notice Translation<span class="arr">&rarr;</span></a></li>
+            <li><a href="/en/services/annual-securities-report-translation/">Annual Securities Report Translation<span class="arr">&rarr;</span></a></li>
+            <li><a href="/en/services/integrated-report-translation/">Integrated Report Translation<span class="arr">&rarr;</span></a></li>
+            <li><a href="/en/services/ir-website-translation">IR Website Translation<span class="arr">&rarr;</span></a></li>
+            <li><a href="/en/services/english-disclosure-review">English Disclosure Review<span class="arr">&rarr;</span></a></li>
           </ul>
-          <div class="scard-pills"><span class="scard-pill">Terminology kept consistent</span><span class="scard-pill">For public disclosures</span><span class="scard-pill">Handled directly by the founder</span></div>
-          <a class="scard-cta" href="#rfq" data-preselect-type="Standalone translation">Discuss this service<span class="arr">&rarr;</span></a>
+          <a class="scard-cta" href="/en/services/english-disclosure-support/">See translation services<span class="arr">&rarr;</span></a>
         </article>
-
         <article class="scard">
-          <div class="scard-eyebrow">B &mdash; IR meeting interpretation</div>
-          <p class="scard-summary">We align the wording in your documents with what is said in the room, from preparation through live interpretation.</p>
+          <div class="scard-eyebrow">B &mdash; Interpretation</div>
+          <p class="scard-summary">In meetings and briefings with overseas investors, we connect investor intent with management responses accurately.</p>
           <div class="scard-divider"></div>
-          <ul class="scard-list">
-            <li><b>Use</b><span>1-on-1s, IR Days, earnings calls, overseas roadshows, and AGMs.</span></li>
-            <li><b>Prep</b><span>Material read-in, expected Q&amp;A, and alignment on meeting priorities.</span></li>
-            <li><b>Format</b><span>Online, half-day, or full-day. Consecutive or simultaneous is scoped case by case.</span></li>
-            <li><b>Reference</b><span class="price-line"><a href="/en/pricing/#standalone" style="color:inherit;text-decoration:underline">Day rates on the pricing page</a></span></li>
+          <p class="scard-label">Included services</p>
+          <ul class="scard-links">
+            <li><a href="/en/services/investor-one-on-one-interpretation">Investor 1-on-1 Interpretation<span class="arr">&rarr;</span></a></li>
+            <li><a href="/en/services/earnings-briefing-interpretation">Earnings Briefing Interpretation<span class="arr">&rarr;</span></a></li>
+            <li><a href="/en/services/overseas-ir-roadshow-interpretation/">Overseas IR Roadshow Interpretation<span class="arr">&rarr;</span></a></li>
+            <li><a href="/en/services/ir-day-interpretation">IR Day Interpretation<span class="arr">&rarr;</span></a></li>
+            <li><a href="/en/services/conference-meeting-interpretation">Conference Meeting Interpretation<span class="arr">&rarr;</span></a></li>
+            <li><a href="/en/services/shareholder-meeting-interpretation">Shareholder Meeting Interpretation<span class="arr">&rarr;</span></a></li>
           </ul>
-          <div class="scard-pills"><span class="scard-pill">Pre-meeting briefing included</span><span class="scard-pill">Shared terminology</span><span class="scard-pill">Post-meeting notes available</span></div>
-          <a class="scard-cta" href="#rfq" data-preselect-type="Standalone interpretation">Discuss this service<span class="arr">&rarr;</span></a>
+          <a class="scard-cta" href="/en/services/ir-interpretation/">See interpretation services<span class="arr">&rarr;</span></a>
         </article>
+        <article class="scard">
+          <div class="scard-eyebrow">C &mdash; Ongoing Support</div>
+          <p class="scard-summary">We assess English disclosure, IR websites, and investor meetings, then update priorities each quarter.</p>
+          <div class="scard-divider"></div>
+          <p class="scard-label">Included services</p>
+          <ul class="scard-links">
+            <li><a href="/en/services/overseas-ir-diagnostics/">Overseas IR Diagnostics<span class="arr">&rarr;</span></a></li>
+            <li><a href="/en/services/overseas-ir-diagnostic-card">Overseas IR Diagnostic Card<span class="arr">&rarr;</span></a></li>
+            <li><a href="/en/services/quarterly-ir-review">Quarterly IR Review<span class="arr">&rarr;</span></a></li>
+            <li><a href="/en/services/english-disclosure-ir-website-diagnostics">English Disclosure &amp; IR Website Diagnostics<span class="arr">&rarr;</span></a></li>
+            <li><a href="/en/services/investor-meeting-review">Investor Meeting Review<span class="arr">&rarr;</span></a></li>
+            <li><a href="/en/services/investor-qa-improvement">Investor Q&amp;A Improvement<span class="arr">&rarr;</span></a></li>
+            <li><a href="/en/services/ongoing-ir-support-plans">Ongoing IR Support Plans<span class="arr">&rarr;</span></a></li>
+          </ul>
+          <a class="scard-cta" href="/en/services/overseas-ir-diagnostics/">See ongoing support services<span class="arr">&rarr;</span></a>
+        </article>
+      </div>
 
+      <div class="section-cta">
+        <a class="btn-ghost" href="/en/pricing/">See pricing approach<span class="arr">&rarr;</span></a>
       </div>
     </div>
   </section>
