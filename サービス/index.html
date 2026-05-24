@@ -687,12 +687,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     letter-spacing: 0.03em; margin-bottom: 18px;
   }
   .scard-divider { height: 1px; background: var(--rule-soft); margin: 0 0 20px; }
-  .scard-list { list-style: none; margin: 0 0 18px; display: flex; flex-direction: column; gap: 12px; }
-  .scard-list li { display: grid; grid-template-columns: 72px 1fr; gap: 12px; align-items: start; }
-  .scard-list b { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); font-weight: 600; padding-top: 0.28em; }
-  .scard-list span { font-family: var(--sans); font-size: 0.94rem; line-height: 1.7; color: var(--text); }
-  .scard-pills { display: flex; flex-wrap: wrap; gap: 8px; margin: auto 0 18px; padding-top: 4px; }
-  .scard-pill { font-family: var(--sans); font-size: 0.76rem; line-height: 1; color: var(--ink); background: var(--bg-soft); border: 1px solid var(--rule-soft); padding: 8px 10px; }
+  .scard-label { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 10px; }
+  .scard-links { list-style: none; margin: 0 0 14px; border-top: 1px solid var(--rule-soft); }
+  .scard-links li { border-bottom: 1px solid var(--rule-soft); }
+  .scard-links a { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 0; color: var(--text); text-decoration: none; font-size: 0.9rem; line-height: 1.6; }
+  .scard-links a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+  .scard-overview { display: inline-flex; align-items: center; gap: 8px; font-size: 0.78rem; color: var(--ink-soft); text-decoration: none; margin: 6px 0 16px; }
+  .scard-overview:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
   .scard .price-line {
     font-family: var(--serif); font-weight: 400; font-size: 1.2rem;
     color: var(--ink); letter-spacing: 0.02em;
@@ -1098,55 +1099,68 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   <section class="section">
     <div class="wrap">
       <div class="section-head">
-        <h2 class="h-section">ご依頼内容に応じた支援メニュー</h2>
+        <h2 class="h-section">必要なサービスを選ぶ</h2>
         <div class="h-rule"></div>
-        <p class="section-sub">納期と正確さを軸に、翻訳・通訳・伴走支援でIR実務を支えます。</p>
+        <p class="section-sub">資料の英訳、投資家面談の通訳、海外IRの継続改善。いま必要な場面からお選びください。</p>
       </div>
 
       <div class="cards-3">
-
         <article class="scard">
           <div class="scard-eyebrow">A — 翻訳</div>
-          <p class="scard-summary">決算短信・説明資料・招集通知などの開示資料を、企業ごとの言い回しをそろえて、読みやすく英訳します。</p>
+          <p class="scard-summary">決算・開示・IR資料を、海外投資家が読みやすい英語にします。</p>
           <div class="scard-divider"></div>
-          <ul class="scard-list">
-            <li><b>用途</b><span>決算短信、説明資料、招集通知、統合報告書、有報など対外公表前提の資料。</span></li>
-            <li><b>確認</b><span>過去開示との整合、用語集更新、数値・固有名詞の照合、IR文脈としての自然さ。</span></li>
-            <li><b>納期</b><span>2〜5営業日（資料規模により調整）。短納期は要相談。</span></li>
-            <li><b>参考</b><span class="price-line"><a href="/料金/#standalone" style="color:inherit;text-decoration:underline">単価は料金ページ</a></span></li>
+          <p class="scard-label">対応サービス</p>
+          <ul class="scard-links">
+            <li><a href="/ja/services/kessan-tanshin-translation">決算短信英訳<span class="arr">→</span></a></li>
+            <li><a href="/ja/services/earnings-presentation-translation">決算説明会資料英訳<span class="arr">→</span></a></li>
+            <li><a href="/ja/services/timely-disclosure-translation">適時開示英訳<span class="arr">→</span></a></li>
+            <li><a href="/ja/services/shareholder-meeting-notice-translation">招集通知英訳<span class="arr">→</span></a></li>
+            <li><a href="/ja/services/annual-securities-report-translation">有価証券報告書英訳<span class="arr">→</span></a></li>
+            <li><a href="/ja/services/integrated-report-translation">統合報告書英訳<span class="arr">→</span></a></li>
+            <li><a href="/ja/services/ir-website-translation">IRサイト英訳<span class="arr">→</span></a></li>
+            <li><a href="/ja/services/english-disclosure-review">英文開示レビュー<span class="arr">→</span></a></li>
           </ul>
-          <div class="scard-pills"><span class="scard-pill">用語継承</span><span class="scard-pill">公表資料向け</span><span class="scard-pill">代表が直接担当</span></div>
-          <a class="scard-cta" href="/サービス/english-disclosure-support/">サービス詳細を見る<span class="arr">→</span></a>
+          <a class="scard-overview" href="/サービス/english-disclosure-support/">英文開示支援の全体像を見る <span class="arr">→</span></a>
+          <a class="scard-cta" href="/サービス/english-disclosure-support/">翻訳サービスの詳細を見る<span class="arr">→</span></a>
         </article>
 
         <article class="scard">
           <div class="scard-eyebrow">B — 通訳</div>
-          <p class="scard-summary">資料の表現と面談での説明がずれないよう、事前準備から当日通訳まで一貫して支援します。</p>
+          <p class="scard-summary">海外投資家との説明会・面談で、質問意図と経営の回答を正確につなぎます。</p>
           <div class="scard-divider"></div>
-          <ul class="scard-list">
-            <li><b>用途</b><span>1on1、IRデイ、決算説明会、海外ロードショー、株主総会。</span></li>
-            <li><b>準備</b><span>資料読み込み、想定Q&amp;A整理、当日論点のすり合わせ。</span></li>
-            <li><b>形式</b><span>オンライン、半日、終日。逐次・同時通訳は案件ごとに設計。</span></li>
-            <li><b>参考</b><span class="price-line"><a href="/料金/#standalone" style="color:inherit;text-decoration:underline">日額は料金ページ</a></span></li>
+          <p class="scard-label">対応サービス</p>
+          <ul class="scard-links">
+            <li><a href="/ja/services/investor-one-on-one-interpretation">投資家1on1通訳<span class="arr">→</span></a></li>
+            <li><a href="/ja/services/earnings-briefing-interpretation">決算説明会通訳<span class="arr">→</span></a></li>
+            <li><a href="/ja/services/overseas-ir-roadshow-interpretation">海外IRロードショー通訳<span class="arr">→</span></a></li>
+            <li><a href="/ja/services/ir-day-interpretation">IR Day通訳<span class="arr">→</span></a></li>
+            <li><a href="/ja/services/conference-meeting-interpretation">カンファレンス面談通訳<span class="arr">→</span></a></li>
+            <li><a href="/ja/services/shareholder-meeting-interpretation">株主総会通訳<span class="arr">→</span></a></li>
           </ul>
-          <div class="scard-pills"><span class="scard-pill">事前ブリーフ</span><span class="scard-pill">用語統一</span><span class="scard-pill">論点メモ可</span></div>
-          <a class="scard-cta" href="/サービス/ir-interpretation/">サービス詳細を見る<span class="arr">→</span></a>
+          <a class="scard-overview" href="/サービス/ir-interpretation/">IR通訳の全体像を見る <span class="arr">→</span></a>
+          <a class="scard-cta" href="/サービス/ir-interpretation/">通訳サービスの詳細を見る<span class="arr">→</span></a>
         </article>
 
         <article class="scard">
           <div class="scard-eyebrow">C — 継続支援</div>
-          <p class="scard-summary">英文開示・IRサイト・投資家面談を横断して点検し、改善優先順位を整理して継続的な見直しにつなげます。</p>
+          <p class="scard-summary">英文開示・IRサイト・投資家面談を点検し、四半期ごとに改善点を更新します。</p>
           <div class="scard-divider"></div>
-          <ul class="scard-list">
-            <li><b>用途</b><span>海外投資家向けメッセージの整合確認、開示改善ロードマップ、IR体制の見直し。</span></li>
-            <li><b>診断</b><span>ストーリー一貫性、用語統一、開示粒度、Q&amp;A再現性、サイト導線の5領域で評価。</span></li>
-            <li><b>成果</b><span>スコアカード、優先課題、実行アクション、次回開示までの運用ガイド。</span></li>
-            <li><b>参考</b><span class="price-line"><a href="/料金/#plans" style="color:inherit;text-decoration:underline">月額プランは料金ページ</a></span></li>
+          <p class="scard-label">対応サービス</p>
+          <ul class="scard-links">
+            <li><a href="/ja/services/overseas-ir-diagnostics">海外IR診断<span class="arr">→</span></a></li>
+            <li><a href="/ja/services/overseas-ir-diagnostic-card">海外IR診断カード<span class="arr">→</span></a></li>
+            <li><a href="/ja/services/quarterly-ir-review">四半期レビュー<span class="arr">→</span></a></li>
+            <li><a href="/ja/services/english-disclosure-ir-website-diagnostics">英文開示・IRサイト診断<span class="arr">→</span></a></li>
+            <li><a href="/ja/services/investor-meeting-review">投資家面談レビュー<span class="arr">→</span></a></li>
+            <li><a href="/ja/services/investor-qa-improvement">海外投資家向けQ&amp;A改善<span class="arr">→</span></a></li>
+            <li><a href="/ja/services/ongoing-ir-support-plans">継続支援プラン<span class="arr">→</span></a></li>
           </ul>
-          <div class="scard-pills"><span class="scard-pill">診断カード</span><span class="scard-pill">継続伴走</span><span class="scard-pill">改善優先順位</span></div>
-          <a class="scard-cta" href="/サービス/overseas-ir-diagnostics/">サービス詳細を見る<span class="arr">→</span></a>
+          <a class="scard-cta" href="/サービス/overseas-ir-diagnostics/">継続支援の詳細を見る<span class="arr">→</span></a>
         </article>
+      </div>
 
+      <div class="section-cta">
+        <a class="btn-ghost" href="/料金/">料金の考え方を見る<span class="arr">→</span></a>
       </div>
     </div>
   </section>
