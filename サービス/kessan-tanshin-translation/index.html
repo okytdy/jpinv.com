@@ -22,15 +22,13 @@
 .btn{display:inline-block;text-decoration:none;font-size:.84rem;letter-spacing:.05em;padding:13px 24px}.btn-primary{background:var(--ink);color:#fff}.btn-outline{border:1px solid var(--ink-mid);color:var(--ink)}
 .hero{padding:72px 0 56px;background:var(--bg-soft)}.lead{max-width:760px;font-size:.98rem}.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin:26px 0 10px}
 .ServiceProblemGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.ServiceProblemCard{border:1px solid var(--rule);background:#fff;padding:18px;display:grid;gap:8px}.ServiceProblemCard .meta{display:flex;justify-content:space-between;align-items:center}.ServiceProblemCard .tag{font-size:.72rem;background:var(--bg-mid);padding:2px 8px;border-radius:999px;color:var(--ink-soft)}.ServiceProblemCard .num{font-family:var(--mono);font-size:.8rem;color:var(--ink-soft)}.ServiceProblemCard h3{margin:0;font-size:1rem;color:var(--ink);line-height:1.5}.ServiceProblemCard p{margin:0;font-size:.9rem;line-height:1.65}
-.ServiceSupportMatrix{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.matrix-col{border:1px solid var(--rule);padding:18px;background:#fff}.bestfor{display:inline-block;font-size:.72rem;color:var(--ink-soft);background:var(--bg-mid);padding:2px 8px;border-radius:999px}.matrix-col h3{margin:8px 0}.matrix-col ul{margin:8px 0 0;padding-left:20px}
-.ServiceReadingPath{margin-top:18px}.reading-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}.reading-step{border:1px solid var(--rule);padding:14px;background:#fff}.reading-step .step-no{font-family:var(--mono);font-size:.74rem;color:var(--ink-soft)}.reading-step h3{font-size:.92rem;margin:6px 0}.reading-step p{margin:0;font-size:.85rem;line-height:1.6;color:var(--text-mid)}
 .ServiceUseCaseAccordion .acc-item{border:1px solid var(--rule);margin-bottom:10px;background:#fff}.ServiceUseCaseAccordion button{width:100%;text-align:left;background:none;border:0;padding:16px;font-size:1rem;color:var(--ink);display:flex;justify-content:space-between;align-items:center;cursor:pointer}.ServiceUseCaseAccordion button:focus-visible{outline:2px solid #4967a6;outline-offset:2px}.ServiceUseCaseAccordion .panel{padding:0 16px 16px;display:none}.ServiceUseCaseAccordion .panel p{margin:0;font-size:.9rem;line-height:1.65}.ServiceUseCaseAccordion .acc-item.open .panel{display:block}
 .ServiceProcessTimeline{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}.process-step{border:1px solid var(--rule);padding:14px;background:#fff}.process-step .no{font-family:var(--mono);color:var(--ink-soft);font-size:.74rem}.process-step h3{margin:6px 0;font-size:.96rem}.process-step p{margin:0;font-size:.88rem}
 .dual{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.option{border:1px solid var(--rule);padding:18px;background:#fff}.option ul{margin:8px 0 0;padding-left:20px}
 .faq-item{border-top:1px solid var(--rule);padding:16px 0}.faq-item:last-child{border-bottom:1px solid var(--rule)}.faq-item h3{margin:0 0 8px;font-size:1rem;color:var(--ink)}.faq-item p{margin:0;font-size:.9rem}
 .cta-box{border:1px solid var(--rule);background:var(--bg-soft);padding:24px}
 .ServiceRelatedMap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.related-col{border:1px solid var(--rule);padding:16px}.related-col h3{margin:0 0 8px}.related-col ul{list-style:none;padding:0;margin:0}.related-col li{margin:8px 0}
-@media(max-width:900px){:root{--gutter:22px;--pad:44px}.ServiceProblemGrid,.ServiceSupportMatrix,.reading-grid,.ServiceProcessTimeline,.dual,.ServiceRelatedMap{grid-template-columns:1fr}.hero-ctas{flex-direction:column}.hero-ctas .btn{width:100%;text-align:center}}
+@media(max-width:900px){:root{--gutter:22px;--pad:44px}.ServiceProblemGrid,.ServiceProcessTimeline,.dual,.ServiceRelatedMap{grid-template-columns:1fr}.hero-ctas{flex-direction:column}.hero-ctas .btn{width:100%;text-align:center}}
 </style>
 </head>
 <body>
@@ -52,30 +50,6 @@
     <article class="ServiceProblemCard"><div class="meta"><span class="tag">JPX様式</span><span class="num">02</span></div><h3>JPX様式・会計用語・定型表現のそろえ方に不安がある</h3><p>決算短信サマリー、業績予想、配当、セグメント、前年同期比など、毎回使う表現ほどぶれやすくなります。</p></article>
     <article class="ServiceProblemCard"><div class="meta"><span class="tag">AIレビュー</span><span class="num">03</span></div><h3>AI翻訳や社内訳を、開示前にどこまで直すべきか分からない</h3><p>英語として読めても、数字、主語、増減理由、見通し、注記の関係がずれると、投資家に誤解される可能性があります。</p></article>
     <article class="ServiceProblemCard"><div class="meta"><span class="tag">整合性</span><span class="num">04</span></div><h3>決算説明資料との表現差が目立つ</h3><p>短信と説明資料で用語やトーンが違うと、海外投資家が同じ業績変化を別の意味に読んでしまうことがあります。</p></article>
-  </div>
-</div></section>
-
-<section><div class="wrap">
-  <h2 class="mincho-lg">JIIが支援できること</h2>
-  <p>開示前の英訳を、数字・用語・文脈の3点から整えます。</p>
-  <div class="ServiceSupportMatrix">
-    <article class="matrix-col"><span class="bestfor">初回英訳・全文英訳</span><h3>英訳する</h3><ul><li>決算短信・四半期決算短信の英訳</li><li>サマリー、定性説明、業績予想、配当関連文の訳出</li><li>JPX様式や過去開示との表現整合</li></ul></article>
-    <article class="matrix-col"><span class="bestfor">社内訳・AI訳の開示前確認</span><h3>レビューする</h3><ul><li>社内訳・AI翻訳・既存英文の確認</li><li>数字、単位、前年同期比、主語、因果関係の確認</li><li>投資家に誤解されやすい直訳の修正</li></ul></article>
-    <article class="matrix-col"><span class="bestfor">四半期ごとの改善</span><h3>継続整備する</h3><ul><li>四半期ごとの用語・定型表現の更新</li><li>決算説明資料との表現統一</li><li>次回開示に流用できる表現メモの整理</li></ul></article>
-  </div>
-</div></section>
-
-<section><div class="wrap">
-  <h2 class="mincho-lg">海外投資家が読む順番から、英訳を確認します</h2>
-  <p>決算短信は、英語として正しいだけでは不十分です。海外投資家は、数字の変化、理由、見通し、資本配分の影響を短時間で読み取ります。</p>
-  <div class="ServiceReadingPath"><p class="label">投資家が読み取るポイント</p>
-    <div class="reading-grid">
-      <article class="reading-step"><div class="step-no">01</div><h3>業績はどう変わったか</h3><p>売上・利益の増減を、前年同期比や前期比で分かるように示します。</p></article>
-      <article class="reading-step"><div class="step-no">02</div><h3>何が増減の要因か</h3><p>増減理由を整理し、一過性の要因か継続的な要因かが伝わる形にします。</p></article>
-      <article class="reading-step"><div class="step-no">03</div><h3>今後の見通しはどうか</h3><p>通期予想・進捗率・前提条件をそろえ、見通しの根拠が伝わるようにします。</p></article>
-      <article class="reading-step"><div class="step-no">04</div><h3>経営の考えがどう示されているか</h3><p>戦略、投資、価格改定、コスト対応を、数値説明とつながる形で示します。</p></article>
-      <article class="reading-step"><div class="step-no">05</div><h3>どの資料と表現をそろえるか</h3><p>決算説明資料、IRサイト、過去開示と用語をそろえ、資料ごとの差を減らします。</p></article>
-    </div>
   </div>
 </div></section>
 
