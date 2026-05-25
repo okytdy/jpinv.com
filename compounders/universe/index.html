@@ -770,7 +770,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     </tr>
     <tr data-status="active" data-mc="27960.0" data-roce="22.66" data-evebit="8.8" data-fcfy="5.53" data-score="2.58" data-sec="39840">
       <td class="cell-rank">42</td>
-      <td class="cell-tk">3984</td>
+      <td class="cell-tk"><a href="/compounders/3984/">3984</a></td>
       <td class="cell-name">株式会社ユーザーローカル</td>
       <td class="cell-ind">情報・通信業</td>
       <td class="cell-num">¥27bn</td>
@@ -1320,4 +1320,36 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   }
   document.querySelectorAll(".btn[data-filter]").forEach(btn => {
     btn.addEventListener("click", () => {
-      document.querySelectorAll(".btn[data-filter]").forEach(b => b.classList.
+      document.querySelectorAll(".btn[data-filter]").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      curFilter = btn.getAttribute("data-filter");
+      applyFilter(); applySort();
+    });
+  });
+  document.querySelectorAll(".btn.sort-trigger").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const key = btn.getAttribute("data-sort");
+      if (curSort.key === key) curSort.dir = (curSort.dir === "asc") ? "desc" : "asc";
+      else { curSort.key = key; curSort.dir = btn.getAttribute("data-dir") || "desc"; }
+      document.querySelectorAll(".btn.sort-trigger").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      applySort();
+    });
+  });
+  const headerKeys = [null, null, null, null, "mc", "roce", "evebit", null, null, null, "fcfy", "score", null];
+  document.querySelectorAll("#universe thead th").forEach((th, i) => {
+    const key = headerKeys[i];
+    if (!key) return;
+    th.addEventListener("click", () => {
+      if (curSort.key === key) curSort.dir = (curSort.dir === "asc") ? "desc" : "asc";
+      else { curSort.key = key; curSort.dir = (key === "evebit") ? "asc" : "desc"; }
+      document.querySelectorAll(".btn.sort-trigger").forEach(b => b.classList.toggle("active", b.getAttribute("data-sort") === key));
+      applySort();
+    });
+  });
+  applyFilter(); applySort();
+})();
+</script>
+
+</body>
+</html>
