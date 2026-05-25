@@ -362,91 +362,102 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       </div>
     </div>
   </section>
+<style>
+.plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;background:transparent;margin-top:24px}
+.plan-card{background:#fff;border:1px solid #e6e6e0;padding:32px 28px;display:flex;flex-direction:column;position:relative}
+.plan-card.is-mid{background:#fff;border:1px solid #e6e6e0;border-top:2px solid var(--ink)}
+.plan-tag{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;color:var(--ink);text-transform:uppercase}
+.plan-card h3{font-family:var(--sans);font-size:1.4rem;color:var(--ink);margin:8px 0 4px;font-weight:500}
+.plan-sub{font-size:.85rem;color:var(--text-dim);margin-bottom:14px}
+.plan-price{font-family:var(--sans);color:var(--ink);font-size:1.55rem;font-weight:500;line-height:1.2;margin:10px 0 2px}
+.plan-price small{font-size:.75rem;color:var(--text-dim);font-family:var(--mono);letter-spacing:.06em}
+.plan-tax{font-size:.7rem;color:var(--text-dim);margin-bottom:18px}
+.plan-best{padding:12px 14px;background:rgba(26,42,74,.06);border-left:3px solid var(--ink);font-size:.78rem;line-height:1.65;color:var(--ink);margin-bottom:16px}
+.plan-best strong{color:var(--ink);display:block;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px;font-family:var(--mono);font-weight:600}
+.plan-badge{position:absolute;top:-14px;right:24px;background:var(--ink);color:#fff;font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;padding:5px 10px}
+.plan-list{list-style:none;margin:8px 0 22px;padding:0}
+.plan-list li{font-size:.78rem;line-height:1.7;padding:6px 0 6px 16px;position:relative;color:var(--text);border-bottom:1px solid var(--rule)}
+.plan-list li:last-child{border-bottom:none}
+.plan-list li::before{content:'+';position:absolute;left:0;color:var(--ink);top:6px;font-size:.85rem}
+.plan-card .btn{margin-top:auto;align-self:flex-start}
+.cta-band{margin-top:42px;padding:26px 28px;border:1px solid var(--rule);background:#fff;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center}
+.cta-band h3{font-family:var(--serif);color:var(--ink);font-size:clamp(1.05rem,2vw,1.35rem);font-weight:400;line-height:1.5;margin:8px 0 6px}
+.cta-band p{font-size:.84rem;line-height:1.75;color:var(--text-mid);margin:0}
+@media(max-width:880px){.plan-grid{grid-template-columns:1fr}.cta-band{grid-template-columns:1fr;align-items:start}}
+</style>
 
-  <!-- =================== PRICING REFERENCE =================== -->
   <section class="section alt">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">Pricing</span>
-        <h2 class="h-section">See full pricing on the pricing page.</h2>
-        <div class="h-rule"></div>
-        <p class="section-sub">One-off translation and interpretation are quoted at standard industry rates (per character or per day). Continuing support uses a monthly diagnosis support retainer (Light / Standard / Pro). Reference ranges are listed on the <a href="/en/pricing/" style="border-bottom:1px solid currentColor">pricing page</a>. A final estimate, based on document type, volume, deadline, and any existing translation assets, normally comes back within one business day.</p>
+        <span class="label">Ongoing support plans</span>
+        <div class="rule-accent"></div>
+        <h2 class="mincho-lg">Three ongoing support plans</h2>
+        <p>Our core services are English IR disclosure translation, investor-meeting interpretation, and global IR diagnosis. The plans below are the ongoing-support tier built around global IR diagnosis.</p>
+        <div class="section-cta"><a href="#contact" class="btn btn-primary">Discuss your English disclosure setup</a></div>
       </div>
-      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px">
-        <a href="/en/pricing/#standalone" class="btn-primary">One-off rate ranges</a>
-        <a href="/en/pricing/#plans" class="btn-outline">Retainer plans</a>
+
+      <div class="plan-grid">
+        <div class="plan-card">
+          <span class="plan-tag">Light</span>
+          <h3>Initial Diagnosis</h3>
+          <div class="plan-sub">A one-time scan of where you stand</div>
+          <div class="plan-price">¥200,000<small>&nbsp;/ engagement</small></div>
+          <div class="plan-tax">Tax exclusive / one-off</div>
+          <div class="plan-best"><strong>Recommended for</strong>Companies who want to inventory their overseas IR status once and align internally on where to start.</div>
+          <ul class="plan-list">
+            <li>The IR Diagnosis Card itself (12 items, 24 points)</li>
+            <li>Top three issues with concrete examples</li>
+            <li>Priority order for improvement</li>
+            <li>Internal walkthrough (60 minutes)</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary">Discuss Light</a>
+        </div>
+        <div class="plan-card is-mid">
+          <span class="plan-badge">Recommended</span>
+          <span class="plan-tag">Standard</span>
+          <h3>Quarterly Disclosure Improvement</h3>
+          <div class="plan-sub">Refresh the diagnosis each quarter</div>
+          <div class="plan-price">¥100,000<small>&nbsp;/ month</small></div>
+          <div class="plan-tax">Tax exclusive / 6 months minimum</div>
+          <div class="plan-best"><strong>Recommended for</strong>Companies who want quarterly disclosures and English IR materials continuously refined toward a form that reaches overseas investors.</div>
+          <ul class="plan-list">
+            <li>Initial IR Diagnosis Card set</li>
+            <li>Quarterly re-diagnosis</li>
+            <li>Earnings disclosure and English material review</li>
+            <li>Translation and English review aligned with diagnosis findings</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary">Discuss Standard</a>
+        </div>
+        <div class="plan-card">
+          <span class="plan-tag">Pro</span>
+          <h3>Meeting-inclusive IR Improvement Loop</h3>
+          <div class="plan-sub">We handle the run-up and follow-up of investor meetings together</div>
+          <div class="plan-price">¥200,000<small>&nbsp;/ month</small></div>
+          <div class="plan-tax">Tax exclusive / 6 months minimum</div>
+          <div class="plan-best"><strong>Recommended for</strong>Companies running continuous overseas investor meetings who want the responses fed back into future disclosures.</div>
+          <ul class="plan-list">
+            <li>Everything in Standard</li>
+            <li>Investor meeting preparation support</li>
+            <li>On-site interpretation / meeting observation</li>
+            <li>Top three investor reactions summary report after each meeting</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary">Discuss Pro</a>
+        </div>
+      </div>
+
+      <div class="cta-band" aria-label="What follows pricing">
+        <div>
+          <span class="label">Lift enterprise value through ongoing support</span>
+          <h3>Walking alongside the IR team to continue overseas-investor-ready disclosure and dialogue each quarter.</h3>
+          <p>As a partner running alongside, we keep refining what to convey and how to convey it.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="#contact" class="btn btn-outline">Discuss ongoing support</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- =================== METHOD =================== -->
-  <section class="section">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Operating method</span>
-        <h2 class="h-section">We do not restart from zero each time.</h2>
-        <div class="h-rule"></div>
-        <p class="section-sub">We keep your term base and translation memory over time, so disclosures, meetings, and your IR site use the same words and logic.</p>
-      </div>
-      <div class="method-chips">
-        <span class="method-chip">Per-client term base</span>
-        <span class="method-chip">Full reference to prior translations (translation memory)</span>
-        <span class="method-chip">IR judgement handled directly by Teddy Okuyama</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- =================== DIAGNOSTIC CARD =================== -->
-  <section class="section alt">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Core service</span>
-        <h2 class="h-section">Global IR Diagnosis</h2>
-        <div class="h-rule"></div>
-        <p class="section-sub">The IR Diagnosis Card is JII's proprietary diagnostic tool. It identifies where English disclosure, IR materials, IR websites, and investor meetings may fail to communicate clearly to global investors. The output is not just a score. It organizes priority issues, concrete examples, and practical next actions. <a href="/en/services/diagnostic/" style="border-bottom:1px solid currentColor">See the diagnostic detail page</a>.</p>
-      </div>
-
-      <div class="dx-pull">
-        <p class="dx-pull-q">"Before translation, what is not reaching foreign investors?"</p>
-        <p class="dx-pull-body">We check capital allocation, differentiation logic, and growth assumptions: the points that drive investment decisions. We check whether they reach investors in the right order and with the right level of detail, then show fix priority.</p>
-      </div>
-
-      <div class="dx-deliverables">
-        <article class="dx-card">
-          <div class="dx-card-num">01</div>
-          <h3>The Diagnostic Card</h3>
-          <p>12 items, 24 points, plus an overall view. One file, ready for internal sharing.</p>
-        </article>
-        <article class="dx-card">
-          <div class="dx-card-num">02</div>
-          <h3>Top 3 communication gaps</h3>
-          <p>The three points that are most affecting investor understanding, narrowed down.</p>
-        </article>
-        <article class="dx-card">
-          <div class="dx-card-num">03</div>
-          <h3>Evidence and examples</h3>
-          <p>Direct quotes from your IR materials and meeting record showing where understanding stalls.</p>
-        </article>
-        <article class="dx-card">
-          <div class="dx-card-num">04</div>
-          <h3>Priority for fixes</h3>
-          <p>A split between what to fix in the next earnings cycle and what to rebuild over the medium term.</p>
-        </article>
-        <article class="dx-card">
-          <div class="dx-card-num">05</div>
-          <h3>Internal walkthrough</h3>
-          <p>A 60-minute read-through of the findings with IR, the CFO office, and Corporate Planning.</p>
-        </article>
-      </div>
-
-      <div class="dx-cta-row">
-        <a class="btn-primary" href="#rfq" data-preselect-type="Foreign IR Diagnostic Card">Request an estimate for the Diagnostic Card<span class="arr">&rarr;</span></a>
-        <a class="dx-secondary" href="#rfq" data-preselect-type="Foreign IR Diagnostic Card">Discuss the source materials &rarr;</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- =================== CASES =================== -->
   <section class="section">
     <div class="wrap">
       <div class="section-head">
@@ -493,7 +504,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     </div>
   </section>
 
-  <!-- =================== CONFIDENTIALITY ACCORDION =================== -->
   <section class="section alt">
     <div class="wrap">
       <div class="section-head">
@@ -540,7 +550,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     </div>
   </section>
 
-  <!-- =================== FAQ =================== -->
   <section class="section">
     <div class="wrap">
       <div class="section-head">
@@ -589,7 +598,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     </div>
   </section>
 
-  <!-- =================== RFQ FORM =================== -->
   <section class="section alt" id="rfq">
     <div class="wrap">
       <div class="section-head">
@@ -693,42 +701,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   </section>
 
 </main>
-<!-- FOOTER -->
-<section><div class="wrap"><h2 class="h-section">Landing pages by intent</h2><h3>English disclosure and IR documents</h3><ul><li><a href="/en/services/earnings-summary-translation/">Earnings Flash Report (Tanshin) Translation</a></li><li><a href="/en/services/earnings-presentation-translation/">Earnings Presentation Translation</a></li><li><a href="/en/services/agm-convocation-notice-translation/">AGM Convocation Notice Translation</a></li><li><a href="/en/services/annual-securities-report-translation/">Annual Securities Report Translation</a></li><li><a href="/en/services/integrated-report-translation/">Integrated Report Translation</a></li><li><a href="/en/services/timely-disclosure-translation/">Timely Disclosure Translation</a></li><li><a href="/en/services/english-disclosure-support/">English Disclosure Support</a></li></ul><h3>Investor meetings and interpretation</h3><ul><li><a href="/en/services/ir-interpretation/">IR Interpretation</a></li><li><a href="/en/services/meeting-support/">Investor Meeting Interpretation</a></li><li><a href="/en/services/overseas-ir-roadshow-interpretation/">Overseas IR Roadshow Interpretation</a></li></ul><h3>Diagnostics</h3><ul><li><a href="/en/services/overseas-ir-diagnostics/">Global IR Diagnosis</a></li></ul></div></section>
-<footer>
+
+<footer class="site-footer" role="contentinfo">
   <div class="wrap">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <h3>Japan Investor Interface Co., Ltd.</h3>
-        <p>We organize how foreign investors read a Japanese listed company’s IR into one 12-item, 24-point Foreign IR Diagnostic Card. Support can be one-off or ongoing. English IR review, translation, and investor-meeting interpretation are also available as standalone services.</p>
-      </div>
-      <div class="footer-col">
-        <h2>Diagnostic &amp; plans</h2>
-        <ul>
-          <li><a href="/en/services/">Services</a></li>
-          <li><a href="/en/pricing/#light">Light — first diagnostic</a></li>
-          <li><a href="/en/pricing/#standard">Standard — disclosure improvement</a></li>
-          <li><a href="/en/pricing/#pro">Pro — investor meeting cycle</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h2>Information</h2>
-        <ul>
-          <li><a href="/en/services/#cases">Use cases</a></li>
-          <li><a href="/en/services/diagnostic/">Diagnostic detail</a></li>
-          <li><a href="/en/company/">Company</a></li>
-          <li><a href="/en/faq/">FAQ</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h2>JII Compounders</h2>
-        <ul>
-          <li><a href="/en/compounders/">All profiles</a></li>
-          <li><a href="/en/compounders/methodology/">Methodology · 6 principles</a></li>
-          <li><a href="https://japaninterface.substack.com/" rel="noopener" target="_blank">Subscribe on Substack</a></li>
-        </ul>
-      </div>
-    </div>
     <section class="company-info-band" aria-label="Company information">
       <h2>Company information</h2>
       <dl class="company-info-list">
