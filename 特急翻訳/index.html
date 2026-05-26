@@ -66,10 +66,14 @@
     {
       "@type": "FAQPage",
       "mainEntity": [
+        {"@type": "Question", "name": "取締役会が終わった当日の午後に依頼できますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい、対応できます。特に適時開示の業績修正や重要事実については、取締役会決議後の当日開示に向けた特急対応を行っています。受領から2〜4時間での納品を目安としています（分量・複雑さにより変動）。"}},
         {"@type": "Question", "name": "本当に当日中に英訳を仕上げてもらえますか？", "acceptedAnswer": {"@type": "Answer", "text": "資料の種類、分量、開示予定時刻によります。決算短信サマリー（4〜6ページ）であれば、確定原稿到着から数時間で対応できるケースがあります。お問い合わせ時に開示予定時刻と分量をお知らせください。"}},
-        {"@type": "Question", "name": "未確定の数値や仮置き原稿でも作業を始められますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい。差分管理を前提に着手します。確定版が届いた段階で数値・表現の最終調整を行います。"}},
-        {"@type": "Question", "name": "AI翻訳済みの原稿のレビューだけでも依頼できますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい。AI訳の自然さだけでなく、数字・主語・増減理由・注記の整合まで確認します。"}},
+        {"@type": "Question", "name": "日本語版がまだ完成していませんが、途中から翻訳を始めてもらえますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい、可能です。「ほぼ確定稿」の段階で下訳を開始し、最終版の変更点をご連絡いただいた時点で差分修正する形で同時開示に対応できます。"}},
+        {"@type": "Question", "name": "AI翻訳済みの原稿のレビューだけでも依頼できますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい。AI訳の自然さだけでなく、数字・主語・増減理由・注記の整合まで確認します。マイナス符号の処理ミス、「前回予想比」と「前期実績比」の混同、条件付きガイダンスの誤訳など、AI訳に特有のミスを重点的に見ます。"}},
+        {"@type": "Question", "name": "特急対応の場合、品質は落ちますか？", "acceptedAnswer": {"@type": "Answer", "text": "落ちません。特急料金は翻訳者の優先対応・時間外対応に対する料金であり、作業のプロセスを省略するものではありません。担当翻訳者・確認者は通常業務と同じです。"}},
+        {"@type": "Question", "name": "初めての依頼でも当日対応してもらえますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい。ただし継続取引のお客様（グロッサリーや過去訳が蓄積されているお客様）は、初回よりさらに迅速に対応できます。継続取引をご検討の場合、まず通常案件からお試しいただくことをお勧めします。"}},
         {"@type": "Question", "name": "未公表の決算情報を扱う際の機密保持は？", "acceptedAnswer": {"@type": "Answer", "text": "必要に応じてNDAを締結したうえで資料を共有いただきます。AI翻訳ツールの使用範囲についても事前に取り決めます。"}},
+        {"@type": "Question", "name": "夜間・土日も対応できますか？", "acceptedAnswer": {"@type": "Answer", "text": "平日日中（9:00〜18:00）を基本としていますが、決算開示直前の夜間・早朝対応も可能な場合があります。事前にIRカレンダーを共有いただくと、四半期ごとの繁忙期に向けた事前準備がしやすくなります。"}},
         {"@type": "Question", "name": "料金はどう決まりますか？", "acceptedAnswer": {"@type": "Answer", "text": "資料の種類・分量・納期・作業範囲（全文英訳・レビュー中心など）から個別にお見積もりします。特急対応のため、通常料金にスピードチャージが加算されるケースがあります。"}}
       ]
     }
@@ -138,7 +142,21 @@ section{padding:var(--pad) 0;border-bottom:1px solid var(--rule)}
   .hero-ctas{flex-direction:column}
   .hero-ctas .btn{width:100%;text-align:center}
   .speed-table{font-size:.85rem}
+  .coverage-table{font-size:.85rem}
+  .differentiation{grid-template-columns:1fr}
 }
+.coverage-table{width:100%;border-collapse:collapse;margin-top:18px;background:#fff;border:1px solid var(--rule)}
+.coverage-table th,.coverage-table td{padding:10px 14px;text-align:left;font-size:.9rem;border-bottom:1px solid var(--rule-soft)}
+.coverage-table thead th{background:var(--bg-mid);font-weight:500;color:var(--ink)}
+.coverage-table td.yes{color:var(--ink);font-weight:500}
+.coverage-table td.cond{color:var(--text-mid)}
+.coverage-table tbody tr:last-child td{border-bottom:0}
+.differentiation{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:22px}
+.diff-card{border:1px solid var(--rule);background:#fff;padding:22px}
+.diff-card .num{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;color:var(--accent);text-transform:uppercase}
+.diff-card h3{margin:8px 0 10px;font-family:var(--serif);font-size:1.15rem;font-weight:400;color:var(--ink);line-height:1.5}
+.diff-card p{margin:0;font-size:.92rem;line-height:1.75;color:var(--text-mid)}
+.hours-note{margin-top:16px;padding:14px 18px;background:var(--bg-mid);border-left:3px solid var(--accent);font-size:.9rem;color:var(--ink-mid);line-height:1.7}
 </style>
 </head>
 <body>
@@ -220,21 +238,72 @@ section{padding:var(--pad) 0;border-bottom:1px solid var(--rule)}
 </div></section>
 
 <section><div class="wrap">
+  <span class="label">COVERAGE / 対応書類</span>
+  <h2 class="mincho-lg">特急対応できる書類の種類</h2>
+  <div class="rule-accent"></div>
+  <p>主要なIR・開示文書はすべて特急対応の対象です。書類の性質によって最短納期は異なります。</p>
+  <table class="coverage-table">
+    <thead><tr><th>書類の種類</th><th>標準翻訳</th><th>特急対応</th></tr></thead>
+    <tbody>
+      <tr><td>決算短信（四半期・通期）</td><td class="yes">○</td><td class="yes">○</td></tr>
+      <tr><td>適時開示（業績修正・重要事実）</td><td class="yes">○</td><td class="yes">○（最短2〜4時間）</td></tr>
+      <tr><td>決算説明会プレゼンテーション資料</td><td class="yes">○</td><td class="yes">○</td></tr>
+      <tr><td>中期経営計画</td><td class="yes">○</td><td class="yes">○</td></tr>
+      <tr><td>有価証券報告書（全文・抜粋）</td><td class="yes">○</td><td class="cond">要相談</td></tr>
+      <tr><td>株主総会招集通知</td><td class="yes">○</td><td class="cond">要相談</td></tr>
+    </tbody>
+  </table>
+</div></section>
+
+<section><div class="wrap">
   <span class="label">DELIVERY SPEED / 納品スピード</span>
   <h2 class="mincho-lg">対応可能な納期の目安</h2>
   <div class="rule-accent"></div>
   <p>分量と作業範囲、原稿確定の状況によって変わります。下記は目安です。確定原稿到着後の所要時間を示します。</p>
   <table class="speed-table">
-    <thead><tr><th>資料</th><th>分量目安</th><th>最短納期（確定原稿到着後）</th></tr></thead>
+    <thead><tr><th>ケース</th><th>分量目安</th><th>最短納期（確定原稿到着後）</th></tr></thead>
     <tbody>
-      <tr><td>決算短信サマリー</td><td>4〜6ページ</td><td>数時間〜半日</td></tr>
-      <tr><td>決算短信本文（業績／セグメント）</td><td>20〜30ページ</td><td>当日中〜翌営業日午前</td></tr>
-      <tr><td>決算説明会資料</td><td>20〜40スライド</td><td>翌営業日</td></tr>
-      <tr><td>適時開示（業績修正・M&amp;A等）</td><td>2〜4ページ</td><td>数時間以内</td></tr>
+      <tr><td>適時開示（業績修正・重要事実）</td><td>A4換算 1〜5ページ</td><td><strong>最短2〜4時間</strong></td></tr>
+      <tr><td>決算短信（四半期）</td><td>4〜10ページ</td><td>当日中（受領から8時間以内）</td></tr>
+      <tr><td>決算説明会資料</td><td>20スライドまで</td><td>当日中（受領から8時間以内）</td></tr>
+      <tr><td>通期決算短信</td><td>20〜30ページ</td><td>翌朝納品（前日夜受領）</td></tr>
+      <tr><td>中期経営計画</td><td>20〜40ページ</td><td>翌朝納品（前日夜受領）</td></tr>
       <tr><td>AI翻訳・社内訳のレビューのみ</td><td>原稿の半量目安</td><td>同種資料の英訳の約半分</td></tr>
     </tbody>
   </table>
+  <div class="hours-note">
+    <strong>対応時間帯：</strong>平日日中（9:00〜18:00）を基本としていますが、決算開示直前の夜間・早朝対応も可能な場合があります。事前にIRカレンダーを共有いただくと、四半期ごとの繁忙期に向けた準備がしやすくなります。
+  </div>
   <p style="margin-top:14px;font-size:.88rem;color:var(--text-mid)">※未公表情報を含む場合は、NDA締結後に着手します。AI翻訳ツールの使用範囲についても事前にご相談のうえ決定します。</p>
+</div></section>
+
+<section><div class="wrap">
+  <span class="label">DIFFERENTIATION / 他社との違い</span>
+  <h2 class="mincho-lg">なぜ特急でもJIIに頼めるのか</h2>
+  <div class="rule-accent"></div>
+  <p>特急翻訳は「速いだけ」では機能しません。決算開示の現場で実際に通用するためには、IR文書の構造を熟知した翻訳者が必要です。JIIが他の選択肢と異なる4つの理由を整理します。</p>
+  <div class="differentiation">
+    <article class="diff-card">
+      <span class="num">01 / IR専門</span>
+      <h3>汎用翻訳会社ではなく、IR翻訳のスペシャリスト</h3>
+      <p>JIIは一般的な翻訳会社ではありません。決算短信・適時開示・中期経営計画に繰り返し登場する会計・財務・IR固有の表現を日常的に扱います。「営業利益」「のれんの減損」「前回予想比」「投下資本利益率」——これらを正しく、文脈に即して英訳できる翻訳者が担当します。</p>
+    </article>
+    <article class="diff-card">
+      <span class="num">02 / 投資家目線</span>
+      <h3>実際の投資家ミーティングに出席してきた翻訳者</h3>
+      <p>JIIの代表・屋山テディは300回以上の投資家ミーティングに通訳・アドバイザーとして出席してきました。その経験から「海外投資家が決算短信を見て何を疑問に思うか」「どの表現が誤読を招くか」を直接知っています。翻訳の精度を「英語として正しいか」ではなく「投資家に正確に届くか」で判断します。</p>
+    </article>
+    <article class="diff-card">
+      <span class="num">03 / 品質</span>
+      <h3>AIに丸投げしません</h3>
+      <p>AI翻訳は便利なツールですが、IR文書の特急対応で「AI訳のまま出す」は危険です。マイナス符号の処理ミス、「前回予想比」と「前期実績比」の混同、条件付きガイダンスの誤訳——これらのミスは実際に起きています。JIIは専門翻訳者が責任を持って訳出・確認します。</p>
+    </article>
+    <article class="diff-card">
+      <span class="num">04 / 用語の一貫性</span>
+      <h3>特急でも前回との整合性を守ります</h3>
+      <p>初回ご依頼時にグロッサリー（用語集）を作成します。2回目以降は前回の翻訳との用語整合を必ず確認。継続取引では翻訳品質が蓄積されていき、毎回の特急対応がさらに迅速になります。</p>
+    </article>
+  </div>
 </div></section>
 
 <section id="short-form"><div class="wrap">
@@ -270,12 +339,15 @@ section{padding:var(--pad) 0;border-bottom:1px solid var(--rule)}
   <span class="label">FAQ / よくあるご質問</span>
   <h2 class="mincho-lg">特急翻訳に関するFAQ</h2>
   <div class="rule-accent"></div>
-  <div class="faq-item"><h3>Q1. 本当に当日中に英訳を仕上げてもらえますか？</h3><p>A. 資料の種類、分量、開示予定時刻によります。決算短信サマリー（4〜6ページ）であれば、確定原稿到着から数時間で対応できるケースがあります。お問い合わせ時に開示予定時刻と分量をお知らせください。</p></div>
-  <div class="faq-item"><h3>Q2. 未確定の数値や仮置き原稿でも作業を始められますか？</h3><p>A. はい。差分管理を前提に着手します。確定版が届いた段階で数値・表現の最終調整を行います。</p></div>
-  <div class="faq-item"><h3>Q3. AI翻訳済みの原稿のレビューだけでも依頼できますか？</h3><p>A. はい。AI訳の自然さだけでなく、数字・主語・増減理由・注記の整合まで確認します。</p></div>
-  <div class="faq-item"><h3>Q4. 未公表の決算情報を扱う際の機密保持は？</h3><p>A. 必要に応じてNDAを締結したうえで資料を共有いただきます。AI翻訳ツールの使用範囲についても事前に取り決めます。</p></div>
-  <div class="faq-item"><h3>Q5. 料金はどう決まりますか？</h3><p>A. 資料の種類・分量・納期・作業範囲（全文英訳・レビュー中心など）から個別にお見積もりします。特急対応のため、通常料金にスピードチャージが加算されるケースがあります。<a href="/料金/">料金ページ</a>もあわせてご確認ください。</p></div>
-  <div class="faq-item"><h3>Q6. 夜間・土日も対応できますか？</h3><p>A. 事前にご相談いただければ可能な範囲で対応します。開示スケジュール（IRカレンダー）を共有いただくと、四半期ごとの繁忙期に向けた事前準備がしやすくなります。</p></div>
+  <div class="faq-item"><h3>Q1. 取締役会が終わった当日の午後に依頼できますか？</h3><p>A. はい、対応できます。特に適時開示の業績修正や重要事実については、取締役会決議後の当日開示に向けた特急対応を行っています。受領から2〜4時間での納品を目安としています（分量・複雑さにより変動）。</p></div>
+  <div class="faq-item"><h3>Q2. 本当に当日中に英訳を仕上げてもらえますか？</h3><p>A. 資料の種類、分量、開示予定時刻によります。決算短信サマリー（4〜6ページ）であれば、確定原稿到着から数時間で対応できるケースがあります。お問い合わせ時に開示予定時刻と分量をお知らせください。</p></div>
+  <div class="faq-item"><h3>Q3. 日本語版がまだ完成していませんが、途中から翻訳を始めてもらえますか？</h3><p>A. はい、可能です。「ほぼ確定稿」の段階で下訳を開始し、最終版の変更点をご連絡いただいた時点で差分修正する形で同時開示に対応できます。</p></div>
+  <div class="faq-item"><h3>Q4. AI翻訳済みの原稿のレビューだけでも依頼できますか？</h3><p>A. はい。AI訳の自然さだけでなく、数字・主語・増減理由・注記の整合まで確認します。マイナス符号の処理ミス、「前回予想比」と「前期実績比」の混同、条件付きガイダンスの誤訳など、AI訳に特有のミスを重点的に見ます。</p></div>
+  <div class="faq-item"><h3>Q5. 特急対応の場合、品質は落ちますか？</h3><p>A. 落ちません。特急料金は翻訳者の優先対応・時間外対応に対する料金であり、作業のプロセスを省略するものではありません。担当翻訳者・確認者は通常業務と同じです。</p></div>
+  <div class="faq-item"><h3>Q6. 初めての依頼でも当日対応してもらえますか？</h3><p>A. はい。ただし継続取引のお客様（グロッサリーや過去訳が蓄積されているお客様）は、初回よりさらに迅速に対応できます。継続取引をご検討の場合、まず通常案件からお試しいただくことをお勧めします。</p></div>
+  <div class="faq-item"><h3>Q7. 未公表の決算情報を扱う際の機密保持は？</h3><p>A. 必要に応じてNDAを締結したうえで資料を共有いただきます。AI翻訳ツールの使用範囲についても事前に取り決めます。</p></div>
+  <div class="faq-item"><h3>Q8. 夜間・土日も対応できますか？</h3><p>A. 平日日中（9:00〜18:00）を基本としていますが、決算開示直前の夜間・早朝対応も可能な場合があります。事前にIRカレンダーを共有いただくと、四半期ごとの繁忙期に向けた事前準備がしやすくなります。</p></div>
+  <div class="faq-item"><h3>Q9. 料金はどう決まりますか？</h3><p>A. 資料の種類・分量・納期・作業範囲（全文英訳・レビュー中心など）から個別にお見積もりします。特急対応のため、通常料金にスピードチャージが加算されるケースがあります。<a href="/料金/">料金ページ</a>もあわせてご確認ください。</p></div>
 </div></section>
 
 <section><div class="wrap">
