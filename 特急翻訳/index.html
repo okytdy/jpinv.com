@@ -312,16 +312,17 @@ section{padding:var(--pad) 0;border-bottom:1px solid var(--rule)}
     <span class="urgent-label">QUICK INQUIRY / 快速相談フォーム</span>
     <h3>3項目で送信できる特急相談フォーム</h3>
     <p>通常のお問い合わせフォームより簡略化しました。確認後、屋山テディ（代表）から直接ご連絡します。</p>
-    <form action="https://formspree.io/f/info@jpinv.com" method="POST">
-      <input type="hidden" name="_subject" value="【特急翻訳】お問い合わせ">
-      <input type="hidden" name="inquiry_type" value="特急翻訳">
+    <form action="https://formspree.io/f/mdayglyl" method="POST" id="urgent-form">
+      <input type="hidden" name="_subject" value="【特急翻訳】緊急のお問い合わせ — jpinv.com /特急翻訳/">
+      <input type="hidden" name="inquiry_type" value="特急翻訳 (urgent IR translation)">
+      <input type="hidden" name="source_page" value="/特急翻訳/">
       <div class="field">
         <label for="company">1. 会社名</label>
-        <input type="text" id="company" name="company" required>
+        <input type="text" id="company" name="company" required autocomplete="organization">
       </div>
       <div class="field">
         <label for="email">2. ご連絡先メールアドレス</label>
-        <input type="email" id="email" name="email" required>
+        <input type="email" id="email" name="email" required autocomplete="email">
       </div>
       <div class="field">
         <label for="details">3. 資料の種類と希望納期（例：決算短信サマリー、本日17時開示）</label>
@@ -329,9 +330,9 @@ section{padding:var(--pad) 0;border-bottom:1px solid var(--rule)}
       </div>
       <div class="submit-row">
         <button type="submit" class="btn btn-urgent">送信する</button>
-        <a class="btn btn-outline" href="/お問い合わせ/">通常フォームで送る</a>
+        <a class="btn btn-outline" href="/#contact">通常フォーム（reCAPTCHA付き）で送る</a>
       </div>
-      <p class="note">未公表情報は本フォームには記載しないでください。受信後すぐにご連絡し、必要に応じてNDA締結後に詳細を共有いただきます。</p>
+      <p class="note">未公表情報は本フォームには記載しないでください。受信後、屋山テディから直接ご連絡します。必要に応じてNDA締結後に詳細を共有いただきます。</p>
     </form>
   </div>
 </div></section>
