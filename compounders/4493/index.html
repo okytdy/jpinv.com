@@ -62,6 +62,10 @@
   .brand-mono { font-family: var(--serif); font-size: 28px; font-weight: 300; letter-spacing: 0.04em; color: var(--ink-mid); line-height: 1; }
   .brand-mono .pipe { color: var(--accent); font-weight: 200; margin: 0 4px; }
   .brand-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; color: var(--accent-deep); text-transform: uppercase; margin-top: 12px; font-weight: 500; }
+
+  .brand-home-link { display:flex; flex-direction:column; gap:4px; align-items:flex-start; color:inherit; text-decoration:none; }
+  .brand-home-link:hover .brand-mono, .brand-home-link:hover .brand-eyebrow { color:var(--ink); }
+  .brand-home-link:focus-visible { outline:2px solid var(--accent); outline-offset:6px; }
   .head-main { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; text-align: right; }
   .head-ticker-row { display: flex; align-items: baseline; gap: 16px; }
   .head-ticker { font-family: var(--mono); font-size: 12px; color: var(--ink-soft); letter-spacing: 0.18em; }
@@ -213,10 +217,12 @@
      ============================================================ -->
 <header class="masthead">
   <div class="masthead-inner">
-    <div class="brand">
-      <span class="brand-mono">J<span class="pipe">|</span>I</span>
-      <span class="brand-eyebrow">Japan Investor Interface &middot; Compounder 銘柄レポート</span>
-    </div>
+      <div class="brand">
+        <a class="brand-home-link" href="/compounders/" aria-label="JII Compoundersへ戻る">
+          <span class="brand-mono">J<span class="pipe">|</span>I</span>
+          <span class="brand-eyebrow">Japan Investor Interface &middot; Compounder 銘柄レポート</span>
+        </a>
+      </div>
     <div class="head-main">
       <div class="head-ticker-row">
         <span class="head-ticker">東証グロース &middot; 4493 &middot; 12月決算</span>
