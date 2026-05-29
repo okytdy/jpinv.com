@@ -28,7 +28,7 @@ The report's policy recommendation had two parts. Japan needed to redesign the m
 
 Without TOPIX reform, companies would still have a reason to seek Prime status just to receive buying from TOPIX-linked funds. TOPIX also needed a clearer list of listed companies to choose from. Segment reform created that list. The two reforms address the same design defect from different sides.
 
-## Phase 1 (Oct 2022 – Jan 2025): the transitional reduction
+## What happened in Phase 1 (Oct 2022 – Jan 2025)?
 
 JPX announced TOPIX reform in stages alongside the segment restructuring. **Phase 1** began in October 2022, six months after the new market segments launched. JPX used the new segment rules as a temporary filter while it stopped making TOPIX follow the old 1st Section.
 
@@ -50,7 +50,7 @@ The numbers show what Phase 1 did. TOPIX had about 2,100 constituents in October
 
 Phase 1 mainly removed companies whose tradable market value was too small. JPX used a similar idea in Prime continued-listing criteria: companies should have enough shares that ordinary investors can trade. By early 2025, TOPIX had more weight in companies that were larger and easier to trade than at the 2022 starting point. The next question is which companies will lose weight in Phase 2, when actual trading activity becomes the main test.
 
-## Phase 2 (Oct 2026 – Jul 2028): TOPIX separates from segment labels
+## What changes in Phase 2 (Oct 2026 – Jul 2028)?
 
 Phase 2 was announced in JPX's "Overview of Revisions of TOPIX and Other Indices" in 2024. It completes the logic of the reform. The market segment still tells investors which listing rules a company follows. But TOPIX inclusion no longer depends on whether the company belongs to Prime, Standard, or Growth.
 
