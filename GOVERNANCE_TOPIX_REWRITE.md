@@ -219,7 +219,9 @@ No paragraph exceeds 150 words.
 
 ### High-school readability check
 
-No remaining sentences were identified as too hard for a smart high school student after the final clarity pass. Several potentially difficult sentences were simplified by defining TOPIX, constituent, market-segment membership, segment status, TOPIX status, liquidity, passive vehicles, cumulative free-float market cap, and the index-transition tool in the article body.
+No remaining sentences were identified as too hard for a smart high school student after the final clarity pass.
+
+The final clarity pass simplified several terms in the article body. These include TOPIX, constituent, market-segment membership, segment status, TOPIX status, liquidity, passive vehicles, cumulative free-float market cap, and the index-transition tool.
 
 ### Factual preservation check
 
