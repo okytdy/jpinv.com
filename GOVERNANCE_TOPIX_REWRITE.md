@@ -56,7 +56,7 @@ Phase 2 was announced in JPX's "Overview of Revisions of TOPIX and Other Indices
 
 Under Phase 2, TOPIX can draw constituents from Prime, Standard and Growth. The segment label is no longer the main gate. Instead, JPX asks two practical questions. Are enough shares available for outside investors to trade? Do those shares actually trade often enough for index investors to hold them?
 
-Selection is based on two liquidity tests:
+JPX uses two tests to decide whether shares are investable enough for TOPIX:
 
 - **Annual trading-value turnover ratio ≥ 0.14.** This ratio divides the yen value of shares traded in one year by free-float market cap. JPX uses 0.14, or 14%, as the threshold. The test matters because a company can look large on paper but still fail if its shares rarely trade. The practical check is whether traded value stays at or above 14% of free-float market cap.
 - **Inclusion in the top 97% by cumulative free-float market cap.** JPX ranks companies by the market value of shares that investors can actually trade. It then adds those market values from the largest company downward. Companies stay eligible if they are inside the top 97% of that cumulative total. The test is not very strict because it removes only the smallest 3% after ranking companies by freely tradable market value.
@@ -67,7 +67,7 @@ The important change is that a company’s market label and TOPIX membership are
 
 That changes how companies attract money from index funds. Under the old regime, the path to passive demand ran through the 1st Section. Under Phase 2, the path runs through actual trading activity and available float. If a Prime company and a Standard company have the same free float and trading activity, the Prime label alone does not make the Prime company more attractive to TOPIX-linked funds.
 
-## The Phase 1 + Phase 2 timeline
+## How do Phase 1 and Phase 2 fit together?
 
 | Phase | Period | Mechanism | Eligibility filter | Constituent count |
 | --- | --- | --- | --- | --- |
@@ -77,7 +77,7 @@ That changes how companies attract money from index funds. Under the old regime,
 | Phase 2 | Oct 2026 → Jul 2028 | Eight quarterly cuts to weights; eligible companies can come from Prime + Standard + Growth | (a) Annual turnover ratio ≥ 0.14; (b) company ranks within the top 97% when companies are ordered by cumulative free-float market cap | ~1,700 → ~1,200 (projected) |
 | Steady state (post-Jul 2028) | From Jul 2028 onward | Annual review against Phase 2 criteria; companies can be added or deleted over time | Same as Phase 2 | ~1,200 (estimated) |
 
-Two points matter in this timeline.
+Two points matter when you read the timeline.
 
 First, the total reduction from peak is large. TOPIX had about 2,200 constituents in 2021. JPX expects about 1,200 by 2028. That is a reduction of about 45% by name count. Put simply, the 2028 TOPIX will be roughly half the size of the 2021 TOPIX by number of companies.
 
@@ -128,7 +128,7 @@ The last point is important. The transitional-measures cliff in Theme 3.3 is pro
 
 JPX now has a repeatable method for changing index rules gradually. In plain terms, an index-transition tool is a standard way to move from old index rules to new index rules without one large trading event. JPX is likely to use the same template for future index reforms, including the JPX Prime 150 and other thematic indices.
 
-## What this means for IR
+## What should IR teams do now?
 
 1. **Know your TOPIX status and your Phase 2 trajectory.** Calculate your annual trading-value turnover ratio and your free-float market cap quarterly. If you are in the bottom 3% by float or below 0.14 turnover, your TOPIX weight will be reduced in Phase 2. Your investor messaging should prepare for that outcome.
 
