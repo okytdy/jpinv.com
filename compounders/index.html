@@ -995,6 +995,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   var next = document.querySelector('.reel-next');
   if (!reel || !next) return;
 
+  function getMaxScroll(){
+    return Math.max(0, reel.scrollWidth - reel.clientWidth);
+  }
+
   function step(){
     var firstCard = reel.querySelector('.card--reel');
     if (!firstCard) return reel.clientWidth * 0.9;
@@ -1004,15 +1008,30 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   }
 
   function updateArrows(){
-    var max = reel.scrollWidth - reel.clientWidth;
+    var max = getMaxScroll();
     var x = reel.scrollLeft;
     // Hide prev when at the start, hide next when at the end (with a 4px tolerance).
     if (prev) prev.hidden = x <= 4;
-    if (next) next.hidden = x >= max - 4;
+    if (next) next.hidden = max <= 4 || x >= max - 4;
   }
 
-  if (next) next.addEventListener('click', function(){ reel.scrollBy({ left: step(), behavior: 'smooth' }); });
-  if (prev) prev.addEventListener('click', function(){ reel.scrollBy({ left: -step(), behavior: 'smooth' }); });
+  function scrollByAmount(amount){
+    var max = getMaxScroll();
+    var target = Math.max(0, Math.min(max, reel.scrollLeft + amount));
+    if (typeof reel.scrollTo === 'function') {
+      try {
+        reel.scrollTo({ left: target, behavior: 'smooth' });
+      } catch (err) {
+        reel.scrollLeft = target;
+      }
+    } else {
+      reel.scrollLeft = target;
+    }
+    window.setTimeout(updateArrows, 250);
+  }
+
+  next.addEventListener('click', function(){ scrollByAmount(step()); });
+  if (prev) prev.addEventListener('click', function(){ scrollByAmount(-step()); });
 
   reel.addEventListener('scroll', updateArrows, { passive: true });
   window.addEventListener('resize', updateArrows);
