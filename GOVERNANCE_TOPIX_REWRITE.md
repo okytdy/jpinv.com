@@ -103,7 +103,7 @@ Under the old regime, that company would have been in TOPIX automatically throug
 
 The separation of segment status from TOPIX status creates new incentives that matter for IR.
 
-- **For Prime issuers with concentrated shareholding:** the path to passive demand now runs through more freely tradable shares, not just through segment status. Companies may need to expand float through secondary offerings, strategic-holder dispositions, or share consolidations. The tradable-share-ratio rule in Theme 3.2 and the TOPIX float-and-turnover tests point in the same direction.
+- **For Prime issuers with concentrated shareholding:** the path to passive demand now runs through more freely tradable shares, not just through segment status. Companies may need to expand float through secondary offerings, sales by strategic holders, or share consolidations. The tradable-share-ratio rule in Theme 3.2 and the TOPIX float-and-turnover tests point in the same direction.
 - **For Standard-listed names with strong liquidity:** TOPIX inclusion is now possible without moving up to Prime. A Standard listing with high turnover and meaningful float can attract passive flows that were previously available only through Prime membership.
 - **For Growth-listed names:** TOPIX inclusion is theoretically possible under Phase 2. In practice, the size filter and turnover test will exclude most Growth issuers. The signal still matters because a Growth issuer that reaches enough scale can enter TOPIX without first moving to Standard or Prime.
 
@@ -130,11 +130,11 @@ JPX now has a repeatable method for changing index rules gradually. An index-tra
 
 1. **Know your TOPIX status and your Phase 2 trajectory.** Calculate your annual trading-value turnover ratio and your free-float market cap quarterly. If you are in the bottom 3% by float or below 0.14 turnover, your TOPIX weight will be reduced in Phase 2. Your investor messaging should prepare for that outcome.
 
-2. **Treat segment status and index status as separate marketing assets.** A Prime listing without TOPIX inclusion sends one message: segment quality without passive sponsorship. A Standard listing with TOPIX inclusion sends another: genuine investability without Prime obligations. IR teams should be ready to explain both cases.
+2. **Treat segment status and index status as separate marketing assets.** A Prime listing without TOPIX inclusion sends one message: the company meets the segment standard, but TOPIX-linked index funds do not need to own it. A Standard listing with TOPIX inclusion sends another: the shares are large and active enough for index investors to hold, even without Prime obligations. IR teams should be ready to explain both cases.
 
-3. **Treat liquidity as a strategic objective, not a passive outcome.** Free-float expansion means increasing the shares that outside investors can trade. Trading-volume cultivation means giving investors enough information and access so more investors are willing to trade the shares. These activities now sit closer to the center of capital-markets planning.
+3. **Treat liquidity as a strategic objective, not a passive outcome.** Free-float expansion means increasing the shares that outside investors can trade. Building trading volume means giving investors enough information and access so more investors are willing to trade the shares. These activities now sit closer to the center of planning how the company raises capital and communicates with investors.
 
-IR should also be involved in float-management decisions alongside the CFO. These decisions include secondary offerings, strategic-holder dispositions, and the timing of share consolidations.
+IR should also be involved in decisions about free float alongside the CFO. These decisions include secondary offerings, sales by strategic holders, and the timing of share consolidations.
 
 4. **Use the interim period (Feb 2025 – Sep 2026) as a window of action.** Phase 2 criteria are known. The measurement period for the first selection is defined. Issuers that close 2026 with strong turnover and float metrics will be safely in. Issuers that do not will face an eight-quarter weight reduction starting October 2026.
 
@@ -183,7 +183,7 @@ No paragraph exceeds 150 words.
 | investor base | the kinds of investors a company wants to attract | Makes the company-facing implication easier to understand. |
 | eight-quarterly-step mechanism | eight quarterly cuts to index weights over 27 months | Makes the schedule and action visible. |
 | index-transition tool | a repeatable way to move from old index rules to new index rules | Explains the policy mechanism without jargon. |
-| float-management decisions | secondary offerings, strategic-holder dispositions, and share consolidations | Lists the corporate actions hidden inside the phrase. |
+| float-management decisions | decisions about free float, including secondary offerings, sales by strategic holders, and share consolidations | Lists the corporate actions hidden inside the phrase. |
 
 ### Causal-chain unpacking check
 
@@ -210,7 +210,7 @@ No remaining sentence appears too hard for a smart high school student after the
 | JPX used the segment criteria as a temporary filter while TOPIX moved away from the old 1st-Section model. | JPX used the new segment rules as a temporary filter while it stopped making TOPIX follow the old 1st Section. |
 | The test is permissive because it excludes only the smallest 3% by aggregate float. | The test is not very strict because it removes only the smallest 3% after ranking companies by freely tradable market value. |
 | A Prime company with illiquid shares is not more attractive to TOPIX-linked funds than a Standard company with the same liquidity profile. | If a Prime company and a Standard company have the same free float and trading activity, the Prime label alone does not make the Prime company more attractive to TOPIX-linked funds. |
-| Trading-volume cultivation means helping the market understand and trade the company more actively. | Trading-volume cultivation means giving investors enough information and access so more investors are willing to trade the shares. |
+| Trading-volume cultivation means helping the market understand and trade the company more actively. | Building trading volume means giving investors enough information and access so more investors are willing to trade the shares. |
 | JPX has turned this gradual approach into an index-transition tool. | JPX now has a repeatable method for changing index rules gradually. |
 
 ### Factual preservation check
