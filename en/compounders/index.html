@@ -290,6 +290,14 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .card-viewall-arrow { font-family:var(--serif); font-size:48px; color:var(--accent-deep); line-height:1; display:block; margin-bottom:14px; }
   .card-viewall-label { font-family:var(--mono); font-size:11.5px; letter-spacing:0.18em; text-transform:uppercase; color:var(--ink-mid); }
 
+  /* ---- Voices reel (testimonials) ---- */
+  .voices-reel { margin-top: 50px; }
+  .voice-card { margin: 0; }
+  .voice-tag { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent-deep); font-weight: 500; margin-bottom: 16px; }
+  .voice-quote { font-family: var(--serif); font-size: 1rem; line-height: 1.72; color: var(--ink-mid); font-weight: 300; margin: 0 0 18px; }
+  .voice-attr { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--rule-soft); font-family: var(--sans); font-size: 13.5px; color: var(--ink-mid); font-weight: 500; line-height: 1.45; }
+  .voice-firm { display: block; font-family: var(--mono); font-size: 10.5px; font-weight: 400; color: var(--text-mid); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 4px; }
+
   .cap-feed-show-low { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--text-mid); text-transform: uppercase; padding: 7px 12px; border: 1px solid var(--rule); background: var(--bg); cursor: pointer; transition: all 0.15s; }
   .cap-feed-show-low:hover { color: var(--ink); border-color: var(--ink-soft); }
   .cap-feed-show-low.active { color: var(--ink-mid); border-color: var(--ink-mid); background: var(--bg-soft); }
@@ -774,6 +782,43 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
       <p class="cap-feed-footnote">Translations and summaries are automated. Always refer to the original Japanese disclosure for authoritative information.</p>
     </section>
 
+    <section class="voices-reel" aria-label="Voices">
+      <div class="reel-head">
+        <h2 class="reel-title">Voices</h2>
+      </div>
+      <div class="reel-wrap">
+        <button type="button" class="reel-nav reel-prev" aria-label="Previous" hidden>&lsaquo;</button>
+        <div class="reel" role="region" aria-label="Voices">
+
+          <figure class="card card--reel voice-card">
+            <div class="voice-tag">Interpretation</div>
+            <blockquote class="voice-quote">&ldquo;I&rsquo;ve been working with JII for several years &mdash; either in person when I am in Japan or via videoconference when abroad. Teddy always does a great job preparing for the calls and helping to work through the nuance of the discussion, which is easier said than done. I wholly endorse JII for any interpretation requirements you may have as an overseas investor.&rdquo;</blockquote>
+            <figcaption class="voice-attr">Mark Landecker<span class="voice-firm">Partner &middot; FPA</span></figcaption>
+          </figure>
+
+          <figure class="card card--reel voice-card">
+            <div class="voice-tag">Arrangement + interpretation</div>
+            <blockquote class="voice-quote">&ldquo;JII arranged a series of meetings with Japanese companies for us in 2023 and did a great job &mdash; thorough, punctual, and their interpretation is top-notch. On top of that, two of our largest positions in Japan are ideas I first discovered via JII&rsquo;s Twitter feed.&rdquo;</blockquote>
+            <figcaption class="voice-attr">Evan Tindell<span class="voice-firm">Co-founder &amp; CIO &middot; Bireme Capital</span></figcaption>
+          </figure>
+
+          <figure class="card card--reel voice-card">
+            <div class="voice-tag">Market insight</div>
+            <blockquote class="voice-quote">&ldquo;Anyone approaching Japanese small-cap companies from overseas could use a good sherpa, and as a professional translator Teddy has had a front-row seat to the shifting governance, capital allocation, and IR norms reshaping this market. Tap into his experience and insights to augment your process and flatten the learning curve.&rdquo;</blockquote>
+            <figcaption class="voice-attr">Toby Shute</figcaption>
+          </figure>
+
+          <figure class="card card--reel voice-card">
+            <div class="voice-tag">Interpretation</div>
+            <blockquote class="voice-quote">&ldquo;Teddy is a highly professional translator who consistently makes complex investment discussions clear and efficient. He is very good at ensuring both sides fully understand each other&rsquo;s intentions and questions, which helps meetings run smoothly and productively.&rdquo;</blockquote>
+            <figcaption class="voice-attr"><span class="voice-firm">Portfolio Manager &middot; Global Long/Short Equity Fund</span></figcaption>
+          </figure>
+
+        </div>
+        <button type="button" class="reel-nav reel-next" aria-label="Next">&rsaquo;</button>
+      </div>
+    </section>
+
     <section class="company-call-cta" id="company-call-request" aria-label="Request a company call">
       <div class="company-call-card">
         <div class="company-call-copy">
@@ -1028,10 +1073,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
 <script>
 (function(){
-  // ---- Recent Profiles reel: prev/next arrow navigation ----
-  var reel = document.querySelector('.reel');
-  var prev = document.querySelector('.reel-prev');
-  var next = document.querySelector('.reel-next');
+  // ---- Horizontal reels (Recent Profiles + Voices): prev/next arrow navigation ----
+  var wraps = document.querySelectorAll('.reel-wrap');
+  if (!wraps.length) return;
+  Array.prototype.forEach.call(wraps, function(wrap){
+  var reel = wrap.querySelector('.reel');
+  var prev = wrap.querySelector('.reel-prev');
+  var next = wrap.querySelector('.reel-next');
   if (!reel || !next) return;
 
   function getMaxScroll(){
@@ -1075,6 +1123,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   reel.addEventListener('scroll', updateArrows, { passive: true });
   window.addEventListener('resize', updateArrows);
   updateArrows();
+  });
 })();
 </script>
 

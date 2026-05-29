@@ -281,6 +281,14 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .card-viewall-arrow { font-family:var(--serif); font-size:48px; color:var(--accent-deep); line-height:1; display:block; margin-bottom:14px; }
   .card-viewall-label { font-family:var(--mono); font-size:11.5px; letter-spacing:0.18em; text-transform:uppercase; color:var(--ink-mid); }
 
+  /* ---- Voices reel (testimonials) ---- */
+  .voices-reel { margin-top: 50px; }
+  .voice-card { margin: 0; }
+  .voice-tag { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent-deep); font-weight: 500; margin-bottom: 16px; }
+  .voice-quote { font-family: var(--serif); font-size: 1rem; line-height: 1.85; color: var(--ink-mid); font-weight: 300; margin: 0 0 18px; }
+  .voice-attr { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--rule-soft); font-family: var(--sans); font-size: 13.5px; color: var(--ink-mid); font-weight: 500; line-height: 1.45; }
+  .voice-firm { display: block; font-family: var(--mono); font-size: 10.5px; font-weight: 400; color: var(--text-mid); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 4px; }
+
   .cap-feed-show-low { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--text-mid); text-transform: uppercase; padding: 7px 12px; border: 1px solid var(--rule); background: var(--bg); cursor: pointer; transition: all 0.15s; }
   .cap-feed-show-low:hover { color: var(--ink); border-color: var(--ink-soft); }
   .cap-feed-show-low.active { color: var(--ink-mid); border-color: var(--ink-mid); background: var(--bg-soft); }
@@ -754,6 +762,43 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
       <p class="cap-feed-footnote">翻訳および要約は自動生成です。正確な情報は原文（日本語）の開示資料をご参照ください。</p>
     </section>
 
+    <section class="voices-reel" aria-label="投資家の声">
+      <div class="reel-head">
+        <h2 class="reel-title">投資家の声</h2>
+      </div>
+      <div class="reel-wrap">
+        <button type="button" class="reel-nav reel-prev" aria-label="前へ" hidden>&lsaquo;</button>
+        <div class="reel" role="region" aria-label="投資家の声">
+
+          <figure class="card card--reel voice-card">
+            <div class="voice-tag">通訳</div>
+            <blockquote class="voice-quote">「JIIとはもう数年来の付き合いで、来日時には対面で、海外にいるときはビデオ会議で仕事をしてもらっています。テディさんはいつもコールに向けて入念に準備し、議論の機微を丁寧に汲み取ってくれます。これは口で言うほど簡単なことではありません。海外投資家として通訳が必要な場面なら、JIIを全面的に推薦します。」</blockquote>
+            <figcaption class="voice-attr">Mark Landecker<span class="voice-firm">FPA パートナー</span></figcaption>
+          </figure>
+
+          <figure class="card card--reel voice-card">
+            <div class="voice-tag">アレンジ＋通訳</div>
+            <blockquote class="voice-quote">「2023年、JIIに日本企業との一連のミーティングをアレンジしてもらいましたが、その仕事ぶりは見事でした。準備も時間管理も的確で、通訳の質も一級品です。さらに、当ファンドが保有する日本株の最大級のポジション2銘柄は、いずれもJIIのTwitterで初めて知ったアイデアでした。」</blockquote>
+            <figcaption class="voice-attr">Evan Tindell<span class="voice-firm">Bireme Capital 共同創業者 兼 CIO</span></figcaption>
+          </figure>
+
+          <figure class="card card--reel voice-card">
+            <div class="voice-tag">マーケットインサイト</div>
+            <blockquote class="voice-quote">「海外から日本の小型株にアプローチする投資家には、頼れる『シェルパ』が欠かせません。テディさんはプロの翻訳者として、この市場を作り変えつつあるガバナンス・資本配分・IR慣行の変化を、最前列で見てきた人物です。彼の経験と知見を取り入れれば、自らのプロセスを補強し、学習曲線を一気に縮められるはずです。」</blockquote>
+            <figcaption class="voice-attr">Toby Shute</figcaption>
+          </figure>
+
+          <figure class="card card--reel voice-card">
+            <div class="voice-tag">通訳</div>
+            <blockquote class="voice-quote">「テディさんは非常にプロフェッショナルな翻訳者で、複雑な投資の議論を常に明快かつ効率的に整理してくれます。双方が互いの意図や質問を確実に理解できるよう細やかに配慮してくれるため、ミーティングが円滑かつ生産的に進みます。」</blockquote>
+            <figcaption class="voice-attr"><span class="voice-firm">ポートフォリオ・マネージャー &middot; グローバル・ロング/ショート株式ファンド</span></figcaption>
+          </figure>
+
+        </div>
+        <button type="button" class="reel-nav reel-next" aria-label="次へ">&rsaquo;</button>
+      </div>
+    </section>
+
     <section class="company-call-cta" id="company-call-request" aria-label="企業面談リクエスト">
       <div class="company-call-card">
         <div class="company-call-copy">
@@ -1003,10 +1048,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
 <script>
 (function(){
-  // ---- Recent Profiles reel: prev/next arrow navigation ----
-  var reel = document.querySelector('.reel');
-  var prev = document.querySelector('.reel-prev');
-  var next = document.querySelector('.reel-next');
+  // ---- Horizontal reels (Recent Profiles + Voices): prev/next arrow navigation ----
+  var wraps = document.querySelectorAll('.reel-wrap');
+  if (!wraps.length) return;
+  Array.prototype.forEach.call(wraps, function(wrap){
+  var reel = wrap.querySelector('.reel');
+  var prev = wrap.querySelector('.reel-prev');
+  var next = wrap.querySelector('.reel-next');
   if (!reel || !next) return;
 
   function getMaxScroll(){
@@ -1050,6 +1098,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   reel.addEventListener('scroll', updateArrows, { passive: true });
   window.addEventListener('resize', updateArrows);
   updateArrows();
+  });
 })();
 </script>
 
