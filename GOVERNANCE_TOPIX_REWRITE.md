@@ -24,7 +24,7 @@ The report also estimated that **60% of TOPIX constituents were not earning thei
 
 The report's policy recommendation had two parts. Japan needed to redesign the market segments, as explained in Theme 3.1. Japan also needed to redesign TOPIX. The reason was simple. Segment labels and index membership had been tied together. If Japan changed only one side, part of the old incentive would remain.
 
-Without TOPIX reform, companies would still have a reason to seek Prime status just to receive buying from TOPIX-linked funds. Without segment reform, TOPIX reform would lack a defensible universe of listed companies to choose from. The two reforms address the same design defect from different sides.
+Without TOPIX reform, companies would still have a reason to seek Prime status just to receive buying from TOPIX-linked funds. TOPIX also needed a clearer list of listed companies to choose from. Segment reform created that list. The two reforms address the same design defect from different sides.
 
 ## Phase 1 (Oct 2022 – Jan 2025): the transitional reduction
 
@@ -61,7 +61,7 @@ Selection is based on two liquidity tests:
 - **Constituents that do not meet these criteria** will have their TOPIX weight reduced over eight quarterly steps from October 2026 through July 2028. This uses the same gradual approach as Phase 1.
 - **JPX Indexes Inc. estimated in July 2024** that the final constituent count will be about **1,200 by July 2028**.
 
-The important change is the separation of segment status from index status. A Standard-listed company with strong liquidity can be in TOPIX if enough of its shares trade and it sits in the top 97% by float. A Prime-listed company with weak liquidity can be out of TOPIX.
+The important change is that a company’s market label and TOPIX membership are now separate. A Standard-listed company with strong liquidity can be in TOPIX if enough of its shares trade and it sits in the top 97% by float. A Prime-listed company with weak liquidity can be out of TOPIX.
 
 That changes how companies attract money from index funds. Under the old regime, the path to passive demand ran through the 1st Section. Under Phase 2, the path runs through actual trading activity and available float. If a Prime company and a Standard company have the same free float and trading activity, the Prime label alone does not make the Prime company more attractive to TOPIX-linked funds.
 
@@ -103,7 +103,7 @@ Under the old regime, that company would have been in TOPIX automatically throug
 
 The separation of segment status from TOPIX status creates new incentives that matter for IR.
 
-- **For Prime issuers with concentrated shareholding:** the path to passive demand now runs through more freely tradable shares, not just through segment status. Companies may need to expand float through secondary offerings, sales by strategic holders, or share consolidations. The tradable-share-ratio rule in Theme 3.2 and the TOPIX float-and-turnover tests point in the same direction.
+- **For Prime issuers with concentrated shareholding:** the path to passive demand now runs through more freely tradable shares, not just through segment status. Companies may need to expand float through secondary offerings, sales by strategic holders, or share consolidations. The tradable-share-ratio rule in Theme 3.2 and the TOPIX tests point in the same direction. Both push companies to have more shares that outside investors can trade.
 - **For Standard-listed names with strong liquidity:** TOPIX inclusion is now possible without moving up to Prime. A Standard listing with high turnover and meaningful float can attract passive flows that were previously available only through Prime membership.
 - **For Growth-listed names:** TOPIX inclusion is theoretically possible under Phase 2. In practice, the size filter and turnover test will exclude most Growth issuers. The signal still matters because a Growth issuer that reaches enough scale can enter TOPIX without first moving to Standard or Prime.
 
@@ -120,7 +120,7 @@ The mechanism does four things:
 - **It spreads selling pressure** over 27 months. This reduces the cost that can arise when many passive funds sell at the same time.
 - **It gives active investors predictability.** They can model when index weights will fall and decide how to trade around those dates.
 - **It gives issuers time to respond.** Companies may use buybacks, share consolidations, or float expansion to try to preserve their position.
-- **It protects regulatory legitimacy.** JPX visibly avoids the "cliff" structure that drew criticism in segment reform.
+- **It helps JPX show that the rule change is fair and orderly.** JPX visibly avoids the "cliff" structure that drew criticism in segment reform.
 
 The last point is important. The transitional-measures cliff in Theme 3.3 is procedurally a cliff. If a company fails at the record date, it enters the improvement period. The TOPIX reforms are different. They use glide paths, meaning index weights fall gradually rather than all at once.
 
@@ -130,7 +130,7 @@ JPX now has a repeatable method for changing index rules gradually. An index-tra
 
 1. **Know your TOPIX status and your Phase 2 trajectory.** Calculate your annual trading-value turnover ratio and your free-float market cap quarterly. If you are in the bottom 3% by float or below 0.14 turnover, your TOPIX weight will be reduced in Phase 2. Your investor messaging should prepare for that outcome.
 
-2. **Treat segment status and index status as separate marketing assets.** A Prime listing without TOPIX inclusion sends one message: the company meets the segment standard, but TOPIX-linked index funds do not need to own it. A Standard listing with TOPIX inclusion sends another: the shares are large and active enough for index investors to hold, even without Prime obligations. IR teams should be ready to explain both cases.
+2. **Explain the market label and TOPIX membership as two different facts about the company.** A Prime listing without TOPIX inclusion sends one message: the company meets the segment standard, but TOPIX-linked index funds do not need to own it. A Standard listing with TOPIX inclusion sends another: the shares are large and active enough for index investors to hold, even without Prime obligations. IR teams should be ready to explain both cases.
 
 3. **Treat liquidity as a strategic objective, not a passive outcome.** Free-float expansion means increasing the shares that outside investors can trade. Building trading volume means giving investors enough information and access so more investors are willing to trade the shares. These activities now sit closer to the center of planning how the company raises capital and communicates with investors.
 
@@ -201,13 +201,7 @@ No paragraph exceeds 150 words.
 
 ### High-school readability check
 
-| Remaining sentence that may still be hard | Simpler rewrite |
-| ---------------------------------------- | --------------- |
-| "Without segment reform, TOPIX reform would lack a defensible universe of listed companies to choose from." | "TOPIX also needed a clearer list of listed companies to choose from." |
-| "The important change is the separation of segment status from index status." | "The important change is that a company's market label and TOPIX membership are now separate." |
-| "The tradable-share-ratio rule in Theme 3.2 and the TOPIX float-and-turnover tests point in the same direction." | "Both rules push companies to have more shares that outside investors can trade." |
-| "It protects regulatory legitimacy." | "It helps JPX show that the rule change is fair and orderly." |
-| "Treat segment status and index status as separate marketing assets." | "Explain the market label and TOPIX membership as two different facts about the company." |
+No remaining sentences were identified as too hard for a smart high school student after the final clarity pass. The earlier difficult sentences were rewritten in the article body.
 
 ### Factual preservation check
 
