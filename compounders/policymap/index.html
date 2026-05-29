@@ -398,16 +398,11 @@ function renderCategory(id){
   var cards=subs.map(function(s){
     var teaser=(fld(s,'what')||'').slice(0,130);
     return '<div class="subcard" data-nav="#/sub/'+s.id+'"><h4>'+esc(nm(s))+'</h4><div class="teaser">'+esc(teaser)+'…</div>'+
-      '<div class="srow"><span class="stagepill">'+esc(s.policy_stage)+'</span>'+bar(s.tailwind_score)+'</div>'+
-      '<div class="srow"><span>'+esc(t('directnf'))+': '+s.direct_ticker_count+'/'+s.total_ticker_count+'</span>'+
-        (s.budget&&(lang==='ja'?s.budget.amount_ja:s.budget.amount_en)?'<span style="text-align:right;max-width:62%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+esc(lang==='ja'?s.budget.amount_ja:s.budget.amount_en)+'</span>':'')+'</div></div>';
+      '<div class="srow"><span class="stagepill">'+esc(s.policy_stage)+'</span></div></div>';
   }).join('');
   V.innerHTML='<a class="backlink" data-nav="#/">'+esc(t('backcat'))+'</a>'+
     '<p class="sect-label">'+esc(t('overview'))+'</p>'+
     '<p style="font-size:15px;line-height:1.9;color:var(--text);max-width:840px">'+esc(c.short_intro_en && lang==='ja'?c.short_intro_ja:c.short_intro_en)+'</p>'+
-    '<p style="margin:6px 0 2px"><span class="readmore" data-toggle="catmore">'+esc(t('readmore'))+'</span></p>'+
-    '<div id="catmore" class="hidden"><div class="notice">'+esc(lang==='ja'?c.rationale_ja:c.rationale_en)+'</div></div>'+
-    '<div style="margin:14px 0">'+chips(c.lead_ministries)+'</div>'+
     '<p class="sect-label" style="margin-top:26px">'+esc(t('catbudget'))+'</p>'+catBudget(c.budget_bars)+
     '<p class="sect-label" style="margin-top:30px">'+esc(t('subthemes'))+'</p><div class="subgrid">'+cards+'</div>';
 }
