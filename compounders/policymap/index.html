@@ -93,7 +93,6 @@
   .subcard h4{font-family:var(--serif);font-weight:400;font-size:1.02rem;color:var(--ink-mid);margin:0;line-height:1.32;}
   .subcard .teaser{font-size:12.5px;color:var(--text-mid);line-height:1.6;flex:1;}
   .subcard .srow{display:flex;justify-content:space-between;align-items:center;gap:8px;font-family:var(--mono);font-size:10px;letter-spacing:.04em;color:var(--text-dim);}
-  .stagepill{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border:1px solid var(--rule);color:var(--ink-soft);background:var(--bg-soft);}
   /* score bar */
   .bar{height:5px;background:var(--rule-soft);border-radius:3px;overflow:hidden;flex:1;min-width:46px;}
   .bar>span{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-deep));}
@@ -117,11 +116,8 @@
   .kv{display:flex;gap:10px;margin:8px 0;font-size:13.5px;line-height:1.6;}
   .kv .dot{color:var(--accent-deep);}
   /* table */
-  .ttabs{display:flex;gap:6px;margin:6px 0 14px;flex-wrap:wrap;}
-  .ttab{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:6px 11px;border:1px solid var(--rule);color:var(--text-mid);cursor:pointer;background:var(--bg);}
-  .ttab.on{background:var(--ink-mid);color:#fff;border-color:var(--ink-mid);}
   table.tk{width:100%;border-collapse:collapse;font-size:13px;}
-  table.tk th{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);text-align:left;padding:8px 8px;border-bottom:1px solid var(--rule);cursor:pointer;white-space:nowrap;}
+  table.tk th{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);text-align:left;padding:8px 8px;border-bottom:1px solid var(--rule);white-space:nowrap;}
   table.tk td{padding:10px 8px;border-bottom:1px solid var(--rule-soft);vertical-align:top;}
   table.tk tr:hover,table.tk tbody tr:hover{background:var(--bg-soft);}
   .tkcode{font-family:var(--mono);font-weight:500;color:var(--accent-deep);cursor:pointer;}
@@ -237,7 +233,7 @@
 <main id="main" tabindex="-1"><div class="wrap" id="view"></div></main>
 <footer><div class="wrap">
   <div class="foot-row">
-    <span><a href="methodology.html">Methodology</a> · Japan Investor Interface Co., Ltd.</span>
+    <span>Japan Investor Interface Co., Ltd.</span>
     <span><a href="/compounders/">← Compounders</a> · <a href="https://jpinv.com/en/">jpinv.com</a></span>
   </div>
   <p class="disc" id="disclaimer"></p>
@@ -259,19 +255,17 @@ var T={
    bigph:"Search a ticker (e.g. 6857), a ministry, a law, or a phrase like “GX2040” or “stand-off missiles”…",
    bighint:"Type a 4-digit code to see every policy a company touches · type any phrase to search the whole map",
    search:"Search ticker, ministry, law, or phrase…", searchbtn:"Search",
-   navMap:"Policy map", navTimeline:"Timeline", navMethod:"Methodology",
+   navMap:"Policy map", navTimeline:"Timeline",
    categories:"The ten policy domains", subthemes:"sub-themes", verifiedco:"verified companies",
    mappings:"exposure links", sources:"primary sources", explore:"Start with a domain, or search above.",
-   tailwind:"Policy tailwind", directn:"Direct names", recent:"Recent policy milestones", viewall:"View all →",
-   ministries:"Lead bodies", instrument:"Instrument", stage:"Status", certainty:"Evidence certainty",
-   horizon:"Time horizon", directnf:"Direct", totaln:"Mapped", verified:"Last verified",
+   recent:"Recent policy milestones", viewall:"View all →",
    whatis:"What the policy is", moneyflow:"Where the money flows", watch:"What to watch over the next 5 years",
    risks:"Risks & offsets", kpis:"Key figures & targets", catalysts:"Next catalysts", budget:"Scale of government money",
    sources:"Primary sources, by importance", relevant:"Company exposure", related:"Related sub-themes",
    catbudget:"Government money by sub-theme", overview:"The domain in brief",
    fiscalgov:"Government funding", nofiscal:"No direct outlay", headwindb:"Cost headwind",
-   allnames:"All", direct:"Direct", indirect:"Indirect", ecosystem:"Ecosystem", headwind:"Headwind",
-   colcode:"Code", colco:"Company", colexp:"Exposure", colscore:"Score", colconf:"Conf.", coltrans:"Transmission", colwhy:"Why it maps",
+   direct:"Direct", indirect:"Indirect", ecosystem:"Ecosystem", headwind:"Headwind",
+   colcode:"Code", colco:"Company", colexp:"Exposure", coltrans:"Transmission", colwhy:"Why it maps",
    exposures:"Policy exposures by domain", edinet:"Filing code", industry:"Sector", expcount:"links",
    back:"← Back", backcat:"← All domains", readmore:"Read more →", readless:"← Less",
    resultsfor:"Results for", nresults:"matches", subcats:"Sub-themes", companies:"Companies", glossary:"Terms & initiatives",
@@ -287,19 +281,17 @@ var T={
    bigph:"銘柄コード（例: 6857）・省庁・法令・「GX2040」「スタンド・オフ・ミサイル」などの語句で検索…",
    bighint:"4桁コードで、その企業が関わる政策を一覧表示 ・ 語句でマップ全体を検索",
    search:"銘柄・省庁・法令・語句で検索…", searchbtn:"検索",
-   navMap:"ポリシーマップ", navTimeline:"年表", navMethod:"方法論",
+   navMap:"ポリシーマップ", navTimeline:"年表",
    categories:"10の政策領域", subthemes:"サブテーマ", verifiedco:"検証済企業",
    mappings:"エクスポージャーリンク", sources:"一次ソース", explore:"領域を選ぶか、上から検索してください。",
-   tailwind:"政策の追い風", directn:"直接銘柄", recent:"最近の政策マイルストーン", viewall:"すべて見る →",
-   ministries:"主管", instrument:"手段", stage:"ステータス", certainty:"証拠の確度",
-   horizon:"時間軸", directnf:"直接", totaln:"関連", verified:"検証日",
+   recent:"最近の政策マイルストーン", viewall:"すべて見る →",
    whatis:"政策とは何か", moneyflow:"資金の流れ", watch:"今後5年で見るべきこと",
    risks:"リスク・押し戻し", kpis:"主要数値・目標", catalysts:"今後のカタリスト", budget:"投じられる政府資金の規模",
    sources:"一次ソース（重要度順）", relevant:"企業エクスポージャー", related:"関連サブテーマ",
    catbudget:"サブテーマ別の政府資金", overview:"領域の概要",
    fiscalgov:"政府資金", nofiscal:"直接支出なし", headwindb:"コスト逆風",
-   allnames:"すべて", direct:"直接", indirect:"間接", ecosystem:"エコシステム", headwind:"逆風",
-   colcode:"コード", colco:"企業", colexp:"区分", colscore:"スコア", colconf:"確度", coltrans:"伝達経路", colwhy:"マッピング理由",
+   direct:"直接", indirect:"間接", ecosystem:"エコシステム", headwind:"逆風",
+   colcode:"コード", colco:"企業", colexp:"区分", coltrans:"伝達経路", colwhy:"マッピング理由",
    exposures:"領域別の政策エクスポージャー", edinet:"開示コード", industry:"業種", expcount:"リンク",
    back:"← 戻る", backcat:"← 全領域", readmore:"続きを読む →", readless:"← 閉じる",
    resultsfor:"検索結果", nresults:"件", subcats:"サブテーマ", companies:"企業", glossary:"用語・施策",
@@ -327,7 +319,7 @@ function expTag(e){return '<span class="exptag exp-'+e+'">'+esc(t(e))+'</span>';
 function go(h){location.hash=h;}
 function chips(a){return '<span class="chips">'+(a||[]).map(function(x){return '<span class="chip">'+esc(x)+'</span>';}).join('')+'</span>';}
 function hz(h){var m={short:lang==='ja'?'0–12ヶ月':'0–12m',medium:lang==='ja'?'1–3年':'1–3y',long:lang==='ja'?'3–5年':'3–5y'};return (h||[]).map(function(x){return m[x]||x;}).join(' · ');}
-function setNav(a){var n=document.getElementById('tnav');n.innerHTML='<a data-nav="#/" class="'+(a==='map'?'active':'')+'">'+esc(t('navMap'))+'</a><a data-nav="#/timeline" class="'+(a==='tl'?'active':'')+'">'+esc(t('navTimeline'))+'</a><a href="methodology.html" target="_blank">'+esc(t('navMethod'))+'</a>';}
+function setNav(a){var n=document.getElementById('tnav');n.innerHTML='<a data-nav="#/" class="'+(a==='map'?'active':'')+'">'+esc(t('navMap'))+'</a><a data-nav="#/timeline" class="'+(a==='tl'?'active':'')+'">'+esc(t('navTimeline'))+'</a>';}
 
 function budKind(b){if(b.headwind)return 'headwind';if(b.scale!=null)return 'fiscal';return 'nonfiscal';}
 function renderBudget(b){
@@ -361,7 +353,7 @@ function mscore(toks,q){var best=0,ty='';for(var i=0;i<toks.length;i++){var tk=t
   if(tk===q){if(70>best){best=70;ty='matchAlias';}}else if(tk.indexOf(q)===0){if(55>best){best=55;ty='matchAlias';}}
   else if(tk.indexOf(q)>-1){if(40>best){best=40;ty='matchKeyword';}}else if(q.length>3&&q.indexOf(tk)>-1&&tk.length>3){if(25>best){best=25;ty='matchFuzzy';}}}return [best,ty];}
 function search(qraw){var q=(qraw||'').trim().toLowerCase(),idx=buildIndex(),R={subs:[],cos:[],terms:[]};if(!q)return R;
-  idx.subs.forEach(function(x){var m=mscore(x.toks,q);if(m[0]>0)R.subs.push({r:m[0]+x.obj.tailwind_score*0.1,mt:m[1],obj:x.obj});});
+  idx.subs.forEach(function(x){var m=mscore(x.toks,q);if(m[0]>0)R.subs.push({r:m[0],mt:m[1],obj:x.obj});});
   idx.cos.forEach(function(x){var m=mscore(x.toks,q);if(m[0]>0)R.cos.push({r:m[0]+(x.obj.exposure_count||0),mt:(x.tk===q?'matchTicker':m[1]),obj:x.obj});});
   idx.terms.forEach(function(x){var m=mscore(x.toks,q);if(m[0]>0)R.terms.push({r:m[0],mt:m[1],obj:x.obj});});
   R.subs.sort(function(a,b){return b.r-a.r;});R.cos.sort(function(a,b){return b.r-a.r;});R.terms.sort(function(a,b){return b.r-a.r;});return R;}
@@ -381,7 +373,6 @@ function renderHome(){
   var cards=(D.categories||[]).map(function(c){
     return '<div class="catcard" data-nav="#/category/'+c.id+'"><div class="cnum">'+(c.num<10?'0':'')+c.num+' · '+c.subcategory_count+' '+esc(t('subthemes'))+'</div>'+
       '<h3>'+esc(lang==='ja'?c.name_ja:c.name_en)+'</h3><div class="cja">'+esc(lang==='ja'?c.name_en:c.name_ja)+'</div>'+
-      '<div class="cmeta"><span>'+esc(t('tailwind'))+' <b>'+c.avg_tailwind+'</b></span><span>'+esc(t('directn'))+' <b>'+c.direct_ticker_count+'</b></span></div>'+
       chips((c.lead_ministries||[]).slice(0,3))+'</div>';
   }).join('');
   var tl=(D.timeline||[]).slice(0,6).map(function(ev){return '<div class="tlitem"><div class="tldate">'+esc(ev.event_date)+' · '+esc(ev.event_type)+'</div><h5 data-nav="#/sub/'+ev.subcategory_id+'">'+esc(ev.title)+'</h5><p>'+esc(ev.significance)+'</p></div>';}).join('');
@@ -398,7 +389,7 @@ function renderCategory(id){
   var cards=subs.map(function(s){
     var teaser=(fld(s,'what')||'').slice(0,130);
     return '<div class="subcard" data-nav="#/sub/'+s.id+'"><h4>'+esc(nm(s))+'</h4><div class="teaser">'+esc(teaser)+'…</div>'+
-      '<div class="srow"><span class="stagepill">'+esc(s.policy_stage)+'</span></div></div>';
+      '</div>';
   }).join('');
   V.innerHTML='<a class="backlink" data-nav="#/">'+esc(t('backcat'))+'</a>'+
     '<p class="sect-label">'+esc(t('overview'))+'</p>'+
@@ -407,13 +398,11 @@ function renderCategory(id){
     '<p class="sect-label" style="margin-top:30px">'+esc(t('subthemes'))+'</p><div class="subgrid">'+cards+'</div>';
 }
 function tickerTable(sid){
-  var exps=(expBySub[sid]||[]).slice().sort(function(a,b){return b.x-a.x;});
+  var exps=(expBySub[sid]||[]).slice().sort(function(a,b){return String(a.t).localeCompare(String(b.t));});
   if(!exps.length)return '<p style="color:var(--text-dim);font-size:13px">—</p>';
-  var tabs=['allnames','direct','indirect','ecosystem','headwind'];
-  var th='<div class="ttabs">'+tabs.map(function(tb,i){return '<span class="ttab '+(i===0?'on':'')+'" data-ttab="'+(tb==='allnames'?'all':tb)+'">'+esc(t(tb))+'</span>';}).join('')+'</div>';
-  var head='<tr><th data-sort="t">'+esc(t('colcode'))+'</th><th>'+esc(t('colco'))+'</th><th data-sort="e">'+esc(t('colexp'))+'</th><th data-sort="x">'+esc(t('colscore'))+'</th><th data-sort="c">'+esc(t('colconf'))+'</th><th>'+esc(t('coltrans'))+'</th><th>'+esc(t('colwhy'))+'</th></tr>';
-  var rows=exps.map(function(e){var co=coByTk[e.t]||{};return '<tr data-etype="'+e.e+'"><td><span class="tkcode" data-nav="#/ticker/'+e.t+'">'+esc(e.t)+'</span></td><td>'+esc(lang==='ja'&&co.name_ja?co.name_ja:co.name_en||'')+'</td><td>'+expTag(e.e)+'</td><td>'+bar(e.x)+'</td><td class="mono" style="font-size:11px">'+e.c+'</td><td class="mono" style="font-size:10px;color:var(--text-mid)">'+esc(e.tr)+'</td><td style="font-size:12px;color:var(--text-mid);line-height:1.55">'+esc(e.w)+'</td></tr>';}).join('');
-  return th+'<div style="overflow-x:auto"><table class="tk"><thead>'+head+'</thead><tbody>'+rows+'</tbody></table></div>';
+  var head='<tr><th>'+esc(t('colcode'))+'</th><th>'+esc(t('colco'))+'</th><th>'+esc(t('colexp'))+'</th><th>'+esc(t('coltrans'))+'</th><th>'+esc(t('colwhy'))+'</th></tr>';
+  var rows=exps.map(function(e){var co=coByTk[e.t]||{};return '<tr><td><span class="tkcode" data-nav="#/ticker/'+e.t+'">'+esc(e.t)+'</span></td><td>'+esc(lang==='ja'&&co.name_ja?co.name_ja:co.name_en||'')+'</td><td>'+expTag(e.e)+'</td><td class="mono" style="font-size:10px;color:var(--text-mid)">'+esc(e.tr)+'</td><td style="font-size:12px;color:var(--text-mid);line-height:1.55">'+esc(e.w)+'</td></tr>';}).join('');
+  return '<div style="overflow-x:auto"><table class="tk"><thead>'+head+'</thead><tbody>'+rows+'</tbody></table></div>';
 }
 function renderSub(id){
   var s=subById[id]; if(!s)return renderHome(); var c=catById[s.category_id]||{}; setNav('map');
@@ -425,15 +414,6 @@ function renderSub(id){
       '<div style="font-size:11.5px;color:var(--text-mid);margin-top:4px">'+esc(r.note)+'</div></div>';}).join('')||'<p style="color:var(--text-dim);font-size:12.5px">—</p>';
   function listblk(items){return (items&&items.length)?items.map(function(k){return '<div class="kv"><span class="dot">▸</span><span>'+esc(k)+'</span></div>';}).join(''):'<p style="color:var(--text-dim);font-size:12.5px">—</p>';}
   var rel=(s.related_subcategory_ids||[]).map(function(rid){var rs=subById[rid];return rs?'<span class="pill-h" data-nav="#/sub/'+rid+'" style="cursor:pointer">'+esc(nm(rs))+'</span>':'';}).join('');
-  var meta='<div class="metabox"><h5>'+esc(t('instrument'))+' / '+esc(t('stage'))+'</h5>'+
-    '<div class="mrow"><span class="mk">'+esc(t('instrument'))+'</span><span class="mv">'+esc(s.policy_instrument)+'</span></div>'+
-    '<div class="mrow"><span class="mk">'+esc(t('stage'))+'</span><span class="mv">'+esc(s.policy_stage)+'</span></div>'+
-    '<div class="mrow"><span class="mk">'+esc(t('ministries'))+'</span><span class="mv">'+esc((s.lead_bodies||[]).join(', '))+'</span></div>'+
-    '<div class="mrow"><span class="mk">'+esc(t('horizon'))+'</span><span class="mv">'+esc(hz(s.time_horizon))+'</span></div>'+
-    '<div class="mrow"><span class="mk">'+esc(t('tailwind'))+'</span><span class="mv">'+bar(s.tailwind_score)+'</span></div>'+
-    '<div class="mrow"><span class="mk">'+esc(t('certainty'))+'</span><span class="mv">'+bar(s.certainty_score)+'</span></div>'+
-    '<div class="mrow"><span class="mk">'+esc(t('directnf'))+' / '+esc(t('totaln'))+'</span><span class="mv">'+s.direct_ticker_count+' / '+s.total_ticker_count+'</span></div>'+
-    '<div class="mrow" style="border:0"><span class="mk">'+esc(t('verified'))+'</span><span class="mv">'+esc(s.last_verified)+'</span></div></div>';
   var body='<a class="backlink" data-nav="#/category/'+c.id+'">'+esc(t('back'))+' '+esc(nm(c))+'</a>'+
     '<div class="para-block"><div class="para-label">'+esc(t('whatis'))+'</div><p>'+esc(fld(s,'what'))+'</p></div>'+
     '<div class="para-block"><div class="para-label">'+esc(t('moneyflow'))+'</div><p>'+esc(fld(s,'money'))+'</p></div>'+
@@ -444,7 +424,7 @@ function renderSub(id){
     '<div class="listblock"><h4>'+esc(t('catalysts'))+'</h4>'+listblk(arr(s,'catalysts'))+'</div>'+
     '<div class="tickblock"><h4>'+esc(t('relevant'))+'</h4><p style="font-size:11.5px;color:var(--text-dim);margin:-4px 0 4px">'+esc(t('verifiedco_note'))+'</p>'+tickerTable(s.id)+'</div>'+
     '<div class="listblock"><h4>'+esc(t('sources'))+'</h4>'+srcs+'</div>'+(rel?'<div class="relblock"><h4>'+esc(t('related'))+'</h4>'+rel+'</div>':'');
-  V.innerHTML='<div class="detail"><div>'+body+'</div><div>'+meta+'</div></div>';
+  V.innerHTML=body;
 }
 function renderTicker(code){
   var co=coByTk[code]; setNav('map');
@@ -462,7 +442,7 @@ function renderSearch(q){
   var html='<p class="mono" style="font-size:11px;color:var(--text-dim);letter-spacing:.06em">'+n+' '+esc(t('nresults'))+'</p>';
   if(!n){V.innerHTML=html+'<div class="notice">'+esc(t('noresults'))+'</div>';return;}
   if(R.cos.length)html+='<div class="resgroup"><p class="sect-label">'+esc(t('companies'))+'</p>'+R.cos.slice(0,12).map(function(x){var c=x.obj;return '<div class="resitem" data-nav="#/ticker/'+c.ticker+'"><div><span class="rt">'+esc(c.ticker)+' · '+esc(nm(c))+'</span><div class="rd">'+esc(c.industry_ja)+' · '+c.exposure_count+' '+esc(t('expcount'))+'</div></div><span class="matchtag">'+esc(t(x.mt))+'</span></div>';}).join('')+'</div>';
-  if(R.subs.length)html+='<div class="resgroup"><p class="sect-label">'+esc(t('subcats'))+'</p>'+R.subs.slice(0,16).map(function(x){var s=x.obj,c=catById[s.category_id]||{};return '<div class="resitem" data-nav="#/sub/'+s.id+'"><div><span class="rt">'+esc(nm(s))+'</span><div class="rd">'+esc(nm(c))+' · '+esc(t('tailwind'))+' '+s.tailwind_score+'</div></div><span class="matchtag">'+esc(t(x.mt))+'</span></div>';}).join('')+'</div>';
+  if(R.subs.length)html+='<div class="resgroup"><p class="sect-label">'+esc(t('subcats'))+'</p>'+R.subs.slice(0,16).map(function(x){var s=x.obj,c=catById[s.category_id]||{};return '<div class="resitem" data-nav="#/sub/'+s.id+'"><div><span class="rt">'+esc(nm(s))+'</span><div class="rd">'+esc(nm(c))+'</div></div><span class="matchtag">'+esc(t(x.mt))+'</span></div>';}).join('')+'</div>';
   if(R.terms.length)html+='<div class="resgroup"><p class="sect-label">'+esc(t('glossary'))+'</p>'+R.terms.slice(0,10).map(function(x){var g=x.obj,first=(g.linked_subcategory_ids||[])[0];return '<div class="resitem" '+(first?'data-nav="#/sub/'+first+'"':'')+'><div><span class="rt">'+esc(g.normalized_term)+'</span><div class="rd">'+esc((g.aliases||[]).slice(0,5).join(' · '))+'</div></div><span class="matchtag">'+esc(t(x.mt))+'</span></div>';}).join('')+'</div>';
   V.innerHTML=html;
 }
@@ -487,10 +467,7 @@ function applyStatic(){document.getElementById('brandsub').innerHTML='<span>'+es
 document.body.addEventListener('click',function(ev){
   var el=ev.target.closest('[data-nav]');if(el){ev.preventDefault();go(el.getAttribute('data-nav'));return;}
   var tg=ev.target.closest('[data-toggle]');if(tg){var box=document.getElementById(tg.getAttribute('data-toggle'));if(box){var hid=box.classList.toggle('hidden');tg.textContent=hid?t('readmore'):t('readless');}return;}
-  var tt=ev.target.closest('.ttab');if(tt){var f=tt.getAttribute('data-ttab');Array.prototype.forEach.call(tt.parentNode.querySelectorAll('.ttab'),function(x){x.classList.remove('on');});tt.classList.add('on');var tbl=document.querySelector('table.tk tbody');if(tbl)Array.prototype.forEach.call(tbl.querySelectorAll('tr'),function(r){r.style.display=(f==='all'||r.getAttribute('data-etype')===f)?'':'none';});return;}
-  var sh=ev.target.closest('th[data-sort]');if(sh){sortTable(sh);return;}});
-function cellVal(tr,key){var idx={t:0,e:2,x:3,c:4}[key],cell=tr.children[idx];if(!cell)return '';var bv=cell.querySelector('.bv');if(bv)return parseInt(bv.textContent)||0;var n=parseInt(cell.textContent);return isNaN(n)?cell.textContent.trim().toLowerCase():n;}
-function sortTable(th){var tb=th.closest('table').querySelector('tbody');if(!tb)return;var rows=[].slice.call(tb.querySelectorAll('tr'));var asc=th._asc=!th._asc;var k=th.getAttribute('data-sort');rows.sort(function(a,b){var av=cellVal(a,k),bv=cellVal(b,k);return asc?(av>bv?1:-1):(av<bv?1:-1);});rows.forEach(function(r){tb.appendChild(r);});}
+});
 document.getElementById('searchform').addEventListener('submit',function(ev){ev.preventDefault();doSearch(document.getElementById('searchinput').value);});
 document.getElementById('langtoggle').addEventListener('click',function(ev){var b=ev.target.closest('button');if(!b)return;lang=b.getAttribute('data-l');try{localStorage.setItem('pm_lang',lang);}catch(e){}applyStatic();setNav('map');route();});
 applyStatic();route();
