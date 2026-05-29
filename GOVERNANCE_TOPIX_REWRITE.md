@@ -58,7 +58,7 @@ Under Phase 2, TOPIX can draw constituents from Prime, Standard and Growth. The 
 
 Selection is based on two liquidity tests:
 
-- **Annual trading-value turnover ratio ≥ 0.14.** This ratio divides the yen value of shares traded in one year by free-float market cap. JPX uses 0.14, or 14%, as the threshold. The test matters because a company can look large on paper but still fail if its shares rarely trade.
+- **Annual trading-value turnover ratio ≥ 0.14.** This ratio divides the yen value of shares traded in one year by free-float market cap. JPX uses 0.14, or 14%, as the threshold. The test matters because a company can look large on paper but still fail if its shares rarely trade. The practical check is whether traded value stays at or above 14% of free-float market cap.
 - **Inclusion in the top 97% by cumulative free-float market cap.** JPX ranks companies by the market value of shares that investors can actually trade. It then adds those market values from the largest company downward. Companies stay eligible if they are inside the top 97% of that cumulative total. The test is not very strict because it removes only the smallest 3% after ranking companies by freely tradable market value.
 - **Constituents that do not meet these criteria** will have their TOPIX weight reduced over eight quarterly steps from October 2026 through July 2028. This uses the same gradual approach as Phase 1.
 - **JPX Indexes Inc. estimated in July 2024** that the final constituent count will be about **1,200 by July 2028**.
