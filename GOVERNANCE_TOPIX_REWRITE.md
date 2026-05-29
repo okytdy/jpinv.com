@@ -63,7 +63,9 @@ JPX uses two tests to decide whether shares are investable enough for TOPIX:
 - **Constituents that do not meet these criteria** will have their TOPIX weight reduced over eight quarterly steps from October 2026 through July 2028. This uses the same gradual approach as Phase 1.
 - **JPX Indexes Inc. estimated in July 2024** that the final constituent count will be about **1,200 by July 2028**.
 
-The important change is that a company’s market label and TOPIX membership are now separate. The market label says whether the company is listed in Prime, Standard, or Growth. TOPIX membership says whether index funds that track TOPIX need to hold the shares. A Standard-listed company with strong liquidity can be in TOPIX if enough of its shares trade and it sits in the top 97% by float. A Prime-listed company with weak liquidity can be out of TOPIX.
+The important change is that a company’s market label and TOPIX membership are now separate. The market label says whether the company is listed in Prime, Standard, or Growth. TOPIX membership says whether index funds that track TOPIX need to hold the shares.
+
+The reason this matters is that the label no longer settles the index question. A Standard-listed company with strong liquidity can be in TOPIX if enough of its shares trade and it sits in the top 97% by float. A Prime-listed company with weak liquidity can be out of TOPIX.
 
 That changes how companies attract money from index funds. Under the old regime, the path to passive demand ran through the 1st Section. Under Phase 2, the path runs through actual trading activity and available float. If a Prime company and a Standard company have the same free float and trading activity, the Prime label alone does not make the Prime company more attractive to TOPIX-linked funds.
 
@@ -81,7 +83,7 @@ Two points matter when you read the timeline.
 
 First, the total reduction from peak is large. TOPIX had about 2,200 constituents in 2021. JPX expects about 1,200 by 2028. That is a reduction of about 45% by name count. Put simply, the 2028 TOPIX will be roughly half the size of the 2021 TOPIX by number of companies.
 
-The change is smaller if measured by free-float weight, because many removed companies were small. But IR teams often care about a yes-or-no question: is our company in TOPIX or not? For that question, the name-count reduction matters.
+The change is smaller if measured by free-float weight. Free-float weight measures how much of the index sits in shares that investors can actually trade. Many removed companies were small, so their weight was limited. But IR teams often care about a yes-or-no question: is our company in TOPIX or not? For that question, the name-count reduction matters.
 
 Second, the sequence creates a 20-month interim period. This period runs from February 2025 to September 2026. Phase 1 is complete, but Phase 2 has not yet started. During this window, Standard and Growth issuers can work on the liquidity measures needed for Phase 2.
 
@@ -93,7 +95,7 @@ The two Phase 2 criteria test different things. One test asks whether shares tra
 
 - **Annual trading-value turnover ratio ≥ 0.14.** This is the circulation test. It asks whether freely tradable shares actually trade. A company can have a large float in theory but still fail if its shares rarely change hands. This can happen when many shares are held by long-term institutions or passive vehicles.
 
-For Japanese mid-cap issuers, the 0.14 threshold means 14% of free-float market cap trades in a year. The level is achievable but not automatic. About a third of currently-eligible TOPIX names sit close to or below it.
+For Japanese mid-cap issuers, the 0.14 threshold means 14% of free-float market cap trades in a year. The level is achievable but not automatic. About a third of currently-eligible TOPIX names sit close to or below it. The practical check is whether the company can keep traded value above the threshold during the measurement period.
 
 - **Top 97% by cumulative free-float market cap.** This is the size test, but it is not a severe size test. JPX excludes only the smallest 3% after ranking companies by freely tradable market value. For a TOPIX universe of about 1,700 names, that translates into roughly the bottom 50–100 names by float.
 
@@ -106,7 +108,7 @@ Under the old regime, that company would have been in TOPIX automatically throug
 The separation of segment status from TOPIX status changes what IR teams need to explain. Segment status is the market label. TOPIX status determines whether TOPIX-linked index funds need to hold the shares. Once these two facts are separate, companies must explain both.
 
 - **For Prime issuers with concentrated shareholding:** the path to passive demand now runs through more freely tradable shares, not just through segment status. Companies may need to expand float through secondary offerings, sales by strategic holders, or share consolidations. The tradable-share-ratio rule in Theme 3.2 and the TOPIX tests point in the same direction. Both push companies to have more shares that outside investors can trade.
-- **For Standard-listed names with strong liquidity:** TOPIX inclusion is now possible without moving up to Prime. A Standard listing with high turnover and meaningful float can attract passive flows. Under the old system, that kind of TOPIX-linked buying was previously available only through 1st-Section membership.
+- **For Standard-listed names with strong liquidity:** TOPIX inclusion is now possible without moving up to Prime. A Standard listing with high turnover and meaningful float can attract buying from funds that track TOPIX. Under the old system, that kind of TOPIX-linked buying was previously available only through 1st-Section membership.
 - **For Growth-listed names:** TOPIX inclusion is theoretically possible under Phase 2. In practice, the size filter and turnover test will exclude most Growth issuers. The signal still matters because a Growth issuer that reaches enough scale can enter TOPIX without first moving to Standard or Prime.
 
 Put together, three changes alter what listed companies are trying to optimize for. Prime has a tradable-share-ratio rule. Phase 1 removed smaller companies from TOPIX. Phase 2 separates TOPIX from segment status. Companies therefore cannot rely only on a market label. They need enough shares available for trading, and enough actual trading, to attract the investor base they want.
@@ -175,7 +177,7 @@ No paragraph exceeds 150 words.
 | selected universe | TOPIX can choose companies based on float and trading activity | Shows what selection means in practice. |
 | free-float market cap | the market value of shares that ordinary investors can buy and sell | Defines the metric and removes jargon. |
 | stable shareholders | shares that are locked up or held by stable shareholders | Shows why some shares are excluded from free float. |
-| passive flows | trades made by funds that track an index | Identifies who trades and why. |
+| passive flows | trades made by funds that track an index; later rewritten as buying from funds that track TOPIX | Identifies who trades and why. |
 | tracking-error pain | portfolios could move away from the index they promised to follow | Explains the investor problem behind the technical term. |
 | tradable-share market cap | the market value of shares that investors can actually trade | Converts the noun stack into a concrete measure. |
 | Phase Transitional Stock | a TOPIX constituent below JPY 10 bn tradable-share market cap as of the Phase 1 base date | States the eligibility trigger. |
@@ -185,6 +187,7 @@ No paragraph exceeds 150 words.
 | liquidity tests | tests for whether enough shares are freely tradable and whether those shares actually trade | Shows the two practical questions. |
 | segment status | whether the company is listed in Prime, Standard, or Growth | Makes the label concrete. |
 | index status | whether TOPIX-linked funds need to hold the company | Explains why inclusion matters. |
+| free-float weight | how much of the index sits in shares that investors can actually trade | Makes the weight-based comparison easier to understand. |
 | index-transition tool | a standard way to move from old index rules to new index rules without one large trading event | Defines both the tool and the problem it solves. |
 
 ### Causal-chain unpacking check
