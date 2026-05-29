@@ -10,7 +10,7 @@
 >
 >   JPX did not remove all companies at once. It reduced their index weights through **eight quarterly weight-reduction steps**.
 >
-> - **Phase 2 (Oct 2026 – Jul 2028)** separates TOPIX from market-segment membership. Market-segment membership means whether a company is listed in **Prime, Standard or Growth**. A company in any of those segments can still qualify. JPX will ask two practical questions. Are enough shares freely tradable? Do those shares actually trade?
+> - **Phase 2 (Oct 2026 – Jul 2028)** separates TOPIX from market-segment membership. Market-segment membership means whether a company is listed in **Prime, Standard, or Growth**. A company in any of those segments can still qualify. JPX will ask two practical questions. Are enough shares freely tradable? Do those shares actually trade?
 >
 >   The first test is **annual trading-value turnover ratio ≥ 0.14**. The second test is **inclusion in the top 97% by cumulative free-float market cap**. In plain terms, JPX ranks companies by freely tradable market value and keeps the group that makes up the top 97%. JPX Indexes Inc. estimated in July 2024 that TOPIX will have about **1,200 constituents by July 2028**.
 
