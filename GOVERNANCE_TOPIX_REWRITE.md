@@ -10,7 +10,7 @@
 
 ## Why does TOPIX reform belong with segment reform?
 
-Before 2022, Japan had two market-design problems that reinforced each other. The 1st Section had become too broad. TOPIX then copied the 1st Section almost automatically. If an investor bought TOPIX, that investor bought every 1st-Section company in proportion to free-float market cap.
+Before 2022, Japan had two connected problems in how listed companies were sorted and bought through the index. The 1st Section had become too broad. TOPIX then copied the 1st Section almost automatically. If an investor bought TOPIX, that investor bought every 1st-Section company in proportion to free-float market cap.
 
 Free-float market cap means the market value of shares that ordinary investors can buy and sell. It excludes shares that are locked up or held by stable shareholders. This measure matters because index funds usually weight companies by the shares that investors can actually trade.
 
@@ -34,7 +34,7 @@ The main Phase 1 test was tradable-share market cap. This means the market value
 
 JPX did not remove these stocks immediately. Instead, it reduced their TOPIX weight over **eight quarterly steps**, ending in January 2025. At each quarterly step, the company's weight was cut by **1/8**. By step 8, the company had zero weight and left the index.
 
-The eight-step schedule was a policy choice. JPX said gradual reduction would limit market-impact dislocations from large passive flows. Passive flows are trades made by funds that track an index. If TOPIX removes a company, those funds usually need to sell.
+The eight-step schedule was a policy choice. JPX said gradual reduction would limit sudden trading pressure from large passive flows. Passive flows are trades made by funds that track an index. If TOPIX removes a company, those funds usually need to sell.
 
 A one-time removal of more than 400 constituents would have created two problems. Index funds would have faced tracking-error pain. That means their portfolios could move away from the index they promised to follow. Individual companies could also have faced sudden selling pressure. The eight-step path spread that adjustment over 27 months.
 
@@ -46,7 +46,7 @@ Phase 1's outcome:
 
 The numbers show what Phase 1 did. TOPIX had about 2,100 constituents in October 2022. By January 2025, it had about 1,700. That means JPX removed about 400 companies, or about 19% of the index by name count.
 
-Phase 1 mainly removed companies whose tradable market value was too small. JPX used the same type of measure in Prime continued-listing criteria. By early 2025, TOPIX was more concentrated in companies that were larger and easier to trade than at the 2022 starting point. The next question is which companies will lose weight in Phase 2, when liquidity becomes the main test.
+Phase 1 mainly removed companies whose tradable market value was too small. JPX used the same type of measure in Prime continued-listing criteria. By early 2025, TOPIX had more weight in companies that were larger and easier to trade than at the 2022 starting point. The next question is which companies will lose weight in Phase 2, when actual trading activity becomes the main test.
 
 ## Phase 2 (Oct 2026 – Jul 2028): TOPIX separates from segment labels
 
@@ -109,7 +109,7 @@ The separation of segment status from TOPIX status creates new incentives that m
 
 Put together, three changes alter what listed companies are trying to optimize for. Prime has a tradable-share-ratio rule. Phase 1 removed smaller companies from TOPIX. Phase 2 separates TOPIX from segment status. Companies therefore cannot rely only on a market label. They need enough shares available for trading, and enough actual trading, to attract the investor base they want.
 
-The old question was, "what segment should I be in?" The new question is, "what liquidity profile do I need to attract the investor base I want?" In practical terms, companies now need to think separately about segment obligations, TOPIX eligibility, free float, and trading activity.
+The old question was, "what segment should I be in?" The new question is, "what free float and trading activity do I need to attract the investor base I want?" In practical terms, companies now need to think separately about segment obligations, TOPIX eligibility, free float, and trading activity.
 
 ## Why is the eight-quarterly-step mechanism itself a policy?
 
@@ -170,7 +170,7 @@ No paragraph exceeds 150 words.
 | census index | TOPIX was mostly counting every 1st-Section company | Explains that the index followed membership instead of selecting companies. |
 | selected universe | TOPIX chooses companies using tradability and liquidity tests | Shows what selection means in practice. |
 | free-float market cap | the market value of shares that ordinary investors can buy and sell | Gives the calculation idea and explains why index funds use it. |
-| market-design problems | two market-design problems that reinforced each other | Keeps the policy term but immediately shows the two rules involved. |
+| market-design problems | connected problems in how listed companies were sorted and bought through the index | Explains what was being designed and why it mattered. |
 | index-driven demand | buying from TOPIX-linked index funds | Identifies who buys and why they buy. |
 | cost of capital | the return investors require for giving money to a company | Defines the finance term before using it analytically. |
 | Phase Transitional Stock | a TOPIX constituent below the JPY 10 bn tradable-share market-cap test | Connects the JPX label to the eligibility rule. |
@@ -180,6 +180,7 @@ No paragraph exceeds 150 words.
 | annual trading-value turnover ratio | yen value of shares traded in one year divided by free-float market cap | Gives the formula and the practical meaning. |
 | cumulative free-float market cap | JPX ranks companies by the market value of shares investors can actually trade | Explains how the top 97% test is applied. |
 | liquidity profile | actual trading activity and available float | Splits one compressed term into the two measures Phase 2 uses. |
+| investor base | the kinds of investors a company wants to attract | Makes the company-facing implication easier to understand. |
 | eight-quarterly-step mechanism | eight quarterly cuts to index weights over 27 months | Makes the schedule and action visible. |
 | index-transition tool | a repeatable way to move from old index rules to new index rules | Explains the policy mechanism without jargon. |
 | float-management decisions | secondary offerings, strategic-holder dispositions, and share consolidations | Lists the corporate actions hidden inside the phrase. |
