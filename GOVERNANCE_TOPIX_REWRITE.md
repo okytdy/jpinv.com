@@ -42,7 +42,7 @@ JPX announced TOPIX reform in stages alongside the segment restructuring. **Phas
 
 JPX's main Phase 1 test asked whether each company had enough tradable market value. The metric was tradable-share market cap. This means the market value of shares that investors can actually trade. If a TOPIX constituent had tradable-share market cap below **JPY 10 bn** as of the Phase 1 base date, JPX designated it a **"Phase Transitional Stock."**
 
-JPX did not remove these stocks immediately. Instead, it reduced their TOPIX weight over **eight quarterly steps**, ending in January 2025. At each quarterly step, JPX cut **1/8** of the company's original transition weight. By step 8, the company had zero weight and left the index.
+JPX did not remove these stocks immediately. Instead, it reduced their TOPIX weight over **eight quarterly steps**, ending in January 2025. In an index, weight means how much a company counts in the benchmark. At each quarterly step, JPX cut **1/8** of the company's original transition weight. By step 8, the company had zero weight and left the index.
 
 The eight-step schedule was a policy choice. JPX said gradual reduction would limit sudden trading pressure from large passive flows. Passive flows are trades made by funds that track an index instead of choosing each company one by one. If TOPIX removes a company, those funds usually need to sell.
 
