@@ -2,9 +2,17 @@
 
 > **TL;DR**
 >
-> - TOPIX is the Tokyo Stock Price Index. It is one of the main benchmarks for Japanese stocks. For more than 30 years, TOPIX mostly followed the 1st Section of the Tokyo Stock Exchange. If a company entered the 1st Section, funds that tracked TOPIX usually had to buy it. At its peak, TOPIX had about **2,200 constituents**. Constituents are the companies included in an index. JPX's December 2019 *Reiwa* report called this the single largest distortion in Japanese equity markets. The problem was not only the number of companies. It also included companies whose shares were difficult for investors to buy and sell.
-> - **Phase 1 (Oct 2022 – Jan 2025)** reduced TOPIX from about **2,100** to about **1,700** constituents. JPX phased out companies whose tradable-share market cap was below **JPY 10 bn**. Tradable-share market cap means the market value of shares that ordinary investors can actually trade. JPX did not remove all companies at once. It reduced their index weights through **eight quarterly weight-reduction steps**.
-> - **Phase 2 (Oct 2026 – Jul 2028)** separates TOPIX from market-segment membership. Market-segment membership means whether a company is listed in **Prime, Standard or Growth**. A company in any of those segments can still qualify. JPX will ask two practical questions. Are enough shares freely tradable? Do those shares actually trade? The first test is **annual trading-value turnover ratio ≥ 0.14**. The second test is **inclusion in the top 97% by cumulative free-float market cap**. In plain terms, JPX ranks companies by freely tradable market value and keeps the group that makes up the top 97%. JPX Indexes Inc. estimated in July 2024 that TOPIX will have about **1,200 constituents by July 2028**.
+> - TOPIX is the Tokyo Stock Price Index. It is one of the main benchmarks for Japanese stocks. For more than 30 years, TOPIX mostly followed the 1st Section of the Tokyo Stock Exchange. If a company entered the 1st Section, funds that tracked TOPIX usually had to buy it.
+>
+>   At its peak, TOPIX had about **2,200 constituents**. Constituents are the companies included in an index. JPX's December 2019 *Reiwa* report called this the single largest distortion in Japanese equity markets. The problem was not only the number of companies. It also included companies whose shares were difficult for investors to buy and sell.
+>
+> - **Phase 1 (Oct 2022 – Jan 2025)** reduced TOPIX from about **2,100** to about **1,700** constituents. JPX phased out companies whose tradable-share market cap was below **JPY 10 bn**. Tradable-share market cap means the market value of shares that ordinary investors can actually trade.
+>
+>   JPX did not remove all companies at once. It reduced their index weights through **eight quarterly weight-reduction steps**.
+>
+> - **Phase 2 (Oct 2026 – Jul 2028)** separates TOPIX from market-segment membership. Market-segment membership means whether a company is listed in **Prime, Standard or Growth**. A company in any of those segments can still qualify. JPX will ask two practical questions. Are enough shares freely tradable? Do those shares actually trade?
+>
+>   The first test is **annual trading-value turnover ratio ≥ 0.14**. The second test is **inclusion in the top 97% by cumulative free-float market cap**. In plain terms, JPX ranks companies by freely tradable market value and keeps the group that makes up the top 97%. JPX Indexes Inc. estimated in July 2024 that TOPIX will have about **1,200 constituents by July 2028**.
 
 ---
 
@@ -20,7 +28,7 @@ The old rule gave companies a clear reward for entering the 1st Section. A compa
 
 The December 2019 *Reiwa* report from the Financial System Council's expert study group described the problem clearly. It said the 1st Section had become "more of a broad census than a selective index." In plain terms, TOPIX was not choosing companies. It was mostly counting every 1st-Section company.
 
-The reason this mattered was capital flow. A company could receive buying from index funds simply by reaching 1st-Section status. That buying did not depend on whether outside investors could trade the shares easily. It also did not depend on whether the company used capital well.
+The reason this mattered was capital flow. Capital flow means money moving into or out of shares. A company could receive buying from index funds simply by reaching 1st-Section status. That buying did not depend on whether outside investors could trade the shares easily. It also did not depend on whether the company used capital well.
 
 The report also estimated that **60% of TOPIX constituents were not earning their cost of capital**. Cost of capital is the return investors require for giving money to a company. If a company earns less than that, it is not creating enough value for those investors. In effect, TOPIX was supporting many companies with weak capital efficiency.
 
@@ -59,8 +67,11 @@ Under Phase 2, TOPIX can draw constituents from Prime, Standard and Growth. The 
 JPX uses two tests to decide whether shares are investable enough for TOPIX:
 
 - **Annual trading-value turnover ratio ≥ 0.14.** This ratio divides the yen value of shares traded in one year by free-float market cap. JPX uses 0.14, or 14%, as the threshold. The test matters because a company can look large on paper but still fail if its shares rarely trade. The practical check is whether traded value stays at or above 14% of free-float market cap.
+
 - **Inclusion in the top 97% by cumulative free-float market cap.** JPX ranks companies by the market value of shares that investors can actually trade. It then adds those market values from the largest company downward. Companies stay eligible if they are inside the top 97% of that cumulative total. The test is not very strict because it removes only the smallest 3% after ranking companies by freely tradable market value.
+
 - **Constituents that do not meet these criteria** will have their TOPIX weight reduced over eight quarterly steps from October 2026 through July 2028. This uses the same gradual approach as Phase 1.
+
 - **JPX Indexes Inc. estimated in July 2024** that the final constituent count will be about **1,200 by July 2028**.
 
 The important change is that a company’s market label and TOPIX membership are now separate. The market label says whether the company is listed in Prime, Standard, or Growth. TOPIX membership says whether index funds that track TOPIX need to hold the shares.
@@ -108,7 +119,9 @@ Under the old regime, that company would have been in TOPIX automatically throug
 The separation of segment status from TOPIX status changes what IR teams need to explain. Segment status is the market label. TOPIX status determines whether TOPIX-linked index funds need to hold the shares. Once these two facts are separate, companies must explain both.
 
 - **For Prime issuers with concentrated shareholding:** the path to passive demand now runs through more freely tradable shares, not just through segment status. Companies may need to expand float through secondary offerings, sales by strategic holders, or share consolidations. The tradable-share-ratio rule in Theme 3.2 and the TOPIX tests point in the same direction. Both push companies to have more shares that outside investors can trade.
+
 - **For Standard-listed names with strong liquidity:** TOPIX inclusion is now possible without moving up to Prime. A Standard listing with high turnover and meaningful float can attract buying from funds that track TOPIX. Under the old system, that kind of TOPIX-linked buying was previously available only through 1st-Section membership.
+
 - **For Growth-listed names:** TOPIX inclusion is theoretically possible under Phase 2. In practice, the size filter and turnover test will exclude most Growth issuers. The signal still matters because a Growth issuer that reaches enough scale can enter TOPIX without first moving to Standard or Prime.
 
 Put together, three changes alter what listed companies are trying to optimize for. Prime has a tradable-share-ratio rule. Phase 1 removed smaller companies from TOPIX. Phase 2 separates TOPIX from segment status. Companies therefore cannot rely only on a market label. They need enough shares available for trading, and enough actual trading, to attract the investor base they want.
