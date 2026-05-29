@@ -4,7 +4,7 @@
 >
 > - TOPIX is the Tokyo Stock Price Index. It is one of the main benchmarks for Japanese stocks. For more than 30 years, TOPIX mostly followed the 1st Section of the Tokyo Stock Exchange. If a company entered the 1st Section, funds that tracked TOPIX usually had to buy it. At its peak, TOPIX had about **2,200 constituents**. JPX's December 2019 *Reiwa* report called this the single largest distortion in Japanese equity markets. The problem was not only that TOPIX was large. It also included companies whose shares were difficult for investors to buy and sell.
 > - **Phase 1 (Oct 2022 – Jan 2025)** reduced TOPIX from about **2,100** to about **1,700** constituents. JPX phased out companies whose tradable-share market cap was below **JPY 10 bn**. Tradable-share market cap means the market value of shares that ordinary investors can actually trade. JPX did not remove all companies at once. It reduced their index weights through **eight quarterly weight-reduction steps**.
-> - **Phase 2 (Oct 2026 – Jul 2028)** separates TOPIX from market-segment membership. A company can be in **Prime, Standard or Growth** and still qualify. JPX will ask two practical questions. Are enough shares freely tradable? Do those shares actually trade? The tests are **annual trading-value turnover ratio ≥ 0.14** and **inclusion in the top 97% by cumulative free-float market cap**. JPX Indexes Inc. estimated in July 2024 that TOPIX will have about **1,200 constituents by July 2028**.
+> - **Phase 2 (Oct 2026 – Jul 2028)** separates TOPIX from market-segment membership. A company can be in **Prime, Standard or Growth** and still qualify. JPX will ask two practical questions. Are enough shares freely tradable? Do those shares actually trade? The first test is **annual trading-value turnover ratio ≥ 0.14**. The second test is **inclusion in the top 97% by cumulative free-float market cap**. In plain terms, JPX ranks companies by freely tradable market value and keeps the group that makes up the top 97%. JPX Indexes Inc. estimated in July 2024 that TOPIX will have about **1,200 constituents by July 2028**.
 
 ---
 
@@ -153,11 +153,11 @@ IR should also be involved in decisions about free float alongside the CFO. Thes
 
 ## Cross-references
 
-- **Theme 3.1 — From Four Segments to Three.** The segment reform that TOPIX reform structurally complements.
-- **Theme 3.2 — The Tradable-Share Ratio.** The float-and-shareholder-base dynamics that drive both segment and index eligibility.
-- **Theme 3.3 — The March 2025 Cliff.** The segment-level analogue to the TOPIX Phase 1 reduction.
-- **Theme 4.1 — PBR < 1 Is Not a Target.** The cost-of-capital logic that motivated removing low-quality names from the passive index.
-- **Theme 1.1 — Why 8% Was the Number That Changed Japan.** The ROE-gap problem that an "everyone-in-TOPIX" passive regime had been making worse.
+- **Theme 3.1 — From Four Segments to Three.** This explains the market-segment reform that TOPIX reform works alongside.
+- **Theme 3.2 — The Tradable-Share Ratio.** This explains why free float and shareholder mix matter for both segment eligibility and index eligibility.
+- **Theme 3.3 — The March 2025 Cliff.** This explains the segment-reform cliff that readers can compare with the gradual TOPIX Phase 1 reduction.
+- **Theme 4.1 — PBR < 1 Is Not a Target.** This explains the cost-of-capital reasoning behind the decision to remove lower-quality names from the passive index.
+- **Theme 1.1 — Why 8% Was the Number That Changed Japan.** This explains the ROE gap that became worse when the passive regime treated TOPIX as an "everyone-in" index.
 
 ---
 
