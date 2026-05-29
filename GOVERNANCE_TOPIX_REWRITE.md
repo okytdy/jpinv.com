@@ -38,7 +38,7 @@ JPX did not remove these stocks immediately. Instead, it reduced their TOPIX wei
 
 The eight-step schedule was a policy choice. JPX said gradual reduction would limit sudden trading pressure from large passive flows. Passive flows are trades made by funds that track an index. If TOPIX removes a company, those funds usually need to sell.
 
-A one-time removal of more than 400 constituents would have created two problems. Index funds would have faced tracking-error pain. That means their portfolios could move away from the index they promised to follow. Individual companies could also have faced sudden selling pressure. The eight-step path spread that adjustment over 27 months.
+A one-time removal of more than 400 constituents would have created two problems. Index funds would have faced tracking error. That means their portfolios could move away from the index they promised to follow. Individual companies could also have faced sudden selling pressure. The eight-step path spread that adjustment over 27 months.
 
 Phase 1's outcome:
 
@@ -99,7 +99,7 @@ For Japanese mid-cap issuers, the 0.14 threshold means 14% of free-float market 
 
 - **Top 97% by cumulative free-float market cap.** This is the size test, but it is not a severe size test. JPX excludes only the smallest 3% after ranking companies by freely tradable market value. For a TOPIX universe of about 1,700 names, that translates into roughly the bottom 50–100 names by float.
 
-The interaction matters because the two tests can fail together. A small-cap Prime issuer may have a respectable total market cap but a tight float. For example, a founder may still hold 60% of the shares. That company can have a small free-float market cap and a turnover ratio below 0.14.
+The two tests can fail at the same time. A small-cap Prime issuer may look large if you count all shares. But the shares available to outside investors may be limited. For example, a founder may still hold 60% of the shares. In that case, the company can have a small free-float market cap and a turnover ratio below 0.14.
 
 Under the old regime, that company would have been in TOPIX automatically through 1st-Section membership. Under Phase 2, it is likely to be out. The opposite is also possible. A Standard-listed company with widely distributed shareholding, no founder block, and strong daily trading volume can qualify for TOPIX even though its segment label is Standard.
 
@@ -178,7 +178,7 @@ No paragraph exceeds 150 words.
 | free-float market cap | the market value of shares that ordinary investors can buy and sell | Defines the metric and removes jargon. |
 | stable shareholders | shares that are locked up or held by stable shareholders | Shows why some shares are excluded from free float. |
 | passive flows | trades made by funds that track an index; later rewritten as buying from funds that track TOPIX | Identifies who trades and why. |
-| tracking-error pain | portfolios could move away from the index they promised to follow | Explains the investor problem behind the technical term. |
+| tracking-error pain | tracking error means portfolios could move away from the index they promised to follow | Explains the investor problem behind the technical term. |
 | tradable-share market cap | the market value of shares that investors can actually trade | Converts the noun stack into a concrete measure. |
 | Phase Transitional Stock | a TOPIX constituent below JPY 10 bn tradable-share market cap as of the Phase 1 base date | States the eligibility trigger. |
 | market-segment membership | whether a company belongs to Prime, Standard, or Growth | Names the relevant segments. |
@@ -199,7 +199,7 @@ No paragraph exceeds 150 words.
 | Phase 1 reduced TOPIX | JPX lowered weights over time rather than deleting all names at once | JPX cut each affected company's weight by 1/8 at each quarterly step. |
 | Gradual reduction limited sudden trading pressure | Index funds would otherwise sell many names at the same time | The eight-step path spread selling over 27 months. |
 | Phase 2 separates TOPIX from segment labels | Prime status no longer guarantees TOPIX status, and Standard or Growth status no longer blocks eligibility | JPX now tests actual float and trading activity. |
-| The turnover ratio is a liquidity test | A company can be large but rarely traded | A company can look large on paper but still fail if its shares rarely trade. |
+| The turnover ratio is a liquidity test | A company can be large by total market value but have too few shares trading | A company can look large if all shares are counted, but still fail if the freely tradable shares rarely trade. |
 | The top 97% test is a size test | JPX ranks companies by shares investors can trade | It removes only the smallest 3% by freely tradable market value. |
 | New incentives matter for IR | Companies must explain TOPIX status separately from their market label | Companies need enough shares available for trading and enough actual trading to attract the investor base they want. |
 | Eight quarterly steps are a policy | The method reduces cliff effects and gives time to respond | JPX uses glide paths, meaning weights fall gradually rather than all at once. |
