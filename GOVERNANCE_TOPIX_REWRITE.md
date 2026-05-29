@@ -4,7 +4,7 @@
 >
 > - TOPIX is the Tokyo Stock Price Index. It is one of the main benchmarks for Japanese stocks. For more than 30 years, TOPIX mostly followed the 1st Section of the Tokyo Stock Exchange. If a company entered the 1st Section, funds that tracked TOPIX usually had to buy it. At its peak, TOPIX had about **2,200 constituents**. Constituents are the companies included in an index. JPX's December 2019 *Reiwa* report called this the single largest distortion in Japanese equity markets. The problem was not only the number of companies. It also included companies whose shares were difficult for investors to buy and sell.
 > - **Phase 1 (Oct 2022 – Jan 2025)** reduced TOPIX from about **2,100** to about **1,700** constituents. JPX phased out companies whose tradable-share market cap was below **JPY 10 bn**. Tradable-share market cap means the market value of shares that ordinary investors can actually trade. JPX did not remove all companies at once. It reduced their index weights through **eight quarterly weight-reduction steps**.
-> - **Phase 2 (Oct 2026 – Jul 2028)** separates TOPIX from market-segment membership. A company can be in **Prime, Standard or Growth** and still qualify. JPX will ask two practical questions. Are enough shares freely tradable? Do those shares actually trade? The first test is **annual trading-value turnover ratio ≥ 0.14**. The second test is **inclusion in the top 97% by cumulative free-float market cap**. In plain terms, JPX ranks companies by freely tradable market value and keeps the group that makes up the top 97%. JPX Indexes Inc. estimated in July 2024 that TOPIX will have about **1,200 constituents by July 2028**.
+> - **Phase 2 (Oct 2026 – Jul 2028)** separates TOPIX from market-segment membership. Market-segment membership means whether a company is listed in **Prime, Standard or Growth**. A company in any of those segments can still qualify. JPX will ask two practical questions. Are enough shares freely tradable? Do those shares actually trade? The first test is **annual trading-value turnover ratio ≥ 0.14**. The second test is **inclusion in the top 97% by cumulative free-float market cap**. In plain terms, JPX ranks companies by freely tradable market value and keeps the group that makes up the top 97%. JPX Indexes Inc. estimated in July 2024 that TOPIX will have about **1,200 constituents by July 2028**.
 
 ---
 
@@ -32,13 +32,13 @@ Without TOPIX reform, companies would still have a reason to seek Prime status j
 
 JPX announced TOPIX reform in stages alongside the segment restructuring. **Phase 1** began in October 2022, six months after the new market segments launched. JPX used the new segment rules as a temporary filter while it stopped making TOPIX follow the old 1st Section.
 
-The main Phase 1 test was tradable-share market cap. This means the market value of shares that investors can actually trade. If a TOPIX constituent had tradable-share market cap below **JPY 10 bn** as of the Phase 1 base date, JPX designated it a **"Phase Transitional Stock."**
+JPX's main Phase 1 test asked whether each company had enough tradable market value. The metric was tradable-share market cap. This means the market value of shares that investors can actually trade. If a TOPIX constituent had tradable-share market cap below **JPY 10 bn** as of the Phase 1 base date, JPX designated it a **"Phase Transitional Stock."**
 
 JPX did not remove these stocks immediately. Instead, it reduced their TOPIX weight over **eight quarterly steps**, ending in January 2025. At each quarterly step, JPX cut **1/8** of the company's original transition weight. By step 8, the company had zero weight and left the index.
 
 The eight-step schedule was a policy choice. JPX said gradual reduction would limit sudden trading pressure from large passive flows. Passive flows are trades made by funds that track an index. If TOPIX removes a company, those funds usually need to sell.
 
-A one-time removal of more than 400 constituents would have created two problems. Index funds would have faced tracking error. That means their portfolios could move away from the index they promised to follow. Individual companies could also have faced sudden selling pressure. The eight-step path spread that adjustment over 27 months.
+A one-time removal of more than 400 constituents would have created two problems. First, index funds would have faced tracking error. Tracking error means their portfolios could move away from the index they promised to follow. Second, individual companies could have faced sudden selling pressure. The eight-step path spread that adjustment over 27 months.
 
 Phase 1's outcome:
 
@@ -93,7 +93,7 @@ By the time Phase 2 begins, companies know the criteria. They also know the meas
 
 The two Phase 2 criteria test different things. One test asks whether shares trade often enough. The other asks whether the value of freely tradable shares is large enough.
 
-- **Annual trading-value turnover ratio ≥ 0.14.** This is the circulation test. It asks whether freely tradable shares actually trade. A company can have a large float in theory but still fail if its shares rarely change hands. This can happen when many shares are held by long-term institutions or passive vehicles.
+- **Annual trading-value turnover ratio ≥ 0.14.** This is the circulation test. It asks whether freely tradable shares actually trade. A company can have a large float in theory but still fail if its shares rarely change hands. This can happen when many shares are held by long-term institutions or passive vehicles. Passive vehicles are funds that hold shares mainly because an index tells them to.
 
 For Japanese mid-cap issuers, the 0.14 threshold means 14% of free-float market cap trades in a year. The level is achievable but not automatic. About a third of companies that are currently eligible for TOPIX sit close to or below it. The practical check is whether the company can keep traded value above the threshold during the measurement period.
 
@@ -128,7 +128,7 @@ The eight-step method does four things:
 
 The last point is important. The transitional-measures cliff in Theme 3.3 is procedurally a cliff. If a company fails at the record date, it enters the improvement period. The TOPIX reforms are different. They use glide paths, meaning index weights fall gradually rather than all at once.
 
-JPX now has a repeatable method for changing index rules gradually. In plain terms, an index-transition tool is a standard way to move from old index rules to new index rules without one large trading event. JPX is likely to use the same template for future index reforms, including the JPX Prime 150 and other thematic indices.
+JPX now has a repeatable method for changing index rules gradually. In plain terms, it has a standard tool for moving from old index rules to new index rules without one large trading event. That tool is an index-transition tool. JPX is likely to use the same template for future index reforms, including the JPX Prime 150 and other thematic indices.
 
 ## What should IR teams do now?
 
@@ -136,11 +136,11 @@ JPX now has a repeatable method for changing index rules gradually. In plain ter
 
 2. **Explain the market label and TOPIX membership as two different facts about the company.** A Prime listing without TOPIX inclusion sends one message: the company meets the segment standard, but TOPIX-linked index funds do not need to own it. A Standard listing with TOPIX inclusion sends another: the shares are large and active enough for index investors to hold, even without Prime obligations. IR teams should be ready to explain both cases.
 
-3. **Treat liquidity as a strategic objective, not a passive outcome.** Free-float expansion means increasing the shares that outside investors can trade. Building trading volume means giving investors enough information and access so more investors are willing to trade the shares. These activities now sit closer to the center of planning how the company raises capital and communicates with investors.
+3. **Treat liquidity as a strategic objective, not a passive outcome.** Liquidity means investors can buy and sell shares without unusual difficulty. Free-float expansion means increasing the shares that outside investors can trade. Building trading volume means giving investors enough information and access so more investors are willing to trade the shares. These activities now sit closer to the center of planning how the company raises capital and communicates with investors.
 
 IR should also be involved in decisions about free float alongside the CFO. These decisions include secondary offerings, sales by strategic holders, and the timing of share consolidations.
 
-4. **Use the interim period (Feb 2025 – Sep 2026) as a window of action.** Phase 2 criteria are known. The measurement period for the first selection is defined. Issuers that close 2026 with strong turnover and float metrics will be safely in. Issuers that do not will face an eight-quarter weight reduction starting October 2026.
+4. **Use the interim period (Feb 2025 – Sep 2026) as a window of action.** Phase 2 criteria are known. The measurement period for the first selection is defined. Issuers that finish 2026 with strong turnover and float metrics will be safely in. Issuers that do not will face an eight-quarter weight reduction starting October 2026.
 
 5. **Use the JPX Indexes "Revisions of TOPIX and Other Indices" PDF as the primary source.** This JPX document controls the technical details. IR teams should use it for the eligibility criteria, the weight-reduction schedule, and the base dates. Treat it the same way you treat the Continued Listing Criteria PDFs.
 
@@ -181,14 +181,14 @@ No paragraph exceeds 150 words.
 | tracking-error pain | tracking error means portfolios could move away from the index they promised to follow | Explains the investor problem behind the technical term. |
 | tradable-share market cap | the market value of shares that investors can actually trade | Converts the noun stack into a concrete measure. |
 | Phase Transitional Stock | a TOPIX constituent below JPY 10 bn tradable-share market cap as of the Phase 1 base date | States the eligibility trigger. |
-| market-segment membership | whether a company belongs to Prime, Standard, or Growth | Names the relevant segments. |
+| market-segment membership | whether a company is listed in Prime, Standard, or Growth | Names the relevant segments and explains the membership label. |
 | annual trading-value turnover ratio | yen value of shares traded in one year divided by free-float market cap | Explains the calculation. |
 | cumulative free-float market cap | companies are ranked by freely tradable market value, and JPX keeps the companies that make up the top 97% of the total | Explains both the ranking step and the cutoff. |
 | liquidity tests | tests for whether enough shares are freely tradable and whether those shares actually trade | Shows the two practical questions. |
 | segment status | whether the company is listed in Prime, Standard, or Growth | Makes the label concrete. |
 | index status | whether TOPIX-linked funds need to hold the company | Explains why inclusion matters. |
 | free-float weight | how much of the index sits in shares that investors can actually trade | Makes the weight-based comparison easier to understand. |
-| index-transition tool | a standard way to move from old index rules to new index rules without one large trading event | Defines both the tool and the problem it solves. |
+| index-transition tool | JPX has a standard tool for moving from old index rules to new index rules without one large trading event | Defines the action before naming the tool. |
 
 ### Causal-chain unpacking check
 
@@ -206,7 +206,7 @@ No paragraph exceeds 150 words.
 
 ### High-school readability check
 
-No remaining sentences were identified as too hard for a smart high school student after the final clarity pass. Several potentially difficult sentences were simplified by defining TOPIX, constituent, segment status, TOPIX status, cumulative free-float market cap, and the index-transition tool in the article body.
+No remaining sentences were identified as too hard for a smart high school student after the final clarity pass. Several potentially difficult sentences were simplified by defining TOPIX, constituent, market-segment membership, segment status, TOPIX status, liquidity, passive vehicles, cumulative free-float market cap, and the index-transition tool in the article body.
 
 ### Factual preservation check
 
