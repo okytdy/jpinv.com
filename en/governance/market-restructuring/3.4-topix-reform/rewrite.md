@@ -36,7 +36,7 @@ The reason this mattered was capital flow. Capital flow means money moving into 
 
 The report also estimated that **60% of TOPIX constituents were not earning their cost of capital**. Cost of capital is the return investors require for giving money to a company. If a company earns less than that, it is not creating enough value for those investors.
 
-This estimate showed why the old index design mattered. TOPIX was sending index-fund money to many companies with weak capital efficiency. The report treated this as a market-design problem, not only as a company-by-company problem.
+This estimate showed why the old index design mattered. TOPIX was sending index-fund money to many companies with weak capital efficiency. The report said the rules of the market were part of the problem. It was not only that some companies performed poorly.
 
 The report's policy recommendation had two parts. Japan needed to redesign the market segments, as explained in Theme 3.1. Japan also needed to redesign TOPIX. The reason was simple. Segment labels and index membership had been tied together.
 
@@ -46,7 +46,7 @@ TOPIX also needed a clearer list of listed companies to choose from. Segment ref
 
 ## What happened in Phase 1 (Oct 2022 – Jan 2025)?
 
-JPX announced TOPIX reform in stages alongside the segment restructuring. **Phase 1** began in October 2022, six months after the new market segments launched. JPX used the new segment rules as a temporary filter while it stopped making TOPIX follow the old 1st Section.
+JPX announced TOPIX reform in stages alongside the segment restructuring. **Phase 1** began in October 2022, six months after the new market segments launched. JPX first used the new segment rules to help decide TOPIX membership. During that period, TOPIX was moving away from the old 1st Section link.
 
 JPX's main Phase 1 test asked whether each company had enough tradable market value. The metric was tradable-share market cap. This means the market value of shares that investors can actually trade.
 
@@ -76,7 +76,7 @@ By early 2025, TOPIX had more weight in companies that were larger and easier to
 
 Phase 2 was announced in JPX's "Overview of Revisions of TOPIX and Other Indices" in 2024. It finishes the move away from automatic TOPIX inclusion. Automatic inclusion means a company enters TOPIX because of its listing label.
 
-The market segment still tells investors which listing rules a company follows. But TOPIX inclusion no longer depends on whether the company belongs to Prime, Standard, or Growth.
+Prime, Standard, and Growth still tell investors which listing rules apply to a company. But TOPIX inclusion no longer depends on whether the company belongs to Prime, Standard, or Growth.
 
 Under Phase 2, TOPIX can draw constituents from Prime, Standard and Growth. The segment label is no longer the main gate. Instead, JPX asks two practical questions. Are enough shares available for outside investors to trade? Do those shares actually trade often enough for index investors to hold them?
 
@@ -88,7 +88,7 @@ JPX uses two tests to decide whether shares are investable enough for TOPIX:
 
 Constituents that do not meet these criteria will have their TOPIX weight reduced over **eight quarterly steps** from October 2026 through July 2028. This uses the same gradual approach as Phase 1.
 
-JPX Indexes Inc. estimated in July 2024 that the final constituent count will be about **1,200 by July 2028**. The fact is the count falls from about 1,700 to about 1,200. The meaning is that Phase 2 removes another large group of companies by name count. The check is whether companies pass both the turnover test and the free-float market-cap ranking.
+JPX Indexes Inc. estimated in July 2024 that the final constituent count will be about **1,200 by July 2028**. The fact is the count falls from about 1,700 to about 1,200. The meaning is that Phase 2 removes another large group of companies by name count. Investors should watch whether each company passes both tests: trading activity and freely tradable market value.
 
 The important change is that a company's market label and TOPIX membership are now separate. The market label says whether the company is listed in Prime, Standard, or Growth. TOPIX membership says whether index funds that track TOPIX need to hold the shares.
 
@@ -177,7 +177,7 @@ The TOPIX reforms are different. They use glide paths, meaning index weights fal
 
 JPX now has a repeatable method for changing index rules gradually. In plain terms, it has a standard tool for moving from old index rules to new index rules without one large trading event. That tool is an index-transition tool.
 
-JPX is likely to use the same template for future index reforms, including the JPX Prime 150 and other thematic indices. This is an inference from JPX using the eight-step method in both Phase 1 and Phase 2.
+JPX is likely to use the same template for future index reforms, including the JPX Prime 150 and other thematic indices. JPX has not promised this for every future index. The article infers it because JPX used the same method twice.
 
 ## What should IR teams do now?
 
@@ -252,13 +252,7 @@ No paragraph exceeds 150 words.
 
 ### High-school readability check
 
-| Remaining sentence that may still be hard | Simpler rewrite |
-| --- | --- |
-| "The report treated this as a market-design problem, not only as a company-by-company problem." | "The report said the rules of the market were part of the problem. It was not only that some companies performed poorly." |
-| "JPX used the new segment rules as a temporary filter while it stopped making TOPIX follow the old 1st Section." | "JPX first used the new segment rules to help decide TOPIX membership. During that period, TOPIX was moving away from the old 1st Section link." |
-| "The market segment still tells investors which listing rules a company follows." | "Prime, Standard, and Growth still tell investors which listing rules apply to a company." |
-| "The check is whether companies pass both the turnover test and the free-float market-cap ranking." | "Investors should watch whether each company passes both tests: trading activity and freely tradable market value." |
-| "This is an inference from JPX using the eight-step method in both Phase 1 and Phase 2." | "JPX has not promised this for every future index. The article infers it because JPX used the same method twice." |
+No remaining sentences were identified that should block first-pass understanding for a smart high school student.
 
 ### Factual preservation check
 
