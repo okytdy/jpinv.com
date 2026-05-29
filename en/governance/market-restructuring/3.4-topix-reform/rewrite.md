@@ -187,7 +187,7 @@ JPX is likely to use the same template for future index reforms, including the J
 
 3. **Treat liquidity as a strategic objective, not a passive outcome.** Liquidity means investors can buy and sell shares without unusual difficulty. Free-float expansion means increasing the shares that outside investors can trade. Building trading volume means giving investors enough information and access so more investors are willing to trade the shares.
 
-IR should also be involved in decisions about free float alongside the CFO. These decisions include secondary offerings, sales by strategic holders, and the timing of share consolidations.
+   IR should also be involved in decisions about free float alongside the CFO. These decisions include secondary offerings, sales by strategic holders, and the timing of share consolidations.
 
 4. **Use the interim period (Feb 2025 – Sep 2026) as a window of action.** Phase 2 criteria are known. The measurement period for the first selection is defined. Issuers that finish 2026 with strong turnover and float metrics will be safely in. Issuers that do not will face an eight-quarter weight reduction starting October 2026.
 
