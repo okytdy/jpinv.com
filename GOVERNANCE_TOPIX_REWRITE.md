@@ -76,9 +76,9 @@ JPX uses two tests to decide whether shares are investable enough for TOPIX:
 
 The important change is that a company’s market label and TOPIX membership are now separate. The market label says whether the company is listed in Prime, Standard, or Growth. TOPIX membership says whether index funds that track TOPIX need to hold the shares.
 
-The reason this matters is that the label no longer settles the index question. A Standard-listed company with strong liquidity can be in TOPIX if enough of its shares trade and it sits in the top 97% by float. A Prime-listed company with weak liquidity can be out of TOPIX.
+The reason this matters is that the label no longer settles the index question. Liquidity means investors can buy and sell shares without unusual difficulty. A Standard-listed company with strong liquidity can be in TOPIX if enough of its shares trade and it sits in the top 97% by float. A Prime-listed company with weak liquidity can be out of TOPIX.
 
-That changes how companies attract money from index funds. Under the old regime, the path to passive demand ran through the 1st Section. Under Phase 2, the path runs through actual trading activity and available float. If a Prime company and a Standard company have the same free float and trading activity, the Prime label alone does not make the Prime company more attractive to TOPIX-linked funds.
+That changes how companies attract money from index funds. Passive demand means buying from funds that must hold a stock because the stock is in an index. Under the old regime, the path to passive demand ran through the 1st Section. Under Phase 2, the path runs through actual trading activity and available float. If a Prime company and a Standard company have the same free float and trading activity, the Prime label alone does not make the Prime company more attractive to TOPIX-linked funds.
 
 ## How do Phase 1 and Phase 2 fit together?
 
@@ -139,7 +139,7 @@ The eight-step method does four things:
 - **It gives issuers time to respond.** Companies may use buybacks, share consolidations, or float expansion to try to preserve their position.
 - **It helps JPX show that the rule change is fair and orderly.** JPX visibly avoids the "cliff" structure that drew criticism in segment reform.
 
-The last point is important. The transitional-measures cliff in Theme 3.3 is procedurally a cliff. If a company fails at the record date, it enters the improvement period. The TOPIX reforms are different. They use glide paths, meaning index weights fall gradually rather than all at once.
+The last point is important. The transitional-measures cliff in Theme 3.3 is procedurally a cliff. If a company fails at the record date, it enters the improvement period. The improvement period is the time allowed to fix the listing-standard problem. The TOPIX reforms are different. They use glide paths, meaning index weights fall gradually rather than all at once.
 
 JPX now has a repeatable method for changing index rules gradually. In plain terms, it has a standard tool for moving from old index rules to new index rules without one large trading event. That tool is an index-transition tool. JPX is likely to use the same template for future index reforms, including the JPX Prime 150 and other thematic indices.
 
