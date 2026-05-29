@@ -2,7 +2,7 @@
 
 > **TL;DR**
 >
-> - TOPIX is the Tokyo Stock Price Index. It is one of the main benchmarks for Japanese stocks. For more than 30 years, TOPIX mostly followed the 1st Section of the Tokyo Stock Exchange. If a company entered the 1st Section, funds that tracked TOPIX usually had to buy it. At its peak, TOPIX had about **2,200 constituents**. Constituents are the companies included in an index. JPX's December 2019 *Reiwa* report called this the single largest distortion in Japanese equity markets. The problem was not only that TOPIX was large. It also included companies whose shares were difficult for investors to buy and sell.
+> - TOPIX is the Tokyo Stock Price Index. It is one of the main benchmarks for Japanese stocks. For more than 30 years, TOPIX mostly followed the 1st Section of the Tokyo Stock Exchange. If a company entered the 1st Section, funds that tracked TOPIX usually had to buy it. At its peak, TOPIX had about **2,200 constituents**. Constituents are the companies included in an index. JPX's December 2019 *Reiwa* report called this the single largest distortion in Japanese equity markets. The problem was not only the number of companies. It also included companies whose shares were difficult for investors to buy and sell.
 > - **Phase 1 (Oct 2022 – Jan 2025)** reduced TOPIX from about **2,100** to about **1,700** constituents. JPX phased out companies whose tradable-share market cap was below **JPY 10 bn**. Tradable-share market cap means the market value of shares that ordinary investors can actually trade. JPX did not remove all companies at once. It reduced their index weights through **eight quarterly weight-reduction steps**.
 > - **Phase 2 (Oct 2026 – Jul 2028)** separates TOPIX from market-segment membership. A company can be in **Prime, Standard or Growth** and still qualify. JPX will ask two practical questions. Are enough shares freely tradable? Do those shares actually trade? The first test is **annual trading-value turnover ratio ≥ 0.14**. The second test is **inclusion in the top 97% by cumulative free-float market cap**. In plain terms, JPX ranks companies by freely tradable market value and keeps the group that makes up the top 97%. JPX Indexes Inc. estimated in July 2024 that TOPIX will have about **1,200 constituents by July 2028**.
 
@@ -52,7 +52,7 @@ Phase 1 mainly removed companies whose tradable market value was too small. JPX 
 
 ## What changes in Phase 2 (Oct 2026 – Jul 2028)?
 
-Phase 2 was announced in JPX's "Overview of Revisions of TOPIX and Other Indices" in 2024. It completes the logic of the reform. The market segment still tells investors which listing rules a company follows. But TOPIX inclusion no longer depends on whether the company belongs to Prime, Standard, or Growth.
+Phase 2 was announced in JPX's "Overview of Revisions of TOPIX and Other Indices" in 2024. It finishes the move away from automatic TOPIX inclusion. The market segment still tells investors which listing rules a company follows. But TOPIX inclusion no longer depends on whether the company belongs to Prime, Standard, or Growth.
 
 Under Phase 2, TOPIX can draw constituents from Prime, Standard and Growth. The segment label is no longer the main gate. Instead, JPX asks two practical questions. Are enough shares available for outside investors to trade? Do those shares actually trade often enough for index investors to hold them?
 
@@ -95,7 +95,7 @@ The two Phase 2 criteria test different things. One test asks whether shares tra
 
 - **Annual trading-value turnover ratio ≥ 0.14.** This is the circulation test. It asks whether freely tradable shares actually trade. A company can have a large float in theory but still fail if its shares rarely change hands. This can happen when many shares are held by long-term institutions or passive vehicles.
 
-For Japanese mid-cap issuers, the 0.14 threshold means 14% of free-float market cap trades in a year. The level is achievable but not automatic. About a third of currently-eligible TOPIX names sit close to or below it. The practical check is whether the company can keep traded value above the threshold during the measurement period.
+For Japanese mid-cap issuers, the 0.14 threshold means 14% of free-float market cap trades in a year. The level is achievable but not automatic. About a third of companies that are currently eligible for TOPIX sit close to or below it. The practical check is whether the company can keep traded value above the threshold during the measurement period.
 
 - **Top 97% by cumulative free-float market cap.** This is the size test, but it is not a severe size test. JPX excludes only the smallest 3% after ranking companies by freely tradable market value. For a TOPIX universe of about 1,700 names, that translates into roughly the bottom 50–100 names by float.
 
@@ -119,9 +119,9 @@ The old question was, "what segment should I be in?" The new question is, "what 
 
 JPX has now used the eight-quarterly-step approach twice: once in Phase 1 and again in Phase 2. This is not just an administrative detail. It is a policy choice about how to change an index without forcing one large trading event.
 
-The mechanism does four things:
+The eight-step method does four things:
 
-- **It spreads selling pressure** over 27 months. This reduces the cost that can arise when many passive funds sell at the same time.
+- **It spreads selling pressure** over 27 months. Spreading the sales reduces the cost that can arise when many passive funds sell at the same time.
 - **It gives active investors predictability.** They can estimate when index weights will fall and decide how to trade around those dates.
 - **It gives issuers time to respond.** Companies may use buybacks, share consolidations, or float expansion to try to preserve their position.
 - **It helps JPX show that the rule change is fair and orderly.** JPX visibly avoids the "cliff" structure that drew criticism in segment reform.
