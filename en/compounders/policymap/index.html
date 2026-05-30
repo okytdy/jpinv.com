@@ -189,7 +189,7 @@
 <section class="hero">
   <div class="wrap hero-inner">
     <div class="hero-brand">
-      <a class="hero-home-link" href="https://jpinv.com/en/" aria-label="JII">
+      <a class="hero-home-link" href="/en/compounders/" aria-label="Back one level">
         <span class="mark">J<span class="pipe">|</span>I</span>
         <span class="sub" id="brandsub"></span>
       </a>
@@ -346,9 +346,11 @@ function search(qraw){var q=(qraw||'').trim().toLowerCase(),idx=buildIndex(),R={
   R.subs.sort(function(a,b){return b.r-a.r;});R.cos.sort(function(a,b){return b.r-a.r;});R.terms.sort(function(a,b){return b.r-a.r;});return R;}
 
 var V=document.getElementById('view');
+function setLogoBack(href,label){var a=document.querySelector('.hero-home-link');if(!a)return;a.setAttribute('href',href);a.setAttribute('aria-label',label||'Back one level');}
 function setHero(e,ti,le,cr){document.getElementById('eyebrow').innerHTML=esc(e);document.getElementById('herotitle').innerHTML=ti;document.getElementById('herolede').innerHTML=le;document.getElementById('crumbs').innerHTML=cr||'';}
 
 function renderHome(){
+  setLogoBack("/en/compounders/", 'Back to Compounders');
   setNav('map'); setHero(t('eyebrow'),t('title'),t('lede'),'');
   var cards=(D.categories||[]).map(function(c){
     return '<div class="catcard" data-nav="#/category/'+c.id+'"><div class="cnum">'+(c.num<10?'0':'')+c.num+' · '+c.subcategory_count+' '+esc(t('subthemes'))+'</div>'+
@@ -360,7 +362,7 @@ function renderHome(){
     '<p class="sect-label" style="margin-top:42px">'+esc(t('recent'))+' <a data-nav="#/timeline" class="readmore" style="float:right;font-size:11px">'+esc(t('viewall'))+'</a></p><div class="tl">'+tl+'</div>';
 }
 function renderCategory(id){
-  var c=catById[id]; if(!c)return renderHome(); setNav('map');
+  var c=catById[id]; if(!c)return renderHome(); setLogoBack("/en/compounders/policymap/", 'Back to the policy map'); setNav('map');
   setHero(t('eyebrow'),esc(lang==='ja'?c.name_ja:c.name_en),lang==='ja'?'<span style="color:var(--text-dim);font-family:var(--serif)">'+esc(c.name_en)+'</span>':'','<a data-nav="#/">'+esc(t('navMap'))+'</a> / '+esc(nm(c)));
   var subs=(D.subcategories||[]).filter(function(s){return s.category_id===id;});
   var cards=subs.map(function(s){
@@ -382,7 +384,7 @@ function tickerTable(sid){
   return '<div style="overflow-x:auto"><table class="tk"><thead>'+head+'</thead><tbody>'+rows+'</tbody></table></div>';
 }
 function renderSub(id){
-  var s=subById[id]; if(!s)return renderHome(); var c=catById[s.category_id]||{}; setNav('map');
+  var s=subById[id]; if(!s)return renderHome(); var c=catById[s.category_id]||{}; setLogoBack("/en/compounders/policymap/"+'#/category/'+c.id, 'Back to the policy theme'); setNav('map');
   setHero(esc(lang==='ja'?c.name_ja:c.name_en),esc(nm(s)),'',
     '<a data-nav="#/">'+esc(t('navMap'))+'</a> / <a data-nav="#/category/'+c.id+'">'+esc(nm(c))+'</a> / '+esc(nm(s)));
   var srcs=(s.source_ids||[]).map(function(sid,i){var r=(D.sources||{})[sid];if(!r)return '';
@@ -404,7 +406,7 @@ function renderSub(id){
   V.innerHTML=body;
 }
 function renderTicker(code){
-  var co=coByTk[code]; setNav('map');
+  var co=coByTk[code]; setLogoBack("/en/compounders/policymap/", 'Back to the policy map'); setNav('map');
   if(!co){setHero(t('eyebrow'),esc(code),esc(t('noresults')),'');V.innerHTML='<a class="backlink" data-nav="#/">'+esc(t('back'))+'</a><p>'+esc(t('noresults'))+'</p>';return;}
   setHero(esc(t('eyebrow')),esc(co.ticker)+' · '+esc(co.name_en),'','<a data-nav="#/">'+esc(t('navMap'))+'</a> / '+esc(co.ticker));
   var exps=(expByTk[code]||[]).slice(),byCat={},counts={direct:0,indirect:0,ecosystem:0,headwind:0};
@@ -414,6 +416,7 @@ function renderTicker(code){
   V.innerHTML='<a class="backlink" data-nav="#/">'+esc(t('back'))+'</a><div class="notice">'+esc(t('verifiedco_note'))+'</div><div class="detail"><div><h4 style="font-family:var(--serif);font-weight:400;color:var(--ink-mid);border-bottom:1px solid var(--rule);padding-bottom:8px">'+esc(t('exposures'))+'</h4>'+groups+'</div><div>'+meta+'</div></div>';
 }
 function renderSearch(q){
+  setLogoBack("/en/compounders/policymap/", 'Back to the policy map');
   setNav('map'); setHero(t('eyebrow'),esc(t('resultsfor'))+' “'+esc(q)+'”','','<a data-nav="#/">'+esc(t('navMap'))+'</a> / '+esc(t('resultsfor')));
   var R=search(q),n=R.subs.length+R.cos.length+R.terms.length;
   var html='<p class="mono" style="font-size:11px;color:var(--text-dim);letter-spacing:.06em">'+n+' '+esc(t('nresults'))+'</p>';
@@ -423,7 +426,7 @@ function renderSearch(q){
   if(R.terms.length)html+='<div class="resgroup"><p class="sect-label">'+esc(t('glossary'))+'</p>'+R.terms.slice(0,10).map(function(x){var g=x.obj,first=(g.linked_subcategory_ids||[])[0];return '<div class="resitem" '+(first?'data-nav="#/sub/'+first+'"':'')+'><div><span class="rt">'+esc(g.normalized_term)+'</span><div class="rd">'+esc((g.aliases||[]).slice(0,5).join(' · '))+'</div></div><span class="matchtag">'+esc(t(x.mt))+'</span></div>';}).join('')+'</div>';
   V.innerHTML=html;
 }
-function renderTimeline(){setNav('tl');setHero(t('eyebrow'),esc(t('timeline')),'','<a data-nav="#/">'+esc(t('navMap'))+'</a> / '+esc(t('timeline')));
+function renderTimeline(){setLogoBack("/en/compounders/policymap/", 'Back to the policy map');setNav('tl');setHero(t('eyebrow'),esc(t('timeline')),'','<a data-nav="#/">'+esc(t('navMap'))+'</a> / '+esc(t('timeline')));
   var tl=(D.timeline||[]).map(function(ev){var c=catById[ev.category_id]||{};return '<div class="tlitem"><div class="tldate">'+esc(ev.event_date)+' · '+esc(ev.event_type)+' · '+esc(nm(c))+'</div><h5 data-nav="#/sub/'+ev.subcategory_id+'">'+esc(ev.title)+'</h5><p>'+esc(ev.significance)+'</p></div>';}).join('');
   V.innerHTML='<a class="backlink" data-nav="#/">'+esc(t('back'))+'</a><div class="tl">'+tl+'</div>';}
 
