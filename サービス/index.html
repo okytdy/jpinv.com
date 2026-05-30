@@ -1019,6 +1019,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     .case { padding: 26px 22px; }
     .conf-panel { padding: 26px 22px; }
   }
+  /* Mobile service cards: keep the desktop 3-up layout, but prevent narrow
+     mobile/coarse-pointer viewports from squeezing Japanese copy vertically. */
+  @media (max-width: 900px), (hover: none) and (pointer: coarse) {
+    .cards-3 { grid-template-columns: 1fr; }
+    .scard-links a { white-space: normal; }
+  }
 
   /* Reduced motion */
   @media (prefers-reduced-motion: reduce) {
