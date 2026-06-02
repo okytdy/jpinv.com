@@ -1,14 +1,9 @@
-/* JII Policy Map — milestone-alert signup config.
-   Goal: collect subscribers in MailerLite and send alerts as info@jpinv.com.
-
-   To go live, set formUrl to your MailerLite form's PUBLIC URL:
-     MailerLite > Forms > (create/select your form) > Share > copy the public URL
-     (looks like  https://your-handle.mailerlite.com/xxxxxxxxx ).
-   Paste it below, commit, and push. Until then the Notify button falls back to
-   an email to info@jpinv.com, so nothing is broken in the meantime.
-
-   Keep this file identical in /en/ and the JA copy. */
+/* JII Policy Map - milestone-alert signup config.
+   The "Notify me" button on the Policy Map opens formUrl (a MailerLite hosted
+   signup page that adds subscribers to the "Policy Map milestones" group, with
+   double opt-in). If formUrl is ever blank, the button falls back to emailing
+   mailto. Keep this file identical in /en/ and the JA copy. */
 window.PM_NOTIFY = {
   mailto: "info@jpinv.com",
-  formUrl: ""   // <-- paste MailerLite public form URL here, e.g. "https://jii.mailerlite.com/abc123"
+  formUrl: "https://jii-policy-map.subscribepage.io"
 };
