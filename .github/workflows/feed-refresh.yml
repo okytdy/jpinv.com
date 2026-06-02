@@ -66,7 +66,7 @@ jobs:
         id: diff
         run: |
           set -euo pipefail
-          if [ -n "$(git status --porcelain compounders/feed/data/)" ]; then
+          if [ -n "$(git status --porcelain compounders/feed/data/ tools/llm_ledger.json)" ]; then
             echo "changed=true" >> "$GITHUB_OUTPUT"
             # Best-effort count of newly-added rows in feed.json for the run summary.
             # Counts lines starting with the row id sentinel; tolerates missing files.
@@ -83,7 +83,11 @@ jobs:
           set -euo pipefail
           git config user.name  "jii-feed-bot"
           git config user.email "feed-bot@users.noreply.github.com"
-          git add compounders/feed/data/
+          # Persist the LLM budget ledger so the $9 month-to-date cap in
+          # tools/llm_budget.py accumulates ACROSS runs. Without this the ledger
+          # was never committed back, so every run reloaded the stale (last
+          # month's) copy, reset it to $0, and the cap was never really enforced.
+          git add compounders/feed/data/ tools/llm_ledger.json
           git commit -m "feed: refresh @ ${{ github.run_id }}"
           git push
 
