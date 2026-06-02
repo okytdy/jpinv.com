@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Active Investors in Japan | JII Compounders</title>
+<meta name="description" content="A live view of the foreign and active institutional investors taking meaningful positions in Japanese listed companies — based on EDINET large-shareholding (5%) filings, with a TSE-wide feed of every new 5% report.">
+<meta property="og:title" content="Active Investors in Japan | JII Compounders">
+<meta property="og:description" content="Which serious active investors are moving in Japan right now? Nine investor cards plus a live, TSE-wide feed of every new 5% large-shareholding report, from EDINET.">
+<meta property="og:url" content="https://jpinv.com/en/compounders/active-investors/">
+<meta property="og:image" content="https://jpinv.com/assets/logo-jii-wordmark.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jpinv.com/assets/logo-jii-wordmark.svg">
+<link rel="canonical" href="https://jpinv.com/en/compounders/active-investors/">
+<link rel="alternate" hreflang="en" href="https://jpinv.com/en/compounders/active-investors/">
+<link rel="alternate" hreflang="ja" href="https://jpinv.com/compounders/active-investors/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --ink:#1a2a4a; --ink-mid:#172641; --ink-soft:#304466; --rule:#d6dee8; --rule-soft:#e8edf3;
+    --bg:#ffffff; --bg-mid:#f5f7fa; --bg-soft:#fafbfc; --text:#1f2937; --text-mid:#4a5566;
+    --text-dim:#7a8290; --accent:#b08a4a; --accent-deep:#9a7838; --accent-soft:#f4eee4;
+    --ok:#2f6f4f; --bad:#b91c1c; --warn:#b88a3a;
+    --serif:'Noto Serif JP','Yu Mincho',serif; --sans:'Noto Sans JP','Hiragino Kaku Gothic ProN',sans-serif;
+    --mono:'DM Mono',monospace; --max:1320px; }
+  *,*::before,*::after { box-sizing:border-box; }
+  html,body { margin:0; padding:0; background:var(--bg); color:var(--text); font-family:var(--sans); font-size:14px; line-height:1.6; }
+  a { color:var(--ink-soft); text-decoration:none; }
+  a:hover { color:var(--ink); }
+  .wrap { max-width:var(--max); margin:0 auto; padding:0 28px; }
+  .hero { padding:60px 0 30px; border-bottom:1px solid var(--rule); }
+  .hero-brand { display:flex; align-items:center; gap:14px; margin-bottom:30px; }
+  .hero-home-link { display:inline-flex; align-items:center; gap:14px; color:inherit; text-decoration:none; }
+  .hero-home-link:hover .mark, .hero-home-link:hover .sub { color:var(--ink); }
+  .hero-home-link:focus-visible { outline:2px solid var(--accent); outline-offset:6px; }
+  .hero-brand .mark { font-family:var(--serif); font-size:28px; font-weight:300; color:var(--ink-mid); letter-spacing:0.04em; line-height:1; }
+  .hero-brand .mark .pipe { color:var(--accent); font-weight:200; margin:0 4px; }
+  .hero-brand .sub { font-family:var(--sans); font-size:12.5px; color:var(--ink-soft); letter-spacing:0.04em; line-height:1.4; }
+  .hero-eyebrow { font-family:var(--mono); font-size:11px; letter-spacing:0.32em; color:var(--accent-deep); text-transform:uppercase; margin-bottom:14px; font-weight:500; }
+  .hero h1 { font-family:var(--serif); font-size:clamp(1.7rem,3.6vw,2.5rem); font-weight:300; color:var(--ink-mid); margin:0 0 14px; letter-spacing:0.02em; line-height:1.25; }
+  .hero-tagline { font-family:var(--serif); font-size:16px; font-style:italic; color:var(--accent-deep); margin:0 0 18px; font-weight:300; }
+  .hero p.lede { font-size:15px; color:var(--text); max-width:860px; line-height:1.85; margin:0; }
+  .hero p.lede a { color:var(--accent-deep); border-bottom:1px solid var(--accent); }
+  .crumb { font-family:var(--mono); font-size:11px; letter-spacing:0.14em; text-transform:uppercase; margin-bottom:22px; }
+  .crumb a { color:var(--accent-deep); border-bottom:1px solid var(--accent); padding-bottom:2px; }
+  main { padding:34px 0 10px; }
+  .disclaimer { padding:48px 0 56px; background:var(--bg-soft); border-top:1px solid var(--rule); margin-top:44px; }
+  .d-eyebrow { font-family:var(--mono); font-size:10.5px; letter-spacing:0.22em; color:var(--text-dim); text-transform:uppercase; font-weight:500; }
+  .d-title { font-family:var(--serif); font-size:22px; font-weight:300; color:var(--ink-mid); margin:6px 0 16px; }
+  .disclaimer-body { font-family:var(--sans); font-size:12px; color:var(--text-mid); line-height:1.78; max-width:1100px; }
+  .disclaimer-body p { margin:0 0 12px; } .disclaimer-body b { color:var(--ink-mid); font-weight:500; }
+  .footer { padding:22px 0; border-top:1px solid var(--rule); background:var(--bg); font-size:12px; color:var(--text-dim); display:flex; justify-content:space-between; flex-wrap:wrap; gap:20px; }
+  .footer a { color:var(--ink-soft); border-bottom:1px solid var(--rule); padding-bottom:1px; }
+  .footer-locale-switcher a.current { color:var(--ink-mid); }
+  .skip-link { position:fixed; top:10px; left:10px; z-index:1000; transform:translateY(-150%); padding:10px 14px; background:var(--ink); color:#fff; border-radius:4px; }
+  .skip-link:focus, .skip-link:focus-visible { transform:translateY(0); outline:3px solid var(--accent); outline-offset:3px; }
+  a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
+  @media (max-width:760px) { .wrap { padding:0 16px; } .hero { padding:40px 0 24px; } }
+  @media (prefers-reduced-motion: reduce) { *,*::before,*::after { transition-duration:0.01ms !important; animation-duration:0.01ms !important; } }
+</style>
+<link rel="stylesheet" href="/assets/active-investors.css">
+<script src="/assets/locale-switcher.js" defer></script>
+<script type="application/ld+json">
+{ "@context":"https://schema.org","@type":"WebPage","url":"https://jpinv.com/en/compounders/active-investors/",
+  "name":"Active Investors in Japan | JII Compounders",
+  "description":"A live view of foreign and active institutional investors making meaningful moves in Japanese equities, based on EDINET large-shareholding filings.",
+  "inLanguage":"en" }
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="wrap">
+  <header class="hero">
+    <div class="hero-brand">
+      <a class="hero-home-link" href="/en/compounders/" aria-label="Return to JII Compounders home">
+        <span class="mark">J<span class="pipe">|</span>I</span>
+        <span class="sub"><span lang="en">Japan Investor Interface Co., Ltd.</span><br><span lang="ja">株式会社ジャパン・インベスター・インターフェース</span></span>
+      </a>
+    </div>
+    <div class="crumb"><a href="/en/compounders/">&larr; JII Compounders</a></div>
+    <div class="hero-eyebrow">JII COMPOUNDERS &middot; ACTIVE INVESTORS</div>
+    <h1>Active Investors in Japan</h1>
+    <p class="hero-tagline">Who is actively building or cutting meaningful positions in Japanese equities — right now.</p>
+    <p class="lede">Nine of the most active foreign and institutional investors in the Japanese market, each as a card you can flip to see their latest 5% filings and 1%+ position changes. Below the cards, a live, TSE-wide feed of <em>every</em> new 5% large-shareholding report — from any filer — pulled from the <a href="https://disclosure2.edinet-fsa.go.jp/" target="_blank" rel="noopener">FSA's EDINET</a> system and summarized in plain English.</p>
+  </header>
+</div>
+
+<main id="main-content" tabindex="-1">
+  <div class="wrap">
+    <div class="ai-root"
+         data-ai-lang="en"
+         data-ai-mode="full"
+         data-ai-header="off"
+         data-ai-base="/compounders/active-investors/data"
+         data-ai-fullhref="/en/compounders/active-investors/"></div>
+  </div>
+
+  <section class="disclaimer">
+    <div class="wrap">
+      <div class="d-eyebrow">Disclaimer &amp; method</div>
+      <h2 class="d-title">How to read this</h2>
+      <div class="disclaimer-body">
+        <p><b>Source.</b> Holding data comes from large-shareholding reports (大量保有報告書) and change reports (変更報告書) filed to the FSA's EDINET system. The nine investor cards are a curated, editable list; the feed below them is the full, TSE-wide set of new 5% reports from any filer. Original disclosures are filed in Japanese; linked viewer pages are Japanese-only.</p>
+        <p><b>What &ldquo;qualifying&rdquo; means.</b> Cards highlight new 5% reports, increases of one percentage point or more, and decreases of one percentage point or more (including crossings back below 5%). Smaller amendments are kept for audit but not surfaced. &ldquo;Group total&rdquo; holdings (a lead filer plus co-holders) are noted where the per-entity figure differs.</p>
+        <p><b>Summaries are automated</b> and intentionally neutral — they restate what each filing discloses and do not infer intent. Always refer to the original Japanese filing for authoritative information. <b>This is not investment advice.</b></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="wrap">
+  <footer class="footer">
+    <span>&copy; <span id="yr"></span> Japan Investor Interface Co., Ltd.</span>
+    <span class="footer-locale-switcher">Language: <a href="/en/compounders/active-investors/" class="current" aria-current="page" lang="en">EN</a> &middot; <a href="/compounders/active-investors/" data-locale-route lang="ja">JP</a></span>
+    <span><a href="/en/compounders/">JII Compounders</a> &middot; <a href="/en/compounders/feed/">Capital Allocation Feed</a></span>
+  </footer>
+</div>
+
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+<script src="/assets/active-investors.js" defer></script>
+<script src="/assets/compounders-nav.js" defer></script>
+</body>
+</html>

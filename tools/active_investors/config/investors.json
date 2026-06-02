@@ -1,0 +1,449 @@
+{
+  "_README": "EDITABLE SOURCE OF TRUTH for the Active Investors in Japan feature. Edit this file and re-run `python tools/active_investors/refresh.py --build-only` (or the full refresh) to regenerate the public data under compounders/active-investors/data/. To change the 9 cards on the homepage, set `homepage: true` on exactly the investors you want and give them a `curated_rank` (1 = first card). To add an investor, copy a block and fill in `aliases` (the exact EDINET filer-name strings + EDINET codes EDINET uses — used by the ingester to attribute filings). `ranking_mode` controls card ordering: 'curated' uses curated_rank; 'activity' ranks by qualifying-filing count/recency in the window.",
+  "schema_version": 1,
+  "ranking_mode": "curated",
+  "homepage_size": 9,
+  "qualifying_rules": {
+    "new_5pct": "Initial large-shareholding report (大量保有報告書); crosses the 5% reporting threshold.",
+    "increase": "Change report (変更報告書) with holding ratio up >= 1.00 percentage point.",
+    "decrease": "Change report (変更報告書) with holding ratio down >= 1.00 percentage point.",
+    "min_abs_pp_for_change": 1.0,
+    "exclude_below_pp": "Sub-1pp amendments are kept in the audit set (filings.json with move_type 'other') but hidden from the public default view unless the filing is a new 5% report or a cessation (drop below 5%)."
+  },
+  "investors": [
+    {
+      "id": "hikari_tsushin",
+      "display_name": "Hikari Tsushin",
+      "display_name_ja": "光通信",
+      "category": "strategic",
+      "country": "Japan",
+      "curated_rank": 1,
+      "active": true,
+      "homepage": true,
+      "website": "https://www.hikari.co.jp/",
+      "blurb_en": "One of Japan's most prolific large-shareholding filers. Takes long-term 5%+ stakes across hundreds of mid- and small-cap names, often in construction, infrastructure and industrials.",
+      "blurb_ja": "日本で最も大量保有報告書の提出が多い主体の一つ。建設・インフラ・素材を中心に、数百の中小型株へ長期の5%超保有を積み上げる。",
+      "parent_group_id": "hikari_tsushin",
+      "aliases": [
+        {
+          "name": "光通信株式会社",
+          "edinet_code": "E35239"
+        },
+        {
+          "name": "Hikari Tsushin, Inc."
+        },
+        {
+          "name": "株式会社UH Partners 2"
+        },
+        {
+          "name": "株式会社UH Partners 3"
+        }
+      ],
+      "notes": "Slow accumulator: files many sub-1pp amendments. Group-level 変更報告書 frequently cross +/-1pp; per-entity views understate activity."
+    },
+    {
+      "id": "miri_capital",
+      "display_name": "Miri Capital Management",
+      "display_name_ja": "ミリ・キャピタル・マネジメント",
+      "category": "activist",
+      "country": "United States",
+      "curated_rank": 9,
+      "active": true,
+      "homepage": true,
+      "website": "https://www.miricapital.com/",
+      "blurb_en": "US value-and-engagement manager that builds concentrated 5%+ positions in under-followed Japanese small caps and adds steadily through change reports.",
+      "blurb_ja": "米国のバリュー／エンゲージメント運用会社。注目度の低い日本の小型株に集中的な5%超ポジションを構築し、変更報告書を通じて段階的に買い増す。",
+      "parent_group_id": "miri_capital",
+      "aliases": [
+        {
+          "name": "MIRI Capital Management LLC",
+          "edinet_code": "E36529"
+        },
+        {
+          "name": "ＭＩＲＩ Ｃａｐｉｔａｌ Ｍａｎａｇｅｍｅｎｔ ＬＬＣ",
+          "edinet_code": "E36529"
+        },
+        {
+          "name": "ミリ・キャピタル・マネジメント"
+        }
+      ],
+      "notes": "EDINET code E36529. Not indexed by the EDINET-DB cross-reference; the live FSA EDINET ingester attributes by filer name + code. Recent targets: Shuppin (3179), Ichiyoshi Securities (8624), Inui Steamship (9308)."
+    },
+    {
+      "id": "effissimo",
+      "display_name": "Effissimo Capital Management",
+      "display_name_ja": "エフィッシモ・キャピタル・マネージメント",
+      "category": "activist",
+      "country": "Singapore",
+      "curated_rank": 7,
+      "active": true,
+      "homepage": true,
+      "website": null,
+      "blurb_en": "Singapore-based activist, among the largest and most influential in Japan. Builds very large, concentrated stakes and engages on governance and capital allocation.",
+      "blurb_ja": "シンガポール拠点のアクティビスト。日本で最大級かつ影響力が大きい。極めて大きく集中したポジションを構築し、ガバナンスと資本配分に関与する。",
+      "parent_group_id": "effissimo",
+      "aliases": [
+        {
+          "name": "エフィッシモ　キャピタル　マネージメント　ピーティーイー　エルティーディー（Ｅｆｆｉｓｓｉｍｏ　Ｃａｐｉｔａｌ　Ｍａｎａｇｅｍｅｎｔ　Ｐｔｅ　Ｌｔｄ）",
+          "edinet_code": "E11852"
+        },
+        {
+          "name": "Effissimo Capital Management Pte Ltd",
+          "edinet_code": "E11852"
+        }
+      ],
+      "notes": "Marquee positions incl. Kawasaki Kisen (9107), Recoh (7752), Soft99 (4464), Teijin (3401)."
+    },
+    {
+      "id": "capital_group",
+      "display_name": "Capital Group",
+      "display_name_ja": "キャピタル・グループ",
+      "category": "long_only",
+      "country": "United States",
+      "curated_rank": 2,
+      "active": true,
+      "homepage": true,
+      "website": "https://www.capitalgroup.com/",
+      "blurb_en": "One of the world's largest active managers. Files in Japan mainly through Capital Research and Management Company; scales positions in large- and mid-caps over multiple change reports.",
+      "blurb_ja": "世界最大級のアクティブ運用会社。日本ではキャピタル・リサーチ・アンド・マネージメント・カンパニーを通じて提出し、大型・中型株のポジションを複数の変更報告書で増減させる。",
+      "parent_group_id": "capital_group",
+      "aliases": [
+        {
+          "name": "キャピタル・リサーチ・アンド・マネージメント・カンパニー",
+          "edinet_code": "E06267"
+        },
+        {
+          "name": "Capital Research and Management Company",
+          "edinet_code": "E06267"
+        },
+        {
+          "name": "Capital International, Inc."
+        },
+        {
+          "name": "The Capital Group Companies, Inc."
+        },
+        {
+          "name": "キャピタル・インターナショナル株式会社"
+        }
+      ],
+      "notes": "Bulk-files many issuers on a single submission date (e.g. quarter-end sweeps)."
+    },
+    {
+      "id": "dalton",
+      "display_name": "Dalton Investments",
+      "display_name_ja": "ダルトン・インベストメンツ",
+      "category": "activist",
+      "country": "United States",
+      "curated_rank": 11,
+      "active": true,
+      "homepage": false,
+      "website": "https://www.daltoninvestments.com/",
+      "blurb_en": "US manager with a long Japan engagement record. Files through both its LLC and Inc. entities; accumulates mid- and small-caps steadily, often above 5%.",
+      "blurb_ja": "日本での関与実績が長い米国運用会社。LLCとInc.の両主体で提出し、中小型株を5%超まで段階的に積み増すことが多い。",
+      "parent_group_id": "dalton",
+      "aliases": [
+        {
+          "name": "ダルトン・インベストメンツ・エルエルシー",
+          "edinet_code": "E08827"
+        },
+        {
+          "name": "ダルトン　インベストメンツ　インク",
+          "edinet_code": "E39237"
+        },
+        {
+          "name": "Dalton Investments LLC",
+          "edinet_code": "E08827"
+        },
+        {
+          "name": "Dalton Investments Inc.",
+          "edinet_code": "E39237"
+        }
+      ],
+      "notes": "Two EDINET entities (LLC E08827 + Inc E39237) -> normalize to one card via parent_group_id 'dalton'."
+    },
+    {
+      "id": "strategic_capital",
+      "display_name": "Strategic Capital",
+      "display_name_ja": "ストラテジックキャピタル",
+      "category": "activist",
+      "country": "Japan",
+      "curated_rank": 5,
+      "active": true,
+      "homepage": true,
+      "website": "https://stracap.jp/",
+      "blurb_en": "Domestic activist that builds large stakes in undervalued industrials and pushes for capital-efficiency and governance change. Accumulates relentlessly through change reports.",
+      "blurb_ja": "割安な機械・素材株に大きなポジションを構築し、資本効率とガバナンス改革を求める国内アクティビスト。変更報告書を通じて継続的に買い増す。",
+      "parent_group_id": "strategic_capital",
+      "aliases": [
+        {
+          "name": "株式会社ストラテジックキャピタル",
+          "edinet_code": "E27325"
+        },
+        {
+          "name": "Strategic Capital, Inc."
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "fidelity",
+      "display_name": "Fidelity",
+      "display_name_ja": "フィデリティ",
+      "category": "long_only",
+      "country": "United States",
+      "curated_rank": 12,
+      "active": true,
+      "homepage": false,
+      "website": "https://www.fidelity.com/",
+      "blurb_en": "Global active manager. Files in Japan mainly through Fidelity (FMR / FIL) investment-trust arms; scales mid-cap positions across change reports.",
+      "blurb_ja": "グローバルなアクティブ運用会社。日本ではフィデリティ（FMR／FIL）の投信主体を通じて提出し、中型株ポジションを変更報告書で増減させる。",
+      "parent_group_id": "fidelity",
+      "aliases": [
+        {
+          "name": "フィデリティ投信株式会社",
+          "edinet_code": "E12481"
+        },
+        {
+          "name": "FMR LLC"
+        },
+        {
+          "name": "FMR Co., Inc."
+        },
+        {
+          "name": "FIL Limited"
+        },
+        {
+          "name": "エフ・エム・アール・エルエルシー"
+        }
+      ],
+      "notes": "Multiple Fidelity entities file; the投信 arm (E12481) dominates Japanese large-holding reports."
+    },
+    {
+      "id": "baillie_gifford",
+      "display_name": "Baillie Gifford",
+      "display_name_ja": "ベイリー・ギフォード",
+      "category": "long_only",
+      "country": "United Kingdom",
+      "curated_rank": 13,
+      "active": true,
+      "homepage": false,
+      "website": "https://www.bailliegifford.com/",
+      "blurb_en": "Edinburgh growth investor. Holds long-duration positions in Japanese quality-growth names; both adds and trims through change reports.",
+      "blurb_ja": "エディンバラ拠点のグロース投資家。日本の質の高い成長企業に長期保有のポジションを持ち、変更報告書で買い増し・売却の双方を行う。",
+      "parent_group_id": "baillie_gifford",
+      "aliases": [
+        {
+          "name": "ベイリー・ギフォード・アンド・カンパニー",
+          "edinet_code": "E09111"
+        },
+        {
+          "name": "Baillie Gifford & Co",
+          "edinet_code": "E09111"
+        },
+        {
+          "name": "Baillie Gifford Overseas Limited"
+        },
+        {
+          "name": "ベイリー・ギフォード・オーバーシーズ・リミテッド"
+        }
+      ],
+      "notes": "Group total (lead filer + co-holders) is the meaningful figure; per-entity sliver can sit far below 5%."
+    },
+    {
+      "id": "city_index_eleventh",
+      "display_name": "City Index Eleventh",
+      "display_name_ja": "シティインデックスイレブンス",
+      "category": "activist",
+      "country": "Japan",
+      "curated_rank": 3,
+      "active": true,
+      "homepage": true,
+      "website": null,
+      "blurb_en": "Murakami-affiliated vehicle. Builds and exits large stakes in domestic mid-caps quickly, frequently around tender offers, buybacks and capital events.",
+      "blurb_ja": "村上系のビークル。国内中型株で大きなポジションを素早く構築・解消し、TOBや自己株買い、資本イベントの周辺で動くことが多い。",
+      "parent_group_id": "city_index_elevenths",
+      "aliases": [
+        {
+          "name": "株式会社シティインデックスイレブンス",
+          "edinet_code": "E35393"
+        },
+        {
+          "name": "南青山不動産株式会社"
+        },
+        {
+          "name": "野村絢"
+        },
+        {
+          "name": "村上世彰"
+        }
+      ],
+      "notes": "Murakami family group; co-holders file under several names."
+    },
+    {
+      "id": "blackrock",
+      "display_name": "BlackRock",
+      "display_name_ja": "ブラックロック",
+      "category": "institutional",
+      "country": "United States",
+      "curated_rank": 14,
+      "active": true,
+      "homepage": false,
+      "website": "https://www.blackrock.com/",
+      "blurb_en": "World's largest asset manager. Files Japanese large-holding reports mainly via BlackRock Japan; positions are index- and mandate-driven rather than activist.",
+      "blurb_ja": "世界最大の資産運用会社。日本の大量保有報告書は主にブラックロック・ジャパン経由。ポジションはアクティビストというよりインデックス・委託運用主導。",
+      "parent_group_id": "blackrock",
+      "aliases": [
+        {
+          "name": "ブラックロック・ジャパン株式会社",
+          "edinet_code": "E09096"
+        },
+        {
+          "name": "BlackRock Japan Co., Ltd.",
+          "edinet_code": "E09096"
+        },
+        {
+          "name": "BlackRock, Inc."
+        }
+      ],
+      "notes": "Alternate / bench. Toggle homepage:true to surface on the grid."
+    },
+    {
+      "id": "oasis",
+      "display_name": "Oasis Management",
+      "display_name_ja": "オアシス・マネジメント",
+      "category": "activist",
+      "country": "Hong Kong",
+      "curated_rank": 4,
+      "active": true,
+      "homepage": true,
+      "website": "https://www.oasiscm.com/",
+      "blurb_en": "Hong Kong activist active in Japanese situations. Not surfaced by the EDINET-DB cross-reference; the live FSA EDINET ingester attributes by filer name.",
+      "blurb_ja": "香港拠点のアクティビスト。EDINET-DBの相互参照には出ないため、ライブのFSA EDINET取り込みが提出者名で名寄せする。",
+      "parent_group_id": "oasis",
+      "aliases": [
+        {
+          "name": "Oasis Management Company Ltd.",
+          "edinet_code": "E31883"
+        },
+        {
+          "name": "オアシス・マネジメント・カンパニー・リミテッド"
+        },
+        {
+          "name": "Oasis Management Company Ltd."
+        },
+        {
+          "name": "Oasis Investments II Master Fund Ltd."
+        }
+      ],
+      "notes": "Coverage pending: activate and let the live ingester populate."
+    },
+    {
+      "id": "norges",
+      "display_name": "Norges Bank",
+      "display_name_ja": "ノルゲス・バンク",
+      "category": "institutional",
+      "country": "Norway",
+      "curated_rank": 15,
+      "active": false,
+      "homepage": false,
+      "website": "https://www.nbim.no/",
+      "blurb_en": "Norway's sovereign wealth manager (NBIM). Files large-holding reports across Japanese blue-chips; index-and-mandate driven.",
+      "blurb_ja": "ノルウェーの政府系ファンド運用主体（NBIM）。日本の大型株で大量保有報告書を提出。インデックス・委託運用主導。",
+      "parent_group_id": "norges",
+      "aliases": [
+        {
+          "name": "ノルゲス・バンク"
+        },
+        {
+          "name": "Norges Bank"
+        }
+      ],
+      "notes": "Coverage pending: activate to surface."
+    },
+    {
+      "id": "nippon_active_value",
+      "display_name": "Nippon Active Value Fund",
+      "display_name_ja": "ニッポン・アクティブ・バリュー・ファンド",
+      "category": "activist",
+      "country": "United Kingdom",
+      "curated_rank": 16,
+      "active": false,
+      "homepage": false,
+      "website": "https://www.navf.co.uk/",
+      "blurb_en": "London-listed closed-end fund (manager: Rising Sun Management) targeting cash-rich Japanese small-caps for value and engagement.",
+      "blurb_ja": "ロンドン上場のクローズドエンド型ファンド（運用：ライジング・サン・マネージメント）。現金リッチな日本の小型株をバリューとエンゲージメントの観点で狙う。",
+      "parent_group_id": "nippon_active_value",
+      "aliases": [
+        {
+          "name": "ニッポン・アクティブ・バリュー・ファンド・ピーエルシー"
+        },
+        {
+          "name": "Nippon Active Value Fund plc"
+        },
+        {
+          "name": "ライジング・サン・マネージメント・リミテッド"
+        },
+        {
+          "name": "Rising Sun Management Ltd"
+        }
+      ],
+      "notes": "Coverage pending: activate to surface."
+    },
+    {
+      "id": "avi",
+      "display_name": "Asset Value Investors (AVI)",
+      "display_name_ja": "アセット・バリュー・インベスターズ",
+      "category": "activist",
+      "country": "United Kingdom",
+      "curated_rank": 6,
+      "active": true,
+      "homepage": true,
+      "website": "https://www.assetvalueinvestors.com/",
+      "blurb_en": "London value-and-engagement manager that runs the AVI Japan Opportunity Trust. Builds 5%+ stakes in cash-rich, under-valued Japanese small- and mid-caps and pushes for better capital allocation.",
+      "blurb_ja": "ロンドンのバリュー／エンゲージメント運用会社で、AVIジャパン・オポチュニティ・トラストを運用。割安で現金リッチな日本の中小型株に5%超のポジションを構築し、資本配分の改善を求める。",
+      "parent_group_id": "avi",
+      "aliases": [
+        {
+          "name": "アセット・バリュー・インベスターズ・リミテッド",
+          "edinet_code": "E34595"
+        },
+        {
+          "name": "Asset Value Investors Limited",
+          "edinet_code": "E34595"
+        },
+        {
+          "name": "AVI Japan Opportunity Trust"
+        }
+      ],
+      "notes": "AJOT manager; UK activist."
+    },
+    {
+      "id": "kaname",
+      "display_name": "Kaname Capital",
+      "display_name_ja": "カナメ・キャピタル",
+      "category": "activist",
+      "country": "United States",
+      "curated_rank": 8,
+      "active": true,
+      "homepage": true,
+      "website": "https://www.kanamecapital.com/",
+      "blurb_en": "US (Boston) value manager focused on Japanese small- and mid-caps. Takes concentrated 5%+ positions and engages management on capital efficiency and governance.",
+      "blurb_ja": "米国ボストンのバリュー運用会社。日本の中小型株に注力し、集中的な5%超ポジションを取り、資本効率とガバナンスについて経営陣に働きかける。",
+      "parent_group_id": "kaname",
+      "aliases": [
+        {
+          "name": "カナメ・キャピタル・エルピー（Ｋａｎａｍｅ　Ｃａｐｉｔａｌ，Ｌ．Ｐ．）",
+          "edinet_code": "E37907"
+        },
+        {
+          "name": "Kaname Capital, L.P.",
+          "edinet_code": "E37907"
+        },
+        {
+          "name": "Kaname Capital LP"
+        }
+      ],
+      "notes": "US small/mid-cap Japan activist."
+    }
+  ]
+}

@@ -331,6 +331,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
 </style>
 <script src="/assets/locale-switcher.js" defer></script>
+<link rel="stylesheet" href="/assets/active-investors.css">
 </head>
 <body>
 <a class="skip-link" href="#main-content">本文へ移動</a>
@@ -775,6 +776,17 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
       </div>
     </section>
 
+    <!-- Active Investors in Japan — 9 flip cards + TSE-wide new-5% feed.
+         Full tool: /compounders/active-investors/ · component: /assets/active-investors.{css,js} -->
+    <section class="active-investors-band" aria-label="日本で動く投資家">
+      <div class="wrap">
+        <div class="ai-root"
+             data-ai-lang="ja" data-ai-mode="embed"
+             data-ai-base="/compounders/active-investors/data"
+             data-ai-fullhref="/compounders/active-investors/"></div>
+      </div>
+    </section>
+
     <!-- Capital Allocation Signals widget. Pulls /compounders/feed/data/feed.json,
          shows the 10 most-recent rows, supports prefix-ticker search. Full archive at /compounders/feed/. -->
     <section class="cap-feed" aria-label="資本政策開示">
@@ -1133,5 +1145,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 })();
 </script>
 
+<script src="/assets/active-investors.js" defer></script>
+<script src="/assets/compounders-nav.js" defer></script>
 </body>
 </html>

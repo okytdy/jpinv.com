@@ -1,0 +1,77 @@
+name: active-investors-refresh
+
+# Active Investors in Japan (JII Compounders).
+# Daily: pull recent EDINET large-shareholding filings, refresh the 9 curated
+# investor cards AND the TSE-wide "new 5%" feed, commit the JSON under
+# compounders/active-investors/data/. Docs: tools/active_investors/README.md.
+
+on:
+  schedule:
+    - cron: '0 22 * * *'   # 22:00 UTC daily (~07:00 JST) — after the JST filing day
+  workflow_dispatch:
+    inputs:
+      days:
+        description: 'Live look-back window in days (cards).'
+        required: false
+        default: '7'
+      new5_days:
+        description: 'Look-back window in days (new-5% feed).'
+        required: false
+        default: '5'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: active-investors-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    name: Refresh active-investor cards + new-5% feed
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 1
+
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies (Claude tier; core is stdlib-only)
+        timeout-minutes: 3
+        run: pip install --disable-pip-version-check -r tools/active_investors/requirements.txt || true
+
+      - name: Refresh the 9 investor cards (live EDINET)
+        timeout-minutes: 12
+        env:
+          EDINET_API_KEY: ${{ secrets.EDINET_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          PYTHONUNBUFFERED: '1'
+        run: python tools/active_investors/refresh.py --days "${{ github.event.inputs.days || '7' }}"
+
+      - name: Refresh the TSE-wide new-5% feed
+        timeout-minutes: 8
+        env:
+          EDINET_API_KEY: ${{ secrets.EDINET_API_KEY }}
+          PYTHONUNBUFFERED: '1'
+        run: python tools/active_investors/new5_feed.py --days "${{ github.event.inputs.new5_days || '5' }}" --max-downloads 150
+
+      - name: Commit and push refreshed data
+        run: |
+          set -euo pipefail
+          if [ -n "$(git status --porcelain compounders/active-investors/data/ tools/active_investors/.llm_ledger.json)" ]; then
+            git config user.name  "jii-active-investors-bot"
+            git config user.email "active-investors-bot@users.noreply.github.com"
+            git add compounders/active-investors/data/ tools/active_investors/.llm_ledger.json
+            git commit -m "active-investors: refresh @ ${{ github.run_id }}"
+            git push
+          else
+            echo "No data changes."
+          fi
