@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>日本ポリシーマップ | JII Compounders</title>
+<title>政策地図 | JII Compounders</title>
 <meta name="description" content="日本の公共政策を、投資家が読みやすい形に整理したマップです。10の政策領域、検証済みの上場企業エクスポージャー、政府資金の規模、一次ソース、日英の銘柄・語句検索をまとめています。">
-<meta property="og:title" content="日本ポリシーマップ | JII Compounders">
+<meta property="og:title" content="政策地図 | JII Compounders">
 <meta property="og:description" content="日本の公共政策を、投資家が読みやすい形に整理したマップです。10の政策領域、検証済みの上場企業エクスポージャー、政府資金の規模、一次ソース、日英の銘柄・語句検索をまとめています。">
 <meta property="og:url" content="https://jpinv.com/compounders/policymap/">
 <meta property="og:image" content="https://jpinv.com/assets/logo-jii-wordmark.svg">
@@ -221,7 +221,7 @@
         <a href="https://jpinv.com/compounders/policymap/" class="current" data-locale-route lang="ja">JP</a>
       </span>
     </div>
-    <div class="hero-eyebrow" id="eyebrow">日本ポリシーマップ</div>
+    <div class="hero-eyebrow" id="eyebrow">政策地図</div>
     <h1 id="herotitle">日本の<em>政策</em>を、投資の視点で読む。</h1>
     <p class="lede" id="herolede">日本の公共政策を10の領域に分け、関連する上場企業エクスポージャーまでたどれるようにしました。何が変わったのか、資金はどこから出るのか、どの企業に追い風・逆風が及ぶのか、次に確認すべき材料は何か。企業コードはすべて日本の企業開示データベースで確認しています。</p>
     <div class="crumbs" id="crumbs"></div>
@@ -413,7 +413,7 @@ var T={
    timeline:"Policy timeline", primary:"primary",
    disclaimer:"The Japan Policy Map is an educational research tool published by Japan Investor Interface Co., Ltd. It maps public policy to listed-company exposure. It is not investment advice, a solicitation, or a recommendation. Company tickers are verified against the EDINET database, an independent service by Cabocia Inc. that is not affiliated with Japan's Financial Services Agency. Always consult the primary sources and a licensed adviser before acting.",
    bilnote:"Commentary is written in plain English and Japanese for global and Japanese investors; use the language toggle above."},
- ja:{brand:"株式会社ジャパン・インベスター・インターフェース", eyebrow:"日本ポリシーマップ",
+ ja:{brand:"株式会社ジャパン・インベスター・インターフェース", eyebrow:"政策地図",
    title:"日本の<em>政策</em>を、投資の視点で読む。",
    lede:"日本の政策を10領域に整理し、上場企業へのつながりまで追えるようにしました。制度が何を変えるのか、資金はどこへ流れるのか、どの企業に追い風・逆風が及ぶのか。投資家が次に確認すべき論点を、一次情報に基づいて日本語で読みやすくまとめています。企業コードはすべて企業開示データベースで確認済みです。",
    bigph:"銘柄コード（例：6857）、省庁名、法令名、または「GX2040」「スタンド・オフ・ミサイル」などで検索…",
@@ -439,7 +439,7 @@ var T={
    matchTicker:"銘柄", matchAlias:"別名", matchKeyword:"キーワード", matchFuzzy:"関連",
    verifiedco_note:"企業コードはEDINET（企業開示データベース）で検証。特記のない限り東証上場。",
    timeline:"政策年表", primary:"一次情報",
-   disclaimer:"日本ポリシーマップは、株式会社ジャパン・インベスター・インターフェースが公開する教育・リサーチ目的の資料です。公的政策と上場企業との接点を整理したものであり、投資助言、勧誘、推奨を目的とするものではありません。企業コードはEDINETデータベース（Cabocia社が運営する独立サービス。金融庁とは無関係）で確認しています。投資判断を行う際は、必ず一次情報と有資格の専門家をご確認ください。",
+   disclaimer:"政策地図は、株式会社ジャパン・インベスター・インターフェースが教育・調査のために公開している資料です。国内の政策が上場企業の事業や業界にどのように関わり得るかを整理したもので、特定の有価証券の売買を勧めたり、投資判断を助言したりするものではありません。企業コードは、Cabocia社が提供するEDINETデータベース検索サービス（金融庁とは無関係の独立サービス）で確認しています。実際の投資判断にあたっては、必ず一次情報を確認し、必要に応じて有資格の専門家にご相談ください。",
    bilnote:"解説は英語と日本語の両方で用意しています。表示言語は上部の切替から変更できます。"}
 };
 function t(k){return (T[lang]&&T[lang][k]!=null)?T[lang][k]:T.en[k];}
@@ -606,7 +606,7 @@ function msCard(m){
 function notifyCta(){
   var cfg=window.PM_NOTIFY||{};
   var subject=encodeURIComponent('Subscribe: Japan Policy Map milestone alerts');
-  var bodytext=encodeURIComponent(lang==='ja'?'日本ポリシーマップの政策マイルストーン通知の配信を希望します。このまま送信してください。':'Please subscribe this email address to Japan Policy Map milestone alerts. Just hit send.');
+  var bodytext=encodeURIComponent(lang==='ja'?'政策地図の政策マイルストーン通知の配信を希望します。このまま送信してください。':'Please subscribe this email address to Japan Policy Map milestone alerts. Just hit send.');
   var href=cfg.formUrl?cfg.formUrl:('mailto:'+(cfg.mailto||'info@jpinv.com')+'?subject='+subject+'&body='+bodytext);
   var attrs=cfg.formUrl?' target="_blank" rel="noopener"':'';
   return '<div class="msnotify"><div class="nt"><b>'+esc(t('msCta'))+'</b><span>'+esc(t('msCtaSub'))+'</span></div>'+
@@ -628,7 +628,7 @@ function renderMilestonesPage(){
   V.innerHTML='<a class="backlink" data-nav="#/">'+esc(t('back'))+'</a>'+notifyCta()+msBlock({})+
     '<p style="font-family:var(--mono);font-size:10px;color:var(--text-dim);letter-spacing:.04em;margin-top:18px">'+esc(t('msUpdated'))+' '+esc((D.meta||{}).milestones_last_scan||(D.meta||{}).build_date||'')+' · '+(D.milestones||[]).length+' '+esc(t('nresults'))+'</p>';
 }
-function setTitle(){try{var bn=(lang==='ja')?'日本ポリシーマップ':'Japan Policy Map';var h=document.getElementById('herotitle');var ht=h?(h.textContent||'').trim():'';ht=ht.replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&#x27;/g,"'");document.title=ht?(ht+' · '+bn+' | JII'):(bn+' | JII Compounders');}catch(e){}}
+function setTitle(){try{var bn=(lang==='ja')?'政策地図':'Japan Policy Map';var h=document.getElementById('herotitle');var ht=h?(h.textContent||'').trim():'';ht=ht.replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&#x27;/g,"'");document.title=ht?(ht+' · '+bn+' | JII'):(bn+' | JII Compounders');}catch(e){}}
 function route(){var h=location.hash||'#/';window.scrollTo(0,0);var m;
   if((m=h.match(/^#\/category\/([\w-]+)/)))renderCategory(m[1]);
   else if((m=h.match(/^#\/sub\/([\w-]+)/)))renderSub(m[1]);
