@@ -1,0 +1,19 @@
+{
+ "_doc": "Configured primary-source feeds for the weekly Policy Map milestone scan. Japanese-first: scan the Japanese (jp) page, author the milestone in Japanese, then translate to English. Map each new item to one domain + one subtheme id from policymap_data.json. Prefer the most authoritative primary source (ministry/agency/regulator/exchange) over secondary coverage.",
+ "scan_window_days": 10,
+ "feeds": [
+  {"body_en": "METI", "body_ja": "経済産業省", "domains": ["energy","semicon","digital","food"], "news_jp": "https://www.meti.go.jp/main/60sec/index.html", "news_en": "https://www.meti.go.jp/english/press/index.html"},
+  {"body_en": "ANRE (METI Energy)", "body_ja": "資源エネルギー庁", "domains": ["energy"], "news_jp": "https://www.enecho.meti.go.jp/news/", "news_en": "https://www.enecho.meti.go.jp/en/"},
+  {"body_en": "FSA", "body_ja": "金融庁", "domains": ["markets"], "news_jp": "https://www.fsa.go.jp/news/index.html", "news_en": "https://www.fsa.go.jp/en/news/index.html"},
+  {"body_en": "Bank of Japan", "body_ja": "日本銀行", "domains": ["markets"], "news_jp": "https://www.boj.or.jp/whatsnew/index.htm", "news_en": "https://www.boj.or.jp/en/whatsnew/index.htm"},
+  {"body_en": "JPX / TSE", "body_ja": "日本取引所グループ", "domains": ["markets"], "news_jp": "https://www.jpx.co.jp/news/index.html", "news_en": "https://www.jpx.co.jp/english/news/index.html"},
+  {"body_en": "MLIT", "body_ja": "国土交通省", "domains": ["infra"], "news_jp": "https://www.mlit.go.jp/report/press/index.html", "news_en": "https://www.mlit.go.jp/en/index.html"},
+  {"body_en": "MHLW", "body_ja": "厚生労働省", "domains": ["health","labor"], "news_jp": "https://www.mhlw.go.jp/stf/houdou/index.html", "news_en": "https://www.mhlw.go.jp/english/"},
+  {"body_en": "MAFF", "body_ja": "農林水産省", "domains": ["food"], "news_jp": "https://www.maff.go.jp/j/press/index.html", "news_en": "https://www.maff.go.jp/e/"},
+  {"body_en": "Ministry of Defense", "body_ja": "防衛省", "domains": ["defense"], "news_jp": "https://www.mod.go.jp/j/press/news/index.html", "news_en": "https://www.mod.go.jp/en/"},
+  {"body_en": "Cabinet Office", "body_ja": "内閣府", "domains": ["markets","defense","labor"], "news_jp": "https://www.cao.go.jp/press/new_wnew.html", "news_en": "https://www.cao.go.jp/index-e.html"},
+  {"body_en": "Digital Agency", "body_ja": "デジタル庁", "domains": ["digital"], "news_jp": "https://www.digital.go.jp/news", "news_en": "https://www.digital.go.jp/en"},
+  {"body_en": "Children and Families Agency", "body_ja": "こども家庭庁", "domains": ["labor"], "news_jp": "https://www.cfa.go.jp/news", "news_en": "https://www.cfa.go.jp/en/"},
+  {"body_en": "Japan Tourism Agency", "body_ja": "観光庁", "domains": ["consumer"], "news_jp": "https://www.mlit.go.jp/kankocho/news.html", "news_en": "https://www.mlit.go.jp/kankocho/en/"}
+ ]
+}
