@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Japan Policy Map | JII Compounders</title>
-<meta name="description" content="An investor map of Japanese public policy: ten domains and the verified listed-company exposures beneath them, with the scale of government money, primary sources, and bilingual ticker/topic search.">
-<meta property="og:title" content="Japan Policy Map | JII Compounders">
-<meta property="og:description" content="An investor map of Japanese public policy: ten domains and the verified listed-company exposures beneath them, with the scale of government money, primary sources, and bilingual ticker/topic search.">
-<meta property="og:url" content="https://jpinv.com/en/compounders/policymap/">
+<title>政策地図 | JII Compounders</title>
+<meta name="description" content="日本の公共政策を、投資家が読みやすい形に整理したマップです。10の政策領域、検証済みの上場企業エクスポージャー、政府資金の規模、一次ソース、日英の銘柄・語句検索をまとめています。">
+<meta property="og:title" content="政策地図 | JII Compounders">
+<meta property="og:description" content="日本の公共政策を、投資家が読みやすい形に整理したマップです。10の政策領域、検証済みの上場企業エクスポージャー、政府資金の規模、一次ソース、日英の銘柄・語句検索をまとめています。">
+<meta property="og:url" content="https://jpinv.com/compounders/policymap/">
 <meta property="og:image" content="https://jpinv.com/assets/logo-jii-wordmark.svg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="canonical" href="https://jpinv.com/en/compounders/policymap/">
+<link rel="canonical" href="https://jpinv.com/compounders/policymap/">
 <link rel="alternate" hreflang="en" href="https://jpinv.com/en/compounders/policymap/">
 <link rel="alternate" hreflang="ja" href="https://jpinv.com/compounders/policymap/">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -33,7 +33,7 @@
   }
   *,*::before,*::after{box-sizing:border-box;}
   html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:var(--sans);}
-  body{font-size:16px;line-height:1.75;}
+  body{font-size:15px;line-height:1.7;}
   a{color:var(--ink-soft);text-decoration:none;} a:hover{color:var(--ink);}
   .wrap{max-width:var(--max);margin:0 auto;padding:0 28px;}
   .mono{font-family:var(--mono);}
@@ -71,14 +71,14 @@
   .langtoggle button.on{background:var(--accent-soft);color:var(--accent-deep);}
   /* main */
   main{min-height:60vh;padding:34px 0 60px;}
-  .sect-label{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-deep);margin:0 0 16px;padding-bottom:10px;border-bottom:1px solid var(--rule);}
+  .sect-label{font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent-deep);margin:0 0 16px;padding-bottom:10px;border-bottom:1px solid var(--rule);}
   /* category grid */
   .catgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
   @media(max-width:820px){.catgrid{grid-template-columns:1fr;}}
-  .catcard{border:1px solid var(--rule);background:var(--bg);padding:24px 24px 22px;cursor:pointer;transition:.15s;position:relative;display:flex;flex-direction:column;gap:12px;}
+  .catcard{border:1px solid var(--rule);background:var(--bg);padding:22px 22px 18px;cursor:pointer;transition:.15s;position:relative;display:flex;flex-direction:column;gap:10px;}
   .catcard:hover{border-color:var(--ink-soft);box-shadow:0 6px 22px rgba(15,31,58,.07);transform:translateY(-2px);}
-  .catcard .cnum{font-family:var(--mono);font-size:12px;color:var(--accent-deep);letter-spacing:.1em;}
-  .catcard h3{font-family:var(--serif);font-weight:400;font-size:1.34rem;color:var(--ink-mid);margin:0;line-height:1.32;}
+  .catcard .cnum{font-family:var(--mono);font-size:11px;color:var(--accent-deep);letter-spacing:.12em;}
+  .catcard h3{font-family:var(--serif);font-weight:400;font-size:1.22rem;color:var(--ink-mid);margin:0;line-height:1.3;}
   .chips{display:flex;gap:6px;flex-wrap:wrap;}
   .chip{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);background:var(--bg-mid);border:1px solid var(--rule-soft);padding:3px 7px;}
   /* subcat cards */
@@ -87,9 +87,9 @@
   @media(max-width:640px){.subgrid{grid-template-columns:1fr;}}
   .subcard{border:1px solid var(--rule);background:var(--bg);padding:17px 17px 14px;cursor:pointer;transition:.15s;display:flex;flex-direction:column;gap:9px;min-height:150px;}
   .subcard:hover{border-color:var(--ink-soft);box-shadow:0 5px 18px rgba(15,31,58,.06);}
-  .subcard h4{font-family:var(--serif);font-weight:400;font-size:1.08rem;color:var(--ink-mid);margin:0;line-height:1.35;}
-  .subcard .teaser{font-size:14px;color:var(--text-mid);line-height:1.65;flex:1;}
-  .subcard .srow{display:flex;justify-content:space-between;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--text-dim);}
+  .subcard h4{font-family:var(--serif);font-weight:400;font-size:1.02rem;color:var(--ink-mid);margin:0;line-height:1.32;}
+  .subcard .teaser{font-size:12.5px;color:var(--text-mid);line-height:1.6;flex:1;}
+  .subcard .srow{display:flex;justify-content:space-between;align-items:center;gap:8px;font-family:var(--mono);font-size:10px;letter-spacing:.04em;color:var(--text-dim);}
   /* score bar */
   .bar{height:5px;background:var(--rule-soft);border-radius:3px;overflow:hidden;flex:1;min-width:46px;}
   .bar>span{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-deep));}
@@ -135,7 +135,7 @@
   .tlitem::before{content:'';position:absolute;left:-26px;top:4px;width:9px;height:9px;border-radius:50%;background:var(--accent);border:2px solid var(--bg);}
   .tldate{font-family:var(--mono);font-size:10.5px;color:var(--accent-deep);letter-spacing:.06em;}
   .tlitem h5{font-family:var(--serif);font-weight:400;margin:3px 0 3px;color:var(--ink-mid);font-size:1rem;cursor:pointer;}
-  .tlitem p{margin:0;font-size:13.5px;color:var(--text-mid);}
+  .tlitem p{margin:0;font-size:12.5px;color:var(--text-mid);}
   /* search results */
   .resgroup{margin:0 0 28px;}
   .resitem{border:1px solid var(--rule);padding:13px 16px;margin:9px 0;cursor:pointer;transition:.12s;display:flex;justify-content:space-between;gap:14px;align-items:flex-start;}
@@ -150,7 +150,7 @@
   .notice{background:var(--accent-soft);border:1px solid var(--accent);padding:10px 14px;font-size:12px;color:var(--ink-soft);margin:14px 0;line-height:1.6;}
   .grouphd{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mid);margin:22px 0 10px;border-bottom:1px solid var(--rule);padding-bottom:6px;}
   .pill-h{display:inline-block;font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border:1px solid var(--rule);color:var(--ink-soft);margin:2px;}
-    footer{border-top:1px solid var(--rule);background:var(--bg-soft);padding:26px 0;font-size:12px;color:var(--text-mid);}
+  footer{border-top:1px solid var(--rule);background:var(--bg-soft);padding:26px 0;font-size:12px;color:var(--text-mid);}
   .foot-row{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;font-family:var(--mono);letter-spacing:.04em;}
   .disc{font-size:11px;color:var(--text-dim);line-height:1.7;margin-top:14px;font-style:italic;}
   .skip-link{position:fixed;top:10px;left:10px;z-index:1000;transform:translateY(-150%);padding:10px 14px;background:var(--ink);color:#fff;border-radius:4px;}
@@ -203,30 +203,27 @@
   .msnotify .nt{flex:1 1 380px;}
   .msnotify .nt b{font-family:var(--serif);font-weight:400;font-size:1.04rem;color:var(--ink-mid);display:block;margin-bottom:3px;}
   .msnotify .nt span{font-size:11.5px;color:var(--text-mid);line-height:1.55;}
-  .msnotify .nbtn{flex:0 0 auto;border:1px solid var(--ink-mid);background:var(--ink-mid);color:#fff;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:13px 22px;cursor:pointer;white-space:nowrap;}
-  .msnotify .nbtn:hover{background:var(--ink);color:#fff;}
-  .msnotify form.nform{flex:0 0 auto;display:flex;align-items:stretch;}
-  .msnotify .ninput{border:1px solid var(--ink-mid);border-right:0;padding:11px 13px;font-family:var(--mono);font-size:12px;color:var(--ink-mid);min-width:210px;outline:none;background:var(--bg);}
-  .msnotify .ninput:focus{outline:2px solid var(--accent);outline-offset:-2px;}
+  .msnotify a.nbtn{flex:0 0 auto;background:var(--ink-mid);color:#fff;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:13px 22px;cursor:pointer;white-space:nowrap;}
+  .msnotify a.nbtn:hover{background:var(--ink);color:#fff;}
 </style>
 </head>
 <body>
-<a class="skip-link" href="#main">Skip to main content</a>
+<a class="skip-link" href="#main">本文へスキップ</a>
 <section class="hero">
   <div class="wrap hero-inner">
     <div class="hero-brand">
-      <a class="hero-home-link" href="/en/compounders/" aria-label="Back one level">
+      <a class="hero-home-link" href="/compounders/" aria-label="ひとつ上の階層へ戻る">
         <span class="mark">J<span class="pipe">|</span>I</span>
         <span class="sub" id="brandsub"></span>
       </a>
       <span class="hero-lang">
-        <a href="https://jpinv.com/en/compounders/policymap/" class="current" lang="en">EN</a>
-        <a href="https://jpinv.com/compounders/policymap/" class="" data-locale-route lang="ja">JP</a>
+        <a href="https://jpinv.com/en/compounders/policymap/" class="" lang="en">EN</a>
+        <a href="https://jpinv.com/compounders/policymap/" class="current" data-locale-route lang="ja">JP</a>
       </span>
     </div>
-    <div class="hero-eyebrow" id="eyebrow">Japan Policy Map</div>
-    <h1 id="herotitle">Follow Japan’s <em>policy tailwinds</em>.</h1>
-    <p class="lede" id="herolede">Use the Policy Map to see where government budgets, subsidies, and national priorities are pointing. It gives investors a top-down view of which stocks may be exposed, what changed, who pays, who benefits, when it could move prices, and what to watch next.</p>
+    <div class="hero-eyebrow" id="eyebrow">政策地図</div>
+    <h1 id="herotitle">日本の<em>政策</em>を、投資の視点で読む。</h1>
+    <p class="lede" id="herolede">日本の公共政策を10の領域に分け、関連する上場企業エクスポージャーまでたどれるようにしました。何が変わったのか、資金はどこから出るのか、どの企業に追い風・逆風が及ぶのか、次に確認すべき材料は何か。企業コードはすべて日本の企業開示データベースで確認しています。</p>
     <div class="crumbs" id="crumbs"></div>
   </div>
 </section>
@@ -234,8 +231,8 @@
   <div class="wrap toolbar-inner">
     <form class="search-box" id="searchform" role="search">
       <span class="si">⌕</span>
-      <input id="searchinput" type="text" autocomplete="off" placeholder="" aria-label="Search">
-      <button type="submit" id="searchbtn">Search</button>
+      <input id="searchinput" type="text" autocomplete="off" placeholder="" aria-label="検索">
+      <button type="submit" id="searchbtn">検索</button>
     </form>
     <nav class="tnav" id="tnav"></nav>
     <div class="langtoggle" id="langtoggle">
@@ -247,124 +244,124 @@
 <!-- PM_STATIC_FALLBACK: crawlable mirror of the JS-rendered map. Real browsers replace #view via JS; this block serves no-JS crawlers, search engines, and LLM retrieval. -->
 <noscript>
 <div class="wrap" style="padding:24px 0">
-<h1>Follow Japan’s <em>policy tailwinds</em>.</h1>
-<p>Use the Policy Map to see where government budgets, subsidies, and national priorities are pointing. It gives investors a top-down view of which stocks may be exposed, what changed, who pays, who benefits, when it could move prices, and what to watch next.</p>
-<p>Start with a domain, or search a ticker, ministry, law, or phrase.</p>
-<h2>The ten policy domains</h2>
+<h1>日本の<em>政策</em>を、投資の視点で読む。</h1>
+<p>日本の公共政策を10の領域に分け、関連する上場企業エクスポージャーまでたどれるようにしました。何が変わったのか、資金はどこから出るのか、どの企業に追い風・逆風が及ぶのか、次に確認すべき材料は何か。企業コードはすべて日本の企業開示データベースで確認しています。</p>
+<p>まず政策領域から入ることも、銘柄コード・省庁名・法令名・キーワードで検索することもできます。</p>
+<h2>10の政策領域</h2>
 <section>
-<h3><a href="#/category/energy">01 &middot; Energy Transition &amp; Resource Security</a></h3>
-<p>Japan&#x27;s energy policy is now about practical choices, not just climate promises. The government wants more renewable power, a meaningful return for nuclear power, stronger grids, and new fuels such as hydrogen and ammonia. It is also using GX transition bonds and carbon pricing to push companies to invest. The human story is simple: Japan needs cleaner power, but it also needs power that is reliable and affordable for factories, data centers, and households. For investors, the key is to separate areas with real money behind them, such as grid upgrades and fuel support, from areas that still depend on permits, local approval, or slow project development.</p>
-<p><strong>Sub-themes:</strong></p><ul>
-<li><a href="#/sub/energy-01">Nuclear Restarts, Life Extension &amp; Nuclear Supply Chain</a></li>
-<li><a href="#/sub/energy-02">Grid Expansion, Interconnection &amp; Power System Reform</a></li>
-<li><a href="#/sub/energy-03">Renewables: Offshore Wind, Solar, Geothermal &amp; Biomass</a></li>
-<li><a href="#/sub/energy-05">Hydrogen, Ammonia &amp; Low-Carbon Fuels</a></li>
-<li><a href="#/sub/energy-07">CCS, CCUS &amp; Carbon Management Infrastructure</a></li>
-<li><a href="#/sub/energy-08">Carbon Pricing, GX-ETS &amp; Transition Finance</a></li>
+<h3><a href="#/category/energy">01 &middot; エネルギー転換・資源安全保障</a></h3>
+<p>脱炭素は、もはや掛け声ではなく、調達・補助・料金制度に落とし込まれた実務テーマです。2025年2月に閣議決定された第7次エネルギー基本計画とGX2040ビジョンは、2040年度に再エネ40〜50%、原子力約20%という電源構成を掲げ、約20兆円のGX移行債や2026年度以降の本格的なカーボンプライシングと結びついています。投資家が見るべきなのは、誰に発注が入り、誰のコストが上がり、送電網や価格差支援がどの企業の需要を押し上げるかです。半導体工場やデータセンターの電力需要も明記され、エネルギー政策は産業政策そのものになりつつあります。</p>
+<p><strong>サブテーマ:</strong></p><ul>
+<li><a href="#/sub/energy-01">原発再稼働・運転延長・原子力サプライチェーン</a></li>
+<li><a href="#/sub/energy-02">送電網増強・地域間連系・電力システム改革</a></li>
+<li><a href="#/sub/energy-03">再生可能エネルギー（洋上風力・太陽光・地熱・バイオマス）</a></li>
+<li><a href="#/sub/energy-05">水素・アンモニア・低炭素燃料</a></li>
+<li><a href="#/sub/energy-07">CCS・CCUS・炭素管理インフラ</a></li>
+<li><a href="#/sub/energy-08">カーボンプライシング・GX-ETS・トランジションファイナンス</a></li>
 </ul>
 </section>
 <section>
-<h3><a href="#/category/defense">02 &middot; Defense, Economic Security &amp; Strategic Autonomy</a></h3>
-<p>Defense is one of the clearest spending stories in Japan. The government has set aside ¥43tn over five years to strengthen capabilities such as missiles, air defense, unmanned systems, space, and cyber. This is not a vague policy wish list; it is a procurement plan that can turn into contracts for a small group of domestic suppliers. Economic security sits beside it, with support for critical goods like chips, batteries, minerals, and cloud infrastructure. The opportunity is visible, but it is also sensitive: orders can shift with budgets, politics, export rules, and the pace at which ministries actually sign contracts.</p>
-<p><strong>Sub-themes:</strong></p><ul>
-<li><a href="#/sub/defense-01">Stand-Off Missiles &amp; Counterstrike Capability</a></li>
-<li><a href="#/sub/defense-02">Integrated Air &amp; Missile Defense</a></li>
-<li><a href="#/sub/defense-03">Unmanned Systems, Drones &amp; Counter-UAS</a></li>
-<li><a href="#/sub/defense-08">Defense Production Base, Munitions &amp; Sustainment</a></li>
-<li><a href="#/sub/defense-11">Economic Security Supply Chains &amp; Specified Critical Products</a></li>
-<li><a href="#/sub/defense-12">Sovereign Cloud, AI Compute &amp; Secure Digital Infrastructure</a></li>
+<h3><a href="#/category/defense">02 &middot; 防衛・経済安全保障・戦略的自律</a></h3>
+<p>防衛力整備計画は、2023〜2027年度の5年間で43兆円規模の支出を伴う、すでに予算化された調達テーマです。2026年度予算では防衛費がGDP比2%に近づき、スタンド・オフ・ミサイル、統合防空、無人機、宇宙、サイバーなどの能力強化が、国内の生産基盤を支える複数年度契約につながります。同時に、経済安全保障推進法は半導体、電池、重要鉱物、クラウドなどの特定重要物資を支援し、輸出管理や対内投資審査も強めています。この領域は本マップの中でも支出の見え方が最も明確ですが、対象企業は限られ、発注時期や輸出ルールの変更に大きく左右されます。</p>
+<p><strong>サブテーマ:</strong></p><ul>
+<li><a href="#/sub/defense-01">スタンド・オフ・ミサイル／反撃能力</a></li>
+<li><a href="#/sub/defense-02">統合防空ミサイル防衛</a></li>
+<li><a href="#/sub/defense-03">無人機・ドローン・対UAS</a></li>
+<li><a href="#/sub/defense-08">防衛生産基盤・弾薬・継戦能力</a></li>
+<li><a href="#/sub/defense-11">経済安全保障サプライチェーン・特定重要物資</a></li>
+<li><a href="#/sub/defense-12">ソブリンクラウド・AI計算基盤・セキュアデジタル基盤</a></li>
 </ul>
 </section>
 <section>
-<h3><a href="#/category/semicon">03 &middot; Semiconductors, Advanced Manufacturing &amp; Industrial Policy</a></h3>
-<p>Semiconductors are Japan&#x27;s biggest industrial-policy push. The government is backing new chipmaking capacity, advanced packaging, power chips, materials, tools, batteries, and factory automation. Rapidus is the headline project, but the broader story is Japan trying to protect and rebuild the parts of the supply chain where it still matters globally. This matters because subsidies and tax incentives can quickly become equipment orders, construction work, and demand for chemicals and components. The risk is also clear: chip cycles are volatile, China exposure is real, and export controls can change who companies are allowed to sell to.</p>
-<p><strong>Sub-themes:</strong></p><ul>
-<li><a href="#/sub/semicon-01">Advanced Logic Semiconductors &amp; Foundry Revival</a></li>
-<li><a href="#/sub/semicon-02">Legacy, Power, Analog &amp; MCU Semiconductors</a></li>
-<li><a href="#/sub/semicon-03">Semiconductor Materials, Chemicals &amp; Advanced Components</a></li>
-<li><a href="#/sub/semicon-04">Semiconductor Manufacturing Equipment &amp; Precision Tools</a></li>
-<li><a href="#/sub/semicon-05">Advanced Packaging, Chiplets &amp; Heterogeneous Integration</a></li>
-<li><a href="#/sub/semicon-06">AI Compute, Data Centers &amp; Semiconductor Demand Pull</a></li>
-<li><a href="#/sub/semicon-09">Factory Automation, Robotics &amp; Labor-Saving Manufacturing</a></li>
-<li><a href="#/sub/semicon-10">Strategic Domestic Investment, Reshoring &amp; Plant Subsidies</a></li>
+<h3><a href="#/category/semicon">03 &middot; 半導体・先端製造・産業政策</a></h3>
+<p>半導体は、日本の産業政策の中心にあります。Rapidusへの国家支援は累計で約2.9兆円規模に向かい、半導体・AI向けには2030年までに10兆円規模の支援方針が示されています。対象は先端ロジックにとどまらず、パワー半導体、アナログ、材料、製造装置、先端パッケージへ広がります。日本の強みは、材料・化学・装置といった世界のサプライチェーンの要所に残っています。補助金、税制、調達が設備投資の受注に直結しやすい一方、中国向け輸出管理の影響を最も受けやすい分野でもあります。</p>
+<p><strong>サブテーマ:</strong></p><ul>
+<li><a href="#/sub/semicon-01">先端ロジック半導体・ファウンドリ復活</a></li>
+<li><a href="#/sub/semicon-02">レガシー・パワー・アナログ・MCU半導体</a></li>
+<li><a href="#/sub/semicon-03">半導体材料・化学品・先端部品</a></li>
+<li><a href="#/sub/semicon-04">半導体製造装置・精密機械</a></li>
+<li><a href="#/sub/semicon-05">先端パッケージング・チップレット・ヘテロジニアス集積</a></li>
+<li><a href="#/sub/semicon-06">AI計算・データセンター・半導体需要創出</a></li>
+<li><a href="#/sub/semicon-09">ファクトリーオートメーション・ロボット・省人化製造</a></li>
+<li><a href="#/sub/semicon-10">戦略的国内投資・国内回帰・工場補助</a></li>
 </ul>
 </section>
 <section>
-<h3><a href="#/category/digital">04 &middot; Digital Infrastructure, AI &amp; Data Economy</a></h3>
-<p>Japan is trying to modernize how the state works while also building more of the digital infrastructure behind AI. That means government cloud, digital ID, online public services, cybersecurity, data centers, and domestic AI computing power. Some of this becomes direct public procurement for IT vendors and cloud providers. Some of it shows up more indirectly as demand for telecom networks, power, cooling, payments, and security tools. The promise is a more efficient public sector and a stronger digital base for business. The catch is that privacy rules, platform choices, and slow government system changes can decide who really benefits.</p>
-<p><strong>Sub-themes:</strong></p><ul>
-<li><a href="#/sub/digital-01">AI Compute, GPU Cloud &amp; Sovereign AI Infrastructure</a></li>
-<li><a href="#/sub/digital-02">Data Centers, Green Data Centers &amp; Watt-Bit Infrastructure</a></li>
-<li><a href="#/sub/digital-03">Government Cloud, Public-Sector IT Modernization &amp; GovTech</a></li>
-<li><a href="#/sub/digital-11">Digital Payments, Fintech Infrastructure &amp; Cashless Economy</a></li>
+<h3><a href="#/category/digital">04 &middot; デジタル基盤・AI・データ経済</a></h3>
+<p>日本は、行政のデジタル化とAI・計算基盤の整備を同時に進めています。デジタル庁はガバメントクラウド、マイナンバー／マイナポータル、行政ダッシュボード、生成AI活用を担い、経済産業省は経済安全保障の観点から国内クラウドやAI計算基盤への支援を認定しています。2025年のAI法とAI事業者ガイドラインは、利用と規律の枠組みを整えるものです。投資への伝わり方は、公共調達、システム移行、データセンターと電力需要、サイバーセキュリティ、キャッシュレス・フィンテックの更新需要に表れます。価値を誰が取り込むかは、プライバシー規制とプラットフォーム規制にも左右されます。</p>
+<p><strong>サブテーマ:</strong></p><ul>
+<li><a href="#/sub/digital-01">AI計算・GPUクラウド・ソブリンAI基盤</a></li>
+<li><a href="#/sub/digital-02">データセンター・グリーンDC・ワットビット連携</a></li>
+<li><a href="#/sub/digital-03">ガバメントクラウド・行政IT近代化・GovTech</a></li>
+<li><a href="#/sub/digital-11">デジタル決済・フィンテック基盤・キャッシュレス</a></li>
 </ul>
 </section>
 <section>
-<h3><a href="#/category/markets">05 &middot; Capital Markets, Corporate Governance &amp; Household Wealth Shift</a></h3>
-<p>This domain is about changing how money moves through Japan. The new NISA gives households a stronger reason to invest for the long term, while the Tokyo Stock Exchange and regulators are pressing companies to use capital better, improve governance, reduce cross-shareholdings, and explain low valuations. Bank of Japan normalization adds another layer by changing interest-rate assumptions for banks, insurers, real estate, and highly leveraged companies. Unlike defense or semiconductors, this is not mainly a subsidy story. It is about incentives, disclosure, and market pressure. The winners are likely to be companies that respond with better returns, cleaner balance sheets, and clearer capital allocation.</p>
-<p><strong>Sub-themes:</strong></p><ul>
-<li><a href="#/sub/markets-01">New NISA &amp; Household Savings-to-Investment Shift</a></li>
-<li><a href="#/sub/markets-02">Asset Management Nation &amp; Domestic Asset-Management Reform</a></li>
-<li><a href="#/sub/markets-05">TSE Cost-of-Capital, PBR &amp; Capital Efficiency Reform</a></li>
-<li><a href="#/sub/markets-06">Corporate Governance Code, Board Reform &amp; Stewardship</a></li>
-<li><a href="#/sub/markets-07">Shareholder Returns, Buybacks &amp; Balance-Sheet Optimization</a></li>
-<li><a href="#/sub/markets-08">Cross-Shareholding Reduction &amp; Parent-Subsidiary Governance</a></li>
-<li><a href="#/sub/markets-10">Monetary Policy Normalization &amp; Yield-Curve Repricing</a></li>
+<h3><a href="#/category/markets">05 &middot; 資本市場・コーポレートガバナンス・家計の資産シフト</a></h3>
+<p>この領域は、補助金よりも再評価のメカニズムを見る分野です。2024年に始まった新NISAは個人の非課税投資を恒久化し、投資信託への大きな資金流入を生みました。東証の資本コスト・株価を意識した経営の要請、金融庁の資産運用立国、ガバナンス改革は、企業にROE向上、自社株買い、政策保有株の縮減を促します。日銀の金融政策正常化は、銀行・保険の収益力だけでなく、あらゆる資産の資本コストを変えます。ここで重要なのは、政策が直接お金を配るのではなく、資本配分が変わる確率を高めることです。</p>
+<p><strong>サブテーマ:</strong></p><ul>
+<li><a href="#/sub/markets-01">新NISA・貯蓄から投資へ</a></li>
+<li><a href="#/sub/markets-02">資産運用立国・国内アセットマネジメント改革</a></li>
+<li><a href="#/sub/markets-05">東証 資本コスト・PBR・資本効率改革</a></li>
+<li><a href="#/sub/markets-06">コーポレートガバナンス・コード／取締役会改革・スチュワードシップ</a></li>
+<li><a href="#/sub/markets-07">株主還元・自社株買い・バランスシート最適化</a></li>
+<li><a href="#/sub/markets-08">政策保有株式の縮減・親子上場ガバナンス</a></li>
+<li><a href="#/sub/markets-10">金融政策正常化・金利曲線の再評価</a></li>
 </ul>
 </section>
 <section>
-<h3><a href="#/category/labor">06 &middot; Labor, Demographics &amp; Productivity</a></h3>
-<p>Japan does not have enough workers, and policy is now built around that reality. Higher wages, minimum-wage increases, reskilling, childcare support, foreign-worker channels, and subsidies for labor-saving investment all point in the same direction: fewer people need to produce more value. Overtime limits have also exposed pressure points in construction, trucking, healthcare, and other essential services. For investors, this creates both pain and opportunity. Labor-heavy businesses face higher costs, but companies that help with automation, staffing, HR software, childcare, eldercare, logistics efficiency, or productivity improvement can see steady demand.</p>
-<p><strong>Sub-themes:</strong></p><ul>
-<li><a href="#/sub/labor-01">Structural Wage Growth, Minimum Wage &amp; Price Pass-Through</a></li>
-<li><a href="#/sub/labor-02">SME Productivity, Labor-Saving Investment &amp; Automation Subsidies</a></li>
-<li><a href="#/sub/labor-05">Part-Time Work, Social Insurance Reform &amp; the “Annual Income Barrier”</a></li>
-<li><a href="#/sub/labor-07">Women’s Labor Participation, Childcare &amp; Work-Family Support</a></li>
-<li><a href="#/sub/labor-08">Universal / Flexible Childcare &amp; “Kodomo Dare Demo Tsuen”</a></li>
-<li><a href="#/sub/labor-11">Work-Style Reform, Overtime Caps &amp; 2024 Problem Sectors</a></li>
-<li><a href="#/sub/labor-12">Logistics, Transport Labor Shortages &amp; Last-Mile Productivity</a></li>
+<h3><a href="#/category/labor">06 &middot; 労働・人口動態・生産性</a></h3>
+<p>労働力の縮小は、労働政策を産業政策に変えています。構造的な賃上げ、最低賃金の引き上げ、省力化投資補助、リスキリング、パートの「年収の壁」見直し、外国人材の受け入れ、こども未来戦略は、いずれも少ない人員でより多くを生み、家計所得を底上げするための政策です。2024年4月に建設・運送・医療へ時間外労働の上限規制が適用され、いわゆる「2024年問題」も表面化しました。投資への伝わり方は、人手不足を解く省人化需要と、人件費上昇を価格転嫁できる企業かどうかの二つに分かれます。</p>
+<p><strong>サブテーマ:</strong></p><ul>
+<li><a href="#/sub/labor-01">構造的賃上げ・最低賃金・価格転嫁</a></li>
+<li><a href="#/sub/labor-02">中小企業の生産性・省力化投資・自動化補助</a></li>
+<li><a href="#/sub/labor-05">パート労働・社会保険改革・年収の壁</a></li>
+<li><a href="#/sub/labor-07">女性の労働参加・子育て・仕事と家庭の両立</a></li>
+<li><a href="#/sub/labor-08">こども誰でも通園制度（柔軟な保育）</a></li>
+<li><a href="#/sub/labor-11">働き方改革・時間外上限・2024年問題業種</a></li>
+<li><a href="#/sub/labor-12">物流・運輸の人手不足・ラストワンマイル生産性</a></li>
 </ul>
 </section>
 <section>
-<h3><a href="#/category/health">07 &middot; Healthcare, Pharma &amp; Aging Society</a></h3>
-<p>Healthcare in Japan is shaped less by free-market pricing and more by public reimbursement rules. The government decides the fees paid for medical services and many drug prices, so every revision can help or hurt hospitals, pharmacies, pharma companies, and medtech suppliers. Aging creates steady demand, but it does not guarantee pricing power. At the same time, Japan is pushing healthcare DX, electronic prescriptions, shared data platforms, home care, and faster access to innovative medicines. The practical takeaway is that volume is strong, but margins depend on policy. The more durable opportunities sit in productivity, health IT, care support, and genuinely useful innovation.</p>
-<p><strong>Sub-themes:</strong></p><ul>
-<li><a href="#/sub/health-01">Medical Fee Revision &amp; Provider Reimbursement</a></li>
-<li><a href="#/sub/health-02">Drug Pricing, Reimbursement &amp; Pharma Margin Pressure</a></li>
-<li><a href="#/sub/health-07">Healthcare DX, Electronic Medical Records &amp; Nationwide Data Platform</a></li>
+<h3><a href="#/category/health">07 &middot; 医療・製薬・高齢社会</a></h3>
+<p>日本の医療は、公定価格で動く市場です。診療報酬と薬価は定期的に改定され、病院、薬局、製薬、医療機器メーカーの収益を大きく左右します。2026年度改定も、医療従事者の賃上げやイノベーションの評価と、財政抑制の圧力との間で決まります。そこに、全国医療情報プラットフォーム、電子カルテ、電子処方箋を含む医療DXと、在宅・地域包括ケアへの移行が重なります。高齢化は需要量を支えますが、償還価格は政治が決めるため、投資家にとっては数量成長と価格リスクを同時に見る領域です。</p>
+<p><strong>サブテーマ:</strong></p><ul>
+<li><a href="#/sub/health-01">診療報酬改定・医療機関の収入</a></li>
+<li><a href="#/sub/health-02">薬価・償還・医薬品マージン圧力</a></li>
+<li><a href="#/sub/health-07">医療DX・電子カルテ・全国医療情報プラットフォーム</a></li>
 </ul>
 </section>
 <section>
-<h3><a href="#/category/infra">08 &middot; Infrastructure, Real Estate, Logistics &amp; Regional Revitalization</a></h3>
-<p>Infrastructure is a steady, everyday policy theme in Japan because the country must keep repairing, upgrading, and protecting what it already has. Earthquakes, floods, old bridges, tunnels, water systems, and a shortage of construction workers all keep public works on the agenda. At the same time, logistics needs to become more efficient, cities continue to redevelop, airports and ports support tourism and trade, and regional policy is trying to bring more data centers and connectivity outside the biggest cities. For investors, this is a mix of public budgets, redevelopment projects, private finance, and automation demand driven by a simple fact: Japan has a lot to maintain and not enough people to do it the old way.</p>
-<p><strong>Sub-themes:</strong></p><ul>
-<li><a href="#/sub/infra-01">National Resilience, Disaster Prevention &amp; Climate Adaptation Infrastructure</a></li>
-<li><a href="#/sub/infra-02">Aging Infrastructure Maintenance, Bridges, Tunnels &amp; Roads</a></li>
-<li><a href="#/sub/infra-03">i-Construction 2.0, Construction Automation &amp; Infrastructure DX</a></li>
-<li><a href="#/sub/infra-06">Logistics 2024 Problem, Trucking Reform &amp; Freight Productivity</a></li>
+<h3><a href="#/category/infra">08 &middot; インフラ・不動産・物流・地方創生</a></h3>
+<p>インフラは、日本で最も息の長い公共投資テーマです。災害リスク、老朽化した橋・トンネル・上下水道、人手不足が、国土強靱化や維持更新の支出を支えています。橋梁・トンネルの5年ごとの法定点検、建設現場の自動化を進めるi-Construction 2.0は、建設会社、測量・検査、建機、デジタル施工への需要を生みます。さらに都市再開発、物流の2024年問題、港湾・空港、PPP/PFI、地方へのデータセンター・通信投資が重なります。景気刺激策というより、修繕と更新を避けられない長期需要として捉えるべき分野です。</p>
+<p><strong>サブテーマ:</strong></p><ul>
+<li><a href="#/sub/infra-01">国土強靱化・防災・気候適応インフラ</a></li>
+<li><a href="#/sub/infra-02">老朽インフラ維持管理（橋梁・トンネル・道路）</a></li>
+<li><a href="#/sub/infra-03">i-Construction 2.0・建設自動化・インフラDX</a></li>
+<li><a href="#/sub/infra-06">物流2024年問題・トラック改革・貨物生産性</a></li>
 </ul>
 </section>
 <section>
-<h3><a href="#/category/consumer">09 &middot; Consumer, Tourism &amp; Household Policy</a></h3>
-<p>Consumer policy has two sides. One side is support for households when prices rise, through fuel and energy relief, child allowances, tuition help, or other measures that protect spending power. The other side is growth, especially tourism. Japan wants more visitors, more regional travel, more spending per trip, and less crowding in the same famous places. Cashless payments, digital merchants, entertainment, and Cool Japan content are also part of the picture. For investors, this domain is about following where household and visitor spending actually lands: stores, restaurants, hotels, railways, airports, payment networks, leisure, and local experiences.</p>
-<p><strong>Sub-themes:</strong></p><ul>
-<li><a href="#/sub/consumer-03">Child Allowance, Birth Support &amp; Family Income Transfers</a></li>
-<li><a href="#/sub/consumer-07">Inbound Tourism: Strategic Visitor Growth &amp; Consumption Capture</a></li>
-<li><a href="#/sub/consumer-11">Cashless Payments, Merchant Digitization &amp; Consumption Data</a></li>
+<h3><a href="#/category/consumer">09 &middot; 消費・観光・家計政策</a></h3>
+<p>消費政策は、家計の一時的な下支えと、観光を中心とする成長投資の間で動きます。物価高対策、電気・ガス・燃料補助、児童手当、教育費支援は、可処分所得を通じて小売やサービス需要に影響します。一方、観光は明確な成長産業です。2025年の訪日客は過去最高の4,270万人に達し、2030年には6,000万人・15兆円を目標に、量だけでなく地方分散や高付加価値化が問われます。投資家は、短期の補助で支えられる消費と、インバウンド・地方観光・免税・決済・宿泊に流れる構造的需要を分けて見る必要があります。</p>
+<p><strong>サブテーマ:</strong></p><ul>
+<li><a href="#/sub/consumer-03">児童手当・出産支援・家族向け所得移転</a></li>
+<li><a href="#/sub/consumer-07">インバウンド観光・戦略的訪日客拡大・消費取り込み</a></li>
+<li><a href="#/sub/consumer-11">キャッシュレス決済・加盟店DX・消費データ</a></li>
 </ul>
 </section>
 <section>
-<h3><a href="#/category/food">10 &middot; Food, Agriculture &amp; Circular Economy</a></h3>
-<p>Food policy is becoming a security issue as well as a farming issue. Japan wants a more reliable food supply, stronger exports, less dependence on imported inputs, and farms that can cope with aging workers. That brings support for smart agriculture, farm machinery, fertilizer security, food-processing automation, and higher-value food brands. Sustainability is another layer, with goals for organic farming, lower pesticide risk, lower fertilizer use, and more recycling. For investors, the story is not only about farmers. It reaches machinery makers, input suppliers, food companies, packaging firms, logistics providers, and recycling businesses that help Japan waste less and produce more efficiently.</p>
-<p><strong>Sub-themes:</strong></p><ul>
-<li><a href="#/sub/food-01">Food Security, Self-Sufficiency &amp; Supply Resilience</a></li>
-<li><a href="#/sub/food-04">Smart Agriculture, Robotics &amp; Labor-Saving Farm Tech</a></li>
-<li><a href="#/sub/food-06">Sustainable Inputs: Pesticide Reduction, Organic Farming &amp; Bio-Inputs</a></li>
-<li><a href="#/sub/food-08">Food Exports, Japan Food Brands &amp; Inbound Food Consumption</a></li>
-<li><a href="#/sub/food-16">Circular Economy, Recycling Infrastructure &amp; Resource Autonomy</a></li>
+<h3><a href="#/category/food">10 &middot; 食料・農業・循環経済</a></h3>
+<p>食料・農業政策は、安全保障、価格、環境の三つが重なる領域です。米価の上昇、飼料・肥料価格、気候変動、担い手不足を背景に、政府は備蓄、価格安定、輸入依存の低減、農地の集約、スマート農業を進めています。みどりの食料システム戦略は、有機農業、農薬・化学肥料の削減、温室効果ガス削減を掲げ、農機、資材、食品メーカー、流通にも影響します。投資への伝わり方は、補助金だけではありません。原材料価格、食品値上げの通りやすさ、農業の省人化、輸出拡大、サステナビリティ対応が企業価値を動かします。</p>
+<p><strong>サブテーマ:</strong></p><ul>
+<li><a href="#/sub/food-01">食料安全保障・自給率・供給強靱化</a></li>
+<li><a href="#/sub/food-04">スマート農業・ロボット・省力化農業技術</a></li>
+<li><a href="#/sub/food-06">持続可能な投入（農薬削減・有機農業・バイオ資材）</a></li>
+<li><a href="#/sub/food-08">農林水産物・食品輸出・日本食ブランド・インバウンド食消費</a></li>
+<li><a href="#/sub/food-16">サーキュラーエコノミー・リサイクルインフラ・資源自律</a></li>
 </ul>
 </section>
-<h2>About this page</h2>
+<h2>このページについて</h2>
 <p>Company tickers are verified against the EDINET DB (an independent service by Cabocia Inc., not affiliated with Japan&#x27;s FSA), build date 2026-05-29. Educational research; not investment advice.</p>
 </div>
 </noscript>
@@ -372,7 +369,7 @@
 <footer><div class="wrap">
   <div class="foot-row">
     <span>Japan Investor Interface Co., Ltd.</span>
-    <span><a href="/en/compounders/">← Compounders</a> · <a href="https://jpinv.com/en/">jpinv.com</a></span>
+    <span><a href="/compounders/">← Compounders</a> · <a href="https://jpinv.com/en/">jpinv.com</a></span>
   </div>
   <p class="disc" id="disclaimer"></p>
 </div></footer>
@@ -399,7 +396,7 @@ var T={
    mappings:"exposure links", sources:"primary sources", explore:"Start with a domain, or search above.",
    recent:"Recent policy milestones", viewall:"View all →",
    navMilestones:"Milestones", msSource:"Source", msChecked:"checked", msUpdated:"Updated", msNone:"No tracked milestones in this area yet.",
-   msCta:"Get new policy milestone alerts", msCtaSub:"", msCtaBtn:"Notify me", msEmailPh:"you@email.com", msThanksT:"Almost there — check your inbox", msThanks:"Confirm your email and you'll get policy milestone alerts. Policy only, no advice.",
+   msCta:"Get notified about new policy milestones", msCtaSub:"Plain-English (and Japanese) alerts when a ministry, the FSA, BOJ, or JPX moves a policy that touches listed companies. Policy alerts only — no marketing, no investment advice. Unsubscribe anytime.", msCtaBtn:"Notify me",
    whatis:"What the policy is", moneyflow:"Where the money flows", watch:"What to watch over the next 5 years",
    risks:"Risks & offsets", kpis:"Key figures & targets", catalysts:"Next catalysts", budget:"Scale of government money",
    sources:"Primary sources, by importance", relevant:"Company exposure", related:"Related sub-themes",
@@ -416,34 +413,34 @@ var T={
    timeline:"Policy timeline", primary:"primary",
    disclaimer:"The Japan Policy Map is an educational research tool published by Japan Investor Interface Co., Ltd. It maps public policy to listed-company exposure. It is not investment advice, a solicitation, or a recommendation. Company tickers are verified against the EDINET database, an independent service by Cabocia Inc. that is not affiliated with Japan's Financial Services Agency. Always consult the primary sources and a licensed adviser before acting.",
    bilnote:"Commentary is written in plain English and Japanese for global and Japanese investors; use the language toggle above."},
- ja:{brand:"株式会社ジャパン・インベスター・インターフェース", eyebrow:"日本ポリシーマップ",
-   title:"日本の<em>政策</em>が、投資になる場所。",
-   lede:"10の政策領域と、その下にある企業エクスポージャーを、投資家が必要とする形で読み解きます。何が変わり、誰が払い、誰が恩恵を受け、いつ効き、次に何を見るか。企業コードはすべて、日本の企業開示データベースで検証しています。",
-   bigph:"銘柄コード（例: 6857）・省庁・法令・「GX2040」「スタンド・オフ・ミサイル」などの語句で検索…",
-   bighint:"4桁コードで、その企業が関わる政策を一覧表示 ・ 語句でマップ全体を検索",
-   search:"銘柄・省庁・法令・語句で検索…", searchbtn:"検索",
+ ja:{brand:"株式会社ジャパン・インベスター・インターフェース", eyebrow:"政策地図",
+   title:"日本の<em>政策</em>を、投資の視点で読む。",
+   lede:"日本の政策を10領域に整理し、上場企業へのつながりまで追えるようにしました。制度が何を変えるのか、資金はどこへ流れるのか、どの企業に追い風・逆風が及ぶのか。投資家が次に確認すべき論点を、一次情報に基づいて日本語で読みやすくまとめています。企業コードはすべて企業開示データベースで確認済みです。",
+   bigph:"銘柄コード（例：6857）、省庁名、法令名、または「GX2040」「スタンド・オフ・ミサイル」などで検索…",
+   bighint:"4桁の銘柄コードなら企業別の政策接点を、キーワードならマップ全体の関連項目を表示します。",
+   search:"銘柄コード・省庁・法令・キーワードで検索…", searchbtn:"検索",
    navMap:"ポリシーマップ", navTimeline:"年表",
-   categories:"10の政策領域", subthemes:"サブテーマ", verifiedco:"検証済企業",
-   mappings:"エクスポージャーリンク", sources:"一次ソース", explore:"領域を選ぶか、上から検索してください。",
-   recent:"最近の政策マイルストーン", viewall:"すべて見る →",
-   navMilestones:"マイルストーン", msSource:"ソース", msChecked:"確認", msUpdated:"更新", msNone:"この領域で追跡中のマイルストーンはまだありません。",
-   msCta:"政策マイルストーンの新着通知を受け取る", msCtaSub:"", msCtaBtn:"通知を受け取る", msEmailPh:"メールアドレス", msThanksT:"あと一歩——受信トレイをご確認ください", msThanks:"メール内のリンクで購読を確定すると、政策マイルストーンの通知が届きます。政策のみ・助言なし。",
-   whatis:"政策とは何か", moneyflow:"資金の流れ", watch:"今後5年で見るべきこと",
-   risks:"リスク・押し戻し", kpis:"主要数値・目標", catalysts:"今後のカタリスト", budget:"投じられる政府資金の規模",
-   sources:"一次ソース（重要度順）", relevant:"企業エクスポージャー", related:"関連サブテーマ",
-   catbudget:"サブテーマ別の政府資金", overview:"領域の概要",
-   fiscalgov:"政府資金", nofiscal:"直接支出なし", headwindb:"コスト逆風",
+   categories:"政策領域（10分類）", subthemes:"サブテーマ", verifiedco:"検証済企業",
+   mappings:"企業との接点", sources:"一次情報", explore:"政策領域からたどるか、上の検索窓で関心のあるテーマを探してください。",
+   recent:"最近の政策マイルストーン", viewall:"一覧を見る →",
+   navMilestones:"マイルストーン", msSource:"出典", msChecked:"確認済み", msUpdated:"最終更新", msNone:"この領域では、表示対象の政策マイルストーンはまだありません。",
+   msCta:"政策マイルストーンの更新をメールで受け取る", msCtaSub:"省庁・金融庁・日銀・JPXなどが、上場企業に影響しうる政策を発表・実施したときだけお知らせします。内容は政策アラートに限定し、営業メールや投資助言は含みません。配信停止はいつでも可能です。", msCtaBtn:"通知を受け取る",
+   whatis:"政策の要点", moneyflow:"資金の流れ", watch:"今後5年の見どころ",
+   risks:"リスク・留意点", kpis:"主な数値・目標", catalysts:"次に見る材料", budget:"政府資金の規模",
+   sources:"一次情報（重要度順）", relevant:"企業エクスポージャー", related:"関連サブテーマ",
+   catbudget:"サブテーマ別の資金規模", overview:"この領域の見取り図",
+   fiscalgov:"政府資金", nofiscal:"直接の予算措置なし", headwindb:"コスト上昇要因",
    direct:"直接", indirect:"間接", ecosystem:"エコシステム", headwind:"逆風",
-   colcode:"コード", colco:"企業", colexp:"区分", coltrans:"伝達経路", colwhy:"マッピング理由",
-   exposures:"領域別の政策エクスポージャー", edinet:"開示コード", industry:"業種", expcount:"リンク",
-   back:"← 戻る", backcat:"← 全領域", readmore:"続きを読む →", readless:"← 閉じる",
-   resultsfor:"検索結果", nresults:"件", subcats:"サブテーマ", companies:"企業", glossary:"用語・施策",
-   noresults:"一致なし。省庁（METI、FSA）、施策（GX2040、新NISA）、4桁コードをお試しください。",
+   colcode:"コード", colco:"企業", colexp:"影響区分", coltrans:"企業に伝わる経路", colwhy:"関連づけの理由",
+   exposures:"政策領域別のエクスポージャー", edinet:"開示コード", industry:"業種", expcount:"リンク",
+   back:"← 戻る", backcat:"← 政策領域一覧", readmore:"続きを読む →", readless:"← 閉じる",
+   resultsfor:"検索結果", nresults:"件", subcats:"サブテーマ", companies:"企業", glossary:"用語・制度",
+   noresults:"該当する項目が見つかりません。省庁名（METI、FSA）、制度名（GX2040、新NISA）、または4桁の銘柄コードで検索してみてください。",
    matchTicker:"銘柄", matchAlias:"別名", matchKeyword:"キーワード", matchFuzzy:"関連",
-   verifiedco_note:"企業コードはEDINET（企業開示データベース）で検証。特記なき限り东証上場。",
-   timeline:"政策年表", primary:"一次",
-   disclaimer:"日本ポリシーマップは、株式会社ジャパン・インベスター・インターフェースが公開する教育研究ツールです。公的政策と上場企業のエクスポージャーをマッピングしたものであり、投資助言・勧誘・推奨ではありません。企業コードはEDINET（Cabocia社による独立サービス。金融庁とは無関係）で検証しています。行動の前に、必ず一次ソースと有資格の助言者をご確認ください。",
-   bilnote:"解説はグローバル投資家・日本の投資家向けに、平易な英語と日本語で記述しています。上の言語切替をご利用ください。"}
+   verifiedco_note:"企業コードはEDINET（企業開示データベース）で検証。特記のない限り東証上場。",
+   timeline:"政策年表", primary:"一次情報",
+   disclaimer:"政策地図は、株式会社ジャパン・インベスター・インターフェースが教育・調査のために公開している資料です。国内の政策が上場企業の事業や業界にどのように関わり得るかを整理したもので、特定の有価証券の売買を勧めたり、投資判断を助言したりするものではありません。企業コードは、Cabocia社が提供するEDINETデータベース検索サービス（金融庁とは無関係の独立サービス）で確認しています。実際の投資判断にあたっては、必ず一次情報を確認し、必要に応じて有資格の専門家にご相談ください。",
+   bilnote:"解説は英語と日本語の両方で用意しています。表示言語は上部の切替から変更できます。"}
 };
 function t(k){return (T[lang]&&T[lang][k]!=null)?T[lang][k]:T.en[k];}
 
@@ -506,7 +503,7 @@ function setLogoBack(href,label){var a=document.querySelector('.hero-home-link')
 function setHero(e,ti,le,cr){document.getElementById('eyebrow').innerHTML=esc(e);document.getElementById('herotitle').innerHTML=ti;document.getElementById('herolede').innerHTML=le;document.getElementById('crumbs').innerHTML=cr||'';}
 
 function renderHome(){
-  setLogoBack("/en/compounders/", 'Back to Compounders');
+  setLogoBack("/compounders/", 'Back to Compounders');
   setNav('map'); setHero(t('eyebrow'),t('title'),t('lede'),'');
   var cards=(D.categories||[]).map(function(c){
     return '<div class="catcard" data-nav="#/category/'+c.id+'"><div class="cnum">'+(c.num<10?'0':'')+c.num+' · '+c.subcategory_count+' '+esc(t('subthemes'))+'</div>'+
@@ -517,7 +514,7 @@ function renderHome(){
     msBlock({limit:5,viewall:true,mt:'42px'});
 }
 function renderCategory(id){
-  var c=catById[id]; if(!c)return renderHome(); setLogoBack("/en/compounders/policymap/", 'Back to the policy map'); setNav('map');
+  var c=catById[id]; if(!c)return renderHome(); setLogoBack("/compounders/policymap/", 'Back to the policy map'); setNav('map');
   setHero(t('eyebrow'),esc(lang==='ja'?c.name_ja:c.name_en),lang==='ja'?'<span style="color:var(--text-dim);font-family:var(--serif)">'+esc(c.name_en)+'</span>':'','<a data-nav="#/">'+esc(t('navMap'))+'</a> / '+esc(nm(c)));
   var subs=(D.subcategories||[]).filter(function(s){return s.category_id===id;});
   var cards=subs.map(function(s){
@@ -540,7 +537,7 @@ function tickerTable(sid){
   return '<div style="overflow-x:auto"><table class="tk"><thead>'+head+'</thead><tbody>'+rows+'</tbody></table></div>';
 }
 function renderSub(id){
-  var s=subById[id]; if(!s)return renderHome(); var c=catById[s.category_id]||{}; setLogoBack("/en/compounders/policymap/"+'#/category/'+c.id, 'Back to the policy theme'); setNav('map');
+  var s=subById[id]; if(!s)return renderHome(); var c=catById[s.category_id]||{}; setLogoBack("/compounders/policymap/"+'#/category/'+c.id, 'Back to the policy theme'); setNav('map');
   setHero(esc(lang==='ja'?c.name_ja:c.name_en),esc(nm(s)),'',
     '<a data-nav="#/">'+esc(t('navMap'))+'</a> / <a data-nav="#/category/'+c.id+'">'+esc(nm(c))+'</a> / '+esc(nm(s)));
   var srcs=(s.source_ids||[]).map(function(sid,i){var r=(D.sources||{})[sid];if(!r)return '';
@@ -563,7 +560,7 @@ function renderSub(id){
   V.innerHTML=body;
 }
 function renderTicker(code){
-  var co=coByTk[code]; setLogoBack("/en/compounders/policymap/", 'Back to the policy map'); setNav('map');
+  var co=coByTk[code]; setLogoBack("/compounders/policymap/", 'Back to the policy map'); setNav('map');
   if(!co){setHero(t('eyebrow'),esc(code),esc(t('noresults')),'');V.innerHTML='<a class="backlink" data-nav="#/">'+esc(t('back'))+'</a><p>'+esc(t('noresults'))+'</p>';return;}
   setHero(esc(t('eyebrow')),esc(co.ticker)+' · '+esc(co.name_en),'','<a data-nav="#/">'+esc(t('navMap'))+'</a> / '+esc(co.ticker));
   var exps=(expByTk[code]||[]).slice(),byCat={},counts={direct:0,indirect:0,ecosystem:0,headwind:0};
@@ -573,7 +570,7 @@ function renderTicker(code){
   V.innerHTML='<a class="backlink" data-nav="#/">'+esc(t('back'))+'</a><div class="notice">'+esc(t('verifiedco_note'))+'</div><div class="detail"><div><h4 style="font-family:var(--serif);font-weight:400;color:var(--ink-mid);border-bottom:1px solid var(--rule);padding-bottom:8px">'+esc(t('exposures'))+'</h4>'+groups+'</div><div>'+meta+'</div></div>';
 }
 function renderSearch(q){
-  setLogoBack("/en/compounders/policymap/", 'Back to the policy map');
+  setLogoBack("/compounders/policymap/", 'Back to the policy map');
   setNav('map'); setHero(t('eyebrow'),esc(t('resultsfor'))+' “'+esc(q)+'”','','<a data-nav="#/">'+esc(t('navMap'))+'</a> / '+esc(t('resultsfor')));
   var R=search(q),n=R.subs.length+R.cos.length+R.terms.length;
   var html='<p class="mono" style="font-size:11px;color:var(--text-dim);letter-spacing:.06em">'+n+' '+esc(t('nresults'))+'</p>';
@@ -583,7 +580,7 @@ function renderSearch(q){
   if(R.terms.length)html+='<div class="resgroup"><p class="sect-label">'+esc(t('glossary'))+'</p>'+R.terms.slice(0,10).map(function(x){var g=x.obj,first=(g.linked_subcategory_ids||[])[0];return '<div class="resitem" '+(first?'data-nav="#/sub/'+first+'"':'')+'><div><span class="rt">'+esc(g.normalized_term)+'</span><div class="rd">'+esc((g.aliases||[]).slice(0,5).join(' · '))+'</div></div><span class="matchtag">'+esc(t(x.mt))+'</span></div>';}).join('')+'</div>';
   V.innerHTML=html;
 }
-function renderTimeline(){setLogoBack("/en/compounders/policymap/", 'Back to the policy map');setNav('tl');setHero(t('eyebrow'),esc(t('timeline')),'','<a data-nav="#/">'+esc(t('navMap'))+'</a> / '+esc(t('timeline')));
+function renderTimeline(){setLogoBack("/compounders/policymap/", 'Back to the policy map');setNav('tl');setHero(t('eyebrow'),esc(t('timeline')),'','<a data-nav="#/">'+esc(t('navMap'))+'</a> / '+esc(t('timeline')));
   var tl=(D.timeline||[]).map(function(ev){var c=catById[ev.category_id]||{};return '<div class="tlitem"><div class="tldate">'+esc(ev.event_date)+' · '+esc(ev.event_type)+' · '+esc(nm(c))+'</div><h5 data-nav="#/sub/'+ev.subcategory_id+'">'+esc(ev.title)+'</h5><p>'+esc(ev.significance)+'</p></div>';}).join('');
   V.innerHTML='<a class="backlink" data-nav="#/">'+esc(t('back'))+'</a><div class="tl">'+tl+'</div>';}
 
@@ -597,7 +594,7 @@ function msCard(m){
   if(cat.id)tags+='<span class="mstag" data-nav="#/category/'+cat.id+'">'+esc(nm(cat))+'</span>';
   if(sub.id)tags+='<span class="mstag" data-nav="#/sub/'+sub.id+'">'+esc(nm(sub))+'</span>';
   var agency=msField(m,'agency');
-  var src=m.source_url?('<a href="'+esc(m.source_url)+'" target="_blank" rel="noopener">'+esc((m.source_title_en||m.source_url).replace(/^https?:\/\//,''))+' ↗</a>'+(m.source_primary?' <span class="msprim">'+esc(t('primary'))+'</span>':'')):'';
+  var src=m.source_url?('<a href="'+esc(m.source_url)+'" target="_blank" rel="noopener">'+esc(((lang==='ja'?(m.source_title_ja||m.source_title_en):m.source_title_en)||m.source_url).replace(/^https?:\/\//,''))+' ↗</a>'+(m.source_primary?' <span class="msprim">'+esc(t('primary'))+'</span>':'')):'';
   var nav=sub.id?' data-nav="#/sub/'+sub.id+'"':'';
   return '<div class="mscard">'+
     '<div class="msrow1"><span class="msdate">'+esc(m.date)+'</span>'+(agency?'<span class="msagency">'+esc(agency)+'</span>':'')+tags+'</div>'+
@@ -608,23 +605,12 @@ function msCard(m){
 }
 function notifyCta(){
   var cfg=window.PM_NOTIFY||{};
-  var sub=t('msCtaSub');var head='<div class="nt"><b>'+esc(t('msCta'))+'</b>'+(sub?'<span>'+esc(sub)+'</span>':'')+'</div>';
-  if(cfg.mlAction){
-    return '<div class="msnotify">'+head+'<form class="nform" data-mlform novalidate>'+
-      '<input class="ninput" type="email" name="email" required placeholder="'+esc(t('msEmailPh'))+'" aria-label="'+esc(t('msEmailPh'))+'">'+
-      '<button class="nbtn" type="submit">'+esc(t('msCtaBtn'))+'</button></form></div>';
-  }
   var subject=encodeURIComponent('Subscribe: Japan Policy Map milestone alerts');
-  var bodytext=encodeURIComponent(lang==='ja'?'日本ポリシーマップの政策マイルストーン通知の配信を希望します。このまま送信してください。':'Please subscribe this email address to Japan Policy Map milestone alerts. Just hit send.');
-  var href='mailto:'+(cfg.mailto||'info@jpinv.com')+'?subject='+subject+'&body='+bodytext;
-  return '<div class="msnotify">'+head+'<a class="nbtn" href="'+esc(href)+'">'+esc(t('msCtaBtn'))+'</a></div>';
-}
-function notifySubmit(f){
-  var cfg=window.PM_NOTIFY||{};if(!cfg.mlAction)return;
-  var inp=f.querySelector('input[type=email]');var email=inp?(inp.value||'').trim():'';
-  if(!email||email.indexOf('@')<1){if(inp)inp.focus();return;}
-  try{fetch(cfg.mlAction,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'fields[email]='+encodeURIComponent(email)+'&ml-submit=1&anticsrf=true'});}catch(e){}
-  var box=f.parentNode;if(box)box.innerHTML='<div class="nt"><b>'+esc(t('msThanksT'))+'</b><span>'+esc(t('msThanks'))+'</span></div>';
+  var bodytext=encodeURIComponent(lang==='ja'?'政策地図の政策マイルストーン通知の配信を希望します。このまま送信してください。':'Please subscribe this email address to Japan Policy Map milestone alerts. Just hit send.');
+  var href=cfg.formUrl?cfg.formUrl:('mailto:'+(cfg.mailto||'info@jpinv.com')+'?subject='+subject+'&body='+bodytext);
+  var attrs=cfg.formUrl?' target="_blank" rel="noopener"':'';
+  return '<div class="msnotify"><div class="nt"><b>'+esc(t('msCta'))+'</b><span>'+esc(t('msCtaSub'))+'</span></div>'+
+    '<a class="nbtn" href="'+esc(href)+'"'+attrs+'>'+esc(t('msCtaBtn'))+'</a></div>';
 }
 function msBlock(opts){
   opts=opts||{};var all=msAll();
@@ -637,12 +623,12 @@ function msBlock(opts){
   return head+'<div class="mslist">'+shown.map(msCard).join('')+'</div>';
 }
 function renderMilestonesPage(){
-  setLogoBack("/en/compounders/policymap/", 'Back to the policy map');setNav('ms');
-  setHero(t('eyebrow'),esc(t('recent')),'','<a data-nav="#/">'+esc(t('navMap'))+'</a> / '+esc(t('recent')));
+  setLogoBack("/compounders/policymap/", 'Back to the policy map');setNav('ms');
+  setHero(t('eyebrow'),esc(t('recent')),lang==='ja'?'省庁・金融庁・日銀・JPXなどの一次情報から、上場企業に関係しやすい政策の節目を日付順に整理しています。':'','<a data-nav="#/">'+esc(t('navMap'))+'</a> / '+esc(t('recent')));
   V.innerHTML='<a class="backlink" data-nav="#/">'+esc(t('back'))+'</a>'+notifyCta()+msBlock({})+
     '<p style="font-family:var(--mono);font-size:10px;color:var(--text-dim);letter-spacing:.04em;margin-top:18px">'+esc(t('msUpdated'))+' '+esc((D.meta||{}).milestones_last_scan||(D.meta||{}).build_date||'')+' · '+(D.milestones||[]).length+' '+esc(t('nresults'))+'</p>';
 }
-function setTitle(){try{var bn=(lang==='ja')?'日本ポリシーマップ':'Japan Policy Map';var h=document.getElementById('herotitle');var ht=h?(h.textContent||'').trim():'';ht=ht.replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&#x27;/g,"'");document.title=ht?(ht+' · '+bn+' | JII'):(bn+' | JII Compounders');}catch(e){}}
+function setTitle(){try{var bn=(lang==='ja')?'政策地図':'Japan Policy Map';var h=document.getElementById('herotitle');var ht=h?(h.textContent||'').trim():'';ht=ht.replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&#x27;/g,"'");document.title=ht?(ht+' · '+bn+' | JII'):(bn+' | JII Compounders');}catch(e){}}
 function route(){var h=location.hash||'#/';window.scrollTo(0,0);var m;
   if((m=h.match(/^#\/category\/([\w-]+)/)))renderCategory(m[1]);
   else if((m=h.match(/^#\/sub\/([\w-]+)/)))renderSub(m[1]);
@@ -664,7 +650,6 @@ document.body.addEventListener('click',function(ev){
   var tg=ev.target.closest('[data-toggle]');if(tg){var box=document.getElementById(tg.getAttribute('data-toggle'));if(box){var hid=box.classList.toggle('hidden');tg.textContent=hid?t('readmore'):t('readless');}return;}
 });
 document.getElementById('searchform').addEventListener('submit',function(ev){ev.preventDefault();doSearch(document.getElementById('searchinput').value);});
-document.body.addEventListener('submit',function(ev){var f=ev.target.closest&&ev.target.closest('form[data-mlform]');if(!f)return;ev.preventDefault();notifySubmit(f);});
 document.getElementById('langtoggle').addEventListener('click',function(ev){var b=ev.target.closest('button');if(!b)return;lang=b.getAttribute('data-l');try{localStorage.setItem('pm_lang',lang);}catch(e){}applyStatic();setNav('map');route();});
 applyStatic();route();
 })();
