@@ -182,6 +182,29 @@
   .catbud-bar.nofiscal>span{background:var(--rule-soft);}
   @media(max-width:680px){.catbud-row{grid-template-columns:1fr;gap:3px;}.catbud-bar{order:3;}}
 
+  /* ---- recent policy milestones (living update layer) ---- */
+  .ms-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;}
+  .ms-fresh{font-family:var(--mono);font-size:10px;letter-spacing:.04em;color:var(--text-dim);text-transform:none;}
+  .mslist{display:flex;flex-direction:column;gap:0;margin:2px 0 0;border-top:1px solid var(--rule-soft);}
+  .mscard{display:block;padding:14px 0;border-bottom:1px solid var(--rule-soft);}
+  .msrow1{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:5px;}
+  .msdate{font-family:var(--mono);font-size:10.5px;color:var(--accent-deep);letter-spacing:.06em;white-space:nowrap;}
+  .msagency{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);border:1px solid var(--rule);padding:2px 7px;white-space:nowrap;}
+  .mstag{font-family:var(--mono);font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);background:var(--bg-mid);border:1px solid var(--rule-soft);padding:2px 7px;cursor:pointer;}
+  .mstag:hover{border-color:var(--ink-soft);color:var(--ink);}
+  .mstitle{font-family:var(--serif);font-size:1.04rem;color:var(--ink-mid);margin:0 0 3px;line-height:1.4;cursor:pointer;}
+  .mstitle:hover{color:var(--ink);}
+  .msimpl{font-size:13px;color:var(--text-mid);line-height:1.6;margin:0 0 6px;}
+  .mssrc{font-family:var(--mono);font-size:10px;letter-spacing:.03em;color:var(--text-dim);display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
+  .mssrc a{color:var(--accent-deep);border-bottom:1px solid var(--accent);}
+  .msprim{font-family:var(--mono);font-size:8px;letter-spacing:.06em;text-transform:uppercase;padding:1px 5px;border:1px solid var(--ok);color:var(--ok);}
+  /* ---- notify CTA ---- */
+  .msnotify{border:1px solid var(--ink-mid);background:var(--bg-soft);padding:15px 18px;margin:16px 0 6px;display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;}
+  .msnotify .nt{flex:1 1 380px;}
+  .msnotify .nt b{font-family:var(--serif);font-weight:400;font-size:1.04rem;color:var(--ink-mid);display:block;margin-bottom:3px;}
+  .msnotify .nt span{font-size:11.5px;color:var(--text-mid);line-height:1.55;}
+  .msnotify a.nbtn{flex:0 0 auto;background:var(--ink-mid);color:#fff;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:13px 22px;cursor:pointer;white-space:nowrap;}
+  .msnotify a.nbtn:hover{background:var(--ink);color:#fff;}
 </style>
 </head>
 <body>
@@ -392,32 +415,32 @@ var T={
    bilnote:"Commentary is written in plain English and Japanese for global and Japanese investors; use the language toggle above."},
  ja:{brand:"株式会社ジャパン・インベスター・インターフェース", eyebrow:"日本ポリシーマップ",
    title:"日本の<em>政策</em>を、投資の視点で読む。",
-   lede:"日本の公共政策を10の領域に分け、関連する上場企業エクスポージャーまでたどれるようにしました。何が変わったのか、資金はどこから出るのか、どの企業に追い風・逆風が及ぶのか、次に確認すべき材料は何か。企業コードはすべて日本の企業開示データベースで確認しています。",
-   bigph:"銘柄コード（例：6857）、省庁、法令、「GX2040」「スタンド・オフ・ミサイル」などで検索…",
-   bighint:"4桁コードなら企業別の政策接点を表示。キーワードならマップ全体を検索します。",
-   search:"銘柄・省庁・法令・キーワードで検索…", searchbtn:"検索",
+   lede:"日本の政策を10領域に整理し、上場企業へのつながりまで追えるようにしました。制度が何を変えるのか、資金はどこへ流れるのか、どの企業に追い風・逆風が及ぶのか。投資家が次に確認すべき論点を、一次情報に基づいて日本語で読みやすくまとめています。企業コードはすべて企業開示データベースで確認済みです。",
+   bigph:"銘柄コード（例：6857）、省庁名、法令名、または「GX2040」「スタンド・オフ・ミサイル」などで検索…",
+   bighint:"4桁の銘柄コードなら企業別の政策接点を、キーワードならマップ全体の関連項目を表示します。",
+   search:"銘柄コード・省庁・法令・キーワードで検索…", searchbtn:"検索",
    navMap:"ポリシーマップ", navTimeline:"年表",
-   categories:"10の政策領域", subthemes:"サブテーマ", verifiedco:"検証済企業",
-   mappings:"エクスポージャーリンク", sources:"一次ソース", explore:"政策領域を選ぶか、上の検索窓から探してください。",
-   recent:"最近の政策マイルストーン", viewall:"すべて見る →",
-   navMilestones:"マイルストーン", msSource:"ソース", msChecked:"確認", msUpdated:"更新", msNone:"この領域で追跡中のマイルストーンはまだありません。",
-   msCta:"新しい政策マイルストーンの通知を受け取る", msCtaSub:"省庁、金融庁、日銀、JPXが上場企業に関わる政策を動かした際に、わかりやすい日本語（英語も併記）でお知らせします。配信は政策アラートのみで、営業や投資助言は行いません。配信停止はいつでも可能です。", msCtaBtn:"通知を受け取る",
-   whatis:"この政策の中身", moneyflow:"資金はどこへ流れるか", watch:"今後5年の注目点",
-   risks:"リスクと逆風", kpis:"主要な数値・目標", catalysts:"次のカタリスト", budget:"政府資金の規模",
-   sources:"一次ソース（重要度順）", relevant:"企業エクスポージャー", related:"関連サブテーマ",
-   catbudget:"サブテーマ別の政府資金", overview:"この領域の概要",
-   fiscalgov:"政府資金", nofiscal:"直接支出なし", headwindb:"コスト面の逆風",
+   categories:"政策領域（10分類）", subthemes:"サブテーマ", verifiedco:"検証済企業",
+   mappings:"企業との接点", sources:"一次情報", explore:"政策領域からたどるか、上の検索窓で関心のあるテーマを探してください。",
+   recent:"最近の政策マイルストーン", viewall:"一覧を見る →",
+   navMilestones:"マイルストーン", msSource:"出典", msChecked:"確認済み", msUpdated:"最終更新", msNone:"この領域では、表示対象の政策マイルストーンはまだありません。",
+   msCta:"政策マイルストーンの更新をメールで受け取る", msCtaSub:"省庁・金融庁・日銀・JPXなどが、上場企業に影響しうる政策を発表・実施したときだけお知らせします。内容は政策アラートに限定し、営業メールや投資助言は含みません。配信停止はいつでも可能です。", msCtaBtn:"通知を受け取る",
+   whatis:"政策の要点", moneyflow:"資金の流れ", watch:"今後5年の見どころ",
+   risks:"リスク・留意点", kpis:"主な数値・目標", catalysts:"次に見る材料", budget:"政府資金の規模",
+   sources:"一次情報（重要度順）", relevant:"企業エクスポージャー", related:"関連サブテーマ",
+   catbudget:"サブテーマ別の資金規模", overview:"この領域の見取り図",
+   fiscalgov:"政府資金", nofiscal:"直接の予算措置なし", headwindb:"コスト上昇要因",
    direct:"直接", indirect:"間接", ecosystem:"エコシステム", headwind:"逆風",
-   colcode:"コード", colco:"企業", colexp:"区分", coltrans:"伝わり方", colwhy:"ひも付けの理由",
+   colcode:"コード", colco:"企業", colexp:"影響区分", coltrans:"企業に伝わる経路", colwhy:"関連づけの理由",
    exposures:"政策領域別のエクスポージャー", edinet:"開示コード", industry:"業種", expcount:"リンク",
-   back:"← 戻る", backcat:"← 全領域", readmore:"続きを読む →", readless:"← 閉じる",
-   resultsfor:"検索結果", nresults:"件", subcats:"サブテーマ", companies:"企業", glossary:"用語・施策",
-   noresults:"一致する項目がありません。省庁名（METI、FSA）、施策名（GX2040、新NISA）、または4桁の銘柄コードでお試しください。",
+   back:"← 戻る", backcat:"← 政策領域一覧", readmore:"続きを読む →", readless:"← 閉じる",
+   resultsfor:"検索結果", nresults:"件", subcats:"サブテーマ", companies:"企業", glossary:"用語・制度",
+   noresults:"該当する項目が見つかりません。省庁名（METI、FSA）、制度名（GX2040、新NISA）、または4桁の銘柄コードで検索してみてください。",
    matchTicker:"銘柄", matchAlias:"別名", matchKeyword:"キーワード", matchFuzzy:"関連",
    verifiedco_note:"企業コードはEDINET（企業開示データベース）で検証。特記のない限り東証上場。",
-   timeline:"政策年表", primary:"一次",
-   disclaimer:"日本ポリシーマップは、株式会社ジャパン・インベスター・インターフェースが公開する教育・リサーチ用のツールです。公的政策と上場企業のエクスポージャーを整理したもので、投資助言、勧誘、推奨を目的とするものではありません。企業コードはEDINET（Cabocia社が運営する独立サービスで、金融庁とは関係ありません）で確認しています。実際の判断にあたっては、必ず一次ソースと有資格の専門家をご確認ください。",
-   bilnote:"解説は、海外投資家と日本の投資家の双方に向けて、わかりやすい英語と自然な日本語で用意しています。上の言語切替をご利用ください。"}
+   timeline:"政策年表", primary:"一次情報",
+   disclaimer:"日本ポリシーマップは、株式会社ジャパン・インベスター・インターフェースが公開する教育・リサーチ目的の資料です。公的政策と上場企業との接点を整理したものであり、投資助言、勧誘、推奨を目的とするものではありません。企業コードはEDINETデータベース（Cabocia社が運営する独立サービス。金融庁とは無関係）で確認しています。投資判断を行う際は、必ず一次情報と有資格の専門家をご確認ください。",
+   bilnote:"解説は英語と日本語の両方で用意しています。表示言語は上部の切替から変更できます。"}
 };
 function t(k){return (T[lang]&&T[lang][k]!=null)?T[lang][k]:T.en[k];}
 
@@ -571,7 +594,7 @@ function msCard(m){
   if(cat.id)tags+='<span class="mstag" data-nav="#/category/'+cat.id+'">'+esc(nm(cat))+'</span>';
   if(sub.id)tags+='<span class="mstag" data-nav="#/sub/'+sub.id+'">'+esc(nm(sub))+'</span>';
   var agency=msField(m,'agency');
-  var src=m.source_url?('<a href="'+esc(m.source_url)+'" target="_blank" rel="noopener">'+esc((m.source_title_en||m.source_url).replace(/^https?:\/\//,''))+' ↗</a>'+(m.source_primary?' <span class="msprim">'+esc(t('primary'))+'</span>':'')):'';
+  var src=m.source_url?('<a href="'+esc(m.source_url)+'" target="_blank" rel="noopener">'+esc(((lang==='ja'?(m.source_title_ja||m.source_title_en):m.source_title_en)||m.source_url).replace(/^https?:\/\//,''))+' ↗</a>'+(m.source_primary?' <span class="msprim">'+esc(t('primary'))+'</span>':'')):'';
   var nav=sub.id?' data-nav="#/sub/'+sub.id+'"':'';
   return '<div class="mscard">'+
     '<div class="msrow1"><span class="msdate">'+esc(m.date)+'</span>'+(agency?'<span class="msagency">'+esc(agency)+'</span>':'')+tags+'</div>'+
@@ -601,7 +624,7 @@ function msBlock(opts){
 }
 function renderMilestonesPage(){
   setLogoBack("/compounders/policymap/", 'Back to the policy map');setNav('ms');
-  setHero(t('eyebrow'),esc(t('recent')),'','<a data-nav="#/">'+esc(t('navMap'))+'</a> / '+esc(t('recent')));
+  setHero(t('eyebrow'),esc(t('recent')),lang==='ja'?'省庁・金融庁・日銀・JPXなどの一次情報から、上場企業に関係しやすい政策の節目を日付順に整理しています。':'','<a data-nav="#/">'+esc(t('navMap'))+'</a> / '+esc(t('recent')));
   V.innerHTML='<a class="backlink" data-nav="#/">'+esc(t('back'))+'</a>'+notifyCta()+msBlock({})+
     '<p style="font-family:var(--mono);font-size:10px;color:var(--text-dim);letter-spacing:.04em;margin-top:18px">'+esc(t('msUpdated'))+' '+esc((D.meta||{}).milestones_last_scan||(D.meta||{}).build_date||'')+' · '+(D.milestones||[]).length+' '+esc(t('nresults'))+'</p>';
 }
