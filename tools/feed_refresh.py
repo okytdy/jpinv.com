@@ -33,6 +33,7 @@ import json
 import logging
 import os
 import sys
+import time
 from pathlib import Path
 from typing import Iterable, Iterator, Optional
 
@@ -83,6 +84,64 @@ INCREMENTAL_LOOKBACK_DAYS = 1     # today and yesterday
 BACKFILL_LOOKBACK_DAYS = 730      # 2 years (default; override via env)
 BACKFILL_LOOKBACK_MIN = 30
 BACKFILL_LOOKBACK_MAX = 1095      # 3 years - hard ceiling
+
+# Per-run wall-clock budget for the incremental enrichment loop. Each NEW match
+# costs a PDF fetch plus (optionally) one Haiku call, so a month-start flood of
+# monthly buyback-progress filings can leave hundreds of new matches in the
+# window. Enriching them all in one run can exceed the GitHub Actions step
+# timeout; the run is then killed before it writes feed.json, nothing is
+# committed, and the next run re-does the same work forever (the 2026-06-01
+# death-spiral). We instead cap the work per run and persist partial progress;
+# the id-based dedupe means the next scheduled run resumes with the remainder.
+# Override via FEED_MAX_RUN_SECONDS (bounded MIN..MAX). The 420s default leaves
+# margin under the workflow's 600s (10-min) step timeout even if one final row
+# hits the worst-case PDF+LLM retry path (~95s -> 515s total).
+MAX_RUN_SECONDS_DEFAULT = 420
+MAX_RUN_SECONDS_MIN = 60
+MAX_RUN_SECONDS_MAX = 540
+
+
+def _resolve_max_run_seconds() -> int:
+    """Return the per-run enrichment time budget in seconds, honouring the
+    `FEED_MAX_RUN_SECONDS` env var when present and in range. Out-of-range or
+    non-integer values fall back to the default with a warning."""
+    raw = os.environ.get("FEED_MAX_RUN_SECONDS")
+    if raw is None or raw.strip() == "":
+        return MAX_RUN_SECONDS_DEFAULT
+    try:
+        n = int(raw.strip())
+    except ValueError:
+        LOG.warning(
+            "FEED_MAX_RUN_SECONDS=%r is not an integer; using default %d.",
+            raw, MAX_RUN_SECONDS_DEFAULT,
+        )
+        return MAX_RUN_SECONDS_DEFAULT
+    if n < MAX_RUN_SECONDS_MIN or n > MAX_RUN_SECONDS_MAX:
+        LOG.warning(
+            "FEED_MAX_RUN_SECONDS=%d outside [%d..%d]; using default %d.",
+            n, MAX_RUN_SECONDS_MIN, MAX_RUN_SECONDS_MAX, MAX_RUN_SECONDS_DEFAULT,
+        )
+        return MAX_RUN_SECONDS_DEFAULT
+    return n
+
+
+# Disclosure classes dropped from the feed entirely. The drop happens AFTER
+# classification but BEFORE enrichment, so these never appear in the feed and
+# never incur a PDF fetch or a paid LLM summary. Defaults:
+#   BUYBACK_PROGRESS - monthly 取得状況 / 取得結果 buyback-progress updates
+#                      (a low-signal, month-start flood)
+#   BUYBACK_HOUSE    - J-ESOP / treasury-share housekeeping bundles
+# Override via FEED_DROP_CLASSES (comma-separated); empty string disables drops.
+DROP_CLASSES_DEFAULT = frozenset({"BUYBACK_PROGRESS", "BUYBACK_HOUSE"})
+
+
+def _resolve_drop_classes() -> frozenset:
+    """Return the set of class codes to exclude from the feed, honouring the
+    `FEED_DROP_CLASSES` env var (comma-separated) when present."""
+    raw = os.environ.get("FEED_DROP_CLASSES")
+    if raw is None:
+        return DROP_CLASSES_DEFAULT
+    return frozenset({p.strip().upper() for p in raw.split(",") if p.strip()})
 
 
 def _resolve_backfill_lookback() -> int:
@@ -355,14 +414,37 @@ def main() -> int:
 
     new_rows: list[dict] = []
     last_match_iso: str = ""
+    truncated = False  # True if we stopped early on the per-run time budget
 
-    # Streamed pipeline: gather -> dedupe-by-id -> classify -> collect.
+    max_run_seconds = _resolve_max_run_seconds()
+    deadline = time.monotonic() + max_run_seconds
+    drop_classes = _resolve_drop_classes()
+
+    # Streamed pipeline: gather -> dedupe-by-id -> time-check -> classify ->
+    # enrich -> collect. The time-check bounds the work per run so a month-start
+    # flood of new matches can't push the run past the Actions step timeout and
+    # lose all progress. Already-seen rows are skipped cheaply above; we only
+    # spend the budget on genuinely new matches. On break, the gathered rows are
+    # still written + committed, and the id-based dedupe lets the next run resume
+    # with the remaining backlog (self-healing forward progress).
     for raw in _gather_disclosures(start, end, tdnet):
         composed_id = f"{raw.get('source', 'TDnet')}-{raw.get('doc_id', '')}"
         if composed_id in seen_ids:
             continue
+        if time.monotonic() >= deadline:
+            truncated = True
+            LOG.warning(
+                "Per-run time budget (%ds) reached after %d new row(s); "
+                "persisting progress and deferring the rest to the next run.",
+                max_run_seconds, len(new_rows),
+            )
+            break
         row = classify(raw)
         if row is None:
+            continue
+        if row.get("class") in drop_classes:
+            # Excluded class (e.g. monthly buyback-progress): never added and
+            # never enriched, so it costs no PDF fetch and no LLM summary.
             continue
         # Enrich the row: JPX names + PDF Tier-B regex + Tier-C LLM (if budget allows).
         # Idempotent: same doc_id never re-summarised. Fails-soft on any error.
@@ -415,10 +497,12 @@ def main() -> int:
         run_iso=run_iso,
         error=None,
     )
+    meta["last_run_truncated"] = truncated
     _write_json(META_JSON, meta)
 
     latest_iso = kept[0]["ts"] if kept else ""
-    print(f"Appended {len(new_rows)} new matches. Latest: {latest_iso}")
+    suffix = " (time budget hit; remainder deferred to next run)" if truncated else ""
+    print(f"Appended {len(new_rows)} new matches. Latest: {latest_iso}{suffix}")
     return 0
 
 
