@@ -39,7 +39,7 @@
   var toJa = isEn ? (p.replace(/^\/en/, "") || "/") : p;
 
   var css =
-    ".cmpnav{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid var(--rule,#d6dee8);" +
+    ".cmpnav{position:fixed;top:0;left:0;right:0;z-index:1000;background:#fff;border-bottom:1px solid var(--rule,#d6dee8);" +
     "font-family:var(--sans,system-ui,sans-serif);}" +
     ".cmpnav-in{max-width:1320px;margin:0 auto;padding:0 28px;display:flex;align-items:center;gap:20px;height:54px;}" +
     ".cmpnav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex:0 0 auto;}" +
@@ -63,7 +63,9 @@
     "border-bottom:1px solid var(--rule,#d6dee8);flex-direction:column;align-items:stretch;padding:6px 0;box-shadow:0 12px 24px rgba(15,31,58,.08);}" +
     ".cmpnav-tabs.cmpnav-open{display:flex;}.cmpnav-tab{padding:13px 28px;border-bottom:none;}" +
     ".cmpnav-on{border-bottom:none;border-left:3px solid var(--accent,#b08a4a);}}" +
-    "@media(prefers-reduced-motion:reduce){.cmpnav-tab{transition:none;}}";
+    "@media(prefers-reduced-motion:reduce){.cmpnav-tab{transition:none;}}" +
+    "/* retire the duplicate logo/home-link below the sticky nav */" +
+    ".hero-brand,.crumb,.masthead-inner .brand-home-link{display:none!important;}";
   var st = document.createElement("style");
   st.textContent = css;
   document.head.appendChild(st);
@@ -89,6 +91,7 @@
   nav.setAttribute("aria-label", isEn ? "Compounders sections" : "コンパウンダーズ");
   nav.innerHTML = html;
   document.body.insertBefore(nav, document.body.firstChild);
+  document.body.style.paddingTop = "54px";
 
   var burger = nav.querySelector(".cmpnav-burger");
   var tabsEl = nav.querySelector("#cmpnav-tabs");

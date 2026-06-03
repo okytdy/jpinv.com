@@ -364,3 +364,12 @@ def jpx_name_en(code: str) -> str:
         _JPX_TICKERS = d.get("tickers") or {}
     r = _JPX_TICKERS.get(str(code or "").strip())
     return (r or {}).get("name_en", "") if r else ""
+
+
+def nikkei_edinet_url(doc_id: str, filing_date: str) -> str:
+    """Official-data per-document EDINET disclosure page (Nikkei EDINET mirror).
+    Format: https://www.nikkei.com/nkd/disclosure/ednr/{YYYYMMDD}{docID}/ ."""
+    d = (filing_date or "").replace("-", "")
+    if not doc_id or len(d) != 8:
+        return ""
+    return "https://www.nikkei.com/nkd/disclosure/ednr/" + d + doc_id + "/"

@@ -80,9 +80,18 @@ def build(days: int, single_date: str | None, max_downloads: int, force_llm: boo
             print(f"  list {date} failed: {e}")
             continue
         cands = [d for d in docs if _is_initial_new5(d)]
+        # Catch-up batches: when a filer files an INITIAL report alongside change
+        # reports (変更 / docType 360) on the same day, the position was already
+        # accumulated -> not a genuine fresh 5% crossing. Exclude those filers' initials.
+        change_filers = {dd.get("filerName", "") for dd in docs
+                         if str(dd.get("docTypeCode")) in ("350", "360")
+                         and ("変更" in (dd.get("docDescription") or "")
+                              or str(dd.get("docTypeCode")) == "360")}
         for d in cands:
             if downloads >= max_downloads:
                 break
+            if d.get("filerName", "") in change_filers:
+                continue
             doc_id = d.get("docID", "")
             rid = f"edinet-{doc_id}"
             if rid in rows:
@@ -93,6 +102,8 @@ def build(days: int, single_date: str | None, max_downloads: int, force_llm: boo
             cur = parsed.get("current_pct")
             if cur is None or cur < LARGE_HOLDING_THRESHOLD - 0.005:
                 continue  # not a >=5% report (or unparseable) -> skip from public feed
+            if parsed.get("previous_pct") is not None:
+                continue  # a prior reported ratio means this is a change, not a new crossing
             filer = _clean_filer(d.get("filerName", ""))
             filer_code = (d.get("edinetCode") or "").strip()
             iid = C.attribute_investor(idx, filer_name=filer, edinet_code=filer_code)
@@ -147,7 +158,8 @@ def build(days: int, single_date: str | None, max_downloads: int, force_llm: boo
                 "current_holding_ratio": cur,
                 "move_type": "new_5pct",
                 "japanese_title": d.get("docDescription") or "大量保有報告書",
-                "source_url": (KABUTAN_HOLDER.format(code=filer_code) if filer_code else EDINET_VIEW),
+                "source_url": (C.nikkei_edinet_url(doc_id, (d.get("submitDateTime") or "")[:10])
+                               or (KABUTAN_HOLDER.format(code=filer_code) if filer_code else EDINET_VIEW)),
                 "intent": s["intent"],
                 "signal": s["signal"],
                 "summary_en": s["en"],
@@ -214,42 +226,4 @@ def main():
 
 if __name__ == "__main__":
     raise SystemExit(main())
-        "rows": allrows,
-    }
-    C.write_json(NEW5_PATH, out)
-    print(f"[new5] {len(allrows)} rows ({out['meta']['tracked_count']} by tracked funds); "
-          f"{downloads} CSVs fetched this run -> {NEW5_PATH}")
-    return 0
-
-
-def scan(days: int):
-    """Count candidates per day without downloading (fast sizing)."""
-    key = os.environ.get("EDINET_API_KEY", "").strip()
-    client = EdinetClient(key)
-    today = _dt.date.today()
-    for i in range(days + 1):
-        date = (today - _dt.timedelta(days=i)).isoformat()
-        try:
-            docs = client.list_documents(date)
-        except Exception:
-            print(f"  {date}: (list failed)")
-            continue
-        n = sum(1 for d in docs if _is_initial_new5(d))
-        print(f"  {date}: {n} initial new-5% candidates ({len(docs)} docs total)")
-
-
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--days", type=int, default=3)
-    ap.add_argument("--date", type=str, default=None)
-    ap.add_argument("--max-downloads", type=int, default=60)
-    ap.add_argument("--scan", action="store_true")
-    ap.add_argument("--llm", action="store_true")
-    a = ap.parse_args()
-    if a.scan:
-        return scan(a.days)
-    return build(a.days, a.date, a.max_downloads, a.llm)
-
-
-if __name__ == "__main__":
-    raise SystemExit(main())
+  

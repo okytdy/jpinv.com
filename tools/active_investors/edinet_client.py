@@ -41,6 +41,11 @@ KABUTAN_HOLDER = "https://kabutan.jp/holder/lists/?edicode={code}"
 EDINET_VIEW = "https://disclosure2.edinet-fsa.go.jp/WEEK0010.aspx"  # portal (docID stored separately)
 
 
+def _nikkei(doc_id, submit_date):
+    d = (submit_date or "").replace("-", "")
+    return ("https://www.nikkei.com/nkd/disclosure/ednr/" + d + doc_id + "/") if (doc_id and len(d) == 8) else ""
+
+
 class EdinetClient:
     def __init__(self, api_key: str, *, timeout: int = 30, pause: float = 0.3):
         if not api_key:
@@ -121,7 +126,8 @@ class EdinetClient:
                                  or "変更" in (d.get("docDescription") or "")
                                  or "訂正" in (d.get("docDescription") or "")),
             "japanese_title": d.get("docDescription") or "",
-            "source_url": (KABUTAN_HOLDER.format(code=filer_code) if filer_code else EDINET_VIEW),
+            "source_url": (_nikkei(d.get("docID", ""), _submit_date(d.get("submitDateTime")))
+                           or (KABUTAN_HOLDER.format(code=filer_code) if filer_code else EDINET_VIEW)),
             "current_pct": None,
             "previous_pct": None,
             "change_pp": None,
