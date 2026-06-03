@@ -110,12 +110,29 @@ def build(days: int, single_date: str | None, max_downloads: int, force_llm: boo
                 "confidence": "high",
                 "caveats": [],
             }
-            # Summary: tracked -> curated display; else the filer as filed.
             row["purpose_ja"] = parsed.get("purpose_ja", "")
             row["reason_ja"] = ""
             row["intent"] = C.classify_intent(row["purpose_ja"])
             disp = inv_by_id[iid] if iid else {"display_name": filer, "display_name_ja": filer}
             s = template_summary(row, disp)
+            # English company name (official JPX) + share count for the 2-line summary.
+            code = parsed.get("issuer_code", "")
+            issuer_en = C.jpx_name_en(code) or issuer
+            shares = parsed.get("shares_held")
+            shares_str = ("{:,}".format(shares)) if shares else None
+            filer_en = inv_by_id[iid]["display_name"] if iid else filer
+            filer_ja = inv_by_id[iid].get("display_name_ja", filer) if iid else filer
+            intent_en = C.INTENT_LABEL.get(row["intent"], {}).get("en", "")
+            intent_ja = C.INTENT_LABEL.get(row["intent"], {}).get("ja", "")
+            curs = C.pct(cur)
+            te = filer_en + " reported a new 5%+ position in " + issuer_en + " (" + code + ")"
+            te += (": " + shares_str + " shares" if shares_str else "") + ", " + curs + "% of voting rights."
+            if intent_en:
+                te += " Stated purpose: " + intent_en + "."
+            tj = filer_ja + "は" + issuer + "（" + code + "）について新規の大量保有を報告"
+            tj += ("。保有株式数 " + shares_str + " 株" if shares_str else "") + "、保有割合 " + curs + "%。"
+            if intent_ja:
+                tj += "保有目的：" + intent_ja + "。"
             rows[rid] = {
                 "id": rid,
                 "edinet_doc_id": doc_id,
@@ -124,7 +141,9 @@ def build(days: int, single_date: str | None, max_downloads: int, force_llm: boo
                 "investor_id": iid,
                 "is_tracked": bool(iid),
                 "issuer_name": issuer,
-                "issuer_code": parsed.get("issuer_code",""),
+                "issuer_name_en": issuer_en,
+                "issuer_code": code,
+                "shares_held": shares,
                 "current_holding_ratio": cur,
                 "move_type": "new_5pct",
                 "japanese_title": d.get("docDescription") or "大量保有報告書",
@@ -133,6 +152,8 @@ def build(days: int, single_date: str | None, max_downloads: int, force_llm: boo
                 "signal": s["signal"],
                 "summary_en": s["en"],
                 "summary_ja": s["ja"],
+                "summary_text_en": te,
+                "summary_text_ja": tj,
                 "confidence": "high",
                 "caveats": [],
             }
@@ -154,6 +175,45 @@ def build(days: int, single_date: str | None, max_downloads: int, force_llm: boo
             "tracked_count": sum(1 for r in allrows if r.get("is_tracked")),
             "source": "EDINET API v2 (FSA) docTypeCode 350 initial large-shareholding reports",
         },
+        "rows": allrows,
+    }
+    C.write_json(NEW5_PATH, out)
+    print(f"[new5] {len(allrows)} rows ({out['meta']['tracked_count']} by tracked funds); "
+          f"{downloads} CSVs fetched this run -> {NEW5_PATH}")
+    return 0
+
+
+def scan(days: int):
+    """Count candidates per day without downloading (fast sizing)."""
+    key = os.environ.get("EDINET_API_KEY", "").strip()
+    client = EdinetClient(key)
+    today = _dt.date.today()
+    for i in range(days + 1):
+        date = (today - _dt.timedelta(days=i)).isoformat()
+        try:
+            docs = client.list_documents(date)
+        except Exception:
+            print(f"  {date}: (list failed)")
+            continue
+        n = sum(1 for d in docs if _is_initial_new5(d))
+        print(f"  {date}: {n} initial new-5% candidates ({len(docs)} docs total)")
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--days", type=int, default=3)
+    ap.add_argument("--date", type=str, default=None)
+    ap.add_argument("--max-downloads", type=int, default=60)
+    ap.add_argument("--scan", action="store_true")
+    ap.add_argument("--llm", action="store_true")
+    a = ap.parse_args()
+    if a.scan:
+        return scan(a.days)
+    return build(a.days, a.date, a.max_downloads, a.llm)
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
         "rows": allrows,
     }
     C.write_json(NEW5_PATH, out)

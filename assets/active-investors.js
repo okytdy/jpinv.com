@@ -67,6 +67,18 @@
     return '<span class="ai-intent ai-i-' + it + '">' + esc(lab) + "</span>";
   }
 
+  function docTypeLabel(lang, f) {
+    var t = f.japanese_title || "";
+    if (!t) return "";
+    if (lang === "ja") return '<div class="ai-td-jp">' + esc(t) + "</div>";
+    var en = /訂正/.test(t) ? "Correction report"
+      : (/変更報告/.test(t) ? "Change report"
+      : (/大量保有報告/.test(t) ? "Large-shareholding report" : ""));
+    if (/特例/.test(t)) en += " (passive/quarterly)";
+    en = en.replace(/^ +| +$/g, "");
+    return en ? '<div class="ai-td-jp">' + esc(en) + "</div>" : "";
+  }
+
   function isuLabel(lang, f) {
     var en = f.issuer_name_en, ja = f.issuer_name;
     return lang === "ja" ? (ja || en || "") : (en || ja || "");
@@ -203,7 +215,7 @@
 
     function ratioCell(f) {
       var cur = f.current_holding_ratio, prev = f.previous_holding_ratio, chg = f.change_percentage_points;
-      if (f.move_type === "new_5pct") return fmtPct(cur) + "%";
+      if (f.move_type === "new_5pct") return "0% → " + fmtPct(cur) + "%";
       if (prev != null && cur != null) {
         var dir = (chg || 0) >= 0 ? "ai-up" : "ai-down";
         return fmtPct(prev) + "% → " + fmtPct(cur) + "% <span class=\"" + dir + "\">(" + fmtChg(chg) + " " + L.pp + ")</span>";
@@ -253,15 +265,15 @@
         var s = (lang === "ja" ? r.summary_ja : r.summary_en) || {};
         var co = lang === "ja" ? r.issuer_name : (r.issuer_name_en || r.issuer_name);
         var tracked = r.is_tracked ? '<span class="ai-feed-tracked">' + esc(L.tracked) + "</span>" : "";
-        var src = r.source_url ? '<a class="ai-src" href="' + esc(r.source_url) + '" target="_blank" rel="noopener">EDINET ↗</a>' : "";
+        var src = r.source_url ? '<a class="ai-src" href="' + esc(r.source_url) + '" target="_blank" rel="noopener">Source ↗</a>' : "";
         return '<div class="ai-feed-row" tabindex="0" role="button">' +
           '<span class="ai-feed-date">' + esc(r.filing_date) + "</span>" +
-          '<span class="ai-feed-ratio">' + fmtPct(r.current_holding_ratio) + "%</span>" +
+          '<span class="ai-feed-ratio">0% → ' + fmtPct(r.current_holding_ratio) + "%</span>" +
           '<span class="ai-feed-tk">' + esc(r.issuer_code || "") + "</span>" +
           '<span class="ai-feed-co">' + esc(co) + "</span>" +
           '<span class="ai-feed-filer">' + esc(r.filer_raw_name) + "</span>" + tracked +
           '<span class="ai-feed-arrow">›</span>' +
-          '<div class="ai-feed-expand">' + intentChip(lang, r) + (s.note ? " " + esc(s.note) : "") + (r.purpose_en ? " " + esc(r.purpose_en) : "") + " " + src + "</div></div>";
+          '<div class="ai-feed-expand">' + esc(lang === "ja" ? (r.summary_text_ja || "") : (r.summary_text_en || "")) + " " + src + "</div></div>";
       }).join("");
     }
 
@@ -302,16 +314,16 @@
       var co = isuLabel(lang, f);
       var s = (lang === "ja" ? f.summary_ja : f.summary_en) || {};
       var cav = (f.caveats || []).length ? '<span class="ai-cav">⚠ ' + esc(f.caveats.join(" ")) + "</span>" : "";
-      var jp = f.japanese_title ? '<div class="ai-td-jp">' + esc(f.japanese_title) + "</div>" : "";
+      var jp = docTypeLabel(lang, f);
       var conf = f.confidence && f.confidence !== "high"
         ? ' <span class="ai-conf ai-c-' + f.confidence + '">' + esc(f.confidence) + "</span>" : "";
-      var src = f.source_url ? '<a class="ai-src" href="' + esc(f.source_url) + '" target="_blank" rel="noopener">EDINET ↗</a>' : "";
+      var src = f.source_url ? '<a class="ai-src" href="' + esc(f.source_url) + '" target="_blank" rel="noopener">Source ↗</a>' : "";
       return "<tr>" +
         td(L.colDate, esc(f.filing_date)) +
         td(L.colCo, '<span class="ai-td-co">' + esc(co) + "</span>") +
         td(L.colTk, '<span class="ai-td-tk">' + esc(f.issuer_code || "") + "</span>") +
         td(L.colMove, moveBadge(L, f.move_type)) +
-        td(L.colPrev, '<span class="ai-td-ratio">' + (f.previous_holding_ratio != null ? fmtPct(f.previous_holding_ratio) + "%" : "—") + "</span>") +
+        td(L.colPrev, '<span class="ai-td-ratio">' + (f.previous_holding_ratio != null ? fmtPct(f.previous_holding_ratio) + "%" : (f.move_type === "new_5pct" ? "0%" : "—")) + "</span>") +
         td(L.colNew, '<span class="ai-td-ratio">' + (f.current_holding_ratio != null ? fmtPct(f.current_holding_ratio) + "%" : "—") + "</span>") +
         td(L.colChg, '<span class="ai-td-ratio">' + (f.change_percentage_points != null ? fmtChg(f.change_percentage_points) + " " + L.pp : "—") + "</span>") +
         td(L.colSum, '<div class="ai-td-sum">' + intentChip(lang, f) + (s.note ? " " + esc(s.note) : "") + (f.purpose_en ? '<span class="ai-purpose">' + esc(f.purpose_en) + "</span>" : "") + conf + cav + jp + "</div>") +
@@ -352,9 +364,7 @@
       });
       // modal close
       var modal = root.querySelector("#ai-modal");
-      if (modal) modal.querySelectorAll("[data-close]").forEach(function (el) {
-        el.addEventListener("click", closeModal);
-      });
+      if (modal) modal.addEventListener("click", function (e) { if (e.target.closest("[data-close]")) closeModal(); });
       // feed row expand + open source
       root.querySelectorAll(".ai-feed-row").forEach(function (rowEl) {
         rowEl.addEventListener("click", function (e) {

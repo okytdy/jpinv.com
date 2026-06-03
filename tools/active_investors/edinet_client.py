@@ -148,6 +148,8 @@ _CODE_ELEM = ("SecurityCodeOfIssuer", "SecuritiesCodeOfIssuer", "CodeNumberOfIss
 _CODE_ITEM = ("証券コード", "コード番号")
 _PURPOSE_ELEM = ("PurposeOfHolding",)
 _PURPOSE_ITEM = ("保有目的",)
+_SHARES_ELEM = ("TotalNumberOfStocksEtcHeld",)
+_SHARES_ITEM = ("保有株券等の数（総数）",)
 
 
 def parse_large_holding_csv(csv_bytes: bytes) -> dict:
@@ -172,6 +174,7 @@ def parse_large_holding_csv(csv_bytes: bytes) -> dict:
 
     cur = prev = None
     issuer_name = reason = purpose = None
+    shares = None
     code_strong = code_weak = None
     for r in rows[1:]:
         if len(r) <= c_val:
@@ -193,6 +196,10 @@ def parse_large_holding_csv(csv_bytes: bytes) -> dict:
         if purpose is None and (_any_in(elem, _PURPOSE_ELEM) or _any_in(item, _PURPOSE_ITEM)):
             if val and not val.replace(".", "").replace("-", "").isdigit():
                 purpose = unicodedata.normalize("NFKC", val)
+        if shares is None and (_any_in(elem, _SHARES_ELEM) or _any_in(item, _SHARES_ITEM)):
+            sv = unicodedata.normalize("NFKC", val).replace(",", "").strip()
+            if sv.isdigit():
+                shares = int(sv)
         if code_strong is None and _any_in(elem, _CODE_ELEM):
             cc = _sec_code(unicodedata.normalize("NFKC", val))
             if cc and any(ch.isdigit() for ch in cc):
@@ -217,6 +224,8 @@ def parse_large_holding_csv(csv_bytes: bytes) -> dict:
         out["reason_ja"] = reason
     if purpose:
         out["purpose_ja"] = purpose
+    if shares is not None:
+        out["shares_held"] = shares
     return out
 
 

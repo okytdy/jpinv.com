@@ -347,3 +347,20 @@ def intent_from(purpose_ja: str, purpose_category: str = "") -> str:
     if it == "unknown" and purpose_category:
         return _CATEGORY_INTENT.get(purpose_category, "unknown")
     return it
+
+
+# ---------------------------------------------------------------------------
+# JPX English company-name lookup (official JPX data_e.xls -> tools/jpx_cache.json)
+# ---------------------------------------------------------------------------
+_JPX_PATH = Path(__file__).resolve().parent.parent / "jpx_cache.json"
+_JPX_TICKERS = None
+
+
+def jpx_name_en(code: str) -> str:
+    """Official English company name for a ticker, or '' if not listed/found."""
+    global _JPX_TICKERS
+    if _JPX_TICKERS is None:
+        d = read_json(_JPX_PATH, {}) or {}
+        _JPX_TICKERS = d.get("tickers") or {}
+    r = _JPX_TICKERS.get(str(code or "").strip())
+    return (r or {}).get("name_en", "") if r else ""
