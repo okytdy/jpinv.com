@@ -46,7 +46,7 @@
     ".cmpnav-mark{font-family:var(--serif,Georgia,serif);font-size:20px;font-weight:300;color:var(--ink-mid,#172641);letter-spacing:.04em;}" +
     ".cmpnav-pipe{color:var(--accent,#b08a4a);margin:0 2px;font-weight:200;}" +
     ".cmpnav-wm{font-family:var(--mono,monospace);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft,#304466);}" +
-    ".cmpnav-tabs{display:flex;align-items:center;gap:2px;flex:1;overflow-x:auto;scrollbar-width:none;}" +
+    ".cmpnav-tabs{display:flex;align-items:center;justify-content:space-evenly;gap:2px;flex:1;overflow-x:auto;scrollbar-width:none;}" +
     ".cmpnav-tabs::-webkit-scrollbar{display:none;}" +
     ".cmpnav-tab{font-family:var(--sans,sans-serif);font-size:13px;color:var(--text-mid,#4a5566);text-decoration:none;" +
     "padding:8px 13px;white-space:nowrap;border-bottom:2px solid transparent;transition:color .15s,border-color .15s;}" +
@@ -71,20 +71,20 @@
   document.head.appendChild(st);
 
   function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[c];}); }
+  var tabsHtml = "";
+  for (var i = 0; i < tabs.length; i++) {
+    var t = tabs[i], on = t.k === ak;
+    tabsHtml += '<a class="cmpnav-tab' + (on ? ' cmpnav-on' : '') + '" href="' + t.href + '"' +
+      (on ? ' aria-current="page"' : '') + '>' + esc(isEn ? t.en : t.ja) + '</a>';
+  }
   var html = '<div class="cmpnav-in">' +
     '<a class="cmpnav-brand" href="' + home + '" aria-label="JII Compounders home">' +
     '<span class="cmpnav-mark">J<span class="cmpnav-pipe">|</span>I</span>' +
     '<span class="cmpnav-wm">Compounders</span></a>' +
+    '<div class="cmpnav-tabs" id="cmpnav-tabs">' + tabsHtml + '</div>' +
     '<div class="cmpnav-lang"><a' + (isEn ? ' class="cmpnav-cur"' : '') + ' href="' + esc(toEn) + '" lang="en">EN</a>' +
     '<span>·</span><a' + (!isEn ? ' class="cmpnav-cur"' : '') + ' href="' + esc(toJa) + '" lang="ja">JP</a></div>' +
-    '<button class="cmpnav-burger" aria-label="Menu" aria-expanded="false">&#9776;</button>' +
-    '<div class="cmpnav-tabs" id="cmpnav-tabs">';
-  for (var i = 0; i < tabs.length; i++) {
-    var t = tabs[i], on = t.k === ak;
-    html += '<a class="cmpnav-tab' + (on ? ' cmpnav-on' : '') + '" href="' + t.href + '"' +
-      (on ? ' aria-current="page"' : '') + '>' + esc(isEn ? t.en : t.ja) + '</a>';
-  }
-  html += '</div>';
+    '<button class="cmpnav-burger" aria-label="Menu" aria-expanded="false">&#9776;</button>';
 
   var nav = document.createElement("nav");
   nav.id = "cmpnav"; nav.className = "cmpnav";
