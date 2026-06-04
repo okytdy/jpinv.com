@@ -22,6 +22,15 @@
     { k: "contact",  en: "Contact",          ja: "お問い合わせ",     href: isEn ? "/en/contact/" : "/contact/" }
   ];
 
+  var isLanding = /^\/(en\/)?compounders\/?$/.test(p);
+  if (isLanding) {
+    var anchors = { universe: "#sec-universe", profiles: "#sec-profiles", policy: "#sec-policy",
+                    active: "#sec-active-investors", signals: "#sec-signals" };
+    for (var ai = 0; ai < tabs.length; ai++) {
+      if (anchors[tabs[ai].k]) tabs[ai].href = anchors[tabs[ai].k];
+    }
+  }
+
   function activeKey() {
     if (/\/compounders\/profiles\//.test(p)) return "profiles";
     if (/\/compounders\/policymap\//.test(p)) return "policy";
@@ -41,12 +50,12 @@
   var css =
     ".cmpnav{position:fixed;top:0;left:0;right:0;z-index:1000;background:#fff;border-bottom:1px solid var(--rule,#d6dee8);" +
     "font-family:var(--sans,system-ui,sans-serif);}" +
-    ".cmpnav-in{max-width:1320px;margin:0 auto;padding:0 28px;display:flex;align-items:center;gap:20px;height:54px;}" +
+    ".cmpnav-in{max-width:1320px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:center;gap:clamp(20px,3vw,48px);height:54px;}" +
     ".cmpnav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex:0 0 auto;}" +
     ".cmpnav-mark{font-family:var(--serif,Georgia,serif);font-size:20px;font-weight:300;color:var(--ink-mid,#172641);letter-spacing:.04em;}" +
     ".cmpnav-pipe{color:var(--accent,#b08a4a);margin:0 2px;font-weight:200;}" +
     ".cmpnav-wm{font-family:var(--mono,monospace);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft,#304466);}" +
-    ".cmpnav-tabs{display:flex;align-items:center;justify-content:center;gap:clamp(6px,1.5vw,26px);flex:1;overflow-x:auto;scrollbar-width:none;}" +
+    ".cmpnav-tabs{display:flex;align-items:center;gap:clamp(8px,1.7vw,30px);overflow-x:auto;scrollbar-width:none;}" +
     ".cmpnav-tabs::-webkit-scrollbar{display:none;}" +
     ".cmpnav-tab{font-family:var(--sans,sans-serif);font-size:13px;color:var(--text-mid,#4a5566);text-decoration:none;" +
     "padding:8px 13px;white-space:nowrap;border-bottom:2px solid transparent;transition:color .15s,border-color .15s;}" +
@@ -57,13 +66,15 @@
     ".cmpnav-cur{color:var(--ink-mid,#172641)!important;font-weight:600;}" +
     ".cmpnav-burger{display:none;background:none;border:none;font-size:20px;color:var(--ink-mid,#172641);cursor:pointer;padding:6px;}" +
     ".cmpnav-tab:focus-visible,.cmpnav-brand:focus-visible,.cmpnav-lang a:focus-visible{outline:2px solid var(--accent,#b08a4a);outline-offset:2px;}" +
-    "@media(max-width:860px){.cmpnav-burger{display:block;margin-left:auto;order:3;}.cmpnav-wm{display:none;}" +
+    "@media(max-width:860px){.cmpnav-in{justify-content:flex-start;gap:14px;}.cmpnav-burger{display:block;margin-left:auto;order:3;}.cmpnav-wm{display:none;}" +
     ".cmpnav-lang{order:2;margin-left:auto;}" +
     ".cmpnav-tabs{order:4;display:none;position:absolute;top:54px;left:0;right:0;background:#fff;" +
     "border-bottom:1px solid var(--rule,#d6dee8);flex-direction:column;align-items:stretch;padding:6px 0;box-shadow:0 12px 24px rgba(15,31,58,.08);}" +
     ".cmpnav-tabs.cmpnav-open{display:flex;}.cmpnav-tabs{gap:0;}.cmpnav-tab{padding:13px 28px;border-bottom:none;}" +
     ".cmpnav-on{border-bottom:none;border-left:3px solid var(--accent,#b08a4a);}}" +
-    "@media(prefers-reduced-motion:reduce){.cmpnav-tab{transition:none;}}" +
+    "html{scroll-behavior:smooth;}" +
+    "#sec-universe,#sec-profiles,#sec-policy,#sec-active-investors,#sec-signals{scroll-margin-top:64px;}" +
+    "@media(prefers-reduced-motion:reduce){.cmpnav-tab{transition:none;}html{scroll-behavior:auto;}}" +
     "/* retire the duplicate logo/home-link below the sticky nav */" +
     ".hero-brand,.crumb,.masthead-inner .brand-home-link{display:none!important;}";
   var st = document.createElement("style");

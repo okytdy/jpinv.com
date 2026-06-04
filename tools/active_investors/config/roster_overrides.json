@@ -1,0 +1,11 @@
+{
+  "_README": "Editorial control for the 12-month active-fund roster (data/roster.json). The builder includes filers whose names look like funds (capital/fund/partners/invest/asset/management hints) and excludes sell-side, banks, insurers, domestic passive AMs, index giants, operating companies and individuals. Use force_include / force_exclude (substring match on the NFKC-normalized filer name) to correct it, then re-run: python tools/active_investors/build_roster.py",
+  "force_include": [
+    "シティインデックスイレブンス",
+    "DOE5パーセント",
+    "南青山不動産"
+  ],
+  "force_exclude": [
+    "野村絢"
+  ]
+}

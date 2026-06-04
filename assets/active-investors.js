@@ -29,6 +29,10 @@
       colPrev: "Prev", colNew: "New", colChg: "Change", colSum: "Purpose / reason", colSrc: "Source",
       sourceNote: "Source disclosures (EDINET) are filed in Japanese. Summaries are automated; always refer to the original filing.",
       pp: "pts", loading: "Loading…", err: "Could not load the feed.",
+      rosterTitle: "Active Fund Directory — last 12 months",
+      rosterSub: "Every activist, engaged and foreign active fund with a large-shareholding filing in the window",
+      rosterSearch: "Search fund name…", colFund: "Fund", colFilings: "Filings", colNew5: "New 5%", colLast: "Last filed",
+      funds: "funds",
       crossed5: "new 5% report", country: { "United States": "US", "United Kingdom": "UK", "Singapore": "SG",
         "Hong Kong": "HK", "Norway": "NO", "Japan": "JP" }
     },
@@ -47,6 +51,10 @@
       colPrev: "前", colNew: "現", colChg: "変化", colSum: "目的・事由", colSrc: "出所",
       sourceNote: "出所（EDINET）の開示は日本語です。要約は自動生成のため、必ず原文をご確認ください。",
       pp: "pt", loading: "読み込み中…", err: "フィードを読み込めませんでした。",
+      rosterTitle: "アクティブ・ファンド名鑑 — 直近12ヶ月",
+      rosterSub: "期間中に大量保有報告書を提出したアクティビスト・エンゲージメント・海外アクティブ運用ファンド",
+      rosterSearch: "ファンド名で検索…", colFund: "ファンド", colFilings: "提出", colNew5: "新規5%", colLast: "最新",
+      funds: "社",
       crossed5: "大量保有報告書", country: {}
     }
   };
@@ -90,15 +98,19 @@
     var base = root.getAttribute("data-ai-base") || "/compounders/active-investors/data";
     var fullHref = root.getAttribute("data-ai-fullhref") || "/en/compounders/active-investors/";
     var L = I18N[lang];
-    var state = { feed: null, new5: null, filterMove: "all", filterDays: 0, q: "", feedQ: "" };
+    var state = { feed: null, new5: null, roster: null, filterMove: "all", filterDays: 0, q: "", feedQ: "", rosterQ: "" };
 
     root.innerHTML = '<div class="ai-loading">' + esc(L.loading) + "</div>";
 
-    Promise.all([
+    var fetches = [
       fetch(base + "/feed.json", { cache: "no-store" }).then(function (r) { return r.json(); }),
       fetch(base + "/new5_feed.json", { cache: "no-store" }).then(function (r) { return r.ok ? r.json() : { rows: [] }; }).catch(function () { return { rows: [] }; })
-    ]).then(function (res) {
-      state.feed = res[0]; state.new5 = res[1] || { rows: [] };
+    ];
+    if (mode === "full") {
+      fetches.push(fetch(base + "/roster.json", { cache: "no-store" }).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; }));
+    }
+    Promise.all(fetches).then(function (res) {
+      state.feed = res[0]; state.new5 = res[1] || { rows: [] }; state.roster = res[2] || null;
       render();
     }).catch(function () { root.innerHTML = '<div class="ai-err">' + esc(L.err) + "</div>"; });
 
@@ -112,10 +124,12 @@
       if (mode === "full") html += controls();
       html += '<div class="ai-grid" id="ai-grid"></div>';
       html += feedSection();
+      if (mode === "full" && state.roster) html += rosterSection();
       html += modalShell();
       root.innerHTML = html;
       renderGrid();
       renderFeed();
+      renderRoster();
       wire();
     }
 
@@ -277,6 +291,43 @@
       }).join("");
     }
 
+    /* ---------- 12-month active-fund roster (full mode) ---------- */
+    function rosterSection() {
+      var m = (state.roster && state.roster.meta) || {};
+      var sub = esc(L.rosterSub) + (m.window_start ? " · " + esc(m.window_start) + " → " + esc(m.window_end) : "") +
+        (m.count ? " · " + m.count + " " + esc(L.funds) : "");
+      return '<div class="ai-roster-wrap"><div class="ai-feed-head"><h3 class="ai-feed-title">' + esc(L.rosterTitle) + "</h3></div>" +
+        '<p class="ai-feed-sub">' + sub + "</p>" +
+        '<input class="ai-search ai-feed-search" id="ai-roster-search" type="text" placeholder="' + esc(L.rosterSearch) + '" aria-label="' + esc(L.rosterSearch) + '">' +
+        '<div class="ai-roster-box"><table class="ai-table ai-roster-table"><thead><tr>' +
+        th(L.colFund) + th(L.colFilings) + th(L.colNew5) + th(L.colLast) + th(L.colSrc) +
+        '</tr></thead><tbody id="ai-roster-body"></tbody></table></div></div>';
+    }
+
+    function renderRoster() {
+      var body = root.querySelector("#ai-roster-body");
+      if (!body || !state.roster) return;
+      var rows = (state.roster.rows || []).slice();
+      if (state.rosterQ) {
+        var q = state.rosterQ.toLowerCase();
+        rows = rows.filter(function (r) {
+          return (r.name || "").toLowerCase().indexOf(q) >= 0 ||
+                 (r.name_ja || "").indexOf(state.rosterQ) >= 0;
+        });
+      }
+      body.innerHTML = rows.map(function (r) {
+        var nm = lang === "ja" ? (r.name_ja || r.name) : r.name;
+        var tr = r.tracked ? ' <span class="ai-feed-tracked">' + esc(L.tracked) + "</span>" : "";
+        var src = r.url ? '<a class="ai-src" href="' + esc(r.url) + '" target="_blank" rel="noopener">' + (lang === "ja" ? "提出一覧 ↗" : "Filings ↗") + "</a>" : "";
+        return "<tr>" +
+          td(L.colFund, '<span class="ai-td-co">' + esc(nm) + "</span>" + tr) +
+          td(L.colFilings, '<span class="ai-td-ratio">' + (r.total || 0) + "</span>") +
+          td(L.colNew5, '<span class="ai-td-ratio">' + (r.new5 || 0) + "</span>") +
+          td(L.colLast, '<span class="ai-td-ratio">' + esc(r.last || "") + "</span>") +
+          td(L.colSrc, src) + "</tr>";
+      }).join("");
+    }
+
     /* ---------- modal ---------- */
     function modalShell() {
       return '<div class="ai-modal" id="ai-modal" role="dialog" aria-modal="true" aria-label="Investor detail">' +
@@ -390,6 +441,8 @@
       if (s) s.addEventListener("input", function () { state.q = s.value.trim(); renderGrid(); wireGridOnly(); });
       var fs = root.querySelector("#ai-feed-search");
       if (fs) fs.addEventListener("input", function () { state.feedQ = fs.value.trim(); renderFeed(); wireFeedOnly(); });
+      var rs = root.querySelector("#ai-roster-search");
+      if (rs) rs.addEventListener("input", function () { state.rosterQ = rs.value.trim(); renderRoster(); });
     }
     // Re-wire just the parts that get re-rendered by filters (cards / feed).
     function wireGridOnly() {
