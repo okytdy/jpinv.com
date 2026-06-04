@@ -269,7 +269,8 @@
           return (r.issuer_name || "").toLowerCase().indexOf(q) >= 0 ||
             (r.issuer_name_en || "").toLowerCase().indexOf(q) >= 0 ||
             (r.issuer_code || "").toLowerCase().indexOf(q) >= 0 ||
-            (r.filer_raw_name || "").toLowerCase().indexOf(q) >= 0;
+            (r.filer_raw_name || "").toLowerCase().indexOf(q) >= 0 ||
+            (r.filer_name_en || "").toLowerCase().indexOf(q) >= 0;
         });
       }
       var limit = mode === "embed" ? 8 : rows.length;
@@ -285,7 +286,7 @@
           '<span class="ai-feed-ratio">0% → ' + fmtPct(r.current_holding_ratio) + "%</span>" +
           '<span class="ai-feed-tk">' + esc(r.issuer_code || "") + "</span>" +
           '<span class="ai-feed-co">' + esc(co) + "</span>" +
-          '<span class="ai-feed-filer">' + esc(r.filer_raw_name) + "</span>" + tracked +
+          '<span class="ai-feed-filer">' + esc(lang === "ja" ? r.filer_raw_name : (r.filer_name_en || r.filer_raw_name)) + "</span>" + tracked +
           '<span class="ai-feed-arrow">›</span>' +
           '<div class="ai-feed-expand">' + esc(lang === "ja" ? (r.summary_text_ja || "") : (r.summary_text_en || "")) + " " + src + "</div></div>";
       }).join("");

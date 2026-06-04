@@ -2,7 +2,7 @@
   "_README": "EDITABLE SOURCE OF TRUTH for the Active Investors in Japan feature. Edit this file and re-run `python tools/active_investors/refresh.py --build-only` (or the full refresh) to regenerate the public data under compounders/active-investors/data/. To change the 9 cards on the homepage, set `homepage: true` on exactly the investors you want and give them a `curated_rank` (1 = first card). To add an investor, copy a block and fill in `aliases` (the exact EDINET filer-name strings + EDINET codes EDINET uses — used by the ingester to attribute filings). `ranking_mode` controls card ordering: 'curated' uses curated_rank; 'activity' ranks by qualifying-filing count/recency in the window.",
   "schema_version": 1,
   "ranking_mode": "curated",
-  "homepage_size": 9,
+  "homepage_size": 12,
   "qualifying_rules": {
     "new_5pct": "Initial large-shareholding report (大量保有報告書); crosses the 5% reporting threshold.",
     "increase": "Change report (変更報告書) with holding ratio up >= 1.00 percentage point.",
@@ -134,9 +134,9 @@
       "display_name_ja": "ダルトン・インベストメンツ",
       "category": "activist",
       "country": "United States",
-      "curated_rank": 11,
+      "curated_rank": 12,
       "active": true,
-      "homepage": false,
+      "homepage": true,
       "website": "https://www.daltoninvestments.com/",
       "blurb_en": "US manager with a long Japan engagement record. Files through both its LLC and Inc. entities; accumulates mid- and small-caps steadily, often above 5%.",
       "blurb_ja": "日本での関与実績が長い米国運用会社。LLCとInc.の両主体で提出し、中小型株を5%超まで段階的に積み増すことが多い。",
@@ -225,9 +225,9 @@
       "display_name_ja": "ベイリー・ギフォード",
       "category": "long_only",
       "country": "United Kingdom",
-      "curated_rank": 13,
+      "curated_rank": 11,
       "active": true,
-      "homepage": false,
+      "homepage": true,
       "website": "https://www.bailliegifford.com/",
       "blurb_en": "Edinburgh growth investor. Holds long-duration positions in Japanese quality-growth names; both adds and trims through change reports.",
       "blurb_ja": "エディンバラ拠点のグロース投資家。日本の質の高い成長企業に長期保有のポジションを持ち、変更報告書で買い増し・売却の双方を行う。",
@@ -445,6 +445,34 @@
         }
       ],
       "notes": "US small/mid-cap Japan activist."
+    },
+    {
+      "id": "fundnote",
+      "display_name": "fundnote",
+      "display_name_ja": "ファンドノート",
+      "category": "activist",
+      "country": "Japan",
+      "curated_rank": 10,
+      "active": true,
+      "homepage": true,
+      "website": "https://fundnote.co.jp/",
+      "blurb_en": "Tokyo-based engagement fund that concentrates in under-covered Japanese small caps and works with management on value realization. One of the most frequent new-5% filers of the past year.",
+      "blurb_ja": "東京拠点のエンゲージメント・ファンド。カバレッジの薄い日本の小型株に集中投資し、価値顕在化に向けて経営陣と対話する。直近1年で最も新規5%報告が多い提出者の一つ。",
+      "parent_group_id": "fundnote",
+      "aliases": [
+        {
+          "name": "ｆｕｎｄｎｏｔｅ株式会社",
+          "edinet_code": "E40155"
+        },
+        {
+          "name": "fundnote株式会社",
+          "edinet_code": "E40155"
+        },
+        {
+          "name": "ファンドノート"
+        }
+      ],
+      "notes": "Added 2026-06-04 per Teddy. 56 filings / 13 new-5% in the trailing 12 months."
     }
   ]
 }

@@ -373,3 +373,157 @@ def nikkei_edinet_url(doc_id: str, filing_date: str) -> str:
     if not doc_id or len(d) != 8:
         return ""
     return "https://www.nikkei.com/nkd/disclosure/ednr/" + d + doc_id + "/"
+
+
+# ---------------------------------------------------------------------------
+# Best-effort fund-name translation (katakana -> English)
+# ---------------------------------------------------------------------------
+# Fund names are mostly katakana transliterations of English. A greedy
+# longest-match segmentation over a curated vocabulary translates them; names
+# that do not fully resolve keep their original form (never half-translated).
+
+_FUND_VOCAB = {
+    # generic fund vocabulary
+    "キャピタル": "Capital", "マネジメント": "Management", "マネージメント": "Management",
+    "アセット": "Asset", "ファンド": "Fund", "ファンズ": "Funds",
+    "パートナーズ": "Partners", "パートナーシップ": "Partnership", "パートナー": "Partner",
+    "インベストメンツ": "Investments", "インベストメント": "Investment",
+    "インベスターズ": "Investors", "インベスター": "Investor",
+    "アドバイザーズ": "Advisors", "アドバイザリー": "Advisory", "アドバイザー": "Advisor",
+    "ホールディングス": "Holdings", "インターナショナル": "International",
+    "グローバル": "Global", "ジャパン": "Japan", "アジア": "Asia", "パシフィック": "Pacific",
+    "ストラテジック": "Strategic", "ストラテジー": "Strategy", "バリュー": "Value",
+    "グロース": "Growth", "エクイティ": "Equity", "リサーチ": "Research",
+    "カンパニー": "Company", "リミテッド": "Limited", "エルエルシー": "LLC",
+    "エルエルピー": "LLP", "エルピー": "LP", "ピーティーイー": "Pte", "インク": "Inc",
+    "コーポレーション": "Corporation", "プライベート": "Private",
+    "フィナンシャル": "Financial", "ファイナンシャル": "Financial",
+    "ギャラリー": "Gallery", "ワークス": "Works", "シンガポール": "Singapore",
+    "エスピーシー": "SPC", "アンド": "&", "オポチュニティーズ": "Opportunities",
+    "オポチュニティ": "Opportunity", "ベンチャーズ": "Ventures", "ベンチャー": "Venture",
+    "トラスト": "Trust", "アソシエイツ": "Associates", "マネジャーズ": "Managers",
+    "マネージャーズ": "Managers", "セレクト": "Select", "マスター": "Master",
+    "アクティブ": "Active", "ユナイテッド": "United", "ワン": "One",
+    "ガバナンス": "Governance", "モバイル": "Mobile", "インターネット": "Internet",
+    "パーセント": "Percent", "ニッポン": "Nippon", "ファースト": "First",
+    "イーグル": "Eagle", "ロック": "Rock", "セブン": "Seven", "ベル": "Bell",
+    # proper nouns seen in the 12-month roster
+    "マイルストーン": "Milestone", "シルチェスター": "Silchester", "ウエリントン": "Wellington",
+    "シンフォニー": "Symphony", "ゼナー": "Zennor", "シュローダー": "Schroder",
+    "ムニノバ": "Muninova", "東京建物": "Tokyo Tatemono", "インフォマート": "Infomart", "ヒューリック": "Hulic",
+    "日章興産": "Nissho Kosan", "双日": "Sojitz", "第一": "Daiichi", "リアルター": "Realtor",
+    "ハヤテ": "Hayate", "アーチザン": "Artisan", "ジーピー": "GP", "トライヴィスタ": "Trivista",
+    "ノース": "North", "パブリック": "Public", "ファンド": "Fund", "イーストスプリング": "Eastspring",
+    "シンガポール": "Singapore", "スレッドニードル": "Threadneedle", "フュージョン": "Fusion",
+    "東京海上": "Tokio Marine", "明治安田": "Meiji Yasuda", "ヴィスタ": "Vista", "トライ": "Tri",
+    "日本成長支援パートナーズ": "Japan Growth Support Partners",
+    "いちご": "Ichigo", "アーカス": "Arcus", "シンプレクス": "Simplex", "スパークス": "SPARX",
+    "アモーヴァ": "Amova", "タイヨウ": "Taiyo", "ゴーディアン": "Gordian", "オービス": "Orbis",
+    "ひびき": "Hibiki", "パース": "Path", "レオス": "Rheos", "マラソン": "Marathon",
+    "ヴァレックス": "Varecs", "ミダス": "Midas", "アローストリート": "Arrowstreet",
+    "サムソン": "Samson", "エリオット": "Elliott", "スプラウスグローブ": "Sprucegrove",
+    "ケイン": "Kayne", "アンダーソン": "Anderson", "ラドニック": "Rudnick",
+    "ハイツ": "Heights", "ありあけ": "Ariake", "ダルトン": "Dalton",
+    "ベイリー": "Baillie", "ギフォード": "Gifford", "フィデリティ": "Fidelity",
+    "オアシス": "Oasis", "エフィッシモ": "Effissimo", "カナメ": "Kaname",
+    "ラザード": "Lazard", "ブランデス": "Brandes", "コーナーストーン": "Cornerstone",
+    "アクサ": "AXA", "インベスコ": "Invesco", "アライアンス": "Alliance",
+    "バーンスタイン": "Bernstein", "ニューバーガー": "Neuberger", "バーマン": "Berman",
+    "モルガン": "Morgan", "スタンレー": "Stanley", "ペンタ": "Penta",
+    "ホライゾン": "Horizon", "フェニックス": "Phoenix", "アルファ": "Alpha",
+    "アトム": "Atom", "リム": "Rim", "コスモ": "Cosmo", "サンライズ": "Sunrise",
+    "ムニノバ": "Muninova", "東京建物": "Tokyo Tatemono", "インフォマート": "Infomart", "ヒューリック": "Hulic",
+    "日章興産": "Nissho Kosan", "双日": "Sojitz", "第一": "Daiichi", "リアルター": "Realtor",
+    "ハヤテ": "Hayate", "アーチザン": "Artisan", "ジーピー": "GP", "トライヴィスタ": "Trivista",
+    "ノース": "North", "パブリック": "Public", "ファンド": "Fund", "イーストスプリング": "Eastspring",
+    "シンガポール": "Singapore", "スレッドニードル": "Threadneedle", "フュージョン": "Fusion",
+    "東京海上": "Tokio Marine", "明治安田": "Meiji Yasuda", "ヴィスタ": "Vista", "トライ": "Tri",
+    "日本成長支援パートナーズ": "Japan Growth Support Partners",
+    "いちご": "Ichigo", "アヤル": "Ayar", "ファースト": "First", "いなよし": "Inayoshi",
+    "京都大学イノベーションキャピタル": "Kyoto University Innovation Capital",
+    "イノベーション": "Innovation", "武士道": "Bushido", "バークレイズ": "Barclays",
+    "セキュリティーズ": "Securities", "サファイア": "Sapphire", "バーガンディ": "Burgundy",
+    "ニュートン": "Newton", "ジャパン": "Japan", "ピーティーイー": "Pte",
+    "日本成長投資アライアンス": "Japan Growth Investments Alliance", "アライアンス": "Alliance",
+    "インバウンド": "Inbound", "パーム": "Palm", "エピック": "Epic", "アセンダー": "Ascender",
+    "ピルグリム": "Pilgrim", "グランジャー": "Grandeur", "ピーク": "Peak", "ウィズ": "WiZ",
+    "アース": "Earth", "エレメンツ": "Elements", "プロパティ": "Property",
+    "アートポート": "Artport", "インベスト": "Invest", "モラント": "Morant", "ライト": "Wright",
+    "グループ": "Group", "エルティーディー": "Ltd", "エル": "L.", "ピー": "P.",
+    "ピーエルシー": "plc", "エスピー": "SP", "ジーケー": "GK", "ケー": "K.",
+    "オーケストラ": "Orchestra", "ハーモニー": "Harmony", "ブリッジ": "Bridge",
+    "クレスト": "Crest", "サミット": "Summit", "リバー": "River", "レイク": "Lake",
+    "フォレスト": "Forest", "ストーン": "Stone", "ゴールデン": "Golden", "シティ": "City",
+    "インデックス": "Index", "イレブンス": "Eleventh", "プロスペクト": "Prospect",
+    "フロンティア": "Frontier", "オリエント": "Orient", "サンシャイン": "Sunshine",
+    "メトリカ": "Metrica", "ノーザン": "Northern", "サザン": "Southern", "イースタン": "Eastern",
+    "ウエスタン": "Western", "セイル": "Sail", "アンカー": "Anchor", "コンパス": "Compass",
+    # kanji words common in fund names
+    "日本": "Japan", "投資": "Investment", "投資顧問": "Investment Advisors",
+    "不動産": "Real Estate", "南青山": "Minamiaoyama", "事業": "Business",
+    "組合": "Partnership", "有限責任": "",
+}
+_VOCAB_KEYS = sorted(_FUND_VOCAB.keys(), key=len, reverse=True)
+_CORP_FORMS = ("株式会社", "合同会社", "有限会社", "一般社団法人")
+
+
+def translate_fund_name(name: str) -> str:
+    """Best-effort English rendering of a fund name. Returns '' when the name
+    cannot be fully resolved (caller keeps the original)."""
+    import re as _re
+    n = unicodedata.normalize("NFKC", name or "").strip()
+    if not n:
+        return ""
+    # already-English chunk in parentheses, e.g. ...(Elliott Investment Management L.P.)
+    m = _re.search(r"[（(]([A-Za-z0-9&.,\- ']{8,})[）)]", n)
+    if m:
+        return m.group(1).strip()
+    # mostly ASCII already
+    if not _re.search(r"[ぁ-んァ-ヶ一-龯]", n):
+        out = n
+        for cf in _CORP_FORMS:
+            out = out.replace(cf, " ")
+        return _re.sub(r"\s+", " ", out).strip()
+    for cf in _CORP_FORMS:
+        n = n.replace(cf, "・")
+    n = n.replace("(", "・").replace(")", "・").replace("（", "・").replace("）", "・")
+    parts = []
+    for raw0 in _re.split(r"[・\s/]+", n):
+        if not raw0:
+            continue
+        # split mixed tokens (e.g. SBIインベストメント) into Latin and Japanese runs
+        raw0 = _re.sub(r"(?<=[ァ-ヶ])-(?![A-Za-z0-9])", "ー", raw0)  # hyphen used as 長音
+        runs = _re.findall(r"[A-Za-z0-9&.,'\-]+|[ぁ-んァ-ヶー一-龯]+", raw0)
+        flat_fail = False
+        for raw in runs:
+            if not _re.search(r"[ぁ-んァ-ヶ一-龯]", raw):
+                parts.append(raw)
+                continue
+            seg = raw.replace("-", "ー")
+            words = []
+            i = 0
+            ok = True
+            while i < len(seg):
+                for k in _VOCAB_KEYS:
+                    kk = k.replace("-", "ー")
+                    if seg.startswith(k, i) or seg.startswith(kk, i):
+                        w = _FUND_VOCAB[k]
+                        if w:
+                            words.append(w)
+                        i += len(k)
+                        break
+                else:
+                    if seg[i] == "ー":
+                        i += 1
+                        continue
+                    ok = False
+                    break
+            if not ok:
+                flat_fail = True
+                break
+            parts.extend(words)
+        if flat_fail:
+            return ""
+    out = " ".join(p for p in parts if p)
+    out = out.replace(" & ", " & ")
+    return out if out else ""

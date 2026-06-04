@@ -96,7 +96,8 @@ def main() -> int:
             continue
         if not is_active_fund(name_n, finc, fexc):
             continue
-        rows.append({"name": name_n, "name_ja": name_n, "tracked": False,
+        name_en = C.translate_fund_name(name_n) or name_n
+        rows.append({"name": name_en, "name_ja": name_n, "tracked": False,
                      "investor_id": None, "edinet_code": code,
                      "total": r.get("total", 0), "new5": r.get("new5", 0),
                      "chg": r.get("chg", 0), "last": r.get("last", ""),
