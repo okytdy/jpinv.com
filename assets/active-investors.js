@@ -1,6 +1,6 @@
 /* ===================================================================
    Active Investors in Japan — shared component.
-   Renders the 9 flip cards + the TSE-wide "new 5%" live feed from
+   Renders the investor flip cards + the TSE-wide "new 5%" live feed from
    /compounders/active-investors/data/{feed,new5_feed}.json.
 
    A host element opts in with:
@@ -97,6 +97,7 @@
     var mode = root.getAttribute("data-ai-mode") === "full" ? "full" : "embed";
     var base = root.getAttribute("data-ai-base") || "/compounders/active-investors/data";
     var fullHref = root.getAttribute("data-ai-fullhref") || "/en/compounders/active-investors/";
+    var cardLimit = parseInt(root.getAttribute("data-ai-card-limit") || "0", 10) || 0;
     var L = I18N[lang];
     var state = { feed: null, new5: null, roster: null, filterMove: "all", filterDays: 0, q: "", feedQ: "", rosterQ: "" };
 
@@ -115,7 +116,8 @@
     }).catch(function () { root.innerHTML = '<div class="ai-err">' + esc(L.err) + "</div>"; });
 
     function homepageInvestors() {
-      return (state.feed.investors || []).filter(function (i) { return i.homepage; });
+      var investors = (state.feed.investors || []).filter(function (i) { return i.homepage; });
+      return (mode === "embed" && cardLimit > 0) ? investors.slice(0, cardLimit) : investors;
     }
 
     function render() {
@@ -137,11 +139,11 @@
       var meta = state.feed.meta || {};
       var t = lang === "ja" ? "アクティブ投資家" : "Active Investors in Japan";
       var lede = lang === "ja"
-        ? "EDINETの大量保有報告書をもとに、日本株で意味のある動きを見せる海外・能動的な機関投資家のライブ・ビュー。"
+        ? "EDINETの大量保有報告書をもとに、日本株で存在感を高める国内外の投資家の動きを追います。"
         : "A live view of foreign and active institutional investors making meaningful moves in Japanese equities, based on EDINET large-shareholding filings.";
       var upd = meta.as_of_date ? '<div class="ai-updated">' + (lang === "ja" ? "更新" : "Updated") +
         ' <b>' + esc(meta.as_of_date) + "</b></div>" : "";
-      return '<div class="ai-head"><div class="ai-eyebrow">' + (lang === "ja" ? "投資家インテリジェンス" : "Investor intelligence") +
+      return '<div class="ai-head"><div class="ai-eyebrow">' + (lang === "ja" ? "投資家の動き" : "Investor intelligence") +
         '</div><h2 class="ai-title">' + esc(t) + '</h2><p class="ai-lede">' + esc(lede) + "</p>" + upd + "</div>";
     }
 
