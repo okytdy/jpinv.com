@@ -135,7 +135,7 @@
 
     function header() {
       var meta = state.feed.meta || {};
-      var t = lang === "ja" ? "日本で動く投資家" : "Active Investors in Japan";
+      var t = lang === "ja" ? "アクティブ投資家" : "Active Investors in Japan";
       var lede = lang === "ja"
         ? "EDINETの大量保有報告書をもとに、日本株で意味のある動きを見せる海外・能動的な機関投資家のライブ・ビュー。"
         : "A live view of foreign and active institutional investors making meaningful moves in Japanese equities, based on EDINET large-shareholding filings.";
