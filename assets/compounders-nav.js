@@ -1,8 +1,8 @@
 /* ===================================================================
    JII Compounders — shared top tab navigation.
    Self-injecting: one <script src="/assets/compounders-nav.js" defer> per
-   page renders a sticky horizontal tab bar (Universe · Profiles · Policy
-   Themes · Active Investors · Signals Feed · Contact), auto-detecting the
+   page renders a sticky horizontal tab bar (Universe · Analysis · Policy
+   Map · Active Investors · Capital Disclosure · Contact), auto-detecting the
    language (/en/ vs root) and the active tab from the URL. No dependencies.
    Edit the `tabs` array below to rename / reorder / add tabs in one place.
    =================================================================== */
@@ -15,10 +15,10 @@
 
   var tabs = [
     { k: "universe", en: "Universe",         ja: "ユニバース",       href: P + "/compounders/universe/" },
-    { k: "profiles", en: "Profiles",         ja: "プロファイル",     href: P + "/compounders/profiles/" },
-    { k: "policy",   en: "Policy Themes",    ja: "政策テーマ",       href: P + "/compounders/policymap/" },
+    { k: "profiles", en: "Profiles",         ja: "銘柄分析",         href: P + "/compounders/profiles/" },
+    { k: "policy",   en: "Policy Themes",    ja: "政策地図",         href: P + "/compounders/policymap/" },
     { k: "active",   en: "Active Investors", ja: "アクティブ投資家",       href: P + "/compounders/active-investors/" },
-    { k: "signals",  en: "Signals Feed",     ja: "シグナル・フィード", href: P + "/compounders/feed/" },
+    { k: "signals",  en: "Signals Feed",     ja: "資本政策開示",     href: P + "/compounders/feed/" },
     { k: "contact",  en: "Contact",          ja: "お問い合わせ",     href: isEn ? "/en/contact/" : "/contact/" }
   ];
 
