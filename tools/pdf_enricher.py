@@ -278,6 +278,24 @@ prose, no markdown fences.
   "translation_en_brief": "2-3 short paragraphs in plain English explaining the disclosure: what was filed, the specific terms, and any stated rationale. Max 1500 chars."
 }
 
+=== PCT_SO RULE (% of shares outstanding) — READ THIS BEFORE FILLING pct_so ===
+
+For key_facts.pct_so and every "% of shares outstanding" figure you put in the
+tag or summary: COMPUTE it yourself as
+    (shares to be acquired / cancelled  ÷  shares outstanding EXCLUDING treasury) × 100
+rounded to one decimal. Both numbers are in the filing — buyback and cancellation
+notices carry a 「（参考）…発行済株式総数（自己株式を除く）」 reference line that states the
+denominator (and the treasury count). Use the ex-treasury denominator.
+
+Do NOT copy a percentage the issuer prints in the body. Issuers frequently carry a
+STALE percentage over from a prior program's boilerplate — e.g. a 130,000-share
+program mislabelled "4.2%" because the issuer's previous 260,000-share program was
+4.2% of a similar base (the correct figure for 130,000 ÷ ~5.9M ex-treasury is ~2.2%).
+If the issuer's printed % and your computed % differ by more than 0.2 points, use
+YOUR computed value and note the discrepancy in translation_en_brief. If the filing
+does not state an ex-treasury denominator, set pct_so to null rather than copying a
+printed percentage.
+
 === SUMMARY RULES (summary_en, summary_jp) ===
 
 Clause 1 - NUMERIC FACTS ONLY. Lead with the primary numeric facts from the
