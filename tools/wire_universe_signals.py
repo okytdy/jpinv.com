@@ -1,95 +1,86 @@
 #!/usr/bin/env python3
 """
-wire_universe_signals.py -- Decorate the universe (watchlist) pages with a clickable
-capital-allocation SIGNAL badge on every name that has signals on file.
+wire_universe_signals.py (v2) -- Turn the universe (watchlist) STATUS column into a
+"Latest Signal" column.
 
-Client-side enhancer driven by compounders/feed/data/watchlist_signals.json, so the
-badges stay current as the feed cron appends new signals -- no page rebuild needed.
-Injects (idempotently, marker-guarded) into BOTH:
-    compounders/universe/index.html       (JP)
-    en/compounders/universe/index.html     (EN)
-  1) a .sig-badge / #sig-legend CSS rule before </style>
-  2) a <p id="sig-legend"> just before <table id="universe">
-  3) the enhancer <script> just before </body>
+Each watched row's last cell now shows the latest capital-allocation signal type with a
+dated hyperlink to that name's signal log (/compounders/signals/{ticker}/). Names with no
+signals show an em dash. The Active/Near-miss status stays on the row (data-status) so the
+SHOW filter buttons keep working; it's just no longer the visible column.
+
+Client-side enhancer driven by compounders/feed/data/watchlist_signals.json (stays current
+as the cron appends). Idempotent: strips any prior v1 (badge) or v2 injection first.
+Applies to compounders/universe/index.html and en/compounders/universe/index.html.
 """
-import os
+import os, re
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PAGES = ["compounders/universe/index.html", "en/compounders/universe/index.html"]
-MARKER = "<!-- sig-wire v1 -->"
+MARKER = "<!-- sig-wire v2 -->"
 
 CSS = """
-  .sig-badge { font-family:var(--mono); font-size:10.5px; letter-spacing:0.04em; color:var(--accent-deep); border-bottom:1px solid var(--accent); padding-bottom:1px; white-space:nowrap; margin-left:7px; }
-  .sig-badge:hover { color:var(--ink-mid); border-color:var(--ink-mid); }
-  tr.has-signal .cell-name { font-weight:400; }
-  #sig-legend { display:none; font-family:var(--mono); font-size:11px; letter-spacing:0.04em; color:var(--text-dim); margin:0 0 12px; }
-  #sig-legend a { color:var(--accent-deep); border-bottom:1px solid var(--accent); }
+  .cell-latest-sig { white-space:nowrap; }
+  .cell-latest-sig .ls-class { display:block; font-family:var(--mono); font-size:11px; letter-spacing:0.06em; color:var(--ink-mid); }
+  .cell-latest-sig .ls-date { font-family:var(--mono); font-size:11px; color:var(--accent-deep); border-bottom:1px solid var(--accent); }
+  .cell-latest-sig .ls-date:hover { color:var(--ink-mid); border-color:var(--ink-mid); }
+  .cell-latest-sig .ls-none { color:var(--text-dim); }
 """
 
 SCRIPT = """
 <script>
-/* sig-wire: decorate watchlist rows with capital-allocation signal badges */
+/* sig-wire v2: STATUS column -> Latest Signal (type + dated link to the name's signal log) */
 (function(){
   "use strict";
   var EN = location.pathname.indexOf("/en/") === 0;
   var SIGROOT = EN ? "/en/compounders/signals/" : "/compounders/signals/";
-  function t(en, ja){ return EN ? en : ja; }
+  function esc(x){ return (""+(x==null?"":x)).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+  // Rename the last header cell (the old STATUS column).
+  var ths = document.querySelectorAll("#universe thead th");
+  if (ths.length) { ths[ths.length-1].textContent = EN ? "Latest Signal" : "最新シグナル"; }
   fetch("/compounders/feed/data/watchlist_signals.json", {cache:"no-store"})
     .then(function(r){ return r.ok ? r.json() : null; })
     .then(function(d){
       if (!d || !d.names) return;
       var map = {};
-      d.names.forEach(function(n){ map[n.ticker] = { c:n.signal_count, latest:(n.latest&&n.latest.date)||"" }; });
+      d.names.forEach(function(n){ if (n.latest) map[n.ticker] = { cls:(EN ? n.latest.class_en : n.latest.class_jp), date:n.latest.date }; });
       var rows = document.querySelectorAll("#universe tbody tr");
       Array.prototype.forEach.call(rows, function(tr){
-        var tkEl = tr.querySelector(".cell-tk"), nmEl = tr.querySelector(".cell-name");
-        if (!tkEl || !nmEl) return;
-        var code = (tkEl.textContent || "").trim();
-        var info = map[code];
-        if (!info) return;
-        if (nmEl.querySelector(".sig-badge")) return;
-        var a = document.createElement("a");
-        a.className = "sig-badge";
-        a.href = SIGROOT + code + "/";
-        a.textContent = "\\u25C9 " + info.c;
-        var title = EN
-          ? (info.c + " capital-allocation signal" + (info.c>1?"s":"") + " on file \\u00B7 latest " + info.latest)
-          : ("\\u8CC7\\u672C\\u653F\\u7B56\\u30B7\\u30B0\\u30CA\\u30EB " + info.c + "\\u4EF6 \\u00B7 \\u6700\\u65B0 " + info.latest);
-        a.setAttribute("title", title);
-        a.setAttribute("aria-label", title);
-        nmEl.appendChild(document.createTextNode(" "));
-        nmEl.appendChild(a);
-        tr.classList.add("has-signal");
+        var tkEl = tr.querySelector(".cell-tk"), cell = tr.querySelector(".cell-status");
+        if (!tkEl || !cell) return;
+        var tk = (tkEl.textContent || "").trim();
+        var info = map[tk];
+        cell.className = "cell-status cell-latest-sig";
+        if (info) {
+          cell.innerHTML = '<span class="ls-class">' + esc(info.cls) + '</span>'
+                         + '<a class="ls-date" href="' + SIGROOT + tk + '/">' + esc(info.date) + '</a>';
+        } else {
+          cell.innerHTML = '<span class="ls-none">—</span>';
+        }
       });
-      var lg = document.getElementById("sig-legend");
-      if (lg) {
-        lg.innerHTML = t(
-          "\\u25C9 = capital-allocation signals on file \\u2014 click a badge for the name\\u2019s signal log, or see the <a href=\\"/en/compounders/signals/\\">full signal log</a>.",
-          "\\u25C9 = \\u8CC7\\u672C\\u653F\\u7B56\\u30B7\\u30B0\\u30CA\\u30EB\\u306E\\u8A18\\u9332\\u3042\\u308A \\u2014 \\u30D0\\u30C3\\u30B8\\u3092\\u30AF\\u30EA\\u30C3\\u30AF\\u3067\\u9298\\u67C4\\u5225\\u30ED\\u30B0\\u3078\\u3001\\u307E\\u305F\\u306F<a href=\\"/compounders/signals/\\">\\u30B7\\u30B0\\u30CA\\u30EB\\u4E00\\u89A7</a>\\u3078\\u3002"
-        );
-        lg.style.display = "";
-      }
     })
     .catch(function(){});
 })();
 </script>
 """
 
+def strip_prior(s: str) -> str:
+    # remove prior script blocks (v1 and v2)
+    s = re.sub(r'<!-- sig-wire v[12] -->\s*<script>.*?</script>\s*', '', s, flags=re.DOTALL)
+    # remove the v1 legend element
+    s = re.sub(r'\s*<p id="sig-legend"></p>', '', s)
+    # remove injected CSS rules (v1 badge/legend + any prior v2)
+    s = re.sub(r'\n  [^\n{}]*(?:sig-badge|sig-legend|has-signal|cell-latest-sig|ls-class|ls-date|ls-none)[^\n{}]*\{[^}]*\}', '', s)
+    return s
+
 def inject(path):
     full = os.path.join(ROOT, path)
     s = open(full, encoding="utf-8").read()
-    if MARKER in s:
-        return "skip (already wired)"
-    # 1) CSS before </style>
+    s = strip_prior(s)
     if "</style>" in s:
         s = s.replace("</style>", CSS + "</style>", 1)
-    # 2) legend before the table
-    if '<table id="universe">' in s:
-        s = s.replace('<table id="universe">', '<p id="sig-legend"></p>\n  <table id="universe">', 1)
-    # 3) script + marker before </body>
     s = s.replace("</body>", MARKER + "\n" + SCRIPT + "\n</body>", 1)
     with open(full, "w", encoding="utf-8", newline="\n") as f:
         f.write(s)
-    return "wired"
+    return "wired (Latest Signal column)"
 
 for p in PAGES:
     print(f"{p}: {inject(p)}")
