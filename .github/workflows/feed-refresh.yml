@@ -62,13 +62,16 @@ jobs:
           set -euo pipefail
           python tools/feed_refresh.py
 
-      - name: Rebuild watchlist join + signal pages
+      - name: Scrub sample signals + rebuild join + signal pages
         timeout-minutes: 3
         run: |
           set -euo pipefail
-          # Join the fresh feed to the watchlist, then regenerate the per-name
-          # signal pages. Both are deterministic/idempotent: identical inputs
-          # produce identical bytes, so unchanged data makes no git diff.
+          # Remove any leftover EDINET-SAMPLE placeholder signals from feed.json + the
+          # per-ticker archives (a one-time backfill artifact; runs server-side here where
+          # feed.json is fully hydrated). Then join the fresh feed to the watchlist and
+          # regenerate the per-name signal pages. All three are deterministic/idempotent:
+          # identical inputs produce identical bytes, so unchanged data makes no git diff.
+          python tools/scrub_sample_signals.py
           python tools/watchlist_join.py
           python tools/build_signal_pages.py
 

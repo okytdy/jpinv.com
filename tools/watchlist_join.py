@@ -79,6 +79,17 @@ def profile_exists(tk):
     return os.path.exists(os.path.join(ROOT, "compounders", tk, "index.html"))
 
 def main():
+    # Preserve entries for tickers whose by-ticker file is unreadable in THIS environment
+    # (OneDrive Files-On-Demand can serve a truncated/dehydrated copy in the sandbox). Without
+    # this, a dehydrated file would be silently dropped from the watchlist. The cron (server-side,
+    # fully hydrated) reads the real file and overrides the preserved entry.
+    prior_names = {}
+    if os.path.exists(OUT):
+        try:
+            for _n in json.load(open(OUT, encoding="utf-8")).get("names", []):
+                prior_names[_n["ticker"]] = _n
+        except Exception:
+            pass
     screen = load_screen()
     universe = load_universe()
     watched = set(screen) | set(universe)   # union: anything we track
@@ -92,6 +103,8 @@ def main():
         try:
             arr = json.load(open(p, encoding="utf-8"))
         except Exception:
+            if tk in prior_names:        # dehydrated/unreadable here -> keep last good entry
+                names.append(prior_names[tk]); total_signals += prior_names[tk].get("signal_count", 0)
             continue
         if not arr:
             continue
