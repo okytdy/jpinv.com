@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Basic Policy (Honebuto): 25 Years of Japan’s Fiscal Blueprint | JII Policy Map</title>
+<meta name="description" content="An interactive tool mapping Japan’s annual Basic Policy (honebuto) from 2001 to 2026 for foreign institutional investors: a regime timeline, a theme-emphasis heatmap, a promise-vs-delivery tracker, and a 2026 deep-dive on Takaichi’s ‘responsible active fiscal policy’.">
+<meta property="og:title" content="Basic Policy (Honebuto): 25 Years of Japan’s Fiscal Blueprint | JII Policy Map">
+<meta property="og:description" content="Japan’s annual Basic Policy, 2001–2026, for investors: regime timeline, theme heatmap, promise-vs-delivery tracker, and a 2026 deep-dive.">
+<meta property="og:url" content="https://jpinv.com/en/compounders/policymap/honebuto/">
+<meta property="og:image" content="https://jpinv.com/assets/logo-jii-wordmark.svg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://jpinv.com/en/compounders/policymap/honebuto/">
+<link rel="alternate" hreflang="en" href="https://jpinv.com/en/compounders/policymap/honebuto/">
+<link rel="alternate" hreflang="ja" href="https://jpinv.com/compounders/policymap/honebuto/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1a2a4a; --ink-mid:#172641; --ink-soft:#304466;
+    --rule:#d6dee8; --rule-soft:#e8edf3;
+    --bg:#ffffff; --bg-mid:#f5f7fa; --bg-soft:#fafbfc;
+    --text:#1f2937; --text-mid:#4a5566; --text-dim:#7a8290;
+    --accent:#b08a4a; --accent-deep:#9a7838; --accent-soft:#f4eee4;
+    --ok:#2f6f4f; --bad:#b91c1c; --warn:#a8631c; --info:#34507a;
+    --serif:'Noto Serif JP','Yu Mincho',serif;
+    --sans:'Noto Sans JP','Hiragino Kaku Gothic ProN',sans-serif;
+    --mono:'DM Mono',monospace; --max:1180px;
+  }
+  *,*::before,*::after{box-sizing:border-box;}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:var(--sans);}
+  body{font-size:15px;line-height:1.7;}
+  a{color:var(--ink-soft);text-decoration:none;} a:hover{color:var(--ink);}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px;}
+  .mono{font-family:var(--mono);}
+  em{font-style:normal;color:var(--accent-deep);font-weight:400;}
+  h2,h3,h4{font-family:var(--serif);font-weight:400;color:var(--ink-mid);}
+  /* header */
+  .hero{position:relative;padding:54px 0 30px;border-bottom:1px solid var(--rule);overflow:hidden;}
+  .hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(15,31,58,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(15,31,58,0.04) 1px,transparent 1px);background-size:54px 54px;-webkit-mask-image:linear-gradient(180deg,transparent,#000 15%,#000 85%,transparent);mask-image:linear-gradient(180deg,transparent,#000 15%,#000 85%,transparent);}
+  .hero-inner{position:relative;z-index:2;}
+  .hero-brand{display:flex;align-items:center;gap:14px;margin-bottom:26px;flex-wrap:wrap;}
+  .hero-home-link{display:inline-flex;align-items:center;gap:14px;color:inherit;}
+  .mark{font-family:var(--serif);font-size:26px;font-weight:400;color:var(--ink);letter-spacing:.02em;}
+  .mark .pipe{color:var(--accent);margin:0 1px;}
+  .sub{font-size:11px;color:var(--text-dim);line-height:1.35;}
+  .hero-lang{margin-left:auto;font-family:var(--mono);font-size:11px;letter-spacing:.1em;display:flex;gap:8px;align-items:center;}
+  .hero-lang a{padding:3px 7px;border:1px solid var(--rule);color:var(--text-mid);cursor:pointer;}
+  .hero-lang a.current{background:var(--ink-mid);color:#fff;border-color:var(--ink-mid);}
+  .hero-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.28em;color:var(--accent-deep);text-transform:uppercase;margin-bottom:14px;}
+  .hero h1{font-family:var(--serif);font-weight:300;font-size:clamp(1.9rem,4vw,2.7rem);color:var(--ink);margin:0 0 14px;line-height:1.2;letter-spacing:.01em;}
+  .hero .lede{font-size:1rem;color:var(--text-mid);max-width:780px;margin:0 0 8px;line-height:1.8;}
+  .hero .crumbs{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--text-dim);margin-top:14px;}
+  .hero .crumbs a{color:var(--accent-deep);}
+  /* sticky section nav */
+  .toolbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule);}
+  .toolbar-inner{display:flex;gap:10px;align-items:center;padding:11px 0;flex-wrap:wrap;}
+  .tnav{display:flex;gap:4px;flex-wrap:wrap;}
+  .tnav a{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-mid);padding:8px 12px;border:1px solid transparent;cursor:pointer;}
+  .tnav a:hover{color:var(--ink);} .tnav a.active{border-color:var(--rule);color:var(--ink-mid);background:var(--bg-soft);}
+  .langtoggle{margin-left:auto;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;display:flex;gap:0;border:1px solid var(--rule);}
+  .langtoggle button{border:0;background:var(--bg);color:var(--text-mid);padding:7px 11px;cursor:pointer;font-family:var(--mono);font-size:10.5px;}
+  .langtoggle button.on{background:var(--accent-soft);color:var(--accent-deep);}
+  /* main */
+  main{min-height:60vh;padding:30px 0 60px;}
+  section.mod{padding:26px 0 8px;scroll-margin-top:64px;}
+  section.mod+section.mod{border-top:1px solid var(--rule-soft);margin-top:18px;}
+  .sect-label{font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent-deep);margin:0 0 6px;}
+  .sect-h{font-family:var(--serif);font-weight:300;font-size:1.65rem;color:var(--ink);margin:0 0 8px;line-height:1.25;}
+  .sect-intro{font-size:14px;color:var(--text-mid);max-width:820px;line-height:1.8;margin:0 0 20px;}
+  .sect-intro em{color:var(--accent-deep);}
+  /* intro primer */
+  .primer{border:1px solid var(--rule);background:var(--bg-soft);padding:22px 24px;margin:8px 0 6px;}
+  .primer p{margin:0 0 12px;font-size:14.5px;line-height:1.85;color:var(--text);}
+  .primer p:last-child{margin-bottom:0;}
+  .primer .how{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px;}
+  @media(max-width:760px){.primer .how{grid-template-columns:1fr 1fr;}}
+  .primer .how div{border-top:2px solid var(--accent);padding-top:8px;}
+  .primer .how b{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:4px;}
+  .primer .how span{font-size:12px;color:var(--text-mid);line-height:1.55;}
+  /* ---- Module 1: regime timeline ---- */
+  .tl-legend{display:flex;gap:14px;flex-wrap:wrap;margin:0 0 14px;font-family:var(--mono);font-size:10px;letter-spacing:.04em;color:var(--text-mid);}
+  .tl-legend span{display:inline-flex;align-items:center;gap:6px;}
+  .tl-legend i{width:14px;height:10px;display:inline-block;}
+  .tlx-scroll{overflow-x:auto;padding:6px 2px 16px;-webkit-overflow-scrolling:touch;}
+  .tlx-track{display:flex;gap:0;align-items:stretch;min-width:min-content;border-bottom:2px solid var(--rule);}
+  .tlx-node{flex:0 0 auto;width:62px;border-top:5px solid var(--accent);border-right:1px solid var(--rule-soft);padding:9px 6px 11px;cursor:pointer;transition:.13s;background:var(--bg);position:relative;text-align:center;}
+  .tlx-node:hover{background:var(--bg-soft);}
+  .tlx-node.sel{background:var(--accent-soft);}
+  .tlx-node .yr{font-family:var(--mono);font-size:12px;color:var(--ink-mid);font-weight:500;}
+  .tlx-node .pm{font-size:9px;color:var(--text-dim);margin-top:3px;line-height:1.25;height:24px;overflow:hidden;}
+  .tlx-node .spk{margin-top:6px;height:30px;display:flex;align-items:flex-end;justify-content:center;}
+  .tlx-node .spk b{display:block;width:7px;background:var(--accent);opacity:.55;border-radius:1px;}
+  .tlx-node.sel .spk b{opacity:1;}
+  .tlx-gap{flex:0 0 auto;width:60px;border-top:5px solid #c4ccd6;background:repeating-linear-gradient(135deg,var(--bg-soft),var(--bg-soft) 5px,var(--bg-mid) 5px,var(--bg-mid) 10px);display:flex;align-items:center;justify-content:center;text-align:center;padding:6px;border-right:1px solid var(--rule-soft);}
+  .tlx-gap span{font-family:var(--mono);font-size:8.5px;letter-spacing:.04em;color:var(--text-dim);line-height:1.4;}
+  .ed-detail{border:1px solid var(--rule);background:var(--bg);margin-top:16px;padding:0;overflow:hidden;}
+  .ed-head{padding:18px 22px;border-bottom:1px solid var(--rule-soft);border-left:5px solid var(--accent);}
+  .ed-head .ed-yr{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--accent-deep);}
+  .ed-head .ed-pm{font-family:var(--mono);font-size:11px;color:var(--text-dim);float:right;text-align:right;}
+  .ed-head h3{font-size:1.4rem;margin:6px 0 2px;font-weight:400;}
+  .ed-head .ed-sl-en{font-size:12.5px;color:var(--text-mid);font-style:italic;}
+  .ed-body{padding:18px 22px;display:grid;grid-template-columns:1fr 300px;gap:26px;}
+  @media(max-width:820px){.ed-body{grid-template-columns:1fr;}}
+  .ed-pr-label,.ed-th-label{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep);margin:0 0 10px;}
+  .ed-pr li{margin:0 0 9px;font-size:13.5px;line-height:1.6;list-style:none;padding-left:16px;position:relative;}
+  .ed-pr li::before{content:'';position:absolute;left:0;top:8px;width:5px;height:5px;background:var(--accent);}
+  .ed-pr ul{margin:0;padding:0;}
+  .ed-sig{margin-top:14px;font-size:13px;color:var(--ink-soft);background:var(--bg-soft);border-left:2px solid var(--accent);padding:9px 13px;line-height:1.65;}
+  .ed-th .thbar{display:flex;align-items:center;gap:8px;margin:0 0 6px;font-size:11px;}
+  .ed-th .thbar .thn{flex:0 0 92px;color:var(--text-mid);font-size:10.5px;text-align:right;line-height:1.25;}
+  .ed-th .thbar .tht{flex:1;height:8px;background:var(--rule-soft);overflow:hidden;}
+  .ed-th .thbar .tht>span{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-deep));}
+  .ed-nav{display:flex;justify-content:space-between;gap:10px;padding:0 22px 18px;}
+  .ed-nav button{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;color:var(--accent-deep);background:none;border:1px solid var(--rule);padding:7px 13px;cursor:pointer;}
+  .ed-nav button:hover{background:var(--bg-soft);border-color:var(--ink-soft);}
+  .ed-nav button:disabled{opacity:.3;cursor:default;}
+  /* ---- Module 2: heatmap ---- */
+  .hm-scroll{overflow-x:auto;padding-bottom:8px;}
+  .hm{border-collapse:collapse;font-size:11px;min-width:760px;}
+  .hm th.yr{font-family:var(--mono);font-size:9.5px;font-weight:500;color:var(--text-dim);padding:4px 0 8px;text-align:center;white-space:nowrap;vertical-align:bottom;height:58px;}
+  .hm th.yr span{display:inline-block;writing-mode:vertical-rl;transform:rotate(180deg);letter-spacing:.04em;}
+  .hm th.rl{font-size:11px;font-weight:400;color:var(--ink-mid);text-align:right;padding:0 10px 0 0;white-space:nowrap;font-family:var(--sans);cursor:pointer;}
+  .hm th.rl:hover{color:var(--accent-deep);}
+  .hm th.corner{background:none;}
+  .hm td{width:26px;height:26px;text-align:center;border:1px solid #fff;cursor:pointer;transition:.1s;color:#fff;font-family:var(--mono);font-size:9px;}
+  .hm td.s0{background:var(--bg-mid);color:transparent;}
+  .hm td.s1{background:#ecd9b8;color:var(--ink-mid);}
+  .hm td.s2{background:#cda965;color:#fff;}
+  .hm td.s3{background:var(--accent-deep);color:#fff;}
+  .hm td.gap{background:repeating-linear-gradient(135deg,#eef1f5,#eef1f5 3px,#e3e8ee 3px,#e3e8ee 6px);cursor:default;}
+  .hm td:hover{outline:2px solid var(--ink-mid);outline-offset:-2px;}
+  .hm tr.dim td,.hm tr.dim th{opacity:.25;}
+  .hm-tip{position:fixed;z-index:200;max-width:260px;background:var(--ink);color:#fff;font-size:11.5px;line-height:1.5;padding:9px 12px;border-radius:3px;pointer-events:none;opacity:0;transition:.1s;box-shadow:0 6px 22px rgba(0,0,0,.25);}
+  .hm-tip b{color:#f0d9a8;display:block;margin-bottom:3px;font-weight:500;}
+  .hm-tip .sc{font-family:var(--mono);font-size:10px;color:#c9d2de;}
+  .hm-key{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin:12px 0 0;font-family:var(--mono);font-size:10px;color:var(--text-mid);letter-spacing:.04em;}
+  .hm-key i{display:inline-block;width:16px;height:12px;margin-right:5px;vertical-align:middle;}
+  /* ---- Module 3: tracker ---- */
+  .trk-filters{display:flex;gap:6px;flex-wrap:wrap;margin:2px 0 18px;}
+  .trk-filters button{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-mid);background:var(--bg);border:1px solid var(--rule);padding:6px 11px;cursor:pointer;}
+  .trk-filters button.on{background:var(--ink-mid);color:#fff;border-color:var(--ink-mid);}
+  .trk-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+  @media(max-width:820px){.trk-grid{grid-template-columns:1fr;}}
+  .trk-card{border:1px solid var(--rule);background:var(--bg);padding:16px 18px;display:flex;flex-direction:column;gap:9px;transition:.13s;}
+  .trk-card:hover{box-shadow:0 5px 18px rgba(15,31,58,.06);}
+  .trk-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;}
+  .trk-card h4{font-size:1.05rem;margin:0;line-height:1.35;flex:1;}
+  .trk-card .ja{font-size:11.5px;color:var(--text-dim);font-family:var(--serif);margin:-2px 0 0;}
+  .badge{font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;white-space:nowrap;border:1px solid;align-self:flex-start;}
+  .b-ach{color:var(--ok);border-color:var(--ok);background:#eef6f1;}
+  .b-track{color:var(--info);border-color:var(--info);background:#eef2f8;}
+  .b-slip{color:var(--warn);border-color:var(--warn);background:#fbf2e6;}
+  .b-miss{color:var(--bad);border-color:var(--bad);background:#fbeeee;}
+  .b-aband{color:#fff;border-color:#5b6675;background:#5b6675;}
+  .b-pend{color:var(--ink-soft);border-color:var(--rule);background:var(--bg-soft);}
+  .trk-verdict{font-size:13px;color:var(--text);line-height:1.6;}
+  .trk-meta{display:flex;gap:14px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;color:var(--text-dim);letter-spacing:.03em;border-top:1px solid var(--rule-soft);padding-top:9px;}
+  .trk-meta b{color:var(--ink-mid);font-weight:500;}
+  .trk-more{font-size:12.5px;color:var(--text-mid);line-height:1.7;border-top:1px solid var(--rule-soft);padding-top:9px;display:none;}
+  .trk-more.open{display:block;}
+  .trk-more .ch{margin:0 0 6px;}
+  .trk-more .ch b{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;color:var(--accent-deep);}
+  .trk-more a{color:var(--accent-deep);border-bottom:1px solid var(--accent);font-family:var(--mono);font-size:10.5px;}
+  .trk-toggle{font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--accent-deep);cursor:pointer;align-self:flex-start;}
+  .trk-toggle:hover{color:var(--ink);}
+  /* ---- Module 4: 2026 deep-dive ---- */
+  .dd-note{background:var(--accent-soft);border:1px solid var(--accent);padding:10px 14px;font-size:12px;color:var(--ink-soft);margin:0 0 20px;line-height:1.6;}
+  .dd-buckets{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:0 0 24px;}
+  @media(max-width:760px){.dd-buckets{grid-template-columns:1fr;}}
+  .dd-bucket{border:1px solid var(--rule);background:var(--bg);padding:18px 20px;}
+  .dd-bucket h4{margin:0 0 4px;font-size:1.15rem;}
+  .dd-bucket .bk-en{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-deep);}
+  .dd-bucket .bk-desc{font-size:13px;color:var(--text-mid);line-height:1.7;margin:10px 0 12px;}
+  .dd-bucket .bk-chips{display:flex;flex-wrap:wrap;gap:6px;}
+  .dd-bucket .bk-chips span{font-size:11px;background:var(--bg-mid);border:1px solid var(--rule-soft);padding:4px 9px;color:var(--ink-soft);}
+  .dd-sub{font-family:var(--serif);font-size:1.18rem;color:var(--ink-mid);margin:26px 0 4px;}
+  .dd-subnote{font-size:12.5px;color:var(--text-mid);margin:0 0 14px;line-height:1.7;}
+  .fields-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;}
+  @media(max-width:760px){.fields-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:480px){.fields-grid{grid-template-columns:1fr;}}
+  .field{border:1px solid var(--rule);background:var(--bg);padding:10px 12px;display:flex;gap:9px;align-items:baseline;transition:.12s;}
+  .field:hover{border-color:var(--ink-soft);background:var(--bg-soft);}
+  .field .fn{font-family:var(--mono);font-size:11px;color:var(--accent-deep);flex:0 0 auto;}
+  .field .ft{font-size:12.5px;color:var(--ink-mid);line-height:1.4;}
+  .field .ft small{display:block;color:var(--text-dim);font-size:10.5px;margin-top:2px;}
+  /* fiscal decoder */
+  .decoder{border:1px solid var(--rule);background:var(--bg-soft);padding:20px 22px;margin:14px 0 6px;}
+  .dec-flow{display:flex;align-items:stretch;gap:0;flex-wrap:wrap;}
+  .dec-from,.dec-to{flex:1 1 240px;padding:14px 16px;}
+  .dec-from{background:#fbeeee;border:1px solid #e6c4c4;}
+  .dec-to{background:#eef6f1;border:1px solid #c4e0d0;}
+  .dec-arrow{flex:0 0 auto;display:flex;align-items:center;justify-content:center;padding:0 14px;font-size:20px;color:var(--accent-deep);}
+  @media(max-width:620px){.dec-arrow{width:100%;transform:rotate(90deg);padding:10px 0;}}
+  .dec-from .dl,.dec-to .dl{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;}
+  .dec-from .dl{color:var(--bad);} .dec-to .dl{color:var(--ok);}
+  .dec-from h5,.dec-to h5{font-family:var(--serif);font-weight:400;font-size:1.05rem;color:var(--ink-mid);margin:0 0 6px;}
+  .dec-from p,.dec-to p{margin:0;font-size:12px;color:var(--text-mid);line-height:1.6;}
+  .dec-read{margin-top:14px;font-size:12.5px;color:var(--ink-soft);line-height:1.7;border-top:1px solid var(--rule);padding-top:12px;}
+  .dec-read b{color:var(--accent-deep);}
+  /* calendar */
+  .cal{display:flex;flex-wrap:wrap;gap:0;margin:14px 0 6px;counter-reset:c;}
+  .cal-step{flex:1 1 0;min-width:140px;border-top:3px solid var(--rule);padding:12px 14px 4px;position:relative;}
+  .cal-step.done{border-top-color:var(--accent);}
+  .cal-step.now{border-top-color:var(--bad);}
+  .cal-step .cd{font-family:var(--mono);font-size:10px;color:var(--accent-deep);letter-spacing:.04em;}
+  .cal-step .ct{font-size:12.5px;color:var(--ink-mid);margin-top:4px;line-height:1.5;}
+  .cal-step .nowtag{display:inline-block;font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--bad);padding:1px 6px;margin-top:6px;}
+  /* footer */
+  footer{border-top:1px solid var(--rule);background:var(--bg-soft);padding:26px 0;font-size:12px;color:var(--text-mid);}
+  .foot-row{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;font-family:var(--mono);letter-spacing:.04em;}
+  .disc{font-size:11px;color:var(--text-dim);line-height:1.7;margin-top:14px;font-style:italic;}
+  .skip-link{position:fixed;top:10px;left:10px;z-index:1000;transform:translateY(-150%);padding:10px 14px;background:var(--ink);color:#fff;border-radius:4px;}
+  .skip-link:focus{transform:translateY(0);}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:2px;}
+  .hidden{display:none!important;}
+  @media(max-width:760px){.wrap{padding:0 18px;}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main" id="skiplink">Skip to content</a>
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div class="hero-brand">
+      <a class="hero-home-link" href="/compounders/policymap/" aria-label="政策地図へ戻る">
+        <span class="mark">J<span class="pipe">|</span>I</span>
+        <span class="sub" id="brandsub"></span>
+      </a>
+      <span class="hero-lang">
+        <a data-l="en" class="current" lang="en">EN</a>
+        <a data-l="ja" lang="ja">JP</a>
+      </span>
+    </div>
+    <div class="hero-eyebrow" id="eyebrow">BASIC POLICY · 骨太の方針</div>
+    <h1 id="herotitle">Read 25 years of <em>Japan’s budget blueprint</em>.</h1>
+    <p class="lede" id="herolede">The “honebuto” (Basic Policy on Economic and Fiscal Management and Reform) is the government’s annual policy framework, Cabinet-decided each June and serving as the blueprint for the next year’s budget. From Koizumi in 2001 to Takaichi in 2026, this tool maps — for foreign institutional investors — what each administration promised, how well it delivered, and where 2026 is heading.</p>
+    <div class="crumbs" id="crumbs"></div>
+  </div>
+</section>
+<div class="toolbar">
+  <div class="wrap toolbar-inner">
+    <nav class="tnav" id="tnav"></nav>
+    <div class="langtoggle" id="langtoggle">
+      <button data-l="en" class="on">EN</button><button data-l="ja">日本語</button>
+    </div>
+  </div>
+</div>
+<main id="main" tabindex="-1">
+  <div class="wrap">
+    <section class="mod" id="sec-intro" aria-labelledby="h-intro">
+      <div class="primer" id="primer"></div>
+    </section>
+    <section class="mod" id="sec-timeline" aria-labelledby="h-timeline">
+      <p class="sect-label" id="l-timeline">01 · Timeline</p>
+      <h2 class="sect-h" id="h-timeline"></h2>
+      <p class="sect-intro" id="i-timeline"></p>
+      <div class="tl-legend" id="tl-legend"></div>
+      <div class="tlx-scroll"><div class="tlx-track" id="tlx-track"></div></div>
+      <div id="ed-detail-wrap"></div>
+    </section>
+    <section class="mod" id="sec-heatmap" aria-labelledby="h-heatmap">
+      <p class="sect-label" id="l-heatmap">02 · Theme emphasis</p>
+      <h2 class="sect-h" id="h-heatmap"></h2>
+      <p class="sect-intro" id="i-heatmap"></p>
+      <div class="hm-scroll"><table class="hm" id="hm"></table></div>
+      <div class="hm-key" id="hm-key"></div>
+    </section>
+    <section class="mod" id="sec-tracker" aria-labelledby="h-tracker">
+      <p class="sect-label" id="l-tracker">03 · Promise vs delivery</p>
+      <h2 class="sect-h" id="h-tracker"></h2>
+      <p class="sect-intro" id="i-tracker"></p>
+      <div class="trk-filters" id="trk-filters"></div>
+      <div class="trk-grid" id="trk-grid"></div>
+    </section>
+    <section class="mod" id="sec-2026" aria-labelledby="h-2026">
+      <p class="sect-label" id="l-2026">04 · The 2026 turn</p>
+      <h2 class="sect-h" id="h-2026"></h2>
+      <p class="sect-intro" id="i-2026"></p>
+      <div class="dd-note" id="dd-note"></div>
+      <div class="dd-buckets" id="dd-buckets"></div>
+      <h3 class="dd-sub" id="dd-fields-h"></h3>
+      <p class="dd-subnote" id="dd-fields-note"></p>
+      <div class="fields-grid" id="dd-fields"></div>
+      <h3 class="dd-sub" id="dd-dec-h"></h3>
+      <p class="dd-subnote" id="dd-dec-note"></p>
+      <div class="decoder" id="dd-decoder"></div>
+      <h3 class="dd-sub" id="dd-cal-h"></h3>
+      <div class="cal" id="dd-cal"></div>
+    </section>
+  </div>
+</main>
+<div class="hm-tip" id="hm-tip"></div>
+<footer><div class="wrap">
+  <div class="foot-row">
+    <span>Japan Investor Interface Co., Ltd.</span>
+    <span><a href="/compounders/policymap/">← <span id="f-back"></span></a> · <a href="https://jpinv.com/">jpinv.com</a></span>
+  </div>
+  <p class="disc" id="disclaimer"></p>
+</div></footer>
+<script>
+/* ============================================================
+   骨太の方針 — bilingual interactive tool (JII Policy Map)
+   Data source of truth: Japanese. EN = faithful translation.
+   ============================================================ */
+var DEFAULT_LANG = 'en';
+
+/* ---- administrations (timeline colour bands) ---- */
+var PMS = {
+  koizumi:{ja:'小泉',en:'Koizumi',color:'#b08a4a'},
+  ldp0709:{ja:'安倍Ⅰ・福田・麻生',en:'Abe I · Fukuda · Asō',color:'#cdab6f'},
+  abe2:{ja:'第2次安倍',en:'Abe II',color:'#34507a'},
+  suga:{ja:'菅',en:'Suga',color:'#5a7a9a'},
+  kishida:{ja:'岸田',en:'Kishida',color:'#6b5a8a'},
+  ishiba:{ja:'石破',en:'Ishiba',color:'#7a6a4a'},
+  takaichi:{ja:'高市',en:'Takaichi',color:'#a8543b'}
+};
+
+/* ---- 12 themes (heatmap rows) ---- */
+var THEMES = [
+ {id:'fiscal',  ja:'財政健全化・PB',      en:'Fiscal / primary balance'},
+ {id:'reform',  ja:'規制改革・構造改革',  en:'Deregulation & reform'},
+ {id:'defense', ja:'防衛・安全保障',      en:'Defense & security'},
+ {id:'industry',ja:'半導体・産業政策',    en:'Semiconductors & industry'},
+ {id:'gx',      ja:'GX・エネルギー',      en:'GX / energy / climate'},
+ {id:'digital', ja:'デジタル・AI',        en:'Digital / AI'},
+ {id:'wages',   ja:'賃上げ・労働',        en:'Wage growth & labor'},
+ {id:'social',  ja:'社会保障・少子化',    en:'Social security & childcare'},
+ {id:'inbound', ja:'インバウンド観光',    en:'Inbound tourism'},
+ {id:'regional',ja:'地方創生',            en:'Regional revitalization'},
+ {id:'econsec', ja:'経済安全保障',        en:'Economic security'},
+ {id:'markets', ja:'資本市場・ガバナンス',en:'Capital markets & governance'}
+];
+/* score order matches THEMES: [fiscal,reform,defense,industry,gx,digital,wages,social,inbound,regional,econsec,markets] */
+
+/* ---- editions 2001-2026 (gap 2010-2012) ---- */
+var EDITIONS = [
+ {y:2001,d:'2001-06-26',pm:'koizumi',
+  sj:'聖域なき構造改革',se:'Structural reform with no sacred cows',
+  pj:['不良債権の最終処理 — バブル後の不良債権を銀行に最終処理させ金融システムを正常化','七つの改革プログラム — 民営化・規制改革を含む7本の改革','国債発行30兆円枠 — 新規国債発行に上限を設け財政規律の錨に'],
+  pe:['Final disposal of bad loans — force banks to write off post-bubble NPLs','Seven reform programs — privatization & deregulation at the core','¥30tn JGB cap — ceiling on new bond issuance as a discipline anchor'],
+  s:[3,3,0,1,1,1,1,2,0,2,0,2],
+  gj:'経済財政諮問会議による初の基本方針。予算編成の主導権を官僚機構から官邸へ移す装置として誕生した。',
+  ge:'The founding edition. Created as a device to pull budget-setting power from the bureaucracy to the PM’s office.'},
+ {y:2002,d:'2002-06-25',pm:'koizumi',
+  sj:'6戦略・30プログラム',se:'Six strategies, thirty action programs',
+  pj:['経済活性化戦略 — 人材・技術・e-Japan等6つの成長戦略','構造改革特区 — 地域単位で規制緩和を試す特区を導入','PB黒字化目標の原型 — 2010年代初頭の基礎的財政収支黒字化を提示'],
+  pe:['Growth-activation strategy — six strategies incl. human capital, tech, e-Japan','Special reform zones — region-level deregulation pilots','Origin of the PB-surplus goal — surplus targeted for the early 2010s'],
+  s:[3,3,0,2,1,2,1,1,0,2,0,2],
+  gj:'後に25年続く「基礎的財政収支の黒字化」公約が初めて姿を見せた回。',
+  ge:'The edition where the primary-balance-surplus pledge — repeated for the next 25 years — first appears.'},
+ {y:2003,d:'2003-06-27',pm:'koizumi',
+  sj:'三位一体改革',se:'Trinity reform of central–local finances',
+  pj:['三位一体改革 — 国庫補助金削減・税源移譲・交付税改革を一体で','証券市場改革・会社法 — 直接金融市場の整備と合同会社（LLC）創設','530万人雇用創出 — 雇用・人間力の強化プログラム'],
+  pe:['Trinity reform — cut subsidies, transfer tax sources, reform the allocation tax together','Securities-market & Companies Act reform — build direct-finance markets; create the LLC','5.3mn-job creation program'],
+  s:[2,3,0,2,1,1,2,2,1,3,0,2],
+  gj:'中央・地方の財政関係を組み替える地方分権の本丸。Visit Japanキャンペーンもこの年に始動。',
+  ge:'The core decentralization push, reshaping central–local finances. The Visit Japan campaign also launched this year.'},
+ {y:2004,d:'2004-06-04',pm:'koizumi',
+  sj:'官から民へ・国から地方へ',se:'From public to private, from center to local',
+  pj:['三位一体改革の全体像 — 約3兆円の税源移譲の工程表を提示','民間開放 — 市場化テストの考え方が芽生える','デフレ克服・金融再生 — 大手行の不良債権比率半減目標の年'],
+  pe:['Full picture of Trinity reform — roadmap for ~¥3tn tax-source transfer','Private-sector opening — market-testing concept emerges','Deflation exit & financial revival — year of the major-bank NPL-halving target'],
+  s:[2,3,0,1,1,1,1,2,1,3,0,1],
+  gj:'地方への税源移譲を具体化。金融再生プログラムの数値目標が達成期限を迎えた年。',
+  ge:'Tax-source transfer to localities made concrete; the financial-revival numeric target came due this year.'},
+ {y:2005,d:'2005-06-21',pm:'koizumi',
+  sj:'郵政民営化',se:'Postal privatization',
+  pj:['郵政民営化 — 9月の解散総選挙を呼んだ目玉改革','小さくて効率的な政府 — 公務員総人件費削減・市場化テストの本格化','三位一体改革の仕上げ — 中央・地方財政改革の完成'],
+  pe:['Postal privatization — the centerpiece reform that triggered the Sept snap election','Small, efficient government — cut total personnel costs; full-scale market testing','Finalize Trinity reform of central–local finances'],
+  s:[2,3,0,1,1,1,1,2,1,2,0,1],
+  gj:'郵政民営化を軸に「官から民へ」が頂点に達した回。',
+  ge:'The edition where “from public to private” peaked, built around postal privatization.'},
+ {y:2006,d:'2006-07-07',pm:'koizumi',
+  sj:'新たな挑戦の10年へ',se:'Toward a new decade of challenge',
+  pj:['歳出・歳入一体改革 — 財政健全化の枠組みを設定','2011年度PB黒字化 — 公約を「2011年度」という明確な期限に固定','成長力・競争力強化 — 経済成長戦略大綱で生産性向上'],
+  pe:['Integrated spending-and-revenue reform — the fiscal-consolidation framework','FY2011 PB surplus — pins the pledge to a hard FY2011 deadline','Strengthen growth & competitiveness via the growth-strategy outline'],
+  s:[3,2,0,2,1,2,1,3,1,2,0,1],
+  gj:'小泉政権最後の回。PB黒字化を「2011年度」に固定したが、リーマン危機で反故になる。',
+  ge:'Koizumi’s last edition. It fixed the PB-surplus goal to FY2011 — later voided by the global financial crisis.'},
+ {y:2007,d:'2007-06-19',pm:'ldp0709',
+  sj:'「美しい国」へのシナリオ',se:'Scenario toward a “beautiful country”',
+  pj:['成長力底上げ戦略 — 全労働者の所得・生活水準の底上げ（最低賃金引上げ・ジョブカード）','21世紀型行財政システム — 公務員改革・地方分権改革','環境立国戦略 — 21世紀環境立国を打ち出す'],
+  pe:['Growth bottom-up strategy — lift incomes of all workers (minimum-wage hikes, Job Card)','21st-century administrative-fiscal system — civil-service reform, decentralization','Environmental-nation strategy'],
+  s:[3,3,1,2,2,2,3,2,1,2,1,1],
+  gj:'第1次安倍政権の回。賃上げ・最低賃金が前面に出た最初期の例。',
+  ge:'The first Abe administration’s edition — an early instance of wages and minimum wage moving to the front.'},
+ {y:2008,d:'2008-06-27',pm:'ldp0709',
+  sj:'全員参加・低炭素社会',se:'All-participation economy, low-carbon society',
+  pj:['低炭素社会の構築 — 洞爺湖サミットを背景にした気候リーダーシップ','道路特定財源の一般財源化 — 2009年度から道路財源の使途を一般化','消費者庁の創設 — 2009年度に向け新官庁を設置'],
+  pe:['Build a low-carbon society — climate leadership around the Toyako G8 summit','General-revenue conversion of road taxes — from FY2009','Create a Consumer Affairs Agency'],
+  s:[3,2,1,2,3,2,2,2,2,2,1,2],
+  gj:'福田政権。G8議長国として気候政策が突出。観光庁もこの年に発足。',
+  ge:'Fukuda administration. Climate policy stood out as G8 host; the Tourism Agency also launched this year.'},
+ {y:2009,d:'2009-06-23',pm:'ldp0709',
+  sj:'安心・活力・責任',se:'Security, vitality, responsibility',
+  pj:['経済危機対応 — 世界金融危機からの回復を最優先','未来開拓戦略 — 低炭素革命・健康長寿・21世紀型インフラ','中期プログラム — 消費税を含む税制抜本改革の道筋'],
+  pe:['Crisis response — recovery from the global financial crisis comes first','Future-pioneering strategy — low-carbon revolution, healthy longevity, infrastructure','Medium-term program — path to consumption-tax-inclusive tax reform'],
+  s:[3,1,1,2,3,1,2,3,1,1,1,1],
+  gj:'麻生政権。自民党政権下で最後の骨太。直後の政権交代で2010〜2012年は中断する。',
+  ge:'Asō administration — the last honebuto under LDP rule before the DPJ takeover suspended it for 2010–2012.'},
+ {y:2013,d:'2013-06-14',pm:'abe2',
+  sj:'脱デフレ・経済再生',se:'Escaping deflation, reviving the economy',
+  pj:['デフレ脱却 — アベノミクス「3本の矢」の土台','成長戦略の基本設計 — 日本再興戦略（第3の矢）','PB黒字化（2020年度）— 財政健全化目標を再設定'],
+  pe:['Escape deflation — the macro frame for Abenomics’ “three arrows”','Growth-strategy architecture — the Japan Revitalization Strategy (third arrow)','FY2020 PB surplus — the consolidation target reset'],
+  s:[3,3,0,1,1,1,1,2,1,2,0,1],
+  gj:'DPJ中断を経て復活した回。アベノミクスの号砲。PB黒字化を2020年度に再設定した。',
+  ge:'The revived edition after the DPJ gap — the starting gun of Abenomics; reset the PB-surplus goal to FY2020.'},
+ {y:2014,d:'2014-06-24',pm:'abe2',
+  sj:'デフレから好循環拡大へ',se:'From deflation to a widening virtuous cycle',
+  pj:['法人税改革 — 実効税率を「数年で20%台」へ引下げ','女性・働き方 — 女性活躍と多様な働き方で労働供給拡大','地方創生 — 東京一極集中の是正（秋に本格始動）'],
+  pe:['Corporate-tax reform — cut the effective rate into the 20%s over a few years','Women & work styles — expand labor supply','Regional revitalization — counter Tokyo over-concentration (launched that autumn)'],
+  s:[3,3,0,1,1,1,2,2,1,2,0,3],
+  gj:'コーポレートガバナンス改革の旗艦回。スチュワードシップ・コード、GPIF改革、JPX日経400が並ぶ。',
+  ge:'The flagship corporate-governance year: Stewardship Code, GPIF reform, and the JPX-Nikkei 400.'},
+ {y:2015,d:'2015-06-30',pm:'abe2',
+  sj:'経済再生なくして財政健全化なし',se:'No fiscal consolidation without economic revival',
+  pj:['経済・財政再生計画 — 2016〜2020年度の歳出抑制の枠組み','歳出改革 — 社会保障・地方財政・社会資本にKPIとPDCA','2018年度の中間指標 — PB赤字対GDP比▲1%程度を新設'],
+  pe:['Economic & Fiscal Revitalization Plan — FY2016–2020 spending-restraint framework','Expenditure reform — KPIs and PDCA across social security, local finance, infrastructure','FY2018 interim benchmark — PB deficit/GDP around −1% introduced'],
+  s:[3,2,0,1,1,1,2,2,1,2,0,2],
+  gj:'PB黒字化に初めて具体的な5年計画を与えた回。CGコードも同月に適用開始。',
+  ge:'Gave the PB-surplus goal its first concrete 5-year plan; the Corporate Governance Code also took effect that month.'},
+ {y:2016,d:'2016-06-02',pm:'abe2',
+  sj:'600兆円経済への道筋',se:'The path to a ¥600tn economy',
+  pj:['名目GDP600兆円 — 「新・三本の矢」の旗印','一億総活躍 — 女性・高齢者の労働参加引上げ','働き方改革 — 同一労働同一賃金・最低賃金+3%/年'],
+  pe:['¥600tn nominal GDP — banner of the “new three arrows”','Dynamic engagement of all 100mn — raise participation of women and the elderly','Work-style reform — equal pay, minimum wage +3%/yr toward ¥1,000'],
+  s:[2,2,0,1,1,2,3,3,2,2,0,1],
+  gj:'GDP600兆円とインバウンド4000万人（2020年）目標が前面に。働き方改革が始動。',
+  ge:'¥600tn GDP and the 40mn-by-2020 inbound goal move front and center; work-style reform begins.'},
+ {y:2017,d:'2017-06-09',pm:'abe2',
+  sj:'人材への投資を通じた生産性向上',se:'Productivity gains through investment in people',
+  pj:['働き方改革 — 残業上限規制・同一労働同一賃金の実行計画','人づくり革命 — 幼児・高等教育の無償化、リカレント教育','Society 5.0 — AI・IoT・データで超スマート社会'],
+  pe:['Work-style reform — overtime caps with penalties, equal pay','Human-resource revolution — free preschool/higher education, recurrent learning','Society 5.0 — a super-smart society via AI, IoT, data'],
+  s:[2,2,0,1,1,2,3,3,2,2,0,1],
+  gj:'人への投資と生産性が主題。Society 5.0が政策語彙として定着していく。',
+  ge:'Investment in people and productivity dominate; “Society 5.0” enters the policy lexicon.'},
+ {y:2018,d:'2018-06-15',pm:'abe2',
+  sj:'少子高齢化の克服',se:'Overcoming the low-birthrate, aging society',
+  pj:['PB黒字化を2025年度へ後ろ倒し — この10年で最大の方針転換','幼児教育無償化 — 2019年10月の消費増税で財源確保','特定技能ビザ — 新たな外国人材受入れ（12月の入管法改正へ）'],
+  pe:['PB surplus slipped to FY2025 — the biggest reframe of the decade','Free early-childhood education — funded by the Oct 2019 consumption-tax hike','Specified Skilled Worker visa — new foreign-worker intake'],
+  s:[3,2,0,1,1,2,3,3,2,2,0,1],
+  gj:'PB黒字化目標を2020年度から2025年度へ5年先送りした、財政公約の象徴的な敗北。',
+  ge:'Slipped the PB-surplus goal from FY2020 to FY2025 — the emblematic defeat of Japan’s fiscal pledge.'},
+ {y:2019,d:'2019-06-21',pm:'abe2',
+  sj:'令和新時代：Society 5.0への挑戦',se:'The new Reiwa era: the challenge of Society 5.0',
+  pj:['全世代型社会保障 — 給付と負担を全世代で再配分','70歳までの就業機会確保 — 高齢者就労の拡大','就職氷河期世代支援 — 3年間で正規雇用30万人増の支援'],
+  pe:['All-generation social security — rebalance benefits and burdens across ages','Secure work opportunities to age 70','Employment ice-age support — +300k into regular jobs over 3 years'],
+  s:[2,2,0,1,1,3,3,3,2,2,0,1],
+  gj:'デジタル（Society 5.0）が初めて副題に。全世代型社会保障が背骨になる。',
+  ge:'Digital (Society 5.0) reaches the subtitle for the first time; all-generation social security becomes the spine.'},
+ {y:2020,d:'2020-07-17',pm:'abe2',
+  sj:'危機の克服、そして新しい未来へ',se:'Overcoming the crisis, toward a new future',
+  pj:['新型コロナ対応 — 医療提供体制の強化','社会全体のデジタル化 — デジタル庁につながる集中改革','GoToキャンペーン — 旅行・飲食・イベントの需要喚起'],
+  pe:['COVID-19 response — strengthen the healthcare system','Society-wide digitalization — intensive reform that led to the Digital Agency','Go To campaign — demand stimulus for travel, dining, events'],
+  s:[1,2,0,1,1,3,1,2,2,2,1,1],
+  gj:'コロナで急ぎ作られた異例の回。財政健全化は事実上棚上げ。デジタル庁構想が動き出す。',
+  ge:'An exceptional, COVID-rushed edition; consolidation effectively shelved; the Digital Agency idea takes shape.'},
+ {y:2021,d:'2021-06-18',pm:'suga',
+  sj:'4つの原動力（グリーン・デジタル・地方・少子化）',se:'Four engines: Green, Digital, regions, birthrate',
+  pj:['グリーン（GX）— 2050年カーボンニュートラル、2030年▲46%','デジタル — デジタル庁の創設（9月）','少子化対策 — こども庁の検討、不妊治療の保険適用'],
+  pe:['Green (GX) — 2050 carbon neutrality, −46% by 2030','Digital — establish the Digital Agency (Sept)','Birthrate measures — study a children’s agency, insure fertility treatment'],
+  s:[2,2,0,2,3,3,2,3,1,3,2,1],
+  gj:'菅政権唯一の回。グリーンとデジタルを成長の柱に据え、経済安全保障も台頭。',
+  ge:'Suga’s only edition. Green and Digital become growth pillars; economic security rises.'},
+ {y:2022,d:'2022-06-07',pm:'kishida',
+  sj:'新しい資本主義へ',se:'Toward New Capitalism',
+  pj:['人への投資 — リスキリング・労働移動の数年計画','防衛力の抜本的強化 — NATO基準（GDP比2%）を参照','資産所得倍増 — NISA拡充で貯蓄から投資へ'],
+  pe:['Investment in people — multi-year reskilling and labor-mobility package','Drastic defense buildup — references the NATO 2%-of-GDP norm','Asset-income doubling — shift savings to investment via expanded NISA'],
+  s:[2,2,3,2,2,2,3,2,2,2,3,3],
+  gj:'岸田政権の旗艦回。防衛費GDP比2%と資産所得倍増（新NISA）が始動。経済安保が主題化。',
+  ge:'Kishida’s flagship edition. Defense 2%-of-GDP and asset-income doubling (New NISA) start; economic security takes center stage.'},
+ {y:2023,d:'2023-06-16',pm:'kishida',
+  sj:'加速する新しい資本主義',se:'Accelerating New Capitalism',
+  pj:['構造的賃上げ — 一度きりでない持続的な賃上げ','異次元の少子化対策 — 年3.6兆円規模の加速化プラン','資産運用立国 — 運用業の高度化で家計資金を動かす'],
+  pe:['Structural wage hikes — sustained, economy-wide, not one-off','“Different-dimension” childcare — a ~¥3.6tn/yr Acceleration Plan','Asset-management nation — upgrade the industry to mobilize household savings'],
+  s:[2,2,2,2,3,2,3,3,2,1,2,3],
+  gj:'賃上げ・少子化・資産運用立国が三本柱。GX移行債（20兆円）も法制化。',
+  ge:'Wage hikes, childcare, and the asset-management nation are the three pillars; GX transition bonds (¥20tn) legislated.'},
+ {y:2024,d:'2024-06-21',pm:'kishida',
+  sj:'賃上げと投資がけん引する成長型経済',se:'A growth economy led by wages and investment',
+  pj:['半導体・AIへの大規模・複数年度投資 — Rapidus等の先端半導体','最低賃金1,500円 — 2030年代半ばの目標を設定','デフレ完全脱却・賃上げ定着 — 実質賃金+1%/年を目指す'],
+  pe:['Large multi-year support for semiconductors & AI — Rapidus and advanced chips','¥1,500 minimum wage — goal set for the mid-2030s','Cement deflation exit — aim for ~+1%/yr real wages'],
+  s:[2,2,2,3,2,2,3,2,2,1,2,2],
+  gj:'岸田政権最後の回。半導体・AIへの複数年度投資が旗艦に。最低賃金1,500円目標を初設定。',
+  ge:'Kishida’s last edition. Multi-year semiconductor/AI investment becomes flagship; the ¥1,500 minimum-wage goal is first set.'},
+ {y:2025,d:'2025-06-13',pm:'ishiba',
+  sj:'「今日より明日はよくなる」と実感できる社会へ',se:'A society where tomorrow feels better than today',
+  pj:['物価を上回る賃上げ — 「減税より賃上げ」','地方創生2.0 — ふるさと住民登録制度','最低賃金1,500円を「2020年代」に前倒し'],
+  pe:['Wage hikes above inflation — “wage growth over tax cuts”','Regional revitalization 2.0 — a “hometown resident” registry','Accelerate ¥1,500 minimum wage to “by the 2020s”'],
+  s:[2,2,2,2,2,2,3,2,1,3,1,2],
+  gj:'石破政権初の回。岸田路線を継ぎつつ地方創生を強調。PB黒字化は2025〜26年度に軟化。',
+  ge:'Ishiba’s first edition; inherits Kishida’s line with a regional tilt. The PB goal softens to an FY2025–26 window.'},
+ {y:2026,d:'2026-06',pm:'takaichi',draft:true,
+  sj:'責任ある積極財政（サナエノミクス）',se:'Responsible active fiscal policy (Sanaenomics)',
+  pj:['責任ある積極財政 — 行財政改革の上で戦略的に財政出動','危機管理投資＋成長投資 — 国内投資を官民で促進','財政目標の見直し — 単年度PBから債務残高対GDP比へ','成長戦略17分野 — AI・半導体を筆頭に官民投資ロードマップ'],
+  pe:['Responsible active fiscal policy — strategic spending after administrative-fiscal reform','Crisis-management + growth investment — crowd in domestic private investment','Fiscal-target review — from single-year PB to debt-to-GDP ratio','17 strategic fields — public-private roadmaps led by AI & semiconductors'],
+  s:[3,2,3,3,2,3,2,2,1,1,3,2],
+  gj:'高市政権初の回（2026年6月時点で草案段階）。財政の錨をPBから債務残高対GDP比へ移す転換が最大の論点。',
+  ge:'Takaichi’s first edition (draft as of June 2026). The headline is shifting the fiscal anchor from PB to debt-to-GDP.'}
+];
+
+/* ---- gap marker (DPJ 2010-2012) ---- */
+var GAP = {
+  ja:{years:'2010–2012',label:'民主党政権 — 骨太の方針 中断',note:'経済財政諮問会議は事実上休止。「新成長戦略」（2010）「日本再生戦略」（2012）が代替。'},
+  en:{years:'2010–2012',label:'DPJ government — honebuto suspended',note:'The Council on Economic and Fiscal Policy went dormant; the New Growth Strategy (2010) and Japan Revitalization Strategy (2012) replaced it.'}
+};
+
+/* ---- commitments (promise-vs-delivery) ---- */
+var STATUS = {
+  ach:{ja:'達成',en:'Achieved',cls:'b-ach'},
+  track:{ja:'順調',en:'On track',cls:'b-track'},
+  slip:{ja:'先送り',en:'Slipped',cls:'b-slip'},
+  miss:{ja:'未達',en:'Missed',cls:'b-miss'},
+  aband:{ja:'撤回・放棄',en:'Abandoned',cls:'b-aband'},
+  pend:{ja:'未確定',en:'Pending',cls:'b-pend'}
+};
+var COMMITS = [
+ {st:'aband',
+  tj:'基礎的財政収支（PB）の黒字化',te:'Primary-balance (PB) surplus',
+  vj:'25年で最も繰り返された公約。2011年度→2020年度→2025年度と先送りされ、政府自身の2025年1月試算で2025年度も4.5兆円の赤字。2025年11月に高市政権が単年度目標を事実上撤回し、2026年で債務残高対GDP比へ置き換える方針。',
+  ve:'The most-repeated pledge of the 25 years. Slipped FY2011→FY2020→FY2025; the government’s own Jan-2025 projection still showed a ¥4.5tn FY2025 deficit. Takaichi effectively retracted the single-year target in Nov 2025; to be replaced by a debt-to-GDP anchor in 2026.',
+  setj:'骨太2006（小泉）',sete:'Honebuto 2006 (Koizumi)',
+  nowj:'2025年度 ▲4.5兆円（GDP比▲0.7%、政府2025年1月試算）',nowe:'FY2025 −¥4.5tn (−0.7% of GDP, govt Jan-2025 estimate)',
+  chj:'2011年度（2006設定）→ リーマンで反故 → 2020年度（2013）→ 2025年度（2018）→ 2025〜26年度に軟化（2025・石破）→ 単年度目標を撤回（2025年11月・高市）',
+  che:'FY2011 (set 2006) → voided by GFC → FY2020 (2013) → FY2025 (2018) → softened to FY2025–26 (2025, Ishiba) → single-year target retracted (Nov 2025, Takaichi)',
+  src:[['NRI/木内 2025-01','https://www.nri.com/jp/media/column/kiuchi/20250120.html'],['内閣府 中長期試算','https://www5.cao.go.jp/keizai2/keizai-syakai/shisan.html'],['時事 2025-11 撤回','https://www.jiji.com/jc/article?k=2025110701106&g=eco']]},
+ {st:'pend',
+  tj:'債務残高対GDP比（新たな中核目標）',te:'Debt-to-GDP ratio (proposed new anchor)',
+  vj:'2026年の骨太でPBに代わる財政健全化の中核目標として提案。数値目標や達成年限はまだ示されておらず、「安定的な低下」という原則のみ。総債務はGDP比約236%、純債務は約134%で世界最大。',
+  ve:'Proposed in the 2026 honebuto to replace PB as the core fiscal anchor. No numeric target or deadline yet — only the principle of a “stable decline.” Gross debt is ~236% of GDP, net ~134%, the highest in the world.',
+  setj:'骨太2026（高市・草案）',sete:'Honebuto 2026 (Takaichi, draft)',
+  nowj:'総債務GDP比 約236% / 純債務 約134%（IMF 2025）',nowe:'Gross ~236% of GDP / net ~134% (IMF 2025)',
+  chj:'2015年以降PBと並ぶ副次目標 → 2026年に中核目標へ格上げを提案。確率的債務持続可能性分析（SDSA）や第三者検証も併せて検討。',
+  che:'A secondary goal alongside PB since 2015 → proposed as the core anchor in 2026, with stochastic debt-sustainability analysis and third-party review.',
+  src:[['内閣府 諮問会議 2026-04-13','https://www5.cao.go.jp/keizai-shimon/kaigi/minutes/2026/0413_shiryo01.pdf'],['第一生命経済研 骨太2026','https://www.dlri.co.jp/report/macro/598293.html']]},
+ {st:'ach',
+  tj:'防衛費をGDP比2%へ',te:'Defense spending to 2% of GDP',
+  vj:'2022年に2027年度2%を設定。高市政権が2025年度補正で前倒し達成（防衛+補完で約11兆円≒GDP比2%）、目標より2年早い。ただしNATO型の広い定義で、純粋な防衛予算は2%を下回る。',
+  ve:'Set in 2022 (2% by FY2027). Takaichi pulled achievement forward to FY2025 via a supplementary (~¥11tn defense+complementary ≈ 2% of GDP), two years early — though on the broad NATO-style definition; the pure defense budget is below 2%.',
+  setj:'安全保障3文書 2022（岸田）',sete:'Security strategy 2022 (Kishida)',
+  nowj:'FY2026 防衛関係費 9.04兆円（過去最大）',nowe:'FY2026 defense-related budget ¥9.04tn (record)',
+  chj:'2022年度5.4兆円 → 2025年度8.7兆円（関連含め約2%、2年前倒し達成）→ 2026年度の文書改定で3%超の後継目標が取り沙汰。',
+  che:'FY2022 ¥5.4tn → FY2025 ¥8.7tn (~2% incl. complementary, achieved 2 yrs early) → a 3%+ successor target is being discussed in the 2026 document revision.',
+  src:[['日経 2% by FY27','https://www.nikkei.com/article/DGXZQOUA267OA0W2A221C2000000/'],['防衛省 FY2026予算','https://www.mod.go.jp/j/budget/yosan_gaiyo/fy2026/yosan_20260408.pdf']]},
+ {st:'pend',
+  tj:'最低賃金（全国加重平均）— 1,000円 → 1,500円',te:'Minimum wage — ¥1,000 then ¥1,500',
+  vj:'1,000円目標は2023年度（1,004円）に達成済み。1,500円は岸田が2030年代半ばに設定→石破が「2020年代」に前倒し。FY2025は1,121円（+6.3%、過去最大の引上げ）。1,500円には毎年7%超の引上げが必要で、ハードルは高い。',
+  ve:'The ¥1,000 goal was hit in FY2023 (¥1,004). ¥1,500 was set by Kishida for the mid-2030s, then accelerated by Ishiba to “by the 2020s.” FY2025 is ¥1,121 (+6.3%, the largest-ever raise). ¥1,500 needs ~7%+ annual hikes — steep.',
+  setj:'骨太2024（岸田）→ 2025（石破）',sete:'Honebuto 2024 (Kishida) → 2025 (Ishiba)',
+  nowj:'FY2025 全国加重平均 1,121円（全47都道府県で1,000円超）',nowe:'FY2025 ¥1,121 (all 47 prefectures now above ¥1,000)',
+  chj:'¥1,000は「できる限り早期に」（2021菅）→ 2023年度達成。¥1,500は2030年代半ば（2024岸田）→「2020年代」（2024/2025石破）。',
+  che:'¥1,000 “as early as possible” (2021 Suga) → hit FY2023. ¥1,500 mid-2030s (2024 Kishida) → “by the 2020s” (2024/2025 Ishiba).',
+  src:[['厚労省 最低賃金一覧','https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/roudoukijun/minimumichiran/index.html'],['日経 石破1,500円','https://www.nikkei.com/article/DGXZQOUA09BGV0Z00C24A9000000/']]},
+ {st:'track',
+  tj:'インバウンド — 4,000万人(2020)・6,000万人/15兆円(2030)',te:'Inbound — 40mn (2020) & 60mn/¥15tn (2030)',
+  vj:'いずれも2016年の観光ビジョンで設定。4,000万人(2020)はコロナで未達(2020年は412万人)だが、2025年に42.7万人ではなく約4,268万人で初達成。6,000万人/15兆円(2030)は順調。2025年の消費額は約9.46兆円（過去最高）。',
+  ve:'Both set in the 2016 tourism vision. The 40mn-by-2020 goal was missed (just 4.12mn in 2020) but first crossed in 2025 (42.68mn). The 60mn/¥15tn-by-2030 goal is on track; 2025 spending was ~¥9.46tn (record).',
+  setj:'観光ビジョン 2016（安倍）',sete:'Tourism vision 2016 (Abe)',
+  nowj:'2025年 訪日4,268万人（過去最高）/ 消費9.46兆円',nowe:'2025: 42.68mn visitors (record) / ¥9.46tn spend',
+  chj:'2019年3,190万人 → 2020年412万人（コロナ）→ 2024年3,687万人 → 2025年4,268万人（初の4,000万人超）。',
+  che:'2019 31.9mn → 2020 4.12mn (COVID) → 2024 36.87mn → 2025 42.68mn (first ever above 40mn).',
+  src:[['観光ビジョン 2016','https://www.kantei.go.jp/jp/singi/kanko_vision/pdf/honbun.pdf'],['JNTO 2025実績','https://www.jnto.go.jp/news/press/20260121_monthly.html']]},
+ {st:'miss',
+  tj:'物価上昇を上回る賃上げ（実質賃金プラス）',te:'Real-wage growth above inflation',
+  vj:'2024年以降の骨太で前面に。だが2025年（暦年）の実質賃金は▲1.3%で4年連続マイナス。名目賃金は伸びても物価上昇に届かず、持続的なプラスはまだ実現していない。',
+  ve:'Front and center from 2024 onward — but CY2025 real wages were −1.3%, a 4th straight annual decline. Nominal pay rose but lagged inflation; sustained positive real wages are not yet achieved.',
+  setj:'骨太2024（岸田）',sete:'Honebuto 2024 (Kishida)',
+  nowj:'2025年（暦年）実質賃金 ▲1.3%（4年連続マイナス）',nowe:'CY2025 real wages −1.3% (4th consecutive annual decline)',
+  chj:'2024年半ばに賞与月で一時プラスも持続せず。2025年12月まで月次マイナスが継続。',
+  che:'Brief positive readings in mid-2024 (bonus months) did not persist; monthly declines continued through Dec 2025.',
+  src:[['JILPT 2025実質賃金','https://www.jil.go.jp/kokunai/blt/backnumber/2026/04/kokunai_01.html'],['厚労省 毎月勤労統計','https://www.mhlw.go.jp/toukei/list/30-1.html']]},
+ {st:'ach',
+  tj:'名目GDP 600兆円',te:'Nominal GDP of ¥600tn',
+  vj:'2015年に「2020年頃」を目標に設定。2020年はコロナで約539兆円と未達だったが、2024年（暦年）に609兆円で初達成（約4年遅れ）。ただし増加分の多くは物価上昇によるもので、実質的な消費量は2015年を下回る。',
+  ve:'Set in 2015 for “around 2020.” Missed in 2020 (~¥539tn, COVID) but first cleared in CY2024 (¥609tn), ~4 years late — though much of the gain is inflation, not real volume; real consumption is still below 2015.',
+  setj:'新・三本の矢 2015（安倍）',sete:'New three arrows 2015 (Abe)',
+  nowj:'2024年（暦年）名目GDP 609兆円（初の600兆円超）',nowe:'CY2024 nominal GDP ¥609tn (first ever above ¥600tn)',
+  chj:'2015年設定（2020年頃）→ 2020年コロナで未達 → 2024年に達成。',
+  che:'Set 2015 (by ~2020) → missed 2020 (COVID) → achieved 2024.',
+  src:[['日経 2024年609兆円','https://www.nikkei.com/article/DGXZQOUA13BXL0T10C25A2000000/']]},
+ {st:'ach',
+  tj:'資産所得倍増 / NISA拡充',te:'Asset-income doubling / NISA expansion',
+  vj:'2022年に資産所得倍増プランを策定、2024年1月に新NISA開始。2027年末までに買付額28兆円→56兆円、口座数1,700万→3,400万の目標。買付額は2025年3月に56兆円を突破（前倒し達成）、口座数も約2,800万で順調。',
+  ve:'The Asset-Income Doubling Plan (2022) and New NISA (Jan 2024). Targets by end-2027: buying ¥28tn→¥56tn, accounts 17mn→34mn. Buying crossed ¥56tn by Mar 2025 (early); accounts ~28mn and on track.',
+  setj:'資産所得倍増プラン 2022（岸田）',sete:'Asset-Income Doubling Plan 2022 (Kishida)',
+  nowj:'NISA買付 約71兆円（2025年末）/ 口座約2,800万',nowe:'NISA buying ~¥71tn (end-2025) / ~28mn accounts',
+  chj:'新NISA開始（2024年1月）→ 買付56兆円目標を2025年3月に達成 → 2025年末71兆円。',
+  che:'New NISA launched (Jan 2024) → ¥56tn buying target hit by Mar 2025 → ¥71tn by end-2025.',
+  src:[['内閣官房 資産所得倍増プラン','https://www.cas.go.jp/jp/seisaku/nipponseichosenryaku/kinyu/pdf/dabiplan2022.pdf'],['金融庁 NISA利用状況','https://www.fsa.go.jp/policy/nisa2/']]},
+ {st:'ach',
+  tj:'2%物価安定目標（政府・日銀共同声明）',te:'2% price-stability target',
+  vj:'2013年1月の政府・日銀共同声明で設定。2013〜2021年は未達が続いたが、2022年以降は消費者物価が2%超で推移し、日銀はマイナス金利を解除（2024年3月）して利上げへ。ただし日銀は「持続的・安定的な2%」はまだ確認途上とする。',
+  ve:'Set in the Jan-2013 government–BOJ joint statement. Missed 2013–2021, but headline CPI has run above 2% since 2022; the BOJ exited negative rates (Mar 2024) and has hiked — while still framing “sustainable, stable” 2% as not yet fully confirmed.',
+  setj:'政府・日銀共同声明 2013',sete:'Govt–BOJ joint statement 2013',
+  nowj:'CPI 2%台で推移（2025年）/ 日銀は持続性を点検中',nowe:'CPI in the 2%s (2025); BOJ still assessing durability',
+  chj:'2013〜2021年 未達 → 2022年以降 CPI2%超 → マイナス金利解除（2024年3月）・利上げ。',
+  che:'Missed 2013–2021 → CPI above 2% from 2022 → negative rates ended (Mar 2024), hikes thereafter.',
+  src:[['日銀 物価安定目標','https://www.boj.or.jp/mopo/outline/index.htm']]},
+ {st:'miss',
+  tj:'指導的地位に占める女性30%',te:'Women at 30% of leadership',
+  vj:'2003年に「2020年までに30%」を設定したが未達で、2020年代へ先送り。企業向けには「女性版骨太2023」がプライム上場企業の女性役員比率を2025年に19%、2030年に30%と設定。2025年7月時点で18.4%と中間目標も未達。',
+  ve:'Set in 2003 (“30% by 2020”), missed and reset to the 2020s. A corporate track set Prime-listed female board ratios of 19% by 2025 and 30% by 2030; at 18.4% (Jul 2025) even the interim mark was missed.',
+  setj:'男女共同参画 2003 / 女性版骨太2023',sete:'Gender plan 2003 / “women’s honebuto” 2023',
+  nowj:'プライム上場 女性役員比率 18.4%（2025年7月）',nowe:'Prime-listed female board ratio 18.4% (Jul 2025)',
+  chj:'2020年目標未達 → 2020年に「2020年代の可能な限り早期」へ → プライム30%（2030年）目標。',
+  che:'2020 goal missed → reset to “as early as possible in the 2020s” → Prime-listed 30%-by-2030 target.',
+  src:[['内閣府 ポジティブ・アクション','https://www.gender.go.jp/policy/positive_act/index.html'],['経団連 2025調査','https://www.keidanren.or.jp/policy/2025/064.html']]},
+ {st:'track',
+  tj:'GX投資 官民150兆円 / GX移行債20兆円',te:'GX investment ¥150tn / ¥20tn GX bonds',
+  vj:'2023年のGX基本方針で、今後10年間に官民150兆円超のGX投資、その先行支援として20兆円のGX経済移行債を設定。移行債はFY2023〜25で約4.2兆円を発行済みで、初期段階としては順調。償還は2028年からのカーボンプライシング収入で。',
+  ve:'The 2023 GX policy set >¥150tn of public-private green investment over 10 years, seeded by ¥20tn of GX transition bonds. ~¥4.2tn issued FY2023–25 — on track for the early stage; repayment from carbon-pricing revenue from 2028.',
+  setj:'GX基本方針 2023（岸田）',sete:'GX policy 2023 (Kishida)',
+  nowj:'GX移行債 約4.2兆円発行済み（FY2023〜25、20兆円中）',nowe:'~¥4.2tn of ¥20tn GX bonds issued (FY2023–25)',
+  chj:'2023年法制化 → FY2023 1.6兆円 + FY2024 1.4兆円 + FY2025 1.2兆円（予定）。',
+  che:'Legislated 2023 → FY2023 ¥1.6tn + FY2024 ¥1.4tn + FY2025 ¥1.2tn (planned).',
+  src:[['経産省 GX移行債','https://www.meti.go.jp/policy/energy_environment/global_warming/gx_budget.html']]}
+];
+
+/* ---- 2026 deep-dive ---- */
+var DD = {
+ buckets:[
+  {tj:'危機管理投資',te:'Crisis-management investment',
+   dj:'様々なリスクを最小化する投資。経済安全保障に直結する投資は予算上「別枠」で管理する案が示されている。',
+   de:'Investment that minimizes risks. Economic-security-critical investment is slated for separate (off-budget) management.',
+   cj:['経済安全保障','食料安全保障','エネルギー安全保障','医療・健康安全保障','国土強靱化','サイバーセキュリティ'],
+   ce:['Economic security','Food security','Energy security','Health security','National resilience','Cybersecurity']},
+  {tj:'成長投資',te:'Growth investment',
+   dj:'先端技術を開花させGDP成長に資する投資。17の戦略分野として具体化される。',
+   de:'Investment that makes frontier technologies bloom and lifts GDP — concretized as 17 strategic fields.',
+   cj:['AI','半導体','造船','量子','バイオ','航空・宇宙','コンテンツ'],
+   ce:['AI','Semiconductors','Shipbuilding','Quantum','Biotech','Aerospace','Content']}
+ ],
+ fields:[
+  {n:1,tj:'AI・半導体',te:'AI & semiconductors'},
+  {n:2,tj:'デジタル・サイバーセキュリティ',te:'Digital & cybersecurity'},
+  {n:3,tj:'情報通信',te:'Info & telecom'},
+  {n:4,tj:'量子',te:'Quantum'},
+  {n:5,tj:'防衛産業',te:'Defense industry'},
+  {n:6,tj:'航空・宇宙',te:'Aerospace'},
+  {n:7,tj:'海洋',te:'Marine'},
+  {n:8,tj:'造船',te:'Shipbuilding'},
+  {n:9,tj:'マテリアル（重要鉱物）',te:'Materials & critical minerals'},
+  {n:10,tj:'合成生物学・バイオ',te:'Synthetic biology & bio'},
+  {n:11,tj:'創薬・先端医療',te:'Drug discovery & advanced medicine'},
+  {n:12,tj:'資源・エネルギー安保・GX',te:'Resource/energy security & GX'},
+  {n:13,tj:'フュージョンエネルギー',te:'Fusion energy'},
+  {n:14,tj:'フードテック',te:'Food tech'},
+  {n:15,tj:'防災・国土強靱化',te:'Disaster prevention & resilience'},
+  {n:16,tj:'港湾ロジスティクス',te:'Port logistics'},
+  {n:17,tj:'コンテンツ',te:'Content'}
+ ],
+ fieldsNoteJ:'日本成長戦略会議が選定。各分野に官民投資ロードマップを策定し、2026年3月には17分野の中から優先投資の対象として61の主要製品・技術を選定。インバウンド観光・再エネ・ロボットは17分野に含まれない点が特徴。',
+ fieldsNoteE:'Selected by the Japan Growth Strategy Council, each with a public-private investment roadmap. In March 2026, 61 priority products/technologies were chosen within the 17 fields. Notably, inbound tourism, renewables, and robotics are NOT among the 17.',
+ decoder:{
+  fromLj:'これまで',fromLe:'Until now',
+  fromHj:'単年度PB黒字化',fromHe:'Single-year PB surplus',
+  fromPj:'毎年度の基礎的財政収支を黒字にする、という機械的な目標。2011→2020→2025年度と先送りされ続けた。',
+  fromPe:'A mechanical goal of turning the single-year primary balance positive — repeatedly slipped FY2011→FY2020→FY2025.',
+  toLj:'2026年案',toLe:'2026 proposal',
+  toHj:'債務残高対GDP比の安定的低下',toHe:'Stable decline in debt-to-GDP',
+  toPj:'成長率と金利の関係を踏まえた中期的な債務経路で判断。PB黒字化の時期は「確認事項」に格下げ。',
+  toPe:'Judged on a medium-term debt path weighing growth vs. interest rates; the PB-surplus date is demoted to a “check” item.',
+  readj:'<b>投資家への含意：</b>「責任ある積極財政」は、戦略分野への複数年度の財政支出を、単年度の財政規律から切り離して恒久化する装置。短期的には国債需給（超長期金利）と円への重し、中期的には半導体・防衛・AI・エネルギー安保への持続的な政策の追い風を意味する。最大の確認点は、6月の閣議決定で「新たな投資枠」と債務残高目標が実際に明文化されるか。',
+  reade:'<b>Investor read-through:</b> “Responsible active fiscal policy” is a device to make multi-year strategic spending permanent by separating it from single-year discipline. Near term it weighs on JGB supply (super-long yields) and the yen; medium term it means durable policy tailwinds for semiconductors, defense, AI, and energy security. The key check is whether the June Cabinet decision actually codifies the “new investment frame” and the debt-to-GDP target.'
+ },
+ cal:[
+  {dj:'2026年4月13日',de:'Apr 13, 2026',tj:'諮問会議で始動（民間議員ペーパー）',te:'CEFP kickoff (private-member paper)',state:'done'},
+  {dj:'4〜5月',de:'Apr–May',tj:'テーマ別の集中審議',te:'Theme-by-theme deliberation',state:'done'},
+  {dj:'6月上旬',de:'Early June',tj:'原案を諮問会議に提示',te:'Draft (原案) presented',state:'now'},
+  {dj:'6月中下旬',de:'Mid-late June',tj:'閣議決定（予定）',te:'Cabinet decision (expected)',state:''},
+  {dj:'8月末',de:'End-August',tj:'各省が概算要求（FY2027）',te:'Ministries’ concept budgets (FY2027)',state:''},
+  {dj:'12月',de:'December',tj:'FY2027予算案を閣議決定',te:'FY2027 budget plan decided',state:''}
+ ]
+};
+
+/* ---- UI strings ---- */
+var T = {
+ ja:{
+  brandsub:'政策地図 / Policy Map',
+  eyebrow:'骨太の方針 · BASIC POLICY',
+  htitle:'日本の<em>政策の設計図</em>を、25年分読む。',
+  lede:'「骨太の方針」は、毎年6月に閣議決定される政府の経済財政運営の基本方針であり、翌年度予算の設計図です。2001年の小泉政権から2026年の高市政権まで、どの政権が何を掲げ、約束をどれだけ守ってきたのか、そして今年どこへ向かうのかを、海外機関投資家の視点で可視化しました。',
+  crumbs:'<a href="/compounders/policymap/">政策地図</a> &rsaquo; 骨太の方針',
+  skip:'本文へスキップ',
+  fback:'政策地図に戻る',
+  disclaimer:'本ページは情報提供のみを目的とし、投資助言ではありません。一次情報（内閣府・各省庁等）に基づき作成していますが、正確性・完全性を保証するものではありません。骨太の方針2026は2026年6月時点で閣議決定前の草案段階であり、確定値・最終文言は変わり得ます。重点テーマのスコアはJIIによる定性的な判断です。',
+  nav:[['sec-intro','はじめに'],['sec-timeline','年表'],['sec-heatmap','重点の変遷'],['sec-tracker','約束と実績'],['sec-2026','2026年']],
+  primer:'<p><b>骨太の方針とは何か。</b> 正式名称は「経済財政運営と改革の基本方針」。首相が議長を務める<em>経済財政諮問会議</em>がまとめ、毎年6月に閣議決定される、政府の経済財政運営の年次方針です。法的拘束力はありませんが、8月の各省概算要求と12月の予算編成を方向づけるため、<em>翌年度予算の設計図</em>として機能します。</p><p><b>なぜ投資家が読むのか。</b> どの政策分野に財政の追い風が向かい、政府がどの目標（PB・防衛費・賃金・物価）を守ろうとするのか――骨太は、政策から個別セクターへの資金の流れを読む最良の手がかりです。海外投資家が抱く5つの問いに、このページは4つの道具で答えます。</p><div class="how"><div><b>年表</b><span>政権ごとの連続性と断絶。色は政権を表す。</span></div><div><b>重点の変遷</b><span>テーマが25年でどう浮沈したか。</span></div><div><b>約束と実績</b><span>東京は公約を守ってきたのか。</span></div><div><b>2026年</b><span>今年どこへ向かうのか。</span></div></div>',
+  tl_h:'政権別 年表 — 2001〜2026',
+  tl_i:'各年の骨太の方針を、政権ごとに色分けした年表。年をクリックすると、その年のスローガン・重点政策・JIIの一言解説・重点テーマのスコアが開きます。棒の高さはその年の重点テーマの総量を表します。',
+  tl_click:'年を選択してください',
+  hm_h:'重点テーマの変遷 — ヒートマップ',
+  hm_i:'12の政策テーマ（行）が、各年（列）でどれだけ前面に出ていたかを0〜3で評価。濃いほど旗艦級。テーマ名をクリックすると行が強調されます。「構造改革」が薄れ、「経済安全保障」「半導体」「デジタル・AI」が濃くなる流れが読み取れます。',
+  hm_score:['0 なし','1 言及','2 重点','3 旗艦'],
+  trk_h:'約束と実績 — 公約トラッカー',
+  trk_i:'骨太に記された「期限付きの約束」を、達成・未達で採点します。海外投資家が最も問う「東京は公約を守るのか」への直接の答えです。カードをクリックすると経緯・最新値・出典が開きます。',
+  trk_all:'すべて',
+  trk_src:'出典',
+  trk_set:'初出',
+  trk_now:'最新',
+  trk_chrono:'経緯',
+  dd_h:'2026年の転換 — 高市政権・責任ある積極財政',
+  dd_note:'2026年6月時点で、骨太の方針2026は閣議決定前の草案段階です。以下は4月13日の諮問会議提出資料等に基づく見込みであり、最終文言は変わり得ます。',
+  dd_fields_h:'成長戦略 — 17の戦略分野',
+  dd_dec_h:'財政の錨の組み替え — デコーダー',
+  dd_dec_note:'2026年最大の論点は、財政健全化の中核目標をPBから債務残高対GDP比へ移すこと。その意味を読み解きます。',
+  dd_cal_h:'策定カレンダー — いま、どこか',
+  draftBadge:'草案'
+ },
+ en:{
+  brandsub:'Policy Map / 政策地図',
+  eyebrow:'BASIC POLICY · 骨太の方針',
+  htitle:'Read 25 years of <em>Japan’s budget blueprint</em>.',
+  lede:'The “honebuto” (Basic Policy on Economic and Fiscal Management and Reform) is the government’s annual policy framework, Cabinet-decided each June and serving as the blueprint for the next year’s budget. From Koizumi in 2001 to Takaichi in 2026, this tool maps — for foreign institutional investors — what each administration promised, how well it delivered, and where 2026 is heading.',
+  crumbs:'<a href="/en/compounders/policymap/">Policy Map</a> &rsaquo; Basic Policy',
+  skip:'Skip to content',
+  fback:'Back to the Policy Map',
+  disclaimer:'This page is for information only and is not investment advice. It is built from primary sources (Cabinet Office and ministries) but accuracy and completeness are not guaranteed. The 2026 honebuto is a pre-Cabinet draft as of June 2026; final figures and wording may change. Theme-emphasis scores are JII’s qualitative judgment.',
+  nav:[['sec-intro','Intro'],['sec-timeline','Timeline'],['sec-heatmap','Themes'],['sec-tracker','Promises'],['sec-2026','2026']],
+  primer:'<p><b>What the honebuto is.</b> Formally the “Basic Policy on Economic and Fiscal Management and Reform,” it is drafted by the <em>Council on Economic and Fiscal Policy</em> (chaired by the Prime Minister) and Cabinet-decided each June. It binds no one directly, but because it frames the August concept budgets and the December budget, it functions as the <em>blueprint for next year’s budget</em>.</p><p><b>Why investors read it.</b> Which sectors get fiscal tailwind, and which targets (primary balance, defense, wages, inflation) the government will defend — the honebuto is the cleanest read on the flow from policy to individual sectors. This page answers the five questions foreign investors ask with four tools.</p><div class="how"><div><b>Timeline</b><span>Continuity and rupture by administration; color = PM.</span></div><div><b>Themes</b><span>How emphasis rose and fell over 25 years.</span></div><div><b>Promises</b><span>Has Tokyo delivered on its pledges?</span></div><div><b>2026</b><span>Where this year is heading.</span></div></div>',
+  tl_h:'Timeline by administration — 2001–2026',
+  tl_i:'Every honebuto edition, color-banded by administration. Click a year to open its slogan, headline priorities, a one-line JII note, and theme-emphasis scores. Bar height shows that year’s total theme emphasis.',
+  tl_click:'Select a year',
+  hm_h:'Theme emphasis over time — heatmap',
+  hm_i:'Twelve policy themes (rows) scored 0–3 for how prominent each was in each year (columns). Darker = flagship. Click a theme to highlight its row. You can watch “structural reform” fade while “economic security,” “semiconductors,” and “digital/AI” intensify.',
+  hm_score:['0 absent','1 mentioned','2 notable','3 flagship'],
+  trk_h:'Promise vs delivery — commitment tracker',
+  trk_i:'The datable pledges recorded in the honebuto, scored as achieved or missed — a direct answer to the question foreign investors ask most: does Tokyo follow through? Click a card for the chronology, latest value, and sources.',
+  trk_all:'All',
+  trk_src:'Sources',
+  trk_set:'First set',
+  trk_now:'Latest',
+  trk_chrono:'Chronology',
+  dd_h:'The 2026 turn — Takaichi & “responsible active fiscal policy”',
+  dd_note:'As of June 2026, the 2026 honebuto is a pre-Cabinet draft. The following reflects the April 13 council materials and may change in final wording.',
+  dd_fields_h:'Growth strategy — the 17 strategic fields',
+  dd_dec_h:'Re-anchoring the fiscal target — a decoder',
+  dd_dec_note:'The headline of 2026 is moving the core fiscal anchor from the primary balance to the debt-to-GDP ratio. Here is what it means.',
+  dd_cal_h:'Drafting calendar — you are here',
+  draftBadge:'Draft'
+ }
+};
+/* ============================================================
+   RENDER + INTERACTION
+   ============================================================ */
+var L = DEFAULT_LANG;
+try{ var sv=localStorage.getItem('jii_honebuto_lang'); if(sv==='ja'||sv==='en') L=sv; }catch(e){}
+var SEL = EDITIONS.length-1;   // selected edition index (default: latest)
+var HMROW = null;              // highlighted heatmap theme id
+var TRKF = 'all';              // tracker filter
+
+function $(id){return document.getElementById(id);}
+function g(o,k){return o[k+(L==='ja'?'j':'e')];}    // j/e suffix picker
+function el(tag,cls,html){var e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;return e;}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+/* ---------- chrome ---------- */
+function renderChrome(){
+  var t=T[L];
+  document.documentElement.lang=L;
+  $('brandsub').textContent=t.brandsub;
+  $('eyebrow').textContent=t.eyebrow;
+  $('herotitle').innerHTML=t.htitle;
+  $('herolede').textContent=t.lede;
+  $('crumbs').innerHTML=t.crumbs;
+  $('skiplink').textContent=t.skip;
+  $('f-back').textContent=t.fback;
+  $('disclaimer').textContent=t.disclaimer;
+  // section nav
+  var nav=$('tnav'); nav.innerHTML='';
+  t.nav.forEach(function(n){
+    var a=el('a',null,n[1]); a.setAttribute('data-sec',n[0]);
+    a.onclick=function(){var s=$(n[0]);if(s)s.scrollIntoView({behavior:'smooth',block:'start'});};
+    nav.appendChild(a);
+  });
+  // hero-lang + toggle states
+  document.querySelectorAll('.hero-lang a').forEach(function(a){a.className=(a.getAttribute('data-l')===L)?'current':'';});
+  document.querySelectorAll('#langtoggle button').forEach(function(b){b.className=(b.getAttribute('data-l')===L)?'on':'';});
+  // section labels + headers
+  $('h-timeline').textContent=t.tl_h; $('i-timeline').textContent=t.tl_i;
+  $('h-heatmap').textContent=t.hm_h; $('i-heatmap').textContent=t.hm_i;
+  $('h-tracker').textContent=t.trk_h; $('i-tracker').textContent=t.trk_i;
+  $('h-2026').textContent=t.dd_h; $('i-2026').textContent='';
+  $('dd-note').textContent=t.dd_note;
+  $('dd-fields-h').textContent=t.dd_fields_h;
+  $('dd-fields-note').textContent=g(DD,'fieldsNote');
+  $('dd-dec-h').textContent=t.dd_dec_h;
+  $('dd-dec-note').textContent=t.dd_dec_note;
+  $('dd-cal-h').textContent=t.dd_cal_h;
+  $('primer').innerHTML=t.primer;
+}
+
+/* ---------- module 1: timeline ---------- */
+function renderLegend(){
+  var box=$('tl-legend'); box.innerHTML='';
+  var seen={};
+  EDITIONS.forEach(function(ed){
+    if(seen[ed.pm])return; seen[ed.pm]=1;
+    var p=PMS[ed.pm];
+    var s=el('span',null,'<i style="background:'+p.color+'"></i>'+p[L]);
+    box.appendChild(s);
+  });
+}
+function renderTimeline(){
+  var track=$('tlx-track'); track.innerHTML='';
+  for(var i=0;i<EDITIONS.length;i++){
+    var ed=EDITIONS[i], p=PMS[ed.pm];
+    // insert DPJ gap between 2009 and 2013
+    if(i>0 && ed.y-EDITIONS[i-1].y>1){
+      var gp=el('div','tlx-gap','<span>'+GAP[L].years+'<br>'+(L==='ja'?'中断':'gap')+'</span>');
+      gp.title=GAP[L].label; track.appendChild(gp);
+    }
+    var sum=ed.s.reduce(function(a,b){return a+b;},0);
+    var h=Math.round(6+sum/36*26);
+    var node=el('div','tlx-node'+(i===SEL?' sel':''));
+    node.style.borderTopColor=p.color;
+    node.setAttribute('tabindex','0');
+    node.setAttribute('role','button');
+    node.setAttribute('aria-label',ed.y+' '+p[L]+' '+g(ed,'s'));
+    node.innerHTML='<div class="yr">'+("'"+String(ed.y).slice(2))+'</div><div class="pm">'+p[L]+'</div>'+
+      '<div class="spk"><b style="height:'+h+'px;background:'+p.color+'"></b></div>';
+    (function(idx){
+      node.onclick=function(){selectEdition(idx);};
+      node.onkeydown=function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();selectEdition(idx);}};
+    })(i);
+    track.appendChild(node);
+  }
+  renderEdition();
+}
+function selectEdition(idx){
+  SEL=idx;
+  document.querySelectorAll('.tlx-node').forEach(function(n){n.classList.remove('sel');});
+  // recompute node position accounting for the gap element
+  var nodes=document.querySelectorAll('.tlx-node');
+  if(nodes[idx])nodes[idx].classList.add('sel');
+  renderEdition();
+  var d=$('ed-detail-wrap'); if(d) d.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+function renderEdition(){
+  var ed=EDITIONS[SEL], p=PMS[ed.pm], t=T[L];
+  var wrap=$('ed-detail-wrap'); wrap.innerHTML='';
+  var box=el('div','ed-detail');
+  var draft=ed.draft?(' <span style="font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--warn);padding:1px 6px;">'+t.draftBadge+'</span>'):'';
+  var head=el('div','ed-head');
+  head.style.borderLeftColor=p.color;
+  head.innerHTML='<span class="ed-pm">'+p[L]+'</span><span class="ed-yr">'+ed.y+' · '+ed.d+'</span>'+
+    '<h3>'+g(ed,'s')+draft+'</h3>'+
+    '<div class="ed-sl-en">'+(L==='ja'?ed.se:ed.sj)+'</div>';
+  box.appendChild(head);
+  // body
+  var body=el('div','ed-body');
+  var left=el('div');
+  left.appendChild(el('p','ed-pr-label',L==='ja'?'重点政策':'Headline priorities'));
+  var ul=el('ul','ed-pr');
+  g(ed,'p').forEach(function(x){ul.appendChild(el('li',null,x));});
+  left.appendChild(ul);
+  left.appendChild(el('div','ed-sig',g(ed,'g')));
+  body.appendChild(left);
+  // theme bars (score>=1, sorted desc)
+  var right=el('div','ed-th');
+  right.appendChild(el('p','ed-th-label',L==='ja'?'重点テーマ（0〜3）':'Theme emphasis (0–3)'));
+  var pairs=THEMES.map(function(th,j){return {th:th,v:ed.s[j]};}).filter(function(o){return o.v>0;}).sort(function(a,b){return b.v-a.v;});
+  pairs.forEach(function(o){
+    var bar=el('div','thbar');
+    bar.innerHTML='<span class="thn">'+o.th[L]+'</span><span class="tht"><span style="width:'+(o.v/3*100)+'%"></span></span>';
+    right.appendChild(bar);
+  });
+  body.appendChild(right);
+  box.appendChild(body);
+  // prev/next
+  var nav=el('div','ed-nav');
+  var prev=el('button',null,'‹ '+(SEL>0?EDITIONS[SEL-1].y:''));
+  var next=el('button',null,(SEL<EDITIONS.length-1?EDITIONS[SEL+1].y:'')+' ›');
+  if(SEL<=0)prev.disabled=true; if(SEL>=EDITIONS.length-1)next.disabled=true;
+  prev.onclick=function(){if(SEL>0)selectEdition(SEL-1);};
+  next.onclick=function(){if(SEL<EDITIONS.length-1)selectEdition(SEL+1);};
+  nav.appendChild(prev); nav.appendChild(next);
+  box.appendChild(nav);
+  wrap.appendChild(box);
+}
+
+/* ---------- module 2: heatmap ---------- */
+function renderHeatmap(){
+  var tbl=$('hm'); tbl.innerHTML='';
+  // build column list with gap
+  var cols=[]; for(var i=0;i<EDITIONS.length;i++){
+    if(i>0 && EDITIONS[i].y-EDITIONS[i-1].y>1) cols.push({gap:true});
+    cols.push({ed:EDITIONS[i]});
+  }
+  // header
+  var thead=el('thead'); var hr=el('tr');
+  hr.appendChild(el('th','corner',''));
+  cols.forEach(function(c){
+    if(c.gap){var th=el('th','yr','<span>'+(L==='ja'?'中断':'gap')+'</span>');hr.appendChild(th);return;}
+    var th=el('th','yr','<span>'+c.ed.y+(c.ed.draft?'*':'')+'</span>');
+    hr.appendChild(th);
+  });
+  thead.appendChild(hr); tbl.appendChild(thead);
+  // body rows
+  var tb=el('tbody');
+  THEMES.forEach(function(th,ti){
+    var tr=el('tr'); tr.setAttribute('data-th',th.id);
+    var rl=el('th','rl',th[L]); rl.setAttribute('tabindex','0'); rl.setAttribute('role','button');
+    (function(id){rl.onclick=function(){toggleRow(id);};rl.onkeydown=function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleRow(id);}};})(th.id);
+    tr.appendChild(rl);
+    cols.forEach(function(c){
+      if(c.gap){tr.appendChild(el('td','gap',''));return;}
+      var v=c.ed.s[ti];
+      var td=el('td','s'+v,v>0?v:'');
+      (function(ed,score){
+        td.onmouseenter=function(ev){showTip(ev,th,ed,score);};
+        td.onmousemove=function(ev){moveTip(ev);};
+        td.onmouseleave=hideTip;
+        td.onclick=function(){var idx=EDITIONS.indexOf(ed);selectEdition(idx);$('sec-timeline').scrollIntoView({behavior:'smooth',block:'start'});};
+      })(c.ed,v);
+      tr.appendChild(td);
+    });
+    tb.appendChild(tr);
+  });
+  tbl.appendChild(tb);
+  // key
+  var key=$('hm-key'); key.innerHTML='';
+  var labs=T[L].hm_score, clss=['s0','s1','s2','s3'];
+  labs.forEach(function(lb,i){key.appendChild(el('span',null,'<i class="'+clss[i]+'" style="border:1px solid var(--rule)"></i>'+lb));});
+  if(HMROW)applyRowHighlight();
+}
+function toggleRow(id){HMROW=(HMROW===id)?null:id;applyRowHighlight();}
+function applyRowHighlight(){
+  document.querySelectorAll('#hm tbody tr').forEach(function(tr){
+    if(!HMROW){tr.classList.remove('dim');return;}
+    tr.classList.toggle('dim',tr.getAttribute('data-th')!==HMROW);
+  });
+}
+function showTip(ev,th,ed,score){
+  var tip=$('hm-tip'); var lab=T[L].hm_score[score];
+  tip.innerHTML='<b>'+th[L]+'</b>'+ed.y+' · '+PMS[ed.pm][L]+'<br><span class="sc">'+lab+'</span><br>'+g(ed,'s');
+  tip.style.opacity='1'; moveTip(ev);
+}
+function moveTip(ev){
+  var tip=$('hm-tip'); var x=ev.clientX+14, y=ev.clientY+14;
+  if(x+270>window.innerWidth)x=ev.clientX-270;
+  tip.style.left=x+'px'; tip.style.top=y+'px';
+}
+function hideTip(){$('hm-tip').style.opacity='0';}
+
+/* ---------- module 3: tracker ---------- */
+function renderTrackerFilters(){
+  var box=$('trk-filters'); box.innerHTML='';
+  var order=['all','aband','miss','slip','pend','track','ach'];
+  var present={all:1}; COMMITS.forEach(function(c){present[c.st]=1;});
+  order.forEach(function(k){
+    if(!present[k])return;
+    var lab=(k==='all')?T[L].trk_all:STATUS[k][L];
+    var b=el('button'+( k===TRKF?'':'') , (k===TRKF?'on':''),lab);
+    b.onclick=function(){TRKF=k;renderTracker();};
+    box.appendChild(b);
+  });
+}
+function renderTracker(){
+  renderTrackerFilters();
+  var grid=$('trk-grid'); grid.innerHTML='';
+  COMMITS.forEach(function(c,ci){
+    if(TRKF!=='all' && c.st!==TRKF)return;
+    var st=STATUS[c.st];
+    var card=el('div','trk-card');
+    var sub=(L==='ja')?c.te:c.tj;   // bilingual context line
+    card.innerHTML=
+      '<div class="trk-top"><div><h4>'+g(c,'t')+'</h4><div class="ja">'+sub+'</div></div>'+
+      '<span class="badge '+st.cls+'">'+st[L]+'</span></div>'+
+      '<div class="trk-verdict">'+g(c,'v')+'</div>'+
+      '<div class="trk-meta"><span>'+T[L].trk_set+': <b>'+g(c,'set')+'</b></span><span>'+T[L].trk_now+': <b>'+g(c,'now')+'</b></span></div>';
+    var tog=el('div','trk-toggle',(L==='ja'?'経緯・出典を開く ＋':'Chronology & sources +'));
+    var more=el('div','trk-more');
+    var srcs=c.src.map(function(s){return '<a href="'+s[1]+'" target="_blank" rel="noopener">'+s[0]+'</a>';}).join(' · ');
+    more.innerHTML='<div class="ch"><b>'+T[L].trk_chrono+':</b> '+g(c,'ch')+'</div><div class="ch"><b>'+T[L].trk_src+':</b> '+srcs+'</div>';
+    tog.onclick=function(){var op=more.classList.toggle('open');tog.textContent=op?(L==='ja'?'閉じる －':'Close −'):(L==='ja'?'経緯・出典を開く ＋':'Chronology & sources +');};
+    card.appendChild(tog); card.appendChild(more);
+    grid.appendChild(card);
+  });
+}
+
+/* ---------- module 4: 2026 ---------- */
+function render2026(){
+  // buckets
+  var bb=$('dd-buckets'); bb.innerHTML='';
+  DD.buckets.forEach(function(bk){
+    var chips=g(bk,'c').map(function(x){return '<span>'+x+'</span>';}).join('');
+    var card=el('div','dd-bucket','<div class="bk-en">'+(L==='ja'?bk.te:bk.tj)+'</div><h4>'+g(bk,'t')+'</h4><div class="bk-desc">'+g(bk,'d')+'</div><div class="bk-chips">'+chips+'</div>');
+    bb.appendChild(card);
+  });
+  // fields
+  var fg=$('dd-fields'); fg.innerHTML='';
+  DD.fields.forEach(function(f){
+    fg.appendChild(el('div','field','<span class="fn">'+(f.n<10?'0':'')+f.n+'</span><span class="ft">'+g(f,'t')+'</span>'));
+  });
+  // decoder
+  var dc=DD.decoder;
+  $('dd-decoder').innerHTML=
+    '<div class="dec-flow"><div class="dec-from"><div class="dl">'+g(dc,'fromL')+'</div><h5>'+g(dc,'fromH')+'</h5><p>'+g(dc,'fromP')+'</p></div>'+
+    '<div class="dec-arrow">→</div>'+
+    '<div class="dec-to"><div class="dl">'+g(dc,'toL')+'</div><h5>'+g(dc,'toH')+'</h5><p>'+g(dc,'toP')+'</p></div></div>'+
+    '<div class="dec-read">'+g(dc,'read')+'</div>';
+  // calendar
+  var cal=$('dd-cal'); cal.innerHTML='';
+  DD.cal.forEach(function(s){
+    var cls='cal-step'+(s.state==='done'?' done':s.state==='now'?' now':'');
+    var nowt=s.state==='now'?('<span class="nowtag">'+(L==='ja'?'現在':'now')+'</span>'):'';
+    cal.appendChild(el('div',cls,'<div class="cd">'+g(s,'d')+'</div><div class="ct">'+g(s,'t')+'</div>'+nowt));
+  });
+}
+
+/* ---------- language ---------- */
+function setLang(l){
+  if(l===L)return; L=l;
+  try{localStorage.setItem('jii_honebuto_lang',l);}catch(e){}
+  renderAll();
+}
+function renderAll(){
+  renderChrome(); renderLegend(); renderTimeline();
+  renderHeatmap(); renderTracker(); render2026();
+}
+
+/* ---------- scroll-spy for section nav ---------- */
+function initSpy(){
+  var secs=['sec-intro','sec-timeline','sec-heatmap','sec-tracker','sec-2026'];
+  window.addEventListener('scroll',function(){
+    var pos=window.scrollY+90, cur=secs[0];
+    secs.forEach(function(id){var s=$(id);if(s&&s.offsetTop<=pos)cur=id;});
+    document.querySelectorAll('#tnav a').forEach(function(a){a.classList.toggle('active',a.getAttribute('data-sec')===cur);});
+  },{passive:true});
+}
+
+/* ---------- init ---------- */
+document.querySelectorAll('.hero-lang a,#langtoggle button').forEach(function(b){
+  b.addEventListener('click',function(){setLang(b.getAttribute('data-l'));});
+});
+renderAll();
+initSpy();
+</script>
+</body>
+</html>
