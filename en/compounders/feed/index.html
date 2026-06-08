@@ -230,6 +230,12 @@
     COC: "Cost-of-capital", BUYBACK: "Buyback", CANCEL: "Cancellation", DIV: "Dividend",
     CROSS: "Cross-shareholding", MBO: "Take-private", COMP: "Comp KPI", GOV: "Governance"
   };
+  var CLASS_GROUP = {
+    BUYBACK_INIT:"BUYBACK", BUYBACK_BLOCK:"BUYBACK", CANCEL:"CANCEL",
+    COC_INITIAL:"COC", COC_UPDATE:"COC", DIV_HIKE:"DIV", DIV_POLICY:"DIV",
+    CROSS:"CROSS", MBO:"MBO", M_AND_A:"MBO"
+  };
+  function groupOf(row){ return CLASS_GROUP[row.class] || row.class; }
   var PAGE_SIZE = 80;
 
   var state = {
@@ -274,13 +280,13 @@
     } catch(e){ return iso; }
   }
 
-  function rowMatchesClassFilter(row){ return state.activeClasses.has(row.class); }
+  function rowMatchesClassFilter(row){ return state.activeClasses.has(groupOf(row)); }
 
   function buildRowEl(row){
     var el = document.createElement("article");
     el.className = "row";
     el.dataset.id = row.id;
-    var clsLabel = CLASS_LABELS[row.class] || row.class;
+    var clsLabel = CLASS_LABELS[groupOf(row)] || row.class;
     var tag = row.tag_en || row.tag || "";
     var nameEn = row.name_en || row.name_jp || "";
     var html = ''
