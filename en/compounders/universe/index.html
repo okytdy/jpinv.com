@@ -1404,5 +1404,44 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 })();
 </script>
 
+
+<script src="/assets/compounders-nav.js" defer></script>
+<!-- sig-wire v2 -->
+
+<script>
+/* sig-wire v2: STATUS column -> Latest Signal (type + dated link to the name's signal log) */
+(function(){
+  "use strict";
+  var EN = location.pathname.indexOf("/en/") === 0;
+  var SIGROOT = EN ? "/en/compounders/signals/" : "/compounders/signals/";
+  function esc(x){ return (""+(x==null?"":x)).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+  // Rename the last header cell (the old STATUS column).
+  var ths = document.querySelectorAll("#universe thead th");
+  if (ths.length) { ths[ths.length-1].textContent = EN ? "Latest Signal" : "最新シグナル"; }
+  fetch("/compounders/feed/data/watchlist_signals.json", {cache:"no-store"})
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(d){
+      if (!d || !d.names) return;
+      var map = {};
+      d.names.forEach(function(n){ if (n.latest) map[n.ticker] = { cls:(EN ? n.latest.class_en : n.latest.class_jp), date:n.latest.date }; });
+      var rows = document.querySelectorAll("#universe tbody tr");
+      Array.prototype.forEach.call(rows, function(tr){
+        var tkEl = tr.querySelector(".cell-tk"), cell = tr.querySelector(".cell-status");
+        if (!tkEl || !cell) return;
+        var tk = (tkEl.textContent || "").trim();
+        var info = map[tk];
+        cell.className = "cell-status cell-latest-sig";
+        if (info) {
+          cell.innerHTML = '<span class="ls-class">' + esc(info.cls) + '</span>'
+                         + '<a class="ls-date" href="' + SIGROOT + tk + '/">' + esc(info.date) + '</a>';
+        } else {
+          cell.innerHTML = '<span class="ls-none">—</span>';
+        }
+      });
+    })
+    .catch(function(){});
+})();
+</script>
+
 </body>
 </html>
