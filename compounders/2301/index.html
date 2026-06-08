@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2301 学情｜JII Compounders銘柄レポート</title>
+<meta name="description" content="2301 学情を海外投資家目線で分析。株価変動の背景、KPIの読み方、投資家論点、資本政策、株価シナリオを整理します。">
+<meta property="og:title" content="2301 学情｜JII Compounders銘柄レポート">
+<meta property="og:description" content="2301 学情を海外投資家目線で分析。株価変動の背景、KPIの読み方、投資家論点、資本政策、株価シナリオを整理します。">
+<meta property="og:url" content="https://jpinv.com/compounders/2301/">
+<link rel="canonical" href="https://jpinv.com/compounders/2301/">
+<link rel="alternate" hreflang="ja" href="https://jpinv.com/compounders/2301/">
+<link rel="alternate" hreflang="en" href="https://jpinv.com/en/compounders/2301/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://jpinv.com/og/2301.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="JII Compounders 銘柄レポート · 2301">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jpinv.com/og/2301.png">
+<meta name="twitter:image:alt" content="JII Compounders 銘柄レポート · 2301">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     JII Compounders · Profile page
+     Methodology: https://jpinv.com/en/compounders/methodology/
+     ============================================================ */
+  :root {
+    --ink:        #1a2a4a;
+    --ink-mid:    #172641;
+    --ink-soft:   #304466;
+    --rule:       #d6dee8;
+    --rule-soft:  #e8edf3;
+    --bg:         #ffffff;
+    --bg-mid:    #f5f7fa;
+    --bg-soft:   #fafbfc;
+    --text:       #1f2937;
+    --text-mid:  #4a5566;
+    --text-dim:  #5f6875;
+    --accent:    #9a7838;
+    --accent-deep:#9a7838;
+    --accent-soft:#f4eee4;
+    --bad:       #b91c1c;
+    --warn:      #8a682b;
+    --ok:        #2f6f4f;
+    --serif: 'Noto Serif JP', 'Yu Mincho', serif;
+    --sans:  'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+    --mono:  'DM Mono', monospace;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg-mid); }
+  body { display: flex; justify-content: center; padding: 30px 0; font-family: var(--sans); color: var(--text); font-size: 14px; line-height: 1.65; }
+
+  .card {
+    background: var(--bg); color: var(--text); width: 100%; max-width: 1200px; margin: 0 auto;
+    box-shadow: 0 30px 80px rgba(15,31,58,0.10), 0 1px 3px rgba(15,31,58,0.06);
+    border: 1px solid var(--rule);
+  }
+
+  /* ---- MASTHEAD ---- */
+  .masthead { position: relative; overflow: hidden; background: var(--bg); border-bottom: 1px solid var(--rule); }
+  .masthead::before {
+    content:''; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(15,31,58,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(15,31,58,0.04) 1px, transparent 1px);
+    background-size: 64px 64px;
+    -webkit-mask-image: linear-gradient(180deg, transparent, black 12%, black 88%, transparent);
+            mask-image: linear-gradient(180deg, transparent, black 12%, black 88%, transparent);
+    pointer-events: none;
+  }
+  .masthead::after {
+    content:''; position: absolute; width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(15,31,58,0.045) 0%, transparent 70%);
+    top: -160px; right: -200px; pointer-events: none;
+  }
+  .masthead-inner { position: relative; z-index: 2; padding: 32px 56px 28px; display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: end; }
+
+  .brand { display: flex; flex-direction: column; gap: 4px; align-items: flex-start; }
+  .brand-home-link { display:flex; flex-direction:column; gap:4px; align-items:flex-start; color:inherit; text-decoration:none; }
+  .brand-home-link:hover .brand-mono, .brand-home-link:hover .brand-eyebrow { color:var(--ink); }
+  .brand-home-link:focus-visible { outline:2px solid var(--accent); outline-offset:6px; }
+  .brand-mono { font-family: var(--serif); font-size: 28px; font-weight: 300; letter-spacing: 0.04em; color: var(--ink-mid); line-height: 1; }
+  .brand-mono .pipe { color: var(--accent); font-weight: 200; margin: 0 4px; }
+  .brand-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; color: var(--accent-deep); text-transform: uppercase; margin-top: 12px; font-weight: 500; }
+
+  .head-main { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; text-align: right; }
+  .report-locale { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 8px; }
+  .report-locale a { color: var(--ink-soft); padding: 5px 10px; border: 1px solid var(--rule); margin-left: 6px; text-decoration: none; }
+  .report-locale a.current { background: var(--bg-soft); border-color: var(--ink-mid); color: var(--ink-mid); }
+  .head-ticker-row { display: flex; align-items: baseline; gap: 16px; }
+  .head-ticker { font-family: var(--mono); font-size: 12px; color: var(--ink-soft); letter-spacing: 0.18em; }
+  .head-co-jp { font-family: var(--serif); font-size: 14.5px; color: var(--text-mid); letter-spacing: 0.04em; }
+  .head-co { font-family: var(--serif); font-size: 40px; font-weight: 300; color: var(--ink-mid); line-height: 1.05; letter-spacing: 0.01em; margin-top: 4px; }
+  .head-industry { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-top: 6px; }
+
+  /* Stat strip (font sizes bumped) */
+  .stat-strip { display: grid; grid-template-columns: 1.05fr 1.05fr 1.1fr 1.05fr 1.1fr 1.1fr; gap: 0; border-top: 1px solid var(--rule); position: relative; z-index: 2; background: var(--bg-soft); }
+  .stat { padding: 15px 18px; border-right: 1px solid var(--rule); text-align: left; }
+  .stat:last-child { border-right: none; }
+  .stat-label { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 7px; font-weight: 500; }
+  .stat-val { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--ink-mid); line-height: 1.05; }
+  .stat-val small { font-family: var(--mono); font-size: 11px; color: var(--text-dim); margin-left: 4px; font-weight: 400; letter-spacing: 0.04em; }
+  .stat-ctx { font-family: var(--mono); font-size: 10.5px; color: var(--text-mid); margin-top: 6px; letter-spacing: 0.04em; line-height: 1.45; }
+  .stat-ctx .dn { color: var(--bad); font-weight: 500; }
+  .stat-ctx .up { color: var(--ok); font-weight: 500; }
+  .stat-ctx b { color: var(--ink-mid); font-weight: 500; }
+
+  /* ---- SECTIONS (font sizes bumped) ---- */
+  .section { padding: 36px 56px 36px; border-bottom: 1px solid var(--rule); }
+  .section.gem { background: linear-gradient(180deg, rgba(176,138,74,0.055) 0%, rgba(176,138,74,0.01) 60%); }
+  .section-head { margin-bottom: 22px; display: flex; flex-direction: column; gap: 8px; max-width: 1080px; }
+  .section-num { font-family: var(--mono); font-size: 10px; letter-spacing: 0.26em; color: var(--accent-deep); font-weight: 500; }
+  .section-title { font-family: var(--serif); font-size: 30px; font-weight: 300; color: var(--ink-mid); margin: 0; letter-spacing: 0.01em; line-height: 1.2; }
+  .section-sub { font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--text-mid); line-height: 1.55; margin: 0; }
+  .section-sub b { color: var(--ink-mid); font-weight: 500; font-style: normal; }
+
+  /* ---- CHART (TradingView widget) ---- */
+  .chart-wrap { background: var(--bg-soft); border: 1px solid var(--rule); padding: 0; }
+  .chart-meta { display: flex; justify-content: space-between; align-items: baseline; padding: 16px 22px 14px; border-bottom: 1px solid var(--rule); flex-wrap: wrap; gap: 10px; }
+  .chart-title { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; }
+  .chart-key-levels { display: flex; gap: 22px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; }
+  .chart-key-levels span { color: var(--text-mid); }
+  .chart-key-levels b { color: var(--ink-mid); font-weight: 500; }
+  .chart-key-levels .peak b { color: var(--ok); }
+  .chart-key-levels .trough b { color: var(--bad); }
+  .tv-container { position: relative; height: 460px; }
+  .chart-legend { display: flex; gap: 22px; padding: 12px 22px; background: var(--bg-soft); border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.06em; color: var(--text-mid); flex-wrap: wrap; }
+  .chart-legend .leg-item { display: inline-flex; align-items: center; gap: 7px; }
+  .chart-legend .leg-swatch { display: inline-block; width: 16px; height: 3px; }
+  .chart-legend .leg-swatch.dashed { background: repeating-linear-gradient(90deg, var(--accent) 0 4px, transparent 4px 7px); height: 2px; }
+  .chart-legend .leg-swatch.candle { width: 10px; height: 12px; border-left: 3px solid var(--ok); border-right: 3px solid var(--bad); background: var(--text-dim); }
+  .chart-legend .leg-swatch.hist { background: rgba(48,68,102,0.45); }
+
+  /* ---- REGIME narrative ---- */
+  .regime-narr { font-family: var(--serif); font-size: 15px; color: var(--text); line-height: 1.85; max-width: 1080px; margin-top: 26px; }
+  .regime-narr p { margin: 0 0 16px; }
+  .regime-narr p:last-child { margin-bottom: 0; }
+  .regime-narr b { color: var(--ink-mid); font-weight: 500; }
+  .regime-narr .pin { font-family: var(--mono); font-size: 10.5px; font-weight: 500; letter-spacing: 0.16em; color: var(--accent-deep); margin-right: 8px; }
+  .regime-narr .up { color: var(--ok); font-weight: 500; }
+  .regime-narr .dn { color: var(--bad); font-weight: 500; }
+  .regime-narr .neutral { color: var(--ink-soft); font-weight: 500; }
+
+  /* ---- CONTENTION (font sizes bumped) ---- */
+  .ct-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px; }
+  .ct-card { background: var(--bg-mid); border: 1px solid var(--rule); border-left: 2px solid var(--accent); padding: 22px 22px 18px; }
+  .ct-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--accent-deep); text-transform: uppercase; margin-bottom: 10px; font-weight: 500; }
+  .ct-q { font-family: var(--serif); font-size: 16px; color: var(--ink-mid); line-height: 1.35; margin-bottom: 14px; font-weight: 400; }
+  .ct-side { display: flex; gap: 11px; margin-bottom: 11px; align-items: flex-start; }
+  .ct-side-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; padding: 2px 7px; border: 1px solid; flex: none; min-width: 42px; text-align: center; line-height: 1.4; font-weight: 500; }
+  .ct-side-tag.bull { color: var(--ok); border-color: var(--ok); }
+  .ct-side-tag.bear { color: var(--bad); border-color: var(--bad); }
+  .ct-side-text { font-family: var(--sans); font-size: 13px; color: var(--text); line-height: 1.55; }
+  .ct-side-text b { color: var(--ink-mid); font-weight: 500; }
+  .ct-proof { font-family: var(--mono); font-size: 10px; letter-spacing: 0.05em; color: var(--text-mid); margin-top: 14px; padding-top: 11px; border-top: 1px solid var(--rule); }
+  .ct-proof span { color: var(--accent-deep); text-transform: uppercase; letter-spacing: 0.14em; font-weight: 500; }
+
+  /* ---- CATALYST (font sizes bumped) ---- */
+  .cat-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px; }
+  .cat-card { background: var(--bg); border: 1px solid var(--rule); border-top: 2px solid var(--accent); padding: 22px; }
+  .cat-num { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--accent-deep); margin-bottom: 10px; font-weight: 500; }
+  .cat-title { font-family: var(--serif); font-size: 16.5px; color: var(--ink-mid); line-height: 1.3; font-weight: 400; margin-bottom: 14px; }
+  .cat-viz { background: var(--bg-mid); border: 1px solid var(--rule-soft); padding: 13px 15px; margin: 10px 0 14px; }
+  .cat-viz-label { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 9px; font-weight: 500; }
+  .cat-viz-bar-row { display: flex; align-items: center; gap: 9px; margin: 6px 0; font-family: var(--mono); font-size: 11px; }
+  .cat-viz-bar-label { width: 100px; color: var(--text-mid); font-size: 11px; }
+  .cat-viz-bar-track { flex: 1; height: 16px; background: var(--bg); border: 1px solid var(--rule-soft); position: relative; }
+  .cat-viz-bar-fill { height: 100%; }
+  .cat-viz-bar-val { width: 64px; text-align: right; color: var(--ink-mid); font-size: 11px; font-weight: 500; }
+  .cat-viz-cap { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; color: var(--accent-deep); text-transform: uppercase; margin-top: 9px; padding-top: 7px; border-top: 1px dashed var(--rule); font-weight: 500; }
+  .cat-takeaway { font-family: var(--sans); font-size: 13px; color: var(--text); line-height: 1.65; margin-top: 4px; }
+  .cat-takeaway b { color: var(--ink-mid); font-weight: 500; }
+  .cat-meta { display: flex; gap: 16px; margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--rule); }
+  .cat-meta div { flex: 1; }
+  .cat-meta dt { font-family: var(--mono); font-size: 9px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 4px; font-weight: 500; }
+  .cat-meta dd { margin: 0; font-family: var(--sans); font-size: 12.5px; color: var(--ink-mid); font-weight: 500; }
+
+  /* ---- VALUATION as 3 scenario cards ---- */
+  .scn-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px; }
+  .scn-card { padding: 24px 22px 20px; border: 1px solid var(--rule); position: relative; display: flex; flex-direction: column; }
+  .scn-card.bear { background: linear-gradient(180deg, rgba(185,28,28,0.045) 0%, rgba(185,28,28,0.01) 100%); border-top: 3px solid var(--bad); }
+  .scn-card.base { background: linear-gradient(180deg, rgba(15,31,58,0.04) 0%, rgba(15,31,58,0.005) 100%); border-top: 3px solid var(--ink-soft); }
+  .scn-card.bull { background: linear-gradient(180deg, rgba(47,111,79,0.045) 0%, rgba(47,111,79,0.01) 100%); border-top: 3px solid var(--ok); }
+  .scn-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500; }
+  .scn-tag.bear { color: var(--bad); }
+  .scn-tag.base { color: var(--ink-soft); }
+  .scn-tag.bull { color: var(--ok); }
+  .scn-price { font-family: var(--serif); font-size: 30px; font-weight: 300; color: var(--ink-mid); line-height: 1.1; margin: 8px 0 4px; letter-spacing: 0.01em; }
+  .scn-delta { font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: 0.04em; margin-bottom: 4px; }
+  .scn-delta.dn { color: var(--bad); }
+  .scn-delta.flat { color: var(--text-mid); }
+  .scn-delta.up { color: var(--ok); }
+  .scn-mult { font-family: var(--mono); font-size: 11px; color: var(--text-dim); letter-spacing: 0.06em; margin-bottom: 16px; }
+  .scn-prem { font-family: var(--serif); font-size: 14px; color: var(--ink-mid); line-height: 1.55; padding: 12px 14px; background: rgba(255,255,255,0.65); border: 1px solid var(--rule-soft); margin-bottom: 14px; }
+  .scn-prem b { color: var(--ink-mid); font-weight: 500; }
+  .scn-driver-head { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 8px; font-weight: 500; padding-top: 4px; }
+  .scn-drivers { list-style: none; margin: 0; padding: 0; }
+  .scn-drivers li { font-family: var(--sans); font-size: 12.5px; color: var(--text); line-height: 1.5; padding: 6px 0 6px 18px; position: relative; }
+  .scn-drivers li::before { content:''; position: absolute; left: 0; top: 12px; width: 8px; height: 1px; background: var(--text-dim); }
+  .scn-drivers li b { color: var(--ink-mid); font-weight: 500; }
+
+  /* SOTP */
+  .sotp { margin-top: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .sotp-card { background: var(--bg); border: 1px solid var(--rule); border-top: 2px solid var(--ink-soft); padding: 20px 22px; }
+  .sotp-head { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; }
+  .sotp-name { font-family: var(--serif); font-size: 18px; color: var(--ink-mid); margin-top: 6px; font-weight: 400; margin-bottom: 10px; }
+  .sotp-row { display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px dashed var(--rule-soft); font-size: 13px; }
+  .sotp-row:last-of-type { border: none; }
+  .sotp-row .k { color: var(--text-mid); }
+  .sotp-row .v { color: var(--ink-mid); font-family: var(--mono); font-weight: 500; }
+  .sotp-foot { margin-top: 12px; padding-top: 11px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; letter-spacing: 0.05em; color: var(--ink-mid); }
+  .sotp-foot b { color: var(--accent-deep); font-weight: 500; }
+
+  /* ---- DISCLAIMER ---- */
+  .disclaimer { padding: 32px 56px 30px; background: var(--bg-soft); border-top: 2px solid var(--rule); }
+  .disclaimer-head { margin-bottom: 16px; }
+  .d-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; color: var(--text-dim); text-transform: uppercase; font-weight: 500; }
+  .d-title { font-family: var(--serif); font-size: 22px; font-weight: 300; color: var(--ink-mid); margin: 6px 0 0; letter-spacing: 0.01em; }
+  .disclaimer-body { font-family: var(--sans); font-size: 11.5px; color: var(--text-mid); line-height: 1.75; max-width: 1080px; }
+  .disclaimer-body p { margin: 0 0 11px; }
+  .disclaimer-body b { color: var(--ink-mid); font-weight: 500; }
+  .d-jp-note { font-family: var(--serif); font-size: 11px; color: var(--text-dim); line-height: 1.8; padding-top: 8px; margin-top: 12px; border-top: 1px solid var(--rule); }
+
+  /* Methodology link (small footer) */
+  .meth { padding: 16px 56px; background: var(--bg); border-top: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: center; font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
+  .meth a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  .meth a:hover { color: var(--ink); }
+
+  /* ---- SHARE BAR ---- */
+  .share-bar { padding: 30px 56px 28px; background: var(--bg); border-top: 1px solid var(--rule); }
+  .share-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 14px; }
+  .share-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent-deep); font-weight: 500; }
+  .share-sub { font-family: var(--serif); font-size: 13px; color: var(--text-mid); letter-spacing: 0.02em; }
+  .share-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+  .share-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 9px 14px;
+    font-family: var(--sans); font-size: 12px; font-weight: 500; letter-spacing: 0.02em;
+    color: var(--ink-mid); background: var(--bg);
+    border: 1px solid var(--rule);
+    text-decoration: none; cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+  }
+  .share-btn:hover { border-color: var(--accent); color: var(--accent-deep); background: var(--accent-soft); }
+  .share-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .share-btn svg { width: 14px; height: 14px; flex-shrink: 0; fill: currentColor; }
+  .share-btn.copied { background: var(--accent-soft); border-color: var(--accent); color: var(--accent-deep); }
+  .share-perm { font-family: var(--mono); font-size: 10px; color: var(--text-dim); margin-top: 16px; letter-spacing: 0.06em; }
+  .share-perm code { font-family: var(--mono); background: var(--bg-soft); padding: 2px 6px; border: 1px solid var(--rule-soft); color: var(--ink-mid); }
+
+  /* ============================================================
+     RESPONSIVE — Mobile reading view
+     Preserves the desktop report aesthetic above 900px;
+     gracefully collapses on tablets and phones.
+     ============================================================ */
+
+  /* Tablet & landscape phones */
+  @media (max-width: 1100px) {
+    body { padding: 16px 0; }
+  }
+
+  @media (max-width: 900px) {
+    .stat-strip { grid-template-columns: 1fr 1fr 1fr; }
+    .stat-strip .stat:nth-child(3n) { border-right: none; }
+    .stat-strip .stat:nth-child(n+4) { border-top: 1px solid var(--rule); }
+    .ct-grid, .cat-grid, .scn-grid { grid-template-columns: 1fr 1fr; }
+    .sotp { grid-template-columns: 1fr; }
+    .section { padding: 32px 36px 32px; }
+    .masthead-inner { padding: 28px 36px 24px; }
+    .disclaimer, .share-bar { padding-left: 36px; padding-right: 36px; }
+  }
+
+  /* Phone — full single-column reading view */
+  @media (max-width: 760px) {
+    body { display: block; padding: 0; font-size: 15px; line-height: 1.7; background: var(--bg); }
+    .card { width: 100%; max-width: 100%; border-left: 0; border-right: 0; box-shadow: none; }
+
+    /* Masthead → stacked */
+    .masthead-inner { grid-template-columns: 1fr; padding: 26px 18px 22px; gap: 16px; align-items: stretch; }
+    .head-main { align-items: flex-start; text-align: left; }
+    .head-ticker-row { flex-wrap: wrap; gap: 10px; }
+    .head-co { font-size: 30px; }
+    .head-co-jp { font-size: 13.5px; }
+    .brand-mono { font-size: 24px; }
+
+    /* Stat strip → 2 columns */
+    .stat-strip { grid-template-columns: 1fr 1fr; }
+    .stat { padding: 13px 16px; border-bottom: 1px solid var(--rule); }
+    .stat:nth-child(2n) { border-right: none; }
+    .stat:nth-last-child(-n+2) { border-bottom: none; }
+    .stat-val { font-size: 19px; }
+
+    /* Section padding & headings */
+    .section { padding: 28px 18px 28px; }
+    .section-head { margin-bottom: 18px; }
+    .section-title { font-size: 24px; line-height: 1.25; }
+    .section-sub { font-size: 14px; }
+
+    /* Chart */
+    .tv-container { height: 320px; }
+    .chart-meta { padding: 13px 16px 11px; }
+    .chart-key-levels { gap: 14px; row-gap: 6px; }
+    .chart-legend { padding: 10px 16px; gap: 14px; row-gap: 6px; }
+
+    /* Narrative & dense-text bumps */
+    .regime-narr { font-size: 15px; line-height: 1.8; margin-top: 22px; }
+    .ct-card, .cat-card, .scn-card, .sotp-card { padding: 20px 18px; }
+    .ct-side-text { font-size: 14px; }
+    .ct-q { font-size: 16.5px; }
+    .cat-takeaway { font-size: 14px; }
+    .cat-title { font-size: 17px; }
+    .cat-viz-bar-label { width: 80px; font-size: 10.5px; }
+    .cat-viz-bar-val { width: 56px; font-size: 10.5px; }
+    .scn-drivers li { font-size: 14px; line-height: 1.55; }
+    .scn-price { font-size: 28px; }
+    .scn-prem { font-size: 14px; }
+
+    /* Grids → single column */
+    .ct-grid, .cat-grid, .scn-grid, .sotp { grid-template-columns: 1fr; gap: 16px; }
+
+    /* Disclaimer */
+    .disclaimer { padding: 26px 18px 24px; }
+    .d-title { font-size: 22px; line-height: 1.3; }
+    .disclaimer-body { font-size: 13.5px; line-height: 1.75; }
+
+    /* Share bar */
+    .share-bar { padding: 24px 18px 22px; }
+    .share-head { flex-wrap: wrap; gap: 8px; }
+    .share-btn { font-size: 13px; padding: 10px 14px; }
+
+    /* Meth footer */
+    .meth { padding: 14px 18px; flex-direction: column; gap: 6px; text-align: center; letter-spacing: 0.12em; }
+  }
+
+/* WCAG 2.1 AA accessibility helpers */
+.skip-link {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  transform: translateY(-150%);
+  padding: 10px 14px;
+  background: var(--ink, #1a2a4a);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(15,31,58,0.18);
+}
+.skip-link:focus, .skip-link:focus-visible { transform: translateY(0); outline: 3px solid var(--accent, #9a7838); outline-offset: 3px; }
+main:focus { outline: none; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, [tabindex]:focus-visible {
+  outline: 3px solid var(--accent, #9a7838);
+  outline-offset: 3px;
+}
+.form-row input:focus-visible, .form-row select:focus-visible, .form-row textarea:focus-visible { outline: 3px solid var(--accent, #9a7838); outline-offset: 2px; }
+.form-field-error:empty { min-height: 0; }
+.mobile-menu[hidden] { display: none !important; }
+.mobile-menu a:focus-visible { outline-offset: -2px; }
+@media (max-width: 360px) {
+  .wrap { padding-left: 16px; padding-right: 16px; }
+  .hero-ctas, .cta-row, .share-btns, .week-nav, .toolbar { align-items: stretch; flex-direction: column; }
+  .btn, .form-submit, .mobile-menu-cta, .share-btn { width: 100%; justify-content: center; text-align: center; }
+  .nav-logo-img--desktop { display: none !important; }
+  .nav-logo-img--mobile { display: block !important; }
+  .nav-inner { gap: 10px; }
+  .nav-right { gap: 6px; }
+  .locale-switcher a, .nav-locale-switcher a { min-width: 36px; min-height: 36px; display: inline-flex; align-items: center; justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+}
+
+
+  #sig-log[hidden] { display:none; }
+  .siglog { margin-top:8px; }
+  .siglog-row { display:flex; gap:14px; align-items:baseline; flex-wrap:wrap; padding:11px 0; border-bottom:1px solid var(--rule-soft); }
+  .siglog-date { font-family:var(--mono); font-size:12px; color:var(--text-dim); min-width:94px; }
+  .siglog-chip { font-family:var(--mono); font-size:10px; letter-spacing:0.12em; text-transform:uppercase; padding:2px 7px; border:1px solid var(--accent); color:var(--accent-deep); background:var(--accent-soft); white-space:nowrap; }
+  .siglog-tag { font-family:var(--sans); font-size:13px; color:var(--ink-mid); }
+  .siglog-more { margin-top:16px; }
+  .siglog-more a { font-family:var(--mono); font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent-deep); border-bottom:1px solid var(--accent); padding-bottom:1px; }
+</style>
+<script src="/assets/locale-switcher.js" defer></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "url": "https://jpinv.com/compounders/2301/",
+  "name": "2301 学情｜JII Compounders銘柄レポート",
+  "description": "2301 学情を海外投資家目線で分析。株価変動の背景、KPIの読み方、投資家論点、資本政策、株価シナリオを整理します。",
+  "inLanguage": "ja"
+}
+</script></head>
+<body>
+<a class="skip-link" href="#main-content">本文へ移動</a>
+
+<main id="main-content" tabindex="-1">
+<article class="card">
+
+  <!-- ============================== MASTHEAD ============================== -->
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div class="brand">
+        <span class="brand-mono">J<span class="pipe">|</span>I</span>
+        <span class="brand-eyebrow">Japan Investor Interface · Compounder 銘柄レポート</span>
+      </div>
+      <div class="head-main">
+        <div class="head-ticker-row">
+          <span class="head-ticker">東証プライム · 2301 · 10月決算</span>
+          <span class="head-co-jp">GAKUJO CO., Ltd.</span>
+        </div>
+        <div class="head-co">株式会社学情</div>
+        <div class="head-industry">20代を対象とした採用メディア・イベントを運営し、転職サイト「Ｒｅ就活」と新卒向けサービスを展開する事業会社</div>
+      </div>
+    </div>
+
+    <div class="stat-strip">
+      <div class="stat">
+        <div class="stat-label">終値</div>
+        <div class="stat-val">¥1,547<small>2026年6月8日</small></div>
+        <div class="stat-ctx">2年来安値圏 · 本日下方修正と自己株買いを同時開示</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">時価総額 / EV</div>
+        <div class="stat-val">¥208<small>億 / EV ¥142億</small></div>
+        <div class="stat-ctx">現金・有価証券 <b>¥113億</b> · 無借金 · 1株¥842が純現金</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">EV / EBIT · 予想</div>
+        <div class="stat-val">5.5<small>倍</small></div>
+        <div class="stat-ctx">FY26予想営業益 <b>¥26億</b> · 本日¥32.5億から減</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">ROCE · 実績</div>
+        <div class="stat-val">~15<small>%</small></div>
+        <div class="stat-ctx">ROEは<b>16→13%</b>（FY24-25）· 現金積上げと投資で</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">営業利益率 · 全社</div>
+        <div class="stat-val">21.7<small>% · FY26予</small></div>
+        <div class="stat-ctx">FY25は21.2% · 上期7.5% — 第1四半期は構造的赤字</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">発行株式 &amp; 浮動株</div>
+        <div class="stat-val">1,343<small>万株 自己株除 · 発行1,560万株</small></div>
+        <div class="stat-ctx">自己株13.7% · 創業家支配 · 6期連続増配</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================== はじめに ============================== -->
+  <section class="section">
+    <div class="section-head">
+      <div class="section-num">はじめに</div>
+      <h2 class="section-title">学情は何をしている会社か？</h2>
+    </div>
+    <p>学情は、20代という一つの層に向けて採用メディアとイベントを売る。中核商品は「<b>Ｒｅ就活</b>」——20代向けの転職サイトで、同種サイトとして7年連続で最も使われ、登録会員280万人、その93%が20代である。企業は求人掲載とスカウトに料金を払う。学情はほかに、採用が成立したときだけ手数料を得る人材紹介、新卒スカウトサイト「Ｒｅ就活キャンパス」、大規模な対面合同企業説明会（転職博・就職博）を運営する。規模の小さい部門が、行政から公的就労支援事業を受託する。</p>
+    <p>このモデルは資本が軽い。学情はソフトウェアを除けば事業用資産をほとんど持たず、費用は人件費・販促・会場費で、借入はない。そのため事業は2つに依存する。第1は会員獲得とブランド認知にいくら使うかであり、第2は掲載開始と紹介成立のタイミングである——収益は受注時ではなく掲載開始日に計上されるためだ。</p>
+    <p>数値は安定的だが利益率は動いている。FY2025（2025年10月期）の売上は110億円、営業利益は23.3億円（利益率21.2%）だったが、販促とシステム投資を強めた結果、営業利益は<i>12%減</i>った。自己資本に対する利益であるROEは16.1%から12.9%へ低下した——一因は、時価総額の半分を超える113億円の現金・有価証券を抱える貸借対照表にある。配当は6期連続で増配している。</p>
+    <p>足元の数値は丁寧に読む必要がある。2026年6月8日、学情は自社計画に届かない上期決算を発表した——売上は+5.8%だが計画比9%下振れ、営業利益は26%減である。同じ朝、同社は通期の営業利益予想を32.5億円から26億円へ<a href="https://www.release.tdnet.info/inbs/140120260603561784.pdf" style="text-decoration:underline" target="_blank">下方修正</a>し、上限3.0%・6.5億円の<a href="https://www.release.tdnet.info/inbs/140120260601558116.pdf" style="text-decoration:underline" target="_blank">自己株式取得を決議</a>した。一方で受注高は売上より速い+11.2%、人材紹介は46%伸びた。論点は、この下方修正がフランチャイズの衰えを示すのか、それとも無借金・現金潤沢・創業家経営のコンパウンダーが予想営業利益の約5.5倍で取引されるなかでの、タイミングと投資の谷なのか、である。</p>
+    <p>本レポートはこの問いを、まず株価がここに至った経緯、次に市場で割れている論点、その差を縮め得るカタリスト、最後に事業と貸借対照表の価値という順で読み解く。</p>
+  </section>
+
+  <!-- ============================== 01 · 株価レジーム ============================== -->
+  <section class="section">
+    <div class="section-head">
+      <div class="section-num">01 · 株価レジーム</div>
+      <h2 class="section-title">過去2年、株価を動かしたものは何か？</h2>
+      <p class="section-sub">学情は、20代の関心を採用収益に変える——転職サイト・人材紹介・新卒サイト・合同説明会を通じてである。資産をほとんど持たず現金を多く抱えるため、株価は成長よりも利益率と業績予想にはるかに連動してきた。</p>
+    </div>
+
+    <div class="chart-wrap">
+      <div class="chart-meta">
+        <div class="chart-title">2301 vs TOPIX · 24か月 · 日足＋出来高</div>
+        <div class="chart-key-levels">
+          <span class="peak">2年来高値圏 <b>¥1,671</b> · 2024-10</span>
+          <span class="trough">直近安値圏 <b>~¥1,500</b> · 2026</span>
+          <span>現在 <b>¥1,547</b></span>
+        </div>
+      </div>
+      <div class="tv-container" id="chart-2301"></div>
+      <div class="chart-legend">
+        <span class="leg-item"><span class="leg-swatch candle"></span>学情・日足</span>
+        <span class="leg-item"><span class="leg-swatch dashed"></span>60日移動平均</span>
+        <span class="leg-item"><span class="leg-swatch" style="background:rgba(122,130,144,0.85)"></span>TOPIX リベース (1308.T)</span>
+        <span class="leg-item"><span class="leg-swatch hist"></span>出来高</span>
+      </div>
+      <script src="https://unpkg.com/lightweight-charts@4.2.0/dist/lightweight-charts.standalone.production.js"></script>
+      <script>
+      const CHART_DATA = {
+  "_note": "PLACEHOLDER chart data — real verified anchor closes only (Oct-2024 to Jun-2026). The 24-month DAILY candle/volume/TOPIX/SMA series was NOT pulled in-session (price-data endpoints are not fetchable via the sanctioned tools, and yfinance/Python URL-fetching is disallowed here). REGENERATE before push via the local data pull: `python3 \"3 Data Pull & Working Notes/scripts/data_pull.py\" 2301 E05286` (yfinance), which overwrites this file with full daily candles, volume, TOPIX-rebased and the 60-day SMA.",
+  "candles": [
+    {"time": "2024-10-31", "open": 1671, "high": 1671, "low": 1671, "close": 1671},
+    {"time": "2025-10-31", "open": 1614, "high": 1614, "low": 1614, "close": 1614},
+    {"time": "2026-05-29", "open": 1596, "high": 1596, "low": 1596, "close": 1596},
+    {"time": "2026-06-05", "open": 1579, "high": 1579, "low": 1579, "close": 1579},
+    {"time": "2026-06-08", "open": 1547, "high": 1547, "low": 1547, "close": 1547}
+  ],
+  "volume": [
+    {"time": "2024-10-31", "value": 0},
+    {"time": "2025-10-31", "value": 0},
+    {"time": "2026-05-29", "value": 0},
+    {"time": "2026-06-05", "value": 0},
+    {"time": "2026-06-08", "value": 0}
+  ],
+  "topix_rebased": [
+    {"time": "2024-10-31", "value": 1671},
+    {"time": "2026-06-08", "value": 1671}
+  ],
+  "sma60": [
+    {"time": "2024-10-31", "value": 1671},
+    {"time": "2026-06-08", "value": 1560}
+  ],
+  "peak": {"time": "2024-10-31", "value": 1671},
+  "trough": {"time": "2026-06-08", "value": 1547}
+};
+      (function() {
+        var container = document.getElementById('chart-2301');
+        if (!container || typeof LightweightCharts === 'undefined') return;
+        var chart = LightweightCharts.createChart(container, {
+          autoSize: true,
+          layout: {
+            background: { type: 'solid', color: '#fafbfc' },
+            textColor: '#4a5566',
+            fontFamily: "'DM Mono', monospace",
+            fontSize: 11,
+          },
+          grid: {
+            vertLines: { color: 'rgba(15,31,58,0.04)' },
+            horzLines: { color: 'rgba(15,31,58,0.04)' },
+          },
+          rightPriceScale: {
+            borderColor: '#d6dee8',
+            scaleMargins: { top: 0.08, bottom: 0.24 },
+          },
+          timeScale: {
+            borderColor: '#d6dee8',
+            timeVisible: false,
+            secondsVisible: false,
+          },
+          crosshair: { mode: 1 },
+        });
+        var topixSeries = chart.addLineSeries({
+          color: 'rgba(122,130,144,0.85)',
+          lineWidth: 1.5,
+          priceLineVisible: false,
+          lastValueVisible: true,
+        });
+        topixSeries.setData(CHART_DATA.topix_rebased);
+        var smaSeries = chart.addLineSeries({
+          color: '#b08a4a',
+          lineWidth: 1.5,
+          lineStyle: 2,
+          priceLineVisible: false,
+          lastValueVisible: false,
+        });
+        smaSeries.setData(CHART_DATA.sma60);
+        var candleSeries = chart.addCandlestickSeries({
+          upColor: '#2f6f4f',
+          downColor: '#b91c1c',
+          borderUpColor: '#2f6f4f',
+          borderDownColor: '#b91c1c',
+          wickUpColor: '#2f6f4f',
+          wickDownColor: '#b91c1c',
+        });
+        candleSeries.setData(CHART_DATA.candles);
+        candleSeries.setMarkers([
+          { time: CHART_DATA.peak.time,   position: 'aboveBar', color: '#2f6f4f', shape: 'arrowDown', text: '¥' + '1,671 圏' },
+          { time: CHART_DATA.trough.time, position: 'belowBar', color: '#b91c1c', shape: 'arrowUp',   text: '¥' + '1,500 圏' },
+        ]);
+        var volumeSeries = chart.addHistogramSeries({
+          color: 'rgba(48,68,102,0.45)',
+          priceFormat: { type: 'volume' },
+          priceScaleId: 'volume',
+        });
+        volumeSeries.setData(CHART_DATA.volume);
+        chart.priceScale('volume').applyOptions({
+          scaleMargins: { top: 0.82, bottom: 0 },
+          borderColor: '#d6dee8',
+        });
+        chart.timeScale().fitContent();
+      })();
+      </script>
+    </div>
+
+    <div class="regime-narr">
+      <p>
+        <span class="pin">01 · 高採算の土台（2024年後半）</span>
+        2024年を通じて株価は<b>¥1,671</b>（2024年10月の終値）前後で取引され、予想利益の約10倍に評価された。FY2024は過去最高の売上107億円、営業利益+15%の26.6億円、利益率24.8%を達成していた。株式は、20代の求職者で先行する地位と長い増配実績を持つ、安定的でキャッシュを生む採用会社として評価されていた。
+      </p>
+      <p>
+        <span class="pin">02 · 投資の年とマルチプル低下</span>
+        <a href="https://www.release.tdnet.info/inbs/140120251205515268.pdf" style="text-decoration:underline" target="_blank">FY2025</a>は売上が伸びても営業利益が12%減の23.3億円となった——会員獲得の販促を増やし、新システムを導入し、コスト上昇を吸収したためだ。営業利益率は24.8%から21.2%へ下がった。株価は2025年10月までに<b>¥1,614</b>へ漂った。市場は利益率の譲歩を織り込み始め、その支出がフランチャイズを築くのか、それともリターンを蝕むだけなのか測りかねた。
+      </p>
+      <p>
+        <span class="pin">03 · 新計画に対する軟調な上期</span>
+        学情は2025年12月に今期の営業利益計画32.5億円を置いたが、上期は軟調だった——若手経験者採用の掲載が下期にずれ込み、売上は計画比9%下振れた。2026年5月下旬までに株価は約<b>¥1,596</b>へ緩み、おおむね¥1,500〜1,700で推移してきた2年来レンジの下限に近づいた。
+      </p>
+      <p>
+        <span class="pin">04 · 現時点</span>
+        株価は2026年6月8日に¥1,547で引けた。同日朝、学情は通期の営業利益予想を2度目の<a href="https://www.release.tdnet.info/inbs/140120260603561784.pdf" style="text-decoration:underline" target="_blank">下方修正</a>で26億円へ引き下げ、6.5億円の<a href="https://www.release.tdnet.info/inbs/140120260601558116.pdf" style="text-decoration:underline" target="_blank">自己株式取得を決議</a>した。113億円の現金・有価証券を背後に持つため、事業はいま予想EV/営業利益で約<b>3.6倍</b>に評価されている。今後4四半期の焦点は一つの問いにある——これはタイミングの谷なのか、それとも市場が正しく割り引く低成長の事業なのか。
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================== 02 · 投資家論点 ============================== -->
+  <section class="section">
+    <div class="section-head">
+      <div class="section-num">02 · 投資家論点</div>
+      <h2 class="section-title">市場で割れている論点</h2>
+      <p class="section-sub">黒字・現金潤沢・増配を続ける会社が2年来安値で取引される理由を説明する論点は3つ。下方修正がタイミングか衰退か、長年の投資が報われるか、そして現金の重い貸借対照表が創業家支配のもとで強みか重しか、にまたがる。</p>
+    </div>
+
+    <div class="ct-grid">
+
+      <div class="ct-card">
+        <div class="ct-tag">論点 01 · 需要 vs タイミング</div>
+        <div class="ct-q">下方修正は需要かタイミング・能力か。</div>
+        <p class="ct-primer" style="font-family: var(--serif); font-size: 13px; color: var(--text-mid); line-height: 1.7; margin: 0 0 14px;">学情は受注時ではなく、求人掲載の開始や紹介成立の時点で収益を計上する。上期に受けた受注が下期に計上され得る。論点は、未達が認識の先送りなのか、実需の減退なのかである。</p>
+        <div class="ct-side">
+          <span class="ct-side-tag bull">強気</span>
+          <span class="ct-side-text">強気はタイミングと意図的な抑制とみる。上期の受注高は+11.2%——売上の+5.8%より速い——で、仕事は失われず受注されている。人材紹介は46%、イベントは14%伸び、第2四半期の営業利益はむしろ20%増えた。弱さは季節的に赤字の第1四半期に集中した。経営陣は現有人員でサービス品質を守るため売上を平準化していると述べる。<b>下期がこの受注残を消化しＲｅ就活の売上がプラスに転じれば、この見方は補強される。</b></span>
+        </div>
+        <div class="ct-side">
+          <span class="ct-side-tag bear">弱気</span>
+          <span class="ct-side-text">弱気はこれが深い修正だとみる——通期の営業利益予想は設定からわずか6か月で20%下がった。中核商品で成長エンジンのはずのＲｅ就活は7.2%縮んだ。営業利益率は2期連続で低下している。「タイミング」「能力の規律」は、自らの需要に成長で応えられない事業や、新卒採用の早期化で市場が離れていく事業も言い表しうる。<b>下期の売上が再び未達となるか受注の伸びがここから鈍れば、弱気の見方が裏づけられる。</b></span>
+        </div>
+      </div>
+
+      <div class="ct-card">
+        <div class="ct-tag">論点 02 · 投資 vs 利益率</div>
+        <div class="ct-q">長年の投資は複利か、利益率を削るだけか。</div>
+        <p class="ct-primer" style="font-family: var(--serif); font-size: 13px; color: var(--text-mid); line-height: 1.7; margin: 0 0 14px;">販促・システム投資は発生時に費用計上されるため、いま利益率を下げる。賭けは、それが会員基盤とブランドを築き後で収益化することにある。論点は、その果実が来ているのか、支出が現状維持の費用にすぎないのかである。</p>
+        <div class="ct-side">
+          <span class="ct-side-tag bull">強気</span>
+          <span class="ct-side-text">強気は先行指標に着目する。Ｒｅ就活の会員基盤は280万人に達し、AI主導のダイレクトリクルーティングは55%伸びて紹介単価を押し上げている。事業はほとんど資本を要さないため、支出が収益に変わるとき限界リターンは高い。同社は新卒・第二新卒・若手シニアを一つの層の上に束ねる、10代から30代までのキャリアプラットフォームを築いている。<b>支出が成熟し営業利益率が20%台半ばへ再構築されれば、この見方は前進する。</b></span>
+        </div>
+        <div class="ct-side">
+          <span class="ct-side-tag bear">弱気</span>
+          <span class="ct-side-text">弱気は果実なき支出とみる。営業利益率は24.8%から21.2%、計画21.7%へ下がり、見合う売上の加速はない。経営陣自身が成長を422人の人員で頭打ちとするため、品質か利益率を損なわずに規模を拡大できないおそれがある。販促が会員基盤を横ばいに保つ費用にすぎないなら、それは成長を装った維持である。<b>もう1年の利益率譲歩が売上の押し上げを生まなければ、この見方が裏づけられる。</b></span>
+        </div>
+      </div>
+
+      <div class="ct-card">
+        <div class="ct-tag">論点 03 · 資本配分</div>
+        <div class="ct-q">現金潤沢・創業家経営の財務は強みか重しか。</div>
+        <p class="ct-primer" style="font-family: var(--serif); font-size: 13px; color: var(--text-mid); line-height: 1.7; margin: 0 0 14px;">ROEは利益を自己資本で割った値だ。学情は時価総額の約54%にあたる113億円の現金・有価証券を、ほとんど稼がぬまま抱え、ROEを押し下げる。自己株買いは自己資本を圧縮しROEを上げる。創業家支配のもと、論点はこの現金が慎重さか、塞がれた資本かである。</p>
+        <div class="ct-side">
+          <span class="ct-side-tag bull">強気</span>
+          <span class="ct-side-text">強気は安全性と選択肢に着目する。学情は無借金、自己資本比率87〜90%で、配当を6期連続で増やし配当性向50%とした。本日決議の6.5億円・2年来安値圏で発行済株式の約3.0%の自己株買いは、株を安く消却し、修正と並んで自信を示す。純現金は1株¥842——株価の半分超——で下値は緩和される。<b>経営陣がより大型または恒常的な還元の枠組みを約せば、この見方は補強される。</b></span>
+        </div>
+        <div class="ct-side">
+          <span class="ct-side-tag bear">弱気</span>
+          <span class="ct-side-text">弱気は遊休資本と保身とみる。ROEがわずか12.9%なのは、まさに113億円が事業や株主にではなく低利の現金と投資有価証券に置かれるためだ。6.5億円の自己株買いはその山に対し小さい。創業家が会社を支配し、すでに発行済株式の13.7%が自己株として保有されるため、各取得はTOBなしにその掌握を強める。<b>還元の枠組みなきまま現金が積み上がり続ければ、弱気の見方が現実となる。</b></span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================== 03 · カタリスト ============================== -->
+  <section class="section gem">
+    <div class="section-head">
+      <div class="section-num">03 · カタリスト</div>
+      <h2 class="section-title">資本効率のレバー</h2>
+      <p class="section-sub">増益を伴わなくても、経営陣が割引の理由を取り除けば割引は縮まり得る。以下の3つはいずれも、おおむね経営の判断か開示の範囲にある。</p>
+    </div>
+
+    <div class="cat-grid">
+
+      <div class="cat-card">
+        <div class="cat-num">レバー 01 · 売上</div>
+        <div class="cat-title">受注残を消化し、下期にＲｅ就活を再加速させる</div>
+        <div class="cat-viz">
+          <div class="cat-viz-label">FY26上期の成長率 — 商品別の受注 vs 売上（前年比）</div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">受注高（上期）</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:100%;background:#1a2a4a"></div></div>
+            <div class="cat-viz-bar-val">+11.2%</div>
+          </div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">人材紹介</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:92%;background:#2f6f4f"></div></div>
+            <div class="cat-viz-bar-val">+46.0%</div>
+          </div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">ダイレクトリクルーティング</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:96%;background:#b08a4a"></div></div>
+            <div class="cat-viz-bar-val">+54.8%</div>
+          </div>
+          <div class="cat-viz-bar-row" style="border-top:1px dashed var(--rule);padding-top:8px;margin-top:4px;">
+            <div class="cat-viz-bar-label">Ｒｅ就活（中核）</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:18%;background:#b91c1c"></div></div>
+            <div class="cat-viz-bar-val">−7.2%</div>
+          </div>
+          <div class="cat-viz-cap">受注は売上より速く伸びる——中核サイトは掲載の下期ずれ込みで縮んだ</div>
+        </div>
+        <div class="cat-takeaway">
+          最も素直な処方は新規支出ではなく消化である。受注高は11.2%、売上は5.8%伸びたため、下期は既に受注済みの仕事を認識するはずだ。鍵となる商品はＲｅ就活——上期7.2%減は需要喪失ではなく企業の掲載の下期ずれ込みを映し、その間に人材紹介とダイレクトリクルーティングは46%・55%伸びた。<b>確認材料は12月のFY26決算で下期売上が受注残を消化しＲｅ就活がプラスに転じるか。</b>
+        </div>
+        <div class="cat-meta">
+          <div><dt>経営の負担</dt><dd>実行のみ（進行中）</dd></div>
+          <div><dt>最短の契機</dt><dd>第3四半期決算 · 2026年9月</dd></div>
+        </div>
+      </div>
+
+      <div class="cat-card">
+        <div class="cat-num">レバー 02 · 事業運営</div>
+        <div class="cat-title">販促・システム投資が利益率に変わる過程を示す</div>
+        <div class="cat-viz">
+          <div class="cat-viz-label">年度別の営業利益率（%）</div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">FY2024</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:100%;background:#1a2a4a"></div></div>
+            <div class="cat-viz-bar-val">24.8%</div>
+          </div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">FY2025</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:85%;background:#304466"></div></div>
+            <div class="cat-viz-bar-val">21.2%</div>
+          </div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">FY2026予想（修正後）</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:88%;background:#b08a4a"></div></div>
+            <div class="cat-viz-bar-val">21.7%</div>
+          </div>
+          <div class="cat-viz-cap">2年分の利益率を投資に充てた——FY26予想は下げ止めるが反転はさせない</div>
+        </div>
+        <div class="cat-takeaway">
+          営業利益率は販促・システム投資の増加で24.8%から21.2%へ下がり、修正後FY26予想はこれを21.7%に保つ。その支出は即時に費用計上される一方で、築いた会員基盤とブランドは後で収益化するため、それが成長か維持かは利益率の方向から読める。事業は資本が軽いため、横ばいか増収のもとで利益率が20%台半ばへ再構築されれば、事業の倍率は切り上がる。<b>確認材料は投資サイクルの成熟とともに営業利益率が登るか、それとも低い水準に落ち着くかである。</b>
+        </div>
+        <div class="cat-meta">
+          <div><dt>経営の負担</dt><dd>支出は既に基準に内包</dd></div>
+          <div><dt>最短の契機</dt><dd>各四半期決算</dd></div>
+        </div>
+      </div>
+
+      <div class="cat-card">
+        <div class="cat-num">レバー 03 · 資本政策</div>
+        <div class="cat-title">¥113億の貸借対照表を働かせる</div>
+        <div class="cat-viz">
+          <div class="cat-viz-label">貸借対照表の資本 vs 今期の還元（億円）</div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">現金・有価証券</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:100%;background:#1a2a4a"></div></div>
+            <div class="cat-viz-bar-val">¥113億</div>
+          </div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">FY26配当</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:9%;background:#2f6f4f"></div></div>
+            <div class="cat-viz-bar-val">~¥10億</div>
+          </div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">自己株買い（本日）</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:6%;background:#b08a4a"></div></div>
+            <div class="cat-viz-bar-val">¥6.5億</div>
+          </div>
+          <div class="cat-viz-bar-row" style="border-top:1px dashed var(--rule);padding-top:8px;margin-top:4px;">
+            <div class="cat-viz-bar-label">自己株式</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:14%;background:#8a682b"></div></div>
+            <div class="cat-viz-bar-val">13.7%</div>
+          </div>
+          <div class="cat-viz-cap">今期の配当と自己株買いは合わせて113億円のうち17億円弱しか還元しない</div>
+        </div>
+        <div class="cat-takeaway">
+          学情は時価総額の54%にあたる113億円の現金・有価証券を、ほとんど稼がぬまま抱える——ROEがわずか12.9%である主因だ。今期の配当と6.5億円の自己株買いは合わせてそのうち17億円弱を還元する。事業は成長にほとんど資本を要さないため、より大型または恒常的な自己株買い、13.7%の自己株式の消却、明文の還元方針は、ROEを直接高め、市場にそのリターンを「方針」として評価させる。<b>確認材料は12月の決算が毎年の判断ではなく還元の枠組みを加えるかである。</b>
+        </div>
+        <div class="cat-meta">
+          <div><dt>経営の負担</dt><dd>取締役会決議1つ</dd></div>
+          <div><dt>最短の契機</dt><dd>FY26決算 · 2026年12月</dd></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================== 04 · バリュエーション ============================== -->
+  <section class="section">
+    <div class="section-head">
+      <div class="section-num">04 · バリュエーション</div>
+      <h2 class="section-title">シナリオ</h2>
+      <p class="section-sub">¥1,547（2026年6月8日）、修正後FY26の営業利益予想26億円に対し、約142億円の事業価値は予想EV/営業利益で約5.5倍に相当する——113億円の現金・有価証券を差し引けば3.6倍にすぎない。以下の3シナリオは<b>JIIの試算であり会社計画ではない</b>。</p>
+    </div>
+
+    <div class="scn-grid">
+
+      <div class="scn-card bear">
+        <div class="scn-tag bear">弱気シナリオ</div>
+        <div class="scn-price">¥1,300 &ndash; ¥1,450</div>
+        <div class="scn-delta dn">−16% 〜 −6%</div>
+        <div class="scn-mult">想定倍率 · 予想EV/営業利益 ~3〜4倍</div>
+        <div class="scn-prem">
+          市場が学情を、現金の塞がれた低成長の採用会社として扱い続ける。事業は<b>3〜4倍</b>の倍率に留まり、下期が再び失望させ、遊休の113億円は創業家支配下の配分の拙さで割引を受ける。
+        </div>
+        <div class="scn-driver-head">成立の条件</div>
+        <ul class="scn-drivers">
+          <li>下期の売上が修正計画を下回る。</li>
+          <li>Ｒｅ就活がマイナスのまま、受注の伸びが鈍る。</li>
+          <li>還元の枠組みなし、現金は積み上がり続ける。</li>
+          <li>事業の倍率が3〜4倍に留まる。</li>
+        </ul>
+        <p style="font-family: var(--serif); font-size: 12.5px; color: var(--text-mid); line-height: 1.7; margin: 12px 0 0; font-style: italic;">ここでも1株¥842の純現金と6期連続増配が下値を支える。</p>
+      </div>
+
+      <div class="scn-card base">
+        <div class="scn-tag base">基本シナリオ</div>
+        <div class="scn-price">¥1,700 &ndash; ¥1,950</div>
+        <div class="scn-delta up">+10% 〜 +26%</div>
+        <div class="scn-mult">想定倍率 · 予想EV/営業利益 ~5〜6倍</div>
+        <div class="scn-prem">
+          下期が受注残を消化し、営業利益は26億円計画近辺に着地し、自己株買いが1株価値を支える。事業は1桁台半ばの倍率を保ち、還元の継続とともに市場は現金の一部をより評価する。
+        </div>
+        <div class="scn-driver-head">成立の条件</div>
+        <ul class="scn-drivers">
+          <li>FY26営業利益が26億円計画を達成。</li>
+          <li>受注残を消化、人材紹介とダイレクトが伸長継続。</li>
+          <li>自己株買いで自己株控除後の株数が減少。</li>
+          <li>事業の倍率が5〜6倍を保つ。</li>
+        </ul>
+      </div>
+
+      <div class="scn-card bull">
+        <div class="scn-tag bull">強気シナリオ</div>
+        <div class="scn-price">¥2,150 &ndash; ¥2,500</div>
+        <div class="scn-delta up">+39% 〜 +62%</div>
+        <div class="scn-mult">想定倍率 · 予想EV/営業利益 ~8倍 ＋ 現金を評価</div>
+        <div class="scn-prem">
+          Ｒｅ就活が再加速し、投資サイクルの成熟とともに営業利益率が再構築され、経営陣がより大型の自己株買いや枠組みで貸借対照表を活用する。事業は<b>8倍</b>へ切り上がり、市場は現金全額を評価する。
+        </div>
+        <div class="scn-driver-head">成立の条件</div>
+        <ul class="scn-drivers">
+          <li>Ｒｅ就活が成長へ回帰、利益率が再構築。</li>
+          <li>営業利益が26億円計画を上回る。</li>
+          <li>より大型の還元か自己株式の消却。</li>
+          <li>事業の倍率が8倍へ切り上がる。</li>
+        </ul>
+        <p style="font-family: var(--serif); font-size: 12.5px; color: var(--text-mid); line-height: 1.7; margin: 12px 0 0; font-style: italic;">強気は、現金が評価され、事業がそのリターンが示す高採算・資本軽量のフランチャイズ並みに評価されることに依る。</p>
+      </div>
+
+    </div>
+
+    <!-- SOTP -->
+    <div class="sotp">
+      <div class="sotp-card">
+        <div class="sotp-head">サム・オブ・パーツ · 事業</div>
+        <div class="sotp-name">採用メディア・人材紹介・イベント — 修正後FY26営業利益ベース</div>
+        <div class="sotp-row"><span class="k">FY26予想営業利益</span><span class="v">¥26億</span></div>
+        <div class="sotp-row"><span class="k">弱気 · 3〜4倍 EV/EBIT</span><span class="v">¥78〜104億</span></div>
+        <div class="sotp-row"><span class="k">基本 · 5〜6倍 EV/EBIT</span><span class="v">¥130〜156億</span></div>
+        <div class="sotp-row"><span class="k">強気 · 8倍 EV/EBIT</span><span class="v">¥208億</span></div>
+        <div class="sotp-foot">倍率は資本軽量・単一セグメントの採用会社に対するJIIの想定。事業は報告セグメント1つのため、価値は事業別ではなく全社営業利益から算出する。</div>
+      </div>
+
+      <div class="sotp-card">
+        <div class="sotp-head">サム・オブ・パーツ · 現金・有価証券・負債</div>
+        <div class="sotp-name">事業価値に加える貸借対照表項目（2026年4月30日）</div>
+        <div class="sotp-row"><span class="k">現金・預金</span><span class="v">¥63億</span></div>
+        <div class="sotp-row"><span class="k">短期・投資有価証券</span><span class="v">¥50億</span></div>
+        <div class="sotp-row"><span class="k">有利子負債</span><span class="v">¥0億</span></div>
+        <div class="sotp-row"><span class="k">純現金・有価証券</span><span class="v">¥113億</span></div>
+        <div class="sotp-foot">無借金。投資有価証券は利息と随時の売却益を生むが、弱気は事業にも還元にも回らない資本に割引を当てる。</div>
+      </div>
+
+      <div class="sotp-card">
+        <div class="sotp-head">類似企業倍率 · 予想EV/営業利益</div>
+        <div class="sotp-name">日本の採用・HRプラットフォーム運営会社 — 参考レンジ</div>
+        <div class="sotp-row"><span class="k">リクルートHD（6098）· HR/Indeed</span><span class="v">~15〜18倍</span></div>
+        <div class="sotp-row"><span class="k">ビジョナル（4194）· ダイレクト採用</span><span class="v">~15〜20倍</span></div>
+        <div class="sotp-row"><span class="k">エン・ジャパン（4849）· メディア＋紹介</span><span class="v">~8〜11倍</span></div>
+        <div class="sotp-row"><span class="k">JACリクルートメント（2124）· 紹介</span><span class="v">~9〜12倍</span></div>
+        <div class="sotp-row"><span class="k">ワンキャリア（4377）· 新卒プラットフォーム</span><span class="v">~14〜18倍</span></div>
+        <div class="sotp-row"><span class="k">学情（2301）</span><span class="v">~5.5倍</span></div>
+        <div class="sotp-foot">参考の予想EV/営業利益レンジであり、現時点のスナップショットではない——依拠する前に更新を要する。学情は国内同業すべてを大きく下回り、その差は利益率のリセットと現金の重い貸借対照表を映す。</div>
+      </div>
+
+      <div class="sotp-card" style="grid-column: 1 / -1;">
+        <div class="sotp-head">株主価値ブリッジ · 1株あたり試算</div>
+        <div class="sotp-name">事業価値＋純現金・有価証券 ÷ 自己株控除後株式数</div>
+        <div class="sotp-row"><span class="k">事業価値（FY26予想営業益の3〜8倍）</span><span class="v">¥78〜208億</span></div>
+        <div class="sotp-row"><span class="k">＋ 純現金・有価証券</span><span class="v">¥113億</span></div>
+        <div class="sotp-row"><span class="k">＝ 株主価値</span><span class="v">¥191〜321億</span></div>
+        <div class="sotp-row"><span class="k">÷ 自己株控除後株式数</span><span class="v">13,432,265株</span></div>
+        <div class="sotp-row"><span class="k">＝ 1株あたり試算</span><span class="v"><b>¥1,420〜2,390</b></span></div>
+        <div class="sotp-row"><span class="k">現値¥1,547比</span><span class="v">−8% 〜 +54%</span></div>
+        <div class="sotp-foot">中心値は1株約¥1,900。JIIの試算であり予測・目標ではない。価値の半分超は貸借対照表のため、振れ幅は市場が現金を評価し事業倍率を切り上げるかに依る。</div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ============================== SHARE BAR ============================== -->
+  <section class="share-bar" id="jii-share"
+           data-share-text="学情（2301）は、20代向けに日本で最も使われる採用メディアと合同説明会を運営する事業会社。転職サイト「Ｒｅ就活」・人材紹介・新卒サービスを束ねる。2026年6月8日に通期の営業利益予想を26億円へ引き下げ、6.5億円の自己株買いを決議した。時価総額の半分超113億円の純現金を持つ。論点はタイミングと投資の谷か、現金の塞がれた低成長の採用会社か。"
+           data-share-url="https://jpinv.com/compounders/2301/"
+           data-share-subject="JII Compounders · 2301 学情"
+           data-copy-label="リンクをコピー"
+           data-copied-label="コピーしました">
+    <div class="share-head">
+      <span class="share-eyebrow">Share</span>
+      <span class="share-sub">気になった方へ共有する</span>
+    </div>
+    <div class="share-btns">
+      <a class="share-btn share-x" target="_blank" rel="noopener" aria-label="Xで共有">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        <span>X</span>
+      </a>
+      <a class="share-btn share-em" aria-label="メールで共有">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5z"/></svg>
+        <span>メール</span>
+      </a>
+      <button type="button" class="share-btn share-cp" aria-label="リンクをコピー">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11z"/></svg>
+        <span class="lbl">リンクをコピー</span>
+      </button>
+    </div>
+    <div class="share-perm">固定リンク · <code id="jii-share-url-display"></code></div>
+  </section>
+
+  <!-- ============================== DISCLAIMER ============================== -->
+  <section class="disclaimer">
+    <div class="disclaimer-head">
+      <span class="d-eyebrow">重要なご注意</span>
+      <h2 class="d-title">本資料は投資助言ではありません。</h2>
+    </div>
+    <div class="disclaimer-body">
+      <p>
+        <b>株式会社ジャパン・インベスター・インターフェース（以下「JII」）</b>はIRコンサルティング事業を行う会社であり、いかなる管轄においても投資助言業者、金融アドバイザー、証券会社、または証券業者として登録されていません。JIIは、日本の金融商品取引法に基づく<b>金融商品取引業者</b>ではなく、投資助言・代理業の登録も保有しておりません。JIIは、投資助言を行うものでも、特定の有価証券の取得・売却・保有を勧誘するものでもありません。
+      </p>
+      <p>
+        <b>JII Compoundersは、教育・調査を目的とする編集コンテンツです。</b>各銘柄レポートは、日本の上場企業が公表している情報をもとに、その情報が市場でどのように受け止められてきたかを考察するものです。想定読者は、IR実務者、金融を学ぶ方、報道関係者、企業開示に関心のある方です。<b>掲載内容は、いかなる有価証券、デリバティブその他の金融商品の取得・売却・保有を推奨、提案、勧誘するものではありません。</b>株価水準、シナリオ、評価倍率、類似企業比較は分析方法を示すための例であり、JIIの投資判断を示すものではありません。
+      </p>
+      <p>
+        <b>ご利用にあたって。</b>記載情報は不完全であったり、古くなっていたり、誤りを含んでいたりする可能性があります。将来に関する記述には不確実性があります。過去の株価推移は将来の成果を示すものではありません。推計値やシナリオ値は予測ではなく、実現しない可能性があります。
+      </p>
+      <p>
+        <b>助言関係等は生じません。</b>本コンテンツを閲覧しても、読者とJIIとの間に助言、受託、その他専門職としての関係は生じません。投資、税務、会計、法務その他の判断を行う前に、資格を有する専門家にご相談ください。
+      </p>
+      <p>
+        <b>利益相反および保有状況。</b>JIIは、本コンテンツで言及する企業を含め、日本の上場企業に対して有償でIR診断、翻訳、通訳等のサービスを提供する場合があります。JIIは、銘柄レポートの対象企業の有価証券を売買せず、保有もしません。対象企業との間に有償契約がある場合は、銘柄レポートの冒頭で開示します。
+      </p>
+      <p>
+        <b>商標およびデータ。</b>本資料中で言及される企業名、ロゴ、ティッカー、製品名は、各々の所有者に帰属します。株価データは第三者プロバイダーからライセンスを受けています。TradingViewはTradingView, Inc.の商標です。
+      </p>
+    </div>
+  </section>
+
+  <div class="meth">
+    <span><a href="/compounders/">すべての銘柄レポート</a> · <a href="/compounders/methodology/">6つの着眼点</a></span>
+    <span class="report-footer-locale">言語: <a href="/compounders/2301/" class="current" aria-current="page" lang="ja">JP</a> · <a href="/en/compounders/2301/" data-locale-route lang="en">EN</a></span>
+    <span>Japan Investor Interface Co., Ltd.</span>
+  </div>
+
+</article>
+
+
+<!-- ============================== SHARE BAR · WIRING ============================== -->
+<script>
+(function(){
+  var root = document.getElementById('jii-share');
+  if(!root) return;
+  var text = root.dataset.shareText;
+  var url = root.dataset.shareUrl;
+  var subject = root.dataset.shareSubject;
+  var copyLabel = root.dataset.copyLabel;
+  var copiedLabel = root.dataset.copiedLabel;
+  var e = encodeURIComponent;
+
+  var x = root.querySelector('.share-x');
+  if(x) x.href = 'https://twitter.com/intent/tweet?text=' + e(text) + '&url=' + e(url);
+  var em = root.querySelector('.share-em');
+  if(em) em.href = 'mailto:?subject=' + e(subject) + '&body=' + e(text + '\n\n' + url);
+
+  var perm = document.getElementById('jii-share-url-display');
+  if(perm) perm.textContent = url;
+
+  var cp = root.querySelector('.share-cp');
+  if(cp) cp.addEventListener('click', function(){
+    var btn = this;
+    var lbl = btn.querySelector('.lbl');
+    var doFlash = function(){
+      lbl.textContent = copiedLabel;
+      btn.classList.add('copied');
+      setTimeout(function(){ lbl.textContent = copyLabel; btn.classList.remove('copied'); }, 2400);
+    };
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(url).then(doFlash, function(){});
+    } else {
+      var ta = document.createElement('textarea');
+      ta.value = url; document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); doFlash(); } catch(_){}
+      document.body.removeChild(ta);
+    }
+  });
+})();
+</script>
+
+<script src="/assets/compounders-nav.js" defer></script>
+<!-- siglog-wire v1 -->
+
+<script>
+/* siglog-wire: render this name's capital-allocation signal log from the live feed join */
+(function(){
+  "use strict";
+  var EN = location.pathname.indexOf("/en/") === 0;
+  var parts = location.pathname.split("/").filter(Boolean);
+  var ci = parts.indexOf("compounders");
+  var tk = ci >= 0 ? parts[ci+1] : null;
+  if (!tk || !/^[0-9A-Za-z]{3,4}$/.test(tk)) return;
+  function esc(x){ return (""+(x==null?"":x)).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]; }); }
+  fetch("/compounders/feed/data/watchlist_signals.json", {cache:"no-store"})
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(d){
+      if (!d || !d.names) return;
+      var n = null;
+      for (var i=0;i<d.names.length;i++){ if (d.names[i].ticker === tk){ n = d.names[i]; break; } }
+      if (!n || !n.signals || !n.signals.length) return;
+      var sec = document.getElementById("sig-log");
+      if (!sec) return;
+      var rows = n.signals.slice(0,6).map(function(s){
+        var chip = EN ? s.class_en : s.class_jp;
+        var tag  = EN ? s.tag_en : s.tag_jp;
+        return '<div class="siglog-row"><span class="siglog-date">'+esc(s.date)+'</span>'
+             + '<span class="siglog-chip">'+esc(chip)+'</span>'
+             + '<span class="siglog-tag">'+esc(tag||"")+'</span></div>';
+      }).join("");
+      var href = (EN?"/en":"")+"/compounders/signals/"+tk+"/";
+      var more = EN ? ("View the full signal log ("+n.signal_count+") \u2192")
+                    : ("\u30B7\u30B0\u30CA\u30EB\u30ED\u30B0\u5168"+n.signal_count+"\u4EF6\u3092\u898B\u308B \u2192");
+      var title = EN ? "Capital-allocation signal log" : "\u8CC7\u672C\u653F\u7B56\u30B7\u30B0\u30CA\u30EB\u30ED\u30B0";
+      var num = EN ? "SIGNAL LOG" : "\u30B7\u30B0\u30CA\u30EB\u30ED\u30B0";
+      var lede = EN ? "The capital-policy disclosures this profile is built on, newest first \u2014 the signals that put this name on the watchlist."
+                    : "\u672C\u30EC\u30DD\u30FC\u30C8\u306E\u80CC\u666F\u306B\u3042\u308B\u8CC7\u672C\u653F\u7B56\u958B\u793A\uFF08\u65B0\u3057\u3044\u9806\uFF09\u3002";
+      sec.innerHTML = '<div class="section-head"><span class="section-num">'+num+'</span>'
+        + '<h2 class="section-title">'+title+'</h2>'
+        + '<p class="section-sub">'+lede+'</p></div>'
+        + '<div class="siglog">'+rows+'</div>'
+        + '<p class="siglog-more"><a href="'+href+'">'+more+'</a></p>';
+      sec.hidden = false;
+    })
+    .catch(function(){});
+})();
+</script>
+
+</body>
+</html>
