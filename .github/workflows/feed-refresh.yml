@@ -62,11 +62,21 @@ jobs:
           set -euo pipefail
           python tools/feed_refresh.py
 
+      - name: Rebuild watchlist join + signal pages
+        timeout-minutes: 3
+        run: |
+          set -euo pipefail
+          # Join the fresh feed to the watchlist, then regenerate the per-name
+          # signal pages. Both are deterministic/idempotent: identical inputs
+          # produce identical bytes, so unchanged data makes no git diff.
+          python tools/watchlist_join.py
+          python tools/build_signal_pages.py
+
       - name: Check for changes under compounders/feed/data/
         id: diff
         run: |
           set -euo pipefail
-          if [ -n "$(git status --porcelain compounders/feed/data/ tools/llm_ledger.json)" ]; then
+          if [ -n "$(git status --porcelain compounders/feed/data/ compounders/signals/ en/compounders/signals/ tools/llm_ledger.json)" ]; then
             echo "changed=true" >> "$GITHUB_OUTPUT"
             # Best-effort count of newly-added rows in feed.json for the run summary.
             # Counts lines starting with the row id sentinel; tolerates missing files.
@@ -87,7 +97,7 @@ jobs:
           # tools/llm_budget.py accumulates ACROSS runs. Without this the ledger
           # was never committed back, so every run reloaded the stale (last
           # month's) copy, reset it to $0, and the cap was never really enforced.
-          git add compounders/feed/data/ tools/llm_ledger.json
+          git add compounders/feed/data/ compounders/signals/ en/compounders/signals/ tools/llm_ledger.json
           git commit -m "feed: refresh @ ${{ github.run_id }}"
           git push
 

@@ -114,6 +114,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
 }
 
+
+  .sig-badge { font-family:var(--mono); font-size:10.5px; letter-spacing:0.04em; color:var(--accent-deep); border-bottom:1px solid var(--accent); padding-bottom:1px; white-space:nowrap; margin-left:7px; }
+  .sig-badge:hover { color:var(--ink-mid); border-color:var(--ink-mid); }
+  tr.has-signal .cell-name { font-weight:400; }
+  #sig-legend { display:none; font-family:var(--mono); font-size:11px; letter-spacing:0.04em; color:var(--text-dim); margin:0 0 12px; }
+  #sig-legend a { color:var(--accent-deep); border-bottom:1px solid var(--accent); }
 </style>
 <script src="/assets/locale-switcher.js" defer></script>
 </head>
@@ -148,6 +154,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
       <button class="btn sort-trigger" data-sort="fcfy" data-dir="desc">FCF Yield</button>
     </div>
   </div>
+  <p id="sig-legend"></p>
   <table id="universe">
     <thead>
       <tr><th>#</th><th>証券コード</th><th>企業名</th><th>業種</th><th class="cell-num">時価総額</th><th class="cell-num">ROCE</th><th class="cell-num">EV/EBIT(翌12M)</th><th class="cell-num">営業利益率</th><th class="cell-num">自己資本比率</th><th class="cell-num">売上CAGR(3年)</th><th class="cell-num">FCF利回り</th><th class="cell-num">複合スコア</th><th>ステータス</th></tr>
@@ -830,7 +837,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     </tr>
     <tr data-status="active" data-mc="76477.0" data-roce="18.8" data-evebit="8.67" data-fcfy="4.31" data-score="2.17" data-sec="23530">
       <td class="cell-rank">45</td>
-      <td class="cell-tk">2353</td>
+      <td class="cell-tk"><a href="/compounders/2353/">2353</a></td>
       <td class="cell-name">日本駐車場開発株式会社</td>
       <td class="cell-ind">不動産業</td>
       <td class="cell-num">¥76bn</td>
@@ -1352,5 +1359,54 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 </script>
 
 <script src="/assets/compounders-nav.js" defer></script>
+<!-- sig-wire v1 -->
+
+<script>
+/* sig-wire: decorate watchlist rows with capital-allocation signal badges */
+(function(){
+  "use strict";
+  var EN = location.pathname.indexOf("/en/") === 0;
+  var SIGROOT = EN ? "/en/compounders/signals/" : "/compounders/signals/";
+  function t(en, ja){ return EN ? en : ja; }
+  fetch("/compounders/feed/data/watchlist_signals.json", {cache:"no-store"})
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(d){
+      if (!d || !d.names) return;
+      var map = {};
+      d.names.forEach(function(n){ map[n.ticker] = { c:n.signal_count, latest:(n.latest&&n.latest.date)||"" }; });
+      var rows = document.querySelectorAll("#universe tbody tr");
+      Array.prototype.forEach.call(rows, function(tr){
+        var tkEl = tr.querySelector(".cell-tk"), nmEl = tr.querySelector(".cell-name");
+        if (!tkEl || !nmEl) return;
+        var code = (tkEl.textContent || "").trim();
+        var info = map[code];
+        if (!info) return;
+        if (nmEl.querySelector(".sig-badge")) return;
+        var a = document.createElement("a");
+        a.className = "sig-badge";
+        a.href = SIGROOT + code + "/";
+        a.textContent = "\u25C9 " + info.c;
+        var title = EN
+          ? (info.c + " capital-allocation signal" + (info.c>1?"s":"") + " on file \u00B7 latest " + info.latest)
+          : ("\u8CC7\u672C\u653F\u7B56\u30B7\u30B0\u30CA\u30EB " + info.c + "\u4EF6 \u00B7 \u6700\u65B0 " + info.latest);
+        a.setAttribute("title", title);
+        a.setAttribute("aria-label", title);
+        nmEl.appendChild(document.createTextNode(" "));
+        nmEl.appendChild(a);
+        tr.classList.add("has-signal");
+      });
+      var lg = document.getElementById("sig-legend");
+      if (lg) {
+        lg.innerHTML = t(
+          "\u25C9 = capital-allocation signals on file \u2014 click a badge for the name\u2019s signal log, or see the <a href=\"/en/compounders/signals/\">full signal log</a>.",
+          "\u25C9 = \u8CC7\u672C\u653F\u7B56\u30B7\u30B0\u30CA\u30EB\u306E\u8A18\u9332\u3042\u308A \u2014 \u30D0\u30C3\u30B8\u3092\u30AF\u30EA\u30C3\u30AF\u3067\u9298\u67C4\u5225\u30ED\u30B0\u3078\u3001\u307E\u305F\u306F<a href=\"/compounders/signals/\">\u30B7\u30B0\u30CA\u30EB\u4E00\u89A7</a>\u3078\u3002"
+        );
+        lg.style.display = "";
+      }
+    })
+    .catch(function(){});
+})();
+</script>
+
 </body>
 </html>
