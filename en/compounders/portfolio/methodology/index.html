@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Four Key Squares | JII Compounders Portfolio</title>
+<meta name="description" content="The Four Key Squares behind the JII Compounders model portfolio: demand, moat, capital allocation, valuation — and the cash-pile valuation floor.">
+<meta property="og:title" content="Four Key Squares | JII Compounders Portfolio"><meta property="og:description" content="The Four Key Squares behind the JII Compounders model portfolio: demand, moat, capital allocation, valuation — and the cash-pile valuation floor.">
+<meta property="og:url" content="https://jpinv.com/en/compounders/portfolio/methodology/"><link rel="canonical" href="https://jpinv.com/en/compounders/portfolio/methodology/"><meta property="og:type" content="article">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500&family=Noto+Sans+JP:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --ink:#1a2a4a; --ink-mid:#172641; --ink-soft:#304466; --rule:#d6dee8; --rule-soft:#e8edf3; --bg:#fff; --bg-mid:#f5f7fa; --bg-soft:#fafbfc;
+    --text:#1f2937; --text-mid:#4a5566; --text-dim:#5f6875; --accent:#9a7838; --accent-soft:#f4eee4; --ok:#2f6f4f; --bad:#b91c1c;
+    --serif:'Noto Serif JP','Yu Mincho',serif; --sans:'Noto Sans JP',sans-serif; --mono:'DM Mono',monospace; }
+  * { box-sizing:border-box; } html,body { margin:0; background:var(--bg-mid); scroll-behavior:smooth; }
+  body { display:flex; justify-content:center; padding:30px 0; font-family:var(--sans); color:var(--text); font-size:14px; line-height:1.6; }
+  article { width:min(980px,96vw); background:var(--bg); border:1px solid var(--rule); }
+  a { color:var(--accent); text-decoration:none; border-bottom:1px solid var(--accent); }
+  header, section { padding:30px 50px; border-bottom:1px solid var(--rule); }
+  .brand { font-family:var(--mono); font-size:17px; color:var(--ink); } .brand .pipe{color:var(--accent);}
+  .eyebrow { font-family:var(--mono); font-size:10px; letter-spacing:.22em; text-transform:uppercase; color:var(--text-dim); margin-top:10px; }
+  h1 { font-family:var(--serif); font-size:38px; font-weight:500; color:var(--ink); margin:6px 0 2px; }
+  h2 { font-family:var(--serif); font-size:20px; font-weight:500; color:var(--ink); margin:0 0 12px; }
+  .upd { font-family:var(--mono); font-size:10.5px; color:var(--text-dim); letter-spacing:.08em; }
+  .compliance { margin-top:16px; border:1px solid var(--rule); background:var(--bg-soft); padding:13px 16px; font-size:11.5px; color:var(--text-mid); line-height:1.65; }
+  .gem { display:flex; align-items:center; justify-content:space-between; gap:14px; padding:18px 50px; background:linear-gradient(135deg,var(--accent-soft),var(--bg-soft)); border-bottom:1px solid var(--accent); }
+  .gem a { font-family:var(--serif); font-size:17px; color:var(--ink-mid); border-bottom:1px solid var(--accent); }
+  .gem .mark { color:var(--accent); font-size:18px; }
+  table.data { width:100%; border-collapse:collapse; font-size:13.5px; }
+  table.data th { font-family:var(--mono); font-size:9.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--text-dim); text-align:right; padding:8px 10px; border-bottom:1px solid var(--rule); font-weight:500; }
+  table.data th:first-child, table.data td:first-child, table.data th.l, table.data td.l { text-align:left; }
+  table.data td { padding:10px; border-bottom:1px solid var(--rule-soft); }
+  .c-num { text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }
+  .c-rank { font-family:var(--mono); color:var(--text-dim); width:26px; }
+  .c-w { font-weight:600; color:var(--ink); font-size:14.5px; }
+  .hint { font-size:12.5px; color:var(--text-mid); margin:0 0 6px; }
+  .hint2 { font-size:11.5px; color:var(--text-dim); margin:0 0 14px; }
+  .fns { font-size:12px; color:var(--text-mid); line-height:1.7; max-width:880px; }
+  .fns b { color:var(--ink-soft); } .fns p { margin:0 0 11px; }
+  sup { color:var(--accent); font-family:var(--mono); font-size:9px; }
+  .meth-foot { padding:16px 50px; font-size:11px; color:var(--text-dim); display:flex; flex-direction:column; gap:5px; }
+  .meth-foot .nav b { font-family:var(--mono); font-size:9.5px; letter-spacing:.14em; text-transform:uppercase; margin-right:8px; }
+  .dot { display:inline-block; width:10px; height:10px; margin-right:5px; border-radius:2px; vertical-align:-1px; }
+  details { border:1px solid var(--rule); margin-bottom:8px; }
+  summary { cursor:pointer; padding:11px 15px; font-size:13.5px; background:var(--bg-soft); display:flex; align-items:baseline; gap:10px; }
+  summary .w { margin-left:auto; font-family:var(--mono); font-weight:600; color:var(--ink); }
+  .card-body { padding:4px 17px 14px; font-size:12.8px; }
+  .verdict { background:var(--accent-soft); padding:9px 13px; font-size:12.8px; margin:8px 0; }
+  .ksq { padding:7px 0; border-bottom:1px solid var(--rule-soft); }
+  .ksq p { margin:3px 0 0 17px; color:var(--text-mid); font-size:12.3px; }
+  .links { font-size:11.5px; color:var(--text-dim); margin-top:10px; }
+  .nextev { border:1px solid var(--accent); background:var(--accent-soft); padding:8px 13px; font-size:12.5px; margin-top:10px; }
+  .svgwrap { margin:14px 0 4px; } .svgwrap svg { width:100%; height:auto; display:block; }
+  .miniboard { float:right; width:300px; margin:4px 0 10px 16px; } .miniboard svg { width:100%; height:auto; }
+  .sqrow { display:grid; grid-template-columns:1.15fr 1fr; gap:18px; border:1px solid var(--rule); background:var(--bg-soft); padding:16px 18px; margin-bottom:14px; align-items:center; }
+  .sqrow b.t { display:block; color:var(--ink-mid); font-size:15px; font-family:var(--serif); margin-bottom:5px; }
+  .sqrow ul { margin:6px 0 0 16px; padding:0; font-size:12.3px; color:var(--text-mid); }
+  .sqrow li { margin-bottom:4px; }
+  .sqrow .q { font-size:12.8px; color:var(--text); }
+  .sqrow svg { width:100%; height:auto; }
+  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+  @media (max-width:760px){ header,section,.gem,.meth-foot{padding-left:16px;padding-right:16px;} .grid2,.sqrow{grid-template-columns:1fr;} h1{font-size:30px;} .table-wrap{overflow-x:auto;} .miniboard{float:none;width:100%;margin:6px 0;} }
+  .table-wrap { overflow-x:auto; }
+</style>
+</head>
+<body>
+<article>
+
+  <header>
+    <span class="brand">J<span class="pipe">|</span>I</span>
+    <div class="eyebrow">Compounders Portfolio · Methodology</div>
+    <h1>Four Key Squares</h1>
+    <span class="upd"><a href="../">← Portfolio</a> · position sizing lives on the <a href="../tape/">allocation strategy</a> page</span>
+  </header>
+  <section>
+    <p class="hint">In a chess endgame, a few squares decide the whole game. We score every company on four. Everything is scored from filings — never from hope. <a href="../boards/">Each company's four squares →</a></p>
+    
+    <div class="sqrow">
+      <div><b class="t">Square 1 · Demand</b>
+        <span class="q">Is the market this company sells into growing for reasons that outlast one cycle?</span>
+        <ul>
+          <li>How fast is the industry growing, and why should that continue — a government budget, an aging population, a rule that forces spending?</li>
+          <li>How much of next year's revenue is already promised under contracts customers renew?</li>
+          <li>What is the one substitution that could make this product unnecessary? That is the break we watch for.</li>
+        </ul></div>
+      <div><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg">
+<text x="10" y="16" style="font:600 11.5px 'Noto Sans JP',sans-serif;fill:#172641">The market grows — the contracted part grows faster</text>
+<rect x="28" y="96" width="42" height="46" fill="#dfe7ee"/><rect x="88" y="82" width="42" height="60" fill="#dfe7ee"/><rect x="148" y="68" width="42" height="74" fill="#dfe7ee"/><rect x="208" y="54" width="42" height="88" fill="#dfe7ee"/><rect x="268" y="40" width="42" height="102" fill="#dfe7ee"/><rect x="328" y="26" width="42" height="116" fill="#dfe7ee"/>
+<rect x="28" y="128" width="42" height="14" fill="#2f6f4f"/><rect x="88" y="119" width="42" height="23" fill="#2f6f4f"/><rect x="148" y="110" width="42" height="32" fill="#2f6f4f"/><rect x="208" y="101" width="42" height="41" fill="#2f6f4f"/><rect x="268" y="92" width="42" height="50" fill="#2f6f4f"/><rect x="328" y="83" width="42" height="59" fill="#2f6f4f"/>
+<text x="28" y="158" style="font:10px 'DM Mono',monospace;fill:#5f6875">year 1 → year 6</text>
+<rect x="28" y="166" width="9" height="9" fill="#2f6f4f"/><text x="42" y="174" style="font:10px 'Noto Sans JP',sans-serif;fill:#5f6875">revenue already under contract to repeat next year</text>
+</svg></div>
+    </div>
+    <div class="sqrow">
+      <div><b class="t">Square 2 · Moat — market share × pricing power</b>
+        <span class="q">Can the company keep taking share from rivals while charging more than they do?</span>
+        <ul>
+          <li>What lets it win customers from competitors — a dataset, a network of users, a cost of switching away?</li>
+          <li>When it raised prices, did customers stay? That is pricing power you can check in filings.</li>
+          <li>This is the square we most often leave open — the profiles keep working on it.</li>
+        </ul></div>
+      <div><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg">
+<text x="10" y="16" style="font:600 11.5px 'Noto Sans JP',sans-serif;fill:#172641">Two lines, one company: share up and price up</text>
+<polyline points="28,118 88,110 148,96 208,90 268,76 330,62" fill="none" stroke="#2f6f4f" stroke-width="2.4"/>
+<text x="336" y="64" style="font:600 10px 'Noto Sans JP',sans-serif;fill:#2f6f4f">share</text>
+<polyline points="28,140 88,138 148,128 208,126 268,114 330,104" fill="none" stroke="#9a7838" stroke-width="2.4"/>
+<text x="336" y="106" style="font:600 10px 'Noto Sans JP',sans-serif;fill:#9a7838">price</text>
+<text x="28" y="166" style="font:10.5px 'Noto Sans JP',sans-serif;fill:#5f6875">If both rise at once, customers have nowhere better to go.</text>
+</svg></div>
+    </div>
+    <div class="sqrow">
+      <div><b class="t">Square 3 · Capital allocation</b>
+        <span class="q">What forces this company to hand its cash to shareholders, rather than merely allows it?</span>
+        <ul>
+          <li>Tokyo Stock Exchange listing standards push companies priced below book value to explain themselves — and the usual fix is paying out more.</li>
+          <li>Governance investors vote against managers who hoard. An activist on the register raises the cost of doing nothing.</li>
+          <li>A founder approaching retirement often wants dividend income, and tax rules make dividends attractive to a controlling holder.</li>
+          <li>We score the disclosures as they land: buybacks, dividend-policy changes, statements on the cost of capital, new 5% holders.</li>
+        </ul></div>
+      <div><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg">
+<defs><marker id="m2" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0L7,3.5L0,7z" fill="#9a7838"/></marker></defs>
+<rect x="125" y="68" width="150" height="44" fill="#f4eee4" stroke="#9a7838"/><text x="200" y="94" text-anchor="middle" style="font:600 11.5px 'Noto Sans JP',sans-serif;fill:#172641">payout rises</text>
+<text x="10" y="32" style="font:10.5px 'Noto Sans JP',sans-serif;fill:#5f6875">listing rules</text><line x1="50" y1="38" x2="140" y2="68" stroke="#9a7838" stroke-width="2" marker-end="url(#m2)"/>
+<text x="10" y="160" style="font:10.5px 'Noto Sans JP',sans-serif;fill:#5f6875">governance votes</text><line x1="55" y1="148" x2="140" y2="112" stroke="#9a7838" stroke-width="2" marker-end="url(#m2)"/>
+<text x="390" y="32" text-anchor="end" style="font:10.5px 'Noto Sans JP',sans-serif;fill:#5f6875">activist arrives</text><line x1="345" y1="38" x2="262" y2="68" stroke="#9a7838" stroke-width="2" marker-end="url(#m2)"/>
+<text x="390" y="160" text-anchor="end" style="font:10.5px 'Noto Sans JP',sans-serif;fill:#5f6875">founder wants income</text><line x1="342" y1="148" x2="262" y2="112" stroke="#9a7838" stroke-width="2" marker-end="url(#m2)"/>
+</svg></div>
+    </div>
+    <div class="sqrow">
+      <div><b class="t">Square 4 · Valuation — the starting point</b>
+        <span class="q">Is the price low against the profit the company's capital produces?</span>
+        <ul>
+          <li>Every name here passed the screen: priced at 2–12 years of operating profit, capital earning 15% or more, real cash generation.</li>
+          <li>The cheaper it gets, the closer the cash-pile floor — see below.</li>
+          <li>The only valuation exit: the multiple re-rates out of the screen. We publish no target prices.</li>
+        </ul></div>
+      <div><svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg">
+<text x="10" y="16" style="font:600 11.5px 'Noto Sans JP',sans-serif;fill:#172641">Cash climbs toward the market cap</text>
+<line x1="28" y1="52" x2="372" y2="52" stroke="#b91c1c" stroke-dasharray="4 3"/><text x="28" y="44" style="font:600 9.5px 'Noto Sans JP',sans-serif;fill:#b91c1c">market cap</text>
+<rect x="28" y="110" width="34" height="36" fill="#9ec5ae"/><rect x="76" y="97" width="34" height="49" fill="#9ec5ae"/><rect x="124" y="84" width="34" height="62" fill="#9ec5ae"/><rect x="172" y="71" width="34" height="75" fill="#9ec5ae"/><rect x="220" y="58" width="34" height="88" fill="#9ec5ae"/><rect x="268" y="45" width="34" height="101" fill="#9ec5ae"/><rect x="316" y="32" width="34" height="114" fill="#9ec5ae"/>
+<text x="28" y="166" style="font:10.5px 'Noto Sans JP',sans-serif;fill:#5f6875">The nearer that day, the harder the floor under the price.</text>
+</svg></div>
+    </div>
+
+  </section>
+  <section>
+    <h2>The valuation floor</h2>
+    <p class="hint">Benjamin Graham's test for an absurd price: the company trades for less than the cash it holds. Michael Mauboussin reads any price as a set of expectations — the question is what the price already assumes. Set the table with one holding, then follow the four pictures:</p>
+    <div class="svgwrap"><svg viewBox="0 0 920 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The example company">
+<style>.k{font:9.5px 'DM Mono',monospace;fill:#5f6875;letter-spacing:1px;} .v{font:600 17px 'Noto Serif JP',serif;fill:#1a2a4a;} .v small{font-size:11px;}</style>
+<rect x="6" y="8" width="908" height="100" fill="#fafbfc" stroke="#d6dee8"/>
+<text x="26" y="34" style="font:600 14px 'Noto Serif JP',serif;fill:#172641">The example: 5843 Nippon Insure — rent-guarantee services</text>
+<text x="26" y="66" class="k">PRICE VS PROFIT</text><text x="26" y="90" class="v">4.0 years <tspan style="font-size:11px;fill:#5f6875">of operating profit</tspan></text>
+<text x="266" y="66" class="k">NET CASH</text><text x="266" y="90" class="v">¥2.4bn <tspan style="font-size:11px;fill:#5f6875">= 40% of market cap</tspan></text>
+<text x="506" y="66" class="k">PAYOUT TODAY</text><text x="506" y="90" class="v">10% <tspan style="font-size:11px;fill:#5f6875">of profit paid as dividend</tspan></text>
+<text x="716" y="66" class="k">PROFIT YIELD</text><text x="716" y="90" class="v">10.4% <tspan style="font-size:11px;fill:#5f6875">profit ÷ market cap</tspan></text>
+</svg></div>
+    <div class="svgwrap"><svg viewBox="0 0 900 240" xmlns="http://www.w3.org/2000/svg" role="img">
+<text x="10" y="20" style="font:600 11.5px 'Noto Sans JP',sans-serif;fill:#172641">1 · If nothing changes, the cash pile alone equals the whole market cap in about 6.4 years</text>
+<line x1="120" y1="65" x2="880" y2="65" stroke="#b91c1c" stroke-dasharray="5 4"/>
+<text x="10" y="62" style="font:600 10.5px 'Noto Sans JP',sans-serif;fill:#b91c1c">market cap</text>
+<text x="10" y="76" style="font:600 10.5px 'Noto Sans JP',sans-serif;fill:#b91c1c">= 100%</text>
+<rect x="130" y="146" width="56" height="54" fill="#9ec5ae"/><text x="158" y="216" text-anchor="middle" style="font:10px 'DM Mono',monospace;fill:#5f6875">Y0</text><text x="158" y="139" text-anchor="middle" style="font:10px 'DM Mono',monospace;fill:#5f6875;fill:#2f6f4f">40%</text><rect x="222" y="133" width="56" height="67" fill="#9ec5ae"/><text x="250" y="216" text-anchor="middle" style="font:10px 'DM Mono',monospace;fill:#5f6875">Y1</text><rect x="314" y="120" width="56" height="80" fill="#9ec5ae"/><text x="342" y="216" text-anchor="middle" style="font:10px 'DM Mono',monospace;fill:#5f6875">Y2</text><rect x="406" y="108" width="56" height="92" fill="#9ec5ae"/><text x="434" y="216" text-anchor="middle" style="font:10px 'DM Mono',monospace;fill:#5f6875">Y3</text><text x="434" y="101" text-anchor="middle" style="font:10px 'DM Mono',monospace;fill:#5f6875;fill:#2f6f4f">68%</text><rect x="498" y="95" width="56" height="105" fill="#9ec5ae"/><text x="526" y="216" text-anchor="middle" style="font:10px 'DM Mono',monospace;fill:#5f6875">Y4</text><rect x="590" y="83" width="56" height="117" fill="#9ec5ae"/><text x="618" y="216" text-anchor="middle" style="font:10px 'DM Mono',monospace;fill:#5f6875">Y5</text><rect x="682" y="70" width="56" height="130" fill="#9ec5ae"/><text x="710" y="216" text-anchor="middle" style="font:10px 'DM Mono',monospace;fill:#5f6875">Y6</text><text x="710" y="63" text-anchor="middle" style="font:10px 'DM Mono',monospace;fill:#5f6875;fill:#2f6f4f">96%</text><rect x="774" y="65" width="56" height="135" fill="#2f6f4f"/><text x="802" y="216" text-anchor="middle" style="font:10px 'DM Mono',monospace;fill:#5f6875">Y7</text>
+<text x="130" y="236" style="font:10.5px 'Noto Sans JP',sans-serif;fill:#5f6875">Net cash as % of today's market cap. Profit and dividend held flat. This is Benjamin Graham's "net-net" — priced below its own cash.</text>
+</svg></div>
+    <div class="svgwrap"><svg viewBox="0 0 920 250" xmlns="http://www.w3.org/2000/svg" role="img">
+<text x="10" y="20" style="font:600 11.5px 'Noto Sans JP',sans-serif;fill:#172641">2 · Raise the payout and the pile stops growing; pay out more than profit and it shrinks</text>
+<line x1="120" y1="100" x2="880" y2="100" stroke="#b91c1c" stroke-dasharray="5 4"/><text x="10" y="104" style="font:600 10.5px Noto Sans JP,sans-serif;fill:#b91c1c">market cap</text>
+<polyline points="120,163 190,153 260,143 330,133 400,123 470,114 540,104 610,94 680,84 750,74 820,64" fill="none" stroke="#2f6f4f" stroke-width="2.2"/><text x="830" y="68" style="font:600 10.5px Noto Sans JP,sans-serif;fill:#2f6f4f">10% payout</text>
+<polyline points="120,163 190,157 260,152 330,146 400,141 470,135 540,130 610,124 680,119 750,114 820,108" fill="none" stroke="#6f9a7f" stroke-width="2.2"/><text x="830" y="112" style="font:600 10.5px Noto Sans JP,sans-serif;fill:#6f9a7f">50%</text>
+<polyline points="120,163 190,163 260,163 330,163 400,163 470,163 540,163 610,163 680,163 750,163 820,163" fill="none" stroke="#9a7838" stroke-width="2.2"/><text x="830" y="168" style="font:600 10.5px Noto Sans JP,sans-serif;fill:#9a7838">100%</text>
+<polyline points="120,163 190,166 260,169 330,173 400,176 470,179 540,182 610,186 680,189 750,192 820,195" fill="none" stroke="#b91c1c" stroke-width="2.2"/><text x="830" y="199" style="font:600 10.5px Noto Sans JP,sans-serif;fill:#b91c1c">130%</text>
+<text x="120" y="226" style="font:10px 'DM Mono',monospace;fill:#5f6875">Y0</text><text x="820" y="226" style="font:10px 'DM Mono',monospace;fill:#5f6875">Y10</text>
+<text x="120" y="244" style="font:10.5px 'Noto Sans JP',sans-serif;fill:#5f6875">Net cash as % of today's market cap, under four payout choices.</text>
+</svg></div>
+    <div class="svgwrap"><svg viewBox="0 0 920 260" xmlns="http://www.w3.org/2000/svg" role="img">
+<text x="10" y="20" style="font:600 11.5px 'Noto Sans JP',sans-serif;fill:#172641">3 · The dividend yield each payout would create at today's share price — and where 6% sits</text>
+<line x1="100" y1="111" x2="900" y2="111" stroke="#b91c1c" stroke-dasharray="5 4"/>
+<text x="100" y="104" style="font:600 10.5px Noto Sans JP,sans-serif;fill:#b91c1c">6% — the yield where Japanese small caps historically find buyers</text>
+<polyline points="156,181 306,152 456,122 606,111 756,49" fill="none" stroke="#172641" stroke-width="1.6"/>
+<rect x="120" y="181" width="72" height="14" fill="#9ec5ae"/><text x="156" y="172" text-anchor="middle" style="font:600 12px DM Mono,monospace;fill:#9ec5ae">1.0%</text><text x="156" y="214" text-anchor="middle" style="font:600 11.5px 'Noto Sans JP',sans-serif;fill:#172641">payout 10%</text><rect x="270" y="152" width="72" height="43" fill="#9ec5ae"/><text x="306" y="143" text-anchor="middle" style="font:600 12px DM Mono,monospace;fill:#9ec5ae">3.1%</text><text x="306" y="214" text-anchor="middle" style="font:600 11.5px 'Noto Sans JP',sans-serif;fill:#172641">payout 30%</text><rect x="420" y="122" width="72" height="73" fill="#9ec5ae"/><text x="456" y="113" text-anchor="middle" style="font:600 12px DM Mono,monospace;fill:#9ec5ae">5.2%</text><text x="456" y="214" text-anchor="middle" style="font:600 11.5px 'Noto Sans JP',sans-serif;fill:#172641">payout 50%</text><rect x="570" y="111" width="72" height="84" fill="#b91c1c"/><text x="606" y="102" text-anchor="middle" style="font:600 12px DM Mono,monospace;fill:#b91c1c">6.0%</text><text x="606" y="214" text-anchor="middle" style="font:600 11.5px 'Noto Sans JP',sans-serif;fill:#172641">payout 58%</text><rect x="720" y="49" width="72" height="146" fill="#2f6f4f"/><text x="756" y="40" text-anchor="middle" style="font:600 12px DM Mono,monospace;fill:#2f6f4f">10.4%</text><text x="756" y="214" text-anchor="middle" style="font:600 11.5px 'Noto Sans JP',sans-serif;fill:#172641">payout 100%</text>
+<text x="120" y="244" style="font:10.5px 'Noto Sans JP',sans-serif;fill:#5f6875">At a 58% payout the yield touches 6% — the red bar. Everything beyond it sits above the floor, which argues for a higher share price instead.</text>
+</svg></div>
+    <div class="svgwrap"><svg viewBox="0 0 920 250" xmlns="http://www.w3.org/2000/svg" role="img">
+<text x="10" y="22" style="font:600 11.5px 'Noto Sans JP',sans-serif;fill:#172641">4 · The clock: how long until the dividend yield hits the 6% floor?</text>
+<text x="10" y="52" style="font:600 11.5px 'Noto Sans JP',sans-serif;fill:#172641">Payout stays at 10%</text><rect x="10" y="60" width="8" height="20" fill="#9aa4b5"/><text x="28" y="75" style="font:600 11px Noto Sans JP,sans-serif;fill:#9aa4b5">never reaches 6% — but cash = market cap in 6.4 years instead</text><text x="10" y="110" style="font:600 11.5px 'Noto Sans JP',sans-serif;fill:#172641">Payout rises 10 points a year</text><rect x="10" y="118" width="432" height="20" fill="#6f9a7f"/><text x="452" y="133" style="font:600 11px Noto Sans JP,sans-serif;fill:#6f9a7f">reaches 6% in ≈ 4.8 years</text><text x="10" y="168" style="font:600 11.5px 'Noto Sans JP',sans-serif;fill:#172641">Payout jumps to 100% now</text><rect x="10" y="176" width="64" height="20" fill="#2f6f4f"/><text x="84" y="191" style="font:600 11px Noto Sans JP,sans-serif;fill:#2f6f4f">yield is 10.4% today — already past the floor</text>
+<text x="10" y="244" style="font:10.5px 'Noto Sans JP',sans-serif;fill:#5f6875">Either way the shareholder wins: a fast payout rise hits the yield floor within years; no rise at all drives the balance sheet to Graham's net-net.</text>
+</svg></div>
+    <h2 style="margin-top:26px">The same clock, all nineteen names</h2>
+    <div class="table-wrap">
+    <table class="data">
+      <thead><tr><th class="l">Name</th><th>EV/EBIT</th><th>ROCE</th><th>Net cash / mcap</th><th>Payout</th><th>Yield at 100% payout</th><th>Years to cash = mcap</th></tr></thead>
+      <tbody><tr><td class="l"><a href="../boards/5843/">5843 Nippon Insure</a></td><td class="c-num">4.0x</td><td class="c-num">29.0%</td><td class="c-num">40.3%</td><td class="c-num">10.2%</td><td class="c-num">10.4%</td><td class="c-num c-w">6.4</td></tr><tr><td class="l"><a href="../boards/2477/">2477 Temairazu</a></td><td class="c-num">4.5x</td><td class="c-num">23.8%</td><td class="c-num">46.6%</td><td class="c-num">21.3%</td><td class="c-num">8.1%</td><td class="c-num c-w">8.4</td></tr><tr><td class="l"><a href="../boards/4168/">4168 Yappli</a></td><td class="c-num">8.1x</td><td class="c-num">22.6%</td><td class="c-num">11.2%</td><td class="c-num">20.6%</td><td class="c-num">10.2%</td><td class="c-num c-w">11.0</td></tr><tr><td class="l"><a href="../boards/5570/">5570 Jenoba</a></td><td class="c-num">6.7x</td><td class="c-num">22.9%</td><td class="c-num">36.8%</td><td class="c-num">17.1%</td><td class="c-num">6.6%</td><td class="c-num c-w">11.6</td></tr><tr><td class="l"><a href="../boards/2301/">2301 Gakujo</a></td><td class="c-num">5.4x</td><td class="c-num">15.4%</td><td class="c-num">31.8%</td><td class="c-num">50.4%</td><td class="c-num">9.7%</td><td class="c-num c-w">14.1</td></tr><tr><td class="l"><a href="../boards/4194/">4194 Visional</a></td><td class="c-num">10.8x</td><td class="c-num">30.8%</td><td class="c-num">22.6%</td><td class="c-num">0.0%</td><td class="c-num">5.0%</td><td class="c-num c-w">15.5</td></tr><tr><td class="l"><a href="../boards/3984/">3984 User Local</a></td><td class="c-num">8.6x</td><td class="c-num">22.7%</td><td class="c-num">33.0%</td><td class="c-num">25.0%</td><td class="c-num">5.4%</td><td class="c-num c-w">16.7</td></tr><tr><td class="l"><a href="../boards/7378/">7378 ASIRO</a></td><td class="c-num">5.8x</td><td class="c-num">42.3%</td><td class="c-num">14.7%</td><td class="c-num">47.0%</td><td class="c-num">9.6%</td><td class="c-num c-w">16.7</td></tr><tr><td class="l"><a href="../boards/4058/">4058 Toyokumo</a></td><td class="c-num">9.2x</td><td class="c-num">38.5%</td><td class="c-num">17.8%</td><td class="c-num">22.6%</td><td class="c-num">6.1%</td><td class="c-num c-w">17.4</td></tr><tr><td class="l"><a href="../boards/6037/">6037 Rakumachi</a></td><td class="c-num">10.5x</td><td class="c-num">29.1%</td><td class="c-num">3.7%</td><td class="c-num">19.5%</td><td class="c-num">6.7%</td><td class="c-num c-w">17.9</td></tr><tr><td class="l"><a href="../boards/4377/">4377 ONE CAREER</a></td><td class="c-num">9.0x</td><td class="c-num">38.4%</td><td class="c-num">19.8%</td><td class="c-num">29.4%</td><td class="c-num">6.3%</td><td class="c-num c-w">18.0</td></tr><tr><td class="l"><a href="../boards/4493/">4493 Cyber Security Cloud</a></td><td class="c-num">12.2x</td><td class="c-num">23.9%</td><td class="c-num">18.8%</td><td class="c-num">7.1%</td><td class="c-num">4.8%</td><td class="c-num c-w">18.2</td></tr><tr><td class="l"><a href="../boards/4776/">4776 Cybozu</a></td><td class="c-num">9.2x</td><td class="c-num">56.0%</td><td class="c-num">10.8%</td><td class="c-num">31.1%</td><td class="c-num">6.9%</td><td class="c-num c-w">18.8</td></tr><tr><td class="l"><a href="../boards/4475/">4475 HENNGE</a></td><td class="c-num">13.6x</td><td class="c-num">42.6%</td><td class="c-num">17.8%</td><td class="c-num">11.7%</td><td class="c-num">4.7%</td><td class="c-num c-w">19.9</td></tr><tr><td class="l"><a href="../boards/6947/">6947 Zuken</a></td><td class="c-num">9.1x</td><td class="c-num">13.1%</td><td class="c-num">37.3%</td><td class="c-num">55.5%</td><td class="c-num">5.9%</td><td class="c-num c-w">23.9</td></tr><tr><td class="l"><a href="../boards/2353/">2353 Nippon Parking Development</a></td><td class="c-num">8.5x</td><td class="c-num">18.8%</td><td class="c-num">5.3%</td><td class="c-num">49.3%</td><td class="c-num">7.5%</td><td class="c-num c-w">25.1</td></tr><tr><td class="l"><a href="../boards/6532/">6532 BayCurrent</a></td><td class="c-num">12.7x</td><td class="c-num">41.7%</td><td class="c-num">7.4%</td><td class="c-num">41.0%</td><td class="c-num">5.4%</td><td class="c-num c-w">28.9</td></tr><tr><td class="l"><a href="../boards/4071/">4071 Plus Alpha Consulting</a></td><td class="c-num">13.1x</td><td class="c-num">42.6%</td><td class="c-num">13.6%</td><td class="c-num">40.8%</td><td class="c-num">4.6%</td><td class="c-num c-w">31.8</td></tr></tbody>
+    </table>
+    </div>
+    <p class="fns" style="margin-top:12px">The arithmetic: years = (market cap − net cash) ÷ profit kept after dividends, holding this year's profit and dividend flat. Buybacks are excluded; they only shorten the clock. "Yield at 100% payout" is profit ÷ market cap — above 6% means the floor already binds if the company ever pays everything out. Inputs restate as prices and filings change.</p>
+  </section>
+
+  <div class="meth-foot">
+    <span class="nav"><b>This series</b><a href="../">Portfolio</a> · <a href="../methodology/">Four Key Squares</a> · <a href="../tape/">Allocation strategy</a> · <a href="../boards/">Four Key Squares by company</a></span>
+    <span class="nav"><b>Research behind it</b><a href="../../">Compounder profiles</a> · <a href="../../universe/">Screening universe</a> · <a href="../../methodology/">Screening methodology</a></span>
+    <span class="nav"><b>Data</b>Prices: J-Quants · Filings: EDINET, TDnet · © Japan Investor Interface Co., Ltd.</span>
+  </div>
+</article>
+</body>
+</html>
