@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2301 学情｜JII Compounders 銘柄分析</title>
+<meta name="description" content="2301 学情の事業、足元業績、株価下落の背景、投資家が見ている論点、資本政策、バリュエーションシナリオを整理します。">
+<meta property="og:title" content="2301 学情｜JII Compounders 銘柄分析">
+<meta property="og:description" content="2301 学情の事業、足元業績、株価下落の背景、投資家が見ている論点、資本政策、バリュエーションシナリオを整理します。">
+<meta property="og:url" content="https://jpinv.com/compounders/2301/initiation/">
+<link rel="canonical" href="https://jpinv.com/compounders/2301/initiation/">
+<link rel="alternate" hreflang="ja" href="https://jpinv.com/compounders/2301/initiation/">
+<link rel="alternate" hreflang="en" href="https://jpinv.com/en/compounders/2301/initiation/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://jpinv.com/og/2301.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="JII Compounders 銘柄レポート · 2301">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jpinv.com/og/2301.png">
+<meta name="twitter:image:alt" content="JII Compounders 銘柄レポート · 2301">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     JII Compounders · Profile page
+     Methodology: https://jpinv.com/en/compounders/methodology/
+     ============================================================ */
+  :root {
+    --ink:        #1a2a4a;
+    --ink-mid:    #172641;
+    --ink-soft:   #304466;
+    --rule:       #d6dee8;
+    --rule-soft:  #e8edf3;
+    --bg:         #ffffff;
+    --bg-mid:    #f5f7fa;
+    --bg-soft:   #fafbfc;
+    --text:       #1f2937;
+    --text-mid:  #4a5566;
+    --text-dim:  #5f6875;
+    --accent:    #9a7838;
+    --accent-deep:#9a7838;
+    --accent-soft:#f4eee4;
+    --bad:       #b91c1c;
+    --warn:      #8a682b;
+    --ok:        #2f6f4f;
+    --serif: 'Noto Serif JP', 'Yu Mincho', serif;
+    --sans:  'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+    --mono:  'DM Mono', monospace;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg-mid); }
+  body { display: flex; justify-content: center; padding: 30px 0; font-family: var(--sans); color: var(--text); font-size: 14px; line-height: 1.65; }
+
+  .card {
+    background: var(--bg); color: var(--text); width: 100%; max-width: 1200px; margin: 0 auto;
+    box-shadow: 0 30px 80px rgba(15,31,58,0.10), 0 1px 3px rgba(15,31,58,0.06);
+    border: 1px solid var(--rule);
+  }
+
+  /* ---- MASTHEAD ---- */
+  .masthead { position: relative; overflow: hidden; background: var(--bg); border-bottom: 1px solid var(--rule); }
+  .masthead::before {
+    content:''; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(15,31,58,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(15,31,58,0.04) 1px, transparent 1px);
+    background-size: 64px 64px;
+    -webkit-mask-image: linear-gradient(180deg, transparent, black 12%, black 88%, transparent);
+            mask-image: linear-gradient(180deg, transparent, black 12%, black 88%, transparent);
+    pointer-events: none;
+  }
+  .masthead::after {
+    content:''; position: absolute; width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(15,31,58,0.045) 0%, transparent 70%);
+    top: -160px; right: -200px; pointer-events: none;
+  }
+  .masthead-inner { position: relative; z-index: 2; padding: 32px 56px 28px; display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: end; }
+
+  .brand { display: flex; flex-direction: column; gap: 4px; align-items: flex-start; }
+  .brand-home-link { display:flex; flex-direction:column; gap:4px; align-items:flex-start; color:inherit; text-decoration:none; }
+  .brand-home-link:hover .brand-mono, .brand-home-link:hover .brand-eyebrow { color:var(--ink); }
+  .brand-home-link:focus-visible { outline:2px solid var(--accent); outline-offset:6px; }
+  .brand-mono { font-family: var(--serif); font-size: 28px; font-weight: 300; letter-spacing: 0.04em; color: var(--ink-mid); line-height: 1; }
+  .brand-mono .pipe { color: var(--accent); font-weight: 200; margin: 0 4px; }
+  .brand-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; color: var(--accent-deep); text-transform: uppercase; margin-top: 12px; font-weight: 500; }
+
+  .head-main { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; text-align: right; }
+  .report-locale { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 8px; }
+  .report-locale a { color: var(--ink-soft); padding: 5px 10px; border: 1px solid var(--rule); margin-left: 6px; text-decoration: none; }
+  .report-locale a.current { background: var(--bg-soft); border-color: var(--ink-mid); color: var(--ink-mid); }
+  .head-ticker-row { display: flex; align-items: baseline; gap: 16px; }
+  .head-ticker { font-family: var(--mono); font-size: 12px; color: var(--ink-soft); letter-spacing: 0.18em; }
+  .head-co-jp { font-family: var(--serif); font-size: 14.5px; color: var(--text-mid); letter-spacing: 0.04em; }
+  .head-co { font-family: var(--serif); font-size: 40px; font-weight: 300; color: var(--ink-mid); line-height: 1.05; letter-spacing: 0.01em; margin-top: 4px; }
+  .head-industry { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-top: 6px; }
+
+  /* Stat strip (font sizes bumped) */
+  .stat-strip { display: grid; grid-template-columns: 1.05fr 1.05fr 1.1fr 1.05fr 1.1fr 1.1fr; gap: 0; border-top: 1px solid var(--rule); position: relative; z-index: 2; background: var(--bg-soft); }
+  .stat { padding: 15px 18px; border-right: 1px solid var(--rule); text-align: left; }
+  .stat:last-child { border-right: none; }
+  .stat-label { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 7px; font-weight: 500; }
+  .stat-val { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--ink-mid); line-height: 1.05; }
+  .stat-val small { font-family: var(--mono); font-size: 11px; color: var(--text-dim); margin-left: 4px; font-weight: 400; letter-spacing: 0.04em; }
+  .stat-ctx { font-family: var(--mono); font-size: 10.5px; color: var(--text-mid); margin-top: 6px; letter-spacing: 0.04em; line-height: 1.45; }
+  .stat-ctx .dn { color: var(--bad); font-weight: 500; }
+  .stat-ctx .up { color: var(--ok); font-weight: 500; }
+  .stat-ctx b { color: var(--ink-mid); font-weight: 500; }
+
+  /* ---- SECTIONS (font sizes bumped) ---- */
+  .section { padding: 36px 56px 36px; border-bottom: 1px solid var(--rule); }
+  .section.gem { background: linear-gradient(180deg, rgba(176,138,74,0.055) 0%, rgba(176,138,74,0.01) 60%); }
+  .section-head { margin-bottom: 22px; display: flex; flex-direction: column; gap: 8px; max-width: 1080px; }
+  .section-num { font-family: var(--mono); font-size: 10px; letter-spacing: 0.26em; color: var(--accent-deep); font-weight: 500; }
+  .section-title { font-family: var(--serif); font-size: 30px; font-weight: 300; color: var(--ink-mid); margin: 0; letter-spacing: 0.01em; line-height: 1.2; }
+  .section-sub { font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--text-mid); line-height: 1.55; margin: 0; }
+  .section-sub b { color: var(--ink-mid); font-weight: 500; font-style: normal; }
+
+  /* ---- CHART (TradingView widget) ---- */
+  .chart-wrap { background: var(--bg-soft); border: 1px solid var(--rule); padding: 0; }
+  .chart-meta { display: flex; justify-content: space-between; align-items: baseline; padding: 16px 22px 14px; border-bottom: 1px solid var(--rule); flex-wrap: wrap; gap: 10px; }
+  .chart-title { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; }
+  .chart-key-levels { display: flex; gap: 22px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; }
+  .chart-key-levels span { color: var(--text-mid); }
+  .chart-key-levels b { color: var(--ink-mid); font-weight: 500; }
+  .chart-key-levels .peak b { color: var(--ok); }
+  .chart-key-levels .trough b { color: var(--bad); }
+  .tv-container { position: relative; height: 460px; }
+  .chart-legend { display: flex; gap: 22px; padding: 12px 22px; background: var(--bg-soft); border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.06em; color: var(--text-mid); flex-wrap: wrap; }
+  .chart-legend .leg-item { display: inline-flex; align-items: center; gap: 7px; }
+  .chart-legend .leg-swatch { display: inline-block; width: 16px; height: 3px; }
+  .chart-legend .leg-swatch.dashed { background: repeating-linear-gradient(90deg, var(--accent) 0 4px, transparent 4px 7px); height: 2px; }
+  .chart-legend .leg-swatch.candle { width: 10px; height: 12px; border-left: 3px solid var(--ok); border-right: 3px solid var(--bad); background: var(--text-dim); }
+  .chart-legend .leg-swatch.hist { background: rgba(48,68,102,0.45); }
+
+  /* ---- REGIME narrative ---- */
+  .regime-narr { font-family: var(--serif); font-size: 15px; color: var(--text); line-height: 1.85; max-width: 1080px; margin-top: 26px; }
+  .regime-narr p { margin: 0 0 16px; }
+  .regime-narr p:last-child { margin-bottom: 0; }
+  .regime-narr b { color: var(--ink-mid); font-weight: 500; }
+  .regime-narr .pin { font-family: var(--mono); font-size: 10.5px; font-weight: 500; letter-spacing: 0.16em; color: var(--accent-deep); margin-right: 8px; }
+  .regime-narr .up { color: var(--ok); font-weight: 500; }
+  .regime-narr .dn { color: var(--bad); font-weight: 500; }
+  .regime-narr .neutral { color: var(--ink-soft); font-weight: 500; }
+
+  /* ---- CONTENTION (font sizes bumped) ---- */
+  .ct-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px; }
+  .ct-card { background: var(--bg-mid); border: 1px solid var(--rule); border-left: 2px solid var(--accent); padding: 22px 22px 18px; }
+  .ct-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--accent-deep); text-transform: uppercase; margin-bottom: 10px; font-weight: 500; }
+  .ct-q { font-family: var(--serif); font-size: 16px; color: var(--ink-mid); line-height: 1.35; margin-bottom: 14px; font-weight: 400; }
+  .ct-side { display: flex; gap: 11px; margin-bottom: 11px; align-items: flex-start; }
+  .ct-side-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; padding: 2px 7px; border: 1px solid; flex: none; min-width: 42px; text-align: center; line-height: 1.4; font-weight: 500; }
+  .ct-side-tag.bull { color: var(--ok); border-color: var(--ok); }
+  .ct-side-tag.bear { color: var(--bad); border-color: var(--bad); }
+  .ct-side-text { font-family: var(--sans); font-size: 13px; color: var(--text); line-height: 1.55; }
+  .ct-side-text b { color: var(--ink-mid); font-weight: 500; }
+  .ct-proof { font-family: var(--mono); font-size: 10px; letter-spacing: 0.05em; color: var(--text-mid); margin-top: 14px; padding-top: 11px; border-top: 1px solid var(--rule); }
+  .ct-proof span { color: var(--accent-deep); text-transform: uppercase; letter-spacing: 0.14em; font-weight: 500; }
+
+  /* ---- CATALYST (font sizes bumped) ---- */
+  .cat-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px; }
+  .cat-card { background: var(--bg); border: 1px solid var(--rule); border-top: 2px solid var(--accent); padding: 22px; }
+  .cat-num { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--accent-deep); margin-bottom: 10px; font-weight: 500; }
+  .cat-title { font-family: var(--serif); font-size: 16.5px; color: var(--ink-mid); line-height: 1.3; font-weight: 400; margin-bottom: 14px; }
+  .cat-viz { background: var(--bg-mid); border: 1px solid var(--rule-soft); padding: 13px 15px; margin: 10px 0 14px; }
+  .cat-viz-label { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 9px; font-weight: 500; }
+  .cat-viz-bar-row { display: flex; align-items: center; gap: 9px; margin: 6px 0; font-family: var(--mono); font-size: 11px; }
+  .cat-viz-bar-label { width: 100px; color: var(--text-mid); font-size: 11px; }
+  .cat-viz-bar-track { flex: 1; height: 16px; background: var(--bg); border: 1px solid var(--rule-soft); position: relative; }
+  .cat-viz-bar-fill { height: 100%; }
+  .cat-viz-bar-val { width: 64px; text-align: right; color: var(--ink-mid); font-size: 11px; font-weight: 500; }
+  .cat-viz-cap { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; color: var(--accent-deep); text-transform: uppercase; margin-top: 9px; padding-top: 7px; border-top: 1px dashed var(--rule); font-weight: 500; }
+  .cat-takeaway { font-family: var(--sans); font-size: 13px; color: var(--text); line-height: 1.65; margin-top: 4px; }
+  .cat-takeaway b { color: var(--ink-mid); font-weight: 500; }
+  .cat-meta { display: flex; gap: 16px; margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--rule); }
+  .cat-meta div { flex: 1; }
+  .cat-meta dt { font-family: var(--mono); font-size: 9px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 4px; font-weight: 500; }
+  .cat-meta dd { margin: 0; font-family: var(--sans); font-size: 12.5px; color: var(--ink-mid); font-weight: 500; }
+
+  /* ---- VALUATION as 3 scenario cards ---- */
+  .scn-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px; }
+  .scn-card { padding: 24px 22px 20px; border: 1px solid var(--rule); position: relative; display: flex; flex-direction: column; }
+  .scn-card.bear { background: linear-gradient(180deg, rgba(185,28,28,0.045) 0%, rgba(185,28,28,0.01) 100%); border-top: 3px solid var(--bad); }
+  .scn-card.base { background: linear-gradient(180deg, rgba(15,31,58,0.04) 0%, rgba(15,31,58,0.005) 100%); border-top: 3px solid var(--ink-soft); }
+  .scn-card.bull { background: linear-gradient(180deg, rgba(47,111,79,0.045) 0%, rgba(47,111,79,0.01) 100%); border-top: 3px solid var(--ok); }
+  .scn-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500; }
+  .scn-tag.bear { color: var(--bad); }
+  .scn-tag.base { color: var(--ink-soft); }
+  .scn-tag.bull { color: var(--ok); }
+  .scn-price { font-family: var(--serif); font-size: 30px; font-weight: 300; color: var(--ink-mid); line-height: 1.1; margin: 8px 0 4px; letter-spacing: 0.01em; }
+  .scn-delta { font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: 0.04em; margin-bottom: 4px; }
+  .scn-delta.dn { color: var(--bad); }
+  .scn-delta.flat { color: var(--text-mid); }
+  .scn-delta.up { color: var(--ok); }
+  .scn-mult { font-family: var(--mono); font-size: 11px; color: var(--text-dim); letter-spacing: 0.06em; margin-bottom: 16px; }
+  .scn-prem { font-family: var(--serif); font-size: 14px; color: var(--ink-mid); line-height: 1.55; padding: 12px 14px; background: rgba(255,255,255,0.65); border: 1px solid var(--rule-soft); margin-bottom: 14px; }
+  .scn-prem b { color: var(--ink-mid); font-weight: 500; }
+  .scn-driver-head { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 8px; font-weight: 500; padding-top: 4px; }
+  .scn-drivers { list-style: none; margin: 0; padding: 0; }
+  .scn-drivers li { font-family: var(--sans); font-size: 12.5px; color: var(--text); line-height: 1.5; padding: 6px 0 6px 18px; position: relative; }
+  .scn-drivers li::before { content:''; position: absolute; left: 0; top: 12px; width: 8px; height: 1px; background: var(--text-dim); }
+  .scn-drivers li b { color: var(--ink-mid); font-weight: 500; }
+
+  /* SOTP */
+  .sotp { margin-top: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .sotp-card { background: var(--bg); border: 1px solid var(--rule); border-top: 2px solid var(--ink-soft); padding: 20px 22px; }
+  .sotp-head { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; }
+  .sotp-name { font-family: var(--serif); font-size: 18px; color: var(--ink-mid); margin-top: 6px; font-weight: 400; margin-bottom: 10px; }
+  .sotp-row { display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px dashed var(--rule-soft); font-size: 13px; }
+  .sotp-row:last-of-type { border: none; }
+  .sotp-row .k { color: var(--text-mid); }
+  .sotp-row .v { color: var(--ink-mid); font-family: var(--mono); font-weight: 500; }
+  .sotp-foot { margin-top: 12px; padding-top: 11px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; letter-spacing: 0.05em; color: var(--ink-mid); }
+  .sotp-foot b { color: var(--accent-deep); font-weight: 500; }
+
+  /* ---- DISCLAIMER ---- */
+  .disclaimer { padding: 32px 56px 30px; background: var(--bg-soft); border-top: 2px solid var(--rule); }
+  .disclaimer-head { margin-bottom: 16px; }
+  .d-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; color: var(--text-dim); text-transform: uppercase; font-weight: 500; }
+  .d-title { font-family: var(--serif); font-size: 22px; font-weight: 300; color: var(--ink-mid); margin: 6px 0 0; letter-spacing: 0.01em; }
+  .disclaimer-body { font-family: var(--sans); font-size: 11.5px; color: var(--text-mid); line-height: 1.75; max-width: 1080px; }
+  .disclaimer-body p { margin: 0 0 11px; }
+  .disclaimer-body b { color: var(--ink-mid); font-weight: 500; }
+  .d-jp-note { font-family: var(--serif); font-size: 11px; color: var(--text-dim); line-height: 1.8; padding-top: 8px; margin-top: 12px; border-top: 1px solid var(--rule); }
+
+  /* Methodology link (small footer) */
+  .meth { padding: 16px 56px; background: var(--bg); border-top: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: center; font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
+  .meth a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  .meth a:hover { color: var(--ink); }
+
+  /* ---- SHARE BAR ---- */
+  .share-bar { padding: 30px 56px 28px; background: var(--bg); border-top: 1px solid var(--rule); }
+  .share-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 14px; }
+  .share-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent-deep); font-weight: 500; }
+  .share-sub { font-family: var(--serif); font-size: 13px; color: var(--text-mid); letter-spacing: 0.02em; }
+  .share-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+  .share-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 9px 14px;
+    font-family: var(--sans); font-size: 12px; font-weight: 500; letter-spacing: 0.02em;
+    color: var(--ink-mid); background: var(--bg);
+    border: 1px solid var(--rule);
+    text-decoration: none; cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+  }
+  .share-btn:hover { border-color: var(--accent); color: var(--accent-deep); background: var(--accent-soft); }
+  .share-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .share-btn svg { width: 14px; height: 14px; flex-shrink: 0; fill: currentColor; }
+  .share-btn.copied { background: var(--accent-soft); border-color: var(--accent); color: var(--accent-deep); }
+  .share-perm { font-family: var(--mono); font-size: 10px; color: var(--text-dim); margin-top: 16px; letter-spacing: 0.06em; }
+  .share-perm code { font-family: var(--mono); background: var(--bg-soft); padding: 2px 6px; border: 1px solid var(--rule-soft); color: var(--ink-mid); }
+
+  /* ============================================================
+     RESPONSIVE — Mobile reading view
+     Preserves the desktop report aesthetic above 900px;
+     gracefully collapses on tablets and phones.
+     ============================================================ */
+
+  /* Tablet & landscape phones */
+  @media (max-width: 1100px) {
+    body { padding: 16px 0; }
+  }
+
+  @media (max-width: 900px) {
+    .stat-strip { grid-template-columns: 1fr 1fr 1fr; }
+    .stat-strip .stat:nth-child(3n) { border-right: none; }
+    .stat-strip .stat:nth-child(n+4) { border-top: 1px solid var(--rule); }
+    .ct-grid, .cat-grid, .scn-grid { grid-template-columns: 1fr 1fr; }
+    .sotp { grid-template-columns: 1fr; }
+    .section { padding: 32px 36px 32px; }
+    .masthead-inner { padding: 28px 36px 24px; }
+    .disclaimer, .share-bar { padding-left: 36px; padding-right: 36px; }
+  }
+
+  /* Phone — full single-column reading view */
+  @media (max-width: 760px) {
+    body { display: block; padding: 0; font-size: 15px; line-height: 1.7; background: var(--bg); }
+    .card { width: 100%; max-width: 100%; border-left: 0; border-right: 0; box-shadow: none; }
+
+    /* Masthead → stacked */
+    .masthead-inner { grid-template-columns: 1fr; padding: 26px 18px 22px; gap: 16px; align-items: stretch; }
+    .head-main { align-items: flex-start; text-align: left; }
+    .head-ticker-row { flex-wrap: wrap; gap: 10px; }
+    .head-co { font-size: 30px; }
+    .head-co-jp { font-size: 13.5px; }
+    .brand-mono { font-size: 24px; }
+
+    /* Stat strip → 2 columns */
+    .stat-strip { grid-template-columns: 1fr 1fr; }
+    .stat { padding: 13px 16px; border-bottom: 1px solid var(--rule); }
+    .stat:nth-child(2n) { border-right: none; }
+    .stat:nth-last-child(-n+2) { border-bottom: none; }
+    .stat-val { font-size: 19px; }
+
+    /* Section padding & headings */
+    .section { padding: 28px 18px 28px; }
+    .section-head { margin-bottom: 18px; }
+    .section-title { font-size: 24px; line-height: 1.25; }
+    .section-sub { font-size: 14px; }
+
+    /* Chart */
+    .tv-container { height: 320px; }
+    .chart-meta { padding: 13px 16px 11px; }
+    .chart-key-levels { gap: 14px; row-gap: 6px; }
+    .chart-legend { padding: 10px 16px; gap: 14px; row-gap: 6px; }
+
+    /* Narrative & dense-text bumps */
+    .regime-narr { font-size: 15px; line-height: 1.8; margin-top: 22px; }
+    .ct-card, .cat-card, .scn-card, .sotp-card { padding: 20px 18px; }
+    .ct-side-text { font-size: 14px; }
+    .ct-q { font-size: 16.5px; }
+    .cat-takeaway { font-size: 14px; }
+    .cat-title { font-size: 17px; }
+    .cat-viz-bar-label { width: 80px; font-size: 10.5px; }
+    .cat-viz-bar-val { width: 56px; font-size: 10.5px; }
+    .scn-drivers li { font-size: 14px; line-height: 1.55; }
+    .scn-price { font-size: 28px; }
+    .scn-prem { font-size: 14px; }
+
+    /* Grids → single column */
+    .ct-grid, .cat-grid, .scn-grid, .sotp { grid-template-columns: 1fr; gap: 16px; }
+
+    /* Disclaimer */
+    .disclaimer { padding: 26px 18px 24px; }
+    .d-title { font-size: 22px; line-height: 1.3; }
+    .disclaimer-body { font-size: 13.5px; line-height: 1.75; }
+
+    /* Share bar */
+    .share-bar { padding: 24px 18px 22px; }
+    .share-head { flex-wrap: wrap; gap: 8px; }
+    .share-btn { font-size: 13px; padding: 10px 14px; }
+
+    /* Meth footer */
+    .meth { padding: 14px 18px; flex-direction: column; gap: 6px; text-align: center; letter-spacing: 0.12em; }
+  }
+
+/* WCAG 2.1 AA accessibility helpers */
+.skip-link {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  transform: translateY(-150%);
+  padding: 10px 14px;
+  background: var(--ink, #1a2a4a);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(15,31,58,0.18);
+}
+.skip-link:focus, .skip-link:focus-visible { transform: translateY(0); outline: 3px solid var(--accent, #9a7838); outline-offset: 3px; }
+main:focus { outline: none; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, [tabindex]:focus-visible {
+  outline: 3px solid var(--accent, #9a7838);
+  outline-offset: 3px;
+}
+.form-row input:focus-visible, .form-row select:focus-visible, .form-row textarea:focus-visible { outline: 3px solid var(--accent, #9a7838); outline-offset: 2px; }
+.form-field-error:empty { min-height: 0; }
+.mobile-menu[hidden] { display: none !important; }
+.mobile-menu a:focus-visible { outline-offset: -2px; }
+@media (max-width: 360px) {
+  .wrap { padding-left: 16px; padding-right: 16px; }
+  .hero-ctas, .cta-row, .share-btns, .week-nav, .toolbar { align-items: stretch; flex-direction: column; }
+  .btn, .form-submit, .mobile-menu-cta, .share-btn { width: 100%; justify-content: center; text-align: center; }
+  .nav-logo-img--desktop { display: none !important; }
+  .nav-logo-img--mobile { display: block !important; }
+  .nav-inner { gap: 10px; }
+  .nav-right { gap: 6px; }
+  .locale-switcher a, .nav-locale-switcher a { min-width: 36px; min-height: 36px; display: inline-flex; align-items: center; justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+}
+
+
+</style>
+<script src="/assets/locale-switcher.js" defer></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "url": "https://jpinv.com/compounders/2301/initiation/",
+  "name": "2301 学情｜JII Compounders 銘柄分析",
+  "description": "2301 学情の事業、足元業績、株価下落の背景、投資家が見ている論点、資本政策、バリュエーションシナリオを整理します。",
+  "inLanguage": "ja"
+}
+</script></head>
+<body>
+<a class="skip-link" href="#main-content">本文へ移動</a>
+
+<main id="main-content" tabindex="-1">
+<article class="card">
+
+  <!-- ============================== MASTHEAD ============================== -->
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div class="brand">
+        <span class="brand-mono">J<span class="pipe">|</span>I</span>
+        <span class="brand-eyebrow">Japan Investor Interface · Compounder 銘柄レポート</span>
+      </div>
+      <div class="head-main">
+        <div class="head-ticker-row">
+          <span class="head-ticker">東証プライム · 2301 · 10月決算</span>
+          <span class="head-co-jp">GAKUJO CO., Ltd.</span>
+        </div>
+        <div class="head-co">株式会社学情</div>
+        <div class="head-industry">20代採用に特化したメディア、スカウト、人材紹介、合同企業セミナーを展開する採用支援会社</div>
+      </div>
+    </div>
+
+    <div class="stat-strip">
+      <div class="stat">
+        <div class="stat-label">終値</div>
+        <div class="stat-val">¥1,547<small>2026年6月8日</small></div>
+        <div class="stat-ctx">2年来安値圏 · 下方修正と自己株買いを同日開示</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">時価総額 / EV</div>
+        <div class="stat-val">¥208<small>億 / EV ¥142億</small></div>
+        <div class="stat-ctx">現金・有価証券 <b>¥113億</b> · EVは現金65億円控除後 · 無借金</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">EV / EBIT · 予想</div>
+        <div class="stat-val">5.5<small>倍</small></div>
+        <div class="stat-ctx">FY26予想営業利益 <b>¥26億</b> · 従来¥32.5億から下方修正</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">ROCE · 実績</div>
+        <div class="stat-val">~15<small>%</small></div>
+        <div class="stat-ctx">ROEは<b>16→13%</b>（FY24-25）· 投資先行と現預金の厚さが重し</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">営業利益率 · 全社</div>
+        <div class="stat-val">21.7<small>% · FY26予</small></div>
+        <div class="stat-ctx">FY25は21.2% · 上期7.5% — 第1四半期は季節要因で赤字になりやすい</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">発行株式 &amp; 浮動株</div>
+        <div class="stat-val">1,343<small>万株 自己株除 · 発行1,560万株</small></div>
+        <div class="stat-ctx">自己株13.7% · 創業家が大株主 · 6期連続増配</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================== はじめに ============================== -->
+  <section class="section">
+    <div class="section-head">
+      <div class="section-num">はじめに</div>
+      <h2 class="section-title">学情はどんな会社か</h2>
+    </div>
+    <p>学情は、「20代の採用」にかなり絞り込んだ採用支援会社である。主力は20代向け転職サイトの「<b>Ｒｅ就活</b>」。同種サイトとして7年連続で利用率首位とされ、登録会員は280万人、その93%が20代だ。企業は求人掲載やスカウト利用に対して料金を払う。これに加えて、採用が決まった時点で成功報酬を受け取る人材紹介、新卒向けスカウトサイト「Ｒｅ就活キャンパス」、対面型の合同企業セミナー「転職博」「就職博」も展開している。規模は大きくないが、自治体などから公的な就労支援事業も受託している。</p>
+    <p>事業モデルは重い設備を必要としない。ソフトウェア以外の事業用資産は少なく、主な費用は人件費、広告宣伝費、イベント会場費で、有利子負債もない。したがって見るべき点は大きく2つに絞られる。ひとつは、会員獲得とブランド認知のためにどれだけ費用を使うか。もうひとつは、受注した案件がいつ売上になるかである。学情の売上は、受注した日ではなく、求人掲載が始まった日や紹介が成立した時点で計上される。</p>
+    <p>売上は底堅い一方で、利益率は揺れている。2025年10月期の売上高は110億円、営業利益は23.3億円、営業利益率は21.2%だった。売上は伸びたが、販促とシステム投資を増やしたため、営業利益は<i>12%減</i>となった。ROEも16.1%から12.9%へ低下している。これは事業の採算だけでなく、時価総額の半分を超える113億円の現金・有価証券を抱える貸借対照表の影響も大きい。一方で、配当は6期連続で増配している。</p>
+    <p>直近決算は、悪い数字と良い数字が混在している。2026年6月8日に発表した上期決算は会社計画を下回った。売上高は前年同期比5.8%増だったものの計画比では9%未達、営業利益は26%減だった。同日、会社は通期の営業利益予想を32.5億円から26億円へ<a href="https://www.release.tdnet.info/inbs/140120260603561784.pdf" style="text-decoration:underline" target="_blank">下方修正</a>し、上限6.5億円・発行済株式の3.0%を対象とする<a href="https://www.release.tdnet.info/inbs/140120260601558116.pdf" style="text-decoration:underline" target="_blank">自己株式取得</a>も決議した。ただし、受注高は11.2%増と売上を上回る伸びで、人材紹介も46%伸びている。ここでの論点は、下方修正を事業力の低下と見るのか、それとも無借金で現金を厚く持つ創業家企業が、投資と売上計上タイミングの谷にあるだけと見るのかである。</p>
+    <p>本稿では、まず過去2年の株価が何に反応してきたかを整理し、次に投資家の見方が分かれる論点を確認する。そのうえで、評価の割引を縮め得る材料と、事業価値・貸借対照表価値を合わせた見方を考える。</p>
+  </section>
+
+  <!-- ============================== 01 · 株価レジーム ============================== -->
+  <section class="section">
+    <div class="section-head">
+      <div class="section-num">01 · 株価レジーム</div>
+      <h2 class="section-title">過去2年の株価は何に反応してきたか</h2>
+      <p class="section-sub">学情の収益源は、20代と企業をつなぐ採用メディア、人材紹介、新卒サービス、合同企業セミナーである。固定資産が少なく現金が厚い会社であるため、株価は売上成長そのものよりも、利益率と業績予想の変化に強く反応してきた。</p>
+    </div>
+
+    <div class="chart-wrap">
+      <div class="chart-meta">
+        <div class="chart-title">2301 vs TOPIX · 24か月 · 日足＋出来高</div>
+        <div class="chart-key-levels">
+          <span class="peak">ピーク <b>¥2,357</b> · 2024-12-13</span>
+          <span class="trough">底値 <b>¥1,520</b> · 2026-06-03</span>
+          <span>現在 <b>¥1,547</b></span>
+        </div>
+      </div>
+      <div class="tv-container" id="chart-2301"></div>
+      <div class="chart-legend">
+        <span class="leg-item"><span class="leg-swatch candle"></span>学情・日足</span>
+        <span class="leg-item"><span class="leg-swatch dashed"></span>60日移動平均</span>
+        <span class="leg-item"><span class="leg-swatch" style="background:rgba(122,130,144,0.85)"></span>TOPIX リベース (1308.T)</span>
+        <span class="leg-item"><span class="leg-swatch hist"></span>出来高</span>
+      </div>
+      <script src="https://unpkg.com/lightweight-charts@4.2.0/dist/lightweight-charts.standalone.production.js"></script>
+      <script>
+      const CHART_DATA = {"candles":[{"time":"2024-06-10","open":1780,"high":1807,"low":1773,"close":1797},{"time":"2024-06-11","open":1805,"high":1887,"low":1795,"close":1841},{"time":"2024-06-12","open":1840,"high":1849,"low":1807,"close":1832},{"time":"2024-06-13","open":1821,"high":1859,"low":1813,"close":1848},{"time":"2024-06-14","open":1845,"high":1892,"low":1834,"close":1889},{"time":"2024-06-17","open":1888,"high":1901,"low":1847,"close":1869},{"time":"2024-06-18","open":1877,"high":1931,"low":1870,"close":1914},{"time":"2024-06-19","open":1897,"high":1936,"low":1896,"close":1930},{"time":"2024-06-20","open":1960,"high":1965,"low":1948,"close":1958},{"time":"2024-06-21","open":1956,"high":1989,"low":1931,"close":1931},{"time":"2024-06-24","open":1920,"high":1943,"low":1900,"close":1940},{"time":"2024-06-25","open":1939,"high":1961,"low":1928,"close":1951},{"time":"2024-06-26","open":1963,"high":1971,"low":1951,"close":1960},{"time":"2024-06-27","open":1963,"high":1963,"low":1913,"close":1927},{"time":"2024-06-28","open":1927,"high":1941,"low":1920,"close":1932},{"time":"2024-07-01","open":1936,"high":1940,"low":1901,"close":1914},{"time":"2024-07-02","open":1913,"high":1929,"low":1907,"close":1915},{"time":"2024-07-03","open":1920,"high":1957,"low":1920,"close":1949},{"time":"2024-07-04","open":1960,"high":1960,"low":1934,"close":1949},{"time":"2024-07-05","open":1949,"high":1964,"low":1933,"close":1940},{"time":"2024-07-08","open":1940,"high":1960,"low":1932,"close":1950},{"time":"2024-07-09","open":1964,"high":1966,"low":1928,"close":1933},{"time":"2024-07-10","open":1945,"high":1945,"low":1908,"close":1924},{"time":"2024-07-11","open":1949,"high":1950,"low":1923,"close":1923},{"time":"2024-07-12","open":1914,"high":1969,"low":1914,"close":1960},{"time":"2024-07-16","open":1970,"high":1980,"low":1942,"close":1956},{"time":"2024-07-17","open":1979,"high":1979,"low":1958,"close":1978},{"time":"2024-07-18","open":1970,"high":1991,"low":1958,"close":1958},{"time":"2024-07-19","open":1974,"high":1997,"low":1951,"close":1956},{"time":"2024-07-22","open":1940,"high":1947,"low":1894,"close":1901},{"time":"2024-07-23","open":1905,"high":1919,"low":1900,"close":1908},{"time":"2024-07-24","open":1908,"high":1914,"low":1891,"close":1899},{"time":"2024-07-25","open":1891,"high":1891,"low":1842,"close":1854},{"time":"2024-07-26","open":1840,"high":1865,"low":1840,"close":1846},{"time":"2024-07-29","open":1860,"high":1906,"low":1860,"close":1898},{"time":"2024-07-30","open":1889,"high":1904,"low":1845,"close":1875},{"time":"2024-07-31","open":1871,"high":1902,"low":1853,"close":1901},{"time":"2024-08-01","open":1901,"high":1901,"low":1826,"close":1832},{"time":"2024-08-02","open":1752,"high":1764,"low":1719,"close":1730},{"time":"2024-08-05","open":1615,"high":1634,"low":1433,"close":1471},{"time":"2024-08-06","open":1541,"high":1630,"low":1515,"close":1609},{"time":"2024-08-07","open":1580,"high":1675,"low":1576,"close":1601},{"time":"2024-08-08","open":1585,"high":1635,"low":1560,"close":1594},{"time":"2024-08-09","open":1635,"high":1671,"low":1593,"close":1640},{"time":"2024-08-13","open":1651,"high":1669,"low":1640,"close":1668},{"time":"2024-08-14","open":1682,"high":1714,"low":1670,"close":1698},{"time":"2024-08-15","open":1701,"high":1735,"low":1701,"close":1725},{"time":"2024-08-16","open":1765,"high":1794,"low":1755,"close":1794},{"time":"2024-08-19","open":1794,"high":1794,"low":1725,"close":1735},{"time":"2024-08-20","open":1749,"high":1766,"low":1749,"close":1766},{"time":"2024-08-21","open":1766,"high":1767,"low":1755,"close":1755},{"time":"2024-08-22","open":1755,"high":1769,"low":1740,"close":1769},{"time":"2024-08-23","open":1778,"high":1778,"low":1733,"close":1748},{"time":"2024-08-26","open":1753,"high":1776,"low":1746,"close":1758},{"time":"2024-08-27","open":1772,"high":1806,"low":1760,"close":1796},{"time":"2024-08-28","open":1800,"high":1819,"low":1788,"close":1819},{"time":"2024-08-29","open":1827,"high":1830,"low":1795,"close":1808},{"time":"2024-08-30","open":1825,"high":1837,"low":1800,"close":1808},{"time":"2024-09-02","open":1830,"high":1830,"low":1770,"close":1800},{"time":"2024-09-03","open":1795,"high":1802,"low":1784,"close":1801},{"time":"2024-09-04","open":1741,"high":1759,"low":1711,"close":1720},{"time":"2024-09-05","open":1689,"high":1728,"low":1675,"close":1692},{"time":"2024-09-06","open":1695,"high":1720,"low":1677,"close":1686},{"time":"2024-09-09","open":1651,"high":1686,"low":1630,"close":1676},{"time":"2024-09-10","open":1636,"high":1659,"low":1615,"close":1628},{"time":"2024-09-11","open":1633,"high":1687,"low":1622,"close":1678},{"time":"2024-09-12","open":1665,"high":1727,"low":1658,"close":1721},{"time":"2024-09-13","open":1708,"high":1727,"low":1685,"close":1697},{"time":"2024-09-17","open":1699,"high":1699,"low":1651,"close":1663},{"time":"2024-09-18","open":1690,"high":1719,"low":1679,"close":1711},{"time":"2024-09-19","open":1730,"high":1731,"low":1694,"close":1720},{"time":"2024-09-20","open":1739,"high":1764,"low":1725,"close":1759},{"time":"2024-09-24","open":1769,"high":1784,"low":1762,"close":1783},{"time":"2024-09-25","open":1776,"high":1784,"low":1748,"close":1773},{"time":"2024-09-26","open":1796,"high":1825,"low":1789,"close":1824},{"time":"2024-09-27","open":1843,"high":1851,"low":1822,"close":1822},{"time":"2024-09-30","open":1766,"high":1807,"low":1766,"close":1783},{"time":"2024-10-01","open":1801,"high":1810,"low":1783,"close":1786},{"time":"2024-10-02","open":1780,"high":1796,"low":1775,"close":1780},{"time":"2024-10-03","open":1812,"high":1813,"low":1773,"close":1774},{"time":"2024-10-04","open":1770,"high":1771,"low":1736,"close":1743},{"time":"2024-10-07","open":1762,"high":1774,"low":1749,"close":1760},{"time":"2024-10-08","open":1755,"high":1755,"low":1733,"close":1737},{"time":"2024-10-09","open":1739,"high":1743,"low":1725,"close":1735},{"time":"2024-10-10","open":1736,"high":1741,"low":1730,"close":1731},{"time":"2024-10-11","open":1730,"high":1730,"low":1712,"close":1712},{"time":"2024-10-15","open":1738,"high":1744,"low":1721,"close":1721},{"time":"2024-10-16","open":1710,"high":1744,"low":1708,"close":1725},{"time":"2024-10-17","open":1736,"high":1736,"low":1709,"close":1710},{"time":"2024-10-18","open":1726,"high":1760,"low":1716,"close":1748},{"time":"2024-10-21","open":1815,"high":1849,"low":1800,"close":1817},{"time":"2024-10-22","open":1844,"high":1858,"low":1793,"close":1815},{"time":"2024-10-23","open":1807,"high":1812,"low":1771,"close":1774},{"time":"2024-10-24","open":1770,"high":1776,"low":1745,"close":1755},{"time":"2024-10-25","open":1767,"high":1780,"low":1721,"close":1731},{"time":"2024-10-28","open":1734,"high":1756,"low":1732,"close":1747},{"time":"2024-10-29","open":1787,"high":1796,"low":1760,"close":1787},{"time":"2024-10-30","open":1702,"high":1706,"low":1657,"close":1692},{"time":"2024-10-31","open":1657,"high":1686,"low":1653,"close":1671},{"time":"2024-11-01","open":1650,"high":1668,"low":1640,"close":1644},{"time":"2024-11-05","open":1650,"high":1707,"low":1630,"close":1701},{"time":"2024-11-06","open":1705,"high":1731,"low":1694,"close":1717},{"time":"2024-11-07","open":1732,"high":1771,"low":1732,"close":1755},{"time":"2024-11-08","open":1761,"high":1764,"low":1717,"close":1717},{"time":"2024-11-11","open":1701,"high":1724,"low":1647,"close":1714},{"time":"2024-11-12","open":1722,"high":1759,"low":1722,"close":1727},{"time":"2024-11-13","open":1727,"high":1744,"low":1708,"close":1711},{"time":"2024-11-14","open":1711,"high":1723,"low":1690,"close":1690},{"time":"2024-11-15","open":1692,"high":1716,"low":1690,"close":1700},{"time":"2024-11-18","open":1694,"high":1711,"low":1686,"close":1691},{"time":"2024-11-19","open":1691,"high":1718,"low":1691,"close":1715},{"time":"2024-11-20","open":1715,"high":1724,"low":1701,"close":1724},{"time":"2024-11-21","open":1726,"high":1747,"low":1724,"close":1747},{"time":"2024-11-22","open":1747,"high":1760,"low":1723,"close":1755},{"time":"2024-11-25","open":1760,"high":1769,"low":1740,"close":1740},{"time":"2024-11-26","open":1762,"high":1770,"low":1743,"close":1769},{"time":"2024-11-27","open":1768,"high":1768,"low":1718,"close":1735},{"time":"2024-11-28","open":1735,"high":1751,"low":1669,"close":1737},{"time":"2024-11-29","open":1738,"high":1775,"low":1738,"close":1775},{"time":"2024-12-02","open":1772,"high":1775,"low":1755,"close":1761},{"time":"2024-12-03","open":1774,"high":1781,"low":1759,"close":1768},{"time":"2024-12-04","open":1778,"high":1778,"low":1744,"close":1748},{"time":"2024-12-05","open":1763,"high":1765,"low":1757,"close":1765},{"time":"2024-12-06","open":1765,"high":1765,"low":1750,"close":1762},{"time":"2024-12-09","open":1762,"high":1786,"low":1746,"close":1775},{"time":"2024-12-10","open":1920,"high":2063,"low":1864,"close":2041},{"time":"2024-12-11","open":2063,"high":2185,"low":2045,"close":2151},{"time":"2024-12-12","open":2153,"high":2208,"low":2151,"close":2177},{"time":"2024-12-13","open":2190,"high":2357,"low":2183,"close":2274},{"time":"2024-12-16","open":2290,"high":2310,"low":2237,"close":2280},{"time":"2024-12-17","open":2296,"high":2304,"low":2255,"close":2293},{"time":"2024-12-18","open":2270,"high":2294,"low":2261,"close":2268},{"time":"2024-12-19","open":2228,"high":2262,"low":2221,"close":2253},{"time":"2024-12-20","open":2279,"high":2285,"low":2245,"close":2247},{"time":"2024-12-23","open":2252,"high":2275,"low":2250,"close":2269},{"time":"2024-12-24","open":2269,"high":2269,"low":2229,"close":2234},{"time":"2024-12-25","open":2234,"high":2242,"low":2207,"close":2220},{"time":"2024-12-26","open":2215,"high":2230,"low":2206,"close":2228},{"time":"2024-12-27","open":2233,"high":2245,"low":2218,"close":2234},{"time":"2024-12-30","open":2245,"high":2245,"low":2200,"close":2202},{"time":"2025-01-06","open":2203,"high":2229,"low":2152,"close":2168},{"time":"2025-01-07","open":2170,"high":2200,"low":2164,"close":2182},{"time":"2025-01-08","open":2180,"high":2186,"low":2159,"close":2167},{"time":"2025-01-09","open":2167,"high":2187,"low":2152,"close":2155},{"time":"2025-01-10","open":2157,"high":2175,"low":2125,"close":2154},{"time":"2025-01-14","open":2140,"high":2140,"low":2090,"close":2095},{"time":"2025-01-15","open":2086,"high":2122,"low":2065,"close":2118},{"time":"2025-01-16","open":2117,"high":2139,"low":2106,"close":2107},{"time":"2025-01-17","open":2107,"high":2166,"low":2106,"close":2166},{"time":"2025-01-20","open":2185,"high":2202,"low":2169,"close":2177},{"time":"2025-01-21","open":2182,"high":2191,"low":2148,"close":2154},{"time":"2025-01-22","open":2154,"high":2189,"low":2152,"close":2173},{"time":"2025-01-23","open":2191,"high":2216,"low":2142,"close":2157},{"time":"2025-01-24","open":2176,"high":2184,"low":2157,"close":2184},{"time":"2025-01-27","open":2216,"high":2216,"low":2180,"close":2214},{"time":"2025-01-28","open":2214,"high":2225,"low":2201,"close":2212},{"time":"2025-01-29","open":2227,"high":2298,"low":2223,"close":2263},{"time":"2025-01-30","open":2270,"high":2292,"low":2267,"close":2281},{"time":"2025-01-31","open":2269,"high":2274,"low":2246,"close":2257},{"time":"2025-02-03","open":2242,"high":2253,"low":2227,"close":2240},{"time":"2025-02-04","open":2246,"high":2254,"low":2180,"close":2183},{"time":"2025-02-05","open":2172,"high":2172,"low":2114,"close":2130},{"time":"2025-02-06","open":2134,"high":2166,"low":2118,"close":2141},{"time":"2025-02-07","open":2158,"high":2158,"low":2133,"close":2137},{"time":"2025-02-10","open":2132,"high":2143,"low":2110,"close":2129},{"time":"2025-02-12","open":2143,"high":2143,"low":2110,"close":2127},{"time":"2025-02-13","open":2135,"high":2140,"low":2114,"close":2127},{"time":"2025-02-14","open":2134,"high":2150,"low":2101,"close":2101},{"time":"2025-02-17","open":2116,"high":2133,"low":2050,"close":2053},{"time":"2025-02-18","open":2203,"high":2211,"low":2074,"close":2080},{"time":"2025-02-19","open":2076,"high":2106,"low":2052,"close":2079},{"time":"2025-02-20","open":2079,"high":2080,"low":2055,"close":2069},{"time":"2025-02-21","open":2069,"high":2069,"low":2038,"close":2051},{"time":"2025-02-25","open":2019,"high":2051,"low":2015,"close":2033},{"time":"2025-02-26","open":2028,"high":2035,"low":2002,"close":2024},{"time":"2025-02-27","open":2033,"high":2068,"low":2028,"close":2034},{"time":"2025-02-28","open":2034,"high":2051,"low":2005,"close":2015},{"time":"2025-03-03","open":2050,"high":2053,"low":2004,"close":2023},{"time":"2025-03-04","open":2028,"high":2028,"low":1985,"close":2008},{"time":"2025-03-05","open":1999,"high":2022,"low":1990,"close":1999},{"time":"2025-03-06","open":2016,"high":2016,"low":1988,"close":2004},{"time":"2025-03-07","open":1987,"high":2004,"low":1970,"close":1994},{"time":"2025-03-10","open":2015,"high":2034,"low":1988,"close":2010},{"time":"2025-03-11","open":1720,"high":1789,"low":1714,"close":1745},{"time":"2025-03-12","open":1742,"high":1799,"low":1741,"close":1789},{"time":"2025-03-13","open":1789,"high":1832,"low":1753,"close":1753},{"time":"2025-03-14","open":1753,"high":1827,"low":1753,"close":1820},{"time":"2025-03-17","open":1825,"high":1859,"low":1822,"close":1822},{"time":"2025-03-18","open":1831,"high":1839,"low":1790,"close":1791},{"time":"2025-03-19","open":1781,"high":1795,"low":1770,"close":1784},{"time":"2025-03-21","open":1769,"high":1791,"low":1744,"close":1760},{"time":"2025-03-24","open":1766,"high":1794,"low":1766,"close":1787},{"time":"2025-03-25","open":1796,"high":1811,"low":1784,"close":1796},{"time":"2025-03-26","open":1796,"high":1835,"low":1796,"close":1835},{"time":"2025-03-27","open":1821,"high":1864,"low":1816,"close":1863},{"time":"2025-03-28","open":1863,"high":1874,"low":1838,"close":1843},{"time":"2025-03-31","open":1843,"high":1843,"low":1802,"close":1810},{"time":"2025-04-01","open":1815,"high":1840,"low":1800,"close":1805},{"time":"2025-04-02","open":1823,"high":1823,"low":1788,"close":1797},{"time":"2025-04-03","open":1762,"high":1784,"low":1750,"close":1776},{"time":"2025-04-04","open":1750,"high":1755,"low":1657,"close":1695},{"time":"2025-04-07","open":1540,"high":1607,"low":1514,"close":1541},{"time":"2025-04-08","open":1600,"high":1646,"low":1600,"close":1637},{"time":"2025-04-09","open":1597,"high":1600,"low":1522,"close":1560},{"time":"2025-04-10","open":1670,"high":1670,"low":1627,"close":1628},{"time":"2025-04-11","open":1559,"high":1631,"low":1536,"close":1627},{"time":"2025-04-14","open":1649,"high":1691,"low":1636,"close":1679},{"time":"2025-04-15","open":1685,"high":1696,"low":1670,"close":1670},{"time":"2025-04-16","open":1667,"high":1680,"low":1652,"close":1665},{"time":"2025-04-17","open":1649,"high":1671,"low":1643,"close":1669},{"time":"2025-04-18","open":1682,"high":1689,"low":1669,"close":1689},{"time":"2025-04-21","open":1689,"high":1696,"low":1665,"close":1672},{"time":"2025-04-22","open":1680,"high":1693,"low":1660,"close":1673},{"time":"2025-04-23","open":1687,"high":1690,"low":1659,"close":1669},{"time":"2025-04-24","open":1669,"high":1672,"low":1655,"close":1655},{"time":"2025-04-25","open":1655,"high":1685,"low":1652,"close":1676},{"time":"2025-04-28","open":1649,"high":1661,"low":1600,"close":1642},{"time":"2025-04-30","open":1654,"high":1673,"low":1642,"close":1666},{"time":"2025-05-01","open":1656,"high":1686,"low":1654,"close":1664},{"time":"2025-05-02","open":1675,"high":1692,"low":1657,"close":1680},{"time":"2025-05-07","open":1679,"high":1686,"low":1668,"close":1671},{"time":"2025-05-08","open":1683,"high":1683,"low":1655,"close":1669},{"time":"2025-05-09","open":1684,"high":1702,"low":1677,"close":1698},{"time":"2025-05-12","open":1701,"high":1714,"low":1691,"close":1714},{"time":"2025-05-13","open":1714,"high":1730,"low":1710,"close":1717},{"time":"2025-05-14","open":1716,"high":1716,"low":1683,"close":1711},{"time":"2025-05-15","open":1703,"high":1718,"low":1695,"close":1714},{"time":"2025-05-16","open":1714,"high":1715,"low":1689,"close":1699},{"time":"2025-05-19","open":1699,"high":1709,"low":1689,"close":1689},{"time":"2025-05-20","open":1702,"high":1709,"low":1684,"close":1684},{"time":"2025-05-21","open":1684,"high":1702,"low":1661,"close":1670},{"time":"2025-05-22","open":1659,"high":1680,"low":1650,"close":1664},{"time":"2025-05-23","open":1685,"high":1689,"low":1663,"close":1665},{"time":"2025-05-26","open":1671,"high":1692,"low":1671,"close":1691},{"time":"2025-05-27","open":1691,"high":1708,"low":1691,"close":1705},{"time":"2025-05-28","open":1709,"high":1720,"low":1693,"close":1693},{"time":"2025-05-29","open":1707,"high":1723,"low":1705,"close":1713},{"time":"2025-05-30","open":1704,"high":1723,"low":1697,"close":1721},{"time":"2025-06-02","open":1721,"high":1723,"low":1702,"close":1716},{"time":"2025-06-03","open":1716,"high":1725,"low":1701,"close":1707},{"time":"2025-06-04","open":1712,"high":1731,"low":1712,"close":1728},{"time":"2025-06-05","open":1728,"high":1738,"low":1722,"close":1735},{"time":"2025-06-06","open":1743,"high":1755,"low":1730,"close":1738},{"time":"2025-06-09","open":1752,"high":1760,"low":1716,"close":1729},{"time":"2025-06-10","open":1705,"high":1797,"low":1702,"close":1770},{"time":"2025-06-11","open":1770,"high":1793,"low":1755,"close":1788},{"time":"2025-06-12","open":1798,"high":1836,"low":1789,"close":1794},{"time":"2025-06-13","open":1805,"high":1810,"low":1753,"close":1754},{"time":"2025-06-16","open":1759,"high":1781,"low":1754,"close":1773},{"time":"2025-06-17","open":1773,"high":1809,"low":1773,"close":1801},{"time":"2025-06-18","open":1808,"high":1846,"low":1786,"close":1802},{"time":"2025-06-19","open":1800,"high":1810,"low":1775,"close":1788},{"time":"2025-06-20","open":1780,"high":1783,"low":1753,"close":1771},{"time":"2025-06-23","open":1766,"high":1781,"low":1750,"close":1779},{"time":"2025-06-24","open":1788,"high":1794,"low":1762,"close":1780},{"time":"2025-06-25","open":1788,"high":1799,"low":1770,"close":1781},{"time":"2025-06-26","open":1781,"high":1791,"low":1766,"close":1771},{"time":"2025-06-27","open":1775,"high":1782,"low":1747,"close":1759},{"time":"2025-06-30","open":1764,"high":1777,"low":1759,"close":1765},{"time":"2025-07-01","open":1770,"high":1770,"low":1714,"close":1728},{"time":"2025-07-02","open":1734,"high":1739,"low":1713,"close":1717},{"time":"2025-07-03","open":1721,"high":1744,"low":1717,"close":1744},{"time":"2025-07-04","open":1745,"high":1768,"low":1744,"close":1752},{"time":"2025-07-07","open":1758,"high":1778,"low":1745,"close":1767},{"time":"2025-07-08","open":1763,"high":1800,"low":1751,"close":1779},{"time":"2025-07-09","open":1779,"high":1805,"low":1775,"close":1800},{"time":"2025-07-10","open":1809,"high":1829,"low":1785,"close":1800},{"time":"2025-07-11","open":1797,"high":1821,"low":1781,"close":1806},{"time":"2025-07-14","open":1806,"high":1817,"low":1790,"close":1803},{"time":"2025-07-15","open":1798,"high":1805,"low":1780,"close":1783},{"time":"2025-07-16","open":1787,"high":1797,"low":1770,"close":1778},{"time":"2025-07-17","open":1777,"high":1800,"low":1773,"close":1790},{"time":"2025-07-18","open":1797,"high":1804,"low":1782,"close":1784},{"time":"2025-07-22","open":1782,"high":1800,"low":1777,"close":1792},{"time":"2025-07-23","open":1792,"high":1814,"low":1781,"close":1810},{"time":"2025-07-24","open":1818,"high":1825,"low":1806,"close":1817},{"time":"2025-07-25","open":1816,"high":1817,"low":1800,"close":1800},{"time":"2025-07-28","open":1820,"high":1826,"low":1810,"close":1821},{"time":"2025-07-29","open":1825,"high":1844,"low":1811,"close":1838},{"time":"2025-07-30","open":1838,"high":1850,"low":1809,"close":1847},{"time":"2025-07-31","open":1850,"high":1873,"low":1840,"close":1861},{"time":"2025-08-01","open":1859,"high":1879,"low":1851,"close":1875},{"time":"2025-08-04","open":1860,"high":1870,"low":1850,"close":1856},{"time":"2025-08-05","open":1857,"high":1872,"low":1844,"close":1872},{"time":"2025-08-06","open":1879,"high":1888,"low":1870,"close":1886},{"time":"2025-08-07","open":1890,"high":1899,"low":1880,"close":1890},{"time":"2025-08-08","open":1896,"high":1909,"low":1881,"close":1908},{"time":"2025-08-12","open":1914,"high":1914,"low":1881,"close":1894},{"time":"2025-08-13","open":1908,"high":1920,"low":1890,"close":1904},{"time":"2025-08-14","open":1891,"high":1906,"low":1887,"close":1906},{"time":"2025-08-15","open":1909,"high":1909,"low":1874,"close":1885},{"time":"2025-08-18","open":1883,"high":1910,"low":1871,"close":1907},{"time":"2025-08-19","open":1918,"high":1934,"low":1903,"close":1927},{"time":"2025-08-20","open":1917,"high":1933,"low":1913,"close":1913},{"time":"2025-08-21","open":1923,"high":1931,"low":1903,"close":1920},{"time":"2025-08-22","open":1935,"high":1935,"low":1894,"close":1900},{"time":"2025-08-25","open":1913,"high":1917,"low":1894,"close":1895},{"time":"2025-08-26","open":1907,"high":1916,"low":1884,"close":1884},{"time":"2025-08-27","open":1883,"high":1885,"low":1866,"close":1884},{"time":"2025-08-28","open":1872,"high":1882,"low":1863,"close":1865},{"time":"2025-08-29","open":1873,"high":1879,"low":1862,"close":1867},{"time":"2025-09-01","open":1871,"high":1910,"low":1856,"close":1860},{"time":"2025-09-02","open":1868,"high":1888,"low":1860,"close":1878},{"time":"2025-09-03","open":1878,"high":1909,"low":1878,"close":1899},{"time":"2025-09-04","open":1903,"high":1922,"low":1890,"close":1919},{"time":"2025-09-05","open":1919,"high":1926,"low":1899,"close":1912},{"time":"2025-09-08","open":1938,"high":1948,"low":1896,"close":1920},{"time":"2025-09-09","open":1720,"high":1771,"low":1707,"close":1733},{"time":"2025-09-10","open":1733,"high":1735,"low":1720,"close":1731},{"time":"2025-09-11","open":1735,"high":1741,"low":1721,"close":1721},{"time":"2025-09-12","open":1739,"high":1740,"low":1715,"close":1716},{"time":"2025-09-16","open":1718,"high":1730,"low":1717,"close":1725},{"time":"2025-09-17","open":1723,"high":1723,"low":1708,"close":1713},{"time":"2025-09-18","open":1717,"high":1719,"low":1710,"close":1714},{"time":"2025-09-19","open":1729,"high":1732,"low":1701,"close":1706},{"time":"2025-09-22","open":1710,"high":1725,"low":1709,"close":1718},{"time":"2025-09-24","open":1726,"high":1726,"low":1713,"close":1719},{"time":"2025-09-25","open":1719,"high":1730,"low":1717,"close":1727},{"time":"2025-09-26","open":1730,"high":1737,"low":1721,"close":1737},{"time":"2025-09-29","open":1757,"high":1763,"low":1728,"close":1728},{"time":"2025-09-30","open":1732,"high":1738,"low":1726,"close":1727},{"time":"2025-10-01","open":1725,"high":1729,"low":1696,"close":1697},{"time":"2025-10-02","open":1700,"high":1705,"low":1696,"close":1696},{"time":"2025-10-03","open":1708,"high":1718,"low":1701,"close":1716},{"time":"2025-10-06","open":1744,"high":1746,"low":1723,"close":1734},{"time":"2025-10-07","open":1739,"high":1742,"low":1729,"close":1742},{"time":"2025-10-08","open":1735,"high":1745,"low":1735,"close":1741},{"time":"2025-10-09","open":1750,"high":1753,"low":1741,"close":1743},{"time":"2025-10-10","open":1741,"high":1743,"low":1728,"close":1728},{"time":"2025-10-14","open":1717,"high":1722,"low":1701,"close":1704},{"time":"2025-10-15","open":1708,"high":1719,"low":1708,"close":1716},{"time":"2025-10-16","open":1724,"high":1730,"low":1722,"close":1724},{"time":"2025-10-17","open":1720,"high":1735,"low":1719,"close":1728},{"time":"2025-10-20","open":1739,"high":1742,"low":1728,"close":1729},{"time":"2025-10-21","open":1740,"high":1744,"low":1726,"close":1731},{"time":"2025-10-22","open":1735,"high":1738,"low":1727,"close":1738},{"time":"2025-10-23","open":1736,"high":1742,"low":1735,"close":1740},{"time":"2025-10-24","open":1748,"high":1751,"low":1741,"close":1744},{"time":"2025-10-27","open":1755,"high":1756,"low":1748,"close":1753},{"time":"2025-10-28","open":1754,"high":1757,"low":1752,"close":1757},{"time":"2025-10-29","open":1758,"high":1761,"low":1752,"close":1752},{"time":"2025-10-30","open":1679,"high":1706,"low":1670,"close":1676},{"time":"2025-10-31","open":1665,"high":1668,"low":1608,"close":1614},{"time":"2025-11-04","open":1614,"high":1631,"low":1600,"close":1611},{"time":"2025-11-05","open":1600,"high":1607,"low":1571,"close":1581},{"time":"2025-11-06","open":1585,"high":1588,"low":1574,"close":1577},{"time":"2025-11-07","open":1564,"high":1585,"low":1562,"close":1573},{"time":"2025-11-10","open":1588,"high":1597,"low":1581,"close":1595},{"time":"2025-11-11","open":1611,"high":1614,"low":1581,"close":1586},{"time":"2025-11-12","open":1584,"high":1611,"low":1584,"close":1601},{"time":"2025-11-13","open":1610,"high":1610,"low":1598,"close":1598},{"time":"2025-11-14","open":1591,"high":1598,"low":1582,"close":1584},{"time":"2025-11-17","open":1592,"high":1592,"low":1575,"close":1586},{"time":"2025-11-18","open":1577,"high":1581,"low":1567,"close":1567},{"time":"2025-11-19","open":1562,"high":1571,"low":1552,"close":1556},{"time":"2025-11-20","open":1564,"high":1574,"low":1556,"close":1556},{"time":"2025-11-21","open":1553,"high":1578,"low":1550,"close":1578},{"time":"2025-11-25","open":1578,"high":1591,"low":1572,"close":1583},{"time":"2025-11-26","open":1582,"high":1599,"low":1581,"close":1591},{"time":"2025-11-27","open":1592,"high":1607,"low":1591,"close":1607},{"time":"2025-11-28","open":1602,"high":1613,"low":1602,"close":1612},{"time":"2025-12-01","open":1619,"high":1627,"low":1610,"close":1614},{"time":"2025-12-02","open":1614,"high":1620,"low":1595,"close":1595},{"time":"2025-12-03","open":1595,"high":1607,"low":1591,"close":1600},{"time":"2025-12-04","open":1611,"high":1630,"low":1610,"close":1630},{"time":"2025-12-05","open":1625,"high":1636,"low":1614,"close":1614},{"time":"2025-12-08","open":1615,"high":1624,"low":1608,"close":1618},{"time":"2025-12-09","open":1738,"high":1849,"low":1731,"close":1794},{"time":"2025-12-10","open":1790,"high":1810,"low":1747,"close":1770},{"time":"2025-12-11","open":1780,"high":1786,"low":1733,"close":1733},{"time":"2025-12-12","open":1763,"high":1764,"low":1740,"close":1747},{"time":"2025-12-15","open":1749,"high":1772,"low":1747,"close":1772},{"time":"2025-12-16","open":1774,"high":1774,"low":1759,"close":1759},{"time":"2025-12-17","open":1757,"high":1757,"low":1721,"close":1750},{"time":"2025-12-18","open":1736,"high":1765,"low":1736,"close":1750},{"time":"2025-12-19","open":1750,"high":1762,"low":1743,"close":1750},{"time":"2025-12-22","open":1752,"high":1752,"low":1739,"close":1744},{"time":"2025-12-23","open":1737,"high":1777,"low":1737,"close":1766},{"time":"2025-12-24","open":1760,"high":1772,"low":1754,"close":1754},{"time":"2025-12-25","open":1755,"high":1765,"low":1755,"close":1758},{"time":"2025-12-26","open":1762,"high":1777,"low":1758,"close":1777},{"time":"2025-12-29","open":1780,"high":1793,"low":1773,"close":1784},{"time":"2025-12-30","open":1778,"high":1778,"low":1747,"close":1754},{"time":"2026-01-05","open":1762,"high":1767,"low":1740,"close":1750},{"time":"2026-01-06","open":1747,"high":1764,"low":1747,"close":1756},{"time":"2026-01-07","open":1758,"high":1783,"low":1749,"close":1776},{"time":"2026-01-08","open":1770,"high":1797,"low":1770,"close":1781},{"time":"2026-01-09","open":1788,"high":1797,"low":1785,"close":1789},{"time":"2026-01-13","open":1792,"high":1799,"low":1776,"close":1782},{"time":"2026-01-14","open":1782,"high":1792,"low":1781,"close":1786},{"time":"2026-01-15","open":1781,"high":1803,"low":1781,"close":1801},{"time":"2026-01-16","open":1801,"high":1816,"low":1789,"close":1799},{"time":"2026-01-19","open":1799,"high":1804,"low":1786,"close":1792},{"time":"2026-01-20","open":1791,"high":1797,"low":1771,"close":1776},{"time":"2026-01-21","open":1770,"high":1771,"low":1751,"close":1766},{"time":"2026-01-22","open":1770,"high":1789,"low":1767,"close":1788},{"time":"2026-01-23","open":1784,"high":1806,"low":1783,"close":1798},{"time":"2026-01-26","open":1795,"high":1795,"low":1755,"close":1755},{"time":"2026-01-27","open":1751,"high":1779,"low":1735,"close":1770},{"time":"2026-01-28","open":1774,"high":1775,"low":1757,"close":1766},{"time":"2026-01-29","open":1766,"high":1771,"low":1747,"close":1764},{"time":"2026-01-30","open":1768,"high":1780,"low":1750,"close":1773},{"time":"2026-02-02","open":1788,"high":1820,"low":1782,"close":1783},{"time":"2026-02-03","open":1792,"high":1849,"low":1792,"close":1838},{"time":"2026-02-04","open":1834,"high":1834,"low":1805,"close":1815},{"time":"2026-02-05","open":1817,"high":1838,"low":1810,"close":1835},{"time":"2026-02-06","open":1833,"high":1846,"low":1814,"close":1843},{"time":"2026-02-09","open":1850,"high":1854,"low":1832,"close":1846},{"time":"2026-02-10","open":1850,"high":1860,"low":1850,"close":1858},{"time":"2026-02-12","open":1858,"high":1886,"low":1857,"close":1871},{"time":"2026-02-13","open":1885,"high":1889,"low":1860,"close":1867},{"time":"2026-02-16","open":1880,"high":1880,"low":1855,"close":1865},{"time":"2026-02-17","open":1861,"high":1881,"low":1832,"close":1832},{"time":"2026-02-18","open":1832,"high":1862,"low":1832,"close":1856},{"time":"2026-02-19","open":1857,"high":1862,"low":1844,"close":1856},{"time":"2026-02-20","open":1857,"high":1863,"low":1844,"close":1853},{"time":"2026-02-24","open":1845,"high":1855,"low":1834,"close":1855},{"time":"2026-02-25","open":1860,"high":1866,"low":1848,"close":1856},{"time":"2026-02-26","open":1869,"high":1873,"low":1860,"close":1863},{"time":"2026-02-27","open":1874,"high":1900,"low":1868,"close":1900},{"time":"2026-03-02","open":1866,"high":1896,"low":1850,"close":1876},{"time":"2026-03-03","open":1900,"high":1905,"low":1850,"close":1854},{"time":"2026-03-04","open":1830,"high":1852,"low":1771,"close":1798},{"time":"2026-03-05","open":1868,"high":1874,"low":1843,"close":1859},{"time":"2026-03-06","open":1859,"high":1859,"low":1834,"close":1848},{"time":"2026-03-09","open":1808,"high":1824,"low":1780,"close":1809},{"time":"2026-03-10","open":1773,"high":1843,"low":1772,"close":1798},{"time":"2026-03-11","open":1800,"high":1803,"low":1756,"close":1764},{"time":"2026-03-12","open":1756,"high":1756,"low":1694,"close":1704},{"time":"2026-03-13","open":1681,"high":1695,"low":1681,"close":1686},{"time":"2026-03-16","open":1677,"high":1677,"low":1630,"close":1634},{"time":"2026-03-17","open":1642,"high":1650,"low":1624,"close":1624},{"time":"2026-03-18","open":1637,"high":1659,"low":1632,"close":1659},{"time":"2026-03-19","open":1630,"high":1645,"low":1605,"close":1607},{"time":"2026-03-23","open":1600,"high":1609,"low":1585,"close":1601},{"time":"2026-03-24","open":1625,"high":1642,"low":1608,"close":1626},{"time":"2026-03-25","open":1620,"high":1643,"low":1620,"close":1643},{"time":"2026-03-26","open":1622,"high":1629,"low":1603,"close":1617},{"time":"2026-03-27","open":1605,"high":1633,"low":1605,"close":1632},{"time":"2026-03-30","open":1608,"high":1610,"low":1586,"close":1605},{"time":"2026-03-31","open":1616,"high":1616,"low":1593,"close":1599},{"time":"2026-04-01","open":1626,"high":1654,"low":1626,"close":1654},{"time":"2026-04-02","open":1669,"high":1673,"low":1632,"close":1646},{"time":"2026-04-03","open":1650,"high":1658,"low":1638,"close":1654},{"time":"2026-04-06","open":1667,"high":1678,"low":1662,"close":1673},{"time":"2026-04-07","open":1685,"high":1701,"low":1676,"close":1689},{"time":"2026-04-08","open":1709,"high":1710,"low":1691,"close":1698},{"time":"2026-04-09","open":1700,"high":1703,"low":1682,"close":1683},{"time":"2026-04-10","open":1685,"high":1688,"low":1671,"close":1673},{"time":"2026-04-13","open":1676,"high":1689,"low":1666,"close":1669},{"time":"2026-04-14","open":1682,"high":1685,"low":1663,"close":1666},{"time":"2026-04-15","open":1671,"high":1678,"low":1662,"close":1664},{"time":"2026-04-16","open":1674,"high":1690,"low":1667,"close":1670},{"time":"2026-04-17","open":1678,"high":1678,"low":1663,"close":1664},{"time":"2026-04-20","open":1680,"high":1680,"low":1663,"close":1669},{"time":"2026-04-21","open":1674,"high":1674,"low":1656,"close":1658},{"time":"2026-04-22","open":1660,"high":1662,"low":1634,"close":1635},{"time":"2026-04-23","open":1636,"high":1636,"low":1613,"close":1628},{"time":"2026-04-24","open":1631,"high":1631,"low":1612,"close":1613},{"time":"2026-04-27","open":1618,"high":1630,"low":1613,"close":1619},{"time":"2026-04-28","open":1596,"high":1616,"low":1585,"close":1616},{"time":"2026-04-30","open":1616,"high":1616,"low":1581,"close":1594},{"time":"2026-05-01","open":1594,"high":1601,"low":1580,"close":1596},{"time":"2026-05-07","open":1606,"high":1618,"low":1598,"close":1618},{"time":"2026-05-08","open":1614,"high":1630,"low":1606,"close":1621},{"time":"2026-05-11","open":1628,"high":1642,"low":1619,"close":1624},{"time":"2026-05-12","open":1620,"high":1620,"low":1593,"close":1595},{"time":"2026-05-13","open":1596,"high":1613,"low":1596,"close":1613},{"time":"2026-05-14","open":1607,"high":1608,"low":1589,"close":1589},{"time":"2026-05-15","open":1590,"high":1600,"low":1574,"close":1583},{"time":"2026-05-18","open":1593,"high":1593,"low":1571,"close":1574},{"time":"2026-05-19","open":1583,"high":1602,"low":1583,"close":1596},{"time":"2026-05-20","open":1590,"high":1594,"low":1571,"close":1585},{"time":"2026-05-21","open":1591,"high":1602,"low":1590,"close":1599},{"time":"2026-05-22","open":1603,"high":1603,"low":1588,"close":1588},{"time":"2026-05-25","open":1598,"high":1598,"low":1556,"close":1559},{"time":"2026-05-26","open":1570,"high":1570,"low":1553,"close":1555},{"time":"2026-05-27","open":1564,"high":1564,"low":1551,"close":1563},{"time":"2026-05-28","open":1564,"high":1576,"low":1551,"close":1575},{"time":"2026-05-29","open":1584,"high":1615,"low":1584,"close":1596},{"time":"2026-06-01","open":1593,"high":1593,"low":1559,"close":1559},{"time":"2026-06-02","open":1551,"high":1551,"low":1533,"close":1537},{"time":"2026-06-03","open":1537,"high":1556,"low":1520,"close":1554},{"time":"2026-06-04","open":1550,"high":1550,"low":1536,"close":1549},{"time":"2026-06-05","open":1568,"high":1599,"low":1566,"close":1579},{"time":"2026-06-08","open":1551,"high":1567,"low":1539,"close":1547}],"volume":[{"time":"2024-06-10","value":52700},{"time":"2024-06-11","value":193700},{"time":"2024-06-12","value":76700},{"time":"2024-06-13","value":44000},{"time":"2024-06-14","value":77700},{"time":"2024-06-17","value":55700},{"time":"2024-06-18","value":59800},{"time":"2024-06-19","value":36200},{"time":"2024-06-20","value":47900},{"time":"2024-06-21","value":67400},{"time":"2024-06-24","value":45100},{"time":"2024-06-25","value":35500},{"time":"2024-06-26","value":36100},{"time":"2024-06-27","value":30800},{"time":"2024-06-28","value":20900},{"time":"2024-07-01","value":31100},{"time":"2024-07-02","value":24200},{"time":"2024-07-03","value":14600},{"time":"2024-07-04","value":14600},{"time":"2024-07-05","value":13200},{"time":"2024-07-08","value":18900},{"time":"2024-07-09","value":24100},{"time":"2024-07-10","value":23000},{"time":"2024-07-11","value":19700},{"time":"2024-07-12","value":30000},{"time":"2024-07-16","value":21600},{"time":"2024-07-17","value":27400},{"time":"2024-07-18","value":23200},{"time":"2024-07-19","value":37000},{"time":"2024-07-22","value":28500},{"time":"2024-07-23","value":16000},{"time":"2024-07-24","value":18000},{"time":"2024-07-25","value":50000},{"time":"2024-07-26","value":15300},{"time":"2024-07-29","value":12900},{"time":"2024-07-30","value":34500},{"time":"2024-07-31","value":13800},{"time":"2024-08-01","value":21600},{"time":"2024-08-02","value":60700},{"time":"2024-08-05","value":63600},{"time":"2024-08-06","value":53600},{"time":"2024-08-07","value":38600},{"time":"2024-08-08","value":32600},{"time":"2024-08-09","value":54900},{"time":"2024-08-13","value":13200},{"time":"2024-08-14","value":17700},{"time":"2024-08-15","value":19700},{"time":"2024-08-16","value":18200},{"time":"2024-08-19","value":20500},{"time":"2024-08-20","value":15700},{"time":"2024-08-21","value":7900},{"time":"2024-08-22","value":14400},{"time":"2024-08-23","value":13200},{"time":"2024-08-26","value":15000},{"time":"2024-08-27","value":23400},{"time":"2024-08-28","value":11800},{"time":"2024-08-29","value":18200},{"time":"2024-08-30","value":18300},{"time":"2024-09-02","value":36300},{"time":"2024-09-03","value":23600},{"time":"2024-09-04","value":68300},{"time":"2024-09-05","value":43300},{"time":"2024-09-06","value":39500},{"time":"2024-09-09","value":100800},{"time":"2024-09-10","value":134100},{"time":"2024-09-11","value":75500},{"time":"2024-09-12","value":57900},{"time":"2024-09-13","value":81000},{"time":"2024-09-17","value":76900},{"time":"2024-09-18","value":61000},{"time":"2024-09-19","value":101300},{"time":"2024-09-20","value":50100},{"time":"2024-09-24","value":41400},{"time":"2024-09-25","value":102300},{"time":"2024-09-26","value":75900},{"time":"2024-09-27","value":162000},{"time":"2024-09-30","value":92900},{"time":"2024-10-01","value":63400},{"time":"2024-10-02","value":61000},{"time":"2024-10-03","value":92600},{"time":"2024-10-04","value":124900},{"time":"2024-10-07","value":112800},{"time":"2024-10-08","value":172800},{"time":"2024-10-09","value":83600},{"time":"2024-10-10","value":48000},{"time":"2024-10-11","value":111400},{"time":"2024-10-15","value":112600},{"time":"2024-10-16","value":95200},{"time":"2024-10-17","value":244200},{"time":"2024-10-18","value":239500},{"time":"2024-10-21","value":266800},{"time":"2024-10-22","value":132200},{"time":"2024-10-23","value":97300},{"time":"2024-10-24","value":172200},{"time":"2024-10-25","value":118500},{"time":"2024-10-28","value":233300},{"time":"2024-10-29","value":244400},{"time":"2024-10-30","value":499100},{"time":"2024-10-31","value":158900},{"time":"2024-11-01","value":95400},{"time":"2024-11-05","value":107800},{"time":"2024-11-06","value":66400},{"time":"2024-11-07","value":192700},{"time":"2024-11-08","value":55400},{"time":"2024-11-11","value":52000},{"time":"2024-11-12","value":49100},{"time":"2024-11-13","value":34200},{"time":"2024-11-14","value":23000},{"time":"2024-11-15","value":35200},{"time":"2024-11-18","value":41200},{"time":"2024-11-19","value":26400},{"time":"2024-11-20","value":45900},{"time":"2024-11-21","value":48000},{"time":"2024-11-22","value":58400},{"time":"2024-11-25","value":45200},{"time":"2024-11-26","value":49600},{"time":"2024-11-27","value":39600},{"time":"2024-11-28","value":36700},{"time":"2024-11-29","value":48200},{"time":"2024-12-02","value":22900},{"time":"2024-12-03","value":31200},{"time":"2024-12-04","value":27800},{"time":"2024-12-05","value":15600},{"time":"2024-12-06","value":26100},{"time":"2024-12-09","value":71600},{"time":"2024-12-10","value":1062700},{"time":"2024-12-11","value":653500},{"time":"2024-12-12","value":287100},{"time":"2024-12-13","value":281700},{"time":"2024-12-16","value":170300},{"time":"2024-12-17","value":71800},{"time":"2024-12-18","value":80400},{"time":"2024-12-19","value":100700},{"time":"2024-12-20","value":64500},{"time":"2024-12-23","value":37900},{"time":"2024-12-24","value":48700},{"time":"2024-12-25","value":56000},{"time":"2024-12-26","value":54200},{"time":"2024-12-27","value":76800},{"time":"2024-12-30","value":59700},{"time":"2025-01-06","value":88400},{"time":"2025-01-07","value":41900},{"time":"2025-01-08","value":45200},{"time":"2025-01-09","value":54300},{"time":"2025-01-10","value":33100},{"time":"2025-01-14","value":39300},{"time":"2025-01-15","value":45200},{"time":"2025-01-16","value":31700},{"time":"2025-01-17","value":50400},{"time":"2025-01-20","value":41200},{"time":"2025-01-21","value":26800},{"time":"2025-01-22","value":23000},{"time":"2025-01-23","value":29600},{"time":"2025-01-24","value":23600},{"time":"2025-01-27","value":36700},{"time":"2025-01-28","value":22500},{"time":"2025-01-29","value":76200},{"time":"2025-01-30","value":40600},{"time":"2025-01-31","value":25200},{"time":"2025-02-03","value":32700},{"time":"2025-02-04","value":37400},{"time":"2025-02-05","value":42300},{"time":"2025-02-06","value":23200},{"time":"2025-02-07","value":26200},{"time":"2025-02-10","value":24000},{"time":"2025-02-12","value":26200},{"time":"2025-02-13","value":24500},{"time":"2025-02-14","value":40700},{"time":"2025-02-17","value":51800},{"time":"2025-02-18","value":174200},{"time":"2025-02-19","value":49300},{"time":"2025-02-20","value":25600},{"time":"2025-02-21","value":34400},{"time":"2025-02-25","value":18800},{"time":"2025-02-26","value":28700},{"time":"2025-02-27","value":19800},{"time":"2025-02-28","value":24900},{"time":"2025-03-03","value":20100},{"time":"2025-03-04","value":36600},{"time":"2025-03-05","value":39500},{"time":"2025-03-06","value":56300},{"time":"2025-03-07","value":54800},{"time":"2025-03-10","value":137600},{"time":"2025-03-11","value":342400},{"time":"2025-03-12","value":196800},{"time":"2025-03-13","value":136100},{"time":"2025-03-14","value":98300},{"time":"2025-03-17","value":85700},{"time":"2025-03-18","value":96300},{"time":"2025-03-19","value":74900},{"time":"2025-03-21","value":116200},{"time":"2025-03-24","value":49900},{"time":"2025-03-25","value":58500},{"time":"2025-03-26","value":92200},{"time":"2025-03-27","value":75000},{"time":"2025-03-28","value":85700},{"time":"2025-03-31","value":94400},{"time":"2025-04-01","value":55500},{"time":"2025-04-02","value":50400},{"time":"2025-04-03","value":65800},{"time":"2025-04-04","value":123500},{"time":"2025-04-07","value":117900},{"time":"2025-04-08","value":62300},{"time":"2025-04-09","value":99700},{"time":"2025-04-10","value":59700},{"time":"2025-04-11","value":94400},{"time":"2025-04-14","value":80800},{"time":"2025-04-15","value":60400},{"time":"2025-04-16","value":38400},{"time":"2025-04-17","value":34300},{"time":"2025-04-18","value":49900},{"time":"2025-04-21","value":58500},{"time":"2025-04-22","value":64000},{"time":"2025-04-23","value":87100},{"time":"2025-04-24","value":69700},{"time":"2025-04-25","value":214800},{"time":"2025-04-28","value":179200},{"time":"2025-04-30","value":78400},{"time":"2025-05-01","value":62000},{"time":"2025-05-02","value":52100},{"time":"2025-05-07","value":28300},{"time":"2025-05-08","value":28200},{"time":"2025-05-09","value":65900},{"time":"2025-05-12","value":33200},{"time":"2025-05-13","value":37800},{"time":"2025-05-14","value":35800},{"time":"2025-05-15","value":22700},{"time":"2025-05-16","value":19600},{"time":"2025-05-19","value":18100},{"time":"2025-05-20","value":21600},{"time":"2025-05-21","value":28700},{"time":"2025-05-22","value":27200},{"time":"2025-05-23","value":31600},{"time":"2025-05-26","value":20500},{"time":"2025-05-27","value":21000},{"time":"2025-05-28","value":31300},{"time":"2025-05-29","value":30100},{"time":"2025-05-30","value":33500},{"time":"2025-06-02","value":24600},{"time":"2025-06-03","value":23400},{"time":"2025-06-04","value":37300},{"time":"2025-06-05","value":32300},{"time":"2025-06-06","value":47400},{"time":"2025-06-09","value":74800},{"time":"2025-06-10","value":174700},{"time":"2025-06-11","value":78200},{"time":"2025-06-12","value":74400},{"time":"2025-06-13","value":48700},{"time":"2025-06-16","value":39500},{"time":"2025-06-17","value":54800},{"time":"2025-06-18","value":67700},{"time":"2025-06-19","value":38800},{"time":"2025-06-20","value":92200},{"time":"2025-06-23","value":42500},{"time":"2025-06-24","value":65700},{"time":"2025-06-25","value":38500},{"time":"2025-06-26","value":46500},{"time":"2025-06-27","value":48100},{"time":"2025-06-30","value":65500},{"time":"2025-07-01","value":65800},{"time":"2025-07-02","value":48400},{"time":"2025-07-03","value":56900},{"time":"2025-07-04","value":42500},{"time":"2025-07-07","value":46800},{"time":"2025-07-08","value":53600},{"time":"2025-07-09","value":40600},{"time":"2025-07-10","value":55100},{"time":"2025-07-11","value":37600},{"time":"2025-07-14","value":41200},{"time":"2025-07-15","value":30800},{"time":"2025-07-16","value":32400},{"time":"2025-07-17","value":31400},{"time":"2025-07-18","value":45300},{"time":"2025-07-22","value":22100},{"time":"2025-07-23","value":47300},{"time":"2025-07-24","value":31600},{"time":"2025-07-25","value":20700},{"time":"2025-07-28","value":22200},{"time":"2025-07-29","value":42700},{"time":"2025-07-30","value":126000},{"time":"2025-07-31","value":45600},{"time":"2025-08-01","value":31800},{"time":"2025-08-04","value":28000},{"time":"2025-08-05","value":28300},{"time":"2025-08-06","value":20700},{"time":"2025-08-07","value":27000},{"time":"2025-08-08","value":30400},{"time":"2025-08-12","value":33300},{"time":"2025-08-13","value":26300},{"time":"2025-08-14","value":25900},{"time":"2025-08-15","value":26900},{"time":"2025-08-18","value":52200},{"time":"2025-08-19","value":57000},{"time":"2025-08-20","value":25800},{"time":"2025-08-21","value":28000},{"time":"2025-08-22","value":37200},{"time":"2025-08-25","value":31600},{"time":"2025-08-26","value":25200},{"time":"2025-08-27","value":34400},{"time":"2025-08-28","value":33700},{"time":"2025-08-29","value":22700},{"time":"2025-09-01","value":59200},{"time":"2025-09-02","value":37500},{"time":"2025-09-03","value":53600},{"time":"2025-09-04","value":59200},{"time":"2025-09-05","value":75400},{"time":"2025-09-08","value":228400},{"time":"2025-09-09","value":933200},{"time":"2025-09-10","value":252800},{"time":"2025-09-11","value":217600},{"time":"2025-09-12","value":156100},{"time":"2025-09-16","value":113000},{"time":"2025-09-17","value":138600},{"time":"2025-09-18","value":98300},{"time":"2025-09-19","value":157000},{"time":"2025-09-22","value":156600},{"time":"2025-09-24","value":149400},{"time":"2025-09-25","value":98500},{"time":"2025-09-26","value":118600},{"time":"2025-09-29","value":241200},{"time":"2025-09-30","value":207300},{"time":"2025-10-01","value":345800},{"time":"2025-10-02","value":241700},{"time":"2025-10-03","value":167800},{"time":"2025-10-06","value":161500},{"time":"2025-10-07","value":99700},{"time":"2025-10-08","value":188600},{"time":"2025-10-09","value":156200},{"time":"2025-10-10","value":131600},{"time":"2025-10-14","value":183800},{"time":"2025-10-15","value":96800},{"time":"2025-10-16","value":95800},{"time":"2025-10-17","value":90800},{"time":"2025-10-20","value":113200},{"time":"2025-10-21","value":114900},{"time":"2025-10-22","value":103400},{"time":"2025-10-23","value":112500},{"time":"2025-10-24","value":111300},{"time":"2025-10-27","value":236200},{"time":"2025-10-28","value":210700},{"time":"2025-10-29","value":309200},{"time":"2025-10-30","value":583600},{"time":"2025-10-31","value":313800},{"time":"2025-11-04","value":176500},{"time":"2025-11-05","value":173100},{"time":"2025-11-06","value":130400},{"time":"2025-11-07","value":119400},{"time":"2025-11-10","value":80300},{"time":"2025-11-11","value":82100},{"time":"2025-11-12","value":71200},{"time":"2025-11-13","value":52600},{"time":"2025-11-14","value":126800},{"time":"2025-11-17","value":89600},{"time":"2025-11-18","value":88100},{"time":"2025-11-19","value":106100},{"time":"2025-11-20","value":62100},{"time":"2025-11-21","value":73900},{"time":"2025-11-25","value":52100},{"time":"2025-11-26","value":78900},{"time":"2025-11-27","value":69900},{"time":"2025-11-28","value":81500},{"time":"2025-12-01","value":155000},{"time":"2025-12-02","value":111100},{"time":"2025-12-03","value":82400},{"time":"2025-12-04","value":124200},{"time":"2025-12-05","value":106100},{"time":"2025-12-08","value":218300},{"time":"2025-12-09","value":2030400},{"time":"2025-12-10","value":457200},{"time":"2025-12-11","value":211800},{"time":"2025-12-12","value":116900},{"time":"2025-12-15","value":163800},{"time":"2025-12-16","value":119600},{"time":"2025-12-17","value":142000},{"time":"2025-12-18","value":66200},{"time":"2025-12-19","value":93600},{"time":"2025-12-22","value":56700},{"time":"2025-12-23","value":104800},{"time":"2025-12-24","value":49800},{"time":"2025-12-25","value":60900},{"time":"2025-12-26","value":71300},{"time":"2025-12-29","value":87700},{"time":"2025-12-30","value":70200},{"time":"2026-01-05","value":84900},{"time":"2026-01-06","value":60600},{"time":"2026-01-07","value":76700},{"time":"2026-01-08","value":82600},{"time":"2026-01-09","value":53300},{"time":"2026-01-13","value":75600},{"time":"2026-01-14","value":47800},{"time":"2026-01-15","value":61800},{"time":"2026-01-16","value":60500},{"time":"2026-01-19","value":69700},{"time":"2026-01-20","value":79200},{"time":"2026-01-21","value":125100},{"time":"2026-01-22","value":57200},{"time":"2026-01-23","value":71000},{"time":"2026-01-26","value":101100},{"time":"2026-01-27","value":67300},{"time":"2026-01-28","value":54800},{"time":"2026-01-29","value":65800},{"time":"2026-01-30","value":70200},{"time":"2026-02-02","value":125100},{"time":"2026-02-03","value":167100},{"time":"2026-02-04","value":69600},{"time":"2026-02-05","value":68900},{"time":"2026-02-06","value":58600},{"time":"2026-02-09","value":85100},{"time":"2026-02-10","value":65000},{"time":"2026-02-12","value":63100},{"time":"2026-02-13","value":71100},{"time":"2026-02-16","value":86600},{"time":"2026-02-17","value":71000},{"time":"2026-02-18","value":35900},{"time":"2026-02-19","value":61300},{"time":"2026-02-20","value":34700},{"time":"2026-02-24","value":60500},{"time":"2026-02-25","value":69600},{"time":"2026-02-26","value":65800},{"time":"2026-02-27","value":66200},{"time":"2026-03-02","value":66300},{"time":"2026-03-03","value":137100},{"time":"2026-03-04","value":162900},{"time":"2026-03-05","value":96700},{"time":"2026-03-06","value":97400},{"time":"2026-03-09","value":189000},{"time":"2026-03-10","value":291100},{"time":"2026-03-11","value":97600},{"time":"2026-03-12","value":196100},{"time":"2026-03-13","value":111700},{"time":"2026-03-16","value":158700},{"time":"2026-03-17","value":98100},{"time":"2026-03-18","value":105900},{"time":"2026-03-19","value":119500},{"time":"2026-03-23","value":123700},{"time":"2026-03-24","value":137500},{"time":"2026-03-25","value":90800},{"time":"2026-03-26","value":107800},{"time":"2026-03-27","value":120400},{"time":"2026-03-30","value":190800},{"time":"2026-03-31","value":155200},{"time":"2026-04-01","value":222500},{"time":"2026-04-02","value":206500},{"time":"2026-04-03","value":124400},{"time":"2026-04-06","value":163800},{"time":"2026-04-07","value":105700},{"time":"2026-04-08","value":177400},{"time":"2026-04-09","value":117500},{"time":"2026-04-10","value":112900},{"time":"2026-04-13","value":180800},{"time":"2026-04-14","value":95300},{"time":"2026-04-15","value":96700},{"time":"2026-04-16","value":145500},{"time":"2026-04-17","value":106600},{"time":"2026-04-20","value":84500},{"time":"2026-04-21","value":126200},{"time":"2026-04-22","value":180700},{"time":"2026-04-23","value":163700},{"time":"2026-04-24","value":158000},{"time":"2026-04-27","value":476900},{"time":"2026-04-28","value":350900},{"time":"2026-04-30","value":158800},{"time":"2026-05-01","value":88000},{"time":"2026-05-07","value":147600},{"time":"2026-05-08","value":116700},{"time":"2026-05-11","value":124300},{"time":"2026-05-12","value":82400},{"time":"2026-05-13","value":65700},{"time":"2026-05-14","value":52100},{"time":"2026-05-15","value":75200},{"time":"2026-05-18","value":55300},{"time":"2026-05-19","value":65100},{"time":"2026-05-20","value":97600},{"time":"2026-05-21","value":50500},{"time":"2026-05-22","value":48000},{"time":"2026-05-25","value":103800},{"time":"2026-05-26","value":84000},{"time":"2026-05-27","value":80200},{"time":"2026-05-28","value":64400},{"time":"2026-05-29","value":96800},{"time":"2026-06-01","value":98000},{"time":"2026-06-02","value":120700},{"time":"2026-06-03","value":84300},{"time":"2026-06-04","value":58300},{"time":"2026-06-05","value":121200},{"time":"2026-06-08","value":178000}],"topix_rebased":[{"time":"2024-06-10","value":1797},{"time":"2024-06-11","value":1793},{"time":"2024-06-12","value":1779},{"time":"2024-06-13","value":1763},{"time":"2024-06-14","value":1774},{"time":"2024-06-17","value":1741},{"time":"2024-06-18","value":1754},{"time":"2024-06-19","value":1762},{"time":"2024-06-20","value":1761},{"time":"2024-06-21","value":1757},{"time":"2024-06-24","value":1770},{"time":"2024-06-25","value":1798},{"time":"2024-06-26","value":1808},{"time":"2024-06-27","value":1803},{"time":"2024-06-28","value":1817},{"time":"2024-07-01","value":1824},{"time":"2024-07-02","value":1845},{"time":"2024-07-03","value":1854},{"time":"2024-07-04","value":1873},{"time":"2024-07-05","value":1829},{"time":"2024-07-08","value":1821},{"time":"2024-07-09","value":1837},{"time":"2024-07-10","value":1851},{"time":"2024-07-11","value":1867},{"time":"2024-07-12","value":1835},{"time":"2024-07-16","value":1851},{"time":"2024-07-17","value":1851},{"time":"2024-07-18","value":1820},{"time":"2024-07-19","value":1804},{"time":"2024-07-22","value":1791},{"time":"2024-07-23","value":1795},{"time":"2024-07-24","value":1770},{"time":"2024-07-25","value":1717},{"time":"2024-07-26","value":1715},{"time":"2024-07-29","value":1751},{"time":"2024-07-30","value":1760},{"time":"2024-07-31","value":1776},{"time":"2024-08-01","value":1715},{"time":"2024-08-02","value":1607},{"time":"2024-08-05","value":1416},{"time":"2024-08-06","value":1521},{"time":"2024-08-07","value":1612},{"time":"2024-08-08","value":1555},{"time":"2024-08-09","value":1576},{"time":"2024-08-13","value":1623},{"time":"2024-08-14","value":1639},{"time":"2024-08-15","value":1649},{"time":"2024-08-16","value":1698},{"time":"2024-08-19","value":1676},{"time":"2024-08-20","value":1697},{"time":"2024-08-21","value":1689},{"time":"2024-08-22","value":1694},{"time":"2024-08-23","value":1702},{"time":"2024-08-26","value":1687},{"time":"2024-08-27","value":1701},{"time":"2024-08-28","value":1706},{"time":"2024-08-29","value":1707},{"time":"2024-08-30","value":1718},{"time":"2024-09-02","value":1722},{"time":"2024-09-03","value":1731},{"time":"2024-09-04","value":1669},{"time":"2024-09-05","value":1660},{"time":"2024-09-06","value":1647},{"time":"2024-09-09","value":1636},{"time":"2024-09-10","value":1633},{"time":"2024-09-11","value":1604},{"time":"2024-09-12","value":1644},{"time":"2024-09-13","value":1631},{"time":"2024-09-17","value":1623},{"time":"2024-09-18","value":1623},{"time":"2024-09-19","value":1659},{"time":"2024-09-20","value":1673},{"time":"2024-09-24","value":1686},{"time":"2024-09-25","value":1681},{"time":"2024-09-26","value":1720},{"time":"2024-09-27","value":1755},{"time":"2024-09-30","value":1696},{"time":"2024-10-01","value":1720},{"time":"2024-10-02","value":1696},{"time":"2024-10-03","value":1718},{"time":"2024-10-04","value":1723},{"time":"2024-10-07","value":1754},{"time":"2024-10-08","value":1727},{"time":"2024-10-09","value":1734},{"time":"2024-10-10","value":1736},{"time":"2024-10-11","value":1735},{"time":"2024-10-15","value":1746},{"time":"2024-10-16","value":1722},{"time":"2024-10-17","value":1722},{"time":"2024-10-18","value":1722},{"time":"2024-10-21","value":1715},{"time":"2024-10-22","value":1696},{"time":"2024-10-23","value":1686},{"time":"2024-10-24","value":1689},{"time":"2024-10-25","value":1675},{"time":"2024-10-28","value":1701},{"time":"2024-10-29","value":1715},{"time":"2024-10-30","value":1734},{"time":"2024-10-31","value":1723},{"time":"2024-11-01","value":1693},{"time":"2024-11-05","value":1708},{"time":"2024-11-06","value":1728},{"time":"2024-11-07","value":1759},{"time":"2024-11-08","value":1752},{"time":"2024-11-11","value":1752},{"time":"2024-11-12","value":1754},{"time":"2024-11-13","value":1733},{"time":"2024-11-14","value":1730},{"time":"2024-11-15","value":1735},{"time":"2024-11-18","value":1726},{"time":"2024-11-19","value":1733},{"time":"2024-11-20","value":1729},{"time":"2024-11-21","value":1720},{"time":"2024-11-22","value":1725},{"time":"2024-11-25","value":1731},{"time":"2024-11-26","value":1720},{"time":"2024-11-27","value":1706},{"time":"2024-11-28","value":1718},{"time":"2024-11-29","value":1712},{"time":"2024-12-02","value":1735},{"time":"2024-12-03","value":1758},{"time":"2024-12-04","value":1749},{"time":"2024-12-05","value":1751},{"time":"2024-12-06","value":1742},{"time":"2024-12-09","value":1748},{"time":"2024-12-10","value":1753},{"time":"2024-12-11","value":1759},{"time":"2024-12-12","value":1777},{"time":"2024-12-13","value":1762},{"time":"2024-12-16","value":1752},{"time":"2024-12-17","value":1744},{"time":"2024-12-18","value":1744},{"time":"2024-12-19","value":1735},{"time":"2024-12-20","value":1731},{"time":"2024-12-23","value":1748},{"time":"2024-12-24","value":1746},{"time":"2024-12-25","value":1749},{"time":"2024-12-26","value":1772},{"time":"2024-12-27","value":1795},{"time":"2024-12-30","value":1784},{"time":"2025-01-06","value":1767},{"time":"2025-01-07","value":1785},{"time":"2025-01-08","value":1775},{"time":"2025-01-09","value":1754},{"time":"2025-01-10","value":1741},{"time":"2025-01-14","value":1719},{"time":"2025-01-15","value":1727},{"time":"2025-01-16","value":1722},{"time":"2025-01-17","value":1718},{"time":"2025-01-20","value":1738},{"time":"2025-01-21","value":1739},{"time":"2025-01-22","value":1756},{"time":"2025-01-23","value":1770},{"time":"2025-01-24","value":1767},{"time":"2025-01-27","value":1768},{"time":"2025-01-28","value":1768},{"time":"2025-01-29","value":1780},{"time":"2025-01-30","value":1783},{"time":"2025-01-31","value":1791},{"time":"2025-02-03","value":1746},{"time":"2025-02-04","value":1754},{"time":"2025-02-05","value":1759},{"time":"2025-02-06","value":1764},{"time":"2025-02-07","value":1754},{"time":"2025-02-10","value":1754},{"time":"2025-02-12","value":1752},{"time":"2025-02-13","value":1774},{"time":"2025-02-14","value":1767},{"time":"2025-02-17","value":1774},{"time":"2025-02-18","value":1780},{"time":"2025-02-19","value":1775},{"time":"2025-02-20","value":1753},{"time":"2025-02-21","value":1755},{"time":"2025-02-25","value":1749},{"time":"2025-02-26","value":1744},{"time":"2025-02-27","value":1757},{"time":"2025-02-28","value":1720},{"time":"2025-03-03","value":1753},{"time":"2025-03-04","value":1736},{"time":"2025-03-05","value":1743},{"time":"2025-03-06","value":1764},{"time":"2025-03-07","value":1739},{"time":"2025-03-10","value":1731},{"time":"2025-03-11","value":1713},{"time":"2025-03-12","value":1727},{"time":"2025-03-13","value":1734},{"time":"2025-03-14","value":1740},{"time":"2025-03-17","value":1764},{"time":"2025-03-18","value":1785},{"time":"2025-03-19","value":1793},{"time":"2025-03-21","value":1799},{"time":"2025-03-24","value":1790},{"time":"2025-03-25","value":1794},{"time":"2025-03-26","value":1806},{"time":"2025-03-27","value":1804},{"time":"2025-03-28","value":1786},{"time":"2025-03-31","value":1722},{"time":"2025-04-01","value":1727},{"time":"2025-04-02","value":1715},{"time":"2025-04-03","value":1670},{"time":"2025-04-04","value":1610},{"time":"2025-04-07","value":1489},{"time":"2025-04-08","value":1577},{"time":"2025-04-09","value":1521},{"time":"2025-04-10","value":1646},{"time":"2025-04-11","value":1598},{"time":"2025-04-14","value":1618},{"time":"2025-04-15","value":1629},{"time":"2025-04-16","value":1620},{"time":"2025-04-17","value":1641},{"time":"2025-04-18","value":1660},{"time":"2025-04-21","value":1639},{"time":"2025-04-22","value":1641},{"time":"2025-04-23","value":1676},{"time":"2025-04-24","value":1680},{"time":"2025-04-25","value":1706},{"time":"2025-04-28","value":1718},{"time":"2025-04-30","value":1730},{"time":"2025-05-01","value":1736},{"time":"2025-05-02","value":1744},{"time":"2025-05-07","value":1746},{"time":"2025-05-08","value":1753},{"time":"2025-05-09","value":1770},{"time":"2025-05-12","value":1780},{"time":"2025-05-13","value":1799},{"time":"2025-05-14","value":1791},{"time":"2025-05-15","value":1775},{"time":"2025-05-16","value":1777},{"time":"2025-05-19","value":1775},{"time":"2025-05-20","value":1776},{"time":"2025-05-21","value":1773},{"time":"2025-05-22","value":1761},{"time":"2025-05-23","value":1775},{"time":"2025-05-26","value":1786},{"time":"2025-05-27","value":1798},{"time":"2025-05-28","value":1799},{"time":"2025-05-29","value":1825},{"time":"2025-05-30","value":1818},{"time":"2025-06-02","value":1801},{"time":"2025-06-03","value":1798},{"time":"2025-06-04","value":1805},{"time":"2025-06-05","value":1788},{"time":"2025-06-06","value":1801},{"time":"2025-06-09","value":1806},{"time":"2025-06-10","value":1806},{"time":"2025-06-11","value":1811},{"time":"2025-06-12","value":1804},{"time":"2025-06-13","value":1786},{"time":"2025-06-16","value":1801},{"time":"2025-06-17","value":1808},{"time":"2025-06-18","value":1823},{"time":"2025-06-19","value":1810},{"time":"2025-06-20","value":1799},{"time":"2025-06-23","value":1791},{"time":"2025-06-24","value":1804},{"time":"2025-06-25","value":1806},{"time":"2025-06-26","value":1820},{"time":"2025-06-27","value":1846},{"time":"2025-06-30","value":1851},{"time":"2025-07-01","value":1837},{"time":"2025-07-02","value":1835},{"time":"2025-07-03","value":1837},{"time":"2025-07-04","value":1837},{"time":"2025-07-07","value":1783},{"time":"2025-07-08","value":1787},{"time":"2025-07-09","value":1794},{"time":"2025-07-10","value":1782},{"time":"2025-07-11","value":1791},{"time":"2025-07-14","value":1791},{"time":"2025-07-15","value":1791},{"time":"2025-07-16","value":1788},{"time":"2025-07-17","value":1801},{"time":"2025-07-18","value":1798},{"time":"2025-07-22","value":1799},{"time":"2025-07-23","value":1857},{"time":"2025-07-24","value":1889},{"time":"2025-07-25","value":1872},{"time":"2025-07-28","value":1859},{"time":"2025-07-29","value":1845},{"time":"2025-07-30","value":1853},{"time":"2025-07-31","value":1867},{"time":"2025-08-01","value":1871},{"time":"2025-08-04","value":1849},{"time":"2025-08-05","value":1864},{"time":"2025-08-06","value":1883},{"time":"2025-08-07","value":1896},{"time":"2025-08-08","value":1919},{"time":"2025-08-12","value":1945},{"time":"2025-08-13","value":1961},{"time":"2025-08-14","value":1941},{"time":"2025-08-15","value":1972},{"time":"2025-08-18","value":1980},{"time":"2025-08-19","value":1978},{"time":"2025-08-20","value":1966},{"time":"2025-08-21","value":1956},{"time":"2025-08-22","value":1965},{"time":"2025-08-25","value":1970},{"time":"2025-08-26","value":1952},{"time":"2025-08-27","value":1947},{"time":"2025-08-28","value":1960},{"time":"2025-08-29","value":1950},{"time":"2025-09-01","value":1942},{"time":"2025-09-02","value":1956},{"time":"2025-09-03","value":1934},{"time":"2025-09-04","value":1954},{"time":"2025-09-05","value":1971},{"time":"2025-09-08","value":1993},{"time":"2025-09-09","value":1986},{"time":"2025-09-10","value":1992},{"time":"2025-09-11","value":1997},{"time":"2025-09-12","value":2007},{"time":"2025-09-16","value":2013},{"time":"2025-09-17","value":1995},{"time":"2025-09-18","value":2005},{"time":"2025-09-19","value":1994},{"time":"2025-09-22","value":2008},{"time":"2025-09-24","value":2012},{"time":"2025-09-25","value":2021},{"time":"2025-09-26","value":2021},{"time":"2025-09-29","value":2005},{"time":"2025-09-30","value":2009},{"time":"2025-10-01","value":1983},{"time":"2025-10-02","value":1979},{"time":"2025-10-03","value":2004},{"time":"2025-10-06","value":2065},{"time":"2025-10-07","value":2066},{"time":"2025-10-08","value":2070},{"time":"2025-10-09","value":2086},{"time":"2025-10-10","value":2050},{"time":"2025-10-14","value":2007},{"time":"2025-10-15","value":2040},{"time":"2025-10-16","value":2050},{"time":"2025-10-17","value":2034},{"time":"2025-10-20","value":2079},{"time":"2025-10-21","value":2081},{"time":"2025-10-22","value":2091},{"time":"2025-10-23","value":2084},{"time":"2025-10-27","value":2128},{"time":"2025-10-28","value":2104},{"time":"2025-10-29","value":2099},{"time":"2025-10-30","value":2113},{"time":"2025-10-31","value":2134},{"time":"2025-11-04","value":2120},{"time":"2025-11-05","value":2094},{"time":"2025-11-06","value":2121},{"time":"2025-11-07","value":2113},{"time":"2025-11-10","value":2127},{"time":"2025-11-11","value":2128},{"time":"2025-11-12","value":2152},{"time":"2025-11-13","value":2165},{"time":"2025-11-14","value":2150},{"time":"2025-11-17","value":2144},{"time":"2025-11-18","value":2087},{"time":"2025-11-19","value":2081},{"time":"2025-11-20","value":2113},{"time":"2025-11-21","value":2112},{"time":"2025-11-25","value":2108},{"time":"2025-11-26","value":2147},{"time":"2025-11-27","value":2156},{"time":"2025-11-28","value":2163},{"time":"2025-12-01","value":2138},{"time":"2025-12-02","value":2139},{"time":"2025-12-03","value":2135},{"time":"2025-12-04","value":2173},{"time":"2025-12-05","value":2152},{"time":"2025-12-08","value":2168},{"time":"2025-12-09","value":2169},{"time":"2025-12-10","value":2173},{"time":"2025-12-11","value":2150},{"time":"2025-12-12","value":2198},{"time":"2025-12-15","value":2197},{"time":"2025-12-16","value":2160},{"time":"2025-12-17","value":2159},{"time":"2025-12-18","value":2154},{"time":"2025-12-19","value":2171},{"time":"2025-12-22","value":2181},{"time":"2025-12-23","value":2193},{"time":"2025-12-24","value":2184},{"time":"2025-12-25","value":2188},{"time":"2025-12-26","value":2190},{"time":"2025-12-29","value":2198},{"time":"2025-12-30","value":2188},{"time":"2026-01-05","value":2230},{"time":"2026-01-06","value":2269},{"time":"2026-01-07","value":2250},{"time":"2026-01-08","value":2232},{"time":"2026-01-09","value":2255},{"time":"2026-01-13","value":2307},{"time":"2026-01-14","value":2335},{"time":"2026-01-15","value":2353},{"time":"2026-01-16","value":2347},{"time":"2026-01-19","value":2342},{"time":"2026-01-20","value":2327},{"time":"2026-01-21","value":2303},{"time":"2026-01-22","value":2319},{"time":"2026-01-23","value":2326},{"time":"2026-01-26","value":2277},{"time":"2026-01-27","value":2282},{"time":"2026-01-28","value":2266},{"time":"2026-01-29","value":2274},{"time":"2026-01-30","value":2291},{"time":"2026-02-02","value":2271},{"time":"2026-02-03","value":2336},{"time":"2026-02-04","value":2343},{"time":"2026-02-05","value":2345},{"time":"2026-02-06","value":2374},{"time":"2026-02-09","value":2429},{"time":"2026-02-10","value":2475},{"time":"2026-02-12","value":2488},{"time":"2026-02-13","value":2451},{"time":"2026-02-16","value":2434},{"time":"2026-02-17","value":2413},{"time":"2026-02-18","value":2442},{"time":"2026-02-19","value":2470},{"time":"2026-02-20","value":2442},{"time":"2026-02-24","value":2445},{"time":"2026-02-25","value":2469},{"time":"2026-02-26","value":2492},{"time":"2026-02-27","value":2526},{"time":"2026-03-02","value":2500},{"time":"2026-03-03","value":2422},{"time":"2026-03-04","value":2333},{"time":"2026-03-05","value":2377},{"time":"2026-03-06","value":2387},{"time":"2026-03-09","value":2295},{"time":"2026-03-10","value":2351},{"time":"2026-03-11","value":2374},{"time":"2026-03-12","value":2340},{"time":"2026-03-13","value":2326},{"time":"2026-03-16","value":2314},{"time":"2026-03-17","value":2327},{"time":"2026-03-18","value":2386},{"time":"2026-03-19","value":2316},{"time":"2026-03-23","value":2230},{"time":"2026-03-24","value":2286},{"time":"2026-03-25","value":2343},{"time":"2026-03-26","value":2340},{"time":"2026-03-27","value":2340},{"time":"2026-03-30","value":2290},{"time":"2026-03-31","value":2264},{"time":"2026-04-01","value":2378},{"time":"2026-04-02","value":2338},{"time":"2026-04-03","value":2361},{"time":"2026-04-06","value":2361},{"time":"2026-04-07","value":2368},{"time":"2026-04-08","value":2446},{"time":"2026-04-09","value":2420},{"time":"2026-04-10","value":2421},{"time":"2026-04-13","value":2410},{"time":"2026-04-14","value":2430},{"time":"2026-04-15","value":2441},{"time":"2026-04-16","value":2470},{"time":"2026-04-17","value":2436},{"time":"2026-04-20","value":2446},{"time":"2026-04-21","value":2442},{"time":"2026-04-22","value":2426},{"time":"2026-04-23","value":2404},{"time":"2026-04-24","value":2404},{"time":"2026-04-27","value":2420},{"time":"2026-04-28","value":2443},{"time":"2026-04-30","value":2410},{"time":"2026-05-01","value":2411},{"time":"2026-05-07","value":2487},{"time":"2026-05-08","value":2478},{"time":"2026-05-11","value":2486},{"time":"2026-05-12","value":2506},{"time":"2026-05-13","value":2539},{"time":"2026-05-14","value":2513},{"time":"2026-05-15","value":2502},{"time":"2026-05-18","value":2477},{"time":"2026-05-19","value":2496},{"time":"2026-05-20","value":2460},{"time":"2026-05-21","value":2496},{"time":"2026-05-22","value":2520},{"time":"2026-05-25","value":2553},{"time":"2026-05-26","value":2551},{"time":"2026-05-27","value":2536},{"time":"2026-05-28","value":2526},{"time":"2026-05-29","value":2555},{"time":"2026-06-01","value":2549},{"time":"2026-06-02","value":2539},{"time":"2026-06-03","value":2584},{"time":"2026-06-04","value":2561},{"time":"2026-06-05","value":2556},{"time":"2026-06-08","value":2500}],"sma60":[{"time":"2024-09-03","value":1842},{"time":"2024-09-04","value":1841},{"time":"2024-09-05","value":1838},{"time":"2024-09-06","value":1836},{"time":"2024-09-09","value":1833},{"time":"2024-09-10","value":1829},{"time":"2024-09-11","value":1826},{"time":"2024-09-12","value":1822},{"time":"2024-09-13","value":1818},{"time":"2024-09-17","value":1814},{"time":"2024-09-18","value":1810},{"time":"2024-09-19","value":1806},{"time":"2024-09-20","value":1803},{"time":"2024-09-24","value":1800},{"time":"2024-09-25","value":1798},{"time":"2024-09-26","value":1796},{"time":"2024-09-27","value":1794},{"time":"2024-09-30","value":1792},{"time":"2024-10-01","value":1789},{"time":"2024-10-02","value":1786},{"time":"2024-10-03","value":1784},{"time":"2024-10-04","value":1780},{"time":"2024-10-07","value":1777},{"time":"2024-10-08","value":1774},{"time":"2024-10-09","value":1771},{"time":"2024-10-10","value":1767},{"time":"2024-10-11","value":1763},{"time":"2024-10-15","value":1759},{"time":"2024-10-16","value":1755},{"time":"2024-10-17","value":1751},{"time":"2024-10-18","value":1748},{"time":"2024-10-21","value":1747},{"time":"2024-10-22","value":1745},{"time":"2024-10-23","value":1744},{"time":"2024-10-24","value":1743},{"time":"2024-10-25","value":1740},{"time":"2024-10-28","value":1738},{"time":"2024-10-29","value":1736},{"time":"2024-10-30","value":1733},{"time":"2024-10-31","value":1733},{"time":"2024-11-01","value":1735},{"time":"2024-11-05","value":1737},{"time":"2024-11-06","value":1739},{"time":"2024-11-07","value":1742},{"time":"2024-11-08","value":1743},{"time":"2024-11-11","value":1744},{"time":"2024-11-12","value":1744},{"time":"2024-11-13","value":1744},{"time":"2024-11-14","value":1742},{"time":"2024-11-15","value":1742},{"time":"2024-11-18","value":1740},{"time":"2024-11-19","value":1740},{"time":"2024-11-20","value":1739},{"time":"2024-11-21","value":1739},{"time":"2024-11-22","value":1739},{"time":"2024-11-25","value":1738},{"time":"2024-11-26","value":1737},{"time":"2024-11-27","value":1736},{"time":"2024-11-28","value":1735},{"time":"2024-11-29","value":1734},{"time":"2024-12-02","value":1734},{"time":"2024-12-03","value":1734},{"time":"2024-12-04","value":1735},{"time":"2024-12-05","value":1737},{"time":"2024-12-06","value":1738},{"time":"2024-12-09","value":1740},{"time":"2024-12-10","value":1747},{"time":"2024-12-11","value":1754},{"time":"2024-12-12","value":1762},{"time":"2024-12-13","value":1772},{"time":"2024-12-16","value":1781},{"time":"2024-12-17","value":1791},{"time":"2024-12-18","value":1799},{"time":"2024-12-19","value":1807},{"time":"2024-12-20","value":1815},{"time":"2024-12-23","value":1823},{"time":"2024-12-24","value":1829},{"time":"2024-12-25","value":1837},{"time":"2024-12-26","value":1844},{"time":"2024-12-27","value":1852},{"time":"2024-12-30","value":1859},{"time":"2025-01-06","value":1866},{"time":"2025-01-07","value":1873},{"time":"2025-01-08","value":1880},{"time":"2025-01-09","value":1887},{"time":"2025-01-10","value":1894},{"time":"2025-01-14","value":1900},{"time":"2025-01-15","value":1907},{"time":"2025-01-16","value":1913},{"time":"2025-01-17","value":1921},{"time":"2025-01-20","value":1928},{"time":"2025-01-21","value":1934},{"time":"2025-01-22","value":1940},{"time":"2025-01-23","value":1946},{"time":"2025-01-24","value":1953},{"time":"2025-01-27","value":1961},{"time":"2025-01-28","value":1969},{"time":"2025-01-29","value":1977},{"time":"2025-01-30","value":1987},{"time":"2025-01-31","value":1997},{"time":"2025-02-03","value":2007},{"time":"2025-02-04","value":2015},{"time":"2025-02-05","value":2021},{"time":"2025-02-06","value":2028},{"time":"2025-02-07","value":2035},{"time":"2025-02-10","value":2042},{"time":"2025-02-12","value":2049},{"time":"2025-02-13","value":2055},{"time":"2025-02-14","value":2062},{"time":"2025-02-17","value":2068},{"time":"2025-02-18","value":2075},{"time":"2025-02-19","value":2081},{"time":"2025-02-20","value":2086},{"time":"2025-02-21","value":2092},{"time":"2025-02-25","value":2096},{"time":"2025-02-26","value":2101},{"time":"2025-02-27","value":2105},{"time":"2025-02-28","value":2110},{"time":"2025-03-03","value":2115},{"time":"2025-03-04","value":2119},{"time":"2025-03-05","value":2123},{"time":"2025-03-06","value":2127},{"time":"2025-03-07","value":2131},{"time":"2025-03-10","value":2135},{"time":"2025-03-11","value":2134},{"time":"2025-03-12","value":2135},{"time":"2025-03-13","value":2130},{"time":"2025-03-14","value":2124},{"time":"2025-03-17","value":2118},{"time":"2025-03-18","value":2110},{"time":"2025-03-19","value":2102},{"time":"2025-03-21","value":2093},{"time":"2025-03-24","value":2085},{"time":"2025-03-25","value":2078},{"time":"2025-03-26","value":2071},{"time":"2025-03-27","value":2064},{"time":"2025-03-28","value":2057},{"time":"2025-03-31","value":2051},{"time":"2025-04-01","value":2044},{"time":"2025-04-02","value":2036},{"time":"2025-04-03","value":2029},{"time":"2025-04-04","value":2021},{"time":"2025-04-07","value":2011},{"time":"2025-04-08","value":2002},{"time":"2025-04-09","value":1992},{"time":"2025-04-10","value":1983},{"time":"2025-04-11","value":1975},{"time":"2025-04-14","value":1968},{"time":"2025-04-15","value":1961},{"time":"2025-04-16","value":1952},{"time":"2025-04-17","value":1944},{"time":"2025-04-18","value":1936},{"time":"2025-04-21","value":1928},{"time":"2025-04-22","value":1920},{"time":"2025-04-23","value":1911},{"time":"2025-04-24","value":1902},{"time":"2025-04-25","value":1893},{"time":"2025-04-28","value":1883},{"time":"2025-04-30","value":1872},{"time":"2025-05-01","value":1862},{"time":"2025-05-02","value":1853},{"time":"2025-05-07","value":1845},{"time":"2025-05-08","value":1837},{"time":"2025-05-09","value":1829},{"time":"2025-05-12","value":1822},{"time":"2025-05-13","value":1816},{"time":"2025-05-14","value":1809},{"time":"2025-05-15","value":1802},{"time":"2025-05-16","value":1795},{"time":"2025-05-19","value":1789},{"time":"2025-05-20","value":1782},{"time":"2025-05-21","value":1776},{"time":"2025-05-22","value":1769},{"time":"2025-05-23","value":1762},{"time":"2025-05-26","value":1757},{"time":"2025-05-27","value":1751},{"time":"2025-05-28","value":1746},{"time":"2025-05-29","value":1741},{"time":"2025-05-30","value":1736},{"time":"2025-06-02","value":1731},{"time":"2025-06-03","value":1726},{"time":"2025-06-04","value":1721},{"time":"2025-06-05","value":1717},{"time":"2025-06-06","value":1712},{"time":"2025-06-09","value":1712},{"time":"2025-06-10","value":1712},{"time":"2025-06-11","value":1712},{"time":"2025-06-12","value":1712},{"time":"2025-06-13","value":1711},{"time":"2025-06-16","value":1711},{"time":"2025-06-17","value":1711},{"time":"2025-06-18","value":1712},{"time":"2025-06-19","value":1712},{"time":"2025-06-20","value":1711},{"time":"2025-06-23","value":1710},{"time":"2025-06-24","value":1709},{"time":"2025-06-25","value":1708},{"time":"2025-06-26","value":1707},{"time":"2025-06-27","value":1706},{"time":"2025-06-30","value":1706},{"time":"2025-07-01","value":1705},{"time":"2025-07-02","value":1705},{"time":"2025-07-03","value":1709},{"time":"2025-07-04","value":1711},{"time":"2025-07-07","value":1714},{"time":"2025-07-08","value":1717},{"time":"2025-07-09","value":1720},{"time":"2025-07-10","value":1722},{"time":"2025-07-11","value":1724},{"time":"2025-07-14","value":1726},{"time":"2025-07-15","value":1728},{"time":"2025-07-16","value":1730},{"time":"2025-07-17","value":1731},{"time":"2025-07-18","value":1733},{"time":"2025-07-22","value":1735},{"time":"2025-07-23","value":1738},{"time":"2025-07-24","value":1740},{"time":"2025-07-25","value":1743},{"time":"2025-07-28","value":1746},{"time":"2025-07-29","value":1748},{"time":"2025-07-30","value":1751},{"time":"2025-07-31","value":1754},{"time":"2025-08-01","value":1758},{"time":"2025-08-04","value":1760},{"time":"2025-08-05","value":1763},{"time":"2025-08-06","value":1766},{"time":"2025-08-07","value":1769},{"time":"2025-08-08","value":1772},{"time":"2025-08-12","value":1775},{"time":"2025-08-13","value":1779},{"time":"2025-08-14","value":1783},{"time":"2025-08-15","value":1786},{"time":"2025-08-18","value":1790},{"time":"2025-08-19","value":1795},{"time":"2025-08-20","value":1798},{"time":"2025-08-21","value":1802},{"time":"2025-08-22","value":1805},{"time":"2025-08-25","value":1808},{"time":"2025-08-26","value":1811},{"time":"2025-08-27","value":1814},{"time":"2025-08-28","value":1817},{"time":"2025-08-29","value":1819},{"time":"2025-09-01","value":1821},{"time":"2025-09-02","value":1823},{"time":"2025-09-03","value":1826},{"time":"2025-09-04","value":1829},{"time":"2025-09-05","value":1831},{"time":"2025-09-08","value":1833},{"time":"2025-09-09","value":1832},{"time":"2025-09-10","value":1832},{"time":"2025-09-11","value":1830},{"time":"2025-09-12","value":1829},{"time":"2025-09-16","value":1828},{"time":"2025-09-17","value":1827},{"time":"2025-09-18","value":1826},{"time":"2025-09-19","value":1825},{"time":"2025-09-22","value":1824},{"time":"2025-09-24","value":1823},{"time":"2025-09-25","value":1822},{"time":"2025-09-26","value":1822},{"time":"2025-09-29","value":1822},{"time":"2025-09-30","value":1822},{"time":"2025-10-01","value":1821},{"time":"2025-10-02","value":1820},{"time":"2025-10-03","value":1819},{"time":"2025-10-06","value":1819},{"time":"2025-10-07","value":1818},{"time":"2025-10-08","value":1817},{"time":"2025-10-09","value":1816},{"time":"2025-10-10","value":1814},{"time":"2025-10-14","value":1813},{"time":"2025-10-15","value":1812},{"time":"2025-10-16","value":1811},{"time":"2025-10-17","value":1810},{"time":"2025-10-20","value":1809},{"time":"2025-10-21","value":1808},{"time":"2025-10-22","value":1806},{"time":"2025-10-23","value":1805},{"time":"2025-10-24","value":1804},{"time":"2025-10-27","value":1803},{"time":"2025-10-28","value":1801},{"time":"2025-10-29","value":1799},{"time":"2025-10-30","value":1796},{"time":"2025-10-31","value":1792},{"time":"2025-11-04","value":1788},{"time":"2025-11-05","value":1782},{"time":"2025-11-06","value":1777},{"time":"2025-11-07","value":1772},{"time":"2025-11-10","value":1767},{"time":"2025-11-11","value":1761},{"time":"2025-11-12","value":1756},{"time":"2025-11-13","value":1752},{"time":"2025-11-14","value":1746},{"time":"2025-11-17","value":1740},{"time":"2025-11-18","value":1735},{"time":"2025-11-19","value":1729},{"time":"2025-11-20","value":1723},{"time":"2025-11-21","value":1718},{"time":"2025-11-25","value":1713},{"time":"2025-11-26","value":1708},{"time":"2025-11-27","value":1703},{"time":"2025-11-28","value":1699},{"time":"2025-12-01","value":1695},{"time":"2025-12-02","value":1690},{"time":"2025-12-03","value":1685},{"time":"2025-12-04","value":1681},{"time":"2025-12-05","value":1676},{"time":"2025-12-08","value":1671},{"time":"2025-12-09","value":1672},{"time":"2025-12-10","value":1672},{"time":"2025-12-11","value":1672},{"time":"2025-12-12","value":1673},{"time":"2025-12-15","value":1674},{"time":"2025-12-16","value":1674},{"time":"2025-12-17","value":1675},{"time":"2025-12-18","value":1676},{"time":"2025-12-19","value":1676},{"time":"2025-12-22","value":1677},{"time":"2025-12-23","value":1677},{"time":"2025-12-24","value":1678},{"time":"2025-12-25","value":1678},{"time":"2025-12-26","value":1679},{"time":"2025-12-29","value":1680},{"time":"2025-12-30","value":1681},{"time":"2026-01-05","value":1682},{"time":"2026-01-06","value":1682},{"time":"2026-01-07","value":1683},{"time":"2026-01-08","value":1684},{"time":"2026-01-09","value":1684},{"time":"2026-01-13","value":1685},{"time":"2026-01-14","value":1687},{"time":"2026-01-15","value":1688},{"time":"2026-01-16","value":1689},{"time":"2026-01-19","value":1690},{"time":"2026-01-20","value":1691},{"time":"2026-01-21","value":1692},{"time":"2026-01-22","value":1693},{"time":"2026-01-23","value":1694},{"time":"2026-01-26","value":1694},{"time":"2026-01-27","value":1694},{"time":"2026-01-28","value":1694},{"time":"2026-01-29","value":1694},{"time":"2026-01-30","value":1696},{"time":"2026-02-02","value":1699},{"time":"2026-02-03","value":1703},{"time":"2026-02-04","value":1706},{"time":"2026-02-05","value":1711},{"time":"2026-02-06","value":1715},{"time":"2026-02-09","value":1719},{"time":"2026-02-10","value":1724},{"time":"2026-02-12","value":1728},{"time":"2026-02-13","value":1733},{"time":"2026-02-16","value":1738},{"time":"2026-02-17","value":1742},{"time":"2026-02-18","value":1747},{"time":"2026-02-19","value":1752},{"time":"2026-02-20","value":1757},{"time":"2026-02-24","value":1761},{"time":"2026-02-25","value":1766},{"time":"2026-02-26","value":1770},{"time":"2026-02-27","value":1775},{"time":"2026-03-02","value":1779},{"time":"2026-03-03","value":1783},{"time":"2026-03-04","value":1787},{"time":"2026-03-05","value":1791},{"time":"2026-03-06","value":1795},{"time":"2026-03-09","value":1798},{"time":"2026-03-10","value":1801},{"time":"2026-03-11","value":1801},{"time":"2026-03-12","value":1799},{"time":"2026-03-13","value":1799},{"time":"2026-03-16","value":1797},{"time":"2026-03-17","value":1794},{"time":"2026-03-18","value":1793},{"time":"2026-03-19","value":1790},{"time":"2026-03-23","value":1788},{"time":"2026-03-24","value":1786},{"time":"2026-03-25","value":1784},{"time":"2026-03-26","value":1782},{"time":"2026-03-27","value":1780},{"time":"2026-03-30","value":1777},{"time":"2026-03-31","value":1774},{"time":"2026-04-01","value":1772},{"time":"2026-04-02","value":1770},{"time":"2026-04-03","value":1768},{"time":"2026-04-06","value":1767},{"time":"2026-04-07","value":1766},{"time":"2026-04-08","value":1764},{"time":"2026-04-09","value":1762},{"time":"2026-04-10","value":1761},{"time":"2026-04-13","value":1759},{"time":"2026-04-14","value":1756},{"time":"2026-04-15","value":1754},{"time":"2026-04-16","value":1752},{"time":"2026-04-17","value":1750},{"time":"2026-04-20","value":1749},{"time":"2026-04-21","value":1747},{"time":"2026-04-22","value":1744},{"time":"2026-04-23","value":1742},{"time":"2026-04-24","value":1739},{"time":"2026-04-27","value":1737},{"time":"2026-04-28","value":1734},{"time":"2026-04-30","value":1731},{"time":"2026-05-01","value":1728},{"time":"2026-05-07","value":1724},{"time":"2026-05-08","value":1721},{"time":"2026-05-11","value":1718},{"time":"2026-05-12","value":1714},{"time":"2026-05-13","value":1710},{"time":"2026-05-14","value":1705},{"time":"2026-05-15","value":1700},{"time":"2026-05-18","value":1695},{"time":"2026-05-19","value":1691},{"time":"2026-05-20","value":1687},{"time":"2026-05-21","value":1683},{"time":"2026-05-22","value":1678},{"time":"2026-05-25","value":1673},{"time":"2026-05-26","value":1668},{"time":"2026-05-27","value":1663},{"time":"2026-05-28","value":1659},{"time":"2026-05-29","value":1653},{"time":"2026-06-01","value":1648},{"time":"2026-06-02","value":1643},{"time":"2026-06-03","value":1639},{"time":"2026-06-04","value":1634},{"time":"2026-06-05","value":1629},{"time":"2026-06-08","value":1625}],"peak":{"time":"2024-12-13","value":2357},"trough":{"time":"2026-06-03","value":1520}};
+      (function() {
+        var container = document.getElementById('chart-2301');
+        if (!container || typeof LightweightCharts === 'undefined') return;
+        var chart = LightweightCharts.createChart(container, {
+          autoSize: true,
+          layout: {
+            background: { type: 'solid', color: '#fafbfc' },
+            textColor: '#4a5566',
+            fontFamily: "'DM Mono', monospace",
+            fontSize: 11,
+          },
+          grid: {
+            vertLines: { color: 'rgba(15,31,58,0.04)' },
+            horzLines: { color: 'rgba(15,31,58,0.04)' },
+          },
+          rightPriceScale: {
+            borderColor: '#d6dee8',
+            scaleMargins: { top: 0.08, bottom: 0.24 },
+          },
+          timeScale: {
+            borderColor: '#d6dee8',
+            timeVisible: false,
+            secondsVisible: false,
+          },
+          crosshair: { mode: 1 },
+        });
+        var topixSeries = chart.addLineSeries({
+          color: 'rgba(122,130,144,0.85)',
+          lineWidth: 1.5,
+          priceLineVisible: false,
+          lastValueVisible: true,
+        });
+        topixSeries.setData(CHART_DATA.topix_rebased);
+        var smaSeries = chart.addLineSeries({
+          color: '#b08a4a',
+          lineWidth: 1.5,
+          lineStyle: 2,
+          priceLineVisible: false,
+          lastValueVisible: false,
+        });
+        smaSeries.setData(CHART_DATA.sma60);
+        var candleSeries = chart.addCandlestickSeries({
+          upColor: '#2f6f4f',
+          downColor: '#b91c1c',
+          borderUpColor: '#2f6f4f',
+          borderDownColor: '#b91c1c',
+          wickUpColor: '#2f6f4f',
+          wickDownColor: '#b91c1c',
+        });
+        candleSeries.setData(CHART_DATA.candles);
+        candleSeries.setMarkers([
+          { time: CHART_DATA.peak.time,   position: 'aboveBar', color: '#2f6f4f', shape: 'arrowDown', text: '¥' + '2,357 ピーク' },
+          { time: CHART_DATA.trough.time, position: 'belowBar', color: '#b91c1c', shape: 'arrowUp',   text: '¥' + '1,520 底値' },
+        ]);
+        var volumeSeries = chart.addHistogramSeries({
+          color: 'rgba(48,68,102,0.45)',
+          priceFormat: { type: 'volume' },
+          priceScaleId: 'volume',
+        });
+        volumeSeries.setData(CHART_DATA.volume);
+        chart.priceScale('volume').applyOptions({
+          scaleMargins: { top: 0.82, bottom: 0 },
+          borderColor: '#d6dee8',
+        });
+        chart.timeScale().fitContent();
+      })();
+      </script>
+    </div>
+
+        <div class="regime-narr">
+      <p>
+        <span class="pin">01 &middot; ピーク（2024年12月）</span>
+        2024年12月13日、株価は2年来高値の<b>&yen;2,357</b>（終値&yen;2,293）を付けた。2024年10月期は売上高107億円、営業利益26.6億円、営業利益率24.8%と過去最高水準で、会社は翌期も増収増益を計画していた。当時の評価は予想営業利益の約14倍で、安定成長する採用メディア企業として扱われていた。
+      </p>
+      <p>
+        <span class="pin">02 &middot; 投資の年とマルチプル低下（2025年）</span>
+        その後の2025年は、投資先行による利益率低下を市場が嫌気した年だった。会員獲得のためのプロモーションやシステム投資が増え、<a href="https://www.release.tdnet.info/inbs/140120251205515268.pdf" style="text-decoration:underline" target="_blank">営業利益は12%減</a>の23.3億円、営業利益率は24.8%から21.2%へ低下した。株価は約&yen;2,290から2025年10月の<b>&yen;1,614</b>まで下落した。売上が崩れたというより、利益率の低下を受けて評価倍率が切り下がった形である。
+      </p>
+      <p>
+        <span class="pin">03 &middot; 2年来安値へ（2026年初）</span>
+        2026年に入っても、利益率回復の確度は十分に見えなかった。市場の評価切り下げは続き、5月下旬には株価が<b>&yen;1,596</b>前後まで低下。上期決算を前にした2026年6月3日には、2年来安値の<b>&yen;1,520</b>を付けた。
+      </p>
+      <p>
+        <span class="pin">04 &middot; 現時点</span>
+        2026年6月8日の終値は&yen;1,547。同日の取引終了後、会社は<a href="https://www.release.tdnet.info/inbs/140120260603561784.pdf" style="text-decoration:underline" target="_blank">通期営業利益予想を26億円へ引き下げ</a>、同時に<a href="https://www.release.tdnet.info/inbs/140120260601558116.pdf" style="text-decoration:underline" target="_blank">6.5億円の自己株式取得</a>を発表した。株価はこの開示をまだ織り込んでいない。2024年12月の高値からは約3分の1下がり、修正後予想ベースで見ると、現金・預金を控除した事業価値はEV/営業利益で約<b>5.5倍</b>にとどまる。今後の焦点は、これが一時的な谷なのか、低成長企業としての評価が妥当なのかである。
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================== 02 · 投資家論点 ============================== -->
+  <section class="section">
+    <div class="section-head">
+      <div class="section-num">02 · 投資家論点</div>
+      <h2 class="section-title">投資家の見方が分かれる論点</h2>
+      <p class="section-sub">黒字を維持し、現金を厚く持ち、増配も続ける会社が2年来安値圏で取引されている。理由を整理すると、論点は3つに集約される。下方修正は売上計上タイミングの問題なのか。先行投資は将来の利益につながるのか。そして、現金や有価証券を考慮した低い倍率は本当に割安なのか、単なる割安の罠なのか。</p>
+    </div>
+
+    <div class="ct-grid">
+
+      <div class="ct-card">
+        <div class="ct-tag">論点 01 · 需要 vs タイミング</div>
+        <div class="ct-q">下方修正は需要の弱さなのか、売上計上時期のずれなのか。</div>
+        <p class="ct-primer" style="font-family: var(--serif); font-size: 13px; color: var(--text-mid); line-height: 1.7; margin: 0 0 14px;">学情の売上は、受注した時点ではなく、求人掲載が始まった時点や人材紹介が成立した時点で計上される。そのため、上期に獲得した受注が下期の売上になることがある。今回の未達が、単なる売上計上時期のずれなのか、それとも企業側の採用需要が弱くなっているサインなのかが重要になる。</p>
+        <div class="ct-side">
+          <span class="ct-side-tag bull">強気</span>
+          <span class="ct-side-text">強気の見方は、需要が消えたのではなく、売上化の時期が後ろにずれたというものだ。上期の受注高は11.2%増で、売上高の5.8%増を上回った。人材紹介は46%増、イベントも14%増、第2四半期だけを見れば営業利益は20%増えている。弱さは季節的に赤字になりやすい第1四半期に集中した。会社は、現有人員でサービス品質を保つため売上を平準化しているとも説明している。<b>下期に受注残が売上化され、Ｒｅ就活が増収に戻れば、この見方は説得力を増す。</b></span>
+        </div>
+        <div class="ct-side">
+          <span class="ct-side-tag bear">弱気</span>
+          <span class="ct-side-text">弱気の見方は、今回の修正を一時的なずれではなく、事業の勢い低下と捉える。通期営業利益予想は、期初計画からわずか半年で20%引き下げられた。成長の柱であるはずのＲｅ就活は上期に7.2%減収となり、営業利益率も2期連続で低下している。「売上計上のずれ」や「品質維持のための抑制」という説明は、裏返せば、需要を十分に取り込めていない、あるいは新卒採用の早期化など市場変化に追いつけていない可能性も示す。<b>下期も売上が計画を下回り、受注の伸びも鈍れば、弱気の見方が強まる。</b></span>
+        </div>
+      </div>
+
+      <div class="ct-card">
+        <div class="ct-tag">論点 02 · 投資 vs 利益率</div>
+        <div class="ct-q">先行投資は将来の利益を生むのか、単に利益率を下げているだけなのか。</div>
+        <p class="ct-primer" style="font-family: var(--serif); font-size: 13px; color: var(--text-mid); line-height: 1.7; margin: 0 0 14px;">広告宣伝費やシステム投資は、発生した期の費用として利益を押し下げる。一方で、それが会員基盤やブランドを強くし、数年後の売上と利益につながるなら、短期的な利益率低下は許容できる。問題は、その支出が将来の成長投資なのか、現在の地位を保つための維持費なのかである。</p>
+        <div class="ct-side">
+          <span class="ct-side-tag bull">強気</span>
+          <span class="ct-side-text">強気派は、先行指標に注目する。Ｒｅ就活の会員は280万人まで拡大し、AIを活用したダイレクトリクルーティングは55%伸び、紹介単価の上昇にもつながっている。設備投資をあまり必要としない事業なので、追加支出が売上に転換されれば利益への効き方は大きい。新卒、第二新卒、20代後半から30代前半までをひとつのキャリア層として押さえるプラットフォームになれば、投資は複利的に効く。<b>営業利益率が再び20%台半ばへ戻り始めれば、このバリュエーションの見方は現実味を帯びる。</b></span>
+        </div>
+        <div class="ct-side">
+          <span class="ct-side-tag bear">弱気</span>
+          <span class="ct-side-text">弱気派は、支出に見合う成果がまだ見えていないと考える。営業利益率は24.8%から21.2%へ低下し、修正後計画でも21.7%にとどまる。売上が大きく加速しているわけでもない。会社が人員422人を前提に品質を重視すると説明するなら、逆に言えば、品質か利益率を犠牲にせず規模を伸ばしにくい可能性もある。広告宣伝費が会員基盤を維持するための費用にすぎないなら、それは成長投資ではなく維持費である。<b>さらに1年、利益率を犠牲にしても売上が加速しなければ、この見方が補強される。</b></span>
+        </div>
+      </div>
+
+      <div class="ct-card">
+        <div class="ct-tag">論点 03 · バリュエーション</div>
+        <div class="ct-q">現金と有価証券を考えると割安なのか、それとも割安の罠なのか。</div>
+        <p class="ct-primer" style="font-family: var(--serif); font-size: 13px; color: var(--text-mid); line-height: 1.7; margin: 0 0 14px;">現在のEV/営業利益5.5倍は、利益率が低下した後の営業利益を基準にしている。また、通常のEV計算では現金・預金だけを差し引き、投資有価証券48億円を現金同等として扱っていない。もし利益率が2024年10月期の24.8%に近づき、現金・有価証券113億円を実質的な余剰資産として見れば、事業倍率は3倍台まで下がる。問題は、市場がその回復と資産価値を信じてよいのかである。</p>
+        <div class="ct-side">
+          <span class="ct-side-tag bull">強気</span>
+          <span class="ct-side-text">強気派は、現在の株価は事業の悪化を織り込みすぎていると見る。現金・有価証券を全額控除すれば、事業は予想EV/営業利益で約3.6倍、利益率が2024年10月期並みに戻れば約2.8倍まで下がる。さらに大阪本社の土地には、簿価を15〜22億円上回る含み価値がある可能性もある。受注が11.2%増え、人材紹介が46%伸び、Ｒｅ就活に280万人の会員がいる会社としては、株価は継続的な縮小を前提にしているようにも見える。<b>下期に売上が受注へ追いつき、利益率も戻れば、強気派の根拠は強くなる。</b></span>
+        </div>
+        <div class="ct-side">
+          <span class="ct-side-tag bear">弱気</span>
+          <span class="ct-side-text">弱気派は、低い評価には理由があると見る。営業利益率は24.8%から21.2%へ落ち、今期計画も21.7%にすぎない。2024年10月期の水準へ戻る可能性はあるが、まだ確認できていない。現金、有価証券、土地も、事業に使うか株主へ還元されて初めて株式価値として認識されやすい。創業家が議決権の約20%を持ち、自己株式はすでに13.7%、今回の自己株買い6.5億円も現金・有価証券113億円に比べれば小さい。利益が下がり、資産も動かないなら、低い倍率は低いまま残る。<b>利益率の回復か、より踏み込んだ資本政策がなければ、割安に見える状態が続く。</b></span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================== 03 · カタリスト ============================== -->
+  <section class="section gem">
+    <div class="section-head">
+      <div class="section-num">03 · カタリスト</div>
+      <h2 class="section-title">評価の割引を縮めるために何が必要か</h2>
+      <p class="section-sub">大きな増益がなくても、投資家が割り引いている理由を会社が取り除けば、評価は変わり得る。特に重要なのは、売上の消化、利益率の回復、資本政策の3点である。いずれも、外部環境だけでなく経営判断や開示の改善で前進できる余地がある。</p>
+    </div>
+
+    <div class="cat-grid">
+
+      <div class="cat-card">
+        <div class="cat-num">レバー 01 · 売上</div>
+        <div class="cat-title">受注をきちんと売上化し、Ｒｅ就活を増収に戻す</div>
+        <div class="cat-viz">
+          <div class="cat-viz-label">FY26上期の成長率 — 商品別の受注 vs 売上（前年比）</div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">受注高（上期）</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:100%;background:#1a2a4a"></div></div>
+            <div class="cat-viz-bar-val">+11.2%</div>
+          </div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">人材紹介</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:92%;background:#2f6f4f"></div></div>
+            <div class="cat-viz-bar-val">+46.0%</div>
+          </div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">ダイレクトリクルーティング</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:96%;background:#b08a4a"></div></div>
+            <div class="cat-viz-bar-val">+54.8%</div>
+          </div>
+          <div class="cat-viz-bar-row" style="border-top:1px dashed var(--rule);padding-top:8px;margin-top:4px;">
+            <div class="cat-viz-bar-label">Ｒｅ就活（中核）</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:18%;background:#b91c1c"></div></div>
+            <div class="cat-viz-bar-val">−7.2%</div>
+          </div>
+          <div class="cat-viz-cap">受注は売上より速く伸びている。課題は、主力サイトの売上化が下期にずれた点にある</div>
+        </div>
+        <div class="cat-takeaway">
+          最初の確認点は、新しい打ち手ではなく、すでに獲得した受注を売上に変えられるかである。上期は受注高が11.2%増、売上高が5.8%増だったため、下期には受注済み案件の売上計上が期待される。特に重要なのはＲｅ就活だ。上期の7.2%減収が需要喪失ではなく掲載時期の後ずれだったなら、下期には増収に戻る必要がある。その間、人材紹介とダイレクトリクルーティングはそれぞれ46%・55%伸びている。<b>12月の2026年10月期決算で、下期売上が受注残を消化し、Ｒｅ就活がプラスに戻ったかが確認材料になる。</b>
+        </div>
+        <div class="cat-meta">
+          <div><dt>経営の負担</dt><dd>実行のみ（進行中）</dd></div>
+          <div><dt>最短の契機</dt><dd>第3四半期決算 · 2026年9月</dd></div>
+        </div>
+      </div>
+
+      <div class="cat-card">
+        <div class="cat-num">レバー 02 · 事業運営</div>
+        <div class="cat-title">販促・システム投資が利益率改善につながることを示す</div>
+        <div class="cat-viz">
+          <div class="cat-viz-label">年度別の営業利益率（%）</div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">FY2024</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:100%;background:#1a2a4a"></div></div>
+            <div class="cat-viz-bar-val">24.8%</div>
+          </div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">FY2025</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:85%;background:#304466"></div></div>
+            <div class="cat-viz-bar-val">21.2%</div>
+          </div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">FY2026予想（修正後）</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:88%;background:#b08a4a"></div></div>
+            <div class="cat-viz-bar-val">21.7%</div>
+          </div>
+          <div class="cat-viz-cap">2年分の利益率低下を投資として説明できるか。FY26計画は下げ止まりにとどまる</div>
+        </div>
+        <div class="cat-takeaway">
+          営業利益率は、販促・システム投資の増加により24.8%から21.2%へ下がった。修正後の2026年10月期計画でも21.7%で、大きな反転までは見込まれていない。これらの支出は発生時に費用化されるが、会員基盤やブランドに効くなら後から収益として返ってくるはずだ。資本をあまり使わない事業である以上、売上が横ばい以上で推移し、営業利益率が20%台半ばへ戻れば、評価倍率は上がりやすい。<b>投資の成熟とともに利益率が戻るのか、それとも低い利益率が新しい平常運転になるのかが確認点である。</b>
+        </div>
+        <div class="cat-meta">
+          <div><dt>経営の負担</dt><dd>支出は既に基準に内包</dd></div>
+          <div><dt>最短の契機</dt><dd>各四半期決算</dd></div>
+        </div>
+      </div>
+
+      <div class="cat-card">
+        <div class="cat-num">レバー 03 · 資本政策</div>
+        <div class="cat-title">113億円の現金・有価証券を株主価値に結び付ける</div>
+        <div class="cat-viz">
+          <div class="cat-viz-label">貸借対照表の資本 vs 今期の還元（億円）</div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">現金・有価証券</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:100%;background:#1a2a4a"></div></div>
+            <div class="cat-viz-bar-val">¥113億</div>
+          </div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">FY26配当</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:9%;background:#2f6f4f"></div></div>
+            <div class="cat-viz-bar-val">~¥10億</div>
+          </div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">自己株買い（本日）</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:6%;background:#b08a4a"></div></div>
+            <div class="cat-viz-bar-val">¥6.5億</div>
+          </div>
+          <div class="cat-viz-bar-row" style="border-top:1px dashed var(--rule);padding-top:8px;margin-top:4px;">
+            <div class="cat-viz-bar-label">自己株式</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:14%;background:#8a682b"></div></div>
+            <div class="cat-viz-bar-val">13.7%</div>
+          </div>
+          <div class="cat-viz-cap">今期の配当と自己株買いを合わせても、113億円のうち還元されるのは17億円弱にとどまる</div>
+        </div>
+        <div class="cat-takeaway">
+          学情は、時価総額の54%に相当する113億円の現金・有価証券を抱えている。これがROEを12.9%に押し下げる大きな要因になっている。今期の配当と6.5億円の自己株買いを合わせても、還元額は17億円弱にとどまる。事業の成長に大きな資本を必要としないなら、より大きい、あるいは継続的な自己株買い、13.7%ある自己株式の消却、明文化された株主還元方針は、ROEと1株価値を直接押し上げる。<b>12月の決算で、単発の判断ではなく、継続的な資本政策の枠組みが示されるかが確認材料となる。</b>
+        </div>
+        <div class="cat-meta">
+          <div><dt>経営の負担</dt><dd>取締役会決議1つ</dd></div>
+          <div><dt>最短の契機</dt><dd>FY26決算 · 2026年12月</dd></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================== 04 · バリュエーション ============================== -->
+  <section class="section">
+    <div class="section-head">
+      <div class="section-num">04 · バリュエーション</div>
+      <h2 class="section-title">バリュエーションの見方</h2>
+      <p class="section-sub">2026年6月8日の終値¥1,547を基準にすると、時価総額から現金・預金65億円を差し引いた事業価値は約142億円で、修正後の2026年10月期営業利益予想26億円に対してEV/営業利益は約5.5倍となる。さらに投資有価証券48億円も実質的な余剰資産として差し引けば、倍率は約3.6倍まで下がる。以下の3シナリオは<b>JIIの試算であり、会社計画や目標株価ではない</b>。</p>
+    </div>
+
+    <div class="scn-grid">
+
+      <div class="scn-card bear">
+        <div class="scn-tag bear">弱気シナリオ</div>
+        <div class="scn-price">¥1,300 &ndash; ¥1,450</div>
+        <div class="scn-delta dn">−16% 〜 −6%</div>
+        <div class="scn-mult">想定倍率 · 予想EV/営業利益 ~3〜4倍</div>
+        <div class="scn-prem">
+          市場が学情を、現金を持っているだけの低成長採用会社として見続けるケースである。事業の評価は<b>EV/営業利益3〜4倍</b>にとどまり、下期決算も期待を下回る。113億円の現金・有価証券についても、資本配分が変わらない限り十分には評価されない。
+        </div>
+        <div class="scn-driver-head">成立の条件</div>
+        <ul class="scn-drivers">
+          <li>下期の売上が修正計画を下回る。</li>
+          <li>Ｒｅ就活がマイナスのまま、受注の伸びが鈍る。</li>
+          <li>還元の枠組みなし、現金は積み上がり続ける。</li>
+          <li>事業の倍率が3〜4倍に留まる。</li>
+        </ul>
+        <p style="font-family: var(--serif); font-size: 12.5px; color: var(--text-mid); line-height: 1.7; margin: 12px 0 0; font-style: italic;">それでも、1株あたり約¥842の純現金・有価証券と6期連続増配は下値を一定程度支える。</p>
+      </div>
+
+      <div class="scn-card base">
+        <div class="scn-tag base">基本シナリオ</div>
+        <div class="scn-price">¥1,700 &ndash; ¥1,950</div>
+        <div class="scn-delta up">+10% 〜 +26%</div>
+        <div class="scn-mult">想定倍率 · 予想EV/営業利益 ~5〜6倍</div>
+        <div class="scn-prem">
+          下期に受注残が売上化され、営業利益が26億円の会社計画近辺で着地するケースである。自己株買いは1株価値を下支えし、事業の評価はEV/営業利益5〜6倍程度を維持する。継続的な還元が確認されれば、市場は現金・有価証券の一部をより素直に評価する。
+        </div>
+        <div class="scn-driver-head">成立の条件</div>
+        <ul class="scn-drivers">
+          <li>FY26営業利益が26億円計画を達成。</li>
+          <li>受注残を消化、人材紹介とダイレクトが伸長継続。</li>
+          <li>自己株買いで自己株控除後の株数が減少。</li>
+          <li>事業の倍率が5〜6倍を保つ。</li>
+        </ul>
+      </div>
+
+      <div class="scn-card bull">
+        <div class="scn-tag bull">強気シナリオ</div>
+        <div class="scn-price">¥2,150 &ndash; ¥2,500</div>
+        <div class="scn-delta up">+39% 〜 +62%</div>
+        <div class="scn-mult">想定倍率 · 予想EV/営業利益 ~8倍 ＋ 現金を評価</div>
+        <div class="scn-prem">
+          Ｒｅ就活が再び成長し、先行投資が一巡して営業利益率が回復するケースである。加えて、経営陣がより大きな自己株買いや明確な資本政策を通じて貸借対照表を活用する。事業倍率は<b>EV/営業利益8倍</b>程度へ切り上がり、市場は現金・有価証券をほぼ全額評価する。
+        </div>
+        <div class="scn-driver-head">成立の条件</div>
+        <ul class="scn-drivers">
+          <li>Ｒｅ就活が成長へ回帰、利益率が再構築。</li>
+          <li>営業利益が26億円計画を上回る。</li>
+          <li>より大型の還元か自己株式の消却。</li>
+          <li>事業の倍率が8倍へ切り上がる。</li>
+        </ul>
+        <p style="font-family: var(--serif); font-size: 12.5px; color: var(--text-mid); line-height: 1.7; margin: 12px 0 0; font-style: italic;">強気シナリオの前提は、現金・有価証券が株主価値として認識され、事業そのものも高採算・資本軽量のフランチャイズとして再評価されることだ。</p>
+      </div>
+
+    </div>
+
+    <!-- SOTP -->
+    <div class="sotp">
+      <div class="sotp-card">
+        <div class="sotp-head">サム・オブ・パーツ · 事業</div>
+        <div class="sotp-name">採用メディア・人材紹介・イベント — 修正後FY26営業利益ベース</div>
+        <div class="sotp-row"><span class="k">FY26予想営業利益</span><span class="v">¥26億</span></div>
+        <div class="sotp-row"><span class="k">弱気 · 3〜4倍 EV/EBIT</span><span class="v">¥78〜104億</span></div>
+        <div class="sotp-row"><span class="k">基本 · 5〜6倍 EV/EBIT</span><span class="v">¥130〜156億</span></div>
+        <div class="sotp-row"><span class="k">強気 · 8倍 EV/EBIT</span><span class="v">¥208億</span></div>
+        <div class="sotp-foot">倍率は、資本をあまり使わない単一セグメントの採用支援会社としてJIIが置いた前提である。学情は報告セグメントが1つであるため、事業別に分解せず、全社営業利益を基準に事業価値を試算している。</div>
+      </div>
+
+      <div class="sotp-card">
+        <div class="sotp-head">サム・オブ・パーツ · 現金・有価証券・負債</div>
+        <div class="sotp-name">事業価値に加える貸借対照表項目（2026年4月30日）</div>
+        <div class="sotp-row"><span class="k">現金・預金</span><span class="v">¥63億</span></div>
+        <div class="sotp-row"><span class="k">短期・投資有価証券</span><span class="v">¥50億</span></div>
+        <div class="sotp-row"><span class="k">有利子負債</span><span class="v">¥0億</span></div>
+        <div class="sotp-row"><span class="k">純現金・有価証券</span><span class="v">¥113億</span></div>
+        <div class="sotp-foot">有利子負債はない。投資有価証券は利息収入や売却益を生む可能性がある一方、事業成長にも株主還元にも使われない資本として、市場から割り引かれやすい。</div>
+      </div>
+
+      <div class="sotp-card">
+        <div class="sotp-head">類似企業倍率 · 予想EV/営業利益</div>
+        <div class="sotp-name">日本の採用・HRプラットフォーム運営会社 — ライブ株価による単一倍率</div>
+        <div class="sotp-row"><span class="k">リクルートHD（6098）· HR/Indeed</span><span class="v">~19.1倍</span></div>
+        <div class="sotp-row"><span class="k">ビジョナル（4194）· ダイレクト採用</span><span class="v">~10.9倍</span></div>
+        <div class="sotp-row"><span class="k">エン・ジャパン（4849）· メディア＋紹介</span><span class="v">~10.0倍</span></div>
+        <div class="sotp-row"><span class="k">JACリクルートメント（2124）· 紹介</span><span class="v">~9.5倍</span></div>
+        <div class="sotp-row"><span class="k">ワンキャリア（4377）· 新卒プラットフォーム</span><span class="v">~9.3倍</span></div>
+        <div class="sotp-row"><span class="k">学情（2301）</span><span class="v">~5.5倍</span></div>
+        <div class="sotp-foot">各社の現在の株価と予想営業利益計画から算出した予想EV/営業利益である（2026年6月9日時点）。エン・ジャパンは前期（FY25）比52%減の低い利益計画を前提としており、倍率が高めに出ている。学情の倍率は、この比較では国内同業を下回る。</div>
+      </div>
+
+      <div class="sotp-card" style="grid-column: 1 / -1;">
+        <div class="sotp-head">株主価値ブリッジ · 1株あたり試算</div>
+        <div class="sotp-name">事業価値＋純現金・有価証券 ÷ 自己株控除後株式数</div>
+        <div class="sotp-row"><span class="k">事業価値（FY26予想営業益の3〜8倍）</span><span class="v">¥78〜208億</span></div>
+        <div class="sotp-row"><span class="k">＋ 純現金・有価証券</span><span class="v">¥113億</span></div>
+        <div class="sotp-row"><span class="k">＝ 株主価値</span><span class="v">¥191〜321億</span></div>
+        <div class="sotp-row"><span class="k">÷ 自己株控除後株式数</span><span class="v">13,432,265株</span></div>
+        <div class="sotp-row"><span class="k">＝ 1株あたり試算</span><span class="v"><b>¥1,420〜2,390</b></span></div>
+        <div class="sotp-row"><span class="k">現値¥1,547比</span><span class="v">−8% 〜 +54%</span></div>
+        <div class="sotp-foot">中心値は1株あたり約¥1,900となる。これはJIIの試算であり、予測や目標株価ではない。試算価値の半分超は貸借対照表上の資産であるため、振れ幅は市場が現金・有価証券をどこまで評価し、事業倍率をどこまで引き上げるかに左右される。</div>
+      </div>
+
+      <div class="sotp-card" style="grid-column: 1 / -1;">
+        <div class="sotp-head">含み資産 · 大阪本社の土地（上のブリッジに未計上）</div>
+        <div class="sotp-name">学情は大阪本社の土地を自社保有している。場所は西梅田、リッツ・カールトン大阪の近くで、大阪駅から徒歩約8分。土地面積は364.51㎡、建物は2002年竣工で、土地は取得時に近い5.26億円で簿価計上されている。</div>
+        <div class="sotp-row"><span class="k">簿価の土地 · 364.51㎡</span><span class="v">¥5.3億</span></div>
+        <div class="sotp-row"><span class="k">梅田の地価 · 2003→2026年</span><span class="v">450→1,960万円/㎡ · 約4.3倍</span></div>
+        <div class="sotp-row"><span class="k">JII試算 · 最高地点への保守的ディスカウント</span><span class="v">¥20〜27億</span></div>
+        <div class="sotp-row"><span class="k">簿価に対する倍率</span><span class="v">約4〜5倍</span></div>
+        <div class="sotp-row" style="opacity:.7"><span class="k">簿価超の含み益 · 税引前</span><span class="v">約¥15〜22億 · 1株¥110〜165</span></div>
+        <div class="sotp-foot">梅田の<a href="https://www.tochi-d.com/tochi/27/27127/271270003/transition/" style="text-decoration:underline" target="_blank">公示地価</a>（国土交通省・地価公示）をもとにしたJII試算であり、鑑定評価ではない。梅田の最高地点は1㎡あたり約1,960万円だが、当該地はそこから大きく劣後するため、ここでは約600万円/㎡を用いて保守的に見積もった。簿価超過分は時価総額の約7〜10%に相当し、113億円の現金・有価証券に上乗せされる含み資産である。ただし、売却時には譲渡益課税が発生し、株主価値として顕在化するにはセール&リースバックや移転などが必要になる。会社はそのような方針を示していない。建物（減価後簿価3.25億円）はこの試算に含めていない。</div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ============================== SHARE BAR ============================== -->
+  <section class="share-bar" id="jii-share"
+           data-share-text="学情（2301）は、20代採用に強い採用メディア、人材紹介、新卒サービス、合同企業セミナーを展開する会社。2026年6月8日に通期営業利益予想を26億円へ下方修正し、6.5億円の自己株買いも決議した。一方で、時価総額の半分超に相当する113億円の現金・有価証券を持つ。論点は、足元の不振が投資と売上計上時期の谷なのか、低成長化の兆しなのかである。"
+           data-share-url="https://jpinv.com/compounders/2301/initiation/"
+           data-share-subject="JII Compounders · 2301 学情"
+           data-copy-label="リンクをコピー"
+           data-copied-label="コピーしました">
+    <div class="share-head">
+      <span class="share-eyebrow">Share</span>
+      <span class="share-sub">気になった方へ共有する</span>
+    </div>
+    <div class="share-btns">
+      <a class="share-btn share-x" target="_blank" rel="noopener" aria-label="Xで共有">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        <span>X</span>
+      </a>
+      <a class="share-btn share-em" aria-label="メールで共有">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5z"/></svg>
+        <span>メール</span>
+      </a>
+      <button type="button" class="share-btn share-cp" aria-label="リンクをコピー">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11z"/></svg>
+        <span class="lbl">リンクをコピー</span>
+      </button>
+    </div>
+    <div class="share-perm">固定リンク · <code id="jii-share-url-display"></code></div>
+  </section>
+
+  <!-- ============================== DISCLAIMER ============================== -->
+  <section class="disclaimer">
+    <div class="disclaimer-head">
+      <span class="d-eyebrow">重要なご注意</span>
+      <h2 class="d-title">本資料は投資助言ではありません。</h2>
+    </div>
+    <div class="disclaimer-body">
+      <p>
+        <b>株式会社ジャパン・インベスター・インターフェース（以下「JII」）</b>はIRコンサルティング事業を行う会社であり、いかなる管轄においても投資助言業者、金融アドバイザー、証券会社、または証券業者として登録されていません。JIIは、日本の金融商品取引法に基づく<b>金融商品取引業者</b>ではなく、投資助言・代理業の登録も保有しておりません。JIIは、投資助言を行うものでも、特定の有価証券の取得・売却・保有を勧誘するものでもありません。
+      </p>
+      <p>
+        <b>JII Compoundersは、教育・調査を目的とする編集コンテンツです。</b>各銘柄レポートは、日本の上場企業が公表している情報をもとに、その情報が市場でどのように受け止められてきたかを考察するものです。想定読者は、IR実務者、金融を学ぶ方、報道関係者、企業開示に関心のある方です。<b>掲載内容は、いかなる有価証券、デリバティブその他の金融商品の取得・売却・保有を推奨、提案、勧誘するものではありません。</b>株価水準、シナリオ、評価倍率、類似企業比較は分析方法を示すための例であり、JIIの投資判断を示すものではありません。
+      </p>
+      <p>
+        <b>ご利用にあたって。</b>記載情報は不完全であったり、古くなっていたり、誤りを含んでいたりする可能性があります。将来に関する記述には不確実性があります。過去の株価推移は将来の成果を示すものではありません。推計値やシナリオ値は予測ではなく、実現しない可能性があります。
+      </p>
+      <p>
+        <b>助言関係等は生じません。</b>本コンテンツを閲覧しても、読者とJIIとの間に助言、受託、その他専門職としての関係は生じません。投資、税務、会計、法務その他の判断を行う前に、資格を有する専門家にご相談ください。
+      </p>
+      <p>
+        <b>利益相反および保有状況。</b>JIIは、本コンテンツで言及する企業を含め、日本の上場企業に対して有償でIR診断、翻訳、通訳等のサービスを提供する場合があります。JIIは、銘柄レポートの対象企業の有価証券を売買せず、保有もしません。対象企業との間に有償契約がある場合は、銘柄レポートの冒頭で開示します。
+      </p>
+      <p>
+        <b>商標およびデータ。</b>本資料中で言及される企業名、ロゴ、ティッカー、製品名は、各々の所有者に帰属します。株価データは第三者プロバイダーからライセンスを受けています。TradingViewはTradingView, Inc.の商標です。
+      </p>
+    </div>
+  </section>
+
+  <div class="meth">
+    <span><a href="/compounders/">すべての銘柄レポート</a> · <a href="/compounders/methodology/">6つの着眼点</a></span>
+    <span class="report-footer-locale">言語: <a href="/compounders/2301/initiation/" class="current" aria-current="page" lang="ja">JP</a> · <a href="/en/compounders/2301/initiation/" data-locale-route lang="en">EN</a></span>
+    <span>Japan Investor Interface Co., Ltd.</span>
+  </div>
+
+</article>
+
+
+<!-- ============================== SHARE BAR · WIRING ============================== -->
+<script>
+(function(){
+  var root = document.getElementById('jii-share');
+  if(!root) return;
+  var text = root.dataset.shareText;
+  var url = root.dataset.shareUrl;
+  var subject = root.dataset.shareSubject;
+  var copyLabel = root.dataset.copyLabel;
+  var copiedLabel = root.dataset.copiedLabel;
+  var e = encodeURIComponent;
+
+  var x = root.querySelector('.share-x');
+  if(x) x.href = 'https://twitter.com/intent/tweet?text=' + e(text) + '&url=' + e(url);
+  var em = root.querySelector('.share-em');
+  if(em) em.href = 'mailto:?subject=' + e(subject) + '&body=' + e(text + '\n\n' + url);
+
+  var perm = document.getElementById('jii-share-url-display');
+  if(perm) perm.textContent = url;
+
+  var cp = root.querySelector('.share-cp');
+  if(cp) cp.addEventListener('click', function(){
+    var btn = this;
+    var lbl = btn.querySelector('.lbl');
+    var doFlash = function(){
+      lbl.textContent = copiedLabel;
+      btn.classList.add('copied');
+      setTimeout(function(){ lbl.textContent = copyLabel; btn.classList.remove('copied'); }, 2400);
+    };
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(url).then(doFlash, function(){});
+    } else {
+      var ta = document.createElement('textarea');
+      ta.value = url; document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); doFlash(); } catch(_){}
+      document.body.removeChild(ta);
+    }
+  });
+})();
+</script>
+
+<script src="/assets/compounders-nav.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>6532 ベイカレント｜JII Compounders銘柄レポート</title>
+<meta name="description" content="6532 ベイカレントを海外投資家目線で分析。株価変動の背景、KPIの読み方、投資家論点、資本政策、株価シナリオを整理します。">
+<meta property="og:title" content="6532 ベイカレント｜JII Compounders銘柄レポート">
+<meta property="og:description" content="6532 ベイカレントを海外投資家目線で分析。株価変動の背景、KPIの読み方、投資家論点、資本政策、株価シナリオを整理します。">
+<meta property="og:url" content="https://jpinv.com/compounders/6532/initiation/">
+<link rel="canonical" href="https://jpinv.com/compounders/6532/initiation/">
+<link rel="alternate" hreflang="ja" href="https://jpinv.com/compounders/6532/initiation/">
+<link rel="alternate" hreflang="en" href="https://jpinv.com/en/compounders/6532/initiation/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://jpinv.com/og/6532.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="JII Compounders 銘柄レポート · 6532">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jpinv.com/og/6532.png">
+<meta name="twitter:image:alt" content="JII Compounders 銘柄レポート · 6532">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     JII Compounders · Profile page
+     Methodology: https://jpinv.com/en/compounders/methodology/
+     ============================================================ */
+  :root {
+    --ink:        #1a2a4a;
+    --ink-mid:    #172641;
+    --ink-soft:   #304466;
+    --rule:       #d6dee8;
+    --rule-soft:  #e8edf3;
+    --bg:         #ffffff;
+    --bg-mid:    #f5f7fa;
+    --bg-soft:   #fafbfc;
+    --text:       #1f2937;
+    --text-mid:  #4a5566;
+    --text-dim:  #5f6875;
+    --accent:    #9a7838;
+    --accent-deep:#9a7838;
+    --accent-soft:#f4eee4;
+    --bad:       #b91c1c;
+    --warn:      #8a682b;
+    --ok:        #2f6f4f;
+    --serif: 'Noto Serif JP', 'Yu Mincho', serif;
+    --sans:  'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+    --mono:  'DM Mono', monospace;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg-mid); }
+  body { display: flex; justify-content: center; padding: 30px 0; font-family: var(--sans); color: var(--text); font-size: 14px; line-height: 1.65; }
+
+  .card {
+    background: var(--bg); color: var(--text); width: 100%; max-width: 1200px; margin: 0 auto;
+    box-shadow: 0 30px 80px rgba(15,31,58,0.10), 0 1px 3px rgba(15,31,58,0.06);
+    border: 1px solid var(--rule);
+  }
+
+  /* ---- MASTHEAD ---- */
+  .masthead { position: relative; overflow: hidden; background: var(--bg); border-bottom: 1px solid var(--rule); }
+  .masthead::before {
+    content:''; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(15,31,58,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(15,31,58,0.04) 1px, transparent 1px);
+    background-size: 64px 64px;
+    -webkit-mask-image: linear-gradient(180deg, transparent, black 12%, black 88%, transparent);
+            mask-image: linear-gradient(180deg, transparent, black 12%, black 88%, transparent);
+    pointer-events: none;
+  }
+  .masthead::after {
+    content:''; position: absolute; width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(15,31,58,0.045) 0%, transparent 70%);
+    top: -160px; right: -200px; pointer-events: none;
+  }
+  .masthead-inner { position: relative; z-index: 2; padding: 32px 56px 28px; display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: end; }
+
+  .brand { display: flex; flex-direction: column; gap: 4px; align-items: flex-start; }
+  .brand-home-link { display:flex; flex-direction:column; gap:4px; align-items:flex-start; color:inherit; text-decoration:none; }
+  .brand-home-link:hover .brand-mono, .brand-home-link:hover .brand-eyebrow { color:var(--ink); }
+  .brand-home-link:focus-visible { outline:2px solid var(--accent); outline-offset:6px; }
+  .brand-mono { font-family: var(--serif); font-size: 28px; font-weight: 300; letter-spacing: 0.04em; color: var(--ink-mid); line-height: 1; }
+  .brand-mono .pipe { color: var(--accent); font-weight: 200; margin: 0 4px; }
+  .brand-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; color: var(--accent-deep); text-transform: uppercase; margin-top: 12px; font-weight: 500; }
+
+  .head-main { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; text-align: right; }
+  .report-locale { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 8px; }
+  .report-locale a { color: var(--ink-soft); padding: 5px 10px; border: 1px solid var(--rule); margin-left: 6px; text-decoration: none; }
+  .report-locale a.current { background: var(--bg-soft); border-color: var(--ink-mid); color: var(--ink-mid); }
+  .head-ticker-row { display: flex; align-items: baseline; gap: 16px; }
+  .head-ticker { font-family: var(--mono); font-size: 12px; color: var(--ink-soft); letter-spacing: 0.18em; }
+  .head-co-jp { font-family: var(--serif); font-size: 14.5px; color: var(--text-mid); letter-spacing: 0.04em; }
+  .head-co { font-family: var(--serif); font-size: 40px; font-weight: 300; color: var(--ink-mid); line-height: 1.05; letter-spacing: 0.01em; margin-top: 4px; }
+  .head-industry { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-top: 6px; }
+
+  /* Stat strip (font sizes bumped) */
+  .stat-strip { display: grid; grid-template-columns: 1.05fr 1.05fr 1.1fr 1.05fr 1.1fr 1.1fr; gap: 0; border-top: 1px solid var(--rule); position: relative; z-index: 2; background: var(--bg-soft); }
+  .stat { padding: 15px 18px; border-right: 1px solid var(--rule); text-align: left; }
+  .stat:last-child { border-right: none; }
+  .stat-label { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 7px; font-weight: 500; }
+  .stat-val { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--ink-mid); line-height: 1.05; }
+  .stat-val small { font-family: var(--mono); font-size: 11px; color: var(--text-dim); margin-left: 4px; font-weight: 400; letter-spacing: 0.04em; }
+  .stat-ctx { font-family: var(--mono); font-size: 10.5px; color: var(--text-mid); margin-top: 6px; letter-spacing: 0.04em; line-height: 1.45; }
+  .stat-ctx .dn { color: var(--bad); font-weight: 500; }
+  .stat-ctx .up { color: var(--ok); font-weight: 500; }
+  .stat-ctx b { color: var(--ink-mid); font-weight: 500; }
+
+  /* ---- SECTIONS (font sizes bumped) ---- */
+  .section { padding: 36px 56px 36px; border-bottom: 1px solid var(--rule); }
+  .section.gem { background: linear-gradient(180deg, rgba(176,138,74,0.055) 0%, rgba(176,138,74,0.01) 60%); }
+  .section-head { margin-bottom: 22px; display: flex; flex-direction: column; gap: 8px; max-width: 1080px; }
+  .section-num { font-family: var(--mono); font-size: 10px; letter-spacing: 0.26em; color: var(--accent-deep); font-weight: 500; }
+  .section-title { font-family: var(--serif); font-size: 30px; font-weight: 300; color: var(--ink-mid); margin: 0; letter-spacing: 0.01em; line-height: 1.2; }
+  .section-sub { font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--text-mid); line-height: 1.55; margin: 0; }
+  .section-sub b { color: var(--ink-mid); font-weight: 500; font-style: normal; }
+
+  /* ---- CHART (TradingView widget) ---- */
+  .chart-wrap { background: var(--bg-soft); border: 1px solid var(--rule); padding: 0; }
+  .chart-meta { display: flex; justify-content: space-between; align-items: baseline; padding: 16px 22px 14px; border-bottom: 1px solid var(--rule); flex-wrap: wrap; gap: 10px; }
+  .chart-title { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; }
+  .chart-key-levels { display: flex; gap: 22px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; }
+  .chart-key-levels span { color: var(--text-mid); }
+  .chart-key-levels b { color: var(--ink-mid); font-weight: 500; }
+  .chart-key-levels .peak b { color: var(--ok); }
+  .chart-key-levels .trough b { color: var(--bad); }
+  .tv-container { position: relative; height: 460px; }
+  .chart-legend { display: flex; gap: 22px; padding: 12px 22px; background: var(--bg-soft); border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.06em; color: var(--text-mid); flex-wrap: wrap; }
+  .chart-legend .leg-item { display: inline-flex; align-items: center; gap: 7px; }
+  .chart-legend .leg-swatch { display: inline-block; width: 16px; height: 3px; }
+  .chart-legend .leg-swatch.dashed { background: repeating-linear-gradient(90deg, var(--accent) 0 4px, transparent 4px 7px); height: 2px; }
+  .chart-legend .leg-swatch.candle { width: 10px; height: 12px; border-left: 3px solid var(--ok); border-right: 3px solid var(--bad); background: var(--text-dim); }
+  .chart-legend .leg-swatch.hist { background: rgba(48,68,102,0.45); }
+
+  /* ---- REGIME narrative ---- */
+  .regime-narr { font-family: var(--serif); font-size: 15px; color: var(--text); line-height: 1.85; max-width: 1080px; margin-top: 26px; }
+  .regime-narr p { margin: 0 0 16px; }
+  .regime-narr p:last-child { margin-bottom: 0; }
+  .regime-narr b { color: var(--ink-mid); font-weight: 500; }
+  .regime-narr .pin { font-family: var(--mono); font-size: 10.5px; font-weight: 500; letter-spacing: 0.16em; color: var(--accent-deep); margin-right: 8px; }
+  .regime-narr .up { color: var(--ok); font-weight: 500; }
+  .regime-narr .dn { color: var(--bad); font-weight: 500; }
+  .regime-narr .neutral { color: var(--ink-soft); font-weight: 500; }
+
+  /* ---- CONTENTION (font sizes bumped) ---- */
+  .ct-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px; }
+  .ct-card { background: var(--bg-mid); border: 1px solid var(--rule); border-left: 2px solid var(--accent); padding: 22px 22px 18px; }
+  .ct-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--accent-deep); text-transform: uppercase; margin-bottom: 10px; font-weight: 500; }
+  .ct-q { font-family: var(--serif); font-size: 16px; color: var(--ink-mid); line-height: 1.35; margin-bottom: 14px; font-weight: 400; }
+  .ct-side { display: flex; gap: 11px; margin-bottom: 11px; align-items: flex-start; }
+  .ct-side-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; padding: 2px 7px; border: 1px solid; flex: none; min-width: 42px; text-align: center; line-height: 1.4; font-weight: 500; }
+  .ct-side-tag.bull { color: var(--ok); border-color: var(--ok); }
+  .ct-side-tag.bear { color: var(--bad); border-color: var(--bad); }
+  .ct-side-text { font-family: var(--sans); font-size: 13px; color: var(--text); line-height: 1.55; }
+  .ct-side-text b { color: var(--ink-mid); font-weight: 500; }
+  .ct-proof { font-family: var(--mono); font-size: 10px; letter-spacing: 0.05em; color: var(--text-mid); margin-top: 14px; padding-top: 11px; border-top: 1px solid var(--rule); }
+  .ct-proof span { color: var(--accent-deep); text-transform: uppercase; letter-spacing: 0.14em; font-weight: 500; }
+
+  /* ---- CATALYST (font sizes bumped) ---- */
+  .cat-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px; }
+  .cat-card { background: var(--bg); border: 1px solid var(--rule); border-top: 2px solid var(--accent); padding: 22px; }
+  .cat-num { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--accent-deep); margin-bottom: 10px; font-weight: 500; }
+  .cat-title { font-family: var(--serif); font-size: 16.5px; color: var(--ink-mid); line-height: 1.3; font-weight: 400; margin-bottom: 14px; }
+  .cat-viz { background: var(--bg-mid); border: 1px solid var(--rule-soft); padding: 13px 15px; margin: 10px 0 14px; }
+  .cat-viz-label { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 9px; font-weight: 500; }
+  .cat-viz-bar-row { display: flex; align-items: center; gap: 9px; margin: 6px 0; font-family: var(--mono); font-size: 11px; }
+  .cat-viz-bar-label { width: 100px; color: var(--text-mid); font-size: 11px; }
+  .cat-viz-bar-track { flex: 1; height: 16px; background: var(--bg); border: 1px solid var(--rule-soft); position: relative; }
+  .cat-viz-bar-fill { height: 100%; }
+  .cat-viz-bar-val { width: 64px; text-align: right; color: var(--ink-mid); font-size: 11px; font-weight: 500; }
+  .cat-viz-cap { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; color: var(--accent-deep); text-transform: uppercase; margin-top: 9px; padding-top: 7px; border-top: 1px dashed var(--rule); font-weight: 500; }
+  .cat-takeaway { font-family: var(--sans); font-size: 13px; color: var(--text); line-height: 1.65; margin-top: 4px; }
+  .cat-takeaway b { color: var(--ink-mid); font-weight: 500; }
+  .cat-meta { display: flex; gap: 16px; margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--rule); }
+  .cat-meta div { flex: 1; }
+  .cat-meta dt { font-family: var(--mono); font-size: 9px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 4px; font-weight: 500; }
+  .cat-meta dd { margin: 0; font-family: var(--sans); font-size: 12.5px; color: var(--ink-mid); font-weight: 500; }
+
+  /* ---- VALUATION as 3 scenario cards ---- */
+  .scn-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px; }
+  .scn-card { padding: 24px 22px 20px; border: 1px solid var(--rule); position: relative; display: flex; flex-direction: column; }
+  .scn-card.bear { background: linear-gradient(180deg, rgba(185,28,28,0.045) 0%, rgba(185,28,28,0.01) 100%); border-top: 3px solid var(--bad); }
+  .scn-card.base { background: linear-gradient(180deg, rgba(15,31,58,0.04) 0%, rgba(15,31,58,0.005) 100%); border-top: 3px solid var(--ink-soft); }
+  .scn-card.bull { background: linear-gradient(180deg, rgba(47,111,79,0.045) 0%, rgba(47,111,79,0.01) 100%); border-top: 3px solid var(--ok); }
+  .scn-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500; }
+  .scn-tag.bear { color: var(--bad); }
+  .scn-tag.base { color: var(--ink-soft); }
+  .scn-tag.bull { color: var(--ok); }
+  .scn-price { font-family: var(--serif); font-size: 30px; font-weight: 300; color: var(--ink-mid); line-height: 1.1; margin: 8px 0 4px; letter-spacing: 0.01em; }
+  .scn-delta { font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: 0.04em; margin-bottom: 4px; }
+  .scn-delta.dn { color: var(--bad); }
+  .scn-delta.flat { color: var(--text-mid); }
+  .scn-delta.up { color: var(--ok); }
+  .scn-mult { font-family: var(--mono); font-size: 11px; color: var(--text-dim); letter-spacing: 0.06em; margin-bottom: 16px; }
+  .scn-prem { font-family: var(--serif); font-size: 14px; color: var(--ink-mid); line-height: 1.55; padding: 12px 14px; background: rgba(255,255,255,0.65); border: 1px solid var(--rule-soft); margin-bottom: 14px; }
+  .scn-prem b { color: var(--ink-mid); font-weight: 500; }
+  .scn-driver-head { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 8px; font-weight: 500; padding-top: 4px; }
+  .scn-drivers { list-style: none; margin: 0; padding: 0; }
+  .scn-drivers li { font-family: var(--sans); font-size: 12.5px; color: var(--text); line-height: 1.5; padding: 6px 0 6px 18px; position: relative; }
+  .scn-drivers li::before { content:''; position: absolute; left: 0; top: 12px; width: 8px; height: 1px; background: var(--text-dim); }
+  .scn-drivers li b { color: var(--ink-mid); font-weight: 500; }
+
+  /* SOTP */
+  .sotp { margin-top: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .sotp-card { background: var(--bg); border: 1px solid var(--rule); border-top: 2px solid var(--ink-soft); padding: 20px 22px; }
+  .sotp-head { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; }
+  .sotp-name { font-family: var(--serif); font-size: 18px; color: var(--ink-mid); margin-top: 6px; font-weight: 400; margin-bottom: 10px; }
+  .sotp-row { display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px dashed var(--rule-soft); font-size: 13px; }
+  .sotp-row:last-of-type { border: none; }
+  .sotp-row .k { color: var(--text-mid); }
+  .sotp-row .v { color: var(--ink-mid); font-family: var(--mono); font-weight: 500; }
+  .sotp-foot { margin-top: 12px; padding-top: 11px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; letter-spacing: 0.05em; color: var(--ink-mid); }
+  .sotp-foot b { color: var(--accent-deep); font-weight: 500; }
+
+  /* ---- DISCLAIMER ---- */
+  .disclaimer { padding: 32px 56px 30px; background: var(--bg-soft); border-top: 2px solid var(--rule); }
+  .disclaimer-head { margin-bottom: 16px; }
+  .d-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; color: var(--text-dim); text-transform: uppercase; font-weight: 500; }
+  .d-title { font-family: var(--serif); font-size: 22px; font-weight: 300; color: var(--ink-mid); margin: 6px 0 0; letter-spacing: 0.01em; }
+  .disclaimer-body { font-family: var(--sans); font-size: 11.5px; color: var(--text-mid); line-height: 1.75; max-width: 1080px; }
+  .disclaimer-body p { margin: 0 0 11px; }
+  .disclaimer-body b { color: var(--ink-mid); font-weight: 500; }
+  .d-jp-note { font-family: var(--serif); font-size: 11px; color: var(--text-dim); line-height: 1.8; padding-top: 8px; margin-top: 12px; border-top: 1px solid var(--rule); }
+
+  /* Methodology link (small footer) */
+  .meth { padding: 16px 56px; background: var(--bg); border-top: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: center; font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
+  .meth a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  .meth a:hover { color: var(--ink); }
+
+  /* ---- SHARE BAR ---- */
+  .share-bar { padding: 30px 56px 28px; background: var(--bg); border-top: 1px solid var(--rule); }
+  .share-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 14px; }
+  .share-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent-deep); font-weight: 500; }
+  .share-sub { font-family: var(--serif); font-size: 13px; color: var(--text-mid); letter-spacing: 0.02em; }
+  .share-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+  .share-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 9px 14px;
+    font-family: var(--sans); font-size: 12px; font-weight: 500; letter-spacing: 0.02em;
+    color: var(--ink-mid); background: var(--bg);
+    border: 1px solid var(--rule);
+    text-decoration: none; cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+  }
+  .share-btn:hover { border-color: var(--accent); color: var(--accent-deep); background: var(--accent-soft); }
+  .share-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .share-btn svg { width: 14px; height: 14px; flex-shrink: 0; fill: currentColor; }
+  .share-btn.copied { background: var(--accent-soft); border-color: var(--accent); color: var(--accent-deep); }
+  .share-perm { font-family: var(--mono); font-size: 10px; color: var(--text-dim); margin-top: 16px; letter-spacing: 0.06em; }
+  .share-perm code { font-family: var(--mono); background: var(--bg-soft); padding: 2px 6px; border: 1px solid var(--rule-soft); color: var(--ink-mid); }
+
+  /* ============================================================
+     RESPONSIVE — Mobile reading view
+     Preserves the desktop report aesthetic above 900px;
+     gracefully collapses on tablets and phones.
+     ============================================================ */
+
+  /* Tablet & landscape phones */
+  @media (max-width: 1100px) {
+    body { padding: 16px 0; }
+  }
+
+  @media (max-width: 900px) {
+    .stat-strip { grid-template-columns: 1fr 1fr 1fr; }
+    .stat-strip .stat:nth-child(3n) { border-right: none; }
+    .stat-strip .stat:nth-child(n+4) { border-top: 1px solid var(--rule); }
+    .ct-grid, .cat-grid, .scn-grid { grid-template-columns: 1fr 1fr; }
+    .sotp { grid-template-columns: 1fr; }
+    .section { padding: 32px 36px 32px; }
+    .masthead-inner { padding: 28px 36px 24px; }
+    .disclaimer, .share-bar { padding-left: 36px; padding-right: 36px; }
+  }
+
+  /* Phone — full single-column reading view */
+  @media (max-width: 760px) {
+    body { display: block; padding: 0; font-size: 15px; line-height: 1.7; background: var(--bg); }
+    .card { width: 100%; max-width: 100%; border-left: 0; border-right: 0; box-shadow: none; }
+
+    /* Masthead → stacked */
+    .masthead-inner { grid-template-columns: 1fr; padding: 26px 18px 22px; gap: 16px; align-items: stretch; }
+    .head-main { align-items: flex-start; text-align: left; }
+    .head-ticker-row { flex-wrap: wrap; gap: 10px; }
+    .head-co { font-size: 30px; }
+    .head-co-jp { font-size: 13.5px; }
+    .brand-mono { font-size: 24px; }
+
+    /* Stat strip → 2 columns */
+    .stat-strip { grid-template-columns: 1fr 1fr; }
+    .stat { padding: 13px 16px; border-bottom: 1px solid var(--rule); }
+    .stat:nth-child(2n) { border-right: none; }
+    .stat:nth-last-child(-n+2) { border-bottom: none; }
+    .stat-val { font-size: 19px; }
+
+    /* Section padding & headings */
+    .section { padding: 28px 18px 28px; }
+    .section-head { margin-bottom: 18px; }
+    .section-title { font-size: 24px; line-height: 1.25; }
+    .section-sub { font-size: 14px; }
+
+    /* Chart */
+    .tv-container { height: 320px; }
+    .chart-meta { padding: 13px 16px 11px; }
+    .chart-key-levels { gap: 14px; row-gap: 6px; }
+    .chart-legend { padding: 10px 16px; gap: 14px; row-gap: 6px; }
+
+    /* Narrative & dense-text bumps */
+    .regime-narr { font-size: 15px; line-height: 1.8; margin-top: 22px; }
+    .ct-card, .cat-card, .scn-card, .sotp-card { padding: 20px 18px; }
+    .ct-side-text { font-size: 14px; }
+    .ct-q { font-size: 16.5px; }
+    .cat-takeaway { font-size: 14px; }
+    .cat-title { font-size: 17px; }
+    .cat-viz-bar-label { width: 80px; font-size: 10.5px; }
+    .cat-viz-bar-val { width: 56px; font-size: 10.5px; }
+    .scn-drivers li { font-size: 14px; line-height: 1.55; }
+    .scn-price { font-size: 28px; }
+    .scn-prem { font-size: 14px; }
+
+    /* Grids → single column */
+    .ct-grid, .cat-grid, .scn-grid, .sotp { grid-template-columns: 1fr; gap: 16px; }
+
+    /* Disclaimer */
+    .disclaimer { padding: 26px 18px 24px; }
+    .d-title { font-size: 22px; line-height: 1.3; }
+    .disclaimer-body { font-size: 13.5px; line-height: 1.75; }
+
+    /* Share bar */
+    .share-bar { padding: 24px 18px 22px; }
+    .share-head { flex-wrap: wrap; gap: 8px; }
+    .share-btn { font-size: 13px; padding: 10px 14px; }
+
+    /* Meth footer */
+    .meth { padding: 14px 18px; flex-direction: column; gap: 6px; text-align: center; letter-spacing: 0.12em; }
+  }
+
+/* WCAG 2.1 AA accessibility helpers */
+.skip-link {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  transform: translateY(-150%);
+  padding: 10px 14px;
+  background: var(--ink, #1a2a4a);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(15,31,58,0.18);
+}
+.skip-link:focus, .skip-link:focus-visible { transform: translateY(0); outline: 3px solid var(--accent, #9a7838); outline-offset: 3px; }
+main:focus { outline: none; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, [tabindex]:focus-visible {
+  outline: 3px solid var(--accent, #9a7838);
+  outline-offset: 3px;
+}
+.form-row input:focus-visible, .form-row select:focus-visible, .form-row textarea:focus-visible { outline: 3px solid var(--accent, #9a7838); outline-offset: 2px; }
+.form-field-error:empty { min-height: 0; }
+.mobile-menu[hidden] { display: none !important; }
+.mobile-menu a:focus-visible { outline-offset: -2px; }
+@media (max-width: 360px) {
+  .wrap { padding-left: 16px; padding-right: 16px; }
+  .hero-ctas, .cta-row, .share-btns, .week-nav, .toolbar { align-items: stretch; flex-direction: column; }
+  .btn, .form-submit, .mobile-menu-cta, .share-btn { width: 100%; justify-content: center; text-align: center; }
+  .nav-logo-img--desktop { display: none !important; }
+  .nav-logo-img--mobile { display: block !important; }
+  .nav-inner { gap: 10px; }
+  .nav-right { gap: 6px; }
+  .locale-switcher a, .nav-locale-switcher a { min-width: 36px; min-height: 36px; display: inline-flex; align-items: center; justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+}
+
+
+</style>
+<script src="/assets/locale-switcher.js" defer></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "url": "https://jpinv.com/compounders/6532/initiation/",
+  "name": "6532 ベイカレント｜JII Compounders銘柄レポート",
+  "description": "6532 ベイカレントを海外投資家目線で分析。株価変動の背景、KPIの読み方、投資家論点、資本政策、株価シナリオを整理します。",
+  "inLanguage": "ja"
+}
+</script></head>
+<body>
+<a class="skip-link" href="#main-content">本文へ移動</a>
+
+<main id="main-content" tabindex="-1">
+<article class="card">
+
+<!-- ============================================================
+     MASTHEAD
+     ============================================================ -->
+<header class="masthead">
+  <div class="masthead-inner">
+      <div class="brand">
+        <a class="brand-home-link" href="/compounders/" aria-label="JII Compoundersへ戻る">
+          <span class="brand-mono">J<span class="pipe">|</span>I</span>
+          <span class="brand-eyebrow">Japan Investor Interface &middot; Compounder 銘柄レポート</span>
+        </a>
+      </div>
+    <div class="head-main">
+      <div class="head-ticker-row">
+        <span class="head-ticker">東証プライム &middot; 6532 &middot; 2月決算</span>
+        <span class="head-co-jp">BayCurrent, Inc.</span>
+      </div>
+      <div class="head-co">株式会社ベイカレント</div>
+      <div class="head-industry">日本を代表する大企業向けのプロジェクト型総合コンサルティング — 戦略からデジタル・生成AI実行まで</div>
+    </div>
+  </div>
+  <div class="stat-strip">
+    <div class="stat">
+      <div class="stat-label">終値</div>
+      <div class="stat-val">&yen;5,857<small>6/4</small></div>
+      <div class="stat-ctx">2025年10月高値 &yen;9,075 から <span class="dn">&minus;35%</span> &middot; 2026年2月安値 &yen;3,861 から <span class="up">+52%</span></div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">時価総額 / EV</div>
+      <div class="stat-val">&yen;8,890<small>億 / EV &yen;8,240億</small></div>
+      <div class="stat-ctx">ネットキャッシュ <b>&yen;657億</b>（現金&yen;723億 &minus; 有利子負債・リース&yen;66億）= 時価総額の <b>7%</b></div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">EV / EBIT &middot; 予想</div>
+      <div class="stat-val">12.7<small>x</small></div>
+      <div class="stat-ctx">企業価値 &divide; 27年2月期会社予想営業利益 <b>&yen;648億</b> &middot; 実績 <b>16.2x</b></div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">ROCE &middot; 実績</div>
+      <div class="stat-val">46<small>% &middot; 26年2月期</small></div>
+      <div class="stat-ctx">営業利益 &divide; 平均使用資本 &middot; ROE <b>35.8%</b>（年次報告書）</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">営業利益率 &middot; 全社</div>
+      <div class="stat-val">34.3<small>% &middot; 26年2月期</small></div>
+      <div class="stat-ctx">27年2月期予想 <b>34.1%</b> &middot; EBITDAマージン目安 30&ndash;40%</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">発行株式 &amp; 浮動株</div>
+      <div class="stat-val">1.52<small>億株 &middot; 自己株控除後</small></div>
+      <div class="stat-ctx">&yen;300億の自社株買いで最大 <b>4.3%</b> 消却 &middot; 売買代金 ~&yen;90億/日</div>
+    </div>
+  </div>
+</header>
+
+  <section class="section">
+    <div class="section-head">
+      <div class="section-num">はじめに</div>
+      <h2 class="section-title">ベイカレントはどんな会社か</h2>
+    </div>
+    <div class="regime-narr">
+      <p>ベイカレントは、日本の大企業を主な顧客とする独立系コンサルティング会社である。戦略だけを描いて終わる会社ではなく、業務改革、DX、生成AI活用、システム実装までを一気通貫で受ける。外資系ファームの日本法人でも、SIerや商社の一部門でもないため、採用、育成、案件配分、顧客開拓を自前で回してきた点に特徴がある。</p>
+      <p>収益の源泉は、プロジェクトに入るコンサルタントの人数、単価、稼働率である。顧客は継続利用料型のソフトウェアを買っているのではなく、課題に応じて組成されたチームの専門性と実行力にフィーを払う。だから、同社を見るときは「どれだけ人を採れるか」だけでなく、「採った人をどれだけ早く有償案件に乗せ、単価を維持できるか」が重要になる。</p>
+      <p>ベイカレントらしさは、約5,600人のコンサルタントを固定的な業界部隊に閉じ込めず、一つの大きな人材プールとして運用するところにある。金融、製造、通信、公共、AI、基幹システム刷新など、需要の強いテーマに人を寄せやすい。反面、急成長期には配置転換や育成の負荷が表に出やすく、人数の伸びと1人当たり売上を同時に確認する必要がある。</p>
+      <p>2026年2月期は売上収益が<b>27.8%</b>増の<b>&yen;1,483億</b>、営業利益が<b>19.5%</b>増の<b>&yen;509億</b>、営業利益率は<b>34.3%</b>だった。人材ビジネスでこの利益率を維持している点が、同社を単なる人月型コンサルではなく、高収益のコンパウンダー候補として見せている。一方で、期末のネットキャッシュは<b>&yen;657億</b>まで積み上がり、資本をどう使うかも株価評価の一部になっている。</p>
+      <p>2027年2月期の会社予想は売上<b>&yen;1,900億</b>（28%増）、営業利益<b>&yen;648億</b>（27%増）である。市場が見ているのは、この数字が単なる採用増で届くのか、それともAIや顧客側の内製化で1人当たりの収益性に圧力がかかるのかという点だ。本稿では、株価がどの局面で何を織り込んだのか、投資家が確認すべきKPIは何か、そして経営が評価を変えるために打てる手を順に整理する。</p>
+    </div>
+  </section>
+
+<!-- ============================================================
+     01 &middot; 株価レジーム
+     ============================================================ -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-num">01 &middot; 株価レジーム</span>
+    <h2 class="section-title">この2年間、株価を動かしてきたものは何か</h2>
+    <p class="section-sub">株価は、成長率だけでなく「その成長の質」に敏感に反応してきた。2024年6月の安値<b>&yen;3,059</b>から2025年10月の<b>&yen;9,075</b>まで買われた後、2026年2月には<b>&yen;3,861</b>まで下げ、現在は<b>&yen;5,857</b>まで戻している。市場が何を評価し、何を疑ったのかを局面ごとに見る。</p>
+  </div>
+  <div class="chart-wrap">
+    <div class="chart-meta">
+      <div class="chart-title">6532 vs TOPIX &middot; 日足ローソク＋出来高</div>
+      <div class="chart-key-levels">
+        <span class="peak">高値 <b>&yen;9,075</b> &middot; 2025-10-06</span>
+        <span class="trough">安値 <b>&yen;3,861</b> &middot; 2026-02-24</span>
+        <span>現在 <b>&yen;5,857</b></span>
+      </div>
+    </div>
+    <div class="tv-container" id="chart-6532"></div>
+    <div class="chart-legend">
+      <span class="leg-item"><span class="leg-swatch candle"></span>ベイカレント &middot; 日足</span>
+      <span class="leg-item"><span class="leg-swatch dashed"></span>60日移動平均</span>
+      <span class="leg-item"><span class="leg-swatch" style="background:rgba(122,130,144,0.85)"></span>TOPIXリベース（1308.T）</span>
+      <span class="leg-item"><span class="leg-swatch hist"></span>出来高</span>
+    </div>
+    <script src="https://unpkg.com/lightweight-charts@4.2.0/dist/lightweight-charts.standalone.production.js"></script>
+    <script>
+      var CHART_DATA = {"candles":[{"time":"2024-05-16","open":3270.0,"high":3339.0,"low":3205.0,"close":3328.0},{"time":"2024-05-17","open":3365.0,"high":3497.0,"low":3342.0,"close":3415.0},{"time":"2024-05-20","open":3388.0,"high":3445.0,"low":3366.0,"close":3409.0},{"time":"2024-05-21","open":3416.0,"high":3445.0,"low":3350.0,"close":3367.0},{"time":"2024-05-22","open":3367.0,"high":3469.0,"low":3359.0,"close":3368.0},{"time":"2024-05-23","open":3404.0,"high":3439.0,"low":3331.0,"close":3373.0},{"time":"2024-05-24","open":3340.0,"high":3340.0,"low":3231.0,"close":3249.0},{"time":"2024-05-27","open":3300.0,"high":3398.0,"low":3282.0,"close":3395.0},{"time":"2024-05-28","open":3396.0,"high":3400.0,"low":3313.0,"close":3327.0},{"time":"2024-05-29","open":3312.0,"high":3321.0,"low":3215.0,"close":3221.0},{"time":"2024-05-30","open":3151.0,"high":3234.0,"low":3141.0,"close":3203.0},{"time":"2024-05-31","open":3230.0,"high":3242.0,"low":3179.0,"close":3204.0},{"time":"2024-06-03","open":3209.0,"high":3211.0,"low":3123.0,"close":3181.0},{"time":"2024-06-04","open":3200.0,"high":3277.0,"low":3173.0,"close":3223.0},{"time":"2024-06-05","open":3254.0,"high":3258.0,"low":3180.0,"close":3222.0},{"time":"2024-06-06","open":3250.0,"high":3250.0,"low":3101.0,"close":3114.0},{"time":"2024-06-07","open":3110.0,"high":3218.0,"low":3110.0,"close":3217.0},{"time":"2024-06-10","open":3162.0,"high":3178.0,"low":3127.0,"close":3171.0},{"time":"2024-06-11","open":3170.0,"high":3207.0,"low":3155.0,"close":3186.0},{"time":"2024-06-12","open":3157.0,"high":3195.0,"low":3150.0,"close":3154.0},{"time":"2024-06-13","open":3193.0,"high":3258.0,"low":3160.0,"close":3163.0},{"time":"2024-06-14","open":3154.0,"high":3182.0,"low":3059.0,"close":3059.0},{"time":"2024-06-17","open":3060.0,"high":3124.0,"low":3059.0,"close":3121.0},{"time":"2024-06-18","open":3141.0,"high":3175.0,"low":3111.0,"close":3135.0},{"time":"2024-06-19","open":3110.0,"high":3128.0,"low":3072.0,"close":3103.0},{"time":"2024-06-20","open":3102.0,"high":3155.0,"low":3094.0,"close":3125.0},{"time":"2024-06-21","open":3125.0,"high":3184.0,"low":3117.0,"close":3147.0},{"time":"2024-06-24","open":3155.0,"high":3181.0,"low":3111.0,"close":3126.0},{"time":"2024-06-25","open":3120.0,"high":3239.0,"low":3120.0,"close":3221.0},{"time":"2024-06-26","open":3255.0,"high":3297.0,"low":3209.0,"close":3295.0},{"time":"2024-06-27","open":3291.0,"high":3291.0,"low":3245.0,"close":3263.0},{"time":"2024-06-28","open":3296.0,"high":3313.0,"low":3234.0,"close":3240.0},{"time":"2024-07-01","open":3366.0,"high":3430.0,"low":3321.0,"close":3340.0},{"time":"2024-07-02","open":3340.0,"high":3479.0,"low":3339.0,"close":3470.0},{"time":"2024-07-03","open":3500.0,"high":3625.0,"low":3484.0,"close":3625.0},{"time":"2024-07-04","open":3635.0,"high":3795.0,"low":3633.0,"close":3730.0},{"time":"2024-07-05","open":3750.0,"high":3750.0,"low":3646.0,"close":3662.0},{"time":"2024-07-08","open":3659.0,"high":3687.0,"low":3635.0,"close":3671.0},{"time":"2024-07-09","open":3652.0,"high":3652.0,"low":3574.0,"close":3644.0},{"time":"2024-07-10","open":3663.0,"high":3676.0,"low":3549.0,"close":3604.0},{"time":"2024-07-11","open":3605.0,"high":3654.0,"low":3557.0,"close":3623.0},{"time":"2024-07-12","open":4010.0,"high":4323.0,"low":4004.0,"close":4323.0},{"time":"2024-07-16","open":4452.0,"high":4509.0,"low":4245.0,"close":4347.0},{"time":"2024-07-17","open":4409.0,"high":4530.0,"low":4336.0,"close":4515.0},{"time":"2024-07-18","open":4543.0,"high":4755.0,"low":4537.0,"close":4657.0},{"time":"2024-07-19","open":4662.0,"high":4756.0,"low":4601.0,"close":4666.0},{"time":"2024-07-22","open":4601.0,"high":4644.0,"low":4516.0,"close":4576.0},{"time":"2024-07-23","open":4598.0,"high":4675.0,"low":4591.0,"close":4671.0},{"time":"2024-07-24","open":4566.0,"high":4646.0,"low":4538.0,"close":4563.0},{"time":"2024-07-25","open":4488.0,"high":4600.0,"low":4436.0,"close":4544.0},{"time":"2024-07-26","open":4550.0,"high":4578.0,"low":4500.0,"close":4545.0},{"time":"2024-07-29","open":4560.0,"high":4596.0,"low":4526.0,"close":4566.0},{"time":"2024-07-30","open":4500.0,"high":4561.0,"low":4468.0,"close":4508.0},{"time":"2024-07-31","open":4483.0,"high":4547.0,"low":4444.0,"close":4545.0},{"time":"2024-08-01","open":4527.0,"high":4536.0,"low":4356.0,"close":4373.0},{"time":"2024-08-02","open":4280.0,"high":4309.0,"low":4118.0,"close":4120.0},{"time":"2024-08-05","open":3910.0,"high":4060.0,"low":3707.0,"close":3846.0},{"time":"2024-08-06","open":4040.0,"high":4348.0,"low":4026.0,"close":4303.0},{"time":"2024-08-07","open":4128.0,"high":4275.0,"low":4032.0,"close":4118.0},{"time":"2024-08-08","open":4188.0,"high":4319.0,"low":4186.0,"close":4212.0},{"time":"2024-08-09","open":4205.0,"high":4257.0,"low":4148.0,"close":4212.0},{"time":"2024-08-13","open":4195.0,"high":4384.0,"low":4164.0,"close":4384.0},{"time":"2024-08-14","open":4385.0,"high":4461.0,"low":4371.0,"close":4389.0},{"time":"2024-08-15","open":4495.0,"high":4519.0,"low":4302.0,"close":4304.0},{"time":"2024-08-16","open":4374.0,"high":4453.0,"low":4354.0,"close":4433.0},{"time":"2024-08-19","open":4370.0,"high":4434.0,"low":4321.0,"close":4357.0},{"time":"2024-08-20","open":4426.0,"high":4500.0,"low":4377.0,"close":4498.0},{"time":"2024-08-21","open":4441.0,"high":4539.0,"low":4411.0,"close":4433.0},{"time":"2024-08-22","open":4412.0,"high":4442.0,"low":4302.0,"close":4339.0},{"time":"2024-08-23","open":4339.0,"high":4357.0,"low":4242.0,"close":4344.0},{"time":"2024-08-26","open":4344.0,"high":4403.0,"low":4284.0,"close":4367.0},{"time":"2024-08-27","open":4350.0,"high":4423.0,"low":4322.0,"close":4422.0},{"time":"2024-08-28","open":4490.0,"high":4610.0,"low":4472.0,"close":4564.0},{"time":"2024-08-29","open":4480.0,"high":4562.0,"low":4476.0,"close":4562.0},{"time":"2024-08-30","open":4562.0,"high":4679.0,"low":4553.0,"close":4669.0},{"time":"2024-09-02","open":4702.0,"high":4710.0,"low":4544.0,"close":4590.0},{"time":"2024-09-03","open":4575.0,"high":4630.0,"low":4571.0,"close":4630.0},{"time":"2024-09-04","open":4490.0,"high":4635.0,"low":4462.0,"close":4596.0},{"time":"2024-09-05","open":4550.0,"high":4786.0,"low":4516.0,"close":4783.0},{"time":"2024-09-06","open":4830.0,"high":4961.0,"low":4765.0,"close":4918.0},{"time":"2024-09-09","open":4848.0,"high":4900.0,"low":4736.0,"close":4866.0},{"time":"2024-09-10","open":4906.0,"high":4974.0,"low":4811.0,"close":4830.0},{"time":"2024-09-11","open":4960.0,"high":5011.0,"low":4826.0,"close":4891.0},{"time":"2024-09-12","open":5048.0,"high":5159.0,"low":5024.0,"close":5144.0},{"time":"2024-09-13","open":5117.0,"high":5136.0,"low":5034.0,"close":5120.0},{"time":"2024-09-17","open":5080.0,"high":5139.0,"low":4937.0,"close":5129.0},{"time":"2024-09-18","open":5229.0,"high":5258.0,"low":5112.0,"close":5148.0},{"time":"2024-09-19","open":5232.0,"high":5303.0,"low":5199.0,"close":5199.0},{"time":"2024-09-20","open":5199.0,"high":5245.0,"low":5145.0,"close":5169.0},{"time":"2024-09-24","open":5230.0,"high":5334.0,"low":5226.0,"close":5292.0},{"time":"2024-09-25","open":5490.0,"high":5519.0,"low":5397.0,"close":5430.0},{"time":"2024-09-26","open":5450.0,"high":5500.0,"low":5411.0,"close":5438.0},{"time":"2024-09-27","open":5422.0,"high":5468.0,"low":5329.0,"close":5400.0},{"time":"2024-09-30","open":5231.0,"high":5370.0,"low":5226.0,"close":5304.0},{"time":"2024-10-01","open":5253.0,"high":5389.0,"low":5185.0,"close":5343.0},{"time":"2024-10-02","open":5300.0,"high":5332.0,"low":5171.0,"close":5176.0},{"time":"2024-10-03","open":5250.0,"high":5277.0,"low":5186.0,"close":5240.0},{"time":"2024-10-04","open":5259.0,"high":5430.0,"low":5259.0,"close":5406.0},{"time":"2024-10-07","open":5432.0,"high":5497.0,"low":5378.0,"close":5378.0},{"time":"2024-10-08","open":5345.0,"high":5380.0,"low":5294.0,"close":5340.0},{"time":"2024-10-09","open":5360.0,"high":5468.0,"low":5360.0,"close":5400.0},{"time":"2024-10-10","open":5315.0,"high":5389.0,"low":5165.0,"close":5193.0},{"time":"2024-10-11","open":5093.0,"high":5519.0,"low":4943.0,"close":5277.0},{"time":"2024-10-15","open":5308.0,"high":5561.0,"low":5191.0,"close":5561.0},{"time":"2024-10-16","open":5560.0,"high":5576.0,"low":5392.0,"close":5450.0},{"time":"2024-10-17","open":5449.0,"high":5449.0,"low":5186.0,"close":5307.0},{"time":"2024-10-18","open":5380.0,"high":5467.0,"low":5311.0,"close":5313.0},{"time":"2024-10-21","open":5153.0,"high":5261.0,"low":5032.0,"close":5036.0},{"time":"2024-10-22","open":4984.0,"high":4988.0,"low":4807.0,"close":4849.0},{"time":"2024-10-23","open":4840.0,"high":4868.0,"low":4745.0,"close":4853.0},{"time":"2024-10-24","open":4800.0,"high":4984.0,"low":4778.0,"close":4961.0},{"time":"2024-10-25","open":4977.0,"high":5003.0,"low":4866.0,"close":4960.0},{"time":"2024-10-28","open":4950.0,"high":5043.0,"low":4835.0,"close":4950.0},{"time":"2024-10-29","open":4900.0,"high":4970.0,"low":4893.0,"close":4925.0},{"time":"2024-10-30","open":4925.0,"high":4943.0,"low":4858.0,"close":4900.0},{"time":"2024-10-31","open":4901.0,"high":5007.0,"low":4894.0,"close":4974.0},{"time":"2024-11-01","open":4929.0,"high":4996.0,"low":4895.0,"close":4902.0},{"time":"2024-11-05","open":4890.0,"high":5025.0,"low":4850.0,"close":5025.0},{"time":"2024-11-06","open":5100.0,"high":5165.0,"low":5043.0,"close":5043.0},{"time":"2024-11-07","open":5050.0,"high":5137.0,"low":4963.0,"close":5042.0},{"time":"2024-11-08","open":5123.0,"high":5289.0,"low":5104.0,"close":5267.0},{"time":"2024-11-11","open":5297.0,"high":5423.0,"low":5283.0,"close":5418.0},{"time":"2024-11-12","open":5425.0,"high":5498.0,"low":5285.0,"close":5314.0},{"time":"2024-11-13","open":5310.0,"high":5643.0,"low":5209.0,"close":5500.0},{"time":"2024-11-14","open":5498.0,"high":5774.0,"low":5456.0,"close":5641.0},{"time":"2024-11-15","open":5741.0,"high":5820.0,"low":5631.0,"close":5791.0},{"time":"2024-11-18","open":5658.0,"high":5721.0,"low":5566.0,"close":5640.0},{"time":"2024-11-19","open":5714.0,"high":5737.0,"low":5492.0,"close":5564.0},{"time":"2024-11-20","open":5712.0,"high":5864.0,"low":5541.0,"close":5542.0},{"time":"2024-11-21","open":5519.0,"high":5534.0,"low":5366.0,"close":5388.0},{"time":"2024-11-22","open":5445.0,"high":5482.0,"low":5407.0,"close":5469.0},{"time":"2024-11-25","open":5498.0,"high":5543.0,"low":5403.0,"close":5419.0},{"time":"2024-11-26","open":5391.0,"high":5438.0,"low":5307.0,"close":5347.0},{"time":"2024-11-27","open":5341.0,"high":5409.0,"low":5231.0,"close":5396.0},{"time":"2024-11-28","open":5368.0,"high":5420.0,"low":5331.0,"close":5370.0},{"time":"2024-11-29","open":5371.0,"high":5451.0,"low":5345.0,"close":5411.0},{"time":"2024-12-02","open":5650.0,"high":5706.0,"low":5531.0,"close":5633.0},{"time":"2024-12-03","open":5632.0,"high":5699.0,"low":5573.0,"close":5672.0},{"time":"2024-12-04","open":5718.0,"high":5770.0,"low":5623.0,"close":5650.0},{"time":"2024-12-05","open":5601.0,"high":5643.0,"low":5465.0,"close":5618.0},{"time":"2024-12-06","open":5588.0,"high":5608.0,"low":5400.0,"close":5443.0},{"time":"2024-12-09","open":5457.0,"high":5564.0,"low":5447.0,"close":5561.0},{"time":"2024-12-10","open":5530.0,"high":5597.0,"low":5463.0,"close":5580.0},{"time":"2024-12-11","open":5563.0,"high":5564.0,"low":5360.0,"close":5377.0},{"time":"2024-12-12","open":5400.0,"high":5442.0,"low":5338.0,"close":5388.0},{"time":"2024-12-13","open":5288.0,"high":5367.0,"low":5268.0,"close":5276.0},{"time":"2024-12-16","open":5284.0,"high":5314.0,"low":5205.0,"close":5229.0},{"time":"2024-12-17","open":5250.0,"high":5309.0,"low":5149.0,"close":5209.0},{"time":"2024-12-18","open":5153.0,"high":5309.0,"low":5082.0,"close":5257.0},{"time":"2024-12-19","open":5205.0,"high":5420.0,"low":5200.0,"close":5394.0},{"time":"2024-12-20","open":5430.0,"high":5488.0,"low":5331.0,"close":5347.0},{"time":"2024-12-23","open":5410.0,"high":5427.0,"low":5346.0,"close":5369.0},{"time":"2024-12-24","open":5369.0,"high":5369.0,"low":5196.0,"close":5245.0},{"time":"2024-12-25","open":5231.0,"high":5260.0,"low":5133.0,"close":5183.0},{"time":"2024-12-26","open":5240.0,"high":5334.0,"low":5184.0,"close":5295.0},{"time":"2024-12-27","open":5310.0,"high":5383.0,"low":5301.0,"close":5341.0},{"time":"2024-12-30","open":5376.0,"high":5442.0,"low":5282.0,"close":5320.0},{"time":"2025-01-06","open":5420.0,"high":5560.0,"low":5366.0,"close":5386.0},{"time":"2025-01-07","open":5351.0,"high":5416.0,"low":5306.0,"close":5345.0},{"time":"2025-01-08","open":5300.0,"high":5338.0,"low":5233.0,"close":5312.0},{"time":"2025-01-09","open":5262.0,"high":5338.0,"low":5219.0,"close":5266.0},{"time":"2025-01-10","open":5190.0,"high":5215.0,"low":5139.0,"close":5215.0},{"time":"2025-01-14","open":5209.0,"high":5248.0,"low":4904.0,"close":4984.0},{"time":"2025-01-15","open":5354.0,"high":5684.0,"low":5354.0,"close":5684.0},{"time":"2025-01-16","open":5884.0,"high":6073.0,"low":5737.0,"close":5900.0},{"time":"2025-01-17","open":5925.0,"high":5977.0,"low":5824.0,"close":5892.0},{"time":"2025-01-20","open":5885.0,"high":5909.0,"low":5712.0,"close":5758.0},{"time":"2025-01-21","open":5687.0,"high":5973.0,"low":5682.0,"close":5964.0},{"time":"2025-01-22","open":6064.0,"high":6090.0,"low":5842.0,"close":5914.0},{"time":"2025-01-23","open":6000.0,"high":6235.0,"low":5999.0,"close":6138.0},{"time":"2025-01-24","open":6101.0,"high":6228.0,"low":6024.0,"close":6154.0},{"time":"2025-01-27","open":6190.0,"high":6299.0,"low":6190.0,"close":6253.0},{"time":"2025-01-28","open":6260.0,"high":6373.0,"low":6205.0,"close":6349.0},{"time":"2025-01-29","open":6500.0,"high":6741.0,"low":6455.0,"close":6632.0},{"time":"2025-01-30","open":6632.0,"high":6767.0,"low":6595.0,"close":6625.0},{"time":"2025-01-31","open":6493.0,"high":6686.0,"low":6435.0,"close":6645.0},{"time":"2025-02-03","open":6557.0,"high":6714.0,"low":6504.0,"close":6540.0},{"time":"2025-02-04","open":6638.0,"high":6659.0,"low":6531.0,"close":6593.0},{"time":"2025-02-05","open":6593.0,"high":6620.0,"low":6539.0,"close":6576.0},{"time":"2025-02-06","open":6600.0,"high":6749.0,"low":6567.0,"close":6725.0},{"time":"2025-02-07","open":6712.0,"high":6724.0,"low":6585.0,"close":6606.0},{"time":"2025-02-10","open":6544.0,"high":6650.0,"low":6462.0,"close":6629.0},{"time":"2025-02-12","open":6543.0,"high":6793.0,"low":6540.0,"close":6774.0},{"time":"2025-02-13","open":6800.0,"high":7061.0,"low":6778.0,"close":7031.0},{"time":"2025-02-14","open":6973.0,"high":7025.0,"low":6930.0,"close":6963.0},{"time":"2025-02-17","open":6922.0,"high":7098.0,"low":6875.0,"close":7016.0},{"time":"2025-02-18","open":7070.0,"high":7122.0,"low":6993.0,"close":7023.0},{"time":"2025-02-19","open":6950.0,"high":6958.0,"low":6830.0,"close":6884.0},{"time":"2025-02-20","open":6825.0,"high":6947.0,"low":6640.0,"close":6697.0},{"time":"2025-02-21","open":6630.0,"high":6725.0,"low":6594.0,"close":6607.0},{"time":"2025-02-25","open":6520.0,"high":6637.0,"low":6487.0,"close":6504.0},{"time":"2025-02-26","open":6565.0,"high":6649.0,"low":6377.0,"close":6433.0},{"time":"2025-02-27","open":6499.0,"high":6570.0,"low":6445.0,"close":6535.0},{"time":"2025-02-28","open":6450.0,"high":6533.0,"low":6241.0,"close":6364.0},{"time":"2025-03-03","open":6458.0,"high":6513.0,"low":6374.0,"close":6434.0},{"time":"2025-03-04","open":6434.0,"high":6550.0,"low":6287.0,"close":6531.0},{"time":"2025-03-05","open":6534.0,"high":6549.0,"low":6365.0,"close":6456.0},{"time":"2025-03-06","open":6374.0,"high":6665.0,"low":6213.0,"close":6231.0},{"time":"2025-03-07","open":6331.0,"high":6375.0,"low":6226.0,"close":6236.0},{"time":"2025-03-10","open":6165.0,"high":6201.0,"low":5875.0,"close":5887.0},{"time":"2025-03-11","open":5768.0,"high":5888.0,"low":5636.0,"close":5880.0},{"time":"2025-03-12","open":5980.0,"high":6210.0,"low":5970.0,"close":6100.0},{"time":"2025-03-13","open":6258.0,"high":6278.0,"low":6039.0,"close":6053.0},{"time":"2025-03-14","open":6119.0,"high":6375.0,"low":6109.0,"close":6375.0},{"time":"2025-03-17","open":6453.0,"high":6700.0,"low":6441.0,"close":6663.0},{"time":"2025-03-18","open":6730.0,"high":6800.0,"low":6658.0,"close":6668.0},{"time":"2025-03-19","open":6610.0,"high":6766.0,"low":6564.0,"close":6691.0},{"time":"2025-03-21","open":6600.0,"high":6665.0,"low":6532.0,"close":6589.0},{"time":"2025-03-24","open":6572.0,"high":6626.0,"low":6543.0,"close":6581.0},{"time":"2025-03-25","open":6671.0,"high":6751.0,"low":6633.0,"close":6726.0},{"time":"2025-03-26","open":6800.0,"high":6849.0,"low":6755.0,"close":6782.0},{"time":"2025-03-27","open":6800.0,"high":6877.0,"low":6764.0,"close":6871.0},{"time":"2025-03-28","open":6971.0,"high":7056.0,"low":6594.0,"close":6702.0},{"time":"2025-03-31","open":6602.0,"high":6647.0,"low":6418.0,"close":6470.0},{"time":"2025-04-01","open":6447.0,"high":6628.0,"low":6390.0,"close":6500.0},{"time":"2025-04-02","open":6434.0,"high":6472.0,"low":6250.0,"close":6470.0},{"time":"2025-04-03","open":6270.0,"high":6424.0,"low":6193.0,"close":6258.0},{"time":"2025-04-04","open":6259.0,"high":6291.0,"low":6035.0,"close":6186.0},{"time":"2025-04-07","open":5586.0,"high":6033.0,"low":5586.0,"close":5761.0},{"time":"2025-04-08","open":5961.0,"high":6216.0,"low":5950.0,"close":6128.0},{"time":"2025-04-09","open":6053.0,"high":6273.0,"low":6012.0,"close":6160.0},{"time":"2025-04-10","open":6600.0,"high":6774.0,"low":6400.0,"close":6757.0},{"time":"2025-04-11","open":6952.0,"high":7671.0,"low":6858.0,"close":7601.0},{"time":"2025-04-14","open":7650.0,"high":7911.0,"low":7437.0,"close":7437.0},{"time":"2025-04-15","open":7352.0,"high":7724.0,"low":7315.0,"close":7660.0},{"time":"2025-04-16","open":7800.0,"high":7862.0,"low":7381.0,"close":7492.0},{"time":"2025-04-17","open":7569.0,"high":7628.0,"low":7461.0,"close":7583.0},{"time":"2025-04-18","open":7507.0,"high":7744.0,"low":7439.0,"close":7671.0},{"time":"2025-04-21","open":7681.0,"high":7830.0,"low":7676.0,"close":7756.0},{"time":"2025-04-22","open":7632.0,"high":7700.0,"low":7393.0,"close":7393.0},{"time":"2025-04-23","open":7441.0,"high":7511.0,"low":7436.0,"close":7502.0},{"time":"2025-04-24","open":7491.0,"high":7499.0,"low":7393.0,"close":7468.0},{"time":"2025-04-25","open":7451.0,"high":7551.0,"low":7407.0,"close":7441.0},{"time":"2025-04-28","open":7478.0,"high":7547.0,"low":7452.0,"close":7532.0},{"time":"2025-04-30","open":7544.0,"high":7697.0,"low":7490.0,"close":7690.0},{"time":"2025-05-01","open":7623.0,"high":7650.0,"low":7522.0,"close":7611.0},{"time":"2025-05-02","open":7581.0,"high":7700.0,"low":7524.0,"close":7684.0},{"time":"2025-05-07","open":7586.0,"high":7756.0,"low":7561.0,"close":7744.0},{"time":"2025-05-08","open":7850.0,"high":8070.0,"low":7846.0,"close":8046.0},{"time":"2025-05-09","open":8164.0,"high":8320.0,"low":8098.0,"close":8208.0},{"time":"2025-05-12","open":8168.0,"high":8181.0,"low":8000.0,"close":8143.0},{"time":"2025-05-13","open":8121.0,"high":8455.0,"low":8021.0,"close":8268.0},{"time":"2025-05-14","open":8268.0,"high":8301.0,"low":8071.0,"close":8107.0},{"time":"2025-05-15","open":8074.0,"high":8090.0,"low":7875.0,"close":7913.0},{"time":"2025-05-16","open":7871.0,"high":7872.0,"low":7662.0,"close":7741.0},{"time":"2025-05-19","open":7705.0,"high":7915.0,"low":7653.0,"close":7900.0},{"time":"2025-05-20","open":8050.0,"high":8056.0,"low":7921.0,"close":7986.0},{"time":"2025-05-21","open":8020.0,"high":8156.0,"low":7949.0,"close":8044.0},{"time":"2025-05-22","open":8250.0,"high":8326.0,"low":8112.0,"close":8158.0},{"time":"2025-05-23","open":8122.0,"high":8488.0,"low":8081.0,"close":8471.0},{"time":"2025-05-26","open":8433.0,"high":8498.0,"low":8335.0,"close":8497.0},{"time":"2025-05-27","open":8417.0,"high":8468.0,"low":8290.0,"close":8468.0},{"time":"2025-05-28","open":8480.0,"high":8585.0,"low":8361.0,"close":8371.0},{"time":"2025-05-29","open":8281.0,"high":8300.0,"low":7926.0,"close":7929.0},{"time":"2025-05-30","open":7800.0,"high":7818.0,"low":7612.0,"close":7683.0},{"time":"2025-06-02","open":7627.0,"high":7812.0,"low":7564.0,"close":7751.0},{"time":"2025-06-03","open":7730.0,"high":7784.0,"low":7573.0,"close":7680.0},{"time":"2025-06-04","open":7680.0,"high":7710.0,"low":7452.0,"close":7502.0},{"time":"2025-06-05","open":7352.0,"high":7376.0,"low":7083.0,"close":7273.0},{"time":"2025-06-06","open":7221.0,"high":7241.0,"low":7145.0,"close":7215.0},{"time":"2025-06-09","open":7260.0,"high":7390.0,"low":7235.0,"close":7381.0},{"time":"2025-06-10","open":7505.0,"high":7721.0,"low":7505.0,"close":7618.0},{"time":"2025-06-11","open":7620.0,"high":7704.0,"low":7559.0,"close":7649.0},{"time":"2025-06-12","open":7426.0,"high":7484.0,"low":7185.0,"close":7217.0},{"time":"2025-06-13","open":7254.0,"high":7348.0,"low":7195.0,"close":7339.0},{"time":"2025-06-16","open":7348.0,"high":7599.0,"low":7288.0,"close":7545.0},{"time":"2025-06-17","open":7545.0,"high":7629.0,"low":7441.0,"close":7497.0},{"time":"2025-06-18","open":7500.0,"high":7569.0,"low":7378.0,"close":7523.0},{"time":"2025-06-19","open":7549.0,"high":7567.0,"low":7428.0,"close":7428.0},{"time":"2025-06-20","open":7380.0,"high":7384.0,"low":7270.0,"close":7329.0},{"time":"2025-06-23","open":7328.0,"high":7328.0,"low":7219.0,"close":7277.0},{"time":"2025-06-24","open":7320.0,"high":7323.0,"low":7222.0,"close":7286.0},{"time":"2025-06-25","open":7315.0,"high":7420.0,"low":7208.0,"close":7420.0},{"time":"2025-06-26","open":7352.0,"high":7356.0,"low":7209.0,"close":7232.0},{"time":"2025-06-27","open":7203.0,"high":7442.0,"low":7203.0,"close":7420.0},{"time":"2025-06-30","open":7467.0,"high":7530.0,"low":7420.0,"close":7420.0},{"time":"2025-07-01","open":7500.0,"high":7500.0,"low":7278.0,"close":7300.0},{"time":"2025-07-02","open":7228.0,"high":7298.0,"low":7182.0,"close":7249.0},{"time":"2025-07-03","open":7156.0,"high":7292.0,"low":7151.0,"close":7292.0},{"time":"2025-07-04","open":7212.0,"high":7314.0,"low":7209.0,"close":7275.0},{"time":"2025-07-07","open":7364.0,"high":7589.0,"low":7349.0,"close":7538.0},{"time":"2025-07-08","open":7616.0,"high":7819.0,"low":7567.0,"close":7664.0},{"time":"2025-07-09","open":7606.0,"high":7731.0,"low":7552.0,"close":7688.0},{"time":"2025-07-10","open":7800.0,"high":8065.0,"low":7797.0,"close":7958.0},{"time":"2025-07-11","open":8072.0,"high":8139.0,"low":8045.0,"close":8073.0},{"time":"2025-07-14","open":8130.0,"high":8186.0,"low":8004.0,"close":8134.0},{"time":"2025-07-15","open":8165.0,"high":8194.0,"low":8051.0,"close":8074.0},{"time":"2025-07-16","open":8300.0,"high":8409.0,"low":7988.0,"close":8145.0},{"time":"2025-07-17","open":8101.0,"high":8553.0,"low":8002.0,"close":8462.0},{"time":"2025-07-18","open":8550.0,"high":8584.0,"low":8262.0,"close":8293.0},{"time":"2025-07-22","open":8251.0,"high":8405.0,"low":8157.0,"close":8283.0},{"time":"2025-07-23","open":8332.0,"high":8535.0,"low":8292.0,"close":8510.0},{"time":"2025-07-24","open":8578.0,"high":8648.0,"low":8442.0,"close":8570.0},{"time":"2025-07-25","open":8654.0,"high":8809.0,"low":8619.0,"close":8755.0},{"time":"2025-07-28","open":8799.0,"high":8815.0,"low":8516.0,"close":8546.0},{"time":"2025-07-29","open":8464.0,"high":8482.0,"low":8285.0,"close":8330.0},{"time":"2025-07-30","open":8377.0,"high":8595.0,"low":8300.0,"close":8566.0},{"time":"2025-07-31","open":8620.0,"high":8771.0,"low":8518.0,"close":8676.0},{"time":"2025-08-01","open":8708.0,"high":8788.0,"low":8607.0,"close":8757.0},{"time":"2025-08-04","open":8555.0,"high":8724.0,"low":8456.0,"close":8724.0},{"time":"2025-08-05","open":8788.0,"high":8805.0,"low":8522.0,"close":8604.0},{"time":"2025-08-06","open":8579.0,"high":8677.0,"low":8495.0,"close":8597.0},{"time":"2025-08-07","open":8629.0,"high":8884.0,"low":8523.0,"close":8600.0},{"time":"2025-08-08","open":8625.0,"high":8699.0,"low":8550.0,"close":8652.0},{"time":"2025-08-12","open":8670.0,"high":8760.0,"low":8580.0,"close":8710.0},{"time":"2025-08-13","open":8721.0,"high":8882.0,"low":8575.0,"close":8590.0},{"time":"2025-08-14","open":8589.0,"high":8647.0,"low":8439.0,"close":8558.0},{"time":"2025-08-15","open":8529.0,"high":8558.0,"low":8362.0,"close":8521.0},{"time":"2025-08-18","open":8550.0,"high":8792.0,"low":8540.0,"close":8689.0},{"time":"2025-08-19","open":8593.0,"high":8697.0,"low":8326.0,"close":8340.0},{"time":"2025-08-20","open":8172.0,"high":8312.0,"low":8153.0,"close":8303.0},{"time":"2025-08-21","open":8380.0,"high":8398.0,"low":8222.0,"close":8284.0},{"time":"2025-08-22","open":8400.0,"high":8765.0,"low":8400.0,"close":8565.0},{"time":"2025-08-25","open":8565.0,"high":8775.0,"low":8520.0,"close":8678.0},{"time":"2025-08-26","open":8629.0,"high":8663.0,"low":8552.0,"close":8612.0},{"time":"2025-08-27","open":8614.0,"high":8625.0,"low":8423.0,"close":8506.0},{"time":"2025-08-28","open":8480.0,"high":8574.0,"low":8429.0,"close":8551.0},{"time":"2025-08-29","open":8500.0,"high":8508.0,"low":8301.0,"close":8373.0},{"time":"2025-09-01","open":8320.0,"high":8443.0,"low":8272.0,"close":8399.0},{"time":"2025-09-02","open":8549.0,"high":8562.0,"low":8288.0,"close":8303.0},{"time":"2025-09-03","open":8325.0,"high":8350.0,"low":8190.0,"close":8300.0},{"time":"2025-09-04","open":8361.0,"high":8379.0,"low":8200.0,"close":8295.0},{"time":"2025-09-05","open":8380.0,"high":8415.0,"low":8219.0,"close":8300.0},{"time":"2025-09-08","open":8380.0,"high":8458.0,"low":8206.0,"close":8276.0},{"time":"2025-09-09","open":8410.0,"high":8527.0,"low":8274.0,"close":8374.0},{"time":"2025-09-10","open":8442.0,"high":8574.0,"low":8351.0,"close":8529.0},{"time":"2025-09-11","open":8379.0,"high":8464.0,"low":8340.0,"close":8350.0},{"time":"2025-09-12","open":8454.0,"high":8554.0,"low":8349.0,"close":8490.0},{"time":"2025-09-16","open":8579.0,"high":8610.0,"low":8392.0,"close":8412.0},{"time":"2025-09-17","open":8335.0,"high":8523.0,"low":8280.0,"close":8499.0},{"time":"2025-09-18","open":8606.0,"high":8873.0,"low":8540.0,"close":8745.0},{"time":"2025-09-19","open":8969.0,"high":9018.0,"low":8679.0,"close":8785.0},{"time":"2025-09-22","open":8931.0,"high":8950.0,"low":8830.0,"close":8868.0},{"time":"2025-09-24","open":8600.0,"high":8775.0,"low":8581.0,"close":8692.0},{"time":"2025-09-25","open":8764.0,"high":8764.0,"low":8621.0,"close":8682.0},{"time":"2025-09-26","open":8749.0,"high":8934.0,"low":8729.0,"close":8854.0},{"time":"2025-09-29","open":8812.0,"high":8812.0,"low":8450.0,"close":8450.0},{"time":"2025-09-30","open":8600.0,"high":8959.0,"low":8568.0,"close":8700.0},{"time":"2025-10-01","open":8550.0,"high":8662.0,"low":8319.0,"close":8527.0},{"time":"2025-10-02","open":8400.0,"high":8467.0,"low":8245.0,"close":8296.0},{"time":"2025-10-03","open":8280.0,"high":8544.0,"low":8280.0,"close":8408.0},{"time":"2025-10-06","open":8708.0,"high":9075.0,"low":8655.0,"close":9075.0},{"time":"2025-10-07","open":9033.0,"high":9075.0,"low":8788.0,"close":8820.0},{"time":"2025-10-08","open":8755.0,"high":8902.0,"low":8651.0,"close":8651.0},{"time":"2025-10-09","open":8700.0,"high":8887.0,"low":8552.0,"close":8558.0},{"time":"2025-10-10","open":8540.0,"high":8774.0,"low":8500.0,"close":8556.0},{"time":"2025-10-14","open":8421.0,"high":8573.0,"low":8357.0,"close":8422.0},{"time":"2025-10-15","open":8538.0,"high":8547.0,"low":8275.0,"close":8357.0},{"time":"2025-10-16","open":7757.0,"high":7836.0,"low":7448.0,"close":7648.0},{"time":"2025-10-17","open":7777.0,"high":7877.0,"low":7505.0,"close":7567.0},{"time":"2025-10-20","open":7680.0,"high":7793.0,"low":7392.0,"close":7405.0},{"time":"2025-10-21","open":7470.0,"high":7527.0,"low":7388.0,"close":7470.0},{"time":"2025-10-22","open":7468.0,"high":7620.0,"low":7404.0,"close":7437.0},{"time":"2025-10-23","open":7401.0,"high":7402.0,"low":7311.0,"close":7368.0},{"time":"2025-10-24","open":7372.0,"high":7618.0,"low":7358.0,"close":7522.0},{"time":"2025-10-27","open":7650.0,"high":7813.0,"low":7642.0,"close":7699.0},{"time":"2025-10-28","open":7700.0,"high":7770.0,"low":7480.0,"close":7520.0},{"time":"2025-10-29","open":7478.0,"high":7505.0,"low":7103.0,"close":7103.0},{"time":"2025-10-30","open":7083.0,"high":7184.0,"low":7030.0,"close":7045.0},{"time":"2025-10-31","open":7052.0,"high":7196.0,"low":7026.0,"close":7065.0},{"time":"2025-11-04","open":7003.0,"high":7095.0,"low":6921.0,"close":7020.0},{"time":"2025-11-05","open":7110.0,"high":7215.0,"low":7006.0,"close":7064.0},{"time":"2025-11-06","open":7154.0,"high":7198.0,"low":6870.0,"close":6891.0},{"time":"2025-11-07","open":6795.0,"high":6890.0,"low":6720.0,"close":6840.0},{"time":"2025-11-10","open":6740.0,"high":6814.0,"low":6593.0,"close":6595.0},{"time":"2025-11-11","open":6595.0,"high":6629.0,"low":6413.0,"close":6428.0},{"time":"2025-11-12","open":6482.0,"high":6622.0,"low":6421.0,"close":6557.0},{"time":"2025-11-13","open":6620.0,"high":6817.0,"low":6606.0,"close":6770.0},{"time":"2025-11-14","open":6786.0,"high":6996.0,"low":6724.0,"close":6910.0},{"time":"2025-11-17","open":6820.0,"high":6999.0,"low":6810.0,"close":6963.0},{"time":"2025-11-18","open":6763.0,"high":6817.0,"low":6514.0,"close":6595.0},{"time":"2025-11-19","open":6653.0,"high":6710.0,"low":6550.0,"close":6573.0},{"time":"2025-11-20","open":6575.0,"high":6832.0,"low":6575.0,"close":6756.0},{"time":"2025-11-21","open":6696.0,"high":6854.0,"low":6649.0,"close":6844.0},{"time":"2025-11-25","open":6911.0,"high":6950.0,"low":6748.0,"close":6749.0},{"time":"2025-11-26","open":6726.0,"high":6746.0,"low":6548.0,"close":6711.0},{"time":"2025-11-27","open":6742.0,"high":6844.0,"low":6682.0,"close":6702.0},{"time":"2025-11-28","open":6820.0,"high":6851.0,"low":6752.0,"close":6837.0},{"time":"2025-12-01","open":6719.0,"high":6854.0,"low":6643.0,"close":6657.0},{"time":"2025-12-02","open":6557.0,"high":6571.0,"low":6370.0,"close":6471.0},{"time":"2025-12-03","open":6498.0,"high":6499.0,"low":6347.0,"close":6463.0},{"time":"2025-12-04","open":6511.0,"high":6774.0,"low":6500.0,"close":6704.0},{"time":"2025-12-05","open":6580.0,"high":6665.0,"low":6533.0,"close":6638.0},{"time":"2025-12-08","open":6738.0,"high":6905.0,"low":6708.0,"close":6808.0},{"time":"2025-12-09","open":6708.0,"high":6736.0,"low":6517.0,"close":6559.0},{"time":"2025-12-10","open":6600.0,"high":6653.0,"low":6543.0,"close":6543.0},{"time":"2025-12-11","open":6541.0,"high":6607.0,"low":6458.0,"close":6494.0},{"time":"2025-12-12","open":6672.0,"high":6772.0,"low":6633.0,"close":6661.0},{"time":"2025-12-15","open":6584.0,"high":6687.0,"low":6565.0,"close":6644.0},{"time":"2025-12-16","open":6552.0,"high":6677.0,"low":6473.0,"close":6619.0},{"time":"2025-12-17","open":6680.0,"high":6686.0,"low":6428.0,"close":6470.0},{"time":"2025-12-18","open":6450.0,"high":6747.0,"low":6436.0,"close":6744.0},{"time":"2025-12-19","open":6748.0,"high":6853.0,"low":6686.0,"close":6686.0},{"time":"2025-12-22","open":6722.0,"high":6755.0,"low":6565.0,"close":6610.0},{"time":"2025-12-23","open":6643.0,"high":6710.0,"low":6600.0,"close":6706.0},{"time":"2025-12-24","open":6606.0,"high":6673.0,"low":6569.0,"close":6569.0},{"time":"2025-12-25","open":6588.0,"high":6591.0,"low":6516.0,"close":6552.0},{"time":"2025-12-26","open":6550.0,"high":6623.0,"low":6532.0,"close":6600.0},{"time":"2025-12-29","open":6618.0,"high":6630.0,"low":6550.0,"close":6578.0},{"time":"2025-12-30","open":6572.0,"high":6584.0,"low":6485.0,"close":6500.0},{"time":"2026-01-05","open":6540.0,"high":6569.0,"low":6382.0,"close":6418.0},{"time":"2026-01-06","open":6495.0,"high":6606.0,"low":6444.0,"close":6605.0},{"time":"2026-01-07","open":6505.0,"high":6684.0,"low":6503.0,"close":6650.0},{"time":"2026-01-08","open":6651.0,"high":6798.0,"low":6646.0,"close":6793.0},{"time":"2026-01-09","open":6993.0,"high":6993.0,"low":6801.0,"close":6913.0},{"time":"2026-01-13","open":7099.0,"high":7099.0,"low":6828.0,"close":6828.0},{"time":"2026-01-14","open":6820.0,"high":6920.0,"low":6734.0,"close":6768.0},{"time":"2026-01-15","open":6999.0,"high":7222.0,"low":6715.0,"close":7203.0},{"time":"2026-01-16","open":6989.0,"high":6989.0,"low":6482.0,"close":6625.0},{"time":"2026-01-19","open":6686.0,"high":6692.0,"low":6534.0,"close":6641.0},{"time":"2026-01-20","open":6552.0,"high":6752.0,"low":6548.0,"close":6690.0},{"time":"2026-01-21","open":6526.0,"high":6583.0,"low":6200.0,"close":6246.0},{"time":"2026-01-22","open":6271.0,"high":6322.0,"low":6100.0,"close":6143.0},{"time":"2026-01-23","open":6172.0,"high":6254.0,"low":6065.0,"close":6065.0},{"time":"2026-01-26","open":5897.0,"high":6119.0,"low":5891.0,"close":6111.0},{"time":"2026-01-27","open":6057.0,"high":6300.0,"low":6052.0,"close":6220.0},{"time":"2026-01-28","open":6090.0,"high":6378.0,"low":6066.0,"close":6316.0},{"time":"2026-01-29","open":5969.0,"high":6075.0,"low":5771.0,"close":5800.0},{"time":"2026-01-30","open":5742.0,"high":5750.0,"low":5423.0,"close":5441.0},{"time":"2026-02-02","open":5541.0,"high":5559.0,"low":5330.0,"close":5503.0},{"time":"2026-02-03","open":5503.0,"high":5534.0,"low":5428.0,"close":5533.0},{"time":"2026-02-04","open":5250.0,"high":5327.0,"low":5063.0,"close":5063.0},{"time":"2026-02-05","open":5010.0,"high":5231.0,"low":5000.0,"close":5075.0},{"time":"2026-02-06","open":4891.0,"high":4908.0,"low":4727.0,"close":4822.0},{"time":"2026-02-09","open":4978.0,"high":4987.0,"low":4852.0,"close":4926.0},{"time":"2026-02-10","open":4996.0,"high":5184.0,"low":4962.0,"close":5040.0},{"time":"2026-02-12","open":4830.0,"high":4853.0,"low":4512.0,"close":4515.0},{"time":"2026-02-13","open":4357.0,"high":4430.0,"low":4223.0,"close":4292.0},{"time":"2026-02-16","open":4332.0,"high":4532.0,"low":4288.0,"close":4381.0},{"time":"2026-02-17","open":4320.0,"high":4398.0,"low":4245.0,"close":4344.0},{"time":"2026-02-18","open":4343.0,"high":4479.0,"low":4309.0,"close":4474.0},{"time":"2026-02-19","open":4600.0,"high":4628.0,"low":4458.0,"close":4549.0},{"time":"2026-02-20","open":4525.0,"high":4549.0,"low":4413.0,"close":4480.0},{"time":"2026-02-24","open":3920.0,"high":3935.0,"low":3780.0,"close":3861.0},{"time":"2026-02-25","open":3985.0,"high":4198.0,"low":3930.0,"close":4061.0},{"time":"2026-02-26","open":4120.0,"high":4377.0,"low":4117.0,"close":4325.0},{"time":"2026-02-27","open":4535.0,"high":4601.0,"low":4421.0,"close":4505.0},{"time":"2026-03-02","open":4435.0,"high":4459.0,"low":4291.0,"close":4291.0},{"time":"2026-03-03","open":4361.0,"high":4373.0,"low":4210.0,"close":4259.0},{"time":"2026-03-04","open":4399.0,"high":4565.0,"low":4320.0,"close":4498.0},{"time":"2026-03-05","open":4638.0,"high":4658.0,"low":4463.0,"close":4571.0},{"time":"2026-03-06","open":4711.0,"high":4882.0,"low":4631.0,"close":4766.0},{"time":"2026-03-09","open":4703.0,"high":4756.0,"low":4589.0,"close":4729.0},{"time":"2026-03-10","open":4600.0,"high":4700.0,"low":4536.0,"close":4678.0},{"time":"2026-03-11","open":4608.0,"high":4750.0,"low":4565.0,"close":4603.0},{"time":"2026-03-12","open":4538.0,"high":4618.0,"low":4496.0,"close":4615.0},{"time":"2026-03-13","open":4405.0,"high":4442.0,"low":4307.0,"close":4307.0},{"time":"2026-03-16","open":4377.0,"high":4430.0,"low":4341.0,"close":4385.0},{"time":"2026-03-17","open":4400.0,"high":4419.0,"low":4326.0,"close":4385.0},{"time":"2026-03-18","open":4350.0,"high":4428.0,"low":4293.0,"close":4428.0},{"time":"2026-03-19","open":4495.0,"high":4723.0,"low":4489.0,"close":4549.0},{"time":"2026-03-23","open":4421.0,"high":4550.0,"low":4398.0,"close":4506.0},{"time":"2026-03-24","open":4529.0,"high":4605.0,"low":4430.0,"close":4598.0},{"time":"2026-03-25","open":4458.0,"high":4557.0,"low":4458.0,"close":4543.0},{"time":"2026-03-26","open":4503.0,"high":4617.0,"low":4478.0,"close":4523.0},{"time":"2026-03-27","open":4557.0,"high":4608.0,"low":4527.0,"close":4559.0},{"time":"2026-03-30","open":4388.0,"high":4445.0,"low":4341.0,"close":4434.0},{"time":"2026-03-31","open":4572.0,"high":4649.0,"low":4529.0,"close":4539.0},{"time":"2026-04-01","open":4607.0,"high":4754.0,"low":4561.0,"close":4754.0},{"time":"2026-04-02","open":4732.0,"high":4748.0,"low":4586.0,"close":4622.0},{"time":"2026-04-03","open":4745.0,"high":4795.0,"low":4701.0,"close":4727.0},{"time":"2026-04-06","open":4722.0,"high":4812.0,"low":4695.0,"close":4766.0},{"time":"2026-04-07","open":4769.0,"high":4894.0,"low":4769.0,"close":4839.0},{"time":"2026-04-08","open":4957.0,"high":4971.0,"low":4846.0,"close":4864.0},{"time":"2026-04-09","open":4900.0,"high":4915.0,"low":4763.0,"close":4796.0},{"time":"2026-04-10","open":4698.0,"high":4698.0,"low":4506.0,"close":4516.0},{"time":"2026-04-13","open":4427.0,"high":4638.0,"low":4386.0,"close":4608.0},{"time":"2026-04-14","open":4879.0,"high":4963.0,"low":4834.0,"close":4887.0},{"time":"2026-04-15","open":5527.0,"high":5587.0,"low":5450.0,"close":5587.0},{"time":"2026-04-16","open":5755.0,"high":5766.0,"low":5287.0,"close":5300.0},{"time":"2026-04-17","open":5338.0,"high":5694.0,"low":5335.0,"close":5618.0},{"time":"2026-04-20","open":5810.0,"high":5939.0,"low":5693.0,"close":5693.0},{"time":"2026-04-21","open":5848.0,"high":5916.0,"low":5685.0,"close":5745.0},{"time":"2026-04-22","open":5893.0,"high":6030.0,"low":5871.0,"close":6000.0},{"time":"2026-04-23","open":5759.0,"high":5760.0,"low":5360.0,"close":5416.0},{"time":"2026-04-24","open":5469.0,"high":5542.0,"low":5330.0,"close":5362.0},{"time":"2026-04-27","open":5331.0,"high":5342.0,"low":5044.0,"close":5072.0},{"time":"2026-04-28","open":5104.0,"high":5299.0,"low":5100.0,"close":5241.0},{"time":"2026-04-30","open":5225.0,"high":5261.0,"low":4968.0,"close":5060.0},{"time":"2026-05-01","open":4985.0,"high":5158.0,"low":4960.0,"close":5088.0},{"time":"2026-05-07","open":5150.0,"high":5232.0,"low":5014.0,"close":5125.0},{"time":"2026-05-08","open":5225.0,"high":5419.0,"low":5175.0,"close":5275.0},{"time":"2026-05-11","open":5300.0,"high":5399.0,"low":5208.0,"close":5262.0},{"time":"2026-05-12","open":5103.0,"high":5161.0,"low":5005.0,"close":5031.0},{"time":"2026-05-13","open":5131.0,"high":5241.0,"low":5045.0,"close":5168.0},{"time":"2026-05-14","open":5068.0,"high":5080.0,"low":4943.0,"close":4999.0},{"time":"2026-05-15","open":5010.0,"high":5124.0,"low":4981.0,"close":5115.0},{"time":"2026-05-18","open":5280.0,"high":5387.0,"low":5213.0,"close":5318.0},{"time":"2026-05-19","open":5560.0,"high":5777.0,"low":5507.0,"close":5756.0},{"time":"2026-05-20","open":5760.0,"high":5794.0,"low":5457.0,"close":5472.0},{"time":"2026-05-21","open":5459.0,"high":5594.0,"low":5381.0,"close":5537.0},{"time":"2026-05-22","open":5525.0,"high":5767.0,"low":5448.0,"close":5767.0},{"time":"2026-05-25","open":5776.0,"high":5787.0,"low":5573.0,"close":5682.0},{"time":"2026-05-26","open":5732.0,"high":5811.0,"low":5588.0,"close":5673.0},{"time":"2026-05-27","open":5716.0,"high":5879.0,"low":5641.0,"close":5810.0},{"time":"2026-05-28","open":5650.0,"high":5744.0,"low":5414.0,"close":5445.0},{"time":"2026-05-29","open":5609.0,"high":5780.0,"low":5540.0,"close":5616.0},{"time":"2026-06-01","open":5980.0,"high":6237.0,"low":5886.0,"close":6048.0},{"time":"2026-06-02","open":6263.0,"high":6315.0,"low":5971.0,"close":6005.0},{"time":"2026-06-03","open":5848.0,"high":5963.0,"low":5718.0,"close":5950.0},{"time":"2026-06-04","open":5850.0,"high":5962.0,"low":5807.0,"close":5857.0}],"topix_rebased":[{"time":"2024-05-16","value":3328.0},{"time":"2024-05-17","value":3337.3156053184043},{"time":"2024-05-20","value":3389.7158852344296},{"time":"2024-05-21","value":3358.2757172848146},{"time":"2024-05-22","value":3328.0},{"time":"2024-05-23","value":3350.1245626312107},{"time":"2024-05-24","value":3334.9867039888036},{"time":"2024-05-27","value":3362.9335199440166},{"time":"2024-05-28","value":3367.591322603219},{"time":"2024-05-29","value":3333.8222533240028},{"time":"2024-05-30","value":3318.6843946815957},{"time":"2024-05-31","value":3373.4135759272217},{"time":"2024-06-03","value":3404.8537438768367},{"time":"2024-06-04","value":3390.8803358992304},{"time":"2024-06-05","value":3341.973407977607},{"time":"2024-06-06","value":3352.4534639608114},{"time":"2024-06-07","value":3348.9601119664103},{"time":"2024-06-10","value":3385.058082575227},{"time":"2024-06-11","value":3376.9069279216237},{"time":"2024-06-12","value":3351.2890132960115},{"time":"2024-06-13","value":3321.0132960111964},{"time":"2024-06-14","value":3340.8089573128063},{"time":"2024-06-17","value":3280.257522743177},{"time":"2024-06-18","value":3304.7109867039885},{"time":"2024-06-19","value":3318.6843946815957},{"time":"2024-06-20","value":3317.519944016795},{"time":"2024-06-21","value":3309.368789363191},{"time":"2024-06-24","value":3333.8222533240028},{"time":"2024-06-25","value":3386.222533240028},{"time":"2024-06-26","value":3404.8537438768367},{"time":"2024-06-27","value":3396.702589223233},{"time":"2024-06-28","value":3422.3205038488454},{"time":"2024-07-01","value":3436.293911826452},{"time":"2024-07-02","value":3474.7207837648707},{"time":"2024-07-03","value":3492.1875437368785},{"time":"2024-07-04","value":3528.285514345696},{"time":"2024-07-05","value":3444.445066480056},{"time":"2024-07-08","value":3430.471658502449},{"time":"2024-07-09","value":3459.5829251224636},{"time":"2024-07-10","value":3486.3652904128758},{"time":"2024-07-11","value":3516.641007697691},{"time":"2024-07-12","value":3457.254023792862},{"time":"2024-07-16","value":3486.3652904128758},{"time":"2024-07-17","value":3487.5297410776766},{"time":"2024-07-18","value":3429.307207837649},{"time":"2024-07-19","value":3399.031490552834},{"time":"2024-07-22","value":3374.5780265920225},{"time":"2024-07-23","value":3381.564730580826},{"time":"2024-07-24","value":3333.8222533240028},{"time":"2024-07-25","value":3233.6794961511546},{"time":"2024-07-26","value":3230.186144156753},{"time":"2024-07-29","value":3298.888733379986},{"time":"2024-07-30","value":3315.1910426871937},{"time":"2024-07-31","value":3345.4667599720087},{"time":"2024-08-01","value":3231.3505948215534},{"time":"2024-08-02","value":3027.5717284814555},{"time":"2024-08-05","value":2666.592022393282},{"time":"2024-08-06","value":2865.7130860741777},{"time":"2024-08-07","value":3035.7228831350594},{"time":"2024-08-08","value":2928.593421973408},{"time":"2024-08-09","value":2968.184744576627},{"time":"2024-08-13","value":3056.6829951014697},{"time":"2024-08-14","value":3088.1231630510847},{"time":"2024-08-15","value":3106.7543736878933},{"time":"2024-08-16","value":3198.745976207138},{"time":"2024-08-19","value":3156.8257522743174},{"time":"2024-08-20","value":3196.417074877537},{"time":"2024-08-21","value":3181.2792162351293},{"time":"2024-08-22","value":3190.594821553534},{"time":"2024-08-23","value":3206.897130860742},{"time":"2024-08-26","value":3177.7858642407277},{"time":"2024-08-27","value":3203.4037788663404},{"time":"2024-08-28","value":3213.883834849545},{"time":"2024-08-29","value":3216.2127361791463},{"time":"2024-08-30","value":3236.008397480756},{"time":"2024-09-02","value":3244.1595521343597},{"time":"2024-09-03","value":3261.626312106368},{"time":"2024-09-04","value":3144.0167949615116},{"time":"2024-09-05","value":3127.7144856543036},{"time":"2024-09-06","value":3102.0965710286914},{"time":"2024-09-09","value":3081.1364590622816},{"time":"2024-09-10","value":3076.478656403079},{"time":"2024-09-11","value":3020.5850244926523},{"time":"2024-09-12","value":3096.2743177046887},{"time":"2024-09-13","value":3072.9853044086776},{"time":"2024-09-17","value":3057.84744576627},{"time":"2024-09-18","value":3057.84744576627},{"time":"2024-09-19","value":3124.221133659902},{"time":"2024-09-20","value":3152.1679496151155},{"time":"2024-09-24","value":3175.4569629111265},{"time":"2024-09-25","value":3167.3058082575226},{"time":"2024-09-26","value":3239.5017494751573},{"time":"2024-09-27","value":3305.8754373687893},{"time":"2024-09-30","value":3194.0881735479356},{"time":"2024-10-01","value":3240.666200139958},{"time":"2024-10-02","value":3194.0881735479356},{"time":"2024-10-03","value":3237.1728481455566},{"time":"2024-10-04","value":3246.488453463961},{"time":"2024-10-07","value":3303.546536039188},{"time":"2024-10-08","value":3253.475157452764},{"time":"2024-10-09","value":3266.2841147655704},{"time":"2024-10-10","value":3270.9419174247723},{"time":"2024-10-11","value":3267.4485654303708},{"time":"2024-10-15","value":3288.408677396781},{"time":"2024-10-16","value":3244.1595521343597},{"time":"2024-10-17","value":3242.995101469559},{"time":"2024-10-18","value":3242.995101469559},{"time":"2024-10-21","value":3231.3505948215534},{"time":"2024-10-22","value":3194.0881735479356},{"time":"2024-10-23","value":3176.6214135759274},{"time":"2024-10-24","value":3181.2792162351293},{"time":"2024-10-25","value":3154.4968509447167},{"time":"2024-10-28","value":3204.568229531141},{"time":"2024-10-29","value":3231.3505948215534},{"time":"2024-10-30","value":3266.2841147655704},{"time":"2024-10-31","value":3245.32400279916},{"time":"2024-11-01","value":3188.265920223933},{"time":"2024-11-05","value":3217.3771868439467},{"time":"2024-11-06","value":3255.8040587823652},{"time":"2024-11-07","value":3312.8621413575925},{"time":"2024-11-08","value":3300.0531840447866},{"time":"2024-11-11","value":3300.0531840447866},{"time":"2024-11-12","value":3303.546536039188},{"time":"2024-11-13","value":3265.11966410077},{"time":"2024-11-14","value":3259.297410776767},{"time":"2024-11-15","value":3267.4485654303708},{"time":"2024-11-18","value":3251.146256123163},{"time":"2024-11-19","value":3263.955213435969},{"time":"2024-11-20","value":3256.968509447166},{"time":"2024-11-21","value":3239.5017494751573},{"time":"2024-11-22","value":3248.817354793562},{"time":"2024-11-25","value":3261.626312106368},{"time":"2024-11-26","value":3240.666200139958},{"time":"2024-11-27","value":3212.7193841847447},{"time":"2024-11-28","value":3236.008397480756},{"time":"2024-11-29","value":3225.5283414975506},{"time":"2024-12-02","value":3268.6130160951716},{"time":"2024-12-03","value":3311.697690692792},{"time":"2024-12-04","value":3295.395381385584},{"time":"2024-12-05","value":3297.7242827151854},{"time":"2024-12-06","value":3281.421973407978},{"time":"2024-12-09","value":3291.9020293911826},{"time":"2024-12-10","value":3302.3820853743878},{"time":"2024-12-11","value":3312.8621413575925},{"time":"2024-12-12","value":3346.6312106368086},{"time":"2024-12-13","value":3318.6843946815957},{"time":"2024-12-16","value":3300.0531840447866},{"time":"2024-12-17","value":3284.9153254023795},{"time":"2024-12-18","value":3286.07977606718},{"time":"2024-12-19","value":3268.6130160951716},{"time":"2024-12-20","value":3261.626312106368},{"time":"2024-12-23","value":3293.066480055983},{"time":"2024-12-24","value":3289.573128061582},{"time":"2024-12-25","value":3295.395381385584},{"time":"2024-12-26","value":3337.3156053184043},{"time":"2024-12-27","value":3381.564730580826},{"time":"2024-12-30","value":3360.604618614416},{"time":"2025-01-06","value":3329.164450664801},{"time":"2025-01-07","value":3362.9335199440166},{"time":"2025-01-08","value":3343.137858642407},{"time":"2025-01-09","value":3304.7109867039885},{"time":"2025-01-10","value":3279.0930720783763},{"time":"2025-01-14","value":3238.337298810357},{"time":"2025-01-15","value":3252.3107067879637},{"time":"2025-01-16","value":3244.1595521343597},{"time":"2025-01-17","value":3237.1728481455566},{"time":"2025-01-20","value":3274.4352694191743},{"time":"2025-01-21","value":3275.5997200839747},{"time":"2025-01-22","value":3307.03988803359},{"time":"2025-01-23","value":3334.9867039888036},{"time":"2025-01-24","value":3328.0},{"time":"2025-01-27","value":3330.3289013296007},{"time":"2025-01-28","value":3330.3289013296007},{"time":"2025-01-29","value":3352.4534639608114},{"time":"2025-01-30","value":3358.2757172848146},{"time":"2025-01-31","value":3373.4135759272217},{"time":"2025-02-03","value":3288.408677396781},{"time":"2025-02-04","value":3303.546536039188},{"time":"2025-02-05","value":3312.8621413575925},{"time":"2025-02-06","value":3322.1777466759972},{"time":"2025-02-07","value":3303.546536039188},{"time":"2025-02-10","value":3303.546536039188},{"time":"2025-02-12","value":3301.217634709587},{"time":"2025-02-13","value":3340.8089573128063},{"time":"2025-02-14","value":3329.164450664801},{"time":"2025-02-17","value":3340.8089573128063},{"time":"2025-02-18","value":3353.6179146256122},{"time":"2025-02-19","value":3343.137858642407},{"time":"2025-02-20","value":3302.3820853743878},{"time":"2025-02-21","value":3305.8754373687893},{"time":"2025-02-25","value":3294.230930720784},{"time":"2025-02-26","value":3284.9153254023795},{"time":"2025-02-27","value":3309.368789363191},{"time":"2025-02-28","value":3239.5017494751573},{"time":"2025-03-03","value":3302.3820853743878},{"time":"2025-03-04","value":3270.9419174247723},{"time":"2025-03-05","value":3282.5864240727783},{"time":"2025-03-06","value":3323.3421973407976},{"time":"2025-03-07","value":3275.5997200839747},{"time":"2025-03-10","value":3260.4618614415676},{"time":"2025-03-11","value":3226.692792162351},{"time":"2025-03-12","value":3253.475157452764},{"time":"2025-03-13","value":3266.2841147655704},{"time":"2025-03-14","value":3277.928621413576},{"time":"2025-03-17","value":3323.3421973407976},{"time":"2025-03-18","value":3361.7690692792166},{"time":"2025-03-19","value":3376.9069279216237},{"time":"2025-03-21","value":3388.551434569629},{"time":"2025-03-24","value":3372.249125262421},{"time":"2025-03-25","value":3379.2358292512245},{"time":"2025-03-26","value":3402.524842547236},{"time":"2025-03-27","value":3399.031490552834},{"time":"2025-03-28","value":3365.262421273618},{"time":"2025-03-31","value":3244.1595521343597},{"time":"2025-04-01","value":3252.3107067879637},{"time":"2025-04-02","value":3230.186144156753},{"time":"2025-04-03","value":3145.1812456263124},{"time":"2025-04-04","value":3032.229531140658},{"time":"2025-04-07","value":2803.997200839748},{"time":"2025-04-08","value":2970.5136459062282},{"time":"2025-04-09","value":2864.5486354093773},{"time":"2025-04-10","value":3100.932120363891},{"time":"2025-04-11","value":3010.104968509447},{"time":"2025-04-14","value":3048.5318404478658},{"time":"2025-04-15","value":3069.4919524142756},{"time":"2025-04-16","value":3052.0251924422673},{"time":"2025-04-17","value":3091.6165150454863},{"time":"2025-04-18","value":3126.5500349895033},{"time":"2025-04-21","value":3086.958712386284},{"time":"2025-04-22","value":3090.452064380686},{"time":"2025-04-23","value":3157.9902029391183},{"time":"2025-04-24","value":3164.9769069279214},{"time":"2025-04-25","value":3213.883834849545},{"time":"2025-04-28","value":3236.008397480756},{"time":"2025-04-30","value":3258.1329601119664},{"time":"2025-05-01","value":3269.777466759972},{"time":"2025-05-02","value":3286.07977606718},{"time":"2025-05-07","value":3289.573128061582},{"time":"2025-05-08","value":3302.3820853743878},{"time":"2025-05-09","value":3334.9867039888036},{"time":"2025-05-12","value":3353.6179146256122},{"time":"2025-05-13","value":3389.7158852344296},{"time":"2025-05-14","value":3373.4135759272217},{"time":"2025-05-15","value":3344.302309307208},{"time":"2025-05-16","value":3346.6312106368086},{"time":"2025-05-19","value":3344.302309307208},{"time":"2025-05-20","value":3345.4667599720087},{"time":"2025-05-21","value":3339.6445066480055},{"time":"2025-05-22","value":3316.3554933519945},{"time":"2025-05-23","value":3344.302309307208},{"time":"2025-05-26","value":3364.0979706088174},{"time":"2025-05-27","value":3386.222533240028},{"time":"2025-05-28","value":3388.551434569629},{"time":"2025-05-29","value":3437.4583624912525},{"time":"2025-05-30","value":3424.649405178446},{"time":"2025-06-02","value":3392.044786564031},{"time":"2025-06-03","value":3387.386983904829},{"time":"2025-06-04","value":3400.1959412176348},{"time":"2025-06-05","value":3368.7557732680193},{"time":"2025-06-06","value":3392.044786564031},{"time":"2025-06-09","value":3402.524842547236},{"time":"2025-06-10","value":3401.360391882435},{"time":"2025-06-11","value":3410.67599720084},{"time":"2025-06-12","value":3397.867039888034},{"time":"2025-06-13","value":3365.262421273618},{"time":"2025-06-16","value":3393.2092372288316},{"time":"2025-06-17","value":3406.0181945416375},{"time":"2025-06-18","value":3433.9650104968505},{"time":"2025-06-19","value":3409.511546536039},{"time":"2025-06-20","value":3388.551434569629},{"time":"2025-06-23","value":3374.5780265920225},{"time":"2025-06-24","value":3397.867039888034},{"time":"2025-06-25","value":3401.360391882435},{"time":"2025-06-26","value":3428.142757172848},{"time":"2025-06-27","value":3477.0496850944714},{"time":"2025-06-30","value":3486.3652904128758},{"time":"2025-07-01","value":3460.7473757872635},{"time":"2025-07-02","value":3456.089573128062},{"time":"2025-07-03","value":3460.7473757872635},{"time":"2025-07-04","value":3460.7473757872635},{"time":"2025-07-07","value":3359.440167949615},{"time":"2025-07-08","value":3366.426871938418},{"time":"2025-07-09","value":3379.2358292512245},{"time":"2025-07-10","value":3357.111266620014},{"time":"2025-07-11","value":3374.5780265920225},{"time":"2025-07-14","value":3374.5780265920225},{"time":"2025-07-15","value":3374.5780265920225},{"time":"2025-07-16","value":3367.591322603219},{"time":"2025-07-17","value":3393.2092372288316},{"time":"2025-07-18","value":3387.386983904829},{"time":"2025-07-22","value":3389.7158852344296},{"time":"2025-07-23","value":3498.009797060882},{"time":"2025-07-24","value":3558.561231630511},{"time":"2025-07-25","value":3525.956613016095},{"time":"2025-07-28","value":3501.5031490552838},{"time":"2025-07-29","value":3474.7207837648707},{"time":"2025-07-30","value":3489.858642407278},{"time":"2025-07-31","value":3517.8054583624917},{"time":"2025-08-01","value":3523.627711686494},{"time":"2025-08-04","value":3482.871938418474},{"time":"2025-08-05","value":3510.818754373688},{"time":"2025-08-06","value":3546.9167249825055},{"time":"2025-08-07","value":3571.370188943317},{"time":"2025-08-08","value":3614.454863540938},{"time":"2025-08-12","value":3664.5262421273615},{"time":"2025-08-13","value":3693.6375087473753},{"time":"2025-08-14","value":3656.375087473758},{"time":"2025-08-15","value":3714.597620713786},{"time":"2025-08-18","value":3729.7354793561926},{"time":"2025-08-19","value":3725.077676696991},{"time":"2025-08-20","value":3704.117564730581},{"time":"2025-08-21","value":3685.4863540937718},{"time":"2025-08-22","value":3701.7886634009797},{"time":"2025-08-25","value":3711.104268719384},{"time":"2025-08-26","value":3676.1707487753674},{"time":"2025-08-27","value":3668.019594121763},{"time":"2025-08-28","value":3691.3086074177745},{"time":"2025-08-29","value":3672.677396780966},{"time":"2025-09-01","value":3658.7039888033587},{"time":"2025-09-02","value":3684.321903428971},{"time":"2025-09-03","value":3643.5661301609516},{"time":"2025-09-04","value":3680.8285514345694},{"time":"2025-09-05","value":3712.268719384185},{"time":"2025-09-08","value":3754.188943317005},{"time":"2025-09-09","value":3740.2155353393982},{"time":"2025-09-10","value":3751.860041987404},{"time":"2025-09-11","value":3762.3400979706084},{"time":"2025-09-12","value":3779.806857942617},{"time":"2025-09-16","value":3791.4513645906227},{"time":"2025-09-17","value":3758.846745976207},{"time":"2025-09-18","value":3776.3135059482156},{"time":"2025-09-19","value":3756.517844646606},{"time":"2025-09-22","value":3782.135759272218},{"time":"2025-09-24","value":3790.2869139258223},{"time":"2025-09-25","value":3806.58922323303},{"time":"2025-09-26","value":3807.7536738978306},{"time":"2025-09-29","value":3776.3135059482156},{"time":"2025-09-30","value":3784.4646606018196},{"time":"2025-10-01","value":3735.5577326801963},{"time":"2025-10-02","value":3727.406578026592},{"time":"2025-10-03","value":3775.149055283415},{"time":"2025-10-06","value":3889.2652204338697},{"time":"2025-10-07","value":3891.5941217634713},{"time":"2025-10-08","value":3898.580825752274},{"time":"2025-10-09","value":3930.0209937018894},{"time":"2025-10-10","value":3861.3184044786567},{"time":"2025-10-14","value":3780.971308607418},{"time":"2025-10-15","value":3842.6871938418476},{"time":"2025-10-16","value":3861.3184044786567},{"time":"2025-10-17","value":3831.0426871938416},{"time":"2025-10-20","value":3916.0475857242827},{"time":"2025-10-21","value":3919.5409377186843},{"time":"2025-10-22","value":3939.3365990202938},{"time":"2025-10-23","value":3925.363191042687},{"time":"2025-10-27","value":4009.2036389083273},{"time":"2025-10-28","value":3962.6256123163053},{"time":"2025-10-29","value":3953.310006997901},{"time":"2025-10-30","value":3980.092372288313},{"time":"2025-10-31","value":4019.6836948915325},{"time":"2025-11-04","value":3992.9013296011194},{"time":"2025-11-05","value":3943.9944016794957},{"time":"2025-11-06","value":3995.230230930721},{"time":"2025-11-07","value":3980.092372288313},{"time":"2025-11-10","value":4006.874737578726},{"time":"2025-11-11","value":4009.2036389083273},{"time":"2025-11-12","value":4053.452764170749},{"time":"2025-11-13","value":4077.9062281315605},{"time":"2025-11-14","value":4049.959412176347},{"time":"2025-11-17","value":4038.314905528341},{"time":"2025-11-18","value":3931.18544436669},{"time":"2025-11-19","value":3919.5409377186843},{"time":"2025-11-20","value":3980.092372288313},{"time":"2025-11-21","value":3978.927921623513},{"time":"2025-11-25","value":3970.7767669699087},{"time":"2025-11-26","value":4045.3016095171447},{"time":"2025-11-27","value":4061.6039188243526},{"time":"2025-11-28","value":4074.4128761371585},{"time":"2025-12-01","value":4027.834849545137},{"time":"2025-12-02","value":4028.999300209937},{"time":"2025-12-03","value":4020.8481455563333},{"time":"2025-12-04","value":4094.208537438768},{"time":"2025-12-05","value":4054.617214835549},{"time":"2025-12-08","value":4083.728481455563},{"time":"2025-12-09","value":4084.8929321203636},{"time":"2025-12-10","value":4093.044086773968},{"time":"2025-12-11","value":4049.959412176347},{"time":"2025-12-12","value":4139.62211336599},{"time":"2025-12-15","value":4138.45766270119},{"time":"2025-12-16","value":4068.590622813156},{"time":"2025-12-17","value":4066.261721483555},{"time":"2025-12-18","value":4058.1105668299506},{"time":"2025-12-19","value":4089.5507347795665},{"time":"2025-12-22","value":4108.181945416375},{"time":"2025-12-23","value":4130.306508047585},{"time":"2025-12-24","value":4114.004198740377},{"time":"2025-12-25","value":4122.155353393982},{"time":"2025-12-26","value":4124.484254723583},{"time":"2025-12-29","value":4139.62211336599},{"time":"2025-12-30","value":4120.9909027291815},{"time":"2026-01-05","value":4200.173547935619},{"time":"2026-01-06","value":4273.533939818055},{"time":"2026-01-07","value":4238.6004198740375},{"time":"2026-01-08","value":4204.831350594822},{"time":"2026-01-09","value":4247.916025192442},{"time":"2026-01-13","value":4345.72988103569},{"time":"2026-01-14","value":4398.130160951715},{"time":"2026-01-15","value":4431.899230230931},{"time":"2026-01-16","value":4420.254723582925},{"time":"2026-01-19","value":4412.103568929321},{"time":"2026-01-20","value":4384.156752974108},{"time":"2026-01-21","value":4338.743177046886},{"time":"2026-01-22","value":4367.8544436669},{"time":"2026-01-23","value":4380.663400979706},{"time":"2026-01-26","value":4288.671798460462},{"time":"2026-01-27","value":4299.151854443667},{"time":"2026-01-28","value":4268.876137158852},{"time":"2026-01-29","value":4284.01399580126},{"time":"2026-01-30","value":4315.454163750875},{"time":"2026-02-02","value":4277.0272918124565},{"time":"2026-02-03","value":4400.459062281316},{"time":"2026-02-04","value":4414.432470258923},{"time":"2026-02-05","value":4416.761371588524},{"time":"2026-02-06","value":4471.49055283415},{"time":"2026-02-09","value":4576.2911126662},{"time":"2026-02-10","value":4661.296011196641},{"time":"2026-02-12","value":4686.913925822253},{"time":"2026-02-13","value":4617.046885934219},{"time":"2026-02-16","value":4585.606717984605},{"time":"2026-02-17","value":4546.015395381385},{"time":"2026-02-18","value":4600.744576627012},{"time":"2026-02-19","value":4653.144856543036},{"time":"2026-02-20","value":4599.580125962211},{"time":"2026-02-24","value":4605.402379286214},{"time":"2026-02-25","value":4650.815955213436},{"time":"2026-02-26","value":4695.065080475857},{"time":"2026-02-27","value":4757.945416375087},{"time":"2026-03-02","value":4709.038488453464},{"time":"2026-03-03","value":4562.317704688593},{"time":"2026-03-04","value":4394.636808957313},{"time":"2026-03-05","value":4477.312806158152},{"time":"2026-03-06","value":4495.9440167949615},{"time":"2026-03-09","value":4322.440867739678},{"time":"2026-03-10","value":4428.405878236529},{"time":"2026-03-11","value":4472.6550034989505},{"time":"2026-03-12","value":4407.445766270119},{"time":"2026-03-13","value":4381.827851644507},{"time":"2026-03-16","value":4359.703289013296},{"time":"2026-03-17","value":4382.992302309307},{"time":"2026-03-18","value":4494.779566130161},{"time":"2026-03-19","value":4363.1966410076975},{"time":"2026-03-23","value":4201.337998600419},{"time":"2026-03-24","value":4306.13855843247},{"time":"2026-03-25","value":4414.432470258923},{"time":"2026-03-26","value":4408.61021693492},{"time":"2026-03-27","value":4407.445766270119},{"time":"2026-03-30","value":4313.125262421274},{"time":"2026-03-31","value":4264.21833449965},{"time":"2026-04-01","value":4479.641707487754},{"time":"2026-04-02","value":4403.952414275717},{"time":"2026-04-03","value":4448.201539538139},{"time":"2026-04-06","value":4447.037088873338},{"time":"2026-04-07","value":4459.846046186144},{"time":"2026-04-08","value":4607.731280615815},{"time":"2026-04-09","value":4558.8243526941915},{"time":"2026-04-10","value":4561.153254023793},{"time":"2026-04-13","value":4539.028691392582},{"time":"2026-04-14","value":4577.455563331001},{"time":"2026-04-15","value":4597.25122463261},{"time":"2026-04-16","value":4651.9804058782365},{"time":"2026-04-17","value":4587.935619314206},{"time":"2026-04-20","value":4607.731280615815},{"time":"2026-04-21","value":4599.580125962211},{"time":"2026-04-22","value":4570.468859342198},{"time":"2026-04-23","value":4528.548635409377},{"time":"2026-04-24","value":4528.548635409377},{"time":"2026-04-27","value":4558.8243526941915},{"time":"2026-04-28","value":4601.909027291813},{"time":"2026-04-30","value":4539.028691392582},{"time":"2026-05-01","value":4541.357592722184},{"time":"2026-05-07","value":4684.585024492652},{"time":"2026-05-08","value":4668.282715185444},{"time":"2026-05-11","value":4682.256123163051},{"time":"2026-05-12","value":4720.682995101469},{"time":"2026-05-13","value":4783.5633310007},{"time":"2026-05-14","value":4734.656403079076},{"time":"2026-05-15","value":4712.531840447866},{"time":"2026-05-18","value":4665.953813855843},{"time":"2026-05-19","value":4700.88733379986},{"time":"2026-05-20","value":4634.513645906228},{"time":"2026-05-21","value":4702.05178446466},{"time":"2026-05-22","value":4747.465360391882},{"time":"2026-05-25","value":4809.181245626312},{"time":"2026-05-26","value":4804.52344296711},{"time":"2026-05-27","value":4776.576627011897},{"time":"2026-05-28","value":4757.945416375087},{"time":"2026-05-29","value":4812.674597620714},{"time":"2026-06-01","value":4802.194541637508},{"time":"2026-06-02","value":4782.398880335899},{"time":"2026-06-03","value":4867.40377886634},{"time":"2026-06-04","value":4824.3191042687195}],"sma60":[{"time":"2024-08-08","value":3661.5333333333333},{"time":"2024-08-09","value":3676.266666666667},{"time":"2024-08-13","value":3692.4166666666665},{"time":"2024-08-14","value":3708.75},{"time":"2024-08-15","value":3724.366666666667},{"time":"2024-08-16","value":3742.116666666667},{"time":"2024-08-19","value":3758.516666666667},{"time":"2024-08-20","value":3779.3333333333335},{"time":"2024-08-21","value":3796.633333333333},{"time":"2024-08-22","value":3813.5},{"time":"2024-08-23","value":3832.2166666666667},{"time":"2024-08-26","value":3851.616666666667},{"time":"2024-08-27","value":3871.9166666666665},{"time":"2024-08-28","value":3894.9666666666667},{"time":"2024-08-29","value":3917.2833333333333},{"time":"2024-08-30","value":3941.4},{"time":"2024-09-02","value":3966.0},{"time":"2024-09-03","value":3989.55},{"time":"2024-09-04","value":4013.3},{"time":"2024-09-05","value":4039.9166666666665},{"time":"2024-09-06","value":4069.3166666666666},{"time":"2024-09-09","value":4097.7},{"time":"2024-09-10","value":4127.216666666666},{"time":"2024-09-11","value":4156.716666666666},{"time":"2024-09-12","value":4190.2},{"time":"2024-09-13","value":4223.816666666667},{"time":"2024-09-17","value":4257.216666666666},{"time":"2024-09-18","value":4290.566666666667},{"time":"2024-09-19","value":4325.116666666667},{"time":"2024-09-20","value":4357.583333333333},{"time":"2024-09-24","value":4390.866666666667},{"time":"2024-09-25","value":4426.983333333334},{"time":"2024-09-26","value":4463.616666666667},{"time":"2024-09-27","value":4497.95},{"time":"2024-09-30","value":4528.516666666666},{"time":"2024-10-01","value":4557.15},{"time":"2024-10-02","value":4581.25},{"time":"2024-10-03","value":4607.55},{"time":"2024-10-04","value":4636.466666666666},{"time":"2024-10-07","value":4665.366666666667},{"time":"2024-10-08","value":4694.3},{"time":"2024-10-09","value":4723.916666666667},{"time":"2024-10-10","value":4738.416666666667},{"time":"2024-10-11","value":4753.916666666667},{"time":"2024-10-15","value":4771.35},{"time":"2024-10-16","value":4784.566666666667},{"time":"2024-10-17","value":4795.25},{"time":"2024-10-18","value":4807.533333333334},{"time":"2024-10-21","value":4813.616666666667},{"time":"2024-10-22","value":4818.383333333333},{"time":"2024-10-23","value":4823.533333333334},{"time":"2024-10-24","value":4830.466666666666},{"time":"2024-10-25","value":4837.033333333334},{"time":"2024-10-28","value":4844.4},{"time":"2024-10-29","value":4850.733333333334},{"time":"2024-10-30","value":4859.516666666666},{"time":"2024-10-31","value":4873.75},{"time":"2024-11-01","value":4891.35},{"time":"2024-11-05","value":4903.383333333333},{"time":"2024-11-06","value":4918.8},{"time":"2024-11-07","value":4932.633333333333},{"time":"2024-11-08","value":4950.216666666666},{"time":"2024-11-11","value":4967.45},{"time":"2024-11-12","value":4982.866666666667},{"time":"2024-11-13","value":5002.8},{"time":"2024-11-14","value":5022.933333333333},{"time":"2024-11-15","value":5046.833333333333},{"time":"2024-11-18","value":5065.866666666667},{"time":"2024-11-19","value":5084.716666666666},{"time":"2024-11-20","value":5104.766666666666},{"time":"2024-11-21","value":5122.166666666667},{"time":"2024-11-22","value":5140.533333333334},{"time":"2024-11-25","value":5157.15},{"time":"2024-11-26","value":5170.2},{"time":"2024-11-27","value":5184.1},{"time":"2024-11-28","value":5195.783333333334},{"time":"2024-11-29","value":5209.466666666666},{"time":"2024-12-02","value":5226.183333333333},{"time":"2024-12-03","value":5244.116666666667},{"time":"2024-12-04","value":5258.566666666667},{"time":"2024-12-05","value":5270.233333333334},{"time":"2024-12-06","value":5279.85},{"time":"2024-12-09","value":5292.033333333334},{"time":"2024-12-10","value":5303.516666666666},{"time":"2024-12-11","value":5307.4},{"time":"2024-12-12","value":5311.866666666667},{"time":"2024-12-13","value":5314.316666666667},{"time":"2024-12-16","value":5315.666666666667},{"time":"2024-12-17","value":5315.833333333333},{"time":"2024-12-18","value":5317.3},{"time":"2024-12-19","value":5319.0},{"time":"2024-12-20","value":5317.616666666667},{"time":"2024-12-23","value":5316.466666666666},{"time":"2024-12-24","value":5313.883333333333},{"time":"2024-12-25","value":5311.866666666667},{"time":"2024-12-26","value":5311.066666666667},{"time":"2024-12-27","value":5313.816666666667},{"time":"2024-12-30","value":5315.15},{"time":"2025-01-06","value":5314.816666666667},{"time":"2025-01-07","value":5314.266666666666},{"time":"2025-01-08","value":5313.8},{"time":"2025-01-09","value":5311.566666666667},{"time":"2025-01-10","value":5311.933333333333},{"time":"2025-01-14","value":5307.05},{"time":"2025-01-15","value":5309.1},{"time":"2025-01-16","value":5316.6},{"time":"2025-01-17","value":5326.35},{"time":"2025-01-20","value":5333.766666666666},{"time":"2025-01-21","value":5349.233333333334},{"time":"2025-01-22","value":5366.983333333334},{"time":"2025-01-23","value":5388.4},{"time":"2025-01-24","value":5408.283333333334},{"time":"2025-01-27","value":5429.833333333333},{"time":"2025-01-28","value":5453.15},{"time":"2025-01-29","value":5481.6},{"time":"2025-01-30","value":5510.35},{"time":"2025-01-31","value":5538.2},{"time":"2025-02-03","value":5565.5},{"time":"2025-02-04","value":5591.633333333333},{"time":"2025-02-05","value":5617.183333333333},{"time":"2025-02-06","value":5645.233333333334},{"time":"2025-02-07","value":5667.55},{"time":"2025-02-10","value":5687.733333333334},{"time":"2025-02-12","value":5712.066666666667},{"time":"2025-02-13","value":5737.583333333333},{"time":"2025-02-14","value":5759.616666666667},{"time":"2025-02-17","value":5780.033333333334},{"time":"2025-02-18","value":5803.083333333333},{"time":"2025-02-19","value":5825.083333333333},{"time":"2025-02-20","value":5844.333333333333},{"time":"2025-02-21","value":5864.65},{"time":"2025-02-25","value":5881.9},{"time":"2025-02-26","value":5898.8},{"time":"2025-02-27","value":5918.6},{"time":"2025-02-28","value":5934.733333333334},{"time":"2025-03-03","value":5952.466666666666},{"time":"2025-03-04","value":5971.133333333333},{"time":"2025-03-05","value":5984.85},{"time":"2025-03-06","value":5994.166666666667},{"time":"2025-03-07","value":6003.933333333333},{"time":"2025-03-10","value":6008.416666666667},{"time":"2025-03-11","value":6015.7},{"time":"2025-03-12","value":6024.683333333333},{"time":"2025-03-13","value":6032.566666666667},{"time":"2025-03-14","value":6049.2},{"time":"2025-03-17","value":6070.45},{"time":"2025-03-18","value":6093.65},{"time":"2025-03-19","value":6118.016666666666},{"time":"2025-03-21","value":6141.016666666666},{"time":"2025-03-24","value":6163.083333333333},{"time":"2025-03-25","value":6185.283333333334},{"time":"2025-03-26","value":6209.2},{"time":"2025-03-27","value":6234.233333333334},{"time":"2025-03-28","value":6258.516666666666},{"time":"2025-03-31","value":6279.966666666666},{"time":"2025-04-01","value":6300.05},{"time":"2025-04-02","value":6318.866666666667},{"time":"2025-04-03","value":6334.5},{"time":"2025-04-04","value":6347.833333333333},{"time":"2025-04-07","value":6354.766666666666},{"time":"2025-04-08","value":6368.366666666667},{"time":"2025-04-09","value":6383.266666666666},{"time":"2025-04-10","value":6408.966666666666},{"time":"2025-04-11","value":6452.583333333333},{"time":"2025-04-14","value":6481.8},{"time":"2025-04-15","value":6511.133333333333},{"time":"2025-04-16","value":6537.8},{"time":"2025-04-17","value":6568.216666666666},{"time":"2025-04-18","value":6596.666666666667},{"time":"2025-04-21","value":6627.366666666667},{"time":"2025-04-22","value":6648.283333333334},{"time":"2025-04-23","value":6670.75},{"time":"2025-04-24","value":6691.0},{"time":"2025-04-25","value":6709.2},{"time":"2025-04-28","value":6724.2},{"time":"2025-04-30","value":6741.95},{"time":"2025-05-01","value":6758.05},{"time":"2025-05-02","value":6777.116666666667},{"time":"2025-05-07","value":6796.3},{"time":"2025-05-08","value":6820.8},{"time":"2025-05-09","value":6845.516666666666},{"time":"2025-05-12","value":6871.133333333333},{"time":"2025-05-13","value":6898.45},{"time":"2025-05-14","value":6920.666666666667},{"time":"2025-05-15","value":6935.366666666667},{"time":"2025-05-16","value":6948.333333333333},{"time":"2025-05-19","value":6963.066666666667},{"time":"2025-05-20","value":6979.116666666667},{"time":"2025-05-21","value":6998.45},{"time":"2025-05-22","value":7022.8},{"time":"2025-05-23","value":7053.866666666667},{"time":"2025-05-26","value":7087.083333333333},{"time":"2025-05-27","value":7121.0},{"time":"2025-05-28","value":7151.6},{"time":"2025-05-29","value":7177.683333333333},{"time":"2025-05-30","value":7198.5},{"time":"2025-06-02","value":7218.833333333333},{"time":"2025-06-03","value":7239.233333333334},{"time":"2025-06-04","value":7260.416666666667},{"time":"2025-06-05","value":7277.7},{"time":"2025-06-06","value":7299.833333333333},{"time":"2025-06-09","value":7324.85},{"time":"2025-06-10","value":7350.15},{"time":"2025-06-11","value":7376.75},{"time":"2025-06-12","value":7390.783333333334},{"time":"2025-06-13","value":7402.05},{"time":"2025-06-16","value":7416.666666666667},{"time":"2025-06-17","value":7430.1},{"time":"2025-06-18","value":7445.666666666667},{"time":"2025-06-19","value":7459.783333333334},{"time":"2025-06-20","value":7469.833333333333},{"time":"2025-06-23","value":7478.083333333333},{"time":"2025-06-24","value":7485.0},{"time":"2025-06-25","value":7496.966666666666},{"time":"2025-06-26","value":7509.666666666667},{"time":"2025-06-27","value":7525.0},{"time":"2025-06-30","value":7540.833333333333},{"time":"2025-07-01","value":7558.2},{"time":"2025-07-02","value":7575.916666666667},{"time":"2025-07-03","value":7601.433333333333},{"time":"2025-07-04","value":7620.55},{"time":"2025-07-07","value":7643.516666666666},{"time":"2025-07-08","value":7658.633333333333},{"time":"2025-07-09","value":7660.083333333333},{"time":"2025-07-10","value":7668.766666666666},{"time":"2025-07-11","value":7675.65},{"time":"2025-07-14","value":7686.35},{"time":"2025-07-15","value":7694.533333333334},{"time":"2025-07-16","value":7702.433333333333},{"time":"2025-07-17","value":7714.2},{"time":"2025-07-18","value":7729.2},{"time":"2025-07-22","value":7742.216666666666},{"time":"2025-07-23","value":7759.583333333333},{"time":"2025-07-24","value":7778.4},{"time":"2025-07-25","value":7798.783333333334},{"time":"2025-07-28","value":7813.05},{"time":"2025-07-29","value":7825.033333333334},{"time":"2025-07-30","value":7839.733333333334},{"time":"2025-07-31","value":7855.266666666666},{"time":"2025-08-01","value":7867.116666666667},{"time":"2025-08-04","value":7875.716666666666},{"time":"2025-08-05","value":7883.4},{"time":"2025-08-06","value":7888.883333333333},{"time":"2025-08-07","value":7897.1},{"time":"2025-08-08","value":7909.416666666667},{"time":"2025-08-12","value":7925.566666666667},{"time":"2025-08-13","value":7937.066666666667},{"time":"2025-08-14","value":7946.6},{"time":"2025-08-15","value":7954.55},{"time":"2025-08-18","value":7963.4},{"time":"2025-08-19","value":7961.216666666666},{"time":"2025-08-20","value":7957.983333333334},{"time":"2025-08-21","value":7954.916666666667},{"time":"2025-08-22","value":7958.15},{"time":"2025-08-25","value":7970.633333333333},{"time":"2025-08-26","value":7986.116666666667},{"time":"2025-08-27","value":7998.7},{"time":"2025-08-28","value":8013.216666666666},{"time":"2025-08-29","value":8027.733333333334},{"time":"2025-09-01","value":8046.5},{"time":"2025-09-02","value":8064.633333333333},{"time":"2025-09-03","value":8079.95},{"time":"2025-09-04","value":8091.233333333334},{"time":"2025-09-05","value":8102.083333333333},{"time":"2025-09-08","value":8119.733333333334},{"time":"2025-09-09","value":8136.983333333334},{"time":"2025-09-10","value":8153.383333333333},{"time":"2025-09-11","value":8167.6},{"time":"2025-09-12","value":8183.716666666666},{"time":"2025-09-16","value":8200.116666666667},{"time":"2025-09-17","value":8219.616666666667},{"time":"2025-09-18","value":8244.083333333334},{"time":"2025-09-19","value":8269.066666666668},{"time":"2025-09-22","value":8293.2},{"time":"2025-09-24","value":8317.533333333333},{"time":"2025-09-25","value":8338.566666666668},{"time":"2025-09-26","value":8362.466666666667},{"time":"2025-09-29","value":8381.633333333333},{"time":"2025-09-30","value":8405.816666666668},{"time":"2025-10-01","value":8426.4},{"time":"2025-10-02","value":8443.416666666666},{"time":"2025-10-03","value":8457.916666666666},{"time":"2025-10-06","value":8481.433333333332},{"time":"2025-10-07","value":8500.3},{"time":"2025-10-08","value":8511.85},{"time":"2025-10-09","value":8519.933333333332},{"time":"2025-10-10","value":8526.966666666667},{"time":"2025-10-14","value":8532.766666666666},{"time":"2025-10-15","value":8536.3},{"time":"2025-10-16","value":8522.733333333334},{"time":"2025-10-17","value":8510.633333333333},{"time":"2025-10-20","value":8496.0},{"time":"2025-10-21","value":8478.666666666666},{"time":"2025-10-22","value":8459.783333333333},{"time":"2025-10-23","value":8436.666666666666},{"time":"2025-10-24","value":8419.6},{"time":"2025-10-27","value":8409.083333333334},{"time":"2025-10-28","value":8391.65},{"time":"2025-10-29","value":8365.433333333332},{"time":"2025-10-30","value":8336.9},{"time":"2025-10-31","value":8309.25},{"time":"2025-11-04","value":8282.85},{"time":"2025-11-05","value":8257.3},{"time":"2025-11-06","value":8228.816666666668},{"time":"2025-11-07","value":8198.616666666667},{"time":"2025-11-10","value":8163.366666666667},{"time":"2025-11-11","value":8127.333333333333},{"time":"2025-11-12","value":8093.983333333334},{"time":"2025-11-13","value":8064.8},{"time":"2025-11-14","value":8035.15},{"time":"2025-11-17","value":8012.2},{"time":"2025-11-18","value":7983.733333333334},{"time":"2025-11-19","value":7955.216666666666},{"time":"2025-11-20","value":7925.066666666667},{"time":"2025-11-21","value":7894.5},{"time":"2025-11-25","value":7863.45},{"time":"2025-11-26","value":7833.533333333334},{"time":"2025-11-27","value":7802.716666666666},{"time":"2025-11-28","value":7777.116666666667},{"time":"2025-12-01","value":7748.083333333333},{"time":"2025-12-02","value":7717.55},{"time":"2025-12-03","value":7686.933333333333},{"time":"2025-12-04","value":7660.416666666667},{"time":"2025-12-05","value":7632.716666666666},{"time":"2025-12-08","value":7608.25},{"time":"2025-12-09","value":7578.0},{"time":"2025-12-10","value":7544.9},{"time":"2025-12-11","value":7513.966666666666},{"time":"2025-12-12","value":7483.483333333334},{"time":"2025-12-15","value":7454.016666666666},{"time":"2025-12-16","value":7422.683333333333},{"time":"2025-12-17","value":7384.766666666666},{"time":"2025-12-18","value":7350.75},{"time":"2025-12-19","value":7314.383333333333},{"time":"2025-12-22","value":7279.683333333333},{"time":"2025-12-23","value":7246.75},{"time":"2025-12-24","value":7208.666666666667},{"time":"2025-12-25","value":7177.033333333334},{"time":"2025-12-26","value":7142.033333333334},{"time":"2025-12-29","value":7109.55},{"time":"2025-12-30","value":7079.616666666667},{"time":"2026-01-05","value":7046.45},{"time":"2026-01-06","value":7005.283333333334},{"time":"2026-01-07","value":6969.116666666667},{"time":"2026-01-08","value":6938.15},{"time":"2026-01-09","value":6910.733333333334},{"time":"2026-01-13","value":6881.933333333333},{"time":"2026-01-14","value":6854.366666666667},{"time":"2026-01-15","value":6835.133333333333},{"time":"2026-01-16","value":6818.083333333333},{"time":"2026-01-19","value":6802.65},{"time":"2026-01-20","value":6790.733333333334},{"time":"2026-01-21","value":6770.333333333333},{"time":"2026-01-22","value":6748.766666666666},{"time":"2026-01-23","value":6727.05},{"time":"2026-01-26","value":6703.533333333334},{"time":"2026-01-27","value":6678.883333333333},{"time":"2026-01-28","value":6658.816666666667},{"time":"2026-01-29","value":6637.1},{"time":"2026-01-30","value":6610.366666666667},{"time":"2026-02-02","value":6584.333333333333},{"time":"2026-02-03","value":6559.55},{"time":"2026-02-04","value":6526.2},{"time":"2026-02-05","value":6495.933333333333},{"time":"2026-02-06","value":6462.3},{"time":"2026-02-09","value":6434.483333333334},{"time":"2026-02-10","value":6411.35},{"time":"2026-02-12","value":6377.316666666667},{"time":"2026-02-13","value":6336.016666666666},{"time":"2026-02-16","value":6293.866666666667},{"time":"2026-02-17","value":6250.216666666666},{"time":"2026-02-18","value":6214.866666666667},{"time":"2026-02-19","value":6181.133333333333},{"time":"2026-02-20","value":6143.2},{"time":"2026-02-24","value":6093.483333333334},{"time":"2026-02-25","value":6048.683333333333},{"time":"2026-02-26","value":6008.916666666667},{"time":"2026-02-27","value":5972.3},{"time":"2026-03-02","value":5929.866666666667},{"time":"2026-03-03","value":5889.9},{"time":"2026-03-04","value":5857.016666666666},{"time":"2026-03-05","value":5825.483333333334},{"time":"2026-03-06","value":5793.183333333333},{"time":"2026-03-09","value":5761.366666666667},{"time":"2026-03-10","value":5725.866666666667},{"time":"2026-03-11","value":5693.266666666666},{"time":"2026-03-12","value":5661.133333333333},{"time":"2026-03-13","value":5624.683333333333},{"time":"2026-03-16","value":5586.75},{"time":"2026-03-17","value":5549.1},{"time":"2026-03-18","value":5512.583333333333},{"time":"2026-03-19","value":5480.566666666667},{"time":"2026-03-23","value":5443.266666666666},{"time":"2026-03-24","value":5408.466666666666},{"time":"2026-03-25","value":5374.016666666666},{"time":"2026-03-26","value":5337.633333333333},{"time":"2026-03-27","value":5304.133333333333},{"time":"2026-03-30","value":5268.833333333333},{"time":"2026-03-31","value":5234.483333333334},{"time":"2026-04-01","value":5204.083333333333},{"time":"2026-04-02","value":5172.783333333334},{"time":"2026-04-03","value":5144.6},{"time":"2026-04-06","value":5113.95},{"time":"2026-04-07","value":5083.766666666666},{"time":"2026-04-08","value":5051.616666666667},{"time":"2026-04-09","value":5016.333333333333},{"time":"2026-04-10","value":4977.8},{"time":"2026-04-13","value":4941.8},{"time":"2026-04-14","value":4903.2},{"time":"2026-04-15","value":4885.9},{"time":"2026-04-16","value":4863.55},{"time":"2026-04-17","value":4845.683333333333},{"time":"2026-04-20","value":4836.466666666666},{"time":"2026-04-21","value":4829.833333333333},{"time":"2026-04-22","value":4828.75},{"time":"2026-04-23","value":4817.166666666667},{"time":"2026-04-24","value":4802.866666666667},{"time":"2026-04-27","value":4782.133333333333},{"time":"2026-04-28","value":4772.816666666667},{"time":"2026-04-30","value":4766.466666666666},{"time":"2026-05-01","value":4759.55},{"time":"2026-05-07","value":4752.75},{"time":"2026-05-08","value":4756.283333333334},{"time":"2026-05-11","value":4759.4},{"time":"2026-05-12","value":4762.883333333333},{"time":"2026-05-13","value":4766.916666666667},{"time":"2026-05-14","value":4766.233333333334},{"time":"2026-05-15","value":4776.233333333334},{"time":"2026-05-18","value":4793.333333333333},{"time":"2026-05-19","value":4816.25},{"time":"2026-05-20","value":4835.05},{"time":"2026-05-21","value":4852.766666666666},{"time":"2026-05-22","value":4873.066666666667},{"time":"2026-05-25","value":4893.1},{"time":"2026-05-26","value":4923.3},{"time":"2026-05-27","value":4952.45},{"time":"2026-05-28","value":4971.116666666667},{"time":"2026-05-29","value":4989.633333333333},{"time":"2026-06-01","value":5018.916666666667},{"time":"2026-06-02","value":5048.016666666666},{"time":"2026-06-03","value":5072.216666666666},{"time":"2026-06-04","value":5093.65}],"volume":[{"time":"2024-05-16","value":1299700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-05-17","value":1433000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-05-20","value":866400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-05-21","value":638200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-05-22","value":1024800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-05-23","value":1228700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-05-24","value":1080700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-05-27","value":1394900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-05-28","value":696700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-05-29","value":795500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-05-30","value":890700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-05-31","value":1174100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-06-03","value":1340900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-06-04","value":974100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-06-05","value":745300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-06-06","value":938200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-06-07","value":922100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-06-10","value":616100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-06-11","value":467300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-06-12","value":519300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-06-13","value":889300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-06-14","value":939400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-06-17","value":801100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-06-18","value":630400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-06-19","value":545200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-06-20","value":581100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-06-21","value":1092300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-06-24","value":894400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-06-25","value":795100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-06-26","value":811200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-06-27","value":589900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-06-28","value":933700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-07-01","value":1517500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-07-02","value":1597900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-07-03","value":2370400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-07-04","value":2779400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-07-05","value":1090900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-07-08","value":1097400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-07-09","value":1377500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-07-10","value":1093500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-07-11","value":1524700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-07-12","value":5828500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-07-16","value":4745800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-07-17","value":2177200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-07-18","value":3439000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-07-19","value":1605400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-07-22","value":1368900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-07-23","value":981800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-07-24","value":1078200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-07-25","value":965600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-07-26","value":890000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-07-29","value":720400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-07-30","value":751000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-07-31","value":901000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-08-01","value":808000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-08-02","value":1172200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-08-05","value":1628400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-08-06","value":1434600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-08-07","value":1150000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-08-08","value":843800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-08-09","value":856300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-08-13","value":1011600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-08-14","value":760800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-08-15","value":837600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-08-16","value":762600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-08-19","value":724500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-08-20","value":820600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-08-21","value":798600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-08-22","value":583300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-08-23","value":627800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-08-26","value":576100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-08-27","value":560800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-08-28","value":957000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-08-29","value":641100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-08-30","value":1002200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-09-02","value":889100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-09-03","value":714800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-09-04","value":962700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-09-05","value":1488000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-09-06","value":1622700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-09-09","value":1167000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-09-10","value":1086600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-09-11","value":1296000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-09-12","value":1249200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-09-13","value":1128000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-09-17","value":1343400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-09-18","value":834600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-09-19","value":983800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-09-20","value":919600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-09-24","value":1159500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-09-25","value":1260000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-09-26","value":1237400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-09-27","value":1292500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-09-30","value":907400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-10-01","value":1096800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-10-02","value":913100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-10-03","value":815200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-10-04","value":741100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-10-07","value":915700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-10-08","value":883600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-10-09","value":1104800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-10-10","value":2170700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-10-11","value":3984300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-10-15","value":1988600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-10-16","value":1456400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-10-17","value":858800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-10-18","value":769900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-10-21","value":2019200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-10-22","value":2029800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-10-23","value":932300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-10-24","value":912000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-10-25","value":884200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-10-28","value":1214500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-10-29","value":579600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-10-30","value":1173300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-10-31","value":840400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-11-01","value":597900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-11-05","value":499400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-11-06","value":883600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-11-07","value":592100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-11-08","value":1038400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-11-11","value":808700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-11-12","value":885300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-11-13","value":2452300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-11-14","value":1835700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-11-15","value":1507500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-11-18","value":1166300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-11-19","value":1171200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-11-20","value":1287100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-11-21","value":877000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-11-22","value":830900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-11-25","value":917000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-11-26","value":678300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-11-27","value":830900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-11-28","value":389200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-11-29","value":380600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-12-02","value":1216800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-12-03","value":620100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-12-04","value":720000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-12-05","value":875800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-12-06","value":685600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-12-09","value":551600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-12-10","value":609700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-12-11","value":857600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-12-12","value":910400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-12-13","value":963900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-12-16","value":570100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-12-17","value":897100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-12-18","value":707400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-12-19","value":779000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-12-20","value":761500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-12-23","value":388300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-12-24","value":604400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-12-25","value":459000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-12-26","value":662200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-12-27","value":522100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2024-12-30","value":629900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-01-06","value":1141800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-01-07","value":565000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-01-08","value":487900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-01-09","value":675900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-01-10","value":767900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-01-14","value":1465800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-01-15","value":2779900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-01-16","value":3554500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-01-17","value":1112000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-01-20","value":925900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-01-21","value":878500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-01-22","value":932900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-01-23","value":1607500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-01-24","value":911500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-01-27","value":949600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-01-28","value":734700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-01-29","value":1819600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-01-30","value":1140800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-01-31","value":988900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-02-03","value":682600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-02-04","value":825500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-02-05","value":591800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-02-06","value":887700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-02-07","value":537700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-02-10","value":610900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-02-12","value":681100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-02-13","value":1147300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-02-14","value":850600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-02-17","value":585600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-02-18","value":724300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-02-19","value":739200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-02-20","value":852200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-02-21","value":828300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-02-25","value":720100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-02-26","value":797700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-02-27","value":675600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-02-28","value":1015500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-03-03","value":757600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-03-04","value":871300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-03-05","value":979500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-03-06","value":2890400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-03-07","value":1382300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-03-10","value":1837800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-03-11","value":1582500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-03-12","value":1035200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-03-13","value":992500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-03-14","value":1342400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-03-17","value":1467300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-03-18","value":1098400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-03-19","value":709000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-03-21","value":999100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-03-24","value":487200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-03-25","value":1066000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-03-26","value":1141200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-03-27","value":1187100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-03-28","value":2163600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-03-31","value":10003800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-04-01","value":1437300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-04-02","value":932400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-04-03","value":1231200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-04-04","value":1186700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-04-07","value":2061300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-04-08","value":1721300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-04-09","value":1355900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-04-10","value":1748600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-04-11","value":5903700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-04-14","value":2235500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-04-15","value":1767000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-04-16","value":2151700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-04-17","value":1221100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-04-18","value":833000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-04-21","value":611800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-04-22","value":1108300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-04-23","value":858700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-04-24","value":677000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-04-25","value":729200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-04-28","value":593100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-04-30","value":1197200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-05-01","value":753100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-05-02","value":610600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-05-07","value":924500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-05-08","value":1452400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-05-09","value":1935500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-05-12","value":1371200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-05-13","value":1053600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-05-14","value":949300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-05-15","value":1149400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-05-16","value":1235700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-05-19","value":1178000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-05-20","value":1009600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-05-21","value":804400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-05-22","value":1354700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-05-23","value":1611800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-05-26","value":1064900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-05-27","value":1124000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-05-28","value":1321100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-05-29","value":2052600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-05-30","value":2230900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-06-02","value":1017500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-06-03","value":1262600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-06-04","value":1175600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-06-05","value":2066700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-06-06","value":1160600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-06-09","value":1217000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-06-10","value":1627900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-06-11","value":817600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-06-12","value":1947800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-06-13","value":1081400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-06-16","value":1145400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-06-17","value":970700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-06-18","value":1072900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-06-19","value":597100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-06-20","value":703900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-06-23","value":516100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-06-24","value":656400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-06-25","value":624100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-06-26","value":1362200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-06-27","value":1084100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-06-30","value":798500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-07-01","value":725300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-07-02","value":613600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-07-03","value":858800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-07-04","value":697000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-07-07","value":1023400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-07-08","value":1710600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-07-09","value":1073500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-07-10","value":1702000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-07-11","value":1348100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-07-14","value":1159600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-07-15","value":784100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-07-16","value":3872900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-07-17","value":2106900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-07-18","value":1427100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-07-22","value":1090500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-07-23","value":1335300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-07-24","value":974400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-07-25","value":1095400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-07-28","value":767900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-07-29","value":1018300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-07-30","value":895000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-07-31","value":869700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-08-01","value":691100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-08-04","value":744400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-08-05","value":805100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-08-06","value":703800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-08-07","value":1085900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-08-08","value":587900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-08-12","value":723300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-08-13","value":790600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-08-14","value":538500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-08-15","value":668000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-08-18","value":723700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-08-19","value":866900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-08-20","value":615900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-08-21","value":466500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-08-22","value":1195700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-08-25","value":587700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-08-26","value":669900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-08-27","value":503300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-08-28","value":407300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-08-29","value":823700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-09-01","value":436700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-09-02","value":660600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-09-03","value":618200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-09-04","value":505000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-09-05","value":588800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-09-08","value":893600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-09-09","value":891500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-09-10","value":1099600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-09-11","value":955000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-09-12","value":1151900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-09-16","value":716400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-09-17","value":632100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-09-18","value":918800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-09-19","value":1316200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-09-22","value":768500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-09-24","value":1044600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-09-25","value":775300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-09-26","value":957600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-09-29","value":1320500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-09-30","value":10997300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-10-01","value":1391900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-10-02","value":852300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-10-03","value":911500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-10-06","value":1296600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-10-07","value":1077700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-10-08","value":901600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-10-09","value":874900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-10-10","value":969700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-10-14","value":1411700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-10-15","value":1169000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-10-16","value":3624000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-10-17","value":2909600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-10-20","value":1936000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-10-21","value":1147200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-10-22","value":916600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-10-23","value":909200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-10-24","value":1445100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-10-27","value":1412900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-10-28","value":1199800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-10-29","value":1532000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-10-30","value":1573400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-10-31","value":1459700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-11-04","value":1407900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-11-05","value":1395400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-11-06","value":1242800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-11-07","value":1128800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-11-10","value":1410000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-11-11","value":1022900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-11-12","value":1227500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-11-13","value":1647600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-11-14","value":1486900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-11-17","value":1035000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-11-18","value":1046200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-11-19","value":870900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-11-20","value":993500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-11-21","value":839200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-11-25","value":950100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-11-26","value":942600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-11-27","value":603000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-11-28","value":704200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-12-01","value":1041900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-12-02","value":982800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-12-03","value":775100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-12-04","value":1202000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-12-05","value":619200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-12-08","value":905800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-12-09","value":742000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-12-10","value":638200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-12-11","value":595200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-12-12","value":1256800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-12-15","value":725700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-12-16","value":734000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-12-17","value":678700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-12-18","value":1216900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-12-19","value":1163500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-12-22","value":613500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-12-23","value":526400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-12-24","value":456200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-12-25","value":341300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-12-26","value":396900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-12-29","value":472600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2025-12-30","value":424400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-01-05","value":957400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-01-06","value":962000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-01-07","value":871700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-01-08","value":1068400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-01-09","value":1631800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-01-13","value":1774900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-01-14","value":1539600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-01-15","value":2691600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-01-16","value":2667300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-01-19","value":958600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-01-20","value":770300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-01-21","value":1570400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-01-22","value":1238800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-01-23","value":1135000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-01-26","value":1241700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-01-27","value":997400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-01-28","value":900300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-01-29","value":1954700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-01-30","value":2086800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-02-02","value":1670700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-02-03","value":1054600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-02-04","value":3798000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-02-05","value":2436900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-02-06","value":1945800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-02-09","value":2127100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-02-10","value":1539100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-02-12","value":3166300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-02-13","value":3864200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-02-16","value":2639300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-02-17","value":1794200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-02-18","value":1448800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-02-19","value":2786400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-02-20","value":2034400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-02-24","value":4974400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-02-25","value":3113600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-02-26","value":3325100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-02-27","value":3088600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-03-02","value":2698100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-03-03","value":1913100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-03-04","value":3444600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-03-05","value":2766500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-03-06","value":3341900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-03-09","value":2336300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-03-10","value":1828500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-03-11","value":1809300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-03-12","value":1475600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-03-13","value":2619500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-03-16","value":1760300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-03-17","value":893600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-03-18","value":931800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-03-19","value":3591600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-03-23","value":2257000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-03-24","value":1321800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-03-25","value":1164500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-03-26","value":971500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-03-27","value":1688000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-03-30","value":1246500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-03-31","value":1582700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-04-01","value":1110200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-04-02","value":1141600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-04-03","value":824200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-04-06","value":735000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-04-07","value":882000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-04-08","value":1184300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-04-09","value":1043800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-04-10","value":2051400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-04-13","value":1841300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-04-14","value":2577000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-04-15","value":1314800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-04-16","value":8055900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-04-17","value":3915500.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-04-20","value":2834000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-04-21","value":2234900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-04-22","value":2553400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-04-23","value":3369400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-04-24","value":1610300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-04-27","value":2373900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-04-28","value":1692400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-04-30","value":2349000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-05-01","value":1525600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-05-07","value":1566900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-05-08","value":1698600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-05-11","value":1435300.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-05-12","value":1677900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-05-13","value":1391100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-05-14","value":1259400.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-05-15","value":1461900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-05-18","value":1477200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-05-19","value":2795700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-05-20","value":2034900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-05-21","value":1046700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-05-22","value":1709100.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-05-25","value":1200900.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-05-26","value":1177800.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-05-27","value":1462000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-05-28","value":1398200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-05-29","value":1660200.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-06-01","value":2585600.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-06-02","value":1961700.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-06-03","value":1324000.0,"color":"rgba(48,68,102,0.45)"},{"time":"2026-06-04","value":1433700.0,"color":"rgba(48,68,102,0.45)"}],"peak":{"time":"2025-10-06","value":9075.0},"trough":{"time":"2026-02-24","value":3861.0}};
+      (function() {
+        var container = document.getElementById('chart-6532');
+        if (!container || typeof LightweightCharts === 'undefined') return;
+        var chart = LightweightCharts.createChart(container, {
+          autoSize: true,
+          layout: {
+            background: { type: 'solid', color: '#fafbfc' },
+            textColor: '#4a5566',
+            fontFamily: "'DM Mono', monospace",
+            fontSize: 11,
+          },
+          grid: {
+            vertLines: { color: 'rgba(15,31,58,0.04)' },
+            horzLines: { color: 'rgba(15,31,58,0.04)' },
+          },
+          rightPriceScale: {
+            borderColor: '#d6dee8',
+            scaleMargins: { top: 0.08, bottom: 0.24 },
+          },
+          timeScale: {
+            borderColor: '#d6dee8',
+            timeVisible: false,
+            secondsVisible: false,
+          },
+          crosshair: { mode: 1 },
+        });
+        var topixSeries = chart.addLineSeries({
+          color: 'rgba(122,130,144,0.85)',
+          lineWidth: 1.5,
+          priceLineVisible: false,
+          lastValueVisible: true,
+        });
+        topixSeries.setData(CHART_DATA.topix_rebased);
+        var smaSeries = chart.addLineSeries({
+          color: '#b08a4a',
+          lineWidth: 1.5,
+          lineStyle: 2,
+          priceLineVisible: false,
+          lastValueVisible: false,
+        });
+        smaSeries.setData(CHART_DATA.sma60);
+        var candleSeries = chart.addCandlestickSeries({
+          upColor: '#2f6f4f',
+          downColor: '#b91c1c',
+          borderUpColor: '#2f6f4f',
+          borderDownColor: '#b91c1c',
+          wickUpColor: '#2f6f4f',
+          wickDownColor: '#b91c1c',
+        });
+        candleSeries.setData(CHART_DATA.candles);
+        candleSeries.setMarkers([
+          { time: CHART_DATA.peak.time,   position: 'aboveBar', color: '#2f6f4f', shape: 'arrowDown', text: '¥' + '9,075 高値' },
+          { time: CHART_DATA.trough.time, position: 'belowBar', color: '#b91c1c', shape: 'arrowUp',   text: '¥' + '3,861 安値' },
+        ]);
+        var volumeSeries = chart.addHistogramSeries({
+          color: 'rgba(48,68,102,0.45)',
+          priceFormat: { type: 'volume' },
+          priceScaleId: 'volume',
+        });
+        volumeSeries.setData(CHART_DATA.volume);
+        chart.priceScale('volume').applyOptions({
+          scaleMargins: { top: 0.82, bottom: 0 },
+          borderColor: '#d6dee8',
+        });
+        chart.timeScale().fitContent();
+      })();
+    </script>
+  </div>
+  <div class="regime-narr">
+    <p><span class="pin">01 &middot; 上昇局面</span> 2024年6月の安値<b>&yen;3,059</b>から、株価は16ヶ月かけて上昇した。2025年2月期は売上<b>+23.6%</b>、営業利益<b>+24.5%</b>で着地し、2025年4月の決算では売上<b>&yen;1,430億</b>の新年度予想と年間配当<b>&yen;100</b>への61%増配を示した。人数、案件数、1人当たり売上がそろって伸びる「きれいな成長」に見えたため、2025年10月6日の終値は<b>&yen;9,075</b>に達した。これは会社予想営業利益の約26倍で、かなり楽観的な評価だった。</p>
+    <p><span class="pin">02 &middot; 下落局面</span> 2025年10月から2026年2月24日までに、株価は57%下落して<b>&yen;3,861</b>を付けた。売上成長そのものは崩れておらず、1月開示の売上も<b>+27%</b>だった。それでも市場が嫌ったのは、上期のコンサルタント数が2月比でほぼ横ばい（4,784人→4,842人）だったことだ。会社は組織再編・再配置の影響と説明したが、投資家は「人を増やせば伸びる」という前提に一度ブレーキをかけた。同時に、生成AIが調査・資料作成・分析の工数を減らし、プロジェクト型コンサルの収益単価を押し下げるのではないかという疑問も強まった。倍率は予想営業利益の約26倍から約10倍へ縮んだ。</p>
+    <p><span class="pin">03 &middot; 自社株買いによる反転</span> 2026年3月18日、取締役会は株価に直接応えた。<a href="https://ssl4.eir-parts.net/doc/6532/tdnet/2777716/00.pdf" style="text-decoration:underline" target="_blank">上限660万株・&yen;300億の自己株式取得</a>——自己株控除後株式の4.3%、前年枠の10倍である。開示は株価と実態の乖離を理由に挙げ、取得株式は2026年8月19日に全株消却される。<a href="https://ssl4.eir-parts.net/doc/6532/tdnet/2790371/00.pdf" style="text-decoration:underline" target="_blank">4月14日の通期決算</a>は売上<b>&yen;1,483億</b>を示し、2027年2月期を売上<b>&yen;1,900億</b>（+28%）・営業利益<b>&yen;648億</b>（+27%）と予想。株価は&yen;5,000台半ばへ回復した。</p>
+    <p><span class="pin">04 &middot; 現時点</span> <b>&yen;5,857</b>（2026年6月4日）の株価は、2027年2月期営業利益予想に対し予想EV/EBIT <b>12.7倍</b>。取得は7月31日まで続く。今後4四半期の確認点は<a href="https://ssl4.eir-parts.net/doc/6532/ir_material_for_fiscal_ym9/201793/00.pdf" style="text-decoration:underline" target="_blank">決算FAQ</a>に示された計画値である。コンサルタント数は約25%増の約7,000人、案件数は約25%増、1人当たり売上は約5%増。稼働率は80&ndash;90%、EBITDAマージンは30&ndash;40%のレンジで管理される。最初の関門は7月中旬のQ1決算である。</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     02 &middot; 投資家論点
+     ============================================================ -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-num">02 &middot; 投資家論点</span>
+    <h2 class="section-title">市場で議論されている3つの問い</h2>
+    <p class="section-sub">直近決算、投資家向けFAQ、株価の動きから浮かび上がる3つの問い。それぞれに強気・弱気の論拠を並べ、どの開示が決着させるかを示す。</p>
+  </div>
+  <div class="ct-grid">
+
+    <!-- 論点 01 -->
+    <div class="ct-card">
+      <div class="ct-tag">論点 01 &middot; 生成AIと収益モデル</div>
+      <div class="ct-q">生成AIはベイカレントの仕事を増やすのか、奪うのか。</div>
+      <p style="font-family:var(--sans);font-size:12.5px;color:var(--text-mid);line-height:1.7;margin:0 0 12px;">生成AIは、ベイカレントにとって追い風にも向かい風にもなる。顧客企業のAI導入は新しい案件を生む一方で、コンサルタント側の調査・資料作成・分析工数を短くする可能性がある。焦点は、AI関連需要の増加が、工数短縮による単価圧力を上回るかどうかである。</p>
+      <div class="ct-side">
+        <span class="ct-side-tag bull">BULL</span>
+        <div class="ct-side-text">強気側はまず会社開示のKPIを見る。2026年2月期の案件数は<b>+20.7%</b>、1人当たり売上は計画比約<b>+4%</b>だった。決算説明資料は、日本の大企業による複数年のAI投資——<b>&yen;1兆</b>、<b>&yen;5,000億</b>、<b>&yen;3,000億</b>——を約12件列挙し、需要の裏付けとする。この読みでは、AIは業務を自動化するより速く案件を生んでいる。<b>この見方が成立するのは、2027年2月期の1人当たり売上が計画通り約+5%となり、案件数も約+25%伸びる場合である。</b></div>
+      </div>
+      <div class="ct-side">
+        <span class="ct-side-tag bear">BEAR</span>
+        <div class="ct-side-text">弱気側は、AIが案件を増やすだけでなく、同時にコンサルタント1人が請求できる作業量を減らす点を見る。調査、資料作成、初期分析が短時間で済むようになれば、従来と同じ人数・同じ期間のプロジェクトを組みにくくなる。会社は1人当たり売上を開示しているが、1人当たりコストや職位構成は見えないため、単価と人件費の差が狭まっても、投資家が早期に把握しにくい。<b>弱気の見方が説得力を増すのは、1人当たり売上の伸びが2四半期連続で計画を下回るか、EBITDAマージンが30〜40%レンジの下限を試す場合である。</b></div>
+      </div>
+    </div>
+
+    <!-- 論点 02 -->
+    <div class="ct-card">
+      <div class="ct-tag">論点 02 &middot; 採用エンジン</div>
+      <div class="ct-q">2026年2月期の人員増減速は一時要因か、新たな巡航速度か。</div>
+      <p style="font-family:var(--sans);font-size:12.5px;color:var(--text-mid);line-height:1.7;margin:0 0 12px;">同社の供給力はコンサルタントの人数で決まる。人数が増えれば案件も増やせる——ただし、新しい人材が戦力になり、定着する場合に限られる。</p>
+      <div class="ct-side">
+        <span class="ct-side-tag bull">BULL</span>
+        <div class="ct-side-text">採用自体は2026年2月期も計画を上回った。コンサルタント数の伸びが<b>+16.8%</b>にとどまったのは、業界・テーマ別チームへの一時的な再配置によるもので、採用難ではないと会社は説明する。昨年整えた採用体制で今期は過去最多の採用を見込み、4月には約<b>710人</b>の新卒が加わる。<b>この見方が成立するのは、第1四半期時点でコンサルタント数が会社計画の約5,750人——研修中の新卒を除く——に達し、2027年2月までの約7,000人への軌道を保つ場合である。</b></div>
+      </div>
+      <div class="ct-side">
+        <span class="ct-side-tag bear">BEAR</span>
+        <div class="ct-side-text">7,000人到達には1年で約<b>1,400人</b>の純増が必要で、競合も同じ限られた人材プールから採用を続ける。採用を急げば、新しいコンサルタントの生産性が伸びなかったり、シニア層が支援に時間を取られたりしうる。離職率もコホート別の生産性も開示されていないため、現在のKPIにはその影響が直接は表れない。<b>リスクが顕在化するのは、中間決算でコンサルタント数が7,000人への軌道から遅れ、同時に稼働率が80〜90%レンジを割り込む場合である。</b></div>
+      </div>
+    </div>
+
+    <!-- 論点 03 -->
+    <div class="ct-card">
+      <div class="ct-tag">論点 03 &middot; 現金ルール</div>
+      <div class="ct-q">現金上限は規律か、現金の持ち過ぎを許す仕組みか。</div>
+      <p style="font-family:var(--sans);font-size:12.5px;color:var(--text-mid);line-height:1.7;margin:0 0 12px;">会社は手元現金に上限——予想売上の約40%——を設け、上限を超える現金は株主に還元するとしている。論点は、この上限が十分に低いかである。</p>
+      <div class="ct-side">
+        <span class="ct-side-tag bull">BULL</span>
+        <div class="ct-side-text">枠組みは2025年4月公表と新しいが、会社は実行で示してきた。前年の10倍にあたる<b>&yen;300億</b>の自社株買いを全量消却付きで決議し、配当は2021年2月期から毎期増配、配当性向40%の目安も掲げる。<b>この見方が成立するのは、2027年4月の本決算で、上限を超える余剰現金が再び株主に還元される場合である。</b></div>
+      </div>
+      <div class="ct-side">
+        <span class="ct-side-tag bear">BEAR</span>
+        <div class="ct-side-text">上限は予想売上に連動する。中期計画の前提通り売上が年約20%伸びれば、保有を許される現金も年約20%増える。つまりこの方針の下でも、大きな現金残高は積み上がり続けうる。現金はすでに自己資本の約<b>6割</b>に相当し、利回りはほぼゼロである一方、事業は使用資本に対して<b>40%超</b>の利益を生む。<b>弱気の見方が説得力を増すのは、2027年2月期末の現金が上限に達したまま、方針が営業費用基準に改められない場合である。</b></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     03 &middot; カタリスト
+     ============================================================ -->
+<section class="section gem">
+  <div class="section-head">
+    <span class="section-num">03 &middot; カタリスト</span>
+    <h2 class="section-title">今後12ヶ月で何が変わりうるか</h2>
+    <p class="section-sub">ベイカレントの評価を動かすのは、次の四半期利益だけではない。資本政策とKPI開示を少し変えるだけでも、「成長は続くのか」「現金を寝かせ過ぎていないか」という市場の疑問に直接答えられる。</p>
+  </div>
+  <div class="cat-grid">
+
+    <!-- 梃 01 -->
+    <div class="cat-card">
+      <div class="cat-num">梃 01 &middot; 資本政策</div>
+      <div class="cat-title">現金上限を「売上」ではなく「必要運転資金」で説明する</div>
+      <div class="cat-viz">
+        <div class="cat-viz-label">期末現金残高と政策上限（億円）</div>
+        <div class="cat-viz-bar-row">
+          <span class="cat-viz-bar-label">2023年2月期末</span>
+          <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:48%;background:#7a8290"></div></div>
+          <span class="cat-viz-bar-val">&yen;366億</span>
+        </div>
+        <div class="cat-viz-bar-row">
+          <span class="cat-viz-bar-label">2024年2月期末</span>
+          <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:60%;background:#7a8290"></div></div>
+          <span class="cat-viz-bar-val">&yen;458億</span>
+        </div>
+        <div class="cat-viz-bar-row">
+          <span class="cat-viz-bar-label">2025年2月期末</span>
+          <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:80%;background:#304466"></div></div>
+          <span class="cat-viz-bar-val">&yen;606億</span>
+        </div>
+        <div class="cat-viz-bar-row">
+          <span class="cat-viz-bar-label">2026年2月期末</span>
+          <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:95%;background:#1a2a4a"></div></div>
+          <span class="cat-viz-bar-val">&yen;723億</span>
+        </div>
+        <div class="cat-viz-bar-row" style="border-top:1px dashed var(--rule);padding-top:8px;margin-top:4px;">
+          <span class="cat-viz-bar-label">2027年2月期上限</span>
+          <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:100%;background:#b08a4a"></div></div>
+          <span class="cat-viz-bar-val">&yen;760億</span>
+        </div>
+        <div class="cat-viz-cap">上限 = 予想売上の40% &middot; 売上が増えるほど上限も増える</div>
+      </div>
+      <div class="cat-takeaway">現在の方針では、手元現金の上限は予想売上の約40%（運転資金約25%＋成長投資約15%）で説明される。今期売上が約28%伸びる計画であれば、許容される現金上限も約<b>&yen;760億</b>まで広がる。だが、コンサルティング会社に本当に必要なのは売上に対する現金ではなく、給与、採用、教育、オフィス、ITなどを何ヶ月分まかなえるかという運転資金である。営業費用の3ヶ月分なら約<b>&yen;250〜300億</b>で足りる。基準を必要運転資金に寄せ、超過分の還元を明文化できれば、&yen;300億の自社株買いは一度限りの株価対策ではなく、資本規律の始まりとして受け止められる。</div>
+      <div class="cat-meta">
+        <div><dt>経営コスト</dt><dd>取締役会決議1本</dd></div>
+        <div><dt>最早トリガー</dt><dd>2027年2月期決算 &middot; 2027年4月</dd></div>
+      </div>
+    </div>
+
+    <!-- 梃 02 -->
+    <div class="cat-card">
+      <div class="cat-num">梃 02 &middot; 開示</div>
+      <div class="cat-title">1人当たりコストを1人当たり売上と並べて開示する</div>
+      <div class="cat-viz">
+        <div class="cat-viz-label">2026年2月期に開示された指標と、されなかった指標</div>
+        <div class="cat-viz-bar-row">
+          <span class="cat-viz-bar-label">1人当たり売上</span>
+          <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:70%;background:#2f6f4f"></div></div>
+          <span class="cat-viz-bar-val">計画比+4%</span>
+        </div>
+        <div class="cat-viz-bar-row">
+          <span class="cat-viz-bar-label">案件数</span>
+          <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:85%;background:#2f6f4f"></div></div>
+          <span class="cat-viz-bar-val">+20.7%</span>
+        </div>
+        <div class="cat-viz-bar-row">
+          <span class="cat-viz-bar-label">稼働率</span>
+          <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:55%;background:#2f6f4f"></div></div>
+          <span class="cat-viz-bar-val">80%台半ば</span>
+        </div>
+        <div class="cat-viz-bar-row" style="border-top:1px dashed var(--rule);padding-top:8px;margin-top:4px;">
+          <span class="cat-viz-bar-label">1人当たりコスト</span>
+          <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:8%;background:#b91c1c"></div></div>
+          <span class="cat-viz-bar-val">非開示</span>
+        </div>
+        <div class="cat-viz-bar-row">
+          <span class="cat-viz-bar-label">離職率</span>
+          <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:8%;background:#b91c1c"></div></div>
+          <span class="cat-viz-bar-val">非開示</span>
+        </div>
+        <div class="cat-viz-cap">公表KPIはすべて量の指標 &middot; 価格とコストの差は開示数値からは計算できない</div>
+      </div>
+      <div class="cat-takeaway">いまのKPIは、人数、案件数、稼働率、1人当たり売上という「売上を作る側」に寄っている。投資家が知りたいもう一つの数字は、その売上を作るための人件費がどれだけ増えているかである。特にAIで若手業務の付加価値が問われる局面では、1人当たり売上だけでは利幅を判断できない。人件費系コスト約<b>&yen;840億</b>に1ppの逆風が吹けば、年&yen;10億規模のEBITDAが削られる。半期ごとに1人当たりコスト、職位構成、または報酬レンジの変化を一行加えるだけで、単価とコストの議論はかなり透明になる。</div>
+      <div class="cat-meta">
+        <div><dt>経営コスト</dt><dd>説明資料の表1行</dd></div>
+        <div><dt>最早トリガー</dt><dd>Q1決算 &middot; 2026年7月中旬</dd></div>
+      </div>
+    </div>
+
+    <!-- 梃 03 -->
+    <div class="cat-card">
+      <div class="cat-num">梃 03 &middot; 開示</div>
+      <div class="cat-title">7,000人体制の前に離職率とコホート生産性を開示する</div>
+      <div class="cat-viz">
+        <div class="cat-viz-label">期末コンサルタント数 &middot; 2023年2月期 &rarr; 2027年2月期計画</div>
+        <div class="cat-viz-bar-row">
+          <span class="cat-viz-bar-label">2023年2月期末</span>
+          <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:42%;background:#7a8290"></div></div>
+          <span class="cat-viz-bar-val">2,961</span>
+        </div>
+        <div class="cat-viz-bar-row">
+          <span class="cat-viz-bar-label">2024年2月期末</span>
+          <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:55%;background:#7a8290"></div></div>
+          <span class="cat-viz-bar-val">3,837</span>
+        </div>
+        <div class="cat-viz-bar-row">
+          <span class="cat-viz-bar-label">2025年2月期末</span>
+          <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:68%;background:#304466"></div></div>
+          <span class="cat-viz-bar-val">4,784</span>
+        </div>
+        <div class="cat-viz-bar-row">
+          <span class="cat-viz-bar-label">2026年2月期末</span>
+          <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:80%;background:#1a2a4a"></div></div>
+          <span class="cat-viz-bar-val">5,590</span>
+        </div>
+        <div class="cat-viz-bar-row" style="border-top:1px dashed var(--rule);padding-top:8px;margin-top:4px;">
+          <span class="cat-viz-bar-label">2027年2月期計画</span>
+          <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:100%;background:#b08a4a"></div></div>
+          <span class="cat-viz-bar-val">~7,000</span>
+        </div>
+        <div class="cat-viz-cap">1年で約1,400人の純増が必要 &middot; 離職率は一度も開示されていない</div>
+      </div>
+      <div class="cat-takeaway">採用数だけを見れば、会社は今期も強気である。ただし、約7,000人体制に向かうには1年で約1,400人の純増が必要で、採った人が辞めずに戦力化するかどうかが同じくらい重要になる。離職率は開示されておらず、平均勤続年数も持株会社の866人分に限られる。新卒・中途の入社年度別に、定着率、稼働率、1人当たり売上の立ち上がりを示せば、「人数は増えても質が薄まるのではないか」という疑問を、印象ではなくデータで議論できるようになる。</div>
+      <div class="cat-meta">
+        <div><dt>経営コスト</dt><dd>半期ごとのKPI表</dd></div>
+        <div><dt>最早トリガー</dt><dd>上期決算 &middot; 2026年10月</dd></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     04 &middot; バリュエーション
+     ============================================================ -->
+<section class="section">
+  <div class="section-head">
+    <span class="section-num">04 &middot; バリュエーション</span>
+    <h2 class="section-title">この株価から、何が正しければ投資が成立するか</h2>
+    <p class="section-sub">以下はJIIの試算シナリオであり、会社の業績予想ではない。起点は6月4日終値<b>&yen;5,857</b>、2027年2月期会社予想営業利益<b>&yen;648億</b>、企業価値（時価総額から純現金を差し引いた値）<b>&yen;8,240億</b>である。この株価で買い手が信じるべきことは、人数増、単価、稼働率、利益率の組み合わせが崩れないという一点に集約される。</p>
+  </div>
+  <div class="scn-grid">
+
+    <!-- Bear -->
+    <div class="scn-card bear">
+      <span class="scn-tag bear">弱気シナリオ</span>
+      <div class="scn-price">&yen;4,300 &ndash; &yen;4,700</div>
+      <div class="scn-delta dn">&minus;27% から &minus;20%</div>
+      <div class="scn-mult">想定倍率 &middot; 予想EV/EBIT ~9&ndash;10x</div>
+      <div class="scn-prem"><b>弱気シナリオでは、生成AIがジュニア層の業務の請求価値を引き下げる。1人当たり売上は+5%計画に届かず、案件数の伸びは+25%を下回り、稼働率は80〜90%レンジの下限へ向かい、2027年2月期の営業利益は&yen;648億ではなく&yen;600億近辺にとどまる。</b></div>
+      <div class="scn-prem" style="font-style:italic;font-size:13px;background:transparent;border:none;padding:4px 0 0;">&yen;4,300&ndash;&yen;4,700は予想EV/EBITで<b>~9&ndash;10倍</b>に相当し、2026年2月の安値局面で倍率が底入れした水準に近い。</div>
+      <div class="scn-driver-head">主なドライバー</div>
+      <ul class="scn-drivers">
+        <li>1人当たり売上が横ばいか計画割れ</li>
+        <li>案件数の伸びが<b>20%</b>未満</li>
+        <li>稼働率がレンジ下限に低下</li>
+        <li>営業利益が<b>&yen;600億</b>近辺で着地</li>
+      </ul>
+    </div>
+
+    <!-- Base -->
+    <div class="scn-card base">
+      <span class="scn-tag base">基本シナリオ</span>
+      <div class="scn-price">&yen;5,600 &ndash; &yen;6,400</div>
+      <div class="scn-delta flat">&minus;4% から +9%</div>
+      <div class="scn-mult">想定倍率 &middot; 予想EV/EBIT ~12&ndash;14x</div>
+      <div class="scn-prem"><b>会社が2027年2月期予想——売上&yen;1,900億・営業利益&yen;648億——を達成する。コンサルタント数は約7,000人に到達し、&yen;300億の自己株式取得は8月に完了・消却、EBITDAマージンは35%近辺を維持する。</b></div>
+      <div class="scn-driver-head">主なドライバー</div>
+      <ul class="scn-drivers">
+        <li>コンサルタント数<b>~7,000人</b>（+25%）</li>
+        <li>1人当たり売上<b>~5%</b>増</li>
+        <li>自己株式取得を完了し全株消却</li>
+        <li>EBITDAマージン<b>35%</b>近辺を維持</li>
+      </ul>
+    </div>
+
+    <!-- Bull -->
+    <div class="scn-card bull">
+      <span class="scn-tag bull">強気シナリオ</span>
+      <div class="scn-price">&yen;7,300 &ndash; &yen;8,100</div>
+      <div class="scn-delta up">+25% から +38%</div>
+      <div class="scn-mult">想定倍率 &middot; 予想EV/EBIT ~16&ndash;18x</div>
+      <div class="scn-prem"><b>需要が会社計画を上回る。AI関連案件の拡大で1人当たり売上が+5%を超え、2028年2月期の会社予想は25〜28%程度の成長継続を示し、余剰現金ルールの下で2027年4月の本決算と同時に二度目の大型自社株買いが決まる。</b></div>
+      <div class="scn-prem" style="font-style:italic;font-size:13px;background:transparent;border:none;padding:4px 0 0;">レンジ上限は2025年10月高値&yen;9,075に届かない。あの価格には予想営業利益の約26倍が必要だった。</div>
+      <div class="scn-driver-head">主なドライバー</div>
+      <ul class="scn-drivers">
+        <li>1人当たり売上が<b>+5%</b>計画を超過</li>
+        <li>2028年2月期予想が<b>~25%超</b>成長を維持</li>
+        <li>12ヶ月以内に<b>&yen;200億超</b>の第2弾取得</li>
+        <li>EBITDAマージン<b>35%</b>以上</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- SOTP -->
+  <div class="sotp">
+    <div class="sotp-card">
+      <div class="sotp-head">SOTP &middot; コンサルティング事業</div>
+      <div class="sotp-name">単一セグメント：日本の大企業向けプロジェクト型コンサルティング</div>
+      <div class="sotp-row"><span class="k">2027年2月期営業利益予想</span><span class="v">&yen;648億</span></div>
+      <div class="sotp-row"><span class="k">予想売上成長率</span><span class="v">+28.1%</span></div>
+      <div class="sotp-row"><span class="k">想定 EV/EBIT</span><span class="v">~11&ndash;14x</span></div>
+      <div class="sotp-row"><span class="k">想定事業価値</span><span class="v">&yen;7,130&ndash;9,070億</span></div>
+      <div class="sotp-foot">JII想定レンジ——成長率と利益率を映し国内類似中央値（~9x）より上、2025年の自社高値倍率より下。</div>
+    </div>
+    <div class="sotp-card">
+      <div class="sotp-head">SOTP &middot; ネットキャッシュ</div>
+      <div class="sotp-name">現金から借入金・リース負債を控除（2026年2月末）</div>
+      <div class="sotp-row"><span class="k">現金同等物</span><span class="v">&yen;723億</span></div>
+      <div class="sotp-row"><span class="k">借入金</span><span class="v">&minus;&yen;3億</span></div>
+      <div class="sotp-row"><span class="k">リース負債</span><span class="v">&minus;&yen;63億</span></div>
+      <div class="sotp-row"><span class="k">ネットキャッシュ</span><span class="v">&yen;657億</span></div>
+      <div class="sotp-foot">&yen;300億の自己株式取得（2026年4&ndash;7月）を満額実行すれば、この残高の約半分を使う。</div>
+    </div>
+    <div class="sotp-card">
+      <div class="sotp-head">SOTP &middot; 類似企業倍率ラダー &middot; 2026年6月4日時点</div>
+      <div class="sotp-name">国内上場のコンサルティング・人材レバレッジ企業</div>
+      <div class="sotp-row"><span class="k"><b>6532 ベイカレント &middot; 本レポート</b></span><span class="v"><b>予想 12.7x &middot; ROCE 46%</b></span></div>
+      <div class="sotp-row"><span class="k">4307 野村総合研究所 &middot; コンサル+ITサービス</span><span class="v">予想 16.2x &middot; ROCE 19%</span></div>
+      <div class="sotp-row"><span class="k">3697 SHIFT &middot; ソフトウェアテスト・人材レバレッジ</span><span class="v">実績 11.0x &middot; ROCE 33%</span></div>
+      <div class="sotp-row"><span class="k">446A ノースサンド &middot; IT/DXコンサル・2025年上場</span><span class="v">予想 9.1x &middot; ROCE 53%</span></div>
+      <div class="sotp-row"><span class="k">9168 ライズ・コンサルティング &middot; DX/戦略コンサル</span><span class="v">予想 8.6x &middot; ROCE 27%</span></div>
+      <div class="sotp-row"><span class="k">6088 シグマクシス &middot; DXコンサル</span><span class="v">予想 5.7x &middot; ROCE 38%</span></div>
+      <div class="sotp-foot">EV=6月4日終値 &divide; 各社の最新営業利益予想。SHIFTは予想非開示のため実績、NRIの実績期は一過性損失を含む。</div>
+    </div>
+    <div class="sotp-card">
+      <div class="sotp-head">SOTP &middot; 株主価値ブリッジ</div>
+      <div class="sotp-name">想定株主価値レンジと理論株価</div>
+      <div class="sotp-row"><span class="k">コンサルティング事業（~11&ndash;14x）</span><span class="v">&yen;7,130&ndash;9,070億</span></div>
+      <div class="sotp-row"><span class="k">ネットキャッシュ</span><span class="v">&yen;657億</span></div>
+      <div class="sotp-row" style="border-top:1px solid var(--rule);padding-top:10px"><span class="k"><b>SOTP想定株主価値</b></span><span class="v"><b>&yen;7,790&ndash;9,730億</b></span></div>
+      <div class="sotp-row"><span class="k">自己株控除後株式数（2026年4月開示）</span><span class="v">1億5,185万株</span></div>
+      <div class="sotp-row"><span class="k"><b>理論株価レンジ</b></span><span class="v"><b>&yen;5,130&ndash;&yen;6,410</b></span></div>
+      <div class="sotp-foot">現在株価 <b>&yen;5,857</b> はレンジの上半分に位置する。&yen;300億の取得を満額実行すれば株式数は約4%減り、レンジは相応に切り上がる。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SHARE BAR
+     ============================================================ -->
+<section class="share-bar" id="jii-share"
+         data-share-text="ベイカレント（6532）&mdash; JII Compounder 銘柄レポート"
+         data-share-url="https://jpinv.com/compounders/6532/initiation/"
+         data-share-subject="JII Compounders &middot; 6532 ベイカレント"
+         data-copy-label="リンクをコピー"
+         data-copied-label="コピーしました">
+  <div class="share-head">
+    <span class="share-eyebrow">Share</span>
+    <span class="share-sub">気になった方へ共有する</span>
+  </div>
+  <div class="share-btns">
+    <a class="share-btn share-x" target="_blank" rel="noopener" aria-label="Xで共有">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      <span>X</span>
+    </a>
+    <a class="share-btn share-em" aria-label="メールで共有">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5z"/></svg>
+      <span>メール</span>
+    </a>
+    <button type="button" class="share-btn share-cp" aria-label="リンクをコピー">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11z"/></svg>
+      <span class="lbl">リンクをコピー</span>
+    </button>
+  </div>
+  <div class="share-perm">固定リンク &middot; <code id="jii-share-url-display"></code></div>
+</section>
+
+<!-- ============================================================
+     DISCLAIMER
+     ============================================================ -->
+<section class="disclaimer">
+  <div class="disclaimer-head">
+    <span class="d-eyebrow">重要なご注意</span>
+    <h2 class="d-title">本資料は投資助言ではありません。</h2>
+  </div>
+  <div class="disclaimer-body">
+    <p>株式会社ジャパン・インベスター・インターフェース（以下「JII」）は IR コンサルティング会社です。JII は、いかなる法域においても登録された投資顧問業者、ファイナンシャル・アドバイザー、証券会社、または金融商品取引業者ではありません。JII は日本の金融商品取引法に基づく金融商品取引業者ではなく、投資助言・代理業の登録も受けていません。JII は投資助言を提供せず、また有価証券の購入・売却・保有を勧誘するものではありません。</p>
+    <p><b>JII Compounders は編集出版物です。</b>各銘柄レポートは、日本の上場企業について公に開示された情報が市場でどのように受け止められたかを分析した記事です。IR 専門家、ファイナンス学生、ジャーナリストなど、企業の開示実務に関心のある読者の教育・研究を目的としています。<b>本資料に含まれるいかなる内容も、有価証券・派生商品その他の金融商品の購入・売却・保有を推奨、提案、勧誘するものではありません。</b>本資料中の目標株価、シナリオレンジ、倍率、類似企業比較は、分析手法の例示に過ぎず、JII の投資判断として解釈されてはなりません。JII は本資料で言及するいかなる有価証券についても投資意見を有しません。</p>
+    <p><b>依拠の禁止。</b>本資料に記載された情報は、不完全・古い・誤りを含む場合があります。将来予測情報は本質的に不確実です。過去の株価実績は将来の結果を示すものではありません。試算値・シナリオ数値は予測ではなく、達成を保証するものではありません。JII は、本資料中の情報の正確性、完全性、適時性、信頼性について、明示・黙示を問わず一切の表明・保証を行いません。</p>
+    <p><b>受託・助言関係の不存在。</b>本資料を読むことにより、読者と JII との間で投資顧問・受託者・専門家としての関係が成立することはありません。投資・税務・会計・法律その他の判断を行う前には、必ず該当法域の有資格・登録専門家にご相談いただき、各社が発行する一次情報に基づいて独立した適正評価を実施してください。</p>
+    <p><b>利益相反・ポジション。</b>JII は、本資料で言及する企業を含む日本の上場企業に対して、有償の IR 診断・翻訳・通訳業務を提供する場合があります。JII は、銘柄レポート対象企業の有価証券の取引・保有を行いません。JII と銘柄レポート対象企業との間に有償契約が存在する場合は、レポート冒頭でその旨を開示します。</p>
+    <p><b>商標・データ。</b>本資料で言及される企業名、ロゴ、ティッカー、製品名は各所有者に帰属します。株価データは第三者プロバイダーよりライセンス提供を受けています。TradingView は TradingView, Inc. の商標です。All rights reserved.</p>
+    <p class="d-jp-note" lang="en">This publication is editorial research provided by Japan Investor Interface Co., Ltd. for educational and informational purposes only. It is not investment advice, a recommendation, or a solicitation to buy, sell, or hold any security. Readers should consult licensed advisors in their jurisdiction and conduct independent due diligence based on the company&rsquo;s primary disclosures.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<div class="meth">
+  <span><a href="/compounders/">全銘柄レポート</a> &middot; <a href="/compounders/methodology/">手法</a></span>
+  <span>株式会社ジャパン・インベスター・インターフェース</span>
+</div>
+
+</article>
+</main>
+
+
+<!-- ============================== SHARE BAR · WIRING ============================== -->
+<script>
+(function(){
+  var root = document.getElementById('jii-share');
+  if(!root) return;
+  var text = root.dataset.shareText;
+  var url = root.dataset.shareUrl;
+  var subject = root.dataset.shareSubject;
+  var copyLabel = root.dataset.copyLabel;
+  var copiedLabel = root.dataset.copiedLabel;
+  var e = encodeURIComponent;
+
+  var x = root.querySelector('.share-x');
+  if(x) x.href = 'https://twitter.com/intent/tweet?text=' + e(text) + '&url=' + e(url);
+  var em = root.querySelector('.share-em');
+  if(em) em.href = 'mailto:?subject=' + e(subject) + '&body=' + e(text + '\n\n' + url);
+
+  var perm = document.getElementById('jii-share-url-display');
+  if(perm) perm.textContent = url;
+
+  var cp = root.querySelector('.share-cp');
+  if(cp) cp.addEventListener('click', function(){
+    var btn = this;
+    var lbl = btn.querySelector('.lbl');
+    var doFlash = function(){
+      lbl.textContent = copiedLabel;
+      btn.classList.add('copied');
+      setTimeout(function(){ lbl.textContent = copyLabel; btn.classList.remove('copied'); }, 2400);
+    };
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(url).then(doFlash, function(){});
+    } else {
+      var ta = document.createElement('textarea');
+      ta.value = url; document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); doFlash(); } catch(_){}
+      document.body.removeChild(ta);
+    }
+  });
+})();
+</script>
+
+<script src="/assets/compounders-nav.js" defer></script>
+</body>
+</html>

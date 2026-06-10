@@ -109,10 +109,10 @@
   .lh-date { font-family:var(--mono); font-size:10px; color:var(--text-dim); }
   .lh-purpose { font-size:12px; color:var(--text-mid); margin:6px 0 0; }
 
-  .sig-item { display:grid; grid-template-columns:92px 110px 1fr; gap:14px; padding:13px 0; border-bottom:1px solid var(--rule-soft); align-items:baseline; }
-  .sig-date { font-family:var(--mono); font-size:11px; color:var(--text-dim); }
-  .sig-tag { font-family:var(--mono); font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--accent-deep); border:1px solid var(--accent); padding:2px 8px; text-align:center; white-space:nowrap; }
-  .sig-text { margin:0; font-size:13px; }
+  .mv-item { display:grid; grid-template-columns:92px 1fr; gap:12px; padding:11px 0; border-bottom:1px solid var(--rule-soft); align-items:baseline; }
+  .mv-date { font-family:var(--mono); font-size:11px; color:var(--text-dim); white-space:nowrap; }
+  .mv-text { margin:0; font-size:12.5px; }
+  .mv-text b { color:var(--ink-mid); }
 
   .lib-grid { display:grid; grid-template-columns:1.4fr 1fr; gap:34px; }
   .lib-doc { display:grid; grid-template-columns:92px 104px 1fr; gap:12px; align-items:baseline; padding:12px 0; border-bottom:1px solid var(--rule-soft); border-top:none; }
@@ -120,9 +120,8 @@
   .lib-date { font-family:var(--mono); font-size:11px; color:var(--text-dim); }
   .lib-tag { font-family:var(--mono); font-size:9.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--accent-deep); border:1px solid var(--accent); padding:2px 7px; text-align:center; white-space:nowrap; }
   .lib-title { font-size:13px; color:var(--text); line-height:1.5; }
-  .hub-link { display:block; padding:10px 14px; margin-bottom:9px; border:1px solid var(--rule); font-size:12.5px; background:var(--bg-soft); }
-  .hub-link:hover { border-color:var(--accent); }
-  .hub-primary { border:1.5px solid var(--accent-deep); background:var(--accent-soft); font-weight:600; color:var(--ink-mid); }
+  .en-ir-bar { display:block; padding:14px 18px; margin:0 0 18px; border:1.5px solid var(--accent-deep); background:var(--accent-soft); font-family:var(--serif); font-size:15.5px; color:var(--ink-mid); }
+  .en-ir-bar:hover { opacity:.85; }
 
   .res-card { display:block; border:1px solid var(--rule); padding:16px 18px; margin-bottom:12px; border-bottom:1px solid var(--rule); }
   .res-card:hover { border-color:var(--accent); }
@@ -143,8 +142,7 @@
     .lib-doc { grid-template-columns:80px 1fr; }
     .lib-doc .lib-title { grid-column:1 / -1; }
     .head-co { font-size:26px; }
-    .sig-item { grid-template-columns:80px 1fr; }
-    .sig-text { grid-column:1 / -1; }
+    .mv-item { grid-template-columns:76px 1fr; }
     .table-wrap { overflow-x:auto; }
   }
   .table-wrap { overflow-x:auto; }
@@ -249,7 +247,7 @@
         <td class="c-num">229</td>
         <td class="c-num">36.67</td>
         <td class="c-num">—</td>
-        <td class="c-link"><a href="https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100NA8D" target="_blank" rel="noopener">Annual report</a> <span class="lang-tag">[JA]</span></td>
+        <td class="c-link"><a href="https://ssl4.eir-parts.net/doc/7378/ir_material_for_fiscal_ym2/110923/00.pdf" target="_blank" rel="noopener">Results</a> <span class="lang-tag">[EN]</span></td>
       </tr>
       <tr>
         <td class="c-fy">FY2022</td>
@@ -261,7 +259,7 @@
         <td class="c-num">344</td>
         <td class="c-num">50.03</td>
         <td class="c-num">12.45</td>
-        <td class="c-link"><a href="https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100Q1KW" target="_blank" rel="noopener">Annual report</a> <span class="lang-tag">[JA]</span></td>
+        <td class="c-link"><a href="https://ssl4.eir-parts.net/doc/7378/ir_material_for_fiscal_ym2/128785/00.pdf" target="_blank" rel="noopener">Results</a> <span class="lang-tag">[EN]</span></td>
       </tr>
       <tr>
         <td class="c-fy">FY2023</td>
@@ -273,7 +271,7 @@
         <td class="c-num">-12</td>
         <td class="c-num">-1.69</td>
         <td class="c-num">13.61</td>
-        <td class="c-link"><a href="https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100SOLV" target="_blank" rel="noopener">Annual report</a> <span class="lang-tag">[JA]</span></td>
+        <td class="c-link"><a href="https://ssl4.eir-parts.net/doc/7378/ir_material_for_fiscal_ym2/146981/00.pdf" target="_blank" rel="noopener">Results</a> <span class="lang-tag">[EN]</span></td>
       </tr>
       <tr>
         <td class="c-fy">FY2024</td>
@@ -319,7 +317,7 @@
 
   <section id="quarterly">
     <div class="sec-eyebrow">Section 02 · Earnings Trend · Quarterly</div>
-    <h2 class="sec-title">Standalone quarters — the last thirteen</h2>
+    <h2 class="sec-title">Standalone quarters — the last 13</h2>
     <p class="sec-note">Standalone quarters derived from each period&#x27;s own disclosure (year-to-date differences, ¥M). FY2024 figures are as reported at the time and predate the comparative restatement made in FY2025 disclosures, so growth rates can differ slightly from company-reported rates.</p>
     <div class="chart-legend">
       <span><span class="sw" style="background:#304466"></span>REVENUE (¥M, left)</span>
@@ -339,7 +337,7 @@
         <td class="c-num c-dim">—</td>
         <td class="c-num">11.5%</td>
         <td class="c-num">45</td>
-        <td class="c-link"><a href="https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100QEPX" target="_blank" rel="noopener">Quarterly report</a> <span class="lang-tag">[JA]</span></td>
+        <td class="c-link"><a href="https://ssl4.eir-parts.net/doc/7378/ir_material_for_fiscal_ym2/132789/00.pdf" target="_blank" rel="noopener">Q1 results</a> <span class="lang-tag">[EN]</span></td>
       </tr>
       <tr>
         <td class="c-fy">FY23 Q2</td>
@@ -349,7 +347,7 @@
         <td class="c-num c-dim">—</td>
         <td class="c-num">5.1%</td>
         <td class="c-num">21</td>
-        <td class="c-link"><a href="https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100QY4E" target="_blank" rel="noopener">Quarterly report</a> <span class="lang-tag">[JA]</span></td>
+        <td class="c-link"><a href="https://ssl4.eir-parts.net/doc/7378/ir_material_for_fiscal_ym2/137296/00.pdf" target="_blank" rel="noopener">Q2 results</a> <span class="lang-tag">[EN]</span></td>
       </tr>
       <tr>
         <td class="c-fy">FY23 Q3</td>
@@ -359,7 +357,7 @@
         <td class="c-num c-dim">—</td>
         <td class="c-num">3.4%</td>
         <td class="c-num">11</td>
-        <td class="c-link"><a href="https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100RV1X" target="_blank" rel="noopener">Quarterly report</a> <span class="lang-tag">[JA]</span></td>
+        <td class="c-link"><a href="https://ssl4.eir-parts.net/doc/7378/ir_material_for_fiscal_ym2/141720/00.pdf" target="_blank" rel="noopener">Q3 results</a> <span class="lang-tag">[EN]</span></td>
       </tr>
       <tr>
         <td class="c-fy">FY23 Q4 <span class="drv" title="Derived: full year minus nine-month cumulative">†</span></td>
@@ -369,7 +367,7 @@
         <td class="c-num c-dim">—</td>
         <td class="c-num">-11.2%</td>
         <td class="c-num">-89</td>
-        <td class="c-link"><a href="https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100SOLV" target="_blank" rel="noopener">Annual report</a> <span class="lang-tag">[JA]</span></td>
+        <td class="c-link"><a href="https://ssl4.eir-parts.net/doc/7378/ir_material_for_fiscal_ym2/146981/00.pdf" target="_blank" rel="noopener">FY results</a> <span class="lang-tag">[EN]</span></td>
       </tr>
       <tr>
         <td class="c-fy">FY24 Q1</td>
@@ -466,6 +464,7 @@
     </div>
     <p class="tbl-foot">† Fourth quarters are derived as the full year minus the nine-month cumulative. YoY compares the same quarter a year earlier.</p>
   </section>
+
 
   <section id="segments">
     <div class="sec-eyebrow">Section 03 · Earnings Trend · By Segment</div>
@@ -569,8 +568,10 @@
         </div>
         <p class="tbl-foot">Ratios as filed: percent of shares outstanding excluding treasury shares at fiscal year-end (treasury 90,619 shares at 2025-10-31; 297,155 at 2026-01-31 after subsequent buybacks). Source:
           <a href="https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100XHO2" target="_blank" rel="noopener">FY2025 annual securities report (filed 2026-01-27)</a> <span class="lang-tag">[JA]</span></p>
-        <h3 class="own-h" style="margin-top:26px">Large shareholding (5%-rule) filings</h3>
-        <p class="tbl-foot" style="margin:0 0 12px">Large shareholding (5%-rule) filings sit on top of the year-end register above. Asset Value Investors holds through custodians, so its position does not appear by name in the top-10 list.</p>
+        <p class="tbl-foot">Large shareholding (5%-rule) filings sit on top of the year-end register above. Asset Value Investors holds through custodians, so its position does not appear by name in the top-10 list.</p>
+      </div>
+      <div>
+        <h3 class="own-h">5%-Rule Filings · current positions</h3>
         
       <div class="lh-card">
         <div class="lh-head"><span class="lh-pct">35.23%</span>
@@ -586,35 +587,32 @@
         <p class="lh-purpose">Held as representative director and stable shareholder.
           <a href="https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100VU01" target="_blank" rel="noopener">Filing</a> <span class="lang-tag">[JA]</span></p>
       </div>
-      </div>
-      <div>
-        <h3 class="own-h">Latest signals</h3>
+        <h3 class="own-h" style="margin-top:26px">Stake moves over 1% · filing timeline</h3>
         
-      <div class="sig-item">
-        <span class="sig-date">2026-05-08</span>
-        <span class="sig-tag">Buyback</span>
-        <p class="sig-text">Board resolved a new share repurchase, announced after the close.
-          <a href="https://www.release.tdnet.info/inbs/140120260508519385.pdf" target="_blank" rel="noopener">Disclosure</a> <span class="lang-tag">[JA]</span></p>
+      <div class="mv-item">
+        <span class="mv-date">2026-02-28</span>
+        <p class="mv-text"><b>Asset Value Investors</b> — Raised to 35.23% (2,599,900 shares; filed 2026-03-26) — became the largest shareholder, above the founder. <a href="https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100XSA0" target="_blank" rel="noopener">Filing</a> <span class="lang-tag">[JA]</span></p>
       </div>
-      <div class="sig-item">
-        <span class="sig-date">2026-03-26</span>
-        <span class="sig-tag">Ownership</span>
-        <p class="sig-text">Asset Value Investors raised its stake to 35.23%, above the founder&#x27;s 26.65% — an activist-capable filing citing pure investment and important-proposal actions.
-          <a href="https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100XSA0" target="_blank" rel="noopener">Disclosure</a> <span class="lang-tag">[JA]</span></p>
+      <div class="mv-item">
+        <span class="mv-date">2026-01-31</span>
+        <p class="mv-text"><b>Asset Value Investors</b> — Through 33% — filings show estimated build prices around ¥1,530–1,570.</p>
       </div>
-      <div class="sig-item">
-        <span class="sig-date">2026-03-12</span>
-        <span class="sig-tag">Dividend policy</span>
-        <p class="sig-text">Payout policy raised to 40%-plus of profit with an interim dividend introduced; FY2026 dividend forecast lifted to ¥65 per share.
-          <a href="https://ssl4.eir-parts.net/doc/7378/tdnet/2775120/00.pdf" target="_blank" rel="noopener">Disclosure</a> <span class="lang-tag">[JA]</span></p>
+      <div class="mv-item">
+        <span class="mv-date">2025-12-31</span>
+        <p class="mv-text"><b>Asset Value Investors</b> — Through 28%, adding in roughly 1-point steps.</p>
       </div>
-      <div class="sig-item">
-        <span class="sig-date">2025-05-28</span>
-        <span class="sig-tag">Ownership</span>
-        <p class="sig-text">Founder and CEO Hiroto Nakayama&#x27;s amended large-holding filing showed 26.65% — no sell-down since listing.
-          <a href="https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100VU01" target="_blank" rel="noopener">Disclosure</a> <span class="lang-tag">[JA]</span></p>
+      <div class="mv-item">
+        <span class="mv-date">2025-10-31</span>
+        <p class="mv-text"><b>Asset Value Investors</b> — First 5%-rule filing at 6.78%, then rapid additions through 21% within weeks.</p>
       </div>
-        <p class="tbl-foot" style="margin-top:14px">Full log: <a href="/compounders/signals/7378/">capital-allocation signal feed →</a></p>
+      <div class="mv-item">
+        <span class="mv-date">2025-04-30</span>
+        <p class="mv-text"><b>Hiroto Nakayama (founder &amp; CEO)</b> — Amended filing at 26.65%, up 2.9 points (filed 2025-05-28) — no sell-down since the 2021 listing. <a href="https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?S100VU01" target="_blank" rel="noopener">Filing</a> <span class="lang-tag">[JA]</span></p>
+      </div>
+      <div class="mv-item">
+        <span class="mv-date">2024-10-31</span>
+        <p class="mv-text"><b>Gordian Capital Singapore</b> — Sold down below the 5% line (4.41%) after peaking near 18.5% in mid-2024 — exited as AVI entered.</p>
+      </div>
       </div>
     </div>
   </section>
@@ -622,14 +620,23 @@
   <section id="ir-library">
     <div class="sec-eyebrow">Section 05 · IR Library · Curated</div>
     <h2 class="sec-title">The disclosures worth your time</h2>
-    <p class="sec-note">The documents a first-time reader of this company actually needs, in reading order. Direct PDFs where the link is durable; everything else lives on the company&#x27;s own library pages below. ASIRO maintains an English IR site with translated financial results and briefing materials.</p>
-    <div class="lib-grid">
-      <div>
-        <h3 class="own-h">Key documents</h3>
+    <p class="sec-note">The documents a first-time reader of this company actually needs, in reading order. Direct PDFs where the link is durable; everything else lives on the company&#x27;s own library pages below. English documents are linked whenever the company provides them; [JA] marks items where no English version exists.</p>
+    <a class="en-ir-bar" href="https://en.asiro.co.jp/ir/" target="_blank" rel="noopener">ASIRO Inc. — official English IR site · translated financial results and briefing materials ↗</a>
+    <h3 class="own-h">Key documents</h3>
       <a class="lib-doc" href="https://ssl4.eir-parts.net/doc/7378/tdnet/2775122/00.pdf" target="_blank" rel="noopener">
         <span class="lib-date">2026-03-12</span>
         <span class="lib-tag">Start here</span>
         <span class="lib-title">Q1 FY2026 earnings briefing deck — business model, KPIs, and the preparation-year framing <span class="lang-tag">[JA]</span></span>
+      </a>
+      <a class="lib-doc" href="https://ssl4.eir-parts.net/doc/7378/ir_material_for_fiscal_ym3/146982/00.pdf" target="_blank" rel="noopener">
+        <span class="lib-date">2023-12-14</span>
+        <span class="lib-tag">In English</span>
+        <span class="lib-title">FY2023 results briefing deck — the most recent English-language walkthrough of the business model (the company&#x27;s English materials stop at FY2023) <span class="lang-tag">[EN]</span></span>
+      </a>
+      <a class="lib-doc" href="https://ssl4.eir-parts.net/doc/7378/ir_material_for_fiscal_ym5/146983/00.pdf" target="_blank" rel="noopener">
+        <span class="lib-date">2023-12-14</span>
+        <span class="lib-tag">In English</span>
+        <span class="lib-title">Medium-term Management Plan FY2023–FY2025 (English) — background to the current FY2030 growth strategy <span class="lang-tag">[EN]</span></span>
       </a>
       <a class="lib-doc" href="https://ssl4.eir-parts.net/doc/7378/tdnet/2775103/00.pdf" target="_blank" rel="noopener">
         <span class="lib-date">2026-03-12</span>
@@ -661,27 +668,6 @@
         <span class="lib-tag">Governance</span>
         <span class="lib-title">Corporate governance report <span class="lang-tag">[JA]</span></span>
       </a>
-      </div>
-      <div>
-        <h3 class="own-h">Company IR pages</h3>
-      <a class="hub-link hub-primary" href="https://en.asiro.co.jp/ir/" target="_blank" rel="noopener">
-        English IR site — translated financial results and briefing materials <span class="lang-tag">[EN]</span> ↗</a>
-      <a class="hub-link" href="https://asiro.co.jp/ir/" target="_blank" rel="noopener">
-        IR top (Japanese) <span class="lang-tag">[JA]</span> ↗</a>
-      <a class="hub-link" href="https://asiro.co.jp/ir/library/document/" target="_blank" rel="noopener">
-        Earnings materials library (決算関連資料) <span class="lang-tag">[JA]</span> ↗</a>
-      <a class="hub-link" href="https://asiro.co.jp/ir/library/disclosure/" target="_blank" rel="noopener">
-        Timely disclosures (適時開示情報) <span class="lang-tag">[JA]</span> ↗</a>
-      <a class="hub-link" href="https://asiro.co.jp/ir/library/other/" target="_blank" rel="noopener">
-        Other IR materials and videos (その他IR資料・動画) <span class="lang-tag">[JA]</span> ↗</a>
-      <a class="hub-link" href="https://asiro.co.jp/ir/plan/" target="_blank" rel="noopener">
-        Medium-term plan (中期経営計画) <span class="lang-tag">[JA]</span> ↗</a>
-      <a class="hub-link" href="https://asiro.co.jp/ir/stock/dividendpolicy/" target="_blank" rel="noopener">
-        Shareholder return policy (株主還元方針) <span class="lang-tag">[JA]</span> ↗</a>
-      <a class="hub-link" href="https://asiro.co.jp/ir/information/calendar/" target="_blank" rel="noopener">
-        IR calendar (IRカレンダー) <span class="lang-tag">[JA]</span> ↗</a>
-      </div>
-    </div>
   </section>
 
   <section id="research">
