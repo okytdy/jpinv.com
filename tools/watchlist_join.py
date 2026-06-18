@@ -35,6 +35,7 @@ CLASS_META = {
     "CROSS":         ("Cross-shareholding reduction",     "政策保有株式の縮減",      "CROSS"),
     "MBO":           ("Take-private / tender offer",      "非公開化・TOB",          "MBO"),
     "M_AND_A":       ("M&A",                              "M&A",                  "MBO"),
+    "INSIDER_REORG": ("Founder shareholding restructuring","創業者株式整理",         "OTHER"),
 }
 def cls_meta(c):
     return CLASS_META.get(c, (c or "Signal", c or "開示", "OTHER"))

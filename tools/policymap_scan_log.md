@@ -4,6 +4,35 @@ Each weekly run appends one dated block: sources scanned, new candidates staged,
 
 ---
 
+## 2026-06-18 — weekly scan
+**Window:** 2026-06-08 → 2026-06-18 (scan_window_days = 10). Method: search-first (WebSearch each feed query for 2026年6月/5月, then fetch only surfaced official-domain result URLs).
+
+**Feeds scanned (13):**
+- METI (経済産業省) — OK, 0 in-window. Surfaced only routine public-call results: 次世代半導体産業推進事業（制度設計・運用）公募結果 (6/15, operator selection — administrative), 創薬ベンチャーエコシステム強化 第12回採択 (6/5, recurring grant cycle), グローバルサウス/ウクライナ復興補助金 二次公募採択 (6/8, niche). None milestone-grade.
+- ANRE / 資源エネルギー庁 — OK, 0 in-window. 着床式洋上風力 (再エネ海域利用法外) 入札・上限価格非公表 = a proposed direction; major offshore-wind rounds slated autumn 2026; June 補助金 公募 = application windows opening (routine). Nothing dated in window.
+- FSA (金融庁) — OK, 0 in-window. CG Code still 改訂案 (proposal, 2026-04-10); public comment closed 2026-05-15; **final code NOT yet published as of 06-18**. (A search snippet's "6/11 改定版公表" claim was a conflation with the **2021**-06-11 revision — jpx.co.jp/news/1020/20210611-01.html. Verified false for 2026.) Still pending → not a milestone yet.
+- BOJ (日本銀行) — OK, **1 STAGED**. June MPM held June 15(Mon)–16(Tue); "当面の金融政策運営について / Change in the Guideline for Money Market Operations" released **2026-06-16 12:19**: policy rate (無担保コール翌日物) raised **0.75% → 1.0%** by a **7-1 vote** (Asada dissented; Ueda absent), effective 06-17 — highest in ~31 years. → markets-10. (Schedule confirmed via official 2026 MPM日程 PDF; EN statement k260616a.pdf fetched + read.) The same meeting's JGB-taper interim assessment = **maintain** the existing reduction plan (no change) → folded into context, not a separate milestone.
+- JPX / TSE (日本取引所グループ) — OK, 0 in-window. CG Code is joint FSA/TSE, still proposal (see FSA). No in-window制度 change.
+- MLIT (国土交通省) — OK, 0 in-window. 総合物流施策大綱 2026–2030 was 2026-03-31 (known); 国土強靱化実施中期計画 was 2025-06 (a year ago). Nothing new in window.
+- MHLW (厚生労働省) — OK, 0 in-window. 診療報酬本体 2026-06-01 施行 = implementation of the already-recorded FY2026 revision (dedupe). 薬価 live since April. Min-wage 諮問→目安 = consultation underway, 目安 answer ~July (a consultation, not a decision → excluded).
+- MAFF (農林水産省) — OK, 0 in-window. Nothing material surfaced.
+- Ministry of Defense (防衛省) — OK, 0 in-window. Only periodic central-procurement results tables; FY2026 budget live since 2025-12-26.
+- Cabinet Office (内閣府) — OK, **1 STAGED** + 骨太 NOT yet decided. 骨太の方針2026 閣議決定 **DELAYED to July+** (social-security 国民会議 中間とりまとめ timing) → not a milestone yet. BUT: the **経済安全保障推進法・JBIC法 改正法** (第221回国会・閣法第30号, 提出 2026-03-19) was **enacted 2026-06-10** at the 参院本会議 → defense-11 (adds medical to 基幹インフラ screening; expands critical-goods supply-chain support + 重要技術研究基金; JBIC 劣後出資 for strategic overseas projects). STAGED.
+- Digital Agency (デジタル庁) — OK, 0 in-window. Nothing material.
+- Children & Families Agency (こども家庭庁) — OK, 0 in-window. No new in-window decision (こども誰でも通園 already live 2026-04-01 labor-08).
+- Japan Tourism Agency / JNTO (観光庁) — OK, 0 in-window. 訪日外客数 2026年5月推計 published 06-17 (in window): 3,559,900, **−3.6% YoY** (19 markets May-record). Monthly statistical print + a YoY decline → excluded per policy (not milestone-grade).
+
+**Failures:** none. All WebSearch queries returned results; the surfaced BOJ schedule PDF and BOJ EN statement PDF, plus the 内閣府 217th-session and 経済安保推進法 pages, fetched OK. (One search mis-mapped the econ-security amendment to the 217th session = the **2025** 令和7年 session; resolved to the 221st session = 2026.)
+
+**Candidates staged:** 2.
+1. `m-2026-06-16-markets-10-4a089b` — BOJ raises policy rate to 1.0% (7-1 vote, ~31-yr high; markets-10).
+2. `m-2026-06-10-defense-11-891d95` — Economic Security Promotion Act & JBIC Act amendment enacted (221st Diet, 閣法30号; defense-11).
+
+**Duplicates skipped:** 0 (BOJ 2024 negative-rate exit and the 2022 econ-security original are distinct dates/events → no collision).
+**Notes:** The mid-June catalyst cluster flagged in the 06-08 run has now landed — BOJ hike to 1.0% (staged) and the JGB-taper interim assessment (maintained). Still ahead and to watch: 骨太の方針2026 (slipped to July+), CG Code finalization ("this summer" — still 改訂案), and the minimum-wage 目安 (~July). Source-URL provenance: BOJ cited to the JP statement page (state_2026/k260616a.htm, matching the confirmed kYYMMDDa pattern; EN PDF k260616a.pdf was fetched and read); econ-security cited to the 内閣府 program page (canonical body-domain), which had **not yet been updated** for the amendment at scan time — enactment corroborated by the Diet record (221st session, 閣法30号) and press. Review email drafted to Teddy; live data untouched; notification_status stays "pending" until promotion.
+
+---
+
 ## 2026-06-08 — weekly scan
 **Window:** 2026-05-29 → 2026-06-08 (scan_window_days = 10). Method: search-first (WebSearch each feed query for 2026年5月/6月, then fetch only surfaced official-domain result URLs).
 
