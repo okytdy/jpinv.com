@@ -108,6 +108,8 @@ def build(days: int, single_date: str | None, max_downloads: int, force_llm: boo
             filer_code = (d.get("edinetCode") or "").strip()
             iid = C.attribute_investor(idx, filer_name=filer, edinet_code=filer_code)
             issuer = parsed.get("issuer_name") or d.get("issuerName") or ""
+            filer_en = inv_by_id[iid]["display_name"] if iid else (C.translate_fund_name(filer) or filer)
+            filer_ja = inv_by_id[iid].get("display_name_ja", filer) if iid else filer
             row = {
                 "investor_id": iid,
                 "is_tracked": bool(iid),
@@ -132,8 +134,6 @@ def build(days: int, single_date: str | None, max_downloads: int, force_llm: boo
             issuer_en = C.jpx_name_en(code) or issuer
             shares = parsed.get("shares_held")
             shares_str = ("{:,}".format(shares)) if shares else None
-            filer_en = inv_by_id[iid]["display_name"] if iid else (C.translate_fund_name(filer) or filer)
-            filer_ja = inv_by_id[iid].get("display_name_ja", filer) if iid else filer
             intent_en = C.INTENT_LABEL.get(row["intent"], {}).get("en", "")
             intent_ja = C.INTENT_LABEL.get(row["intent"], {}).get("ja", "")
             curs = C.pct(cur)
