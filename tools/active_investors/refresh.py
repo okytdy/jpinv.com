@@ -32,6 +32,7 @@ import argparse
 import datetime as _dt
 import os
 import sys
+import time
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -46,8 +47,12 @@ LEDGER_FILE = Path(__file__).resolve().parent / ".llm_ledger.json"
 
 
 class Budget:
-    """Soft monthly USD guard for the optional Claude summary tier."""
+    """Soft monthly USD guard + per-run wall-clock guard for the optional Claude
+    summary tier. The wall-clock deadline (default 8 min, well under the 12-min
+    CI step timeout) means a slow/overloaded Anthropic API stops the LLM tier and
+    falls back to template summaries rather than hanging the whole job."""
     HARD_CAP_USD = float(os.environ.get("ACTIVE_INVESTORS_LLM_CAP_USD", "5"))
+    DEADLINE_SEC = float(os.environ.get("ACTIVE_INVESTORS_LLM_DEADLINE_SEC", "480"))
     IN_PER_MTOK = 1.0
     OUT_PER_MTOK = 5.0
 
@@ -56,9 +61,11 @@ class Budget:
         d = C.read_json(path, {}) or {}
         self.month = _dt.date.today().strftime("%Y-%m")
         self.spent = float(d.get("spent_usd") or 0.0) if d.get("month") == self.month else 0.0
+        self._t0 = time.monotonic()
 
     def can_spend(self):
-        return self.spent < self.HARD_CAP_USD
+        return (self.spent < self.HARD_CAP_USD
+                and (time.monotonic() - self._t0) < self.DEADLINE_SEC)
 
     def record(self, usage):
         if not usage:

@@ -88,7 +88,11 @@ def llm_purpose(filing: dict, *, api_key: str, budget=None) -> Optional[str]:
     if not purpose:
         return None
     try:
-        client = anthropic.Anthropic(api_key=api_key)
+        # Bound every call hard: a short per-request timeout and NO retries, so a
+        # rate-limited / overloaded API (or a long Retry-After backoff) can never
+        # stall the run. purpose_en is optional enrichment — on any failure we
+        # simply fall back to the template summary for this filing.
+        client = anthropic.Anthropic(api_key=api_key, timeout=20.0, max_retries=0)
         resp = client.messages.create(
             model=CLAUDE_MODEL, max_tokens=120, system=SYSTEM_PROMPT,
             messages=[{"role": "user", "content": "保有目的: " + purpose}],
