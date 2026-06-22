@@ -1385,5 +1385,3 @@ if __name__ == "__main__":
     import sys
     p, t = _run_tests()
     sys.exit(0 if p == t else 1)
-n_tests()
-    sys.exit(0 if p == t else 1)
