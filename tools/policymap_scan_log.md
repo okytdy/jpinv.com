@@ -110,3 +110,29 @@ Email draft: none created (Step 7 triggers only on ≥1 new candidate).
 **Notes:** Quiet pre-mid-June window — the material near-term catalysts (骨太の方針2026 閣議決定, BOJ June MPM + JGB-taper interim assessment, possibly minimum-wage council) all fall just AFTER 2026-06-02 and should surface in next week's run. Inbox left empty (last_scan = 2026-06-02). No live data touched; no review email drafted (Step 7 fires only on new candidates).
 
 ---
+
+## 2026-06-22 — weekly scan
+**Window:** 2026-06-12 → 2026-06-22 (scan_window_days = 10). Method: search-first (WebSearch each feed query for 2026年6月/5月, then fetch only surfaced official-domain result URLs). Prior week's two staged items (BOJ 1.0% rate hike 06-16; 経済安保・JBIC法改正 06-10) are now LIVE (present in policymap_data.json), so the inbox started empty.
+
+**Feeds scanned (13):**
+- METI (経済産業省) — OK, 0 in-window. Surfaced only recurring public-call results (Global South / Ukraine-reconstruction 二次公募採択 6/8 — niche; 創薬ベンチャー 第12回採択 6/5; JCM クレジット委託先採択 6/9). None milestone-grade for listed-company exposure.
+- ANRE / 資源エネルギー庁 — OK, 0 in-window. No in-window decision; offshore-wind 4th round slated autumn 2026; Round-1 re-bidding direction set 2025-12. Nothing dated in window.
+- FSA (金融庁) — OK, 0 in-window. **CG Code 3rd revision still NOT finalized.** Proposal (改訂案) published 2026-04-10; public comment closed 2026-05-15; finalization widely "expected June 2026" but **no confirmed final-code primary URL on fsa.go.jp/jpx.co.jp surfaced within the window**. WATCH for next run (would be a markets-06 milestone once告示/公表 is confirmed). Not staged (per "do not stage unconfirmed/expected events").
+- BOJ (日本銀行) — OK, 0 new. June MPM (06-15/16) → 1.0% rate hike + JGB-taper interim assessment already captured by the LIVE 2026-06-16 markets-10 milestone. No separate/new item.
+- JPX / TSE (日本取引所グループ) — OK, 0 in-window. Latest substantive item is the 2026-04-28 cost-of-capital follow-up update (out of window). CG-Code-linked listing-rule revision is scheduled "by July 2026" — not yet. Nothing in window.
+- MLIT (国土交通省) — OK, 0 in-window. 国土強靱化実施中期計画 was 2025-06-06 (a year ago, not new). No in-window 閣議決定/制度 surfaced.
+- MHLW (厚生労働省) — OK, 0 in-window. 診療報酬本体 06-01 施行 = implementation of the already-live FY2026 revision (dedupe; also pre-window). 薬価収載品目リスト 令和8年6月12日適用 = routine NHI new-drug listing (immaterial). Min-wage 中央最低賃金審議会 目安 answer ~July (consultation, not a decision). Nothing staged.
+- MAFF (農林水産省) — OK, 0 in-window. No material decision surfaced in window.
+- Ministry of Defense (防衛省) — OK, 0 in-window. Only periodic central-procurement results tables; FY2026 budget live since 2025-12-26. No specific in-window contract/procurement award surfaced.
+- Cabinet Office (内閣府) — OK, 0 in-window. 骨太の方針2026 still NOT Cabinet-decided — confirmed DELAYED to July (vs 2025 edition's 6/13), pending the social-security 国民会議 中間とりまとめ. Will surface next run(s). Nothing in window.
+- Digital Agency (デジタル庁) — OK, 0 in-window. Only guidebooks/explainers; no in-window 調達/整備/法 decision material to listed-company exposure.
+- Children and Families Agency (こども家庭庁) — OK, 0 in-window. こども誰でも通園 nationwide benefit already live (2026-04-01 labor-08). No new in-window decision.
+- Japan Tourism Agency / JNTO (観光庁) — OK, 0 staged. **JNTO May-2026 inbound estimate published 2026-06-17 (in window): 3,559,900 visitors, −3.6% YoY — the SECOND consecutive month of YoY decline (Apr was −5.5%), though 19 markets set May records.** Source (primary, fetched): https://www.jnto.go.jp/news/press/20260617_monthly.html . Consistent with the documented precedent of the 2026-06-02 and 2026-06-18 runs (monthly JNTO prints treated as routine, not milestone-grade; the annual record is already live as 2026-01-01 consumer-07), this monthly print was CONSIDERED but NOT staged. WATCH: a third straight YoY decline would make the inbound-momentum rollover milestone-grade and worth staging then.
+
+**Failures:** none. All 13 feeds reached via WebSearch; the JNTO press page fetched cleanly. (web_fetch only used on search-surfaced official-domain URLs, per the search-first policy.)
+
+**Candidates staged:** 0.
+**Duplicates skipped:** 0 (BOJ June MPM already live → not re-staged; counted as covered, not a dedupe-stage drop).
+**Notes:** Quiet window. The two big near-term catalysts are pending and should land in upcoming runs: (1) the FSA/TSE **CG Code 3rd revision** finalization (expected June/July → markets-06), and (2) **骨太の方針2026** Cabinet decision (delayed to July). Inbound tourism momentum has now declined YoY for two straight months — flagged as a watch item. No live data touched; no review email drafted (Step 7 fires only on ≥1 new candidate).
+
+---

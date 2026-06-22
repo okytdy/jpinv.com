@@ -272,6 +272,17 @@ def _match_mbo(d: dict) -> MatchResult:
         title,
     ):
         return _EMPTY
+    # GUARD: FSA block-accumulation disclosure (買集め行為).
+    # "公開買付けに準ずる行為として政令で定める買集め行為" is a mandatory FSA filing
+    # under Financial Instruments Enforcement Ordinance Art. 30 §1 ¶4 — used
+    # when a person rapidly accumulates >5% of shares.  It is "equivalent to a
+    # tender offer" for *disclosure* purposes only: there is no public offer, no
+    # management buyout, and no delisting intent.  The phrase "公開買付けに準ずる
+    # 行為" is the tell; its 公開買付 substring was causing the MBO regex to fire.
+    # Real-world example: NEXON 3659, 2026-06-19 — NXC group internal transfer,
+    # mislabelled "Take-private / tender offer" until this guard was added.
+    if re.search(r"公開買付け?に準ずる行為|買集め行為", title):
+        return _EMPTY
     if not _MBO_RE.search(title):
         return _EMPTY
     if "MBO" in title or "ＭＢＯ" in title:
@@ -1280,6 +1291,24 @@ def _run_tests() -> tuple[int, int]:
             None,
             None,
         ),
+        (
+            # Regression: NEXON 3659 2026-06-19 — FSA block-accumulation report.
+            # Title contains 公開買付けに準ずる行為 (an act *equivalent* to a tender
+            # offer for disclosure purposes) and 買集め行為. This is an intra-group
+            # share transfer, not a take-private. Was incorrectly labelled MBO
+            # until the 買集め行為 guard was added to _match_mbo (2026-06-22).
+            "NEG . FSA block-accumulation (買集め行為) — NOT MBO",
+            _make_disclosure(
+                ticker="3659",
+                title_jp=(
+                    "主要株主の異動及び当社株式（証券コード 3659）の取得"
+                    "（公開買付けに準ずる行為として政令で定める買集め行為）に関するお知らせ"
+                ),
+            ),
+            None,
+            None,
+            None,
+        ),
     ]
 
     passed = 0
@@ -1355,4 +1384,6 @@ def _run_tests() -> tuple[int, int]:
 if __name__ == "__main__":
     import sys
     p, t = _run_tests()
+    sys.exit(0 if p == t else 1)
+n_tests()
     sys.exit(0 if p == t else 1)
