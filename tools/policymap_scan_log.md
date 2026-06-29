@@ -136,3 +136,29 @@ Email draft: none created (Step 7 triggers only on ≥1 new candidate).
 **Notes:** Quiet window. The two big near-term catalysts are pending and should land in upcoming runs: (1) the FSA/TSE **CG Code 3rd revision** finalization (expected June/July → markets-06), and (2) **骨太の方針2026** Cabinet decision (delayed to July). Inbound tourism momentum has now declined YoY for two straight months — flagged as a watch item. No live data touched; no review email drafted (Step 7 fires only on ≥1 new candidate).
 
 ---
+
+## 2026-06-29 — weekly scan
+**Window:** 2026-06-19 → 2026-06-29 (scan_window_days = 10). Method: search-first (WebSearch each feed query for 2026年6月, then fetch only surfaced official-domain result URLs). Inbox started empty (prior run staged 0; last_scan was 2026-06-22).
+
+**Feeds scanned (13):**
+- METI (経済産業省) — OK, 0 in-window. Surfaced only recurring/administrative public-call items: 創薬ベンチャー 第12回採択 (6/5, pre-window + recurring grant cycle), グローバルサウス/ウクライナ復興 二次公募採択 (6/8), JCMクレジット委託先採択 (6/9), and a 6/23 content-industry support-menu notice that merely **announces a 2nd 公募 opening 6/30** (an opportunity announcement, not an award/decision). None milestone-grade for listed-company exposure.
+- ANRE / 資源エネルギー庁 — OK, 0 in-window. FY2026 FIT/FIP買取価格 were set 2026-03-19 (out of window); 着床式洋上風力 (再エネ海域利用法外) 入札・上限価格非公表 = a standing direction; major offshore-wind rounds still slated autumn 2026. Nothing dated in window.
+- FSA (金融庁) — OK, 0 in-window. **CG Code 3rd revision STILL NOT finalized.** Proposal (改訂案) published 2026-04-10 (fsa.go.jp/news/r7/singi/20260410.html); public comment closed 2026-05-15; finalization "expected June 2026" but **no confirmed final-code primary URL on fsa.go.jp / jpx.co.jp surfaced in window** (PwC commentary dated 2026-05-27 still discusses the 改訂案; the working draft at .../siryo/20260403/03.pdf still reads "2026年●月●日"). Not staged (per "do not stage unconfirmed/expected events"). WATCH → markets-06 once告示/公表 confirmed.
+- BOJ (日本銀行) — OK, 0 new. June MPM (06-15/16) → 1.0% rate hike + JGB-taper interim assessment (= **maintain** the existing reduction plan) already captured by the LIVE 2026-06-16 markets-10 milestone. June 主な意見 / quarterly JGB-purchase schedule = routine, not decision-grade. No separate/new item.
+- JPX / TSE (日本取引所グループ) — OK, 0 in-window. Latest substantive item remains the 2026-04-28 cost-of-capital ("経営資源の適切な配分") follow-up update (out of window). The CG-Code-linked listing-rule revision is scheduled "by July 2026" — not yet. Nothing in window.
+- MLIT (国土交通省) — OK, 0 in-window. 総合物流施策大綱 2026–2030 was 2026-03-31 (known); only a minor 6/2 overseas-lecture item surfaced. No in-window 閣議決定/制度.
+- MHLW (厚生労働省) — OK, 0 in-window. 薬価収載品目リスト 令和8年6月12日適用 = routine NHI new-drug listing (immaterial, pre-window). 中央最低賃金審議会 目安 answer ~July (a consultation underway, not a decision → excluded). FY2026 診療報酬/薬価 already live. Nothing staged.
+- MAFF (農林水産省) — OK, 0 in-window. "2026年6月 スマート農業をめぐる情勢" = a situational status briefing (white-paper-grade, not a decision); food-security / smart-ag legal framework already live (2024). No in-window decision.
+- Ministry of Defense (防衛省) — OK, 0 in-window. Only FY2026-budget concept material (SHIELD unmanned-asset program, MQ-9B/V-BAT) + periodic central-procurement results tables; FY2026 budget live since 2025-12-26. No specific in-window contract/procurement award surfaced.
+- Cabinet Office (内閣府) — OK, 0 in-window. **骨太の方針2026 still NOT Cabinet-decided — confirmed DELAYED to July+** (vs the 2025 edition's 6/13; latest /honebuto/ decision page on cao.go.jp is still 2025). June 23/24/26 activity = 審議会/WG meetings (electricity-stable-supply WG, renewables-mainstreaming subcommittee, factory-siting subcommittee, wind environmental-review panel) + Diet committee sessions — consultations, no cabinet decision. Nothing in window.
+- Digital Agency (デジタル庁) — OK, 0 in-window. The annual デジタル社会重点計画 **2026** revision is not yet surfaced (the 2025 edition was 閣議決定 2025-06-13; the 2026 revision appears tied to the delayed Honebuto and has not been decided as of scan). iPhone-wallet MyNumber "from June" = a consumer feature, not listed-company milestone-grade. No in-window decision primary source.
+- Children and Families Agency (こども家庭庁) — OK, 0 in-window. こども誰でも通園 nationwide benefit already live (2026-04-01 labor-08); 物価高対応子育て応援手当 was 2025-11-21 (decided) / Feb-2026 payout. No new in-window decision.
+- Japan Tourism Agency / JNTO (観光庁) — OK, 0 staged. No NEW print this window — the JNTO May-2026 estimate (3,559,900, −3.6% YoY) published **2026-06-17 = just BEFORE the window** and was already CONSIDERED/logged in the 06-22 run. June-2026 data publishes ~mid-July (after window). WATCH unchanged: a third straight YoY monthly decline would make the inbound-momentum rollover milestone-grade.
+
+**Failures:** none. All 13 feeds reached via WebSearch; no fetch errors. (web_fetch only used on search-surfaced official-domain URLs, per the search-first policy; this run resolved from WebSearch result snippets + official-domain links, which were sufficient to date every candidate.)
+
+**Candidates staged:** 0.
+**Duplicates skipped:** 0 (no in-window item reached the dedupe stage; BOJ June MPM already live → counted as covered, not a dedupe-stage drop).
+**Notes:** Third consecutive quiet weekly window. Both big near-term catalysts remain pending and slipped together: (1) FSA/TSE **CG Code 3rd revision** finalization (still 改訂案 as of 06-29 → markets-06 when published), and (2) **骨太の方針2026** Cabinet decision (delayed to July), which also appears to be holding back the annual **デジタル社会重点計画2026** revision. Inbound tourism momentum (two straight YoY monthly declines) stays on watch pending the mid-July June print. Inbox left with 0 candidates (last_scan = 2026-06-29). No live data touched; no review email drafted (Step 7 fires only on ≥1 new candidate).
+
+---

@@ -75,12 +75,30 @@ jobs:
       - name: Commit and push refreshed data
         run: |
           set -euo pipefail
-          if [ -n "$(git status --porcelain compounders/active-investors/data/ tools/active_investors/.llm_ledger.json tools/active_investors/.filer_tally.json)" ]; then
-            git config user.name  "jii-active-investors-bot"
-            git config user.email "active-investors-bot@users.noreply.github.com"
-            git add compounders/active-investors/data/ tools/active_investors/.llm_ledger.json tools/active_investors/.filer_tally.json
-            git commit -m "active-investors: refresh @ ${{ github.run_id }}"
-            git push
-          else
+          paths="compounders/active-investors/data/ tools/active_investors/.llm_ledger.json tools/active_investors/.filer_tally.json"
+          if [ -z "$(git status --porcelain $paths)" ]; then
             echo "No data changes."
+            exit 0
           fi
+          git config user.name  "jii-active-investors-bot"
+          git config user.email "active-investors-bot@users.noreply.github.com"
+          git add $paths
+          git commit -m "active-investors: refresh @ ${{ github.run_id }}"
+          # The feed-refresh workflow runs every 30 min and also pushes to main.
+          # This job takes ~8 min, so a feed push can land mid-run and make a plain
+          # `git push` fail with a non-fast-forward rejection — the cause of the
+          # intermittent "Run failed" emails (e.g. 2026-06-22, 2026-06-27). Rebase
+          # our single data commit onto the latest main and retry. Our paths
+          # (compounders/active-investors/, tools/active_investors/) are disjoint
+          # from feed-refresh's, so the rebase never conflicts.
+          for attempt in 1 2 3 4 5; do
+            if git push origin HEAD:main; then
+              echo "Pushed on attempt ${attempt}."
+              exit 0
+            fi
+            echo "Push attempt ${attempt} rejected; rebasing onto latest origin/main and retrying..."
+            git fetch origin main
+            git rebase origin/main
+          done
+          echo "Push still failing after 5 attempts." >&2
+          exit 1
