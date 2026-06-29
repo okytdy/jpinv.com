@@ -102,7 +102,22 @@ jobs:
           # month's) copy, reset it to $0, and the cap was never really enforced.
           git add compounders/feed/data/ compounders/signals/ en/compounders/signals/ tools/llm_ledger.json
           git commit -m "feed: refresh @ ${{ github.run_id }}"
-          git push
+          # active-investors-refresh (and the next feed run) also push to main, so a
+          # plain `git push` can be rejected (non-fast-forward) when main moves
+          # mid-run. Rebase our data commit onto the latest main and retry. Our paths
+          # (compounders/feed/, compounders/signals/, tools/llm_ledger.json) are
+          # disjoint from active-investors-refresh's, so the rebase never conflicts.
+          for attempt in 1 2 3 4 5; do
+            if git push origin HEAD:main; then
+              echo "Pushed on attempt ${attempt}."
+              exit 0
+            fi
+            echo "Push attempt ${attempt} rejected; rebasing onto latest origin/main and retrying..."
+            git fetch origin main
+            git rebase origin/main
+          done
+          echo "Push still failing after 5 attempts." >&2
+          exit 1
 
       - name: Job summary
         if: always()
