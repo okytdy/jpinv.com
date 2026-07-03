@@ -75,7 +75,13 @@ jobs:
       - name: Commit and push refreshed data
         run: |
           set -euo pipefail
-          paths="compounders/active-investors/data/ tools/active_investors/.llm_ledger.json tools/active_investors/.filer_tally.json"
+          # Stage EVERY tracked file the scripts rewrite. .summary_cache.json is
+          # tracked and rewritten by refresh.py on every run; leaving it out of the
+          # commit left it as an UNSTAGED change, which made `git rebase` abort with
+          # "cannot rebase: You have unstaged changes." on the retry path below —
+          # the real cause of the daily "Run failed" emails (Jun–Jul 2026). It must
+          # be in $paths so the working tree is clean before any rebase.
+          paths="compounders/active-investors/data/ tools/active_investors/.llm_ledger.json tools/active_investors/.filer_tally.json tools/active_investors/.summary_cache.json"
           if [ -z "$(git status --porcelain $paths)" ]; then
             echo "No data changes."
             exit 0
@@ -91,6 +97,12 @@ jobs:
           # our single data commit onto the latest main and retry. Our paths
           # (compounders/active-investors/, tools/active_investors/) are disjoint
           # from feed-refresh's, so the rebase never conflicts.
+          #
+          # --autostash makes the rebase resilient to ANY stray unstaged change
+          # (e.g. a newly generated file a future script writes that isn't in
+          # $paths yet): git stashes it, rebases, then reapplies it, instead of
+          # aborting. `|| git rebase --abort` guarantees we never re-enter the loop
+          # mid-rebase. Together these make the push robust "for good".
           for attempt in 1 2 3 4 5; do
             if git push origin HEAD:main; then
               echo "Pushed on attempt ${attempt}."
@@ -98,7 +110,7 @@ jobs:
             fi
             echo "Push attempt ${attempt} rejected; rebasing onto latest origin/main and retrying..."
             git fetch origin main
-            git rebase origin/main
+            git rebase --autostash origin/main || { git rebase --abort || true; }
           done
           echo "Push still failing after 5 attempts." >&2
           exit 1
