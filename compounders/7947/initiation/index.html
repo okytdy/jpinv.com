@@ -381,6 +381,20 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
 </style>
 <script src="/assets/locale-switcher.js" defer></script>
+<style id="v2-inflections">
+.infl-glance{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 22px;}
+.glance-chip{display:flex;flex-direction:column;gap:4px;padding:12px 14px;border:1px solid var(--rule,#d6dee8);border-radius:8px;background:#fff;}
+.glance-chip .g-pillar{font-size:11px;letter-spacing:.07em;color:#0f1f3a;font-weight:700;}
+.glance-chip .g-dir{font-size:11px;font-weight:600;font-family:'DM Mono',monospace;}
+.glance-chip .g-dir.up{color:#2f6f4f;}.glance-chip .g-dir.watch{color:#b08a4a;}.glance-chip .g-dir.stable{color:#7a8290;}
+.glance-chip .g-one{font-family:var(--serif,Georgia,serif);font-size:12.5px;color:#4a5566;line-height:1.6;}
+.infl-entry{border-top:1px solid var(--rule,#d6dee8);padding-top:10px;margin-top:10px;}
+.infl-entry:first-of-type{border-top:none;padding-top:2px;margin-top:6px;}
+.infl-date{font-size:11px;color:#b08a4a;letter-spacing:.06em;margin-bottom:4px;font-family:'DM Mono',monospace;}
+.infl-date.muted{color:#7a8290;}.infl-date.new{color:#2f6f4f;}.infl-date.risk{color:#b91c1c;}
+.infl-entry p{margin:0;line-height:1.75;}
+@media(max-width:720px){.infl-glance{grid-template-columns:1fr;}}
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main-content">本文へ移動</a>
@@ -448,7 +462,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     <p>エフピコは、スーパーが食品を詰めるプラスチック製トレー・容器の国内最大手である。製品は精肉・鮮魚向けの発泡トレーから、弁当・惣菜向けの透明容器、冷凍食向けの耐寒容器まで広がる。スーパー、コンビニ、食品加工業者が、包装資材問屋を通じてこれらの容器を毎日購入する。したがって売上は小口の反復購買の積み重ねであり、約76.7%が自社製品、23.3%が仕入れた包装資材の再販売である。</p>
     <p>同社はこの連鎖を一貫して自社で担う。21の生産工場、日本の人口の85%を100km圏に収める配送網、6つのリサイクル工場を運営する。店頭で買い物客から使用済みトレーとPETボトルを回収し、エフピコが新しい容器へ再生する。この循環は二重に効く。スーパーには目に見えるリサイクルの物語を与え、原油高の局面ではバージン樹脂より安い原料をエフピコに与える。トレーの約30%は再生原料から作られ、製品数量の69%は競合が同じ素材で販売しない独自設計である。</p>
     <p>2026年3月期（2025年4月〜2026年3月）は、売上高が16期連続で過去最高を更新した。売上高2,405億円（前期比2.1%増）、営業利益216億円（17.0%増）、営業利益率は9.0%である。増益はほぼすべて価格によるものだ。エフピコは2021年10月以降3回の価格改定で樹脂・電力・人件費の上昇を転嫁し、販売数量は前期比99.7%とほぼ横ばいだった。使用資本利益率（ROCE）は約10.2%と2年前の7.7%から上昇し、ネット負債は534億円——工場と物流への投資を借入で賄っているためである。</p>
-    <p>2026年4月30日の取引終了後、エフピコは最高益となった通期決算を発表し、同時に2027年3月期の業績予想を「未定」とした。中東情勢の緊迫で、主要3樹脂は1kgあたり約100円上昇していた。同社の答えは、6月1日出荷分からの20%以上の第4次価格改定、産業資材の新事業に向けた580億円の工場建設の決議、そして年73円を下限とする配当の維持だった。投資家への問いは、消費が弱いなかで20%の値上げを通せる企業に、3年で1,000億円を投じる局面で実績EV/営業利益12.3倍超の評価を与えるべきかである。本レポートはこの問いを、株価がここに至った経緯、投資家が割れている論点、倍率を動かし得る開示、事業の価値という4段階で読み解く。</p>
+    <p>2026年4月30日の取引終了後、エフピコは最高益となった通期決算を発表し、同時に2027年3月期の業績予想を「未定」とした。中東情勢の緊迫で、主要3樹脂は1kgあたり約100円上昇していた。同社の答えは、6月1日出荷分からの20%以上の第4次価格改定、産業資材の新事業に向けた580億円の工場建設の決議、そして年73円を下限とする配当の維持だった。投資家への問いは、消費が弱いなかで20%の値上げを通せる企業に、3年で1,000億円を投じる局面で実績EV/営業利益12.3倍超の評価を与えるべきかである。本レポートはこの問いを、株価がここに至った経緯、投資家が割れている論点、株主・顧客・エッジに生じている変化、倍率を動かし得る開示、事業の価値という5段階で読み解く。</p>
   </section>
 
   <!-- ============================== 01 · 株価レジーム ============================== -->
@@ -622,10 +636,79 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     </div>
   </section>
 
-  <!-- ============================== 03 · カタリスト ============================== -->
+  <!-- ============================== 03 · インフレクション ============================== -->
+  <section class="section">
+    <div class="section-head">
+      <div class="section-num">03 · インフレクション</div>
+      <h2 class="section-title">株主・顧客・エッジに何が変化しているか</h2>
+    </div>
+
+    <div class="infl-glance">
+      <a class="glance-chip"><span class="g-pillar">株主構成</span><span class="g-dir stable">&#9644; 横ばい</span><span class="g-one">創業家が36%を保有。報酬は譲渡制限付株式へ、73円の配当下限を維持。</span></a>
+      <a class="glance-chip"><span class="g-pillar">顧客関係</span><span class="g-dir watch">&#9650; 試練</span><span class="g-one">6月の20%値上げが正念場。コンビニは弱含み、スーパーは回復。</span></a>
+      <a class="glance-chip"><span class="g-pillar">エッジ・陳腐化</span><span class="g-dir up">&#9650; 実証・ヘッジ</span><span class="g-one">リサイクルの環が原料高を吸収。580億円の産業材投資が長期ヘッジ。</span></a>
+    </div>
+
+    <div class="ct-grid">
+
+      <div class="ct-card">
+        <div class="ct-tag">株主構成</div>
+        <div class="ct-q">誰が保有し、株主構成は動いているか</div>
+          <div class="infl-entry">
+            <div class="infl-date ">2026-06-25 &middot; 譲渡制限付株式</div>
+            <p>自己株式を処分し、役員へ譲渡制限付株式（RS）を付与した。保有が義務づけられ、1,000億円の投資局面で経営陣を株価に結びつける。<b>次の確認：</b>RS付与の対象がさらに広がるか。</p>
+          </div>
+          <div class="infl-entry">
+            <div class="infl-date ">2026-04-30 &middot; 配当下限</div>
+            <p>FY3/27予想を未定とする一方、73円を配当の下限と明示した。FY3/25以降は累進配当、FY3/16以降は減配なし。予想が見えないなかでも創業家中心の株主に報いる姿勢である。<b>次の確認：</b>10月中間期で自己株取得が上乗せされるか。</p>
+          </div>
+          <div class="infl-entry">
+            <div class="infl-date muted">横ばい &middot; その理由</div>
+            <p>創業家資産管理会社（35.6%）、上位10社（63%）、積水化成品（約4.6%、低発泡の共同開発先）は不変。浮動株は約37%、売買代金は1日約7億円で、アクティビストが変化を強いる余地はない。<b>次の確認：</b>創業家または積水化成品の保有比率の変動。</p>
+          </div>
+      </div>
+
+      <div class="ct-card">
+        <div class="ct-tag">顧客関係</div>
+        <div class="ct-q">誰が買い、関係は維持されているか</div>
+          <div class="infl-entry">
+            <div class="infl-date ">2026-06-01 &middot; 20%の試金石</div>
+            <p>全製品対象・20%超の4回目の値上げが6月1日出荷分から発効した。原料樹脂が約100円/kg上昇したためである。消費者が購入点数を絞るなか、スーパーが値上げを受け入れるかを問う最大の試金石となる。<b>次の確認：</b>6月以降のQ1（7月下旬）で数量が100%以上を保つか。</p>
+          </div>
+          <div class="infl-entry">
+            <div class="infl-date ">2025年央〜 &middot; チャネル構成</div>
+            <p>コンビニ向け出荷は2025年央から減少、一方でスーパー向け数量はH2に再びプラス（Q4は101.5%）。最も強い取引先へ構成がシフトしている。<b>次の確認：</b>コンビニ数量が下げ止まるか。</p>
+          </div>
+          <div class="infl-entry">
+            <div class="infl-date new">2026 &middot; 新たな産業用顧客</div>
+            <p>ホンダがダカール参戦車のスクリーンにFORTENAを採用し、大林組・GIKEN・タカショーが試用中。食品トレーから産業材へ関係を広げる第一歩だが、5〜6年の型式サイクルで未実証である。<b>次の確認：</b>坂東工場の稼働（2029年）前に契約へ至る採用先。</p>
+          </div>
+      </div>
+
+      <div class="ct-card">
+        <div class="ct-tag">エッジ・陳腐化</div>
+        <div class="ct-q">エッジは強まっているか、置き換えられつつあるか</div>
+          <div class="infl-entry">
+            <div class="infl-date new">FY3/26 &middot; エッジの再証明</div>
+            <p>今回の原料高でFPCOの値上げは20%で済んだ（業界の多くは30%超）。トレーの約30%が割安な再生材を使うためである。リサイクルの環が堀とコストヘッジの双方として働いた。<b>次の確認：</b>数量に占める再生材比率の上昇が続くか。</p>
+          </div>
+          <div class="infl-entry">
+            <div class="infl-date ">2027〜2029 &middot; 陳腐化ヘッジ</div>
+            <p>580億円の工場（坂東、2029年〜）とKannabeでのFORTENA立ち上げ（2027年初）により、容器成形技術を産業材へ展開する。食品トレー市場の成熟（人口減で数量は横ばい）に対する長期的な回答だが、ROICは約6%と本業の10.2%を下回り、未実証である。<b>次の確認：</b>FORTENAの初売上と受注パイプラインの開示。</p>
+          </div>
+          <div class="infl-entry">
+            <div class="infl-date risk">恒常リスク &middot; 脱プラスチック</div>
+            <p>現時点で変化はないが、小売や規制がプラスチックから紙・代替素材へ傾けば事業基盤全体が試される。防御はプラスチックを循環させること（リサイクルの環）と、競合が真似できない機能で売ることにある。<b>次の確認：</b>小売の包装方針や使い捨てプラ規制の動き。</p>
+          </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================== 04 · カタリスト ============================== -->
   <section class="section gem">
     <div class="section-head">
-      <div class="section-num">03 · カタリスト</div>
+      <div class="section-num">04 · カタリスト</div>
       <h2 class="section-title">開示と資本のレバー</h2>
       <p class="section-sub">業績予想を出せないあいだ、投資家に高い倍率を払う理由は乏しい。日付を伴う3つの開示が、今後1年の評価の大半を左右する。</p>
     </div>
@@ -778,10 +861,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     </div>
   </section>
 
-  <!-- ============================== 04 · バリュエーション ============================== -->
+  <!-- ============================== 05 · バリュエーション ============================== -->
   <section class="section">
     <div class="section-head">
-      <div class="section-num">04 · バリュエーション</div>
+      <div class="section-num">05 · バリュエーション</div>
       <h2 class="section-title">シナリオ</h2>
       <p class="section-sub">¥2,631（2026年7月2日）、2026年3月期営業利益216億円に対し約2,662億円の企業価値は、実績EV/営業利益で約12.3倍——2027年3月期の予想はまだ開示されていない。以下の3シナリオは<b>JIIの試算であり会社計画ではない</b>。</p>
     </div>

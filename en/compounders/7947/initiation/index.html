@@ -381,6 +381,20 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
 </style>
 <script src="/assets/locale-switcher.js" defer></script>
+<style id="v2-inflections">
+.infl-glance{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 22px;}
+.glance-chip{display:flex;flex-direction:column;gap:4px;padding:12px 14px;border:1px solid var(--rule,#d6dee8);border-radius:8px;background:#fff;}
+.glance-chip .g-pillar{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:#0f1f3a;font-weight:700;}
+.glance-chip .g-dir{font-size:11px;font-weight:600;font-family:'DM Mono',monospace;}
+.glance-chip .g-dir.up{color:#2f6f4f;}.glance-chip .g-dir.watch{color:#b08a4a;}.glance-chip .g-dir.stable{color:#7a8290;}
+.glance-chip .g-one{font-family:var(--serif,Georgia,serif);font-size:12.5px;color:#4a5566;line-height:1.5;}
+.infl-entry{border-top:1px solid var(--rule,#d6dee8);padding-top:10px;margin-top:10px;}
+.infl-entry:first-of-type{border-top:none;padding-top:2px;margin-top:6px;}
+.infl-date{font-size:11px;color:#b08a4a;letter-spacing:.06em;margin-bottom:4px;font-family:'DM Mono',monospace;}
+.infl-date.muted{color:#7a8290;}.infl-date.new{color:#2f6f4f;}.infl-date.risk{color:#b91c1c;}
+.infl-entry p{margin:0;}
+@media(max-width:720px){.infl-glance{grid-template-columns:1fr;}}
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -448,7 +462,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     <p>FP Corporation, known as FPCO, is Japan's largest maker of the plastic trays and containers that supermarkets pack food in. The lineup runs from foamed trays for meat and fish to clear containers for lunch boxes and prepared food, and cold-resistant containers for frozen meals. Supermarkets, convenience stores and food processors buy these containers every day through packaging wholesalers. Revenue is therefore a stream of small repeat purchases — about 76.7% from FPCO's own products and 23.3% from resold packaging materials.</p>
     <p>The company runs the whole chain itself. It operates 21 production plants, a distribution network whose hubs put 85% of Japan's population within 100km, and six recycling plants. Stores collect used trays and PET bottles from shoppers; FPCO turns them back into new containers. That loop matters twice: it gives supermarkets a visible recycling story, and it gives FPCO raw material that costs less than virgin resin when oil prices rise. About 30% of its trays are made from recycled material, and 69% of product volume is original designs no competitor sells in the same material.</p>
     <p>FY3/26 (April 2025 to March 2026) was the 16th straight year of record revenue: ¥240.5bn of sales, up 2.1%, and ¥21.6bn of operating profit, up 17.0%, a 9.0% operating margin. The profit growth came almost entirely from price. FPCO has revised prices upward three times since October 2021 to pass on resin, electricity and labor inflation, and unit volumes were roughly flat at 99.7% of the prior year. Return on capital employed (ROCE) was about 10.2%, up from 7.7% two years earlier, and the company carries ¥53.4bn of net debt — it borrows to fund its plants and logistics.</p>
-    <p>On April 30, 2026, after the market closed, FPCO reported the record year and, in the same set of announcements, declined to give a FY3/27 forecast. Middle East tensions had pushed its three main resins up about ¥100/kg. The company answered with a fourth price revision of 20% or more from June 1 shipments, approved a ¥58bn plant for a new industrial materials business, and kept the ¥73 dividend as a stated floor. The investment question is whether a company that can raise prices 20% into weak consumer demand deserves more than 12.3x trailing EV/EBIT while it spends ¥100bn over three years. This profile answers that question in four steps: how the share price got here, what investors are debating, what disclosures could move the multiple, and what the business is worth.</p>
+    <p>On April 30, 2026, after the market closed, FPCO reported the record year and, in the same set of announcements, declined to give a FY3/27 forecast. Middle East tensions had pushed its three main resins up about ¥100/kg. The company answered with a fourth price revision of 20% or more from June 1 shipments, approved a ¥58bn plant for a new industrial materials business, and kept the ¥73 dividend as a stated floor. The investment question is whether a company that can raise prices 20% into weak consumer demand deserves more than 12.3x trailing EV/EBIT while it spends ¥100bn over three years. This profile answers that question in five steps: how the share price got here, what investors are debating, what is changing in ownership, customers and the edge, what disclosures could move the multiple, and what the business is worth.</p>
   </section>
 
   <!-- ============================== 01 · PRICE REGIME ============================== -->
@@ -622,10 +636,79 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     </div>
   </section>
 
-  <!-- ============================== 03 · CATALYST ============================== -->
+  <!-- ============================== 03 · INFLECTIONS ============================== -->
+  <section class="section">
+    <div class="section-head">
+      <div class="section-num">03 · INFLECTIONS</div>
+      <h2 class="section-title">What is changing in who owns it, who buys from it, and the edge?</h2>
+    </div>
+
+    <div class="infl-glance">
+      <a class="glance-chip"><span class="g-pillar">Ownership</span><span class="g-dir stable">&#9644; stable</span><span class="g-one">Family control (36%); pay shifting to restricted stock; &yen;73 floor held.</span></a>
+      <a class="glance-chip"><span class="g-pillar">Relationships</span><span class="g-dir watch">&#9650; being tested</span><span class="g-one">The 20% June price rise is the live test; CVS soft, supermarkets recovering.</span></a>
+      <a class="glance-chip"><span class="g-pillar">Edge / Obsolescence</span><span class="g-dir up">&#9650; proven, hedging</span><span class="g-one">Recycling loop cushioned the resin spike; the &yen;58bn industrial bet is the long hedge.</span></a>
+    </div>
+
+    <div class="ct-grid">
+
+      <div class="ct-card">
+        <div class="ct-tag">OWNERSHIP</div>
+        <div class="ct-q">Who owns FPCO, and is the register moving?</div>
+          <div class="infl-entry">
+            <div class="infl-date ">2026-06-25 &middot; RESTRICTED STOCK</div>
+            <p>FPCO disposed of treasury shares to pay executives in stock they must hold &mdash; small, but it ties management to the share price through the &yen;100bn build. <b>Next check:</b> restricted-stock grants widening to more of management.</p>
+          </div>
+          <div class="infl-entry">
+            <div class="infl-date ">2026-04-30 &middot; DIVIDEND FLOOR</div>
+            <p>With FY3/27 guidance withheld, &yen;73 was named a floor &mdash; progressive since FY3/25, no cut since FY3/16. The family-controlled register is paid to hold while the forecast is dark. <b>Next check:</b> a buyback added at the October interim.</p>
+          </div>
+          <div class="infl-entry">
+            <div class="infl-date muted">STABLE &middot; AND WHY</div>
+            <p>The family company (35.6%), the top ten (63%) and Sekisui Kasei (~4.6%, also its low-foam partner) are unchanged; free float ~37% and ~&yen;0.7bn/day turnover mean no activist can force change. <b>Next check:</b> any move in the family or Sekisui Kasei stake.</p>
+          </div>
+      </div>
+
+      <div class="ct-card">
+        <div class="ct-tag">RELATIONSHIPS</div>
+        <div class="ct-q">Who buys, and are the relationships holding?</div>
+          <div class="infl-entry">
+            <div class="infl-date ">2026-06-01 &middot; THE 20% TEST</div>
+            <p>A fourth price revision of 20%+ took effect June 1 after resins rose ~&yen;100/kg &mdash; the hardest test yet of whether supermarkets absorb price while shoppers buy fewer items. <b>Next check:</b> unit volume at or above 100% in Q1 (late July 2026).</p>
+          </div>
+          <div class="infl-entry">
+            <div class="infl-date ">MID-2025 &rarr; &middot; CHANNEL MIX</div>
+            <p>Convenience-store shipments have fallen since mid-2025 while supermarket volume turned positive in H2 (Q4 101.5%), re-weighting the book toward FPCO's strongest accounts. <b>Next check:</b> whether convenience-store volume stabilizes.</p>
+          </div>
+          <div class="infl-entry">
+            <div class="infl-date new">2026 &middot; NEW INDUSTRIAL BUYERS</div>
+            <p>Honda used FORTENA in a Dakar-bike windscreen; Obayashi, GIKEN and TAKASHO are trialing it &mdash; a first, unproven set of relationships on 5&ndash;6 year cycles. <b>Next check:</b> a contracted adopter before Bando opens in 2029.</p>
+          </div>
+      </div>
+
+      <div class="ct-card">
+        <div class="ct-tag">EDGE / OBSOLESCENCE</div>
+        <div class="ct-q">Is the edge strengthening, or being overtaken?</div>
+          <div class="infl-entry">
+            <div class="infl-date new">FY3/26 &middot; EDGE PROVEN AGAIN</div>
+            <p>In the resin spike FPCO needed only 20% while rivals announced 30%+, because ~30% of trays use cheaper recycled feedstock &mdash; the loop is both moat and cost hedge. <b>Next check:</b> recycled share of volume still rising.</p>
+          </div>
+          <div class="infl-entry">
+            <div class="infl-date ">2027&ndash;2029 &middot; OBSOLESCENCE HEDGE</div>
+            <p>A &yen;58bn plant (Bando, 2029) and FORTENA from Kannabe (early 2027) push its stretching technology into industrial materials as the food-tray market matures &mdash; but at ~6% ROIC, below the core's 10.2%. <b>Next check:</b> first FORTENA revenue and a disclosed order pipeline.</p>
+          </div>
+          <div class="infl-entry">
+            <div class="infl-date risk">STANDING VECTOR &middot; ANTI-PLASTIC</div>
+            <p>No change yet, but a retailer or regulatory shift from plastic to paper would test the whole franchise; FPCO's defense is to make plastic circular and sell function rivals can't match. <b>Next check:</b> packaging mandates or single-use-plastic regulation.</p>
+          </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================== 04 · CATALYST ============================== -->
   <section class="section gem">
     <div class="section-head">
-      <div class="section-num">03 · CATALYST</div>
+      <div class="section-num">04 · CATALYST</div>
       <h2 class="section-title">Disclosure &amp; Capital Levers</h2>
       <p class="section-sub">Investors have little reason to pay a higher multiple while the company cannot publish a forecast. Three disclosures, each with a date attached, will do most of the work over the next year.</p>
     </div>
@@ -778,10 +861,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     </div>
   </section>
 
-  <!-- ============================== 04 · VALUATION ============================== -->
+  <!-- ============================== 05 · VALUATION ============================== -->
   <section class="section">
     <div class="section-head">
-      <div class="section-num">04 · VALUATION</div>
+      <div class="section-num">05 · VALUATION</div>
       <h2 class="section-title">Scenario Pathways</h2>
       <p class="section-sub">At ¥2,631 (July 2, 2026), an enterprise value of ~¥266.2bn against FY3/26 operating profit of ¥21.6bn implies 12.3x EV/EBIT on a trailing basis — FPCO has not yet issued a FY3/27 forecast. The three scenarios below are <b>JII estimates, not company guidance</b>.</p>
     </div>
