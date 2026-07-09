@@ -382,58 +382,22 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 </style>
 <script src="/assets/locale-switcher.js" defer></script>
 <meta name="robots" content="noindex,nofollow">
-<style id="v2-enhancements">
-html{scroll-behavior:smooth;}
-.section-num{scroll-margin-top:80px;}
-.v2-topbar{position:sticky;top:0;z-index:900;background:rgba(250,251,252,0.94);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border-bottom:1px solid var(--rule,#d6dee8);}
-.v2-progress{height:3px;background:transparent;}
-.v2-progress-fill{height:3px;width:0;background:#b08a4a;transition:width .1s linear;}
-.v2-jump{display:flex;align-items:center;gap:2px;max-width:1060px;margin:0 auto;padding:7px 16px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.03em;}
-.v2-jump .v2-brand{color:#0f1f3a;font-weight:700;margin-right:auto;}
-.v2-jump .v2-tag{color:#b08a4a;border:1px solid #b08a4a;border-radius:3px;padding:1px 6px;margin-right:12px;font-size:10px;}
-.v2-jump a{color:#4a5566;text-decoration:none;padding:4px 9px;border-radius:4px;white-space:nowrap;}
-.v2-jump a:hover{background:rgba(15,31,58,0.06);color:#0f1f3a;}
-.v2-jump a.active{background:#0f1f3a;color:#fff;}
-.infl-glance{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 20px;}
-.glance-chip{display:flex;flex-direction:column;gap:5px;padding:13px 15px;border:1px solid var(--rule,#d6dee8);border-radius:9px;text-decoration:none;background:#fff;transition:box-shadow .15s,transform .15s;}
-.glance-chip:hover{box-shadow:0 5px 16px rgba(15,31,58,0.09);transform:translateY(-1px);}
+<style id="v2-inflections">
+.infl-glance{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 22px;}
+.glance-chip{display:flex;flex-direction:column;gap:4px;padding:12px 14px;border:1px solid var(--rule,#d6dee8);border-radius:8px;background:#fff;}
 .glance-chip .g-pillar{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:#0f1f3a;font-weight:700;}
 .glance-chip .g-dir{font-size:11px;font-weight:600;font-family:'DM Mono',monospace;}
-.glance-chip .g-dir.up{color:#2f6f4f;}
-.glance-chip .g-dir.watch{color:#b08a4a;}
-.glance-chip .g-dir.stable{color:#7a8290;}
+.glance-chip .g-dir.up{color:#2f6f4f;}.glance-chip .g-dir.watch{color:#b08a4a;}.glance-chip .g-dir.stable{color:#7a8290;}
 .glance-chip .g-one{font-family:var(--serif,Georgia,serif);font-size:12.5px;color:#4a5566;line-height:1.5;}
-.infl-controls{display:flex;justify-content:flex-end;margin:0 0 6px;}
-#infl-toggle-all{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.04em;color:#0f1f3a;background:#fff;border:1px solid var(--rule,#d6dee8);border-radius:5px;padding:5px 12px;cursor:pointer;}
-#infl-toggle-all:hover{background:rgba(15,31,58,0.06);}
-details.infl{border-top:1px solid var(--rule,#d6dee8);padding:11px 0;}
-details.infl summary{list-style:none;cursor:pointer;display:flex;flex-direction:column;gap:3px;}
-details.infl summary::-webkit-details-marker{display:none;}
-details.infl summary:hover .infl-what{color:#0f1f3a;}
-.infl-date{font-size:11px;color:#b08a4a;letter-spacing:.06em;font-family:'DM Mono',monospace;}
-.infl-date.muted{color:#7a8290;} .infl-date.new{color:#2f6f4f;} .infl-date.risk{color:#b91c1c;}
-.infl-what{font-weight:600;color:#1a2a4a;padding-right:22px;position:relative;line-height:1.5;}
-.infl-what::after{content:'+';position:absolute;right:0;top:-2px;color:#9aa4b2;font-weight:400;font-size:16px;}
-details.infl[open] .infl-what::after{content:'\2013';}
-.infl-body{padding:8px 0 2px;}
-.infl-body p{margin:0 0 6px;}
-.infl-check{color:#1a2a4a;}
-@media(max-width:720px){.infl-glance{grid-template-columns:1fr;}.v2-jump .v2-hidemob{display:none;}.v2-jump .v2-brand{font-size:10px;}}
+.infl-entry{border-top:1px solid var(--rule,#d6dee8);padding-top:10px;margin-top:10px;}
+.infl-entry:first-of-type{border-top:none;padding-top:2px;margin-top:6px;}
+.infl-date{font-size:11px;color:#b08a4a;letter-spacing:.06em;margin-bottom:4px;font-family:'DM Mono',monospace;}
+.infl-date.muted{color:#7a8290;}.infl-date.new{color:#2f6f4f;}.infl-date.risk{color:#b91c1c;}
+.infl-entry p{margin:0;}
+@media(max-width:720px){.infl-glance{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
-<div class="v2-topbar">
-  <div class="v2-progress"><div class="v2-progress-fill"></div></div>
-  <nav class="v2-jump">
-    <span class="v2-brand">FP CORPORATION &middot; 7947</span>
-    <span class="v2-tag v2-hidemob">v2 preview</span>
-    <a href="#s-intro">Intro</a>
-    <a href="#s-price">Price</a>
-    <a href="#s-inflect">Inflections</a>
-    <a href="#s-val">Valuation</a>
-  </nav>
-</div>
-
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
 <main id="main-content" tabindex="-1">
@@ -493,19 +457,19 @@ details.infl[open] .infl-what::after{content:'\2013';}
   <!-- ============================== INTRODUCTION ============================== -->
   <section class="section">
     <div class="section-head">
-      <div class="section-num" id="s-intro">INTRODUCTION</div>
+      <div class="section-num">INTRODUCTION</div>
       <h2 class="section-title">What does FP Corporation do?</h2>
     </div>
     <p>FP Corporation, known as FPCO, is Japan's largest maker of the plastic trays and containers that supermarkets pack food in. The lineup runs from foamed trays for meat and fish to clear containers for lunch boxes and prepared food, and cold-resistant containers for frozen meals. Supermarkets, convenience stores and food processors buy these containers every day through packaging wholesalers. Revenue is therefore a stream of small repeat purchases — about 76.7% from FPCO's own products and 23.3% from resold packaging materials.</p>
     <p>The company runs the whole chain itself. It operates 21 production plants, a distribution network whose hubs put 85% of Japan's population within 100km, and six recycling plants. Stores collect used trays and PET bottles from shoppers; FPCO turns them back into new containers. That loop matters twice: it gives supermarkets a visible recycling story, and it gives FPCO raw material that costs less than virgin resin when oil prices rise. About 30% of its trays are made from recycled material, and 69% of product volume is original designs no competitor sells in the same material.</p>
     <p>FY3/26 (April 2025 to March 2026) was the 16th straight year of record revenue: ¥240.5bn of sales, up 2.1%, and ¥21.6bn of operating profit, up 17.0%, a 9.0% operating margin. The profit growth came almost entirely from price. FPCO has revised prices upward three times since October 2021 to pass on resin, electricity and labor inflation, and unit volumes were roughly flat at 99.7% of the prior year. Return on capital employed (ROCE) was about 10.2%, up from 7.7% two years earlier, and the company carries ¥53.4bn of net debt — it borrows to fund its plants and logistics.</p>
-    <p>On April 30, 2026, after the market closed, FPCO reported the record year and, in the same set of announcements, declined to give a FY3/27 forecast. Middle East tensions had pushed its three main resins up about ¥100/kg. The company answered with a fourth price revision of 20% or more from June 1 shipments, approved a ¥58bn plant for a new industrial materials business, and kept the ¥73 dividend as a stated floor. The investment question is whether a company that can raise prices 20% into weak consumer demand deserves more than 12.3x trailing EV/EBIT while it spends ¥100bn over three years. This profile answers it by tracking what has changed: how the share price moved over two years, then the inflections in who owns FPCO, who buys from it, and the edge that keeps them &mdash; and what the business is worth.</p>
+    <p>On April 30, 2026, after the market closed, FPCO reported the record year and, in the same set of announcements, declined to give a FY3/27 forecast. Middle East tensions had pushed its three main resins up about ¥100/kg. The company answered with a fourth price revision of 20% or more from June 1 shipments, approved a ¥58bn plant for a new industrial materials business, and kept the ¥73 dividend as a stated floor. The investment question is whether a company that can raise prices 20% into weak consumer demand deserves more than 12.3x trailing EV/EBIT while it spends ¥100bn over three years. This profile answers that question in five steps: how the share price got here, what investors are debating, what is changing in ownership, customers and the edge, what disclosures could move the multiple, and what the business is worth.</p>
   </section>
 
   <!-- ============================== 01 · PRICE REGIME ============================== -->
   <section class="section">
     <div class="section-head">
-      <div class="section-num" id="s-price">01 · PRICE TREND · 2 YEARS</div>
+      <div class="section-num">01 · PRICE REGIME</div>
       <h2 class="section-title">What has driven the stock over the past two years?</h2>
       <p class="section-sub">FP Corporation makes the plastic trays and prepared-food containers Japanese supermarkets pack fresh food in, and sells them daily through packaging wholesalers. It runs its own plants, distribution centers and recycling network, so stores that collect used trays from shoppers get new trays made partly from the material they returned.</p>
     </div>
@@ -618,115 +582,281 @@ details.infl[open] .infl-what::after{content:'\2013';}
     </div>
   </section>
 
-  <!-- ============================== 02 · INFLECTIONS (v2) ============================== -->
-  <section class="section gem">
+  <!-- ============================== 02 · CONTENTION ============================== -->
+  <section class="section">
     <div class="section-head">
-      <div class="section-num" id="s-inflect">02 · INFLECTIONS</div>
-      <h2 class="section-title">What is changing in who owns it, who buys from it, and the edge?</h2>
-      <p class="section-sub">Ownership is a claim on the relationships that make the cash, the edge that keeps them, and the investment that defends that edge. Here is what has changed on each over the past year &mdash; what moved, why, and the next check.</p>
+      <div class="section-num">02 · CONTENTION</div>
+      <h2 class="section-title">Live Investor Debates</h2>
+      <p class="section-sub">Three debates explain why the stock trades at 12.3x trailing EV/EBIT after a record year, while the company cannot yet publish a forecast. Each one will be tested by disclosures due within the next twelve months.</p>
     </div>
-
-    <div class="infl-glance">
-      <a href="#p-own" class="glance-chip">
-        <span class="g-pillar">Ownership</span>
-        <span class="g-dir stable">&#9644; stable</span>
-        <span class="g-one">Family control (36%); executive pay shifting to restricted stock; &yen;73 dividend floor held.</span>
-      </a>
-      <a href="#p-rel" class="glance-chip">
-        <span class="g-pillar">Relationships</span>
-        <span class="g-dir watch">&#9650; being tested</span>
-        <span class="g-one">The 20% June price rise is the live test; convenience stores soft, supermarkets recovering.</span>
-      </a>
-      <a href="#p-edge" class="glance-chip">
-        <span class="g-pillar">Edge / Obsolescence</span>
-        <span class="g-dir up">&#9650; proven, hedging</span>
-        <span class="g-one">Recycling loop cushioned the resin spike; the &yen;58bn industrial bet is the long hedge.</span>
-      </a>
-    </div>
-
-    <div class="infl-controls"><button type="button" id="infl-toggle-all">Collapse all</button></div>
 
     <div class="ct-grid">
 
-      <div class="ct-card" id="p-own">
-        <div class="ct-tag">PILLAR 01 &middot; OWNERSHIP</div>
-        <div class="ct-q">Who owns FPCO, and how is the register moving?</div>
-        <p class="ct-primer" style="font-family: var(--serif); font-size: 13px; color: var(--text-mid); line-height: 1.6; margin: 0 0 6px;">FPCO is a founding-family company: the Komatsu family asset company holds 35.6% and the top ten hold 63%, so control is not contestable. The register moves only at the edges &mdash; pay, dividends, the strategic partner.</p>
-        <details class="infl" open>
-          <summary><span class="infl-date ">2026-06-25 &middot; RESTRICTED STOCK</span><span class="infl-what">FPCO disposed of treasury shares to fund restricted-stock pay for executives.</span></summary>
-          <div class="infl-body">
-            <p><b>Why.</b> It shifts management compensation toward equity they must hold. <b>What it means.</b> Small, but it ties the people running the &yen;100bn investment cycle to the same share price the family depends on.</p>
-            <p class="infl-check"><b>Next check:</b> whether restricted-stock grants widen to more of management.</p>
-          </div>
-        </details>
-        <details class="infl" open>
-          <summary><span class="infl-date ">2026-04-30 &middot; DIVIDEND FLOOR</span><span class="infl-what">FPCO named &yen;73 a dividend floor even with FY3/27 guidance withheld, and paid an interim from surplus on May 21.</span></summary>
-          <div class="infl-body">
-            <p><b>Why.</b> A progressive dividend, a 40% payout target and no cut since FY3/16 signal that profit holds. <b>What it means.</b> The family-controlled register is being paid to hold while the forecast is dark.</p>
-            <p class="infl-check"><b>Next check:</b> any buyback added during the capex cycle at the October interim.</p>
-          </div>
-        </details>
-        <details class="infl" open>
-          <summary><span class="infl-date muted">STABLE &middot; AND WHY</span><span class="infl-what">The family asset company (35.6%), the top-ten block (63%) and Sekisui Kasei (~4.6%) are unchanged.</span></summary>
-          <div class="infl-body">
-            <p><b>Why.</b> Family control plus a strategic-partner cross-holding &mdash; Sekisui Kasei is also FPCO's low-foam co-development partner. <b>What it means.</b> Free float is ~37% and turnover ~&yen;0.7bn a day, so an activist cannot force change; governance improves only if management chooses it.</p>
-            <p class="infl-check"><b>Next check:</b> any move in the family or Sekisui Kasei stake.</p>
-          </div>
-        </details>
+      <div class="ct-card">
+        <div class="ct-tag">DEBATE 01 · PRICING</div>
+        <div class="ct-q">Can FPCO raise prices 20% while its customers sell less food?</div>
+        <p class="ct-primer" style="font-family: var(--serif); font-size: 13px; color: var(--text-mid); line-height: 1.6; margin: 0 0 14px;">FPCO's fourth price revision — 20% or more on all manufactured products — took effect with June 1, 2026 shipments. Its customers are supermarkets whose shoppers are already buying fewer items because of food inflation. The debate is whether the revision sticks without pushing container volumes down.</p>
+        <div class="ct-side">
+          <span class="ct-side-tag bull">BULL</span>
+          <span class="ct-side-text">Bulls point to three revisions since October 2021 — 10%+, 15%+, 15%+ — that all held. Recycling lets FPCO ask for a smaller increase than rivals. About 30% of its trays use recycled material, so 20% covers FPCO's cost spike while most of the plastics industry announced 30% or more. Management says negotiations are not expected to be prolonged, and volumes were already recovering in the second half. <b>The bull case is confirmed if quarterly unit volume stays at or above 100% after June.</b></span>
+        </div>
+        <div class="ct-side">
+          <span class="ct-side-tag bear">BEAR</span>
+          <span class="ct-side-text">Bears note that FY3/26 volume was 99.7% before any 20% increase, convenience-store shipments have been falling since around June 2025, and supermarket customers are cutting items per basket. FPCO says it will pause competing for market share during the negotiations, which hands unlisted rivals — Chuo Kagaku (delisted), Risupack, CP Kasei — an opening to undercut on price. FPCO has secured resin supply only through June, so a second revision may be needed. <b>The bear case builds if volume slips below roughly 98%, or if restored guidance puts FY3/27 OP below FY3/26.</b></span>
+        </div>
       </div>
 
-      <div class="ct-card" id="p-rel">
-        <div class="ct-tag">PILLAR 02 &middot; RELATIONSHIPS</div>
-        <div class="ct-q">Who buys from FPCO, and are those relationships holding?</div>
-        <p class="ct-primer" style="font-family: var(--serif); font-size: 13px; color: var(--text-mid); line-height: 1.6; margin: 0 0 6px;">FPCO sells daily, through packaging wholesalers, to supermarkets, convenience stores and food processors nationwide &mdash; a broad book with no single-account dependency. The recycling loop binds the retailers who collect trays back to it.</p>
-        <details class="infl" open>
-          <summary><span class="infl-date ">2026-06-01 &middot; THE 20% TEST</span><span class="infl-what">A fourth price revision of 20% or more on all manufactured products took effect June 1, 2026.</span></summary>
-          <div class="infl-body">
-            <p><b>Why.</b> Middle East tensions pushed FPCO's three main resins up about &yen;100/kg. <b>What it means.</b> It is the hardest test yet of whether wholesalers and supermarkets absorb price while shoppers buy fewer items; FPCO will pause competing for share during talks, ceding ground to unlisted rivals.</p>
-            <p class="infl-check"><b>Next check:</b> quarterly unit volume at or above 100% after June (Q1, late July 2026).</p>
-          </div>
-        </details>
-        <details class="infl" open>
-          <summary><span class="infl-date ">MID-2025 &rarr; &middot; CHANNEL MIX</span><span class="infl-what">Convenience-store shipments have fallen since around mid-2025, while supermarket volume turned positive again in H2 FY3/26 (Q4 unit volume 101.5%).</span></summary>
-          <div class="infl-body">
-            <p><b>Why.</b> Weak convenience-store foot traffic against a supermarket recovery. <b>What it means.</b> The book is re-weighting toward supermarkets &mdash; FPCO's strongest relationships and the home of the recycling story.</p>
-            <p class="infl-check"><b>Next check:</b> whether convenience-store volume stabilizes in the quarterly deck.</p>
-          </div>
-        </details>
-        <details class="infl" open>
-          <summary><span class="infl-date new">2026 &middot; NEW BUYERS (INDUSTRIAL)</span><span class="infl-what">A new kind of customer is appearing: Honda used FORTENA in a Dakar-bike windscreen (Jan 2026); Obayashi, GIKEN and TAKASHO are trialing it.</span></summary>
-          <div class="infl-body">
-            <p><b>Why.</b> FPCO is extending from food trays into industrial materials. <b>What it means.</b> A first, unproven set of relationships on 5&ndash;6 year auto-model cycles &mdash; real optionality, but no committed volume yet.</p>
-            <p class="infl-check"><b>Next check:</b> a named, contracted adopter before the Bando plant opens in 2029.</p>
-          </div>
-        </details>
+      <div class="ct-card">
+        <div class="ct-tag">DEBATE 02 · THE ¥58BN BET</div>
+        <div class="ct-q">Is the ¥58bn Bando plant a second growth engine, or an expensive experiment?</div>
+        <p class="ct-primer" style="font-family: var(--serif); font-size: 13px; color: var(--text-mid); line-height: 1.6; margin: 0 0 14px;">OPTENA is an ultra-rigid polypropylene sheet FPCO developed from its container-stretching technology; FORTENA is a multi-layer plate made from it. The Bando plant (production from early 2029) would make 14,000 tons a year for industrial products — vehicle parts, construction materials, solar panels — markets FPCO has never sold into. The debate is whether buyers arrive before the costs do.</p>
+        <div class="ct-side">
+          <span class="ct-side-tag bull">BULL</span>
+          <span class="ct-side-text">Bulls point to early proof. Honda used FORTENA in the windscreen of its CRF450 RALLY bike at the January 2026 Dakar Rally, replacing polycarbonate, and Obayashi, GIKEN and TAKASHO are running trials. Chairman Morimasa Sato says one production line could reach ¥15bn of sales. The <a href="https://www.fpco.jp/dcms_media/other/New%20OPP%20Business%20Briefing.pdf" style="text-decoration:underline" target="_blank">company's own roadmap</a> is ¥10bn of sales at the initial ramp, ¥30bn in the 2030s. <b>The bull case strengthens with each named customer adoption announced before Bando completes.</b></span>
+        </div>
+        <div class="ct-side">
+          <span class="ct-side-tag bear">BEAR</span>
+          <span class="ct-side-text">Bears observe that revenue starts in 2029 while the spending starts now: capex doubles to ¥37bn in FY3/27, and depreciation from Bando starts around FY3/29 before sales scale. The company's own projection for the new business is a 6%-plus return on invested capital in the 2030s — below the 10.2% ROCE the existing business already earns. Selling to automakers runs on 5–6 year model cycles, and industrial marketing is new territory for a food-container company. <b>The bear case holds if FY3/29–30 margins absorb Bando depreciation with no disclosed order pipeline.</b></span>
+        </div>
       </div>
 
-      <div class="ct-card" id="p-edge">
-        <div class="ct-tag">PILLAR 03 &middot; EDGE / OBSOLESCENCE</div>
-        <div class="ct-q">Is the edge getting stronger, or being overtaken?</div>
-        <p class="ct-primer" style="font-family: var(--serif); font-size: 13px; color: var(--text-mid); line-height: 1.6; margin: 0 0 6px;">The edge is a closed recycling loop plus scale: 21 plants, 85% of the population within 100km, ~30% recycled content, and 69% of volume in designs no rival sells in the same material. The long risk is a shift away from plastic itself.</p>
-        <details class="infl" open>
-          <summary><span class="infl-date new">FY3/26 &middot; EDGE PROVEN AGAIN</span><span class="infl-what">In the 2026 resin spike FPCO needed only a 20% revision while most of the industry announced 30%+, and eco volume ran 113% of FY3/23.</span></summary>
-          <div class="infl-body">
-            <p><b>Why.</b> Recycled feedstock costs less than virgin resin when oil rises, and about 30% of trays use it. <b>What it means.</b> The recycling loop is both a moat and a cost hedge, and it just worked.</p>
-            <p class="infl-check"><b>Next check:</b> recycled share of volume continuing to rise.</p>
+      <div class="ct-card">
+        <div class="ct-tag">DEBATE 03 · CAPITAL EFFICIENCY</div>
+        <div class="ct-q">Does the FY3/30 plan lift returns, or just make the company bigger?</div>
+        <p class="ct-primer" style="font-family: var(--serif); font-size: 13px; color: var(--text-mid); line-height: 1.6; margin: 0 0 14px;">FPCO targets ¥300bn of sales and ¥30bn of recurring profit (pretax profit including non-operating items) by FY3/30, with a recurring margin of 10% or more and earnings per share of ¥250, against ¥183.87 in FY3/26. Reaching it requires ¥100bn of investment over three years against ¥88bn of expected operating cash flow — FPCO borrows to cover the gap.</p>
+        <div class="ct-side">
+          <span class="ct-side-tag bull">BULL</span>
+          <span class="ct-side-text">Bulls argue returns are already rising: ROCE has climbed from 7.7% to 8.8% to 10.2% over three years as price revisions rebuilt the margin, and the EPS target implies 36% growth in four years. The dividend commitment is explicit — a 40% payout target, no cut since FY3/16, and ¥73 named as a floor even with guidance withheld. The company borrows only within its single-A rating. <b>The view holds if recurring margin reaches 10% and ROE clears 10% while the investment program runs.</b></span>
+        </div>
+        <div class="ct-side">
+          <span class="ct-side-tag bear">BEAR</span>
+          <span class="ct-side-text">Bears note FPCO already carries ¥53.4bn of net debt — 25% of the market value — and the plan adds ¥100bn of spending against ¥18bn of shareholder returns over three years. Labor costs took ¥1.4bn off profit in FY3/26, and electricity is expected to add about ¥1.0bn a year. The new industrial-materials business earns below the group's current ROCE for a decade. Growth that lowers the group's average return does not deserve a higher multiple. <b>Bears are proven right if net debt keeps rising while ROE is still below 10% at FY3/28.</b></span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================== 03 · INFLECTIONS (v2 add-on) ============================== -->
+  <section class="section">
+    <div class="section-head">
+      <div class="section-num">03 · INFLECTIONS</div>
+      <h2 class="section-title">What is changing in who owns it, who buys from it, and the edge?</h2>
+    </div>
+
+    <div class="infl-glance">
+      <a class="glance-chip"><span class="g-pillar">Ownership</span><span class="g-dir stable">&#9644; stable</span><span class="g-one">Family control (36%); pay shifting to restricted stock; &yen;73 floor held.</span></a>
+      <a class="glance-chip"><span class="g-pillar">Relationships</span><span class="g-dir watch">&#9650; being tested</span><span class="g-one">The 20% June price rise is the live test; CVS soft, supermarkets recovering.</span></a>
+      <a class="glance-chip"><span class="g-pillar">Edge / Obsolescence</span><span class="g-dir up">&#9650; proven, hedging</span><span class="g-one">Recycling loop cushioned the resin spike; the &yen;58bn industrial bet is the long hedge.</span></a>
+    </div>
+
+    <div class="ct-grid">
+
+      <div class="ct-card">
+        <div class="ct-tag">OWNERSHIP</div>
+        <div class="ct-q">Who owns FPCO, and is the register moving?</div>
+          <div class="infl-entry">
+            <div class="infl-date ">2026-06-25 &middot; RESTRICTED STOCK</div>
+            <p>FPCO disposed of treasury shares to pay executives in stock they must hold &mdash; small, but it ties management to the share price through the &yen;100bn build. <b>Next check:</b> restricted-stock grants widening to more of management.</p>
           </div>
-        </details>
-        <details class="infl" open>
-          <summary><span class="infl-date ">2027&ndash;2029 &middot; THE OBSOLESCENCE HEDGE</span><span class="infl-what">FPCO approved a &yen;58bn plant (Bando, from 2029) and will launch FORTENA from Kannabe in early 2027, redeploying its container-stretching technology into industrial materials.</span></summary>
-          <div class="infl-body">
-            <p><b>Why.</b> The food-tray market is mature &mdash; volume is roughly flat as the population ages. <b>What it means.</b> This is the answer to long-run food-tray obsolescence, but it earns ~6% ROIC, below the 10.2% the core already makes, and is unproven.</p>
-            <p class="infl-check"><b>Next check:</b> first FORTENA revenue in early 2027 and a disclosed order pipeline.</p>
+          <div class="infl-entry">
+            <div class="infl-date ">2026-04-30 &middot; DIVIDEND FLOOR</div>
+            <p>With FY3/27 guidance withheld, &yen;73 was named a floor &mdash; progressive since FY3/25, no cut since FY3/16. The family-controlled register is paid to hold while the forecast is dark. <b>Next check:</b> a buyback added at the October interim.</p>
           </div>
-        </details>
-        <details class="infl" open>
-          <summary><span class="infl-date risk">STANDING VECTOR &middot; ANTI-PLASTIC</span><span class="infl-what">No change yet &mdash; but the standing threat is a retailer or regulatory shift from plastic to paper or other substitutes.</span></summary>
-          <div class="infl-body">
-            <p><b>Why it matters.</b> FPCO's whole franchise is plastic containers. <b>What it means.</b> Its defense is to make plastic circular (the recycling loop) and to sell function competitors can't match; if preference tips to paper, that defense is tested.</p>
-            <p class="infl-check"><b>Next check:</b> any change in retailer packaging mandates or Japanese single-use-plastic regulation.</p>
+          <div class="infl-entry">
+            <div class="infl-date muted">STABLE &middot; AND WHY</div>
+            <p>The family company (35.6%), the top ten (63%) and Sekisui Kasei (~4.6%, also its low-foam partner) are unchanged; free float ~37% and ~&yen;0.7bn/day turnover mean no activist can force change. <b>Next check:</b> any move in the family or Sekisui Kasei stake.</p>
           </div>
-        </details>
+      </div>
+
+      <div class="ct-card">
+        <div class="ct-tag">RELATIONSHIPS</div>
+        <div class="ct-q">Who buys, and are the relationships holding?</div>
+          <div class="infl-entry">
+            <div class="infl-date ">2026-06-01 &middot; THE 20% TEST</div>
+            <p>A fourth price revision of 20%+ took effect June 1 after resins rose ~&yen;100/kg &mdash; the hardest test yet of whether supermarkets absorb price while shoppers buy fewer items. <b>Next check:</b> unit volume at or above 100% in Q1 (late July 2026).</p>
+          </div>
+          <div class="infl-entry">
+            <div class="infl-date ">MID-2025 &rarr; &middot; CHANNEL MIX</div>
+            <p>Convenience-store shipments have fallen since mid-2025 while supermarket volume turned positive in H2 (Q4 101.5%), re-weighting the book toward FPCO's strongest accounts. <b>Next check:</b> whether convenience-store volume stabilizes.</p>
+          </div>
+          <div class="infl-entry">
+            <div class="infl-date new">2026 &middot; NEW INDUSTRIAL BUYERS</div>
+            <p>Honda used FORTENA in a Dakar-bike windscreen; Obayashi, GIKEN and TAKASHO are trialing it &mdash; a first, unproven set of relationships on 5&ndash;6 year cycles. <b>Next check:</b> a contracted adopter before Bando opens in 2029.</p>
+          </div>
+      </div>
+
+      <div class="ct-card">
+        <div class="ct-tag">EDGE / OBSOLESCENCE</div>
+        <div class="ct-q">Is the edge strengthening, or being overtaken?</div>
+          <div class="infl-entry">
+            <div class="infl-date new">FY3/26 &middot; EDGE PROVEN AGAIN</div>
+            <p>In the resin spike FPCO needed only 20% while rivals announced 30%+, because ~30% of trays use cheaper recycled feedstock &mdash; the loop is both moat and cost hedge. <b>Next check:</b> recycled share of volume still rising.</p>
+          </div>
+          <div class="infl-entry">
+            <div class="infl-date ">2027&ndash;2029 &middot; OBSOLESCENCE HEDGE</div>
+            <p>A &yen;58bn plant (Bando, 2029) and FORTENA from Kannabe (early 2027) push its stretching technology into industrial materials as the food-tray market matures &mdash; but at ~6% ROIC, below the core's 10.2%. <b>Next check:</b> first FORTENA revenue and a disclosed order pipeline.</p>
+          </div>
+          <div class="infl-entry">
+            <div class="infl-date risk">STANDING VECTOR &middot; ANTI-PLASTIC</div>
+            <p>No change yet, but a retailer or regulatory shift from plastic to paper would test the whole franchise; FPCO's defense is to make plastic circular and sell function rivals can't match. <b>Next check:</b> packaging mandates or single-use-plastic regulation.</p>
+          </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================== 03 · CATALYST ============================== -->
+  <section class="section gem">
+    <div class="section-head">
+      <div class="section-num">04 · CATALYST</div>
+      <h2 class="section-title">Disclosure &amp; Capital Levers</h2>
+      <p class="section-sub">Investors have little reason to pay a higher multiple while the company cannot publish a forecast. Three disclosures, each with a date attached, will do most of the work over the next year.</p>
+    </div>
+
+    <div class="cat-grid">
+
+      <div class="cat-card">
+        <div class="cat-num">LEVER 01 · DISCLOSURE</div>
+        <div class="cat-title">Restore the FY3/27 forecast investors are now working without</div>
+        <div class="cat-viz">
+          <div class="cat-viz-label">The cost shock and the pricing response</div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">Naphtha · Jan–Mar 2026</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:60%;background:#304466"></div></div>
+            <div class="cat-viz-bar-val">¥65,800</div>
+          </div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">Naphtha · spot, late April</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:100%;background:#b91c1c"></div></div>
+            <div class="cat-viz-bar-val">~¥110,000</div>
+          </div>
+          <div class="cat-viz-bar-row" style="border-top:1px dashed var(--rule);padding-top:8px;margin-top:4px;">
+            <div class="cat-viz-bar-label">Revision ① · Oct 2021</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:33%;background:#1a2a4a"></div></div>
+            <div class="cat-viz-bar-val">10%+</div>
+          </div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">Revision ② · Apr 2022</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:50%;background:#1a2a4a"></div></div>
+            <div class="cat-viz-bar-val">15%+</div>
+          </div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">Revision ③ · Apr 2024</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:50%;background:#1a2a4a"></div></div>
+            <div class="cat-viz-bar-val">15%+</div>
+          </div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">Revision ④ · Jun 2026</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:67%;background:#b08a4a"></div></div>
+            <div class="cat-viz-bar-val">20%+</div>
+          </div>
+          <div class="cat-viz-cap">each cost spike has been answered with a list-price revision; the fourth is the largest</div>
+        </div>
+        <div class="cat-takeaway">
+          FPCO withheld its FY3/27 forecast because it cannot see raw-material costs past June — not because demand weakened. Management says the forecast returns once crude settles into a readable range, and the ¥73 dividend floor already signals that management expects profit to hold. The first quarter results, due around late July 2026, are the earliest window. They will show whether the June revision passed through, and whether guidance can be published then or must wait for the half-year. <b>The check is a restored FY3/27 forecast with OP at or above the ¥21.6bn just reported.</b>
+        </div>
+        <div class="cat-meta">
+          <div><dt>Cost to mgmt</dt><dd>A forecast press release</dd></div>
+          <div><dt>Earliest trigger</dt><dd>Q1 FY3/27 results · late Jul 2026</dd></div>
+        </div>
+      </div>
+
+      <div class="cat-card">
+        <div class="cat-num">LEVER 02 · GROWTH</div>
+        <div class="cat-title">Turn frozen food, nursing care and the OPTENA pipeline into disclosed revenue</div>
+        <div class="cat-viz">
+          <div class="cat-viz-label">The named path from ¥240.5bn to ¥300bn (¥bn)</div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">FY3/26 revenue</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:80%;background:#1a2a4a"></div></div>
+            <div class="cat-viz-bar-val">¥240.5bn</div>
+          </div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">FY3/30 target</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:100%;background:#b08a4a"></div></div>
+            <div class="cat-viz-bar-val">¥300bn</div>
+          </div>
+          <div class="cat-viz-bar-row" style="border-top:1px dashed var(--rule);padding-top:8px;margin-top:4px;">
+            <div class="cat-viz-bar-label">+ Frozen food</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:100%;background:#2f6f4f"></div></div>
+            <div class="cat-viz-bar-val">+¥20bn</div>
+          </div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">+ Overseas (LSSPI)</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:50%;background:#304466"></div></div>
+            <div class="cat-viz-bar-val">+¥10bn</div>
+          </div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">+ M&amp;A</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:50%;background:#304466"></div></div>
+            <div class="cat-viz-bar-val">+¥10bn</div>
+          </div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">+ New OPP</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:38%;background:#8a682b"></div></div>
+            <div class="cat-viz-bar-val">+¥5–10bn</div>
+          </div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">+ Agriculture</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:25%;background:#304466"></div></div>
+            <div class="cat-viz-bar-val">+¥5bn</div>
+          </div>
+          <div class="cat-viz-cap">existing business grows 2–3% a year; the named areas bridge the rest to ¥300bn</div>
+        </div>
+        <div class="cat-takeaway">
+          The nearest of the growth areas is frozen and nursing-care food. Dedicated frozen-food containers sold slightly below ¥2.0bn in FY3/26, against a ¥20bn ambition, and the driver is labor: care facilities are replacing dish-washing with single-use containers and frozen meal preparation. The first industrial-materials revenue also arrives early — high-rigidity FORTENA launches from the Kannabe plant in early 2027, two years before Bando. Each quarterly report that discloses these lines separately makes the ¥300bn target more checkable. <b>The signal to watch is frozen-food container sales clearing ¥2bn and a dated FORTENA launch.</b>
+        </div>
+        <div class="cat-meta">
+          <div><dt>Cost to mgmt</dt><dd>Already-committed capex</dd></div>
+          <div><dt>Earliest trigger</dt><dd>FORTENA launch · early 2027</dd></div>
+        </div>
+      </div>
+
+      <div class="cat-card">
+        <div class="cat-num">LEVER 03 · CAPITAL RETURNS</div>
+        <div class="cat-title">Turn the ¥73 dividend floor into a full capital-return framework</div>
+        <div class="cat-viz">
+          <div class="cat-viz-label">Dividends per share, FY3/23 → FY3/27E (¥)</div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">FY3/23</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:64%;background:#304466"></div></div>
+            <div class="cat-viz-bar-val">¥47.00</div>
+          </div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">FY3/24</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:78%;background:#304466"></div></div>
+            <div class="cat-viz-bar-val">¥57.00</div>
+          </div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">FY3/25</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:84%;background:#2f6f4f"></div></div>
+            <div class="cat-viz-bar-val">¥61.50</div>
+          </div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">FY3/26</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:100%;background:#2f6f4f"></div></div>
+            <div class="cat-viz-bar-val">¥73.00</div>
+          </div>
+          <div class="cat-viz-bar-row">
+            <div class="cat-viz-bar-label">FY3/27 forecast (floor)</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:100%;background:#b08a4a"></div></div>
+            <div class="cat-viz-bar-val">¥73.00</div>
+          </div>
+          <div class="cat-viz-bar-row" style="border-top:1px dashed var(--rule);padding-top:8px;margin-top:4px;">
+            <div class="cat-viz-bar-label">Buybacks since FY3/21</div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:24%;background:#8a682b"></div></div>
+            <div class="cat-viz-bar-val">¥7.0bn</div>
+          </div>
+          <div class="cat-viz-cap">the dividend rose 55% in four years; buybacks — ¥4.0bn in FY3/21, ¥3.0bn in FY3/24 — remain occasional</div>
+        </div>
+        <div class="cat-takeaway">
+          The dividend policy is already firm: a 40% payout target, a progressive dividend adopted in FY3/25, no cut since FY3/16, and ¥73 named a floor for a year with no earnings forecast. What is missing is everything else. The three-year plan sets aside ¥18bn for shareholder returns against ¥100bn of investment, and buybacks stay case-by-case. A buyback announced during the capex cycle — or a stated total-return framework — would tell investors the ¥250 EPS target is meant per share, not just in aggregate. <b>The test is any addition to returns at the interim results in October 2026.</b>
+        </div>
+        <div class="cat-meta">
+          <div><dt>Cost to mgmt</dt><dd>Board resolution + cash</dd></div>
+          <div><dt>Earliest trigger</dt><dd>H1 FY3/27 results · Oct 2026</dd></div>
+        </div>
       </div>
 
     </div>
@@ -735,7 +865,7 @@ details.infl[open] .infl-what::after{content:'\2013';}
   <!-- ============================== 04 · VALUATION ============================== -->
   <section class="section">
     <div class="section-head">
-      <div class="section-num" id="s-val">03 · VALUATION</div>
+      <div class="section-num">05 · VALUATION</div>
       <h2 class="section-title">Scenario Pathways</h2>
       <p class="section-sub">At ¥2,631 (July 2, 2026), an enterprise value of ~¥266.2bn against FY3/26 operating profit of ¥21.6bn implies 12.3x EV/EBIT on a trailing basis — FPCO has not yet issued a FY3/27 forecast. The three scenarios below are <b>JII estimates, not company guidance</b>.</p>
     </div>
@@ -966,39 +1096,5 @@ details.infl[open] .infl-what::after{content:'\2013';}
 </script>
 
 <script src="/assets/compounders-nav.js" defer></script>
-
-<script>
-(function(){
-  var fill = document.querySelector('.v2-progress-fill');
-  var links = [].slice.call(document.querySelectorAll('.v2-jump a'));
-  function onScroll(){
-    var h = document.documentElement;
-    var max = h.scrollHeight - h.clientHeight;
-    var pct = max > 0 ? (h.scrollTop / max * 100) : 0;
-    if(fill) fill.style.width = pct.toFixed(2) + '%';
-  }
-  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
-  if('IntersectionObserver' in window){
-    var obs = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting){
-          var id = e.target.id;
-          links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href') === '#'+id); });
-        }
-      });
-    }, { rootMargin: '-42% 0px -53% 0px' });
-    links.forEach(function(a){ var el = document.getElementById(a.getAttribute('href').slice(1)); if(el) obs.observe(el); });
-  }
-  var btn = document.getElementById('infl-toggle-all');
-  if(btn){
-    btn.addEventListener('click', function(){
-      var ds = [].slice.call(document.querySelectorAll('details.infl'));
-      var anyClosed = ds.some(function(d){ return !d.open; });
-      ds.forEach(function(d){ d.open = anyClosed; });
-      btn.textContent = anyClosed ? 'Collapse all' : 'Expand all';
-    });
-  }
-})();
-</script>
 </body>
 </html>
