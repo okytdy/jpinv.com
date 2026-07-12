@@ -174,6 +174,33 @@ section{padding:var(--pad) 0;border-bottom:1px solid var(--rule)}
 
 </style>
 <style>body{padding-top:var(--nav-h)}</style>
+<style>
+.ex-hero-band{position:relative;overflow:hidden;height:240px}
+.ex-hero-band img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(1) brightness(1.08) contrast(.95)}
+.ex-hero-band::after{content:"";position:absolute;inset:0;background:linear-gradient(175deg,rgba(23,38,65,.42),rgba(23,38,65,.72))}
+.ex-photo{position:relative;overflow:hidden;height:200px;margin-bottom:24px;border:1px solid var(--rule)}
+.ex-photo img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(1) brightness(1.08) contrast(.95)}
+.ex-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(175deg,rgba(23,38,65,.42),rgba(23,38,65,.72))}
+@media(max-width:600px){.ex-hero-band{height:160px}.ex-photo{height:150px}}
+</style>
+<style>
+.tl-wrap{margin:36px 0 44px}
+.tl-track{position:relative;display:flex;justify-content:space-between;align-items:flex-start;list-style:none;padding:0;margin:0}
+.tl-track::before{content:"";position:absolute;top:8px;left:0;right:0;height:2px;background:var(--rule);z-index:0}
+.tl-progress{position:absolute;top:8px;left:0;height:2px;width:0;background:var(--accent);z-index:1;animation:tl-fill 1.6s ease-out .15s forwards}
+.tl-node{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 10px}
+.tl-dot{width:16px;height:16px;border-radius:50%;background:#fff;border:2px solid var(--accent);box-sizing:border-box;margin-bottom:16px}
+.tl-dot--pulse{animation:tl-pulse 2.4s ease-in-out infinite}
+.tl-label{font-family:var(--serif);font-size:15px;font-weight:600;color:var(--ink);margin-bottom:6px;letter-spacing:.01em}
+.tl-caption{font-family:var(--mono),var(--sans);font-size:12px;color:var(--ink-mid);opacity:.72;line-height:1.6}
+@keyframes tl-fill{from{width:0}to{width:100%}}
+@keyframes tl-pulse{0%,100%{box-shadow:0 0 0 0 rgba(154,120,56,.45)}50%{box-shadow:0 0 0 6px rgba(154,120,56,0)}}
+@media(max-width:600px){.tl-caption{font-size:11px}.tl-label{font-size:14px}}
+@media (prefers-reduced-motion: reduce){
+  .tl-progress{animation:none;width:100%}
+  .tl-dot--pulse{animation:none}
+}
+</style>
 </head>
 <body>
 <nav id="main-nav" role="navigation" aria-label="メインナビゲーション">
@@ -216,6 +243,7 @@ section{padding:var(--pad) 0;border-bottom:1px solid var(--rule)}
   </div>
 
 </div></section>
+<div class="ex-hero-band"><img src="https://images.pexels.com/photos/20373372/pexels-photo-20373372.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1000&amp;h=560&amp;fit=crop" alt="夜、ノートパソコンで資料に向き合う担当者" loading="lazy"></div>
 
 <section><div class="wrap">
   <span class="label">SCENARIOS / 対応可能なケース</span>
@@ -283,6 +311,7 @@ section{padding:var(--pad) 0;border-bottom:1px solid var(--rule)}
 
 <section><div class="wrap">
   <span class="label">COVERAGE / 対応書類</span>
+  <div class="ex-photo"><img src="https://images.pexels.com/photos/7821688/pexels-photo-7821688.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1000&amp;h=560&amp;fit=crop" alt="決算短信など開示書類を確認する様子" loading="lazy"></div>
   <h2 class="mincho-lg">特急対応できる書類の種類</h2>
   <div class="rule-accent"></div>
   <p>主要なIR・開示文書はすべて特急対応の対象です。書類の性質によって最短納期は異なります。</p>
@@ -301,7 +330,28 @@ section{padding:var(--pad) 0;border-bottom:1px solid var(--rule)}
 
 <section><div class="wrap">
   <span class="label">DELIVERY SPEED / 納品スピード</span>
+  <div class="ex-photo"><img src="https://images.pexels.com/photos/5624978/pexels-photo-5624978.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1000&amp;h=560&amp;fit=crop" alt="納期を意識させる壁掛け時計" loading="lazy"></div>
   <h2 class="mincho-lg">対応可能な納期の目安</h2>
+  <div class="tl-wrap">
+    <div class="tl-track">
+      <div class="tl-progress"></div>
+      <div class="tl-node">
+        <span class="tl-dot"></span>
+        <span class="tl-label">ご相談・お見積り</span>
+        <span class="tl-caption">内容とご希望納期を伺い、分量を確認</span>
+      </div>
+      <div class="tl-node">
+        <span class="tl-dot tl-dot--pulse"></span>
+        <span class="tl-label">当日着手</span>
+        <span class="tl-caption">確定原稿の受領後、即日で翻訳を開始</span>
+      </div>
+      <div class="tl-node">
+        <span class="tl-dot tl-dot--pulse"></span>
+        <span class="tl-label">当日〜翌営業日納品</span>
+        <span class="tl-caption">分量に応じて数時間〜翌営業日でお届け</span>
+      </div>
+    </div>
+  </div>
   <div class="rule-accent"></div>
   <p>分量と作業範囲、原稿確定の状況によって変わります。下記は目安です。確定原稿到着後の所要時間を示します。</p>
   <table class="speed-table">
