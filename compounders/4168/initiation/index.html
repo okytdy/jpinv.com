@@ -12,12 +12,12 @@
 <link rel="alternate" hreflang="ja" href="https://jpinv.com/compounders/4168/initiation/">
 <link rel="alternate" hreflang="en" href="https://jpinv.com/en/compounders/4168/initiation/">
 <meta property="og:type" content="article">
-<meta property="og:image" content="https://jpinv.com/og/4168.png">
+<meta property="og:image" content="https://jpinv.com/og/compounders/4168.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="JII Compounders 銘柄レポート · 4168">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://jpinv.com/og/4168.png">
+<meta name="twitter:image" content="https://jpinv.com/og/compounders/4168.png">
 <meta name="twitter:image:alt" content="JII Compounders 銘柄レポート · 4168">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -27,359 +27,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  /* ============================================================
-     JII Compounders · Profile page
-     Methodology: https://jpinv.com/en/compounders/methodology/
-     ============================================================ */
-  :root {
-    --ink:        #1a2a4a;
-    --ink-mid:    #172641;
-    --ink-soft:   #304466;
-    --rule:       #d6dee8;
-    --rule-soft:  #e8edf3;
-    --bg:         #ffffff;
-    --bg-mid:    #f5f7fa;
-    --bg-soft:   #fafbfc;
-    --text:       #1f2937;
-    --text-mid:  #4a5566;
-    --text-dim:  #5f6875;
-    --accent:    #9a7838;
-    --accent-deep:#9a7838;
-    --accent-soft:#f4eee4;
-    --bad:       #b91c1c;
-    --warn:      #8a682b;
-    --ok:        #2f6f4f;
-    --serif: 'Noto Serif JP', 'Yu Mincho', serif;
-    --sans:  'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
-    --mono:  'DM Mono', monospace;
-  }
-  *, *::before, *::after { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; background: var(--bg-mid); }
-  body { display: flex; justify-content: center; padding: 30px 0; font-family: var(--sans); color: var(--text); font-size: 14px; line-height: 1.65; }
-
-  .card {
-    background: var(--bg); color: var(--text); width: 100%; max-width: 1200px; margin: 0 auto;
-    box-shadow: 0 30px 80px rgba(15,31,58,0.10), 0 1px 3px rgba(15,31,58,0.06);
-    border: 1px solid var(--rule);
-  }
-
-  /* ---- MASTHEAD ---- */
-  .masthead { position: relative; overflow: hidden; background: var(--bg); border-bottom: 1px solid var(--rule); }
-  .masthead::before {
-    content:''; position: absolute; inset: 0;
-    background-image:
-      linear-gradient(rgba(15,31,58,0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(15,31,58,0.04) 1px, transparent 1px);
-    background-size: 64px 64px;
-    -webkit-mask-image: linear-gradient(180deg, transparent, black 12%, black 88%, transparent);
-            mask-image: linear-gradient(180deg, transparent, black 12%, black 88%, transparent);
-    pointer-events: none;
-  }
-  .masthead::after {
-    content:''; position: absolute; width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(15,31,58,0.045) 0%, transparent 70%);
-    top: -160px; right: -200px; pointer-events: none;
-  }
-  .masthead-inner { position: relative; z-index: 2; padding: 32px 56px 28px; display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: end; }
-
-  .brand { display: flex; flex-direction: column; gap: 4px; align-items: flex-start; }
-  .brand-home-link { display:flex; flex-direction:column; gap:4px; align-items:flex-start; color:inherit; text-decoration:none; }
-  .brand-home-link:hover .brand-mono, .brand-home-link:hover .brand-eyebrow { color:var(--ink); }
-  .brand-home-link:focus-visible { outline:2px solid var(--accent); outline-offset:6px; }
-  .brand-mono { font-family: var(--serif); font-size: 28px; font-weight: 300; letter-spacing: 0.04em; color: var(--ink-mid); line-height: 1; }
-  .brand-mono .pipe { color: var(--accent); font-weight: 200; margin: 0 4px; }
-  .brand-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; color: var(--accent-deep); text-transform: uppercase; margin-top: 12px; font-weight: 500; }
-
-  .head-main { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; text-align: right; }
-  .report-locale { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 8px; }
-  .report-locale a { color: var(--ink-soft); padding: 5px 10px; border: 1px solid var(--rule); margin-left: 6px; text-decoration: none; }
-  .report-locale a.current { background: var(--bg-soft); border-color: var(--ink-mid); color: var(--ink-mid); }
-  .head-ticker-row { display: flex; align-items: baseline; gap: 16px; }
-  .head-ticker { font-family: var(--mono); font-size: 12px; color: var(--ink-soft); letter-spacing: 0.18em; }
-  .head-co-jp { font-family: var(--serif); font-size: 14.5px; color: var(--text-mid); letter-spacing: 0.04em; }
-  .head-co { font-family: var(--serif); font-size: 40px; font-weight: 300; color: var(--ink-mid); line-height: 1.05; letter-spacing: 0.01em; margin-top: 4px; }
-  .head-industry { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-top: 6px; }
-
-  /* Stat strip (font sizes bumped) */
-  .stat-strip { display: grid; grid-template-columns: 1.05fr 1.05fr 1.1fr 1.05fr 1.1fr 1.1fr; gap: 0; border-top: 1px solid var(--rule); position: relative; z-index: 2; background: var(--bg-soft); }
-  .stat { padding: 15px 18px; border-right: 1px solid var(--rule); text-align: left; }
-  .stat:last-child { border-right: none; }
-  .stat-label { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 7px; font-weight: 500; }
-  .stat-val { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--ink-mid); line-height: 1.05; }
-  .stat-val small { font-family: var(--mono); font-size: 11px; color: var(--text-dim); margin-left: 4px; font-weight: 400; letter-spacing: 0.04em; }
-  .stat-ctx { font-family: var(--mono); font-size: 10.5px; color: var(--text-mid); margin-top: 6px; letter-spacing: 0.04em; line-height: 1.45; }
-  .stat-ctx .dn { color: var(--bad); font-weight: 500; }
-  .stat-ctx .up { color: var(--ok); font-weight: 500; }
-  .stat-ctx b { color: var(--ink-mid); font-weight: 500; }
-
-  /* ---- SECTIONS (font sizes bumped) ---- */
-  .section { padding: 36px 56px 36px; border-bottom: 1px solid var(--rule); }
-  .section.gem { background: linear-gradient(180deg, rgba(176,138,74,0.055) 0%, rgba(176,138,74,0.01) 60%); }
-  .section-head { margin-bottom: 22px; display: flex; flex-direction: column; gap: 8px; max-width: 1080px; }
-  .section-num { font-family: var(--mono); font-size: 10px; letter-spacing: 0.26em; color: var(--accent-deep); font-weight: 500; }
-  .section-title { font-family: var(--serif); font-size: 30px; font-weight: 300; color: var(--ink-mid); margin: 0; letter-spacing: 0.01em; line-height: 1.2; }
-  .section-sub { font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--text-mid); line-height: 1.55; margin: 0; }
-  .section-sub b { color: var(--ink-mid); font-weight: 500; font-style: normal; }
-
-  /* ---- CHART (TradingView widget) ---- */
-  .chart-wrap { background: var(--bg-soft); border: 1px solid var(--rule); padding: 0; }
-  .chart-meta { display: flex; justify-content: space-between; align-items: baseline; padding: 16px 22px 14px; border-bottom: 1px solid var(--rule); flex-wrap: wrap; gap: 10px; }
-  .chart-title { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; }
-  .chart-key-levels { display: flex; gap: 22px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; }
-  .chart-key-levels span { color: var(--text-mid); }
-  .chart-key-levels b { color: var(--ink-mid); font-weight: 500; }
-  .chart-key-levels .peak b { color: var(--ok); }
-  .chart-key-levels .trough b { color: var(--bad); }
-  .tv-container { position: relative; height: 460px; }
-  .chart-legend { display: flex; gap: 22px; padding: 12px 22px; background: var(--bg-soft); border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.06em; color: var(--text-mid); flex-wrap: wrap; }
-  .chart-legend .leg-item { display: inline-flex; align-items: center; gap: 7px; }
-  .chart-legend .leg-swatch { display: inline-block; width: 16px; height: 3px; }
-  .chart-legend .leg-swatch.dashed { background: repeating-linear-gradient(90deg, var(--accent) 0 4px, transparent 4px 7px); height: 2px; }
-  .chart-legend .leg-swatch.candle { width: 10px; height: 12px; border-left: 3px solid var(--ok); border-right: 3px solid var(--bad); background: var(--text-dim); }
-  .chart-legend .leg-swatch.hist { background: rgba(48,68,102,0.45); }
-
-  /* ---- REGIME narrative ---- */
-  .regime-narr { font-family: var(--serif); font-size: 15px; color: var(--text); line-height: 1.85; max-width: 1080px; margin-top: 26px; }
-  .regime-narr p { margin: 0 0 16px; }
-  .regime-narr p:last-child { margin-bottom: 0; }
-  .regime-narr b { color: var(--ink-mid); font-weight: 500; }
-  .regime-narr .pin { font-family: var(--mono); font-size: 10.5px; font-weight: 500; letter-spacing: 0.16em; color: var(--accent-deep); margin-right: 8px; }
-  .regime-narr .up { color: var(--ok); font-weight: 500; }
-  .regime-narr .dn { color: var(--bad); font-weight: 500; }
-  .regime-narr .neutral { color: var(--ink-soft); font-weight: 500; }
-
-  /* ---- CONTENTION (font sizes bumped) ---- */
-  .ct-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px; }
-  .ct-card { background: var(--bg-mid); border: 1px solid var(--rule); border-left: 2px solid var(--accent); padding: 22px 22px 18px; }
-  .ct-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--accent-deep); text-transform: uppercase; margin-bottom: 10px; font-weight: 500; }
-  .ct-q { font-family: var(--serif); font-size: 16px; color: var(--ink-mid); line-height: 1.35; margin-bottom: 14px; font-weight: 400; }
-  .ct-side { display: flex; gap: 11px; margin-bottom: 11px; align-items: flex-start; }
-  .ct-side-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; padding: 2px 7px; border: 1px solid; flex: none; min-width: 42px; text-align: center; line-height: 1.4; font-weight: 500; }
-  .ct-side-tag.bull { color: var(--ok); border-color: var(--ok); }
-  .ct-side-tag.bear { color: var(--bad); border-color: var(--bad); }
-  .ct-side-text { font-family: var(--sans); font-size: 13px; color: var(--text); line-height: 1.55; }
-  .ct-side-text b { color: var(--ink-mid); font-weight: 500; }
-  .ct-proof { font-family: var(--mono); font-size: 10px; letter-spacing: 0.05em; color: var(--text-mid); margin-top: 14px; padding-top: 11px; border-top: 1px solid var(--rule); }
-  .ct-proof span { color: var(--accent-deep); text-transform: uppercase; letter-spacing: 0.14em; font-weight: 500; }
-
-  /* ---- CATALYST (font sizes bumped) ---- */
-  .cat-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px; }
-  .cat-card { background: var(--bg); border: 1px solid var(--rule); border-top: 2px solid var(--accent); padding: 22px; }
-  .cat-num { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--accent-deep); margin-bottom: 10px; font-weight: 500; }
-  .cat-title { font-family: var(--serif); font-size: 16.5px; color: var(--ink-mid); line-height: 1.3; font-weight: 400; margin-bottom: 14px; }
-  .cat-viz { background: var(--bg-mid); border: 1px solid var(--rule-soft); padding: 13px 15px; margin: 10px 0 14px; }
-  .cat-viz-label { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 9px; font-weight: 500; }
-  .cat-viz-bar-row { display: flex; align-items: center; gap: 9px; margin: 6px 0; font-family: var(--mono); font-size: 11px; }
-  .cat-viz-bar-label { width: 100px; color: var(--text-mid); font-size: 11px; }
-  .cat-viz-bar-track { flex: 1; height: 16px; background: var(--bg); border: 1px solid var(--rule-soft); position: relative; }
-  .cat-viz-bar-fill { height: 100%; }
-  .cat-viz-bar-val { width: 64px; text-align: right; color: var(--ink-mid); font-size: 11px; font-weight: 500; }
-  .cat-viz-cap { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; color: var(--accent-deep); text-transform: uppercase; margin-top: 9px; padding-top: 7px; border-top: 1px dashed var(--rule); font-weight: 500; }
-  .cat-takeaway { font-family: var(--sans); font-size: 13px; color: var(--text); line-height: 1.65; margin-top: 4px; }
-  .cat-takeaway b { color: var(--ink-mid); font-weight: 500; }
-  .cat-meta { display: flex; gap: 16px; margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--rule); }
-  .cat-meta div { flex: 1; }
-  .cat-meta dt { font-family: var(--mono); font-size: 9px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 4px; font-weight: 500; }
-  .cat-meta dd { margin: 0; font-family: var(--sans); font-size: 12.5px; color: var(--ink-mid); font-weight: 500; }
-
-  /* ---- VALUATION as 3 scenario cards ---- */
-  .scn-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px; }
-  .scn-card { padding: 24px 22px 20px; border: 1px solid var(--rule); position: relative; display: flex; flex-direction: column; }
-  .scn-card.bear { background: linear-gradient(180deg, rgba(185,28,28,0.045) 0%, rgba(185,28,28,0.01) 100%); border-top: 3px solid var(--bad); }
-  .scn-card.base { background: linear-gradient(180deg, rgba(15,31,58,0.04) 0%, rgba(15,31,58,0.005) 100%); border-top: 3px solid var(--ink-soft); }
-  .scn-card.bull { background: linear-gradient(180deg, rgba(47,111,79,0.045) 0%, rgba(47,111,79,0.01) 100%); border-top: 3px solid var(--ok); }
-  .scn-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500; }
-  .scn-tag.bear { color: var(--bad); }
-  .scn-tag.base { color: var(--ink-soft); }
-  .scn-tag.bull { color: var(--ok); }
-  .scn-price { font-family: var(--serif); font-size: 30px; font-weight: 300; color: var(--ink-mid); line-height: 1.1; margin: 8px 0 4px; letter-spacing: 0.01em; }
-  .scn-delta { font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: 0.04em; margin-bottom: 4px; }
-  .scn-delta.dn { color: var(--bad); }
-  .scn-delta.flat { color: var(--text-mid); }
-  .scn-delta.up { color: var(--ok); }
-  .scn-mult { font-family: var(--mono); font-size: 11px; color: var(--text-dim); letter-spacing: 0.06em; margin-bottom: 16px; }
-  .scn-prem { font-family: var(--serif); font-size: 14px; color: var(--ink-mid); line-height: 1.55; padding: 12px 14px; background: rgba(255,255,255,0.65); border: 1px solid var(--rule-soft); margin-bottom: 14px; }
-  .scn-prem b { color: var(--ink-mid); font-weight: 500; }
-  .scn-driver-head { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 8px; font-weight: 500; padding-top: 4px; }
-  .scn-drivers { list-style: none; margin: 0; padding: 0; }
-  .scn-drivers li { font-family: var(--sans); font-size: 12.5px; color: var(--text); line-height: 1.5; padding: 6px 0 6px 18px; position: relative; }
-  .scn-drivers li::before { content:''; position: absolute; left: 0; top: 12px; width: 8px; height: 1px; background: var(--text-dim); }
-  .scn-drivers li b { color: var(--ink-mid); font-weight: 500; }
-
-  /* SOTP */
-  .sotp { margin-top: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
-  .sotp-card { background: var(--bg); border: 1px solid var(--rule); border-top: 2px solid var(--ink-soft); padding: 20px 22px; }
-  .sotp-head { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; }
-  .sotp-name { font-family: var(--serif); font-size: 18px; color: var(--ink-mid); margin-top: 6px; font-weight: 400; margin-bottom: 10px; }
-  .sotp-row { display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px dashed var(--rule-soft); font-size: 13px; }
-  .sotp-row:last-of-type { border: none; }
-  .sotp-row .k { color: var(--text-mid); }
-  .sotp-row .v { color: var(--ink-mid); font-family: var(--mono); font-weight: 500; }
-  .sotp-foot { margin-top: 12px; padding-top: 11px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; letter-spacing: 0.05em; color: var(--ink-mid); }
-  .sotp-foot b { color: var(--accent-deep); font-weight: 500; }
-
-  /* ---- DISCLAIMER ---- */
-  .disclaimer { padding: 32px 56px 30px; background: var(--bg-soft); border-top: 2px solid var(--rule); }
-  .disclaimer-head { margin-bottom: 16px; }
-  .d-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; color: var(--text-dim); text-transform: uppercase; font-weight: 500; }
-  .d-title { font-family: var(--serif); font-size: 22px; font-weight: 300; color: var(--ink-mid); margin: 6px 0 0; letter-spacing: 0.01em; }
-  .disclaimer-body { font-family: var(--sans); font-size: 11.5px; color: var(--text-mid); line-height: 1.75; max-width: 1080px; }
-  .disclaimer-body p { margin: 0 0 11px; }
-  .disclaimer-body b { color: var(--ink-mid); font-weight: 500; }
-  .d-jp-note { font-family: var(--serif); font-size: 11px; color: var(--text-dim); line-height: 1.8; padding-top: 8px; margin-top: 12px; border-top: 1px solid var(--rule); }
-
-  /* Methodology link (small footer) */
-  .meth { padding: 16px 56px; background: var(--bg); border-top: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: center; font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
-  .meth a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--rule); }
-  .meth a:hover { color: var(--ink); }
-
-  /* ---- SHARE BAR ---- */
-  .share-bar { padding: 30px 56px 28px; background: var(--bg); border-top: 1px solid var(--rule); }
-  .share-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 14px; }
-  .share-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent-deep); font-weight: 500; }
-  .share-sub { font-family: var(--serif); font-size: 13px; color: var(--text-mid); letter-spacing: 0.02em; }
-  .share-btns { display: flex; gap: 8px; flex-wrap: wrap; }
-  .share-btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 9px 14px;
-    font-family: var(--sans); font-size: 12px; font-weight: 500; letter-spacing: 0.02em;
-    color: var(--ink-mid); background: var(--bg);
-    border: 1px solid var(--rule);
-    text-decoration: none; cursor: pointer;
-    transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
-  }
-  .share-btn:hover { border-color: var(--accent); color: var(--accent-deep); background: var(--accent-soft); }
-  .share-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-  .share-btn svg { width: 14px; height: 14px; flex-shrink: 0; fill: currentColor; }
-  .share-btn.copied { background: var(--accent-soft); border-color: var(--accent); color: var(--accent-deep); }
-  .share-perm { font-family: var(--mono); font-size: 10px; color: var(--text-dim); margin-top: 16px; letter-spacing: 0.06em; }
-  .share-perm code { font-family: var(--mono); background: var(--bg-soft); padding: 2px 6px; border: 1px solid var(--rule-soft); color: var(--ink-mid); }
-
-  /* ============================================================
-     RESPONSIVE — Mobile reading view
-     Preserves the desktop report aesthetic above 900px;
-     gracefully collapses on tablets and phones.
-     ============================================================ */
-
-  /* Tablet & landscape phones */
-  @media (max-width: 1100px) {
-    body { padding: 16px 0; }
-  }
-
-  @media (max-width: 900px) {
-    .stat-strip { grid-template-columns: 1fr 1fr 1fr; }
-    .stat-strip .stat:nth-child(3n) { border-right: none; }
-    .stat-strip .stat:nth-child(n+4) { border-top: 1px solid var(--rule); }
-    .ct-grid, .cat-grid, .scn-grid { grid-template-columns: 1fr 1fr; }
-    .sotp { grid-template-columns: 1fr; }
-    .section { padding: 32px 36px 32px; }
-    .masthead-inner { padding: 28px 36px 24px; }
-    .disclaimer, .share-bar { padding-left: 36px; padding-right: 36px; }
-  }
-
-  /* Phone — full single-column reading view */
-  @media (max-width: 760px) {
-    body { display: block; padding: 0; font-size: 15px; line-height: 1.7; background: var(--bg); }
-    .card { width: 100%; max-width: 100%; border-left: 0; border-right: 0; box-shadow: none; }
-
-    /* Masthead → stacked */
-    .masthead-inner { grid-template-columns: 1fr; padding: 26px 18px 22px; gap: 16px; align-items: stretch; }
-    .head-main { align-items: flex-start; text-align: left; }
-    .head-ticker-row { flex-wrap: wrap; gap: 10px; }
-    .head-co { font-size: 30px; }
-    .head-co-jp { font-size: 13.5px; }
-    .brand-mono { font-size: 24px; }
-
-    /* Stat strip → 2 columns */
-    .stat-strip { grid-template-columns: 1fr 1fr; }
-    .stat { padding: 13px 16px; border-bottom: 1px solid var(--rule); }
-    .stat:nth-child(2n) { border-right: none; }
-    .stat:nth-last-child(-n+2) { border-bottom: none; }
-    .stat-val { font-size: 19px; }
-
-    /* Section padding & headings */
-    .section { padding: 28px 18px 28px; }
-    .section-head { margin-bottom: 18px; }
-    .section-title { font-size: 24px; line-height: 1.25; }
-    .section-sub { font-size: 14px; }
-
-    /* Chart */
-    .tv-container { height: 320px; }
-    .chart-meta { padding: 13px 16px 11px; }
-    .chart-key-levels { gap: 14px; row-gap: 6px; }
-    .chart-legend { padding: 10px 16px; gap: 14px; row-gap: 6px; }
-
-    /* Narrative & dense-text bumps */
-    .regime-narr { font-size: 15px; line-height: 1.8; margin-top: 22px; }
-    .ct-card, .cat-card, .scn-card, .sotp-card { padding: 20px 18px; }
-    .ct-side-text { font-size: 14px; }
-    .ct-q { font-size: 16.5px; }
-    .cat-takeaway { font-size: 14px; }
-    .cat-title { font-size: 17px; }
-    .cat-viz-bar-label { width: 80px; font-size: 10.5px; }
-    .cat-viz-bar-val { width: 56px; font-size: 10.5px; }
-    .scn-drivers li { font-size: 14px; line-height: 1.55; }
-    .scn-price { font-size: 28px; }
-    .scn-prem { font-size: 14px; }
-
-    /* Grids → single column */
-    .ct-grid, .cat-grid, .scn-grid, .sotp { grid-template-columns: 1fr; gap: 16px; }
-
-    /* Disclaimer */
-    .disclaimer { padding: 26px 18px 24px; }
-    .d-title { font-size: 22px; line-height: 1.3; }
-    .disclaimer-body { font-size: 13.5px; line-height: 1.75; }
-
-    /* Share bar */
-    .share-bar { padding: 24px 18px 22px; }
-    .share-head { flex-wrap: wrap; gap: 8px; }
-    .share-btn { font-size: 13px; padding: 10px 14px; }
-
-    /* Meth footer */
-    .meth { padding: 14px 18px; flex-direction: column; gap: 6px; text-align: center; letter-spacing: 0.12em; }
-  }
-
-/* WCAG 2.1 AA accessibility helpers */
-.skip-link {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  z-index: 1000;
-  transform: translateY(-150%);
-  padding: 10px 14px;
-  background: var(--ink, #1a2a4a);
-  color: #fff;
-  text-decoration: none;
-  border-radius: 4px;
-  box-shadow: 0 4px 12px rgba(15,31,58,0.18);
-}
-.skip-link:focus, .skip-link:focus-visible { transform: translateY(0); outline: 3px solid var(--accent, #9a7838); outline-offset: 3px; }
-main:focus { outline: none; }
-a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, [tabindex]:focus-visible {
-  outline: 3px solid var(--accent, #9a7838);
-  outline-offset: 3px;
-}
-.form-row input:focus-visible, .form-row select:focus-visible, .form-row textarea:focus-visible { outline: 3px solid var(--accent, #9a7838); outline-offset: 2px; }
-.form-field-error:empty { min-height: 0; }
-.mobile-menu[hidden] { display: none !important; }
-.mobile-menu a:focus-visible { outline-offset: -2px; }
-@media (max-width: 360px) {
-  .wrap { padding-left: 16px; padding-right: 16px; }
-  .hero-ctas, .cta-row, .share-btns, .week-nav, .toolbar { align-items: stretch; flex-direction: column; }
-  .btn, .form-submit, .mobile-menu-cta, .share-btn { width: 100%; justify-content: center; text-align: center; }
-  .nav-logo-img--desktop { display: none !important; }
-  .nav-logo-img--mobile { display: block !important; }
-  .nav-inner { gap: 10px; }
-  .nav-right { gap: 6px; }
-  .locale-switcher a, .nav-locale-switcher a { min-width: 36px; min-height: 36px; display: inline-flex; align-items: center; justify-content: center; }
-}
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
-}
-
-
-</style>
+<link rel="stylesheet" href="/assets/profile.css">
 <script src="/assets/locale-switcher.js" defer></script>
 </head>
 <body>
@@ -446,7 +94,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     <div class="section-head">
       <div class="section-num">01 · 株価レジーム</div>
       <h2 class="section-title">この2年間、株価を動かしてきたものは何か</h2>
-      <p class="section-sub">2025年4月7日の¥585から同年8月18日の¥1,263へ、4カ月で+116%上昇 &mdash; 初配宣言とマルチプロダクト化シナリオを織り込んだ動きである。その後9カ月にわたり約40%の修正局面に入った。修正の起点は2025年11月13日のチューズモンスター（現 株式会社ヤプリフードコネクト）買収 &mdash; FY25ガイダンス上方修正と同時開示、対価¥130百万円のうち¥113百万円（87%）がのれん計上。2026年2月13日の本決算で経営陣はFY26を最後に繰越欠損金の節税効果が消化される旨を明示 &mdash; FY27純利益が営業利益基準に正常化する開示として作用した。</p>
+      <p class="section-sub">2025年4月7日の¥585から同年8月18日の¥1,263へ、4カ月で+116%上昇 &mdash; 初配宣言とマルチプロダクト化シナリオを織り込んだ動きである。その後9カ月にわたり約40%の修正局面に入った。修正の起点は2025年11月13日のチューズモンスター（現 株式会社ヤプリフードコネクト）買収 &mdash; FY25ガイダンス上方修正と同日開示、対価¥130百万円のうち¥113百万円（87%）がのれん計上。2026年2月13日の本決算で経営陣はFY26を最後に繰越欠損金の節税効果が消化される旨を明示 &mdash; FY27純利益が営業利益基準に正常化する開示として作用した。</p>
     </div>
 
     <div class="chart-wrap">
@@ -481,7 +129,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
         });
         var topixSeries = chart.addLineSeries({ color: 'rgba(122,130,144,0.85)', lineWidth: 1.5, priceLineVisible: false, lastValueVisible: true });
         topixSeries.setData(CHART_DATA.topix_rebased);
-        var smaSeries = chart.addLineSeries({ color: '#b08a4a', lineWidth: 1.5, lineStyle: 2, priceLineVisible: false, lastValueVisible: false });
+        var smaSeries = chart.addLineSeries({ color: '#9a7838', lineWidth: 1.5, lineStyle: 2, priceLineVisible: false, lastValueVisible: false });
         smaSeries.setData(CHART_DATA.sma60);
         var candleSeries = chart.addCandlestickSeries({ upColor: '#2f6f4f', downColor: '#b91c1c', borderUpColor: '#2f6f4f', borderDownColor: '#b91c1c', wickUpColor: '#2f6f4f', wickDownColor: '#b91c1c' });
         candleSeries.setData(CHART_DATA.candles);
@@ -500,15 +148,15 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     <div class="regime-narr">
       <p>
         <span class="pin">01 · ラリー局面</span>
-        ヤプリは、非エンジニアがネイティブiOS／Androidアプリを構築・配信・運用できるノーコードのモバイルSaaS事業を中核とする企業である。顧客基盤はアパレル、外食、スポーツチーム、メディアといった既存業種に、社内向け従業員エンゲージメント（HR領域）の急成長コホートが重なる構成である。プラットフォームの基幹的役割は「アプリを構築すること」より「アプリを継続的に運用すること」にあり、ストア審査対応、OS追従、プッシュ通知、会員ID、ポイント管理、CMSを中央で巻き取る &mdash; Q1 FY26のLTM解約率<b>0.86%</b>（前期0.92%から改善）が、更新経済性を端的に示している。売上はストック型のプラットフォーム収入が約8割、フロー型のプロフェッショナルサービス収入が約2割。2024年以降のマルチプロダクト化で本体Yappliに加えWebX、MiniApp、MobileOrderの4プロダクト構成へ移行し、Q1 FY26契約数<b>958件</b>、粗利率<b>69.8%</b>、ARPU月額<b>¥466千</b>、LTV/CAC<b>6.6倍</b>と、新規ロゴ→PS→クロスセルのフライホイールが既存CRM・ID・ポイント基盤に重畳して積み上がる構造を成している。<b>¥585</b>の24カ月安値は2025年4月7日につけた。回復の起点は2025年5月14日 &mdash; Q1 FY25決算と同日の「配当方針の変更」開示で初配を宣言（年間¥13、配当性向18.1%）、市場は再投資一本足のSaaSから資本還元適格のSaaSへとヤプリの読み替えを開始した。2025年8月13日のQ2決算でPS売上が加速し、smartLP事業譲受からYappli WebXへのリブランドが明らかになるとマルチプロダクト・シナリオが信認を得て、8月18日に高値<b>¥1,263</b> &mdash; 4カ月で<b>+116%</b>、当時既知ガイダンスに対する翌12カ月EV/EBIT約<b>15倍</b>と、日本SaaS黒字中型バンドの上限近辺まで押し上げた水準である。
+        ヤプリは、非エンジニアがネイティブiOS／Androidアプリを構築・配信・運用できるノーコードのモバイルSaaS事業を中核とする企業である。顧客基盤はアパレル、外食、スポーツチーム、メディアといった既存業種に、社内向け従業員エンゲージメント（HR領域）の急成長コホートが重なる構成である。プラットフォームの基幹的役割は「アプリを構築すること」より「アプリを継続的に運用すること」にあり、ストア審査対応、OS追従、プッシュ通知、会員ID、ポイント管理、CMSを中央で巻き取る &mdash; Q1 FY26のLTM解約率<b>0.86%</b>（前期0.92%から改善）が、更新経済性を端的に示している。売上はストック型のプラットフォーム収入が約8割、フロー型のプロフェッショナルサービス収入が約2割。2024年以降のマルチプロダクト化で本体Yappliに加えWebX、MiniApp、MobileOrderの4プロダクト構成へ移行し、Q1 FY26契約数<b>958件</b>、粗利率<b>69.8%</b>、ARPU月額<b>¥466千</b>、LTV/CAC<b>6.6倍</b>と、新規ロゴ→PS→クロスセルのフライホイールが既存CRM・ID・ポイント基盤に重畳して積み上がる構造を成している。<b>¥585</b>の24カ月安値は2025年4月7日につけた。回復の起点は2025年5月14日 &mdash; Q1 FY25決算と同日の「配当方針の変更」開示で初配を宣言（年間¥12。2025年11月13日の増配修正で年間¥13へ、FY25実績配当性向18.1%）、市場は再投資一本足のSaaSから資本還元適格のSaaSへとヤプリの読み替えを開始した。2025年8月13日のQ2決算でPS売上が加速し、2025年5月提供開始のYappli WebX（2024年10月譲受のsmartLPソフトウェア資産を基盤とする）がマルチプロダクト・シナリオの信認を高め、8月18日に高値<b>¥1,263</b> &mdash; 4カ月で<b>+116%</b>、当時既知ガイダンスに対する翌12カ月EV/EBIT約<b>15倍</b>と、日本SaaS黒字中型バンドの上限近辺まで押し上げた水準である。
       </p>
       <p>
         <span class="pin">02 · 高値圏での調整</span>
-        2025年11月13日、経営陣は1回の開示で2つを同時に発表した。第一に、FY25営業利益ガイダンスを¥750Mから<b>¥830M</b>へ引き上げ、配当予想も増額 &mdash; 単独で読めばラリーを継続させるべき上方修正であった。第二に、同じ開示で株式会社チューズモンスター（現 株式会社ヤプリフードコネクト）の取得を¥130Mの現金対価で発表 &mdash; このうち<b>¥113M（87%）</b>がのれんとして認識され9年定額償却が始まる旨、ならびに当該案件のIRRを同額の自社株買い実施と比較する事後検証フレームは未提示である旨が明らかとなった。秋を通じてマルチプロダクト戦略の実行リスクを市場が織り込み直す中、株価は¥900台から¥700台へマルチプル圧縮した。2026年2月13日のFY25本決算は売上<b>¥6,056M</b>、親会社単体営業利益<b>¥889M（+61.5%）</b>、純利益<b>¥920M</b>と、11月修正後ガイドを上回って着地した。しかし同時開示のFY26ガイダンスは営業利益<b>¥1,000M（+13.3%）</b>、純利益<b>¥930M（+1.0%）</b>と減速感を打ち出し、決算説明会で経営陣はFY26で繰越欠損金による税効果メリットを使い切るため、FY27純利益は本業の営業利益ベースへ正常化する旨を明言した。市場の読みはマルチプル圧縮の追加触媒として作用し、冬から春にかけて株価は¥800台から¥700台へ修正局面を辿った。反転の構造は2層 &mdash; FY25からの傾き減速に対する正当なマルチプル収斂と、FY27税効果ランオフ物語への過剰反応 &mdash; が並列している。
+        2025年11月13日、経営陣は同日に2つの開示を行った。第一に、FY25営業利益ガイダンスを¥750Mから<b>¥830M</b>へ引き上げ、配当予想も増額 &mdash; 単独で読めばラリーを継続させるべき上方修正であった。第二に、同日の別開示で株式会社チューズモンスター（現 株式会社ヤプリフードコネクト）の取得を¥130Mの現金対価で発表 &mdash; このうち<b>¥113M（87%）</b>がのれんとして認識され9年定額償却が始まる旨、ならびに当該案件のIRRを同額の自社株買い実施と比較する事後検証フレームは未提示である旨が明らかとなった。秋を通じてマルチプロダクト戦略の実行リスクを市場が織り込み直す中、株価は¥900台から¥700台へマルチプル圧縮した。2026年2月13日のFY25本決算は売上<b>¥6,056M</b>、親会社単体営業利益<b>¥889M（+61.5%）</b>、純利益<b>¥920M</b>と、11月修正後ガイドを上回って着地した。しかし同時開示のFY26ガイダンスは営業利益<b>¥1,000M（+13.3%）</b>、純利益<b>¥930M（+1.0%）</b>と減速感を打ち出し、決算説明会で経営陣はFY26で繰越欠損金による税効果メリットを使い切るため、FY27純利益は本業の営業利益ベースへ正常化する旨を明言した。市場の読みはマルチプル圧縮の追加触媒として作用し、冬から春にかけて株価は¥800台から¥700台へ修正局面を辿った。反転の構造は2層 &mdash; FY25からの傾き減速に対する正当なマルチプル収斂と、FY27税効果ランオフ物語への過剰反応 &mdash; が並列している。
       </p>
       <p>
         <span class="pin">03 · 現時点</span>
-        FY26 Q1決算は2026年5月13日に着地した。売上<b>¥1,707M（+19.1%）</b>、営業利益<b>¥396M（+77.6%）</b>、純利益<b>¥390M（+75.1%）</b>、営業利益率<b>23.2%</b>はFY26通期ガイド<b>14.7%</b>を8.5ポイント上回り、上場以来の最高水準を更新した。LTM解約率は0.92%から<b>0.86%</b>へ改善し、経営陣が想定したFY26下半期の改善時期を1〜2四半期前倒した。LTV/CAC比率<b>6.6倍</b>は経営陣の再投資閾値5倍を上回り、4プロダクト合計契約数は<b>958件</b>、クロスセル事例にはアルペン、ドクターマーチン、猿田彦珈琲が並ぶ。同日に発表されたFY26年間配当の¥14から<b>¥15</b>への第2次上方修正（配当性向20.6%）と、4名の執行役員（COO・CFO・CHRO・CoS）登用 &mdash; 特にCFO配置は資本配分規律の制度化シグナルとして受け止められる。株価は<b>¥745</b>まで戻したが、2025年8月の水準から依然<b>−41%</b>にとどまり、フォワードEV/EBITで約6.5倍分のマルチプル圧縮が残存している &mdash; その半分はQ1営業利益率の構造性に対する正当な留保、残り半分はFY27税効果ランオフ物語への過剰織り込みとして読める。今後4四半期で解消されるのは、Q1の営業利益率<b>23.2%</b>が広告費を¥180M／四半期へ通常化させた後も<b>Q2およびQ3 FY26がそれぞれ営業利益率18%以上で着地</b>し構造性が確認されるか、資本還元政策が配当性向<b>30%以上</b>または公式の総還元算定式として制度化されるか、そして領域別解約率の開示によりMarketingコホートの維持率が<b>LTM 1.0%未満</b>で着地するか、という3点である。
+        FY26 Q1決算は2026年5月13日に着地した。売上<b>¥1,707M（+19.1%）</b>、営業利益<b>¥396M（+77.6%）</b>、純利益<b>¥390M（+75.1%）</b>、営業利益率<b>23.2%</b>はFY26通期ガイド<b>14.7%</b>を8.5ポイント上回り、上場以来の最高水準を更新した。LTM解約率は0.92%から<b>0.86%</b>へ改善し、経営陣が想定したFY26下半期の改善時期を1〜2四半期前倒した。LTV/CAC比率<b>6.6倍</b>は経営陣の再投資閾値5倍を上回り、4プロダクト合計契約数は<b>958件</b>、クロスセル事例にはアルペン、ドクターマーチン、猿田彦珈琲が並ぶ。同日に発表されたFY26年間配当の¥14から<b>¥15</b>への第2次上方修正（配当性向20.6%）に加え、4月1日付で登用済みの4名の執行役員（COO・CFO・CHRO、CoSは1月1日付） &mdash; 特にCFO配置は資本配分規律の制度化シグナルとして受け止められる。株価は<b>¥745</b>まで戻したが、2025年8月の水準から依然<b>−41%</b>にとどまり、フォワードEV/EBITで約6.5倍分のマルチプル圧縮が残存している &mdash; その半分はQ1営業利益率の構造性に対する正当な留保、残り半分はFY27税効果ランオフ物語への過剰織り込みとして読める。今後4四半期で解消されるのは、Q1の営業利益率<b>23.2%</b>が広告費を¥180M／四半期へ通常化させた後も<b>Q2およびQ3 FY26がそれぞれ営業利益率18%以上で着地</b>し構造性が確認されるか、資本還元政策が配当性向<b>30%以上</b>または公式の総還元算定式として制度化されるか、そして領域別解約率の開示によりMarketingコホートの維持率が<b>LTM 1.0%未満</b>で着地するか、という3点である。
       </p>
     </div>
   </section>
@@ -541,7 +189,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
         <div class="ct-q">¥15の配当はフレームワーク制定前のプレースホルダーか、それとも投資継続フェーズの自然な上限か？</div>
         <div class="ct-side">
           <span class="ct-side-tag bull">強気</span>
-          <span class="ct-side-text">強気派は、ヤプリがROE<b>37%</b>・ネットキャッシュ<b>¥10.4億</b>・FY25営業CF<b>¥7.76億</b>を実現している点 &mdash; ROIC追加的な再投資機会を見出すスピードを上回って資本が積み上がる構造 &mdash; に着目し、FY26 Q1のCFO登用を制度化シグナルと読む。FY25総還元率<b>34%</b>（配当¥1.66億＋自社株買い¥1.49億）は数年間の純再投資局面後の最初の還元であり、FY26 ¥15配当は配当性向を<b>20.6%</b>へ引き上げる。<b>見方が成立するのは、FY26本決算（2027年2月）で配当性向目標が30%以上へ引き上げられる、複数年自社株買い枠が認可される、または公式の総還元算定式が公表される場合である。</b></span>
+          <span class="ct-side-text">強気派は、ヤプリがROE<b>37%</b>・ネットキャッシュ<b>¥10.4億</b>・FY25営業CF<b>¥7.76億</b>を実現している点 &mdash; ROIC追加的な再投資機会を見出すスピードを上回って資本が積み上がる構造 &mdash; に着目し、2026年4月1日付のCFO登用を制度化シグナルと読む。FY25総還元率<b>34%</b>（配当¥1.66億＋自社株買い¥1.49億）は数年間の純再投資局面後の最初の還元であり、FY26 ¥15配当は配当性向を<b>20.6%</b>へ引き上げる。<b>見方が成立するのは、FY26本決算（2027年2月）で配当性向目標が30%以上へ引き上げられる、複数年自社株買い枠が認可される、または公式の総還元算定式が公表される場合である。</b></span>
         </div>
         <div class="ct-side">
           <span class="ct-side-tag bear">弱気</span>
@@ -554,7 +202,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
         <div class="ct-q">4プロダクト体制は単価と契約数を引き上げるのか、それともサブスクリプション経済性を希薄化させるのか？</div>
         <div class="ct-side">
           <span class="ct-side-tag bull">強気</span>
-          <span class="ct-side-text">強気派は、FY26 Q1開示の4プロダクト合計<b>958契約</b>（前年比+6.9%） &mdash; うちコアYappli 939件、残りはWebX、MiniApp、MobileOrderのクロスセル &mdash; に注目する。平均月額利用料は<b>¥466千</b>（前年比+3.9%）と、WebX・MiniAppが低価格にもかかわらず安定的に推移する。クロスセル事例（アルペン、ドクターマーチン、猿田彦珈琲）は、企業が複数のデジタル接点をヤプリへ集約している実態を示す。<b>見方が成立するのは、FY26通期契約数が1,020件超、かつ平均月額利用料が¥460千以上で着地する場合である。</b></span>
+          <span class="ct-side-text">強気派は、FY26 Q1開示の4プロダクト合計<b>958契約</b>（前年比+6.9%） &mdash; うちコアYappli 939件、残りはWebX・MiniAppのクロスセル（YFCの「Yappli MobileOrder」は契約数に含まない） &mdash; に注目する。平均月額利用料は<b>¥466千</b>（前年比+3.9%）と、WebX・MiniAppが低価格にもかかわらず安定的に推移する。クロスセル事例（アルペン、ドクターマーチン、猿田彦珈琲）は、企業が複数のデジタル接点をヤプリへ集約している実態を示す。<b>見方が成立するのは、FY26通期契約数が1,020件超、かつ平均月額利用料が¥460千以上で着地する場合である。</b></span>
         </div>
         <div class="ct-side">
           <span class="ct-side-tag bear">弱気</span>
@@ -592,7 +240,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
           </div>
           <div class="cat-viz-bar-row">
             <div class="cat-viz-bar-label">FY25 親会社純利益</div>
-            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:100%;background:#b08a4a"></div></div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:100%;background:#9a7838"></div></div>
             <div class="cat-viz-bar-val">¥9.2億</div>
           </div>
           <div class="cat-viz-bar-row">
@@ -675,7 +323,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
           <div class="cat-viz-cap">代替活用（同額の自社株買い）との比較は未開示</div>
         </div>
         <div class="cat-takeaway">
-          経営陣はチューズモンスター買収（2025年11月28日、¥130百万円現金、うちのれん<b>¥113百万円＝87%</b>を9年定額償却）を、LINEミニアプリ・チャネルと外食垂直への能力獲得案件と位置付けている。一方で、買収対価¥130百万円を同時点のバリュエーションで自社株買いに振り向けた代替案とのIRR比較は依然未開示であり、5月13日のCFO登用が示唆した資本配分規律の制度化は見取り図の段階にとどまる。<b>FY26本決算でヤプリフードコネクトの初年度単独売上・営業利益を開示</b>し、加えて将来案件向けにCFO署名のIRR対代替活用閾値フレームを公表することは、買収判断の事後検証を制度化された開示プロセスへ変え、減損経路を再評価イベントに変換する。
+          経営陣はチューズモンスター買収（2025年11月28日、¥130百万円現金、うちのれん<b>¥113百万円＝87%</b>を9年定額償却）を、LINEミニアプリ・チャネルと外食垂直への能力獲得案件と位置付けている。一方で、買収対価¥130百万円を同時点のバリュエーションで自社株買いに振り向けた代替案とのIRR比較は依然未開示であり、4月1日のCFO登用が示唆した資本配分規律の制度化は見取り図の段階にとどまる。<b>FY26本決算でヤプリフードコネクトの初年度単独売上・営業利益を開示</b>し、加えて将来案件向けにCFO署名のIRR対代替活用閾値フレームを公表することは、買収判断の事後検証を制度化された開示プロセスへ変え、減損経路を再評価イベントに変換する。
         </div>
         <div class="cat-meta">
           <div><dt>経営コスト</dt><dd>IR資料1スライド＋YUHO 関連注記</dd></div>

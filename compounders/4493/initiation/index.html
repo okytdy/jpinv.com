@@ -12,12 +12,12 @@
 <link rel="alternate" hreflang="ja" href="https://jpinv.com/compounders/4493/initiation/">
 <link rel="alternate" hreflang="en" href="https://jpinv.com/en/compounders/4493/initiation/">
 <meta property="og:type" content="article">
-<meta property="og:image" content="https://jpinv.com/og/4493.png">
+<meta property="og:image" content="https://jpinv.com/og/compounders/4493.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="JII Compounders 銘柄レポート · 4493">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://jpinv.com/og/4493.png">
+<meta name="twitter:image" content="https://jpinv.com/og/compounders/4493.png">
 <meta name="twitter:image:alt" content="JII Compounders 銘柄レポート · 4493">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -27,185 +27,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --ink:        #1a2a4a;
-    --ink-mid:    #172641;
-    --ink-soft:   #304466;
-    --rule:       #d6dee8;
-    --rule-soft:  #e8edf3;
-    --bg:         #ffffff;
-    --bg-mid:    #f5f7fa;
-    --bg-soft:   #fafbfc;
-    --text:       #1f2937;
-    --text-mid:  #4a5566;
-    --text-dim:  #5f6875;
-    --accent:    #9a7838;
-    --accent-deep:#9a7838;
-    --accent-soft:#f4eee4;
-    --bad:       #b91c1c;
-    --warn:      #8a682b;
-    --ok:        #2f6f4f;
-    --serif: 'Noto Serif JP', 'Yu Mincho', serif;
-    --sans:  'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
-    --mono:  'DM Mono', monospace;
-  }
-  *, *::before, *::after { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; background: var(--bg-mid); }
-  body { display: flex; justify-content: center; padding: 30px 0; font-family: var(--sans); color: var(--text); font-size: 14px; line-height: 1.65; }
-  .card { background: var(--bg); color: var(--text); width: 100%; max-width: 1200px; margin: 0 auto; box-shadow: 0 30px 80px rgba(15,31,58,0.10), 0 1px 3px rgba(15,31,58,0.06); border: 1px solid var(--rule); }
-  .masthead { position: relative; overflow: hidden; background: var(--bg); border-bottom: 1px solid var(--rule); }
-  .masthead::before { content:''; position: absolute; inset: 0; background-image: linear-gradient(rgba(15,31,58,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(15,31,58,0.04) 1px, transparent 1px); background-size: 64px 64px; -webkit-mask-image: linear-gradient(180deg, transparent, black 12%, black 88%, transparent); mask-image: linear-gradient(180deg, transparent, black 12%, black 88%, transparent); pointer-events: none; }
-  .masthead::after { content:''; position: absolute; width: 600px; height: 600px; background: radial-gradient(circle, rgba(15,31,58,0.045) 0%, transparent 70%); top: -160px; right: -200px; pointer-events: none; }
-  .masthead-inner { position: relative; z-index: 2; padding: 32px 56px 28px; display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: end; }
-  .brand { display: flex; flex-direction: column; gap: 4px; align-items: flex-start; }
-  .brand-mono { font-family: var(--serif); font-size: 28px; font-weight: 300; letter-spacing: 0.04em; color: var(--ink-mid); line-height: 1; }
-  .brand-mono .pipe { color: var(--accent); font-weight: 200; margin: 0 4px; }
-  .brand-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; color: var(--accent-deep); text-transform: uppercase; margin-top: 12px; font-weight: 500; }
-
-  .brand-home-link { display:flex; flex-direction:column; gap:4px; align-items:flex-start; color:inherit; text-decoration:none; }
-  .brand-home-link:hover .brand-mono, .brand-home-link:hover .brand-eyebrow { color:var(--ink); }
-  .brand-home-link:focus-visible { outline:2px solid var(--accent); outline-offset:6px; }
-  .head-main { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; text-align: right; }
-  .head-ticker-row { display: flex; align-items: baseline; gap: 16px; }
-  .head-ticker { font-family: var(--mono); font-size: 12px; color: var(--ink-soft); letter-spacing: 0.18em; }
-  .head-co-jp { font-family: var(--serif); font-size: 14.5px; color: var(--text-mid); letter-spacing: 0.04em; }
-  .head-co { font-family: var(--serif); font-size: 40px; font-weight: 300; color: var(--ink-mid); line-height: 1.05; letter-spacing: 0.01em; margin-top: 4px; }
-  .head-industry { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-top: 6px; }
-  .stat-strip { display: grid; grid-template-columns: 1.05fr 1.05fr 1.1fr 1.05fr 1.1fr 1.1fr; gap: 0; border-top: 1px solid var(--rule); position: relative; z-index: 2; background: var(--bg-soft); }
-  .stat { padding: 15px 18px; border-right: 1px solid var(--rule); text-align: left; }
-  .stat:last-child { border-right: none; }
-  .stat-label { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 7px; font-weight: 500; }
-  .stat-val { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--ink-mid); line-height: 1.05; }
-  .stat-val small { font-family: var(--mono); font-size: 11px; color: var(--text-dim); margin-left: 4px; font-weight: 400; letter-spacing: 0.04em; }
-  .stat-ctx { font-family: var(--mono); font-size: 10.5px; color: var(--text-mid); margin-top: 6px; letter-spacing: 0.04em; line-height: 1.45; }
-  .stat-ctx .dn { color: var(--bad); font-weight: 500; }
-  .stat-ctx .up { color: var(--ok); font-weight: 500; }
-  .stat-ctx b { color: var(--ink-mid); font-weight: 500; }
-  .section { padding: 36px 56px 36px; border-bottom: 1px solid var(--rule); }
-  .section.gem { background: linear-gradient(180deg, rgba(176,138,74,0.055) 0%, rgba(176,138,74,0.01) 60%); }
-  .section-head { margin-bottom: 22px; display: flex; flex-direction: column; gap: 8px; max-width: 1080px; }
-  .section-num { font-family: var(--mono); font-size: 10px; letter-spacing: 0.26em; color: var(--accent-deep); font-weight: 500; }
-  .section-title { font-family: var(--serif); font-size: 30px; font-weight: 300; color: var(--ink-mid); margin: 0; letter-spacing: 0.01em; line-height: 1.2; }
-  .section-sub { font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--text-mid); line-height: 1.55; margin: 0; }
-  .section-sub b { color: var(--ink-mid); font-weight: 500; font-style: normal; }
-  .chart-wrap { background: var(--bg-soft); border: 1px solid var(--rule); padding: 0; }
-  .chart-meta { display: flex; justify-content: space-between; align-items: baseline; padding: 16px 22px 14px; border-bottom: 1px solid var(--rule); flex-wrap: wrap; gap: 10px; }
-  .chart-title { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; }
-  .chart-key-levels { display: flex; gap: 22px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; }
-  .chart-key-levels span { color: var(--text-mid); }
-  .chart-key-levels b { color: var(--ink-mid); font-weight: 500; }
-  .chart-key-levels .peak b { color: var(--ok); }
-  .chart-key-levels .trough b { color: var(--bad); }
-  .tv-container { position: relative; height: 460px; }
-  .chart-legend { display: flex; gap: 22px; padding: 12px 22px; background: var(--bg-soft); border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.06em; color: var(--text-mid); flex-wrap: wrap; }
-  .chart-legend .leg-item { display: inline-flex; align-items: center; gap: 7px; }
-  .chart-legend .leg-swatch { display: inline-block; width: 16px; height: 3px; }
-  .chart-legend .leg-swatch.dashed { background: repeating-linear-gradient(90deg, var(--accent) 0 4px, transparent 4px 7px); height: 2px; }
-  .chart-legend .leg-swatch.candle { width: 10px; height: 12px; border-left: 3px solid var(--ok); border-right: 3px solid var(--bad); background: var(--text-dim); }
-  .chart-legend .leg-swatch.hist { background: rgba(48,68,102,0.45); }
-  .regime-narr { font-family: var(--serif); font-size: 15px; color: var(--text); line-height: 1.85; max-width: 1080px; margin-top: 26px; }
-  .regime-narr p { margin: 0 0 16px; }
-  .regime-narr p:last-child { margin-bottom: 0; }
-  .regime-narr b { color: var(--ink-mid); font-weight: 500; }
-  .regime-narr .pin { font-family: var(--mono); font-size: 10.5px; font-weight: 500; letter-spacing: 0.16em; color: var(--accent-deep); margin-right: 8px; }
-  .regime-narr .up { color: var(--ok); font-weight: 500; }
-  .regime-narr .dn { color: var(--bad); font-weight: 500; }
-  .regime-narr .neutral { color: var(--ink-soft); font-weight: 500; }
-  .ct-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px; }
-  .ct-card { background: var(--bg-mid); border: 1px solid var(--rule); border-left: 2px solid var(--accent); padding: 22px 22px 18px; }
-  .ct-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--accent-deep); text-transform: uppercase; margin-bottom: 10px; font-weight: 500; }
-  .ct-q { font-family: var(--serif); font-size: 16px; color: var(--ink-mid); line-height: 1.35; margin-bottom: 14px; font-weight: 400; }
-  .ct-side { display: flex; gap: 11px; margin-bottom: 11px; align-items: flex-start; }
-  .ct-side-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; padding: 2px 7px; border: 1px solid; flex: none; min-width: 42px; text-align: center; line-height: 1.4; font-weight: 500; }
-  .ct-side-tag.bull { color: var(--ok); border-color: var(--ok); }
-  .ct-side-tag.bear { color: var(--bad); border-color: var(--bad); }
-  .ct-side-text { font-family: var(--sans); font-size: 13px; color: var(--text); line-height: 1.55; }
-  .ct-side-text b { color: var(--ink-mid); font-weight: 500; }
-  .cat-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px; }
-  .cat-card { background: var(--bg); border: 1px solid var(--rule); border-top: 2px solid var(--accent); padding: 22px; }
-  .cat-num { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--accent-deep); margin-bottom: 10px; font-weight: 500; }
-  .cat-title { font-family: var(--serif); font-size: 16.5px; color: var(--ink-mid); line-height: 1.3; font-weight: 400; margin-bottom: 14px; }
-  .cat-viz { background: var(--bg-mid); border: 1px solid var(--rule-soft); padding: 13px 15px; margin: 10px 0 14px; }
-  .cat-viz-label { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 9px; font-weight: 500; }
-  .cat-viz-bar-row { display: flex; align-items: center; gap: 9px; margin: 6px 0; font-family: var(--mono); font-size: 11px; }
-  .cat-viz-bar-label { width: 100px; color: var(--text-mid); font-size: 11px; }
-  .cat-viz-bar-track { flex: 1; height: 16px; background: var(--bg); border: 1px solid var(--rule-soft); position: relative; }
-  .cat-viz-bar-fill { height: 100%; }
-  .cat-viz-bar-val { width: 64px; text-align: right; color: var(--ink-mid); font-size: 11px; font-weight: 500; }
-  .cat-viz-cap { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; color: var(--accent-deep); text-transform: uppercase; margin-top: 9px; padding-top: 7px; border-top: 1px dashed var(--rule); font-weight: 500; }
-  .cat-takeaway { font-family: var(--sans); font-size: 13px; color: var(--text); line-height: 1.65; margin-top: 4px; }
-  .cat-takeaway b { color: var(--ink-mid); font-weight: 500; }
-  .cat-meta { display: flex; gap: 16px; margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--rule); }
-  .cat-meta div { flex: 1; }
-  .cat-meta dt { font-family: var(--mono); font-size: 9px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 4px; font-weight: 500; }
-  .cat-meta dd { margin: 0; font-family: var(--sans); font-size: 12.5px; color: var(--ink-mid); font-weight: 500; }
-  .scn-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px; }
-  .scn-card { padding: 24px 22px 20px; border: 1px solid var(--rule); position: relative; display: flex; flex-direction: column; }
-  .scn-card.bear { background: linear-gradient(180deg, rgba(185,28,28,0.045) 0%, rgba(185,28,28,0.01) 100%); border-top: 3px solid var(--bad); }
-  .scn-card.base { background: linear-gradient(180deg, rgba(15,31,58,0.04) 0%, rgba(15,31,58,0.005) 100%); border-top: 3px solid var(--ink-soft); }
-  .scn-card.bull { background: linear-gradient(180deg, rgba(47,111,79,0.045) 0%, rgba(47,111,79,0.01) 100%); border-top: 3px solid var(--ok); }
-  .scn-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500; }
-  .scn-tag.bear { color: var(--bad); }
-  .scn-tag.base { color: var(--ink-soft); }
-  .scn-tag.bull { color: var(--ok); }
-  .scn-price { font-family: var(--serif); font-size: 30px; font-weight: 300; color: var(--ink-mid); line-height: 1.1; margin: 8px 0 4px; letter-spacing: 0.01em; }
-  .scn-delta { font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: 0.04em; margin-bottom: 4px; }
-  .scn-delta.dn { color: var(--bad); }
-  .scn-delta.flat { color: var(--text-mid); }
-  .scn-delta.up { color: var(--ok); }
-  .scn-mult { font-family: var(--mono); font-size: 11px; color: var(--text-dim); letter-spacing: 0.06em; margin-bottom: 16px; }
-  .scn-prem { font-family: var(--serif); font-size: 14px; color: var(--ink-mid); line-height: 1.55; padding: 12px 14px; background: rgba(255,255,255,0.65); border: 1px solid var(--rule-soft); margin-bottom: 14px; }
-  .scn-prem b { color: var(--ink-mid); font-weight: 500; }
-  .scn-driver-head { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 8px; font-weight: 500; padding-top: 4px; }
-  .scn-drivers { list-style: none; margin: 0; padding: 0; }
-  .scn-drivers li { font-family: var(--sans); font-size: 12.5px; color: var(--text); line-height: 1.5; padding: 6px 0 6px 18px; position: relative; }
-  .scn-drivers li::before { content:''; position: absolute; left: 0; top: 12px; width: 8px; height: 1px; background: var(--text-dim); }
-  .scn-drivers li b { color: var(--ink-mid); font-weight: 500; }
-  .sotp { margin-top: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
-  .sotp-card { background: var(--bg); border: 1px solid var(--rule); border-top: 2px solid var(--ink-soft); padding: 20px 22px; }
-  .sotp-head { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; }
-  .sotp-name { font-family: var(--serif); font-size: 18px; color: var(--ink-mid); margin-top: 6px; font-weight: 400; margin-bottom: 10px; }
-  .sotp-row { display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px dashed var(--rule-soft); font-size: 13px; }
-  .sotp-row:last-of-type { border: none; }
-  .sotp-row .k { color: var(--text-mid); }
-  .sotp-row .v { color: var(--ink-mid); font-family: var(--mono); font-weight: 500; }
-  .sotp-foot { margin-top: 12px; padding-top: 11px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; letter-spacing: 0.05em; color: var(--ink-mid); }
-  .sotp-foot b { color: var(--accent-deep); font-weight: 500; }
-  .disclaimer { padding: 32px 56px 30px; background: var(--bg-soft); border-top: 2px solid var(--rule); }
-  .disclaimer-head { margin-bottom: 16px; }
-  .d-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; color: var(--text-dim); text-transform: uppercase; font-weight: 500; }
-  .d-title { font-family: var(--serif); font-size: 22px; font-weight: 300; color: var(--ink-mid); margin: 6px 0 0; letter-spacing: 0.01em; }
-  .disclaimer-body { font-family: var(--sans); font-size: 11.5px; color: var(--text-mid); line-height: 1.75; max-width: 1080px; }
-  .disclaimer-body p { margin: 0 0 11px; }
-  .disclaimer-body b { color: var(--ink-mid); font-weight: 500; }
-  .d-jp-note { font-family: var(--serif); font-size: 11px; color: var(--text-dim); line-height: 1.8; padding-top: 8px; margin-top: 12px; border-top: 1px solid var(--rule); }
-  .meth { padding: 16px 56px; background: var(--bg); border-top: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: center; font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
-  .meth a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--rule); }
-  .meth a:hover { color: var(--ink); }
-  .share-bar { padding: 30px 56px 28px; background: var(--bg); border-top: 1px solid var(--rule); }
-  .share-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 14px; }
-  .share-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent-deep); font-weight: 500; }
-  .share-sub { font-family: var(--serif); font-size: 13px; color: var(--text-mid); letter-spacing: 0.02em; }
-  .share-btns { display: flex; gap: 8px; flex-wrap: wrap; }
-  .share-btn { display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; font-family: var(--sans); font-size: 12px; font-weight: 500; letter-spacing: 0.02em; color: var(--ink-mid); background: var(--bg); border: 1px solid var(--rule); text-decoration: none; cursor: pointer; transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease; }
-  .share-btn:hover { border-color: var(--accent); color: var(--accent-deep); background: var(--accent-soft); }
-  .share-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-  .share-btn svg { width: 14px; height: 14px; flex-shrink: 0; fill: currentColor; }
-  .share-btn.copied { background: var(--accent-soft); border-color: var(--accent); color: var(--accent-deep); }
-  .share-perm { font-family: var(--mono); font-size: 10px; color: var(--text-dim); margin-top: 16px; letter-spacing: 0.06em; }
-  .share-perm code { font-family: var(--mono); background: var(--bg-soft); padding: 2px 6px; border: 1px solid var(--rule-soft); color: var(--ink-mid); }
-  @media (max-width: 1100px) { body { padding: 16px 0; } }
-  @media (max-width: 900px) { .stat-strip { grid-template-columns: 1fr 1fr 1fr; } .stat-strip .stat:nth-child(3n) { border-right: none; } .stat-strip .stat:nth-child(n+4) { border-top: 1px solid var(--rule); } .ct-grid, .cat-grid, .scn-grid { grid-template-columns: 1fr 1fr; } .sotp { grid-template-columns: 1fr; } .section { padding: 32px 36px 32px; } .masthead-inner { padding: 28px 36px 24px; } .disclaimer, .share-bar { padding-left: 36px; padding-right: 36px; } }
-  @media (max-width: 760px) { body { display: block; padding: 0; font-size: 15px; line-height: 1.7; background: var(--bg); } .card { width: 100%; max-width: 100%; border-left: 0; border-right: 0; box-shadow: none; } .masthead-inner { grid-template-columns: 1fr; padding: 26px 18px 22px; gap: 16px; align-items: stretch; } .head-main { align-items: flex-start; text-align: left; } .head-ticker-row { flex-wrap: wrap; gap: 10px; } .head-co { font-size: 30px; } .head-co-jp { font-size: 13.5px; } .brand-mono { font-size: 24px; } .stat-strip { grid-template-columns: 1fr 1fr; } .stat { padding: 13px 16px; border-bottom: 1px solid var(--rule); } .stat:nth-child(2n) { border-right: none; } .stat:nth-last-child(-n+2) { border-bottom: none; } .stat-val { font-size: 19px; } .section { padding: 28px 18px 28px; } .section-head { margin-bottom: 18px; } .section-title { font-size: 24px; line-height: 1.25; } .section-sub { font-size: 14px; } .tv-container { height: 320px; } .chart-meta { padding: 13px 16px 11px; } .chart-key-levels { gap: 14px; row-gap: 6px; } .chart-legend { padding: 10px 16px; gap: 14px; row-gap: 6px; } .regime-narr { font-size: 15px; line-height: 1.8; margin-top: 22px; } .ct-card, .cat-card, .scn-card, .sotp-card { padding: 20px 18px; } .ct-side-text { font-size: 14px; } .ct-q { font-size: 16.5px; } .cat-takeaway { font-size: 14px; } .cat-title { font-size: 17px; } .cat-viz-bar-label { width: 80px; font-size: 10.5px; } .cat-viz-bar-val { width: 56px; font-size: 10.5px; } .scn-drivers li { font-size: 14px; line-height: 1.55; } .scn-price { font-size: 28px; } .scn-prem { font-size: 14px; } .ct-grid, .cat-grid, .scn-grid, .sotp { grid-template-columns: 1fr; gap: 16px; } .disclaimer { padding: 26px 18px 24px; } .d-title { font-size: 22px; line-height: 1.3; } .disclaimer-body { font-size: 13.5px; line-height: 1.75; } .share-bar { padding: 24px 18px 22px; } .share-head { flex-wrap: wrap; gap: 8px; } .share-btn { font-size: 13px; padding: 10px 14px; } .meth { padding: 14px 18px; flex-direction: column; gap: 6px; text-align: center; letter-spacing: 0.12em; } }
-  .skip-link { position: fixed; top: 10px; left: 10px; z-index: 1000; transform: translateY(-150%); padding: 10px 14px; background: var(--ink, #1a2a4a); color: #fff; text-decoration: none; border-radius: 4px; box-shadow: 0 4px 12px rgba(15,31,58,0.18); }
-  .skip-link:focus, .skip-link:focus-visible { transform: translateY(0); outline: 3px solid var(--accent, #9a7838); outline-offset: 3px; }
-  main:focus { outline: none; }
-  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, [tabindex]:focus-visible { outline: 3px solid var(--accent, #9a7838); outline-offset: 3px; }
-  @media (max-width: 360px) { .wrap { padding-left: 16px; padding-right: 16px; } .share-btns { align-items: stretch; flex-direction: column; } .share-btn { width: 100%; justify-content: center; text-align: center; } }
-  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; } }
-
-</style>
+<link rel="stylesheet" href="/assets/profile.css">
 <script src="/assets/locale-switcher.js" defer></script>
 </head>
 <body>
@@ -341,7 +163,7 @@
         });
         topixSeries.setData(CHART_DATA.topix_rebased);
         var smaSeries = chart.addLineSeries({
-          color: '#b08a4a',
+          color: '#9a7838',
           lineWidth: 1.5,
           lineStyle: 2,
           priceLineVisible: false,
@@ -376,10 +198,10 @@
     </script>
   </div>
   <div class="regime-narr">
-    <p><span class="pin">01 · 高値圏</span> 2024年5月から8月にかけて、株価は&yen;2,200&ndash;2,400圏で推移した。FY2023の売上<b>+35%</b>・営業利益<b>+43%</b>を背景に、クラウド型WAF国内出荷金額シェア首位という位置づけとSaaS銘柄への資金流入が重なり、PER<b>40&ndash;50倍</b>が維持された。出来高は薄く、浮動株比率~<b>80%</b>にもかかわらず機関投資家のアクティブなポジション構築は限定的だった。</p>
-    <p><span class="pin">02 · 調整局面</span> 2024年9月から2025年4月にかけて、日銀の利上げ示唆と米テック株の調整が国内グロース株全般を圧迫し、4493は<b>¥2,300</b>から<b>¥1,300</b>まで<span class="dn">&minus;43%</span>下落した。PERは<b>20倍</b>を下回る水準に圧縮され、EV/EBITDA<b>13倍</b>台に沈んだ。前期末時点の主要株主Vector Group International（臨時報告書2025年2月12日提出）の退出が需給悪化を加速させた。</p>
+    <p><span class="pin">01 · 高値圏</span> 2024年5月から8月にかけて、株価は&yen;2,200&ndash;2,400圏で推移した。FY2023の売上<b>+35%</b>・営業利益<b>+43%</b>を背景に、クラウド型WAF国内出荷金額シェア首位という位置づけとSaaS銘柄への資金流入が重なり、実績P/E<b>40&ndash;50倍</b>が維持された。出来高は薄く、浮動株比率~<b>80%</b>にもかかわらず機関投資家のアクティブなポジション構築は限定的だった。</p>
+    <p><span class="pin">02 · 調整局面</span> 2024年9月から2025年4月にかけて、日銀の利上げ示唆と米テック株の調整が国内グロース株全般を圧迫し、4493は<b>¥2,300</b>から<b>¥1,300</b>まで<span class="dn">&minus;43%</span>下落した。P/Eは<b>20倍</b>を下回る水準に圧縮され、EV/EBITDA<b>13倍</b>台に沈んだ。前期末時点の主要株主Vector Group Internationalの退出（2025年1月27日に会社が筆頭株主の異動（予定）を公表、1月28日提出のVectorの変更報告書は保有ゼロを報告）が需給悪化を加速させた。</p>
     <p><span class="pin">03 · 中計起点の回復</span> 2025年3月、CSCはJICVGI Opportunity Fundへの第三者割当増資（<b>¥18.5億</b>、940,000株）を実行し、M&amp;A加速のための資金を確保した。続く2026年2月13日、CSCは<a href="https://ssl4.eir-parts.net/doc/4493/tdnet/2762623/00.pdf" style="text-decoration:underline" target="_blank">中期経営計画</a>を公表し、2030年12月期に売上<b>¥200億</b>・営業利益<b>¥40億</b>を目指すと発表した。FY2025比4倍の目標と第三者割当が成長投資モードの本格化として受容され、6期連続の売上・OP<b>+25%超</b>成長の実績がクレディビリティを裏打ちし、株価は¥2,000圏を回復した。</p>
-    <p><span class="pin">04 · 現時点</span> <a href="https://ssl4.eir-parts.net/doc/4493/tdnet/2816499/00.pdf" style="text-decoration:underline" target="_blank">Q1 FY2026</a>の営業利益率<b>26.0%</b>（会社予想20.0%を<span class="up">+6pt</span>超過）と、5月22日公表の自社株買い（発行済株式の<b>2.43%</b>にあたる上限25万株・<b>¥4.5億</b>、2026年5月21日時点の自己株式控除後ベース）が下値を支える。一方で通期予想のOP成長率は<b>+8.8%</b>と前年の<b>+42.5%</b>から大幅に減速しており、今後4四半期で確認すべきは3点に集約される。第一に、Q1の<b>26%</b>マージンが通期で<b>22%</b>以上を維持できるか。第二に、ARRの約<b>57%</b>がAWS連動製品（WafCharm ¥18.3億 + Managed Rules ¥7.6億 + CloudFastener ¥3.8億 = ¥29.7億）である構造が、AWS自身のWAF管理機能強化によって棄損するか。第三に、2030年売上¥200億の中計がオーガニック成長で到達可能な水準なのか、¥50&ndash;100億規模のM&Aを前提とするのか。</p>
+    <p><span class="pin">04 · 現時点</span> <a href="https://ssl4.eir-parts.net/doc/4493/tdnet/2816499/00.pdf" style="text-decoration:underline" target="_blank">Q1 FY2026</a>の営業利益率<b>26.0%</b>（会社予想20.0%を<span class="up">+6pt</span>超過）と、<a href="https://tdnet-pdf.kabutan.jp/20260522/140120260522545116.pdf" style="text-decoration:underline" target="_blank">5月22日公表の自社株買い</a>（発行済株式の<b>2.43%</b>にあたる上限25万株・<b>¥4.5億</b>、2026年5月21日時点の自己株式控除後ベース）が下値を支える。一方で通期予想のOP成長率は<b>+8.8%</b>と前年の<b>+42.5%</b>から大幅に減速しており、今後4四半期で確認すべきは3点に集約される。第一に、Q1の<b>26%</b>マージンが通期で<b>22%</b>以上を維持できるか。第二に、ARRの約<b>57%</b>がAWS連動製品（WafCharm ¥18.3億 + Managed Rules ¥7.6億 + CloudFastener ¥3.8億 = ¥29.7億）である構造が、AWS自身のWAF管理機能強化によって棄損するか。第三に、2030年売上¥200億の中計がオーガニック成長で到達可能な水準なのか、¥50&ndash;100億規模のM&Aを前提とするのか。</p>
   </div>
 </section>
 
@@ -400,7 +222,7 @@
       <div class="ct-q">Q1の営業利益率26%を維持できるのか、それとも下期の投資増で20%に戻るのか。</div>
       <div class="ct-side">
         <span class="ct-side-tag bull">BULL</span>
-        <div class="ct-side-text">強気派は、インフラコスト最適化（サーバー契約見直し）で粗利率<b>+3.8pt</b>の改善が恒久的であること、AIによるサポートコスト削減が進行中であること、売上<b>¥1,393百万</b>に対しSG&amp;A<b>¥586百万</b>——人員179名で売上高人件費比率が改善基調にあることを観察している。<b>次の確認ポイント：H2の営業利益率が22%以上を維持し、通期着地が会社予想の20.0%を2pt以上超過する場合である。</b></div>
+        <div class="ct-side-text">強気派は、インフラコスト最適化で粗利率<b>+3.8pt</b>（前年同期比）の改善があったこと、AIによるサポートコスト削減が進行中であること、売上<b>¥1,393百万</b>に対しSG&amp;A<b>¥586百万</b>——人員179名で売上高人件費比率が改善基調にあることを観察している。<b>次の確認ポイント：H2の営業利益率が22%以上を維持し、通期着地が会社予想の20.0%を2pt以上超過する場合である。</b></div>
       </div>
       <div class="ct-side">
         <span class="ct-side-tag bear">BEAR</span>
@@ -418,7 +240,7 @@
       </div>
       <div class="ct-side">
         <span class="ct-side-tag bear">BEAR</span>
-        <div class="ct-side-text">CSCはARRの<b>57%</b>を載せるプラットフォームを自社で支配していない：WafCharm <b>¥18.3億</b> + Managed Rules <b>¥7.6億</b> + CloudFastener <b>¥3.8億</b> = <b>¥29.7億</b>（全社ARR ¥51.9億中）。AWSがAI生成のルール提案を自社コンソールに追加するだけで、WafCharmの差別化は縮小しうる。Marketplace手数料率は非開示。マルチクラウド展開（Azure/GCP版は2024年投入）は初期段階。AWSの次の機能強化後、WafCharm ARR成長が2四半期連続で10%を割れば、プラットフォームがCSCの価値レイヤーを吸収し始めた兆候になる。</div>
+        <div class="ct-side-text">CSCはARRの<b>57%</b>を載せるプラットフォームを自社で支配していない：WafCharm <b>¥18.3億</b> + Managed Rules <b>¥7.6億</b> + CloudFastener <b>¥3.8億</b> = <b>¥29.7億</b>（全社ARR ¥51.9億中）。AWSがAI生成のルール提案を自社コンソールに追加するだけで、WafCharmの差別化は縮小しうる。Marketplace手数料率は非開示。マルチクラウド展開（Azure版は2020年、Google Cloud版は2021年11月提供開始）は依然小規模。AWSの次の機能強化後、WafCharm ARR成長が2四半期連続で10%を割れば、プラットフォームがCSCの価値レイヤーを吸収し始めた兆候になる。</div>
       </div>
     </div>
 
@@ -463,7 +285,7 @@
         </div>
         <div class="cat-viz-bar-row">
           <span class="cat-viz-bar-label">WafCharm</span>
-          <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:35%;background:#b08a4a"></div></div>
+          <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:35%;background:#9a7838"></div></div>
           <span class="cat-viz-bar-val">&yen;1,826M</span>
         </div>
         <div class="cat-viz-bar-row">
@@ -483,7 +305,7 @@
         </div>
         <div class="cat-viz-cap">合計ARR &yen;5,194M &middot; 前年同期比 +16.2%</div>
       </div>
-      <div class="cat-takeaway">WafCharmは基本料金＋超過従量課金のモデルである。AIクローラーやLLM学習用ボットが顧客のWebサイトへのアクセスを増やしており、WAF検査イベントが増加。約<b>30%のWafCharmユーザー</b>が基本料金の通信量枠を超過し、自動的に従量課金が発生した。これはCSCによる値上げではなく、AIが生むWebトラフィック増に起因する構造的な単価上昇である。2026年内に複数製品で機能拡充と組み合わせた価格改定を予定しており、短期の解約率上昇リスクと中長期のARR加速を天秤にかける局面にある。確認すべきは攻撃遮断くんのARR成長率<b>+4.7%</b>——同製品はARR全体の<b>33%</b>を占めるが成長が停滞しており、価格改定がこの停滞を反転させるか、それとも解約率の上昇に吸収されるかを、Q3以降の四半期ARR推移で検証可能になる。</div>
+      <div class="cat-takeaway">WafCharmは基本料金＋超過従量課金のモデルである。AIクローラーやLLM学習用ボットが顧客のWebサイトへのアクセスを増やしており、WAF検査イベントが増加。会社は、通信量枠の超過に伴う<b>WafCharmの従量課金売上が増加傾向にある</b>と説明している。これはCSCによる値上げではなく、AIが生むWebトラフィック増に起因する構造的な単価上昇である。2026年内に複数製品で機能拡充と組み合わせた価格改定を予定しており、短期の解約率上昇リスクと中長期のARR加速を天秤にかける局面にある。確認すべきは攻撃遮断くんのARR成長率<b>+4.7%</b>——同製品はARR全体の<b>33%</b>を占めるが成長が停滞しており、価格改定がこの停滞を反転させるか、それとも解約率の上昇に吸収されるかを、Q3以降の四半期ARR推移で検証可能になる。</div>
       <div class="cat-meta">
         <div><dt>経営コスト</dt><dd>低（既存基盤への適用）</dd></div>
         <div><dt>最早トリガー</dt><dd>2026年Q2&ndash;Q3</dd></div>
@@ -511,7 +333,7 @@
           <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:50%;background:#304466"></div></div>
           <span class="cat-viz-bar-val">推進中</span>
         </div>
-        <div class="cat-viz-cap">AI Trust Board 2026年Q1設立 &middot; CTO直轄</div>
+        <div class="cat-viz-cap">AI Trust Board 2026年Q1設立</div>
       </div>
       <div class="cat-takeaway">Cyneural（AI検知エンジン）やWRAO（自動ルール生成）は既に製品に組込済みであり、「AI for Security」の実装は進んでいる。次の成長軸は「AIを守る」側——AIエージェント監視、AIガードレール、AIガバナンスツール——にある。市場タイミングは合致するが、同領域の競合（Palo Alto, CrowdStrike, Wiz）はR&amp;D予算が<b>100倍超</b>。確認すべきは、CSCがニッチなWAF隣接領域に集中し、グローバル大手と正面衝突しない製品設計を維持できるかどうかである。</div>
       <div class="cat-meta">
@@ -529,17 +351,17 @@
         <div class="cat-viz-bar-row">
           <span class="cat-viz-bar-label">Softec (2020.12)</span>
           <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:7%;background:#304466"></div></div>
-          <span class="cat-viz-bar-val">~&yen;2.5億</span>
+          <span class="cat-viz-bar-val">~&yen;4.3億</span>
         </div>
         <div class="cat-viz-bar-row">
           <span class="cat-viz-bar-label">Generative Tech (2024.10設立)</span>
           <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:0.3%;background:#304466"></div></div>
-          <span class="cat-viz-bar-val">資本金&yen;0.09億</span>
+          <span class="cat-viz-bar-val">資本金&yen;0.09億（推定）</span>
         </div>
         <div class="cat-viz-bar-row">
           <span class="cat-viz-bar-label">DataSign (2025年2月)</span>
-          <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:12%;background:#b08a4a"></div></div>
-          <span class="cat-viz-bar-val">&yen;4.5億</span>
+          <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:12%;background:#9a7838"></div></div>
+          <span class="cat-viz-bar-val">&yen;4.6億</span>
         </div>
         <div class="cat-viz-bar-row" style="border-top:1px dashed var(--rule);padding-top:8px;margin-top:4px;">
           <span class="cat-viz-bar-label">手元キャッシュ</span>
@@ -548,7 +370,7 @@
         </div>
         <div class="cat-viz-cap">グッドウィル毀損ゼロ原則 &middot; パイプライン拡大中</div>
       </div>
-      <div class="cat-takeaway">過去のM&amp;A 2件（Softec、DataSign）と子会社設立1件（Generative Tech）は全件統合後に成長しており、のれん減損はゼロ。第三者割当（JICVGI <b>¥18.5億</b>）の使途はM&amp;A加速と明示されている。手元<b>¥36億</b>はDataSign級（<b>¥4.5億</b>）の案件を5&ndash;7件実行可能な水準である。一方でJIIの試算ではFY2026会社予想¥60億を起点にオーガニック成長率~18%が続く場合FY2030のオーガニック売上は約¥115億、残り約¥85億を買収で補う計算になり、これまでの「規律ある小口M&amp;A」路線と中計が要求する「規模の飛躍」は両立しにくい——確認すべきは、FY2027までに<b>¥20億超</b>の案件が実行されるか、そしてその統合が既存の規律を維持するかどうかである。</div>
+      <div class="cat-takeaway">過去のM&amp;A 2件（Softec、DataSign）と子会社設立1件（Generative Tech）は全件統合後に成長しており、これまでの買収についてのれん減損の開示はない。第三者割当（JICVGI <b>¥18.5億</b>）の使途はM&amp;A加速と明示されている。手元<b>¥36億</b>はDataSign級（<b>¥4.6億</b>）の案件を5&ndash;7件実行可能な水準である。一方でJIIの試算ではFY2026会社予想¥60億を起点にオーガニック成長率~18%が続く場合FY2030のオーガニック売上は約¥115億、残り約¥85億を買収で補う計算になり、これまでの「規律ある小口M&amp;A」路線と中計が要求する「規模の飛躍」は両立しにくい——確認すべきは、FY2027までに<b>¥20億超</b>の案件が実行されるか、そしてその統合が既存の規律を維持するかどうかである。</div>
       <div class="cat-meta">
         <div><dt>経営コスト</dt><dd>中（PMI工数）</dd></div>
         <div><dt>最早トリガー</dt><dd>2026年H2</dd></div>
@@ -615,7 +437,7 @@
         <li>ARR成長<b>20%超</b>に加速</li>
         <li>M&amp;A成功 + プライム市場移行</li>
         <li>営業利益率<b>22&ndash;25%</b>定着</li>
-        <li>EPS<b>&yen;90超</b>・PER<b>20&ndash;25x</b></li>
+        <li>EPS<b>&yen;90超</b>・P/E<b>20&ndash;25x</b></li>
       </ul>
     </div>
 

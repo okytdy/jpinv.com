@@ -94,7 +94,8 @@
 
   function Component(root) {
     var lang = root.getAttribute("data-ai-lang") === "ja" ? "ja" : "en";
-    var mode = root.getAttribute("data-ai-mode") === "full" ? "full" : "embed";
+    var raw = root.getAttribute("data-ai-mode");
+    var mode = (raw === "full" || raw === "feed") ? raw : "embed";
     var base = root.getAttribute("data-ai-base") || "/compounders/active-investors/data";
     var fullHref = root.getAttribute("data-ai-fullhref") || "/en/compounders/active-investors/";
     var cardLimit = parseInt(root.getAttribute("data-ai-card-limit") || "0", 10) || 0;
@@ -104,7 +105,9 @@
     root.innerHTML = '<div class="ai-loading">' + esc(L.loading) + "</div>";
 
     var fetches = [
-      fetch(base + "/feed.json", { cache: "no-store" }).then(function (r) { return r.json(); }),
+      mode === "feed"
+        ? Promise.resolve({ investors: [] })
+        : fetch(base + "/feed.json", { cache: "no-store" }).then(function (r) { return r.json(); }),
       fetch(base + "/new5_feed.json", { cache: "no-store" }).then(function (r) { return r.ok ? r.json() : { rows: [] }; }).catch(function () { return { rows: [] }; })
     ];
     if (mode === "full") {
@@ -122,9 +125,9 @@
 
     function render() {
       var html = "";
-      if (root.getAttribute("data-ai-header") !== "off") html += header();
+      if (mode !== "feed" && root.getAttribute("data-ai-header") !== "off") html += header();
       if (mode === "full") html += controls();
-      html += '<div class="ai-grid" id="ai-grid"></div>';
+      if (mode !== "feed") html += '<div class="ai-grid" id="ai-grid"></div>';
       html += feedSection();
       if (mode === "full" && state.roster) html += rosterSection();
       html += modalShell();
@@ -183,6 +186,7 @@
 
     function renderGrid() {
       var grid = root.querySelector("#ai-grid");
+      if (!grid) return;
       var invs = homepageInvestors().filter(cardMatchesSearch);
       var shownMoves = 0;
       grid.innerHTML = invs.map(function (inv, idx) {
@@ -252,7 +256,7 @@
       var viewall = mode === "embed"
         ? '<a class="ai-feed-viewall" href="' + esc(fullHref) + '">' + esc(L.viewAllFilings) + " →</a>"
         : "";
-      var search = mode === "full"
+      var search = (mode === "full" || mode === "feed")
         ? '<input class="ai-search ai-feed-search" id="ai-feed-search" type="text" placeholder="' + esc(L.feedSearch) + '" aria-label="' + esc(L.feedSearch) + '">'
         : "";
       return '<div class="ai-feed-wrap"><div class="ai-feed-head"><h3 class="ai-feed-title">' + esc(L.feedTitle) + "</h3>" +

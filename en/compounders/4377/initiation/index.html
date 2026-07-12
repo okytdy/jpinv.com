@@ -12,7 +12,13 @@
 <link rel="alternate" hreflang="en" href="https://jpinv.com/en/compounders/4377/initiation/">
 <link rel="alternate" hreflang="ja" href="https://jpinv.com/compounders/4377/initiation/">
 <meta property="og:type" content="article">
+<meta property="og:image" content="https://jpinv.com/og/compounders/4377.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="JII Compounder Profile &middot; 4377">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jpinv.com/og/compounders/4377.png">
+<meta name="twitter:image:alt" content="JII Compounder Profile &middot; 4377">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -21,358 +27,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  /* ============================================================
-     JII Compounders · Profile page
-     Methodology: https://jpinv.com/en/compounders/methodology/
-     ============================================================ */
-  :root {
-    --ink:        #1a2a4a;
-    --ink-mid:    #172641;
-    --ink-soft:   #304466;
-    --rule:       #d6dee8;
-    --rule-soft:  #e8edf3;
-    --bg:         #ffffff;
-    --bg-mid:    #f5f7fa;
-    --bg-soft:   #fafbfc;
-    --text:       #1f2937;
-    --text-mid:  #4a5566;
-    --text-dim:  #5f6875;
-    --accent:    #9a7838;
-    --accent-deep:#9a7838;
-    --accent-soft:#f4eee4;
-    --bad:       #b91c1c;
-    --warn:      #8a682b;
-    --ok:        #2f6f4f;
-    --serif: 'Noto Serif JP', 'Yu Mincho', serif;
-    --sans:  'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
-    --mono:  'DM Mono', monospace;
-  }
-  *, *::before, *::after { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; background: var(--bg-mid); }
-  body { display: flex; justify-content: center; padding: 30px 0; font-family: var(--sans); color: var(--text); font-size: 14px; line-height: 1.65; }
-
-  .card {
-    background: var(--bg); color: var(--text); width: 100%; max-width: 1200px; margin: 0 auto;
-    box-shadow: 0 30px 80px rgba(15,31,58,0.10), 0 1px 3px rgba(15,31,58,0.06);
-    border: 1px solid var(--rule);
-  }
-
-  /* ---- MASTHEAD ---- */
-  .masthead { position: relative; overflow: hidden; background: var(--bg); border-bottom: 1px solid var(--rule); }
-  .masthead::before {
-    content:''; position: absolute; inset: 0;
-    background-image:
-      linear-gradient(rgba(15,31,58,0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(15,31,58,0.04) 1px, transparent 1px);
-    background-size: 64px 64px;
-    -webkit-mask-image: linear-gradient(180deg, transparent, black 12%, black 88%, transparent);
-            mask-image: linear-gradient(180deg, transparent, black 12%, black 88%, transparent);
-    pointer-events: none;
-  }
-  .masthead::after {
-    content:''; position: absolute; width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(15,31,58,0.045) 0%, transparent 70%);
-    top: -160px; right: -200px; pointer-events: none;
-  }
-  .masthead-inner { position: relative; z-index: 2; padding: 32px 56px 28px; display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: end; }
-
-  .brand { display: flex; flex-direction: column; gap: 4px; align-items: flex-start; }
-  .brand-home-link { display:flex; flex-direction:column; gap:4px; align-items:flex-start; color:inherit; text-decoration:none; }
-  .brand-home-link:hover .brand-mono, .brand-home-link:hover .brand-eyebrow { color:var(--ink); }
-  .brand-home-link:focus-visible { outline:2px solid var(--accent); outline-offset:6px; }
-  .brand-mono { font-family: var(--serif); font-size: 28px; font-weight: 300; letter-spacing: 0.04em; color: var(--ink-mid); line-height: 1; }
-  .brand-mono .pipe { color: var(--accent); font-weight: 200; margin: 0 4px; }
-  .brand-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; color: var(--accent-deep); text-transform: uppercase; margin-top: 12px; font-weight: 500; }
-
-  .head-main { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; text-align: right; }
-  .report-locale { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 8px; }
-  .report-locale a { color: var(--ink-soft); padding: 5px 10px; border: 1px solid var(--rule); margin-left: 6px; text-decoration: none; }
-  .report-locale a.current { background: var(--bg-soft); border-color: var(--ink-mid); color: var(--ink-mid); }
-  .head-ticker-row { display: flex; align-items: baseline; gap: 16px; }
-  .head-ticker { font-family: var(--mono); font-size: 12px; color: var(--ink-soft); letter-spacing: 0.18em; }
-  .head-co-jp { font-family: var(--serif); font-size: 14.5px; color: var(--text-mid); letter-spacing: 0.04em; }
-  .head-co { font-family: var(--serif); font-size: 40px; font-weight: 300; color: var(--ink-mid); line-height: 1.05; letter-spacing: 0.01em; margin-top: 4px; }
-  .head-industry { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-top: 6px; }
-
-  /* Stat strip (font sizes bumped) */
-  .stat-strip { display: grid; grid-template-columns: 1.05fr 1.05fr 1.1fr 1.05fr 1.1fr 1.1fr; gap: 0; border-top: 1px solid var(--rule); position: relative; z-index: 2; background: var(--bg-soft); }
-  .stat { padding: 15px 18px; border-right: 1px solid var(--rule); text-align: left; }
-  .stat:last-child { border-right: none; }
-  .stat-label { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 7px; font-weight: 500; }
-  .stat-val { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--ink-mid); line-height: 1.05; }
-  .stat-val small { font-family: var(--mono); font-size: 11px; color: var(--text-dim); margin-left: 4px; font-weight: 400; letter-spacing: 0.04em; }
-  .stat-ctx { font-family: var(--mono); font-size: 10.5px; color: var(--text-mid); margin-top: 6px; letter-spacing: 0.04em; line-height: 1.45; }
-  .stat-ctx .dn { color: var(--bad); font-weight: 500; }
-  .stat-ctx .up { color: var(--ok); font-weight: 500; }
-  .stat-ctx b { color: var(--ink-mid); font-weight: 500; }
-
-  /* ---- SECTIONS (font sizes bumped) ---- */
-  .section { padding: 36px 56px 36px; border-bottom: 1px solid var(--rule); }
-  .section.gem { background: linear-gradient(180deg, rgba(176,138,74,0.055) 0%, rgba(176,138,74,0.01) 60%); }
-  .section-head { margin-bottom: 22px; display: flex; flex-direction: column; gap: 8px; max-width: 1080px; }
-  .section-num { font-family: var(--mono); font-size: 10px; letter-spacing: 0.26em; color: var(--accent-deep); font-weight: 500; }
-  .section-title { font-family: var(--serif); font-size: 30px; font-weight: 300; color: var(--ink-mid); margin: 0; letter-spacing: 0.01em; line-height: 1.2; }
-  .section-sub { font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--text-mid); line-height: 1.55; margin: 0; }
-  .section-sub b { color: var(--ink-mid); font-weight: 500; font-style: normal; }
-
-  /* ---- CHART (TradingView widget) ---- */
-  .chart-wrap { background: var(--bg-soft); border: 1px solid var(--rule); padding: 0; }
-  .chart-meta { display: flex; justify-content: space-between; align-items: baseline; padding: 16px 22px 14px; border-bottom: 1px solid var(--rule); flex-wrap: wrap; gap: 10px; }
-  .chart-title { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; }
-  .chart-key-levels { display: flex; gap: 22px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; }
-  .chart-key-levels span { color: var(--text-mid); }
-  .chart-key-levels b { color: var(--ink-mid); font-weight: 500; }
-  .chart-key-levels .peak b { color: var(--ok); }
-  .chart-key-levels .trough b { color: var(--bad); }
-  .tv-container { position: relative; height: 460px; }
-  .chart-legend { display: flex; gap: 22px; padding: 12px 22px; background: var(--bg-soft); border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.06em; color: var(--text-mid); flex-wrap: wrap; }
-  .chart-legend .leg-item { display: inline-flex; align-items: center; gap: 7px; }
-  .chart-legend .leg-swatch { display: inline-block; width: 16px; height: 3px; }
-  .chart-legend .leg-swatch.dashed { background: repeating-linear-gradient(90deg, var(--accent) 0 4px, transparent 4px 7px); height: 2px; }
-  .chart-legend .leg-swatch.candle { width: 10px; height: 12px; border-left: 3px solid var(--ok); border-right: 3px solid var(--bad); background: var(--text-dim); }
-  .chart-legend .leg-swatch.hist { background: rgba(48,68,102,0.45); }
-
-  /* ---- REGIME narrative ---- */
-  .regime-narr { font-family: var(--serif); font-size: 15px; color: var(--text); line-height: 1.85; max-width: 1080px; margin-top: 26px; }
-  .regime-narr p { margin: 0 0 16px; }
-  .regime-narr p:last-child { margin-bottom: 0; }
-  .regime-narr b { color: var(--ink-mid); font-weight: 500; }
-  .regime-narr .pin { font-family: var(--mono); font-size: 10.5px; font-weight: 500; letter-spacing: 0.16em; color: var(--accent-deep); margin-right: 8px; }
-  .regime-narr .up { color: var(--ok); font-weight: 500; }
-  .regime-narr .dn { color: var(--bad); font-weight: 500; }
-  .regime-narr .neutral { color: var(--ink-soft); font-weight: 500; }
-
-  /* ---- CONTENTION (font sizes bumped) ---- */
-  .ct-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px; }
-  .ct-card { background: var(--bg-mid); border: 1px solid var(--rule); border-left: 2px solid var(--accent); padding: 22px 22px 18px; }
-  .ct-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--accent-deep); text-transform: uppercase; margin-bottom: 10px; font-weight: 500; }
-  .ct-q { font-family: var(--serif); font-size: 16px; color: var(--ink-mid); line-height: 1.35; margin-bottom: 14px; font-weight: 400; }
-  .ct-side { display: flex; gap: 11px; margin-bottom: 11px; align-items: flex-start; }
-  .ct-side-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; padding: 2px 7px; border: 1px solid; flex: none; min-width: 42px; text-align: center; line-height: 1.4; font-weight: 500; }
-  .ct-side-tag.bull { color: var(--ok); border-color: var(--ok); }
-  .ct-side-tag.bear { color: var(--bad); border-color: var(--bad); }
-  .ct-side-text { font-family: var(--sans); font-size: 13px; color: var(--text); line-height: 1.55; }
-  .ct-side-text b { color: var(--ink-mid); font-weight: 500; }
-  .ct-proof { font-family: var(--mono); font-size: 10px; letter-spacing: 0.05em; color: var(--text-mid); margin-top: 14px; padding-top: 11px; border-top: 1px solid var(--rule); }
-  .ct-proof span { color: var(--accent-deep); text-transform: uppercase; letter-spacing: 0.14em; font-weight: 500; }
-
-  /* ---- CATALYST (font sizes bumped) ---- */
-  .cat-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px; }
-  .cat-card { background: var(--bg); border: 1px solid var(--rule); border-top: 2px solid var(--accent); padding: 22px; }
-  .cat-num { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--accent-deep); margin-bottom: 10px; font-weight: 500; }
-  .cat-title { font-family: var(--serif); font-size: 16.5px; color: var(--ink-mid); line-height: 1.3; font-weight: 400; margin-bottom: 14px; }
-  .cat-viz { background: var(--bg-mid); border: 1px solid var(--rule-soft); padding: 13px 15px; margin: 10px 0 14px; }
-  .cat-viz-label { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 9px; font-weight: 500; }
-  .cat-viz-bar-row { display: flex; align-items: center; gap: 9px; margin: 6px 0; font-family: var(--mono); font-size: 11px; }
-  .cat-viz-bar-label { width: 100px; color: var(--text-mid); font-size: 11px; }
-  .cat-viz-bar-track { flex: 1; height: 16px; background: var(--bg); border: 1px solid var(--rule-soft); position: relative; }
-  .cat-viz-bar-fill { height: 100%; }
-  .cat-viz-bar-val { width: 64px; text-align: right; color: var(--ink-mid); font-size: 11px; font-weight: 500; }
-  .cat-viz-cap { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; color: var(--accent-deep); text-transform: uppercase; margin-top: 9px; padding-top: 7px; border-top: 1px dashed var(--rule); font-weight: 500; }
-  .cat-takeaway { font-family: var(--sans); font-size: 13px; color: var(--text); line-height: 1.65; margin-top: 4px; }
-  .cat-takeaway b { color: var(--ink-mid); font-weight: 500; }
-  .cat-meta { display: flex; gap: 16px; margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--rule); }
-  .cat-meta div { flex: 1; }
-  .cat-meta dt { font-family: var(--mono); font-size: 9px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 4px; font-weight: 500; }
-  .cat-meta dd { margin: 0; font-family: var(--sans); font-size: 12.5px; color: var(--ink-mid); font-weight: 500; }
-
-  /* ---- VALUATION as 3 scenario cards ---- */
-  .scn-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px; }
-  .scn-card { padding: 24px 22px 20px; border: 1px solid var(--rule); position: relative; display: flex; flex-direction: column; }
-  .scn-card.bear { background: linear-gradient(180deg, rgba(185,28,28,0.045) 0%, rgba(185,28,28,0.01) 100%); border-top: 3px solid var(--bad); }
-  .scn-card.base { background: linear-gradient(180deg, rgba(15,31,58,0.04) 0%, rgba(15,31,58,0.005) 100%); border-top: 3px solid var(--ink-soft); }
-  .scn-card.bull { background: linear-gradient(180deg, rgba(47,111,79,0.045) 0%, rgba(47,111,79,0.01) 100%); border-top: 3px solid var(--ok); }
-  .scn-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500; }
-  .scn-tag.bear { color: var(--bad); }
-  .scn-tag.base { color: var(--ink-soft); }
-  .scn-tag.bull { color: var(--ok); }
-  .scn-price { font-family: var(--serif); font-size: 30px; font-weight: 300; color: var(--ink-mid); line-height: 1.1; margin: 8px 0 4px; letter-spacing: 0.01em; }
-  .scn-delta { font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: 0.04em; margin-bottom: 4px; }
-  .scn-delta.dn { color: var(--bad); }
-  .scn-delta.flat { color: var(--text-mid); }
-  .scn-delta.up { color: var(--ok); }
-  .scn-mult { font-family: var(--mono); font-size: 11px; color: var(--text-dim); letter-spacing: 0.06em; margin-bottom: 16px; }
-  .scn-prem { font-family: var(--serif); font-size: 14px; color: var(--ink-mid); line-height: 1.55; padding: 12px 14px; background: rgba(255,255,255,0.65); border: 1px solid var(--rule-soft); margin-bottom: 14px; }
-  .scn-prem b { color: var(--ink-mid); font-weight: 500; }
-  .scn-driver-head { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 8px; font-weight: 500; padding-top: 4px; }
-  .scn-drivers { list-style: none; margin: 0; padding: 0; }
-  .scn-drivers li { font-family: var(--sans); font-size: 12.5px; color: var(--text); line-height: 1.5; padding: 6px 0 6px 18px; position: relative; }
-  .scn-drivers li::before { content:''; position: absolute; left: 0; top: 12px; width: 8px; height: 1px; background: var(--text-dim); }
-  .scn-drivers li b { color: var(--ink-mid); font-weight: 500; }
-
-  /* SOTP */
-  .sotp { margin-top: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
-  .sotp-card { background: var(--bg); border: 1px solid var(--rule); border-top: 2px solid var(--ink-soft); padding: 20px 22px; }
-  .sotp-head { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; }
-  .sotp-name { font-family: var(--serif); font-size: 18px; color: var(--ink-mid); margin-top: 6px; font-weight: 400; margin-bottom: 10px; }
-  .sotp-row { display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px dashed var(--rule-soft); font-size: 13px; }
-  .sotp-row:last-of-type { border: none; }
-  .sotp-row .k { color: var(--text-mid); }
-  .sotp-row .v { color: var(--ink-mid); font-family: var(--mono); font-weight: 500; }
-  .sotp-foot { margin-top: 12px; padding-top: 11px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; letter-spacing: 0.05em; color: var(--ink-mid); }
-  .sotp-foot b { color: var(--accent-deep); font-weight: 500; }
-
-  /* ---- DISCLAIMER ---- */
-  .disclaimer { padding: 32px 56px 30px; background: var(--bg-soft); border-top: 2px solid var(--rule); }
-  .disclaimer-head { margin-bottom: 16px; }
-  .d-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; color: var(--text-dim); text-transform: uppercase; font-weight: 500; }
-  .d-title { font-family: var(--serif); font-size: 22px; font-weight: 300; color: var(--ink-mid); margin: 6px 0 0; letter-spacing: 0.01em; }
-  .disclaimer-body { font-family: var(--sans); font-size: 11.5px; color: var(--text-mid); line-height: 1.75; max-width: 1080px; }
-  .disclaimer-body p { margin: 0 0 11px; }
-  .disclaimer-body b { color: var(--ink-mid); font-weight: 500; }
-  .d-jp-note { font-family: var(--serif); font-size: 11px; color: var(--text-dim); line-height: 1.8; padding-top: 8px; margin-top: 12px; border-top: 1px solid var(--rule); }
-
-  /* Methodology link (small footer) */
-  .meth { padding: 16px 56px; background: var(--bg); border-top: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: center; font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
-  .meth a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--rule); }
-  .meth a:hover { color: var(--ink); }
-
-  /* ---- SHARE BAR ---- */
-  .share-bar { padding: 30px 56px 28px; background: var(--bg); border-top: 1px solid var(--rule); }
-  .share-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 14px; }
-  .share-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent-deep); font-weight: 500; }
-  .share-sub { font-family: var(--serif); font-size: 13px; color: var(--text-mid); letter-spacing: 0.02em; }
-  .share-btns { display: flex; gap: 8px; flex-wrap: wrap; }
-  .share-btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 9px 14px;
-    font-family: var(--sans); font-size: 12px; font-weight: 500; letter-spacing: 0.02em;
-    color: var(--ink-mid); background: var(--bg);
-    border: 1px solid var(--rule);
-    text-decoration: none; cursor: pointer;
-    transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
-  }
-  .share-btn:hover { border-color: var(--accent); color: var(--accent-deep); background: var(--accent-soft); }
-  .share-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-  .share-btn svg { width: 14px; height: 14px; flex-shrink: 0; fill: currentColor; }
-  .share-btn.copied { background: var(--accent-soft); border-color: var(--accent); color: var(--accent-deep); }
-  .share-perm { font-family: var(--mono); font-size: 10px; color: var(--text-dim); margin-top: 16px; letter-spacing: 0.06em; }
-  .share-perm code { font-family: var(--mono); background: var(--bg-soft); padding: 2px 6px; border: 1px solid var(--rule-soft); color: var(--ink-mid); }
-
-  /* ============================================================
-     RESPONSIVE — Mobile reading view
-     Preserves the desktop report aesthetic above 900px;
-     gracefully collapses on tablets and phones.
-     ============================================================ */
-
-  /* Tablet & landscape phones */
-  @media (max-width: 1100px) {
-    body { padding: 16px 0; }
-  }
-
-  @media (max-width: 900px) {
-    .stat-strip { grid-template-columns: 1fr 1fr 1fr; }
-    .stat-strip .stat:nth-child(3n) { border-right: none; }
-    .stat-strip .stat:nth-child(n+4) { border-top: 1px solid var(--rule); }
-    .ct-grid, .cat-grid, .scn-grid { grid-template-columns: 1fr 1fr; }
-    .sotp { grid-template-columns: 1fr; }
-    .section { padding: 32px 36px 32px; }
-    .masthead-inner { padding: 28px 36px 24px; }
-    .disclaimer, .share-bar { padding-left: 36px; padding-right: 36px; }
-  }
-
-  /* Phone — full single-column reading view */
-  @media (max-width: 760px) {
-    body { display: block; padding: 0; font-size: 15px; line-height: 1.7; background: var(--bg); }
-    .card { width: 100%; max-width: 100%; border-left: 0; border-right: 0; box-shadow: none; }
-
-    /* Masthead → stacked */
-    .masthead-inner { grid-template-columns: 1fr; padding: 26px 18px 22px; gap: 16px; align-items: stretch; }
-    .head-main { align-items: flex-start; text-align: left; }
-    .head-ticker-row { flex-wrap: wrap; gap: 10px; }
-    .head-co { font-size: 30px; }
-    .head-co-jp { font-size: 13.5px; }
-    .brand-mono { font-size: 24px; }
-
-    /* Stat strip → 2 columns */
-    .stat-strip { grid-template-columns: 1fr 1fr; }
-    .stat { padding: 13px 16px; border-bottom: 1px solid var(--rule); }
-    .stat:nth-child(2n) { border-right: none; }
-    .stat:nth-last-child(-n+2) { border-bottom: none; }
-    .stat-val { font-size: 19px; }
-
-    /* Section padding & headings */
-    .section { padding: 28px 18px 28px; }
-    .section-head { margin-bottom: 18px; }
-    .section-title { font-size: 24px; line-height: 1.25; }
-    .section-sub { font-size: 14px; }
-
-    /* Chart */
-    .tv-container { height: 320px; }
-    .chart-meta { padding: 13px 16px 11px; }
-    .chart-key-levels { gap: 14px; row-gap: 6px; }
-    .chart-legend { padding: 10px 16px; gap: 14px; row-gap: 6px; }
-
-    /* Narrative & dense-text bumps */
-    .regime-narr { font-size: 15px; line-height: 1.8; margin-top: 22px; }
-    .ct-card, .cat-card, .scn-card, .sotp-card { padding: 20px 18px; }
-    .ct-side-text { font-size: 14px; }
-    .ct-q { font-size: 16.5px; }
-    .cat-takeaway { font-size: 14px; }
-    .cat-title { font-size: 17px; }
-    .cat-viz-bar-label { width: 80px; font-size: 10.5px; }
-    .cat-viz-bar-val { width: 56px; font-size: 10.5px; }
-    .scn-drivers li { font-size: 14px; line-height: 1.55; }
-    .scn-price { font-size: 28px; }
-    .scn-prem { font-size: 14px; }
-
-    /* Grids → single column */
-    .ct-grid, .cat-grid, .scn-grid, .sotp { grid-template-columns: 1fr; gap: 16px; }
-
-    /* Disclaimer */
-    .disclaimer { padding: 26px 18px 24px; }
-    .d-title { font-size: 22px; line-height: 1.3; }
-    .disclaimer-body { font-size: 13.5px; line-height: 1.75; }
-
-    /* Share bar */
-    .share-bar { padding: 24px 18px 22px; }
-    .share-head { flex-wrap: wrap; gap: 8px; }
-    .share-btn { font-size: 13px; padding: 10px 14px; }
-
-    /* Meth footer */
-    .meth { padding: 14px 18px; flex-direction: column; gap: 6px; text-align: center; letter-spacing: 0.12em; }
-  }
-
-/* WCAG 2.1 AA accessibility helpers */
-.skip-link {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  z-index: 1000;
-  transform: translateY(-150%);
-  padding: 10px 14px;
-  background: var(--ink, #1a2a4a);
-  color: #fff;
-  text-decoration: none;
-  border-radius: 4px;
-  box-shadow: 0 4px 12px rgba(15,31,58,0.18);
-}
-.skip-link:focus, .skip-link:focus-visible { transform: translateY(0); outline: 3px solid var(--accent, #9a7838); outline-offset: 3px; }
-main:focus { outline: none; }
-a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, [tabindex]:focus-visible {
-  outline: 3px solid var(--accent, #9a7838);
-  outline-offset: 3px;
-}
-.form-row input:focus-visible, .form-row select:focus-visible, .form-row textarea:focus-visible { outline: 3px solid var(--accent, #9a7838); outline-offset: 2px; }
-.form-field-error:empty { min-height: 0; }
-.mobile-menu[hidden] { display: none !important; }
-.mobile-menu a:focus-visible { outline-offset: -2px; }
-@media (max-width: 360px) {
-  .wrap { padding-left: 16px; padding-right: 16px; }
-  .hero-ctas, .cta-row, .share-btns, .week-nav, .toolbar { align-items: stretch; flex-direction: column; }
-  .btn, .form-submit, .mobile-menu-cta, .share-btn { width: 100%; justify-content: center; text-align: center; }
-  .nav-logo-img--desktop { display: none !important; }
-  .nav-logo-img--mobile { display: block !important; }
-  .nav-inner { gap: 10px; }
-  .nav-right { gap: 6px; }
-  .locale-switcher a, .nav-locale-switcher a { min-width: 36px; min-height: 36px; display: inline-flex; align-items: center; justify-content: center; }
-}
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
-}
-
-</style>
+<link rel="stylesheet" href="/assets/profile.css">
 <script src="/assets/locale-switcher.js" defer></script>
 </head>
 <body>
@@ -413,13 +68,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
       </div>
       <div class="stat">
         <div class="stat-label">EV / EBIT · forward</div>
-        <div class="stat-val">9.7<small>x</small></div>
-        <div class="stat-ctx">vs Japanese recruitment-platform peer median ~12.4x trailing &middot; ONE CAREER trailing 12.9x sits just above the median, forward 9.7x is below it because operating profit is guided to grow 41% this fiscal year</div>
+        <div class="stat-val">10.9<small>x</small></div>
+        <div class="stat-ctx">vs Japanese recruitment-platform peer median ~13.7x trailing &middot; ONE CAREER trailing 15.2x EV/TTM EBITDA sits above the median, forward 10.9x is below it because operating profit is guided to grow 41% this fiscal year</div>
       </div>
       <div class="stat">
         <div class="stat-label">ROCE · trailing</div>
         <div class="stat-val">38<small>% · FY25</small></div>
-        <div class="stat-ctx">six-year trend FY20&ndash;FY25: 81% (post-IPO base) · 27 · 22 · 26 · 26 · 31 &mdash; <b>recurring 26&ndash;31% range</b></div>
+        <div class="stat-ctx">ROE trend FY20&ndash;FY25: 81% (post-IPO base) · 27 · 22 · 26 · 26 · 31 &mdash; <b>recurring 26&ndash;31% range</b></div>
       </div>
       <div class="stat">
         <div class="stat-label">Operating Margin · group</div>
@@ -503,7 +158,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
         });
         topixSeries.setData(CHART_DATA.topix_rebased);
         var smaSeries = chart.addLineSeries({
-          color: '#b08a4a',
+          color: '#9a7838',
           lineWidth: 1.5,
           lineStyle: 2,
           priceLineVisible: false,
@@ -544,7 +199,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
         ONE CAREER listed on the TSE Mothers market in October 2021 and reports as a single segment, the career-data platform business. Students post detailed interview write-ups and job-hunting reports, then unlock free access to other students’ write-ups. That process has built the company’s core asset, a closed review database since 2015. The database now holds more than 700,000 reviews and is still the only place where students can read first-person accounts of specific Japanese hiring processes. Companies pay ONE CAREER subscription fees for job advertising and direct messaging because they want access to that student audience, which returns through the academic year. Each year of fresh reviews makes the database harder for new entrants to copy. Two out of every three graduating Japanese university students use the platform; cumulative corporate clients passed 6,858 at Q1 FY26-end, up 47% year-on-year. The platform monetizes through five products — subscription job postings, a direct-sourcing message tool, sponsored articles, career events, and a fee-based recruitment-agency layer — plus a smaller mid-career platform that reuses the new-graduate audience as alumni age into the workforce. As corporate clients increased, revenue rose without matching growth in content collection and engineering costs, which are largely fixed. FY25 group revenue grew 40.3% to <b>¥7,577M</b>, operating profit grew 64.2% to <b>¥2,128M</b>, and the group operating margin reached <b>28.1%</b> from 6.1% five years earlier. The share rose with the broader Japanese AI-smallcap bid through the summer of 2025, helped by a 3-for-1 stock split on March 16, and peaked at <b>¥2,864</b> on August 26, 2025.</p>
       <p>
         <span class="pin">02 · THE REVERSAL</span>
-        The August 2025 peak coincided with the announcement of the company's first acquisition. On August 21, 2025 the company disclosed the Light Rose bolt-on (the CAMPUS REACH university-life app), lifting an existing 17.8% stake to 100% through a small top-up. Five days later the share reached ¥2,864. At that level the market was paying for two things at once: the operating-profit growth that the year-to-date numbers already showed, and the higher valuation multiple typical of AI-software platforms — on the bet that the review database would carry AI-like economics over time. Through the autumn the bid faded. A monthly cadence of operating-environment frequently-asked-questions disclosures began on September 30, 2025, signaling that management had recognized the need to communicate with retail and overseas investors between quarters. On November 14, 2025 the Q3 FY25 quarterly earnings filing landed with the first upward dividend revision, raising the full-year annual payout from ¥14 to ¥21 and lifting the stated payout-ratio target from 20% to 30%. The share drifted lower as the broader Japanese smallcap AI cohort gave back the summer's premium. By the time the FY25 full-year earnings landed on February 12, 2026, the stock had fallen well below the peak even though the operating-profit print was strong.
+        The August 2025 peak coincided with the announcement of the company's first acquisition. On August 21, 2025 the company disclosed the Light Rose bolt-on (the CAMPUS REACH university-life app), lifting an existing 17.8% stake to 100% through a small top-up. Five days later the share reached ¥2,864. At that level the market was paying for two things at once: the operating-profit growth that the year-to-date numbers already showed, and the higher valuation multiple typical of AI-software platforms — on the bet that the review database would carry AI-like economics over time. Through the autumn the bid faded. The company stepped up its operating-environment FAQ disclosures to a monthly cadence through the autumn of 2025, signaling that management had recognized the need to communicate with retail and overseas investors between quarters. On November 14, 2025 the Q3 FY25 quarterly earnings filing landed with the first upward dividend revision, raising the full-year annual payout from ¥14 to ¥21 and lifting the stated payout-ratio target from 20% to 30%. The share drifted lower as the broader Japanese smallcap AI cohort gave back the summer's premium. By the time the FY25 full-year earnings landed on February 12, 2026, the stock had fallen well below the peak even though the operating-profit print was strong.
       </p>
       <p>
         <span class="pin">03 · WHERE WE STAND NOW</span>
@@ -585,7 +240,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
         </div>
         <div class="ct-side">
           <span class="ct-side-tag bear">BEAR</span>
-          <span class="ct-side-text">Bears note that Kids Corporation's standalone operating margin is roughly 11%, against the new-graduate platform's 30%-plus margin. Even an efficient integration that holds standalone profit dollars constant compresses the group operating-margin line for at least eighteen months. The view holds if Kids Corporation's operating-profit contribution lands below <b>¥150M for FY27</b> against ¥280M standalone in FY25, or the FY27 group operating margin settles below <b>27%</b> against the 28.1% FY25 baseline.</span>
+          <span class="ct-side-text">Bears note that Kids Corporation's standalone operating margin is roughly 11%, against the new-graduate platform's 30%-plus margin. Even an efficient integration that holds standalone profit dollars constant compresses the group operating-margin line for at least eighteen months. The view holds if Kids Corporation's operating-profit contribution lands below <b>¥150M for FY27</b> against ¥279M standalone in FY3/25 (Kids Corporation's March fiscal year), or the FY27 group operating margin settles below <b>27%</b> against the 28.1% FY25 baseline.</span>
         </div>
       </div>
 
@@ -598,7 +253,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
         </div>
         <div class="ct-side">
           <span class="ct-side-tag bear">BEAR</span>
-          <span class="ct-side-text">Bears note that the moat — the reviews — is still strong, but the path a student takes from "I want to apply for jobs" to actually opening ONE CAREER could change. If general-purpose AI assistants become the default first-stop for career planning, the platform may need to deliver its reviews through those assistants rather than through its own site. The economics of being a feed for another company's product are usually worse than being the destination itself. The view holds if the FY27 H1 briefing has not disclosed AI engagement metrics and the new-graduate utilization rate (62.2% of the FY26 cohort at FY25-end, guided higher at March-26) drops by <b>200 basis points or more</b>.</span>
+          <span class="ct-side-text">Bears note that the moat — the reviews — is still strong, but the path a student takes from "I want to apply for jobs" to actually opening ONE CAREER could change. If general-purpose AI assistants become the default first-stop for career planning, the platform may need to deliver its reviews through those assistants rather than through its own site. The economics of being a feed for another company's product are usually worse than being the destination itself. The view holds if the FY27 H1 briefing has not disclosed AI engagement metrics and the new-graduate utilization rate (64.5% of members graduating in 2026, per the Q1 FY26 briefing) drops by <b>200 basis points or more</b>.</span>
         </div>
       </div>
 
@@ -704,7 +359,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
           <div class="cat-viz-cap">cash has risen every year for six years · three acquisitions announced in nine months · no per-deal return-on-capital published yet</div>
         </div>
         <div class="cat-takeaway">
-          The company has published a clear M&amp;A discipline framework — <b>EV/EBITDA at or below five times, goodwill against net assets below 50%, single-deal size at or below 15% of market cap</b>. The framework is published; the track record is not. FY25 net income was <b>¥1,500M</b>, declared dividends took roughly 30%, and retained earnings of about ¥1.04bn were available for deployment. Capital expenditure absorbed ¥278M, the Light Rose acquisition absorbed roughly ¥40M of disclosed cash (¥120M of residual investing-CF after capex), and net cash on the balance sheet still rose ¥1.81bn year-on-year. The trailing return on equity is 31%; the return on the capital actually deployed in the business (a Greenblatt-style calculation: operating profit divided by working capital plus fixed assets) is 38%. The acquisition framework's 5x EV/EBITDA ceiling implies a roughly 20% marginal yield on each deal — above the company's stated minimum return target, but below the franchise's own internal rate. Three acquisitions have been announced in nine months and Kids Corporation closes in July. Each yen retained at a 38% return on capital is being asked to compound at an unverified bolt-on rate rather than at the franchise's own track record. <b>Without per-acquisition return-on-capital disclosure, the market cannot tell whether the M&amp;A pipeline is compounding the franchise or diluting it — every deal, every quarter.</b>
+          The company has published a clear M&amp;A discipline framework — <b>EV/EBITDA at or below five times, goodwill against net assets below 50%, single-deal size at or below 15% of market cap</b>. The framework is published; the track record is not. FY25 net income was <b>¥1,500M</b>, declared dividends took roughly 30%, and retained earnings of about ¥1.04bn were available for deployment. Capital expenditure absorbed ¥278M, the Light Rose acquisition absorbed ¥32M of disclosed cash, within ¥119M of residual investing-CF after capex, and net cash on the balance sheet still rose ¥1.81bn year-on-year. The trailing return on equity is 31%; the return on the capital actually deployed in the business (a Greenblatt-style calculation: operating profit divided by working capital plus fixed assets) is 38%. The acquisition framework's 5x EV/EBITDA ceiling implies a roughly 20% marginal yield on each deal — far above the ~0.4% cash yield it replaces, but below the franchise's own internal rate. Three acquisitions have been announced in nine months and Kids Corporation closes in July. Each yen retained at a 38% return on capital is being asked to compound at an unverified bolt-on rate rather than at the franchise's own track record. <b>Without per-acquisition return-on-capital disclosure, the market cannot tell whether the M&amp;A pipeline is compounding the franchise or diluting it — every deal, every quarter.</b>
         </div>
         <div class="cat-meta">
           <div><dt>Cost to mgmt</dt><dd>One per-deal table per results pack</dd></div>
@@ -729,7 +384,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
           </div>
           <div class="cat-viz-bar-row">
             <div class="cat-viz-bar-label">Miyashita combined block</div>
-            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:100%;background:#b08a4a"></div></div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:100%;background:#9a7838"></div></div>
             <div class="cat-viz-bar-val">57.2%</div>
           </div>
           <div class="cat-viz-bar-row">
@@ -750,7 +405,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
           <div class="cat-viz-cap">dividend trajectory FY24 ¥10 (post-split) → FY25 ¥25 (initial guide ¥14, raised to ¥21 Nov 2025, then to ¥25 Feb 2026) → FY26 guide ¥34 · ~30% payout target stated Feb 2026 · no cash-balance ceiling · no recurring buyback authorization</div>
         </div>
         <div class="cat-takeaway">
-          The payout ratio reached roughly 30% of net income for the first time in February 2026. Two upward dividend revisions in three months — from ¥14 to ¥21 in November 2025, then ¥21 to ¥25 in February 2026, with the FY26 guide at ¥34 — were the path. What remains undisclosed is a cash-balance ceiling, a recurring buyback authorization, and whether the M&amp;A pipeline is expected to absorb the surplus retention. Cash sat at ¥6.76bn at Q1 FY26-end against ¥150M of debt and roughly ¥2.4bn of current liabilities; net cash has risen every year for six years. The founder-CEO holds 57% combined, and Japanese founder-controlled smallcaps with this concentration historically keep optionality for acquisitions whose pace and return have not yet been verified. A capital-return policy slide naming the cash ceiling, the buyback decision rule, and the dividend formula would compress the optionality discount the market currently applies.
+          The payout ratio reached roughly 30% of net income for the first time in February 2026. Two upward dividend revisions in three months — from ¥14 to ¥21 in November 2025, then ¥21 to ¥25 in February 2026, with the FY26 guide at ¥34 — were the path. What remains undisclosed is a cash-balance ceiling, a recurring buyback authorization, and whether the M&amp;A pipeline is expected to absorb the surplus retention. Cash sat at ¥6.76bn at Q1 FY26-end against roughly ¥0.15bn of debt and ¥3.5bn of current liabilities; net cash has risen every year for six years. The founder-CEO holds 57% combined, and Japanese founder-controlled smallcaps with this concentration historically keep optionality for acquisitions whose pace and return have not yet been verified. A capital-return policy slide naming the cash ceiling, the buyback decision rule, and the dividend formula would compress the optionality discount the market currently applies.
         </div>
         <div class="cat-meta">
           <div><dt>Cost to mgmt</dt><dd>One board resolution + one IR slide</dd></div>
@@ -818,25 +473,25 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
       <div class="sotp-card">
         <div class="sotp-head">SUM-OF-PARTS · NET CASH</div>
-        <div class="sotp-name">Cash and deposits on the balance sheet (18% of market cap)</div>
+        <div class="sotp-name">Cash and deposits on the balance sheet (17% of market cap)</div>
         <div class="sotp-row"><span class="k">Cash at Q1 FY26-end (Mar 2026)</span><span class="v">¥6,764M</span></div>
-        <div class="sotp-row"><span class="k">Current liabilities (est. working-capital need)</span><span class="v">~¥2,400M</span></div>
-        <div class="sotp-row"><span class="k">Surplus to stated working need</span><span class="v">~¥4,400M</span></div>
+        <div class="sotp-row"><span class="k">Current liabilities (est. working-capital need)</span><span class="v">~¥3,540M</span></div>
+        <div class="sotp-row"><span class="k">Surplus to stated working need</span><span class="v">~¥3,200M</span></div>
         <div class="sotp-row"><span class="k">FY26 announced dividend per share</span><span class="v">¥34</span></div>
         <div class="sotp-row"><span class="k">Implied cash EV contribution</span><span class="v">¥6,614M net of ¥150M debt</span></div>
         <div class="sotp-foot">Cash earning ~0.4% bank-deposit yield against a 38% trailing return on capital &mdash; the value drag is the disclosure of how the surplus will be deployed</div>
       </div>
 
       <div class="sotp-card">
-        <div class="sotp-head">PEER MULTIPLE LADDER · 2026-06-09 snapshot</div>
+        <div class="sotp-head">PEER MULTIPLE LADDER · 2026-07-10 snapshot</div>
         <div class="sotp-name">Listed JP recruitment-platform peer set · EV recomputed at current snapshot price</div>
-        <div class="sotp-row"><span class="k"><b>4377 ONE CAREER (this profile)</b></span><span class="v"><b>12.9x trailing &middot; 9.7x fwd</b></span></div>
-        <div class="sotp-row"><span class="k">6098 Recruit Holdings</span><span class="v">21.5x trailing &middot; macro anchor, owns Indeed &amp; Glassdoor</span></div>
-        <div class="sotp-row"><span class="k">6194 Atrae</span><span class="v">14.5x trailing &middot; recruitment platform with first-party data</span></div>
-        <div class="sotp-row"><span class="k">5139 OpenWork</span><span class="v">10.2x trailing &middot; closest review-data parallel</span></div>
-        <div class="sotp-row"><span class="k">2301 Gakujo</span><span class="v">6.6x trailing &middot; mature new-graduate competitor</span></div>
+        <div class="sotp-row"><span class="k"><b>4377 ONE CAREER (this profile)</b></span><span class="v"><b>15.2x trailing &middot; 10.9x fwd</b></span></div>
+        <div class="sotp-row"><span class="k">6098 Recruit Holdings</span><span class="v">23.6x trailing &middot; macro anchor, owns Indeed &amp; Glassdoor</span></div>
+        <div class="sotp-row"><span class="k">6194 Atrae</span><span class="v">18.3x trailing &middot; recruitment platform with first-party data</span></div>
+        <div class="sotp-row"><span class="k">5139 OpenWork</span><span class="v">9.1x trailing &middot; closest review-data parallel</span></div>
+        <div class="sotp-row"><span class="k">2301 Gakujo</span><span class="v">7.3x trailing &middot; mature new-graduate competitor</span></div>
         <div class="sotp-row"><span class="k">7047 Port</span><span class="v">NM &mdash; trailing EBITDA depressed and the company carries net debt; structural comp but not a multiple anchor</span></div>
-        <div class="sotp-foot">Each peer's TTM EBITDA pulled from their most recent earnings filings; forward multiple shown only for ONE CAREER using the company's own FY26 operating-profit guide of ¥3,000M. Peer median (excluding Port outlier) ~12.4x trailing &mdash; ONE CAREER sits just above the median on trailing and at the discount end on forward.</div>
+        <div class="sotp-foot">Each peer's TTM EBITDA pulled from their most recent earnings filings; forward multiple shown only for ONE CAREER using the company's own FY26 operating-profit guide of ¥3,000M. Peer median (excluding Port outlier) ~13.7x trailing &mdash; ONE CAREER sits above the median on trailing; on forward it trades at 10.9x its own FY26 OP guide.</div>
       </div>
 
       <div class="sotp-card">
@@ -845,9 +500,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
         <div class="sotp-row"><span class="k">Core operating-business EV (mid-case)</span><span class="v">~¥30bn</span></div>
         <div class="sotp-row"><span class="k">Net cash (face)</span><span class="v">¥6.6bn</span></div>
         <div class="sotp-row"><span class="k">Implied equity value (face)</span><span class="v">~¥36bn</span></div>
-        <div class="sotp-row"><span class="k">Per share (18.37M sh)</span><span class="v">~¥1,960</span></div>
-        <div class="sotp-row"><span class="k">vs current price ¥1,947</span><span class="v">implied uplift ~1%</span></div>
-        <div class="sotp-foot">At ~10x FY26 operating-profit guide plus net cash, the SOTP lands roughly at today's price &mdash; supports BASE on the operating multiple alone, before any lever lands</div>
+        <div class="sotp-row"><span class="k">Per share (18.35M sh)</span><span class="v">~¥1,995</span></div>
+        <div class="sotp-row"><span class="k">vs current price ¥2,150 (Jul 10)</span><span class="v">implied gap ~−7%</span></div>
+        <div class="sotp-foot">At ~10x FY26 operating-profit guide plus net cash, the market now prices ~8% ahead of the face SOTP &mdash; holding BASE from here requires one of the levers to land</div>
       </div>
 
     </div>
@@ -856,7 +511,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
   <!-- ============================== SHARE BAR ============================== -->
   <section class="share-bar" id="jii-share"
-           data-share-text="ONE CAREER (4377) — Japanese new-graduate hiring platform two-thirds of graduating students use, 9.7x forward EV/EBIT, 38% return on capital. A founder controlling 57% combined, a closed dataset of 700,000+ student-written interview reviews competitors cannot replicate, three acquisitions in nine months, and a cash pile that has risen every year for six years. Three disclosures — new-graduate vs mid-career split, per-acquisition return on capital, and a formula-based capital-return policy — could close most of the gap."
+           data-share-text="ONE CAREER (4377) — Japanese new-graduate hiring platform two-thirds of graduating students use, 10.9x forward EV/EBIT, 38% return on capital. A founder controlling 57% combined, a closed dataset of 700,000+ student-written interview reviews competitors cannot replicate, three acquisitions in nine months, and a cash pile that has risen every year for six years. Three disclosures — new-graduate vs mid-career split, per-acquisition return on capital, and a formula-based capital-return policy — could close most of the gap."
            data-share-url="https://jpinv.com/en/compounders/4377/initiation/"
            data-share-subject="JII Compounders · 4377 ONE CAREER"
            data-copy-label="Copy link"

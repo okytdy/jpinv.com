@@ -12,12 +12,12 @@
 <link rel="alternate" hreflang="en" href="https://jpinv.com/en/compounders/2353/initiation/">
 <link rel="alternate" hreflang="ja" href="https://jpinv.com/compounders/2353/initiation/">
 <meta property="og:type" content="article">
-<meta property="og:image" content="https://jpinv.com/og/2353.png">
+<meta property="og:image" content="https://jpinv.com/og/compounders/2353.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="JII Compounder Profile · 2353">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://jpinv.com/og/2353.png">
+<meta name="twitter:image" content="https://jpinv.com/og/compounders/2353.png">
 <meta name="twitter:image:alt" content="JII Compounder Profile · 2353">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -27,359 +27,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  /* ============================================================
-     JII Compounders · Profile page
-     Methodology: https://jpinv.com/en/compounders/methodology/
-     ============================================================ */
-  :root {
-    --ink:        #1a2a4a;
-    --ink-mid:    #172641;
-    --ink-soft:   #304466;
-    --rule:       #d6dee8;
-    --rule-soft:  #e8edf3;
-    --bg:         #ffffff;
-    --bg-mid:    #f5f7fa;
-    --bg-soft:   #fafbfc;
-    --text:       #1f2937;
-    --text-mid:  #4a5566;
-    --text-dim:  #5f6875;
-    --accent:    #9a7838;
-    --accent-deep:#9a7838;
-    --accent-soft:#f4eee4;
-    --bad:       #b91c1c;
-    --warn:      #8a682b;
-    --ok:        #2f6f4f;
-    --serif: 'Noto Serif JP', 'Yu Mincho', serif;
-    --sans:  'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
-    --mono:  'DM Mono', monospace;
-  }
-  *, *::before, *::after { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; background: var(--bg-mid); }
-  body { display: flex; justify-content: center; padding: 30px 0; font-family: var(--sans); color: var(--text); font-size: 14px; line-height: 1.65; }
-
-  .card {
-    background: var(--bg); color: var(--text); width: 100%; max-width: 1200px; margin: 0 auto;
-    box-shadow: 0 30px 80px rgba(15,31,58,0.10), 0 1px 3px rgba(15,31,58,0.06);
-    border: 1px solid var(--rule);
-  }
-
-  /* ---- MASTHEAD ---- */
-  .masthead { position: relative; overflow: hidden; background: var(--bg); border-bottom: 1px solid var(--rule); }
-  .masthead::before {
-    content:''; position: absolute; inset: 0;
-    background-image:
-      linear-gradient(rgba(15,31,58,0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(15,31,58,0.04) 1px, transparent 1px);
-    background-size: 64px 64px;
-    -webkit-mask-image: linear-gradient(180deg, transparent, black 12%, black 88%, transparent);
-            mask-image: linear-gradient(180deg, transparent, black 12%, black 88%, transparent);
-    pointer-events: none;
-  }
-  .masthead::after {
-    content:''; position: absolute; width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(15,31,58,0.045) 0%, transparent 70%);
-    top: -160px; right: -200px; pointer-events: none;
-  }
-  .masthead-inner { position: relative; z-index: 2; padding: 32px 56px 28px; display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: end; }
-
-  .brand { display: flex; flex-direction: column; gap: 4px; align-items: flex-start; }
-  .brand-home-link { display:flex; flex-direction:column; gap:4px; align-items:flex-start; color:inherit; text-decoration:none; }
-  .brand-home-link:hover .brand-mono, .brand-home-link:hover .brand-eyebrow { color:var(--ink); }
-  .brand-home-link:focus-visible { outline:2px solid var(--accent); outline-offset:6px; }
-  .brand-mono { font-family: var(--serif); font-size: 28px; font-weight: 300; letter-spacing: 0.04em; color: var(--ink-mid); line-height: 1; }
-  .brand-mono .pipe { color: var(--accent); font-weight: 200; margin: 0 4px; }
-  .brand-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; color: var(--accent-deep); text-transform: uppercase; margin-top: 12px; font-weight: 500; }
-
-  .head-main { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; text-align: right; }
-  .report-locale { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 8px; }
-  .report-locale a { color: var(--ink-soft); padding: 5px 10px; border: 1px solid var(--rule); margin-left: 6px; text-decoration: none; }
-  .report-locale a.current { background: var(--bg-soft); border-color: var(--ink-mid); color: var(--ink-mid); }
-  .head-ticker-row { display: flex; align-items: baseline; gap: 16px; }
-  .head-ticker { font-family: var(--mono); font-size: 12px; color: var(--ink-soft); letter-spacing: 0.18em; }
-  .head-co-jp { font-family: var(--serif); font-size: 14.5px; color: var(--text-mid); letter-spacing: 0.04em; }
-  .head-co { font-family: var(--serif); font-size: 40px; font-weight: 300; color: var(--ink-mid); line-height: 1.05; letter-spacing: 0.01em; margin-top: 4px; }
-  .head-industry { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-top: 6px; }
-
-  /* Stat strip (font sizes bumped) */
-  .stat-strip { display: grid; grid-template-columns: 1.05fr 1.05fr 1.1fr 1.05fr 1.1fr 1.1fr; gap: 0; border-top: 1px solid var(--rule); position: relative; z-index: 2; background: var(--bg-soft); }
-  .stat { padding: 15px 18px; border-right: 1px solid var(--rule); text-align: left; }
-  .stat:last-child { border-right: none; }
-  .stat-label { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 7px; font-weight: 500; }
-  .stat-val { font-family: var(--serif); font-size: 22px; font-weight: 400; color: var(--ink-mid); line-height: 1.05; }
-  .stat-val small { font-family: var(--mono); font-size: 11px; color: var(--text-dim); margin-left: 4px; font-weight: 400; letter-spacing: 0.04em; }
-  .stat-ctx { font-family: var(--mono); font-size: 10.5px; color: var(--text-mid); margin-top: 6px; letter-spacing: 0.04em; line-height: 1.45; }
-  .stat-ctx .dn { color: var(--bad); font-weight: 500; }
-  .stat-ctx .up { color: var(--ok); font-weight: 500; }
-  .stat-ctx b { color: var(--ink-mid); font-weight: 500; }
-
-  /* ---- SECTIONS (font sizes bumped) ---- */
-  .section { padding: 36px 56px 36px; border-bottom: 1px solid var(--rule); }
-  .section.gem { background: linear-gradient(180deg, rgba(176,138,74,0.055) 0%, rgba(176,138,74,0.01) 60%); }
-  .section-head { margin-bottom: 22px; display: flex; flex-direction: column; gap: 8px; max-width: 1080px; }
-  .section-num { font-family: var(--mono); font-size: 10px; letter-spacing: 0.26em; color: var(--accent-deep); font-weight: 500; }
-  .section-title { font-family: var(--serif); font-size: 30px; font-weight: 300; color: var(--ink-mid); margin: 0; letter-spacing: 0.01em; line-height: 1.2; }
-  .section-sub { font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--text-mid); line-height: 1.55; margin: 0; }
-  .section-sub b { color: var(--ink-mid); font-weight: 500; font-style: normal; }
-
-  /* ---- CHART (TradingView widget) ---- */
-  .chart-wrap { background: var(--bg-soft); border: 1px solid var(--rule); padding: 0; }
-  .chart-meta { display: flex; justify-content: space-between; align-items: baseline; padding: 16px 22px 14px; border-bottom: 1px solid var(--rule); flex-wrap: wrap; gap: 10px; }
-  .chart-title { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; }
-  .chart-key-levels { display: flex; gap: 22px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; }
-  .chart-key-levels span { color: var(--text-mid); }
-  .chart-key-levels b { color: var(--ink-mid); font-weight: 500; }
-  .chart-key-levels .peak b { color: var(--ok); }
-  .chart-key-levels .trough b { color: var(--bad); }
-  .tv-container { position: relative; height: 460px; }
-  .chart-legend { display: flex; gap: 22px; padding: 12px 22px; background: var(--bg-soft); border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.06em; color: var(--text-mid); flex-wrap: wrap; }
-  .chart-legend .leg-item { display: inline-flex; align-items: center; gap: 7px; }
-  .chart-legend .leg-swatch { display: inline-block; width: 16px; height: 3px; }
-  .chart-legend .leg-swatch.dashed { background: repeating-linear-gradient(90deg, var(--accent) 0 4px, transparent 4px 7px); height: 2px; }
-  .chart-legend .leg-swatch.candle { width: 10px; height: 12px; border-left: 3px solid var(--ok); border-right: 3px solid var(--bad); background: var(--text-dim); }
-  .chart-legend .leg-swatch.hist { background: rgba(48,68,102,0.45); }
-
-  /* ---- REGIME narrative ---- */
-  .regime-narr { font-family: var(--serif); font-size: 15px; color: var(--text); line-height: 1.85; max-width: 1080px; margin-top: 26px; }
-  .regime-narr p { margin: 0 0 16px; }
-  .regime-narr p:last-child { margin-bottom: 0; }
-  .regime-narr b { color: var(--ink-mid); font-weight: 500; }
-  .regime-narr .pin { font-family: var(--mono); font-size: 10.5px; font-weight: 500; letter-spacing: 0.16em; color: var(--accent-deep); margin-right: 8px; }
-  .regime-narr .up { color: var(--ok); font-weight: 500; }
-  .regime-narr .dn { color: var(--bad); font-weight: 500; }
-  .regime-narr .neutral { color: var(--ink-soft); font-weight: 500; }
-
-  /* ---- CONTENTION (font sizes bumped) ---- */
-  .ct-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px; }
-  .ct-card { background: var(--bg-mid); border: 1px solid var(--rule); border-left: 2px solid var(--accent); padding: 22px 22px 18px; }
-  .ct-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--accent-deep); text-transform: uppercase; margin-bottom: 10px; font-weight: 500; }
-  .ct-q { font-family: var(--serif); font-size: 16px; color: var(--ink-mid); line-height: 1.35; margin-bottom: 14px; font-weight: 400; }
-  .ct-side { display: flex; gap: 11px; margin-bottom: 11px; align-items: flex-start; }
-  .ct-side-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; padding: 2px 7px; border: 1px solid; flex: none; min-width: 42px; text-align: center; line-height: 1.4; font-weight: 500; }
-  .ct-side-tag.bull { color: var(--ok); border-color: var(--ok); }
-  .ct-side-tag.bear { color: var(--bad); border-color: var(--bad); }
-  .ct-side-text { font-family: var(--sans); font-size: 13px; color: var(--text); line-height: 1.55; }
-  .ct-side-text b { color: var(--ink-mid); font-weight: 500; }
-  .ct-proof { font-family: var(--mono); font-size: 10px; letter-spacing: 0.05em; color: var(--text-mid); margin-top: 14px; padding-top: 11px; border-top: 1px solid var(--rule); }
-  .ct-proof span { color: var(--accent-deep); text-transform: uppercase; letter-spacing: 0.14em; font-weight: 500; }
-
-  /* ---- CATALYST (font sizes bumped) ---- */
-  .cat-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px; }
-  .cat-card { background: var(--bg); border: 1px solid var(--rule); border-top: 2px solid var(--accent); padding: 22px; }
-  .cat-num { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--accent-deep); margin-bottom: 10px; font-weight: 500; }
-  .cat-title { font-family: var(--serif); font-size: 16.5px; color: var(--ink-mid); line-height: 1.3; font-weight: 400; margin-bottom: 14px; }
-  .cat-viz { background: var(--bg-mid); border: 1px solid var(--rule-soft); padding: 13px 15px; margin: 10px 0 14px; }
-  .cat-viz-label { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 9px; font-weight: 500; }
-  .cat-viz-bar-row { display: flex; align-items: center; gap: 9px; margin: 6px 0; font-family: var(--mono); font-size: 11px; }
-  .cat-viz-bar-label { width: 100px; color: var(--text-mid); font-size: 11px; }
-  .cat-viz-bar-track { flex: 1; height: 16px; background: var(--bg); border: 1px solid var(--rule-soft); position: relative; }
-  .cat-viz-bar-fill { height: 100%; }
-  .cat-viz-bar-val { width: 64px; text-align: right; color: var(--ink-mid); font-size: 11px; font-weight: 500; }
-  .cat-viz-cap { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; color: var(--accent-deep); text-transform: uppercase; margin-top: 9px; padding-top: 7px; border-top: 1px dashed var(--rule); font-weight: 500; }
-  .cat-takeaway { font-family: var(--sans); font-size: 13px; color: var(--text); line-height: 1.65; margin-top: 4px; }
-  .cat-takeaway b { color: var(--ink-mid); font-weight: 500; }
-  .cat-meta { display: flex; gap: 16px; margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--rule); }
-  .cat-meta div { flex: 1; }
-  .cat-meta dt { font-family: var(--mono); font-size: 9px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 4px; font-weight: 500; }
-  .cat-meta dd { margin: 0; font-family: var(--sans); font-size: 12.5px; color: var(--ink-mid); font-weight: 500; }
-
-  /* ---- VALUATION as 3 scenario cards ---- */
-  .scn-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px; }
-  .scn-card { padding: 24px 22px 20px; border: 1px solid var(--rule); position: relative; display: flex; flex-direction: column; }
-  .scn-card.bear { background: linear-gradient(180deg, rgba(185,28,28,0.045) 0%, rgba(185,28,28,0.01) 100%); border-top: 3px solid var(--bad); }
-  .scn-card.base { background: linear-gradient(180deg, rgba(15,31,58,0.04) 0%, rgba(15,31,58,0.005) 100%); border-top: 3px solid var(--ink-soft); }
-  .scn-card.bull { background: linear-gradient(180deg, rgba(47,111,79,0.045) 0%, rgba(47,111,79,0.01) 100%); border-top: 3px solid var(--ok); }
-  .scn-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500; }
-  .scn-tag.bear { color: var(--bad); }
-  .scn-tag.base { color: var(--ink-soft); }
-  .scn-tag.bull { color: var(--ok); }
-  .scn-price { font-family: var(--serif); font-size: 30px; font-weight: 300; color: var(--ink-mid); line-height: 1.1; margin: 8px 0 4px; letter-spacing: 0.01em; }
-  .scn-delta { font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: 0.04em; margin-bottom: 4px; }
-  .scn-delta.dn { color: var(--bad); }
-  .scn-delta.flat { color: var(--text-mid); }
-  .scn-delta.up { color: var(--ok); }
-  .scn-mult { font-family: var(--mono); font-size: 11px; color: var(--text-dim); letter-spacing: 0.06em; margin-bottom: 16px; }
-  .scn-prem { font-family: var(--serif); font-size: 14px; color: var(--ink-mid); line-height: 1.55; padding: 12px 14px; background: rgba(255,255,255,0.65); border: 1px solid var(--rule-soft); margin-bottom: 14px; }
-  .scn-prem b { color: var(--ink-mid); font-weight: 500; }
-  .scn-driver-head { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 8px; font-weight: 500; padding-top: 4px; }
-  .scn-drivers { list-style: none; margin: 0; padding: 0; }
-  .scn-drivers li { font-family: var(--sans); font-size: 12.5px; color: var(--text); line-height: 1.5; padding: 6px 0 6px 18px; position: relative; }
-  .scn-drivers li::before { content:''; position: absolute; left: 0; top: 12px; width: 8px; height: 1px; background: var(--text-dim); }
-  .scn-drivers li b { color: var(--ink-mid); font-weight: 500; }
-
-  /* SOTP */
-  .sotp { margin-top: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
-  .sotp-card { background: var(--bg); border: 1px solid var(--rule); border-top: 2px solid var(--ink-soft); padding: 20px 22px; }
-  .sotp-head { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; }
-  .sotp-name { font-family: var(--serif); font-size: 18px; color: var(--ink-mid); margin-top: 6px; font-weight: 400; margin-bottom: 10px; }
-  .sotp-row { display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px dashed var(--rule-soft); font-size: 13px; }
-  .sotp-row:last-of-type { border: none; }
-  .sotp-row .k { color: var(--text-mid); }
-  .sotp-row .v { color: var(--ink-mid); font-family: var(--mono); font-weight: 500; }
-  .sotp-foot { margin-top: 12px; padding-top: 11px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; letter-spacing: 0.05em; color: var(--ink-mid); }
-  .sotp-foot b { color: var(--accent-deep); font-weight: 500; }
-
-  /* ---- DISCLAIMER ---- */
-  .disclaimer { padding: 32px 56px 30px; background: var(--bg-soft); border-top: 2px solid var(--rule); }
-  .disclaimer-head { margin-bottom: 16px; }
-  .d-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; color: var(--text-dim); text-transform: uppercase; font-weight: 500; }
-  .d-title { font-family: var(--serif); font-size: 22px; font-weight: 300; color: var(--ink-mid); margin: 6px 0 0; letter-spacing: 0.01em; }
-  .disclaimer-body { font-family: var(--sans); font-size: 11.5px; color: var(--text-mid); line-height: 1.75; max-width: 1080px; }
-  .disclaimer-body p { margin: 0 0 11px; }
-  .disclaimer-body b { color: var(--ink-mid); font-weight: 500; }
-  .d-jp-note { font-family: var(--serif); font-size: 11px; color: var(--text-dim); line-height: 1.8; padding-top: 8px; margin-top: 12px; border-top: 1px solid var(--rule); }
-
-  /* Methodology link (small footer) */
-  .meth { padding: 16px 56px; background: var(--bg); border-top: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: center; font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
-  .meth a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--rule); }
-  .meth a:hover { color: var(--ink); }
-
-  /* ---- SHARE BAR ---- */
-  .share-bar { padding: 30px 56px 28px; background: var(--bg); border-top: 1px solid var(--rule); }
-  .share-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 14px; }
-  .share-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent-deep); font-weight: 500; }
-  .share-sub { font-family: var(--serif); font-size: 13px; color: var(--text-mid); letter-spacing: 0.02em; }
-  .share-btns { display: flex; gap: 8px; flex-wrap: wrap; }
-  .share-btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 9px 14px;
-    font-family: var(--sans); font-size: 12px; font-weight: 500; letter-spacing: 0.02em;
-    color: var(--ink-mid); background: var(--bg);
-    border: 1px solid var(--rule);
-    text-decoration: none; cursor: pointer;
-    transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
-  }
-  .share-btn:hover { border-color: var(--accent); color: var(--accent-deep); background: var(--accent-soft); }
-  .share-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-  .share-btn svg { width: 14px; height: 14px; flex-shrink: 0; fill: currentColor; }
-  .share-btn.copied { background: var(--accent-soft); border-color: var(--accent); color: var(--accent-deep); }
-  .share-perm { font-family: var(--mono); font-size: 10px; color: var(--text-dim); margin-top: 16px; letter-spacing: 0.06em; }
-  .share-perm code { font-family: var(--mono); background: var(--bg-soft); padding: 2px 6px; border: 1px solid var(--rule-soft); color: var(--ink-mid); }
-
-  /* ============================================================
-     RESPONSIVE — Mobile reading view
-     Preserves the desktop report aesthetic above 900px;
-     gracefully collapses on tablets and phones.
-     ============================================================ */
-
-  /* Tablet & landscape phones */
-  @media (max-width: 1100px) {
-    body { padding: 16px 0; }
-  }
-
-  @media (max-width: 900px) {
-    .stat-strip { grid-template-columns: 1fr 1fr 1fr; }
-    .stat-strip .stat:nth-child(3n) { border-right: none; }
-    .stat-strip .stat:nth-child(n+4) { border-top: 1px solid var(--rule); }
-    .ct-grid, .cat-grid, .scn-grid { grid-template-columns: 1fr 1fr; }
-    .sotp { grid-template-columns: 1fr; }
-    .section { padding: 32px 36px 32px; }
-    .masthead-inner { padding: 28px 36px 24px; }
-    .disclaimer, .share-bar { padding-left: 36px; padding-right: 36px; }
-  }
-
-  /* Phone — full single-column reading view */
-  @media (max-width: 760px) {
-    body { display: block; padding: 0; font-size: 15px; line-height: 1.7; background: var(--bg); }
-    .card { width: 100%; max-width: 100%; border-left: 0; border-right: 0; box-shadow: none; }
-
-    /* Masthead → stacked */
-    .masthead-inner { grid-template-columns: 1fr; padding: 26px 18px 22px; gap: 16px; align-items: stretch; }
-    .head-main { align-items: flex-start; text-align: left; }
-    .head-ticker-row { flex-wrap: wrap; gap: 10px; }
-    .head-co { font-size: 30px; }
-    .head-co-jp { font-size: 13.5px; }
-    .brand-mono { font-size: 24px; }
-
-    /* Stat strip → 2 columns */
-    .stat-strip { grid-template-columns: 1fr 1fr; }
-    .stat { padding: 13px 16px; border-bottom: 1px solid var(--rule); }
-    .stat:nth-child(2n) { border-right: none; }
-    .stat:nth-last-child(-n+2) { border-bottom: none; }
-    .stat-val { font-size: 19px; }
-
-    /* Section padding & headings */
-    .section { padding: 28px 18px 28px; }
-    .section-head { margin-bottom: 18px; }
-    .section-title { font-size: 24px; line-height: 1.25; }
-    .section-sub { font-size: 14px; }
-
-    /* Chart */
-    .tv-container { height: 320px; }
-    .chart-meta { padding: 13px 16px 11px; }
-    .chart-key-levels { gap: 14px; row-gap: 6px; }
-    .chart-legend { padding: 10px 16px; gap: 14px; row-gap: 6px; }
-
-    /* Narrative & dense-text bumps */
-    .regime-narr { font-size: 15px; line-height: 1.8; margin-top: 22px; }
-    .ct-card, .cat-card, .scn-card, .sotp-card { padding: 20px 18px; }
-    .ct-side-text { font-size: 14px; }
-    .ct-q { font-size: 16.5px; }
-    .cat-takeaway { font-size: 14px; }
-    .cat-title { font-size: 17px; }
-    .cat-viz-bar-label { width: 80px; font-size: 10.5px; }
-    .cat-viz-bar-val { width: 56px; font-size: 10.5px; }
-    .scn-drivers li { font-size: 14px; line-height: 1.55; }
-    .scn-price { font-size: 28px; }
-    .scn-prem { font-size: 14px; }
-
-    /* Grids → single column */
-    .ct-grid, .cat-grid, .scn-grid, .sotp { grid-template-columns: 1fr; gap: 16px; }
-
-    /* Disclaimer */
-    .disclaimer { padding: 26px 18px 24px; }
-    .d-title { font-size: 22px; line-height: 1.3; }
-    .disclaimer-body { font-size: 13.5px; line-height: 1.75; }
-
-    /* Share bar */
-    .share-bar { padding: 24px 18px 22px; }
-    .share-head { flex-wrap: wrap; gap: 8px; }
-    .share-btn { font-size: 13px; padding: 10px 14px; }
-
-    /* Meth footer */
-    .meth { padding: 14px 18px; flex-direction: column; gap: 6px; text-align: center; letter-spacing: 0.12em; }
-  }
-
-/* WCAG 2.1 AA accessibility helpers */
-.skip-link {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  z-index: 1000;
-  transform: translateY(-150%);
-  padding: 10px 14px;
-  background: var(--ink, #1a2a4a);
-  color: #fff;
-  text-decoration: none;
-  border-radius: 4px;
-  box-shadow: 0 4px 12px rgba(15,31,58,0.18);
-}
-.skip-link:focus, .skip-link:focus-visible { transform: translateY(0); outline: 3px solid var(--accent, #9a7838); outline-offset: 3px; }
-main:focus { outline: none; }
-a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, [tabindex]:focus-visible {
-  outline: 3px solid var(--accent, #9a7838);
-  outline-offset: 3px;
-}
-.form-row input:focus-visible, .form-row select:focus-visible, .form-row textarea:focus-visible { outline: 3px solid var(--accent, #9a7838); outline-offset: 2px; }
-.form-field-error:empty { min-height: 0; }
-.mobile-menu[hidden] { display: none !important; }
-.mobile-menu a:focus-visible { outline-offset: -2px; }
-@media (max-width: 360px) {
-  .wrap { padding-left: 16px; padding-right: 16px; }
-  .hero-ctas, .cta-row, .share-btns, .week-nav, .toolbar { align-items: stretch; flex-direction: column; }
-  .btn, .form-submit, .mobile-menu-cta, .share-btn { width: 100%; justify-content: center; text-align: center; }
-  .nav-logo-img--desktop { display: none !important; }
-  .nav-logo-img--mobile { display: block !important; }
-  .nav-inner { gap: 10px; }
-  .nav-right { gap: 6px; }
-  .locale-switcher a, .nav-locale-switcher a { min-width: 36px; min-height: 36px; display: inline-flex; align-items: center; justify-content: center; }
-}
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
-}
-
-
-</style>
+<link rel="stylesheet" href="/assets/profile.css">
 <script src="/assets/locale-switcher.js" defer></script>
 
 <script type="application/ld+json">
@@ -444,7 +92,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
       <div class="stat">
         <div class="stat-label">Shares &amp; Float</div>
         <div class="stat-val">312<small>M ex-tr · 348M issued</small></div>
-        <div class="stat-ctx">Tatsumi family <b>33%</b> · treasury 10.4% · 16-yr dividend</div>
+        <div class="stat-ctx">Tatsumi family <b>33%</b> · treasury 10.4% · 16th div raise guided</div>
       </div>
     </div>
   </header>
@@ -457,8 +105,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     </div>
     <p>Nippon Parking Development (NPD) runs four businesses with the same basic model: it uses underused land and idle assets to generate revenue. The largest is parking. NPD leases parking spaces and lots from the owners of office buildings, condominiums and commercial facilities, pays owners a fixed rent, and then operates the spaces and rents them out to drivers. Because NPD usually does not buy the land, it does not need much capital to grow. The second is ski resorts, run through its <a href="https://n-p-d.co.jp/wp-content/uploads/2026/06/tanshin202606.pdf" style="text-decoration:underline" target="_blank">listed subsidiary</a> Nippon Ski Resort Development (6040), which operates and improves regional ski resorts in places such as Hakuba Valley. The third is theme parks and lodging, run through the subsidiary Nippon Theme Park Development and mainly in the Nasu area. The fourth is still small and includes education, healthcare and renewable-energy ventures.</p>
     <p>NPD earns revenue in several ways. Building owners pay brokerage fees, and drivers pay to use parking spaces; ski visitors pay for lift tickets, food, lodging and lessons; theme-park guests pay for admission and lodging. Parking is steady and contract-based. The ski and theme-park businesses own physical assets and keep investing in them, so they earn more in good seasons and carry more fixed cost — which is why the business needs more owned assets and more investment as ski resorts and theme parks grow.</p>
-    <p>The business still earns strong returns, but those returns are changing. In FY2025 (year to July 2025) NPD earned ¥36.8bn of revenue and ¥7.66bn of operating profit, a 20.8% margin. Return on equity, or profit compared with shareholders' equity, has been falling as equity grows and more of the business shifts into asset-heavy leisure operations: 42.3% in FY2023, 38.0% in FY2024, 27.7% in FY2025. The company now targets keeping ROE above 30% and guides 30.1% for FY2026. It also returns most of its profit to shareholders — the FY26 total-return ratio, dividends plus buybacks divided by net income, is guided at 91.2% — and has raised its dividend for 16 straight years.</p>
-    <p>The latest numbers need some unpacking. On June 5, 2026 NPD reported record results for the first nine months of FY2026: revenue up 9.4%, operating profit up 5.6%, ordinary profit up 8.4%. Net income rose 11.6%, but a one-off ¥1.12bn gain on a land sale at the Iwatake ski resort made that growth look stronger; the better measure of operating performance is the 5.6% rise in operating profit. The same morning the company <a href="https://www.release.tdnet.info/inbs/140120260604563598.pdf" style="text-decoration:underline" target="_blank">authorized a ¥1.0bn buyback</a> and repeated its target of keeping ROE above 30%. Yet the shares are still about 20% below their September-2025 peak, at roughly 8.5x forward EV/EBIT (enterprise value divided by forecast operating profit). The valuation question is whether investors are valuing a high-return compounder that returns a lot of cash to shareholders too cheaply, or are right to value it as a company with debt and exposure to cyclical leisure demand whose ROE is falling while the founder group keeps tight control.</p>
+    <p>The business still earns strong returns, but those returns are changing. In FY2025 (year to July 2025) NPD earned ¥36.8bn of revenue and ¥7.66bn of operating profit, a 20.8% margin. Return on equity, or profit compared with shareholders' equity, has been falling as equity grows and more of the business shifts into asset-heavy leisure operations: 42.3% in FY2023, 38.0% in FY2024, 27.7% in FY2025. The company now targets keeping ROE above 30% and guides 30.1% for FY2026. It also returns most of its profit to shareholders — the FY26 total-return ratio, dividends plus buybacks divided by net income, is guided at 91.2% — and is guiding its 16th straight annual dividend increase this year.</p>
+    <p>The latest numbers need some unpacking. On June 5, 2026 NPD reported record results for the first nine months of FY2026: revenue up 9.4%, operating profit up 5.6%, ordinary profit up 8.4%. Net income rose 11.6%, but a one-off ¥1.12bn gain on a land sale at the Iwatake ski resort made that growth look stronger; the better measure of operating performance is the 5.6% rise in operating profit. In the same after-market disclosures the company <a href="https://www.release.tdnet.info/inbs/140120260604563598.pdf" style="text-decoration:underline" target="_blank">authorized a ¥1.0bn buyback</a> and repeated its target of keeping ROE above 30%. Yet the shares are still about 20% below their September-2025 peak, at roughly 8.5x forward EV/EBIT (enterprise value divided by forecast operating profit). The valuation question is whether investors are valuing a high-return compounder that returns a lot of cash to shareholders too cheaply, or are right to value it as a company with debt and exposure to cyclical leisure demand whose ROE is falling while the founder group keeps tight control.</p>
     <p>This profile answers that question in four steps: how the share price reached this level, what investors are debating, what management could do to reduce the valuation gap, and what the four operating businesses and the balance sheet could be worth.</p>
   </section>
 
@@ -523,7 +171,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
         });
         topixSeries.setData(CHART_DATA.topix_rebased);
         var smaSeries = chart.addLineSeries({
-          color: '#b08a4a',
+          color: '#9a7838',
           lineWidth: 1.5,
           lineStyle: 2,
           priceLineVisible: false,
@@ -594,7 +242,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
         <p class="ct-primer" style="font-family: var(--serif); font-size: 13px; color: var(--text-mid); line-height: 1.6; margin: 0 0 14px;">EV/EBIT shows how investors value the operating business after adjusting for cash and debt. At ¥243 that multiple is about 8.5x — close to the multiples investors usually pay for leisure companies. The debate is whether a business that still earns high returns, but whose return on equity has fallen from 42% to 28%, should trade at that leisure-sector multiple or at a higher multiple.</p>
         <div class="ct-side">
           <span class="ct-side-tag bull">BULL</span>
-          <span class="ct-side-text">Bulls focus on NPD's high returns. ROE has stayed above 27% for years, revenue, operating profit, ordinary profit and net income all reached records again in the FY26 nine months, and the dividend has risen for 16 straight years. NPD earns nearly 50% on the capital used in its operations, excluding cash and securities. The multiple fell from about 11x at the September-2025 peak to 8.5x with no fall in operating profit, and buybacks retire more shares at the lower price. <b>The bull case gets stronger if FY26 operating profit meets the ¥8.5bn guidance and the multiple widens back toward 10x.</b></span>
+          <span class="ct-side-text">Bulls focus on NPD's high returns. ROE has stayed above 27% for years, revenue, operating profit, ordinary profit and net income all reached records again in the FY26 nine months, and the dividend is set to rise for a 16th straight year. NPD earns nearly 50% on the capital used in its operations, excluding cash and securities. The multiple fell from about 11x at the September-2025 peak to 8.5x with no fall in operating profit, and buybacks retire more shares at the lower price. <b>The bull case gets stronger if FY26 operating profit meets the ¥8.5bn guidance and the multiple widens back toward 10x.</b></span>
         </div>
         <div class="ct-side">
           <span class="ct-side-tag bear">BEAR</span>
@@ -622,7 +270,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
         <p class="ct-primer" style="font-family: var(--serif); font-size: 13px; color: var(--text-mid); line-height: 1.6; margin: 0 0 14px;">Buybacks reduce the equity base used to calculate ROE, so they can lift ROE even when operating returns are flat or falling. With the founder vehicle owning about a third of the shares, the debate is whether ROE above 30% shows a stronger business or mainly reflects buybacks and debt that also tightens family control.</p>
         <div class="ct-side">
           <span class="ct-side-tag bull">BULL</span>
-          <span class="ct-side-text">Bulls point to NPD's long record of shareholder returns. The dividend has risen for 16 years, the FY26 total-return ratio is guided at 91.2%, and the ¥1.5bn buyback that finished in May was followed immediately by a new ¥1.0bn program on June 5. Management targets return on equity above 30%, which buybacks support by shrinking equity. Because every repurchase near a multi-year low lifts per-share value, minority shareholders benefit as well. <b>The bull case gets stronger if FY26 results include a formal payout policy or a larger buyback.</b></span>
+          <span class="ct-side-text">Bulls point to NPD's long record of shareholder returns. The dividend is on course for a 16th straight annual increase, the FY26 total-return ratio is guided at 91.2%, and the ¥1.5bn buyback that finished in May was followed immediately by a new ¥1.0bn program on June 5. Management targets return on equity above 30%, which buybacks support by shrinking equity. Because every repurchase near a multi-year low lifts per-share value, minority shareholders benefit as well. <b>The bull case gets stronger if FY26 results include a formal payout policy or a larger buyback.</b></span>
         </div>
         <div class="ct-side">
           <span class="ct-side-tag bear">BEAR</span>
@@ -660,7 +308,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
           </div>
           <div class="cat-viz-bar-row">
             <div class="cat-viz-bar-label">Buybacks (FY26E)</div>
-            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:45%;background:#b08a4a"></div></div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:45%;background:#9a7838"></div></div>
             <div class="cat-viz-bar-val">¥2.6bn</div>
           </div>
           <div class="cat-viz-bar-row" style="border-top:1px dashed var(--rule);padding-top:8px;margin-top:4px;">
@@ -668,7 +316,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
             <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:91%;background:#2f6f4f"></div></div>
             <div class="cat-viz-bar-val">91.2%</div>
           </div>
-          <div class="cat-viz-cap">dividends plus buybacks return 91.2% of FY26 net income; the dividend has risen 16 years running</div>
+          <div class="cat-viz-cap">dividends plus buybacks return 91.2% of FY26 net income; the dividend is guided to a 16th straight annual increase</div>
         </div>
         <div class="cat-takeaway">
           NPD already returns most of its profit — a 49.3% dividend payout, a 14.4% dividend-on-equity, and uses buybacks for the rest — but the policy is decided year by year. It has not published a target payout, a formal written ROE target outside the briefing materials, or a clear plan for how much treasury stock it will hold. Because it carries 10.4% of its shares in treasury and aims for ROE above 30%, a stated framework — and cancellation of treasury stock — would help investors treat shareholder returns as a policy, not a year-by-year decision. <b>The next check is whether FY26 results in September add one.</b>
@@ -722,7 +370,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
           </div>
           <div class="cat-viz-bar-row">
             <div class="cat-viz-bar-label">Net new (9M)</div>
-            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:18%;background:#b08a4a"></div></div>
+            <div class="cat-viz-bar-track"><div class="cat-viz-bar-fill" style="width:18%;background:#9a7838"></div></div>
             <div class="cat-viz-bar-val">+118</div>
           </div>
           <div class="cat-viz-bar-row">
@@ -774,7 +422,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
           <li>No payout framework; net debt rises with buybacks.</li>
           <li>The EV/EBIT multiple stays at a leisure-sector level of 7&ndash;8x.</li>
         </ul>
-        <p style="font-family: var(--serif); font-size: 12.5px; color: var(--text-mid); line-height: 1.6; margin: 12px 0 0; font-style: italic;">Even here, the 16-year dividend record and guided 91% payout limit the downside; the September-2025 multiple of about 11x looks like the high point of the cycle.</p>
+        <p style="font-family: var(--serif); font-size: 12.5px; color: var(--text-mid); line-height: 1.6; margin: 12px 0 0; font-style: italic;">Even here, 15 straight dividend increases (a 16th guided) and the guided 91% payout limit the downside; the September-2025 multiple of about 11x looks like the high point of the cycle.</p>
       </div>
 
       <div class="scn-card base">
@@ -842,7 +490,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
         <div class="sotp-row"><span class="k">Park24 (4666) · parking</span><span class="v">~5.9x</span></div>
         <div class="sotp-row"><span class="k">Aeon Fantasy (4343) · amusement</span><span class="v">~4.9x</span></div>
         <div class="sotp-row"><span class="k">Nippon Ski Resort Dev (6040) · ski sub</span><span class="v">~6.5x</span></div>
-        <div class="sotp-row"><span class="k">Fujikyuko (9010) · leisure + rail</span><span class="v">~10.1x</span></div>
+        <div class="sotp-row"><span class="k">Fujikyuko (9010) · leisure + rail</span><span class="v">~11.5x</span></div>
         <div class="sotp-row"><span class="k">Vail Resorts (NYSE:MTN) · ski</span><span class="v">~10.9x</span></div>
         <div class="sotp-row"><span class="k">Compagnie des Alpes (EPA:CDA) · ski+parks</span><span class="v">~6.1x*</span></div>
         <div class="sotp-row"><span class="k">Nippon Parking Dev (2353)</span><span class="v">~7.0x</span></div>

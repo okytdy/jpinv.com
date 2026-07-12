@@ -337,7 +337,7 @@
 
   function renderEmpty(){
     var msg = state.mode === "ticker"
-      ? 'No capital-allocation disclosures from this ticker in the last 24 months. Management has not announced buybacks, dividend changes, cross-shareholding unwinds, take-privates, or cost-of-capital framework updates in this window. For investors hunting re-rating catalysts at the capital-policy level, this name has been quiet — the first qualifying disclosure will appear here automatically.'
+      ? 'No capital-allocation disclosures from this ticker in the last 24 months. Management has not announced buybacks, dividend changes, cross-shareholding unwinds, take-privates, or cost-of-capital framework updates in this window. For investors hunting re-rating catalysts at the capital-policy level, the company has been quiet — the first qualifying disclosure will appear here automatically.'
       : 'No disclosures match the current filter. Toggle class chips to widen the view.';
     $feed.innerHTML = '<div class="feed-empty">' + escapeHTML(msg) + '</div>';
   }

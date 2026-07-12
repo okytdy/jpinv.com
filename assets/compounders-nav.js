@@ -1,8 +1,8 @@
 /* ===================================================================
    JII Compounders — shared top tab navigation.
    Self-injecting: one <script src="/assets/compounders-nav.js" defer> per
-   page renders a sticky horizontal tab bar (Universe · Analysis · Policy
-   Map · Active Investors · Capital Disclosure · Contact), auto-detecting the
+   page renders a sticky horizontal tab bar (Universe · Profiles ·
+   Active Investors · Signals Feed · Contact), auto-detecting the
    language (/en/ vs root) and the active tab from the URL. No dependencies.
    Edit the `tabs` array below to rename / reorder / add tabs in one place.
    =================================================================== */
@@ -16,16 +16,14 @@
   var tabs = [
     { k: "universe", en: "Universe",         ja: "ユニバース",       href: P + "/compounders/universe/" },
     { k: "profiles", en: "Profiles",         ja: "銘柄分析",         href: P + "/compounders/profiles/" },
-    { k: "policy",   en: "Policy Themes",    ja: "政策地図",         href: P + "/compounders/policymap/" },
-    { k: "active",   en: "Active Investors", ja: "アクティブ投資家",       href: P + "/compounders/active-investors/" },
+    { k: "active",   en: "New 5% Disclosures", ja: "大量保有報告",       href: P + "/compounders/active-investors/" },
     { k: "signals",  en: "Signals Feed",     ja: "資本政策開示",     href: P + "/compounders/feed/" },
     { k: "contact",  en: "Contact",          ja: "お問い合わせ",     href: isEn ? "/en/contact/" : "/contact/" }
   ];
 
   var isLanding = /^\/(en\/)?compounders\/?$/.test(p);
   if (isLanding) {
-    var anchors = { universe: "#sec-universe", profiles: "#sec-profiles", policy: "#sec-policy",
-                    active: "#sec-active-investors", signals: "#sec-signals" };
+    var anchors = { profiles: "#sec-profiles" };
     for (var ai = 0; ai < tabs.length; ai++) {
       if (anchors[tabs[ai].k]) tabs[ai].href = anchors[tabs[ai].k];
     }
@@ -33,7 +31,6 @@
 
   function activeKey() {
     if (/\/compounders\/profiles\//.test(p)) return "profiles";
-    if (/\/compounders\/policymap\//.test(p)) return "policy";
     if (/\/compounders\/active-investors\//.test(p)) return "active";
     if (/\/compounders\/feed\//.test(p)) return "signals";
     if (/\/compounders\/universe\//.test(p)) return "universe";
@@ -73,7 +70,7 @@
     ".cmpnav-tabs.cmpnav-open{display:flex;}.cmpnav-tabs{gap:0;}.cmpnav-tab{padding:13px 28px;border-bottom:none;}" +
     ".cmpnav-on{border-bottom:none;border-left:3px solid var(--accent,#b08a4a);}}" +
     "html{scroll-behavior:smooth;}" +
-    "#sec-universe,#sec-profiles,#sec-policy,#sec-active-investors,#sec-signals{scroll-margin-top:64px;}" +
+    "#sec-profiles,#sec-links{scroll-margin-top:64px;}" +
     "@media(prefers-reduced-motion:reduce){.cmpnav-tab{transition:none;}html{scroll-behavior:auto;}}" +
     "/* retire the duplicate logo/home-link below the sticky nav */" +
     ".hero-brand,.crumb,.masthead-inner .brand-home-link{display:none!important;}";
