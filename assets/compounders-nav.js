@@ -1,8 +1,8 @@
 /* ===================================================================
    JII Compounders — shared top tab navigation.
-   Self-injecting: one <script src="/assets/compounders-nav.js?v=20260712" defer>
-   per page renders a sticky horizontal tab bar (Profiles · Universe ·
-   Signals Feed · Disclosures · Methodology · Contact), auto-detecting the
+   Self-injecting: one <script src="/assets/compounders-nav.js?v=20260712b" defer>
+   per page renders a sticky horizontal tab bar (Methodology · Profiles · Universe ·
+   Signals Feed · Disclosures · Contact), auto-detecting the
    language (/en/ vs root) and the active tab from the URL. No dependencies.
    Edit the `tabs` array below to rename / reorder / add tabs in one place.
    =================================================================== */
@@ -14,12 +14,12 @@
   var P = isEn ? "/en" : "";
 
   var tabs = [
-    { k: "profiles",    en: "Profiles",     ja: "プロファイル",   href: P + "/compounders/profiles/" },
-    { k: "universe",    en: "Universe",     ja: "ユニバース",     href: P + "/compounders/universe/" },
-    { k: "signals",     en: "Signals Feed", ja: "シグナル",       href: P + "/compounders/feed/" },
-    { k: "disclosures", en: "Disclosures",  ja: "大量保有開示",   href: P + "/compounders/active-investors/" },
-    { k: "methodology", en: "Methodology",  ja: "メソドロジー",   href: P + "/compounders/methodology/" },
-    { k: "contact",     en: "Contact",      ja: "お問い合わせ",   href: P + "/compounders/#company-call-request" }
+    { k: "methodology", en: "Methodology",  ja: "着眼点",             href: P + "/compounders/methodology/" },
+    { k: "profiles",    en: "Profiles",     ja: "銘柄分析",           href: P + "/compounders/profiles/" },
+    { k: "universe",    en: "Universe",     ja: "銘柄スクリーニング", href: P + "/compounders/universe/" },
+    { k: "signals",     en: "Signals Feed", ja: "資本政策開示",       href: P + "/compounders/feed/" },
+    { k: "disclosures", en: "Disclosures",  ja: "大量保有報告",       href: P + "/compounders/active-investors/" },
+    { k: "contact",     en: "Contact",      ja: "お問い合わせ",       href: P + "/compounders/#company-call-request" }
   ];
 
   var isLanding = /^\/(en\/)?compounders\/?$/.test(p);
