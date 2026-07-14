@@ -28,7 +28,7 @@
   }
   *, *::before, *::after { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; background: var(--bg-mid); }
-  body { display: flex; justify-content: center; padding: 30px 0; font-family: var(--sans); color: var(--text); font-size: 14px; line-height: 1.65; }
+  body { display: flex; justify-content: center; padding: 30px 0; font-family: var(--sans); color: var(--text); font-size: 16px; line-height: 1.65; }
 
   .card {
     background: var(--bg); color: var(--text); width: 100%; max-width: 1200px; margin: 0 auto;
@@ -91,7 +91,7 @@
   .section-head { margin-bottom: 22px; display: flex; flex-direction: column; gap: 8px; max-width: 1080px; }
   .section-num { font-family: var(--mono); font-size: 10px; letter-spacing: 0.26em; color: var(--accent-deep); font-weight: 500; }
   .section-title { font-family: var(--serif); font-size: 30px; font-weight: 300; color: var(--ink-mid); margin: 0; letter-spacing: 0.01em; line-height: 1.2; }
-  .section-sub { font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--text-mid); line-height: 1.55; margin: 0; }
+  .section-sub { font-family: var(--serif); font-style: italic; font-size: 17px; color: var(--text-mid); line-height: 1.55; margin: 0; }
   .section-sub b { color: var(--ink-mid); font-weight: 500; font-style: normal; }
 
   /* ---- CHART (TradingView widget) ---- */
@@ -112,7 +112,7 @@
   .chart-legend .leg-swatch.hist { background: rgba(48,68,102,0.45); }
 
   /* ---- REGIME narrative ---- */
-  .regime-narr { font-family: var(--serif); font-size: 15px; color: var(--text); line-height: 1.85; max-width: 1080px; margin-top: 26px; }
+  .regime-narr { font-family: var(--serif); font-size: 17px; color: var(--text); line-height: 1.85; max-width: 1080px; margin-top: 26px; }
   .regime-narr p { margin: 0 0 16px; }
   .regime-narr p:last-child { margin-bottom: 0; }
   .regime-narr b { color: var(--ink-mid); font-weight: 500; }
@@ -130,7 +130,7 @@
   .ct-side-tag { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; padding: 2px 7px; border: 1px solid; flex: none; min-width: 42px; text-align: center; line-height: 1.4; font-weight: 500; }
   .ct-side-tag.bull { color: var(--ok); border-color: var(--ok); }
   .ct-side-tag.bear { color: var(--bad); border-color: var(--bad); }
-  .ct-side-text { font-family: var(--sans); font-size: 15px; color: var(--text); line-height: 1.7; }
+  .ct-side-text { font-family: var(--sans); font-size: 17px; color: var(--text); line-height: 1.7; }
   .ct-side-text b { color: var(--ink-mid); font-weight: 500; }
   .ct-proof { font-family: var(--mono); font-size: 10px; letter-spacing: 0.05em; color: var(--text-mid); margin-top: 14px; padding-top: 11px; border-top: 1px solid var(--rule); }
   .ct-proof span { color: var(--accent-deep); text-transform: uppercase; letter-spacing: 0.14em; font-weight: 500; }
@@ -148,7 +148,7 @@
   .cat-viz-bar-fill { height: 100%; }
   .cat-viz-bar-val { width: 64px; text-align: right; color: var(--ink-mid); font-size: 11px; font-weight: 500; }
   .cat-viz-cap { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; color: var(--accent-deep); text-transform: uppercase; margin-top: 9px; padding-top: 7px; border-top: 1px dashed var(--rule); font-weight: 500; }
-  .cat-takeaway { font-family: var(--sans); font-size: 15px; color: var(--text); line-height: 1.7; margin-top: 4px; }
+  .cat-takeaway { font-family: var(--sans); font-size: 17px; color: var(--text); line-height: 1.7; margin-top: 4px; }
   .cat-takeaway b { color: var(--ink-mid); font-weight: 500; }
   .cat-meta { display: flex; gap: 16px; margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--rule); }
   .cat-meta div { flex: 1; }
@@ -171,11 +171,11 @@
   .scn-delta.flat { color: var(--text-mid); }
   .scn-delta.up { color: var(--ok); }
   .scn-mult { font-family: var(--mono); font-size: 11px; color: var(--text-dim); letter-spacing: 0.06em; margin-bottom: 16px; }
-  .scn-prem { font-family: var(--serif); font-size: 14px; color: var(--ink-mid); line-height: 1.55; padding: 12px 14px; background: rgba(255,255,255,0.65); border: 1px solid var(--rule-soft); margin-bottom: 14px; }
+  .scn-prem { font-family: var(--serif); font-size: 16px; color: var(--ink-mid); line-height: 1.55; padding: 12px 14px; background: rgba(255,255,255,0.65); border: 1px solid var(--rule-soft); margin-bottom: 14px; }
   .scn-prem b { color: var(--ink-mid); font-weight: 500; }
   .scn-driver-head { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 8px; font-weight: 500; padding-top: 4px; }
   .scn-drivers { list-style: none; margin: 0; padding: 0; }
-  .scn-drivers li { font-family: var(--sans); font-size: 12.5px; color: var(--text); line-height: 1.5; padding: 6px 0 6px 18px; position: relative; }
+  .scn-drivers li { font-family: var(--sans); font-size: 14.5px; color: var(--text); line-height: 1.5; padding: 6px 0 6px 18px; position: relative; }
   .scn-drivers li::before { content:''; position: absolute; left: 0; top: 12px; width: 8px; height: 1px; background: var(--text-dim); }
   .scn-drivers li b { color: var(--ink-mid); font-weight: 500; }
 
@@ -252,7 +252,7 @@
 
   /* Phone — full single-column reading view */
   @media (max-width: 760px) {
-    body { display: block; padding: 0; font-size: 15px; line-height: 1.7; background: var(--bg); }
+    body { display: block; padding: 0; font-size: 17px; line-height: 1.7; background: var(--bg); }
     .card { width: 100%; max-width: 100%; border-left: 0; border-right: 0; box-shadow: none; }
 
     /* Masthead → stacked */
@@ -274,7 +274,7 @@
     .section { padding: 28px 18px 28px; }
     .section-head { margin-bottom: 18px; }
     .section-title { font-size: 24px; line-height: 1.25; }
-    .section-sub { font-size: 14px; }
+    .section-sub { font-size: 16px; }
 
     /* Chart */
     .tv-container { height: 320px; }
@@ -283,17 +283,17 @@
     .chart-legend { padding: 10px 16px; gap: 14px; row-gap: 6px; }
 
     /* Narrative & dense-text bumps */
-    .regime-narr { font-size: 15px; line-height: 1.8; margin-top: 22px; }
+    .regime-narr { font-size: 17px; line-height: 1.8; margin-top: 22px; }
     .ct-card, .cat-card, .scn-card, .sotp-card { padding: 20px 18px; }
-    .ct-side-text { font-size: 15px; }
+    .ct-side-text { font-size: 17px; }
     .ct-q { font-size: 16.5px; }
-    .cat-takeaway { font-size: 15px; }
+    .cat-takeaway { font-size: 17px; }
     .cat-title { font-size: 17px; }
     .cat-viz-bar-label { width: 80px; font-size: 10.5px; }
     .cat-viz-bar-val { width: 56px; font-size: 10.5px; }
-    .scn-drivers li { font-size: 14px; line-height: 1.55; }
+    .scn-drivers li { font-size: 16px; line-height: 1.55; }
     .scn-price { font-size: 28px; }
-    .scn-prem { font-size: 14px; }
+    .scn-prem { font-size: 16px; }
 
     /* Grids → single column */
     .ct-grid, .cat-grid, .scn-grid, .sotp { grid-template-columns: 1fr; gap: 16px; }
