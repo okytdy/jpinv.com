@@ -28,6 +28,20 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/profile.css">
 <script src="/assets/locale-switcher.js" defer></script>
+<style id="v2-inflections">
+.infl-glance{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 22px;}
+.glance-chip{display:flex;flex-direction:column;gap:4px;padding:12px 14px;border:1px solid var(--rule,#d6dee8);border-radius:8px;background:#fff;}
+.glance-chip .g-pillar{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:#0f1f3a;font-weight:700;}
+.glance-chip .g-dir{font-size:11px;font-weight:600;font-family:'DM Mono',monospace;}
+.glance-chip .g-dir.up{color:#2f6f4f;}.glance-chip .g-dir.watch{color:#9a7838;}.glance-chip .g-dir.stable{color:#7a8290;}
+.glance-chip .g-one{font-family:var(--serif,Georgia,serif);font-size:12.5px;color:#4a5566;line-height:1.5;}
+.infl-entry{border-top:1px solid var(--rule,#d6dee8);padding-top:10px;margin-top:10px;}
+.infl-entry:first-of-type{border-top:none;padding-top:2px;margin-top:6px;}
+.infl-date{font-size:11px;color:#9a7838;letter-spacing:.06em;margin-bottom:4px;font-family:'DM Mono',monospace;}
+.infl-date.muted{color:#7a8290;}.infl-date.new{color:#2f6f4f;}.infl-date.risk{color:#b91c1c;}
+.infl-entry p{margin:0;}
+@media(max-width:720px){.infl-glance{grid-template-columns:1fr;}}
+</style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebPage","url":"https://jpinv.com/compounders/8088/initiation/","name":"8088 岩谷産業｜JII Compounders銘柄レポート","description":"岩谷産業（8088）を日本株アナリスト目線で分析。LPガス、産業ガス、水素、資本政策、価格転嫁、投資回収とバリュエーションを整理します。","inLanguage":"ja"}
 </script>
@@ -132,17 +146,111 @@
     <p>弱気シナリオでは、エネルギー市況の変動でマージンが揺れ、水素投資やM&Aが先行費用としてROEを押し下げます。この場合、株価はテーマ性よりも実績利益で評価され、PER一桁台へ戻る可能性があります。結論として、岩谷産業は「水素だけの株」ではなく、安定キャッシュフローを持つ総合エネルギー商社です。投資判断の鍵は、水素の夢をどれだけ本業の利益と資本効率に接続できるかにあります。</p>
   </section>
 
-  <!-- ============================== DISCLAIMER ============================== -->
-  <section class="section disclaimer-section">
-    <div class="section-head">
-      <div class="section-num">免責事項</div>
-      <h2 class="section-title">本稿は投資助言ではありません。</h2>
+<!-- ============================== SHARE BAR ============================== -->
+  <section class="share-bar" id="jii-share"
+           data-share-text="岩谷産業（8088）は、LPガスと産業ガスの安定収益に、水素の長期オプションを重ねる総合エネルギー商社。JII Compounders銘柄レポート。"
+           data-share-url="https://jpinv.com/compounders/8088/"
+           data-share-subject="JII Compounders · 8088 岩谷産業"
+           data-copy-label="リンクをコピー"
+           data-copied-label="コピーしました">
+    <div class="share-head">
+      <span class="share-eyebrow">Share</span>
+      <span class="share-sub">気になった方へ共有する</span>
     </div>
-    <p>本稿は情報提供を目的としたものであり、特定の有価証券の売買を推奨するものではありません。記載された情報は作成時点で信頼できると判断した情報に基づきますが、その正確性、完全性、将来の業績や株価を保証するものではありません。投資判断は読者ご自身の責任で行ってください。</p>
+    <div class="share-btns">
+      <a class="share-btn share-x" target="_blank" rel="noopener" aria-label="Xで共有">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        <span>X</span>
+      </a>
+      <a class="share-btn share-em" aria-label="メールで共有">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5z"/></svg>
+        <span>メール</span>
+      </a>
+      <button type="button" class="share-btn share-cp" aria-label="リンクをコピー">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11z"/></svg>
+        <span class="lbl">リンクをコピー</span>
+      </button>
+    </div>
+    <div class="share-perm">固定リンク · <code id="jii-share-url-display"></code></div>
   </section>
+
+  <!-- ============================== DISCLAIMER ============================== -->
+  <section class="disclaimer">
+    <div class="disclaimer-head">
+      <span class="d-eyebrow">重要なご注意</span>
+      <h2 class="d-title">本資料は投資助言ではありません。</h2>
+    </div>
+    <div class="disclaimer-body">
+      <p>
+        <b>株式会社ジャパン・インベスター・インターフェース（以下「JII」）</b>はIRコンサルティング事業を行う会社であり、いかなる管轄においても投資助言業者、金融アドバイザー、証券会社、または証券業者として登録されていません。JIIは、日本の金融商品取引法に基づく<b>金融商品取引業者</b>ではなく、投資助言・代理業の登録も保有しておりません。JIIは、投資助言を行うものでも、特定の有価証券の取得・売却・保有を勧誘するものでもありません。
+      </p>
+      <p>
+        <b>JII Compoundersは、教育・調査を目的とする編集コンテンツです。</b>各銘柄レポートは、日本の上場企業が公表している情報をもとに、その情報が市場でどのように受け止められてきたかを考察するものです。想定読者は、IR実務者、金融を学ぶ方、報道関係者、企業開示に関心のある方です。<b>掲載内容は、いかなる有価証券、デリバティブその他の金融商品の取得・売却・保有を推奨、提案、勧誘するものではありません。</b>株価水準、シナリオ、評価倍率、類似企業比較は分析方法を示すための例であり、JIIの投資判断を示すものではありません。
+      </p>
+      <p>
+        <b>ご利用にあたって。</b>記載情報は不完全であったり、古くなっていたり、誤りを含んでいたりする可能性があります。将来に関する記述には不確実性があります。過去の株価推移は将来の成果を示すものではありません。推計値やシナリオ値は予測ではなく、実現しない可能性があります。
+      </p>
+      <p>
+        <b>助言関係等は生じません。</b>本コンテンツを閲覧しても、読者とJIIとの間に助言、受託、その他専門職としての関係は生じません。投資、税務、会計、法務その他の判断を行う前に、資格を有する専門家にご相談ください。
+      </p>
+      <p>
+        <b>利益相反および保有状況。</b>JIIは、本コンテンツで言及する企業を含め、日本の上場企業に対して有償でIR診断、翻訳、通訳等のサービスを提供する場合があります。JIIは、銘柄レポートの対象企業の有価証券を売買せず、保有もしません。対象企業との間に有償契約がある場合は、銘柄レポートの冒頭で開示します。
+      </p>
+      <p>
+        <b>商標およびデータ。</b>本資料中で言及される企業名、ロゴ、ティッカー、製品名は、各々の所有者に帰属します。株価データは第三者プロバイダーからライセンスを受けています。
+      </p>
+    </div>
+  </section>
+
+  <div class="meth">
+    <span><a href="/compounders/">すべての銘柄レポート</a> · <a href="/compounders/methodology/">6つの着眼点</a></span>
+    <span class="report-footer-locale">言語: <a href="/compounders/8088/" class="current" aria-current="page" lang="ja">JP</a></span>
+    <span>Japan Investor Interface Co., Ltd.</span>
+  </div>
 
 </article>
 </main>
+
+<!-- ============================== SHARE BAR · WIRING ============================== -->
+<script>
+(function(){
+  var root = document.getElementById('jii-share');
+  if(!root) return;
+  var text = root.dataset.shareText;
+  var url = root.dataset.shareUrl;
+  var subject = root.dataset.shareSubject;
+  var copyLabel = root.dataset.copyLabel;
+  var copiedLabel = root.dataset.copiedLabel;
+  var e = encodeURIComponent;
+
+  var x = root.querySelector('.share-x');
+  if(x) x.href = 'https://twitter.com/intent/tweet?text=' + e(text) + '&url=' + e(url);
+  var em = root.querySelector('.share-em');
+  if(em) em.href = 'mailto:?subject=' + e(subject) + '&body=' + e(text + '\n\n' + url);
+
+  var perm = document.getElementById('jii-share-url-display');
+  if(perm) perm.textContent = url;
+
+  var cp = root.querySelector('.share-cp');
+  if(!cp) return;
+  var lbl = cp.querySelector('.lbl');
+  cp.addEventListener('click', function(){
+    var doFlash = function(){
+      if(lbl) lbl.textContent = copiedLabel;
+      cp.classList.add('copied');
+      window.setTimeout(function(){ if(lbl) lbl.textContent = copyLabel; cp.classList.remove('copied'); }, 1600);
+    };
+    if(navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(doFlash, function(){});
+    } else {
+      var ta = document.createElement('textarea');
+      ta.value = url; document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); doFlash(); } catch(_){}
+      document.body.removeChild(ta);
+    }
+  });
+})();
+</script>
 
 <script src="/assets/compounders-nav.js?v=20260712b" defer></script>
 </body>
