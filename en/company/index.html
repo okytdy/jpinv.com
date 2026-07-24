@@ -358,7 +358,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
       <span class="label">About JII</span>
       <div class="rule-accent"></div>
       <h2 class="mincho-lg">A diagnostics firm built on privileged observation in Japanese boardrooms</h2>
-      <div class="section-cta reveal"><a href="#contact" class="btn btn-primary" data-rfq-service="diagnostic" data-rfq-document="meeting_script" data-rfq-source="company_primary" data-rfq-message="Company primary CTA: I would like to discuss a founder-led diagnostic for our IR materials and investor-meeting context.">Talk to the founder via RFQ</a></div>
+      <div class="section-cta reveal"><a href="#contact" class="btn btn-primary" data-rfq-service="diagnostic" data-rfq-document="meeting_script" data-rfq-source="company_primary" data-rfq-message="Company primary CTA: I would like to discuss a founder-led diagnostic for our IR materials and overseas investor-meeting context.">Talk to the founder via RFQ</a></div>
     </div>
     <div class="about-grid reveal">
       <div>
@@ -368,10 +368,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
         <h3>Teddy Okuyama — Founder</h3>
         <div class="role">Founder · Japan Investor Interface Co., Ltd.</div>
         <p>US-born, Japan-based. Founded Japan Investor Interface Co., Ltd. in 2023. Has sat inside more than 300 meetings between Japanese listed companies and foreign investors — the only person in the room hearing both sides with full comprehension — and returns that observation to IR / CFO / corporate-planning teams as a <strong>structured view of how foreign capital actually perceives the company</strong>.</p>
-        <p>The Foreign IR Diagnostic Card is the core product, but translation, English review, and investor-meeting interpretation can also be requested on their own.</p>
+        <p>The Foreign IR Diagnostic Card is the core product, but translation, English review, and overseas investor-meeting interpretation can also be requested on their own.</p>
 
         <div class="proof-row">
-          <div class="proof-cell"><div class="proof-num">300<em>+</em></div><div class="proof-label">Investor / company meetings observed</div></div>
+          <div class="proof-cell"><div class="proof-num">300<em>+</em></div><div class="proof-label">Overseas investor / company meetings observed</div></div>
           <div class="proof-cell"><div class="proof-num">80<em>+</em></div><div class="proof-label">CFO / CEO / board-level meetings</div></div>
           <div class="proof-cell"><div class="proof-num">40<em>+</em></div><div class="proof-label">Different foreign funds engaged</div></div>
         </div>
@@ -431,7 +431,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
                 <option value="">Select one</option>
                 <option value="translation">IR / disclosure translation</option>
                 <option value="editing_review">English disclosure review / editing</option>
-                <option value="interpretation">Investor-meeting interpretation</option>
+                <option value="interpretation">Overseas investor-meeting interpretation</option>
                 <option value="diagnostic">Foreign IR diagnostic and recommendations</option>
                 <option value="other">Other / not sure yet</option>
               </select>
@@ -484,7 +484,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
             </div>
             <div class="form-row full">
               <label for="message">Notes and requirements<span class="form-required" aria-hidden="true">*</span></label>
-              <textarea id="message" name="message" placeholder="Tell us the use case, target investors, document status, confidentiality needs, and desired deliverable." required minlength="20" aria-describedby="message-desc message-error" aria-invalid="false"></textarea>
+              <textarea id="message" name="message" placeholder="Tell us the use case, target overseas investors, document status, confidentiality needs, and desired deliverable." required minlength="20" aria-describedby="message-desc message-error" aria-invalid="false"></textarea>
               <p class="form-description" id="message-desc">If files need to be shared, send them as a reply to our acknowledgement email. We can also receive materials after an NDA.</p>
               <p class="form-field-error" id="message-error" role="alert" aria-live="assertive" aria-atomic="true"></p>
             </div>
@@ -577,7 +577,7 @@ document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 const recommendations = {
   light:    { tag: 'Recommended: Light',    title: 'Light — start with the initial diagnostic', body: 'Foreign meetings without conversion is usually a structural problem, not a translation one. Light is the lowest-commitment way to map exactly where the disconnect is.', value: 'Light — Initial Diagnostic (¥200,000)' },
   standard: { tag: 'Recommended: Standard', title: 'Standard — roll the diagnostic into the quarterly cycle', body: 'Same questions returning, weak traction on capital allocation or ROIC — these are signs that the diagnostic needs to live inside the quarterly cycle. Standard does that.', value: 'Standard — Disclosure Improvement (¥100,000/mo)' },
-  pro:      { tag: 'Recommended: Pro',      title: 'Pro — full meeting cycle and feedback loop', body: 'Activist / material shareholder situations, or running active foreign IR and wanting every reaction fed back into disclosure, point to Pro. Investor meeting prep, interpretation and post-meeting reaction notes are included.', value: 'Pro — Investor-Meeting Cycle (¥200,000/mo)' }
+  pro:      { tag: 'Recommended: Pro',      title: 'Pro — full meeting cycle and feedback loop', body: 'Activist / material shareholder situations, or running active foreign IR and wanting every reaction fed back into disclosure, point to Pro. Overseas investor meeting prep, interpretation and post-meeting reaction notes are included.', value: 'Pro — Investor-Meeting Cycle (¥200,000/mo)' }
 };
 document.querySelectorAll('.selfcheck-opt').forEach(btn => {
   btn.addEventListener('click', () => {
