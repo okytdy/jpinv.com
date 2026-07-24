@@ -1,0 +1,99 @@
+name: feed-reclassify-backfill
+
+# JII Compounders -- one-time reclassification backfill: MBO -> M_AND_A.
+#
+# The classifier used to read every 完全子会社化 as a take-private, so a listed
+# company acquiring another company (outbound M&A) was mislabelled "Take-private".
+# classifier.py now decides direction and routes the buyer case to a new class,
+# M_AND_A, but rows already in feed.json are skipped by the incremental refresh
+# (id-based dedupe), so they keep the old label. This workflow runs the one-time
+# pass (tools/backfill_reclassify_mbo.py) on the LIVE data and commits the result.
+#
+# No API key, no PDF fetch, no cost -- pure re-labelling from stored titles.
+# Safe to run more than once (idempotent).
+
+on:
+  workflow_dispatch:
+    inputs:
+      note:
+        description: 'Optional note for the run summary'
+        required: false
+        default: 'reclassify MBO -> M_AND_A'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: feed-reclassify-backfill
+  cancel-in-progress: false
+
+jobs:
+  reclassify:
+    name: Reclassify outbound M&A rows
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 1
+
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run reclassification backfill
+        id: run
+        env:
+          PYTHONUNBUFFERED: '1'
+        run: |
+          set -euo pipefail
+          python tools/backfill_reclassify_mbo.py
+
+      - name: Validate feed
+        run: |
+          set -euo pipefail
+          python tools/validate_feed.py || true
+
+      - name: Check for changes
+        id: diff
+        run: |
+          set -euo pipefail
+          if [ -n "$(git status --porcelain compounders/feed/data/)" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit and push
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          set -euo pipefail
+          git config user.name  "jii-feed-bot"
+          git config user.email "feed-bot@users.noreply.github.com"
+
+          TMPDIR="$(mktemp -d)"
+          cp -r compounders/feed/data "$TMPDIR/data"
+
+          git fetch origin main
+          git reset --hard origin/main
+
+          rm -rf compounders/feed/data
+          cp -r "$TMPDIR/data" compounders/feed/data
+
+          git add compounders/feed/data/
+          git commit -m "feed: reclassify outbound M&A (MBO -> M_AND_A) @ ${{ github.run_id }}"
+          git push
+
+      - name: Job summary
+        if: always()
+        run: |
+          {
+            echo "## Reclassification backfill"
+            echo ""
+            echo "- note: ${{ github.event.inputs.note }}"
+            echo "- changed: ${{ steps.diff.outputs.changed }}"
+            echo "- run id: ${{ github.run_id }}"
+          } >> "$GITHUB_STEP_SUMMARY"

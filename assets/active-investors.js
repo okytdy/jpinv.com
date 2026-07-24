@@ -23,6 +23,7 @@
       viewMore: "View more", flipHint: "See recent moves",
       recent: "recent filings", latest: "latest", noMoves: "No qualifying filings in the selected window.",
       feedTitle: "New 5% Filings — TSE-wide", feedSub: "Live · every new 5% large-shareholding report · any filer",
+      namesTentative: "(names are tentative translations)",
       viewAll: "View the full tool", viewAllFilings: "View all new 5% filings",
       tracked: "Tracked", showing: "showing", of: "of", investors: "investors",
       colDate: "Filed", colCo: "Company", colTk: "Ticker", colType: "Type", colMove: "Move",
@@ -259,8 +260,11 @@
       var search = (mode === "full" || mode === "feed")
         ? '<input class="ai-search ai-feed-search" id="ai-feed-search" type="text" placeholder="' + esc(L.feedSearch) + '" aria-label="' + esc(L.feedSearch) + '">'
         : "";
+      var namesNote = (lang === "en" && L.namesTentative)
+        ? '<span class="ai-names-note" style="font-family:var(--mono);font-size:10px;letter-spacing:0.06em;color:var(--text-dim);text-transform:none;white-space:nowrap;align-self:baseline;">' + esc(L.namesTentative) + "</span>"
+        : "";
       return '<div class="ai-feed-wrap"><div class="ai-feed-head"><h3 class="ai-feed-title">' + esc(L.feedTitle) + "</h3>" +
-        viewall + "</div><p class=\"ai-feed-sub\">" + esc(L.feedSub) + "</p>" + search +
+        (viewall || namesNote) + "</div><p class=\"ai-feed-sub\">" + esc(L.feedSub) + "</p>" + search +
         '<div class="ai-feed-list" id="ai-feed-list" aria-live="polite"></div>' +
         '<p class="ai-feed-foot">' + esc(L.sourceNote) + "</p></div>";
     }

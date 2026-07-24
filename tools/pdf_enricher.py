@@ -218,8 +218,9 @@ def _format_tag_en(class_code: str, facts: dict) -> str:
             old, new = facts["div_old"], facts["div_new"]
             return f"Dividend · ¥{old} → ¥{new}" + (f" (+{round((new-old)/old*100)}%)" if old else "")
         return "Dividend · details pending"
-    # COC, CROSS, MBO, COMP, GOV - rely on LLM
-    label_map = {"COC":"Cost-of-capital","CROSS":"Cross-shareholding","MBO":"Take-private","COMP":"Comp KPI","GOV":"Governance"}
+    # COC, CROSS, MBO, M_AND_A, COMP, GOV - rely on LLM
+    label_map = {"COC":"Cost-of-capital","CROSS":"Cross-shareholding","MBO":"Take-private",
+                 "M_AND_A":"M&A / Acquisition","COMP":"Comp KPI","GOV":"Governance"}
     return label_map.get(class_code, class_code)
 
 
@@ -248,7 +249,8 @@ def _format_tag_jp(class_code: str, facts: dict) -> str:
         if facts.get("div_old") and facts.get("div_new"):
             return f"配当 ・ ¥{facts['div_old']} → ¥{facts['div_new']}"
         return "配当方針・詳細確認中"
-    label_map = {"COC":"資本コスト経営","CROSS":"政策保有株式","MBO":"TOB / MBO","COMP":"役員報酬制度","GOV":"ガバナンスコード"}
+    label_map = {"COC":"資本コスト経営","CROSS":"政策保有株式","MBO":"TOB / MBO",
+                 "M_AND_A":"買収・子会社化","COMP":"役員報酬制度","GOV":"ガバナンスコード"}
     return label_map.get(class_code, class_code)
 
 
@@ -359,12 +361,21 @@ undervalued", "direct return of capital", "returns capital to shareholders",
 "reaffirms", "demonstrates commitment", "shareholder-friendly", "management
 focus on capital-efficiency targets", or any other interpretive boilerplate.
 
-=== CRITICAL distinction on tender offers ===
-If the issuer is buying its OWN shares via tender (自己株式の公開買付け),
-this is a BUYBACK method (self-tender). NEVER call it "take-private" or
-"MBO". True take-privates / MBO involve a THIRD PARTY acquiring the company
-with intent to delist (markers: 完全子会社化, 非公開化, スクイーズアウト,
-external acquirer named).
+=== CRITICAL distinction: WHO is being acquired? Decide direction first. ===
+- If the issuer is buying its OWN shares via tender (自己株式の公開買付け),
+  that is a BUYBACK method (self-tender). NEVER call it "take-private" or "MBO".
+- 完全子会社化 ("make wholly owned") is DIRECTION-AMBIGUOUS — it is NOT by
+  itself a take-private marker. If the LISTED FILER is the one being made
+  wholly owned by a parent and delisted (tells: 当社株式の上場廃止, 当社を完全
+  子会社とする, 株式等売渡請求 against the filer, MBO, 非公開化), that is a real
+  take-private (class MBO). If the LISTED FILER is making some OTHER company
+  wholly owned (tells: ○○の株式取得（完全子会社化）, 当社による○○の取得,
+  子会社化 of a named target, an unlisted or foreign subsidiary), then the
+  filer is the ACQUIRER — that is outbound M&A (class M_AND_A), NOT a
+  take-private. Describe it as the filer's acquisition of the target.
+- Trust the class code you are given: MBO = the filer is the target being
+  taken private; M_AND_A = the filer is the buyer. Never write that the filer
+  is being taken private when the class is M_AND_A.
 
 === STYLE ===
 - Plain English. No proprietary terms ("JII", "watch universe", "compounder",
@@ -515,7 +526,7 @@ def enrich(row: dict, llm_api_key: Optional[str] = None, budget=None) -> dict:
     }
 
     # Tier-C only if (a) we have an LLM key, (b) budget allows, (c) row would benefit.
-    tier_c_classes = {"COC", "CROSS", "MBO", "COMP", "GOV"}  # always benefit from prose
+    tier_c_classes = {"COC", "CROSS", "MBO", "M_AND_A", "COMP", "GOV"}  # always benefit from prose
     incomplete_tier_b = class_code in {"BUYBACK", "CANCEL", "DIV"} and not facts
     needs_tier_c = class_code in tier_c_classes or incomplete_tier_b or pdf_text  # if we have text, summarize
 

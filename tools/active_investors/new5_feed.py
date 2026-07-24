@@ -53,6 +53,47 @@ def _clean_filer(name: str) -> str:
     return (name or "").strip()
 
 
+def _summary_en(row: dict, filer_en: str, issuer_en: str) -> str:
+    """Rebuild the one-line English summary from a row + resolved English names.
+    Mirrors the sentence built for new rows in build()."""
+    code = row.get("issuer_code", "")
+    shares = row.get("shares_held")
+    shares_str = "{:,}".format(shares) if shares else None
+    curs = C.pct(row.get("current_holding_ratio"))
+    intent_en = C.INTENT_LABEL.get(row.get("intent", ""), {}).get("en", "")
+    te = filer_en + " reported a new 5%+ position in " + issuer_en + " (" + code + ")"
+    te += (": " + shares_str + " shares" if shares_str else "") + ", " + curs + "% of voting rights."
+    if intent_en:
+        te += " Stated purpose: " + intent_en + "."
+    return te
+
+
+def _reresolve_names(row: dict, inv_by_id: dict) -> bool:
+    """Upgrade a cached row's English names in place so the EN feed never shows
+    raw Japanese. Runs every build so history self-heals as the vocabulary and
+    the romanizer improve. Returns True if anything changed."""
+    iid = row.get("investor_id")
+    filer_raw = row.get("filer_raw_name", "")
+    if iid and iid in inv_by_id:
+        filer_en = inv_by_id[iid]["display_name"]
+    else:
+        filer_en = C.translate_fund_name(filer_raw) or C.tentative_en(filer_raw)[0] or filer_raw
+    issuer_en = C.issuer_en(row.get("issuer_code", ""), row.get("issuer_name", ""))[0] \
+        or row.get("issuer_name", "")
+
+    changed = False
+    if filer_en and row.get("filer_name_en") != filer_en:
+        row["filer_name_en"] = filer_en
+        changed = True
+    if issuer_en and row.get("issuer_name_en") != issuer_en:
+        row["issuer_name_en"] = issuer_en
+        changed = True
+    if changed or C.looks_japanese(row.get("summary_text_en", "")):
+        row["summary_text_en"] = _summary_en(row, filer_en, issuer_en)
+        changed = True
+    return changed
+
+
 def build(days: int, single_date: str | None, max_downloads: int, force_llm: bool):
     key = os.environ.get("EDINET_API_KEY", "").strip()
     if not key:
@@ -108,7 +149,8 @@ def build(days: int, single_date: str | None, max_downloads: int, force_llm: boo
             filer_code = (d.get("edinetCode") or "").strip()
             iid = C.attribute_investor(idx, filer_name=filer, edinet_code=filer_code)
             issuer = parsed.get("issuer_name") or d.get("issuerName") or ""
-            filer_en = inv_by_id[iid]["display_name"] if iid else (C.translate_fund_name(filer) or filer)
+            filer_en = inv_by_id[iid]["display_name"] if iid else (
+                C.translate_fund_name(filer) or C.tentative_en(filer)[0] or filer)
             filer_ja = inv_by_id[iid].get("display_name_ja", filer) if iid else filer
             row = {
                 "investor_id": iid,
@@ -131,7 +173,7 @@ def build(days: int, single_date: str | None, max_downloads: int, force_llm: boo
             s = template_summary(row, disp)
             # English company name (official JPX) + share count for the 2-line summary.
             code = parsed.get("issuer_code", "")
-            issuer_en = C.jpx_name_en(code) or issuer
+            issuer_en = C.issuer_en(code, issuer)[0] or issuer
             shares = parsed.get("shares_held")
             shares_str = ("{:,}".format(shares)) if shares else None
             intent_en = C.INTENT_LABEL.get(row["intent"], {}).get("en", "")
@@ -174,6 +216,16 @@ def build(days: int, single_date: str | None, max_downloads: int, force_llm: boo
         if downloads >= max_downloads:
             print(f"  hit max-downloads={max_downloads} at {date}; stopping (rerun to continue).")
             break
+
+    # Self-heal: re-resolve English names on every cached row so previously
+    # untranslated (Japanese) filer / issuer names get a real or tentative
+    # English rendering as the vocabulary and romanizer improve.
+    healed = 0
+    for r in rows.values():
+        if _reresolve_names(r, inv_by_id):
+            healed += 1
+    if healed:
+        print(f"[new5] re-resolved English names on {healed} existing row(s).")
 
     # Prune to KEEP_DAYS + cap, newest first.
     cutoff = (_dt.date.today() - _dt.timedelta(days=KEEP_DAYS)).isoformat()

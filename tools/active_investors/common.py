@@ -462,6 +462,14 @@ _FUND_VOCAB = {
     "日本": "Japan", "投資": "Investment", "投資顧問": "Investment Advisors",
     "不動産": "Real Estate", "南青山": "Minamiaoyama", "事業": "Business",
     "組合": "Partnership", "有限責任": "",
+    # financial-institution building blocks (frequent large-holding filers)
+    "バンク": "Bank", "銀行": "Bank", "証券": "Securities", "證券": "Securities",
+    "信託": "Trust", "生命": "Life", "保険": "Insurance", "アセットマネジメント": "Asset Management",
+    "ゴールドマン": "Goldman", "サックス": "Sachs", "シティグループ": "Citigroup",
+    "ドイツ": "Deutsche", "クレディ": "Credit", "スイス": "Suisse", "メリル": "Merrill",
+    "リンチ": "Lynch", "野村": "Nomura", "大和": "Daiwa", "みずほ": "Mizuho",
+    "三井住友": "Sumitomo Mitsui", "三菱": "Mitsubishi", "住友": "Sumitomo", "三井": "Mitsui",
+    "ジェーピー": "JP", "ジェイピー": "JP", "エヌエイチ": "NH", "サスケハナ": "Susquehanna",
 }
 _VOCAB_KEYS = sorted(_FUND_VOCAB.keys(), key=len, reverse=True)
 _CORP_FORMS = ("株式会社", "合同会社", "有限会社", "一般社団法人")
@@ -527,3 +535,92 @@ def translate_fund_name(name: str) -> str:
     out = " ".join(p for p in parts if p)
     out = out.replace(" & ", " & ")
     return out if out else ""
+
+
+# ---------------------------------------------------------------------------
+# Tentative English rendering (never leaves Japanese on the EN page)
+# ---------------------------------------------------------------------------
+# translate_fund_name() returns a real English name when a filer's katakana
+# resolves fully against the vocabulary, but returns "" the moment one segment
+# is unknown - so kanji company names, individuals, and unusual katakana fall
+# back to Japanese. That is what leaves untranslated names on the English feed.
+# tentative_en() closes that gap: it returns the real translation when there is
+# one, otherwise a best-effort Hepburn romanization so the name is at least in
+# Latin script. The caller shows a "(names are tentative translations)" note.
+
+_CORP_FORMS_STRIP = (
+    "株式会社", "合同会社", "有限会社", "一般社団法人", "特定非営利活動法人",
+    "投資事業有限責任組合", "投資事業組合", "有限責任事業組合", "特例有限会社",
+)
+_kakasi = None
+_kakasi_tried = False
+
+
+def _romaji(text: str) -> str:
+    """Hepburn romanization via pykakasi, or '' if the library is unavailable."""
+    global _kakasi, _kakasi_tried
+    if not _kakasi_tried:
+        _kakasi_tried = True
+        try:
+            import pykakasi  # optional dependency
+            _kakasi = pykakasi.kakasi()
+        except Exception:
+            _kakasi = None
+    if _kakasi is None:
+        return ""
+    import re as _re
+
+    def _collapse(w: str) -> str:
+        for a, b in (("ou", "o"), ("oo", "o"), ("uu", "u"), ("aa", "a"), ("ii", "i")):
+            w = w.replace(a, b)
+        return w
+
+    cleaned = _re.sub(r"[・･（）()／/｜|]", " ", text)
+    words = []
+    for seg in cleaned.split():
+        for item in _kakasi.convert(seg):
+            h = (item.get("hepburn") or "").strip()
+            if h:
+                words.append(_collapse(h).capitalize())
+    return " ".join(words).strip()
+
+
+def tentative_en(name: str):
+    """Return (english_name, is_tentative). Never returns Japanese text when
+    pykakasi is available. is_tentative is True only for the romaji fallback."""
+    import re as _re
+    n = unicodedata.normalize("NFKC", name or "").strip()
+    if not n:
+        return "", False
+    # Already Latin -> just tidy corporate forms; not tentative.
+    if not _re.search(r"[ぁ-んァ-ヶ一-龯]", n):
+        for cf in _CORP_FORMS_STRIP:
+            n = n.replace(cf, " ")
+        return _re.sub(r"\s+", " ", n).strip(), False
+    # A full, clean translation is available -> real, not tentative.
+    real = translate_fund_name(name)
+    if real and not _re.search(r"[ぁ-んァ-ヶ一-龯]", real):
+        return real, False
+    # Fallback: strip corporate forms, romanize the rest.
+    stripped = n
+    for cf in _CORP_FORMS_STRIP:
+        stripped = stripped.replace(cf, " ")
+    romaji = _romaji(stripped)
+    if romaji:
+        return romaji, True
+    # pykakasi missing -> leave the original (graceful degradation).
+    return name, False
+
+
+def issuer_en(code: str, jp_name: str):
+    """Official JPX English name for a ticker, else a tentative rendering of the
+    Japanese issuer name. Returns (english, is_tentative)."""
+    official = jpx_name_en(code)
+    if official:
+        return official, False
+    return tentative_en(jp_name)
+
+
+def looks_japanese(text: str) -> bool:
+    import re as _re
+    return bool(_re.search(r"[ぁ-んァ-ヶ一-龯]", text or ""))

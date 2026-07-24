@@ -40,8 +40,16 @@ DEFAULT_DATA_DIR = REPO_ROOT / "compounders" / "feed" / "data"
 
 FEED_ROW_CAP = 5_000
 
-VALID_CLASSES = {"COC", "BUYBACK", "CANCEL", "DIV", "CROSS", "MBO",
-                 "COMP", "GOV"}
+# Full set of class codes the classifier emits (subtypes), plus the legacy
+# group codes kept for backward compatibility with older seed rows.
+VALID_CLASSES = {
+    # group codes (legacy)
+    "COC", "BUYBACK", "CANCEL", "DIV", "CROSS", "MBO", "COMP", "GOV",
+    # subtype codes emitted by classifier.py
+    "M_AND_A", "BUYBACK_INIT", "BUYBACK_REV", "BUYBACK_BLOCK",
+    "BUYBACK_PROGRESS", "BUYBACK_HOUSE", "DIV_POLICY", "DIV_HIKE",
+    "COC_INITIAL", "COC_UPDATE", "COMP_KPI", "GOV_FLIP",
+}
 # Live source is TDnet only. EDINET remains accepted for legacy by-ticker
 # sample seed rows that predate the EDINET-removal cleanup.
 VALID_SOURCES = {"EDINET", "TDnet"}

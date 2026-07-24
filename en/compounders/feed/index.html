@@ -167,7 +167,8 @@
         <button class="chip active" data-cls="CANCEL" title="Treasury cancellation. Threshold: at least 0.5% of shares outstanding.">Cancellation</button>
         <button class="chip active" data-cls="DIV" title="Material dividend change. Payout-ratio jump at least 10pp, special div at least the recurring annual, first-ever dividend, or introduction of a progressive policy.">Dividend</button>
         <button class="chip active" data-cls="CROSS" title="Cross-shareholding unwind framed as policy or program (not a single tactical sale). Material threshold: explicit reduction policy, or specific sales over JPY500M.">Cross-shareholding</button>
-        <button class="chip active" data-cls="MBO" title="Take-private or tender. TOB, MBO, or full subsidiarization by parent. Any disclosure qualifies.">Take-private</button>
+        <button class="chip active" data-cls="MBO" title="Take-private of the LISTED company itself: a third party (parent, PE, or management) tendering for, squeezing out, or MBO-ing the filer with intent to delist it.">Take-private</button>
+        <button class="chip active" data-cls="M_AND_A" title="Outbound M&A: the listed company is the BUYER — acquiring another company, or buying a subsidiary up to 100% ownership (完全子会社化). This is capital deployment by the filer, not a take-private of the filer.">M&amp;A / Acquisition</button>
         <button class="chip active" data-cls="COMP" title="Comp-linked KPI revision. Must add a capital-efficiency metric (ROIC/ROCE/TSR) to executive compensation.">Comp KPI</button>
         <button class="chip active" data-cls="GOV" title="Governance-code signal. Flip from 'explain' to 'comply' on a capital-policy principle (1-4, 1-5, 5-2).">Governance</button>
       </div>
@@ -228,12 +229,13 @@
   "use strict";
   var CLASS_LABELS = {
     COC: "Cost-of-capital", BUYBACK: "Buyback", CANCEL: "Cancellation", DIV: "Dividend",
-    CROSS: "Cross-shareholding", MBO: "Take-private", COMP: "Comp KPI", GOV: "Governance"
+    CROSS: "Cross-shareholding", MBO: "Take-private", M_AND_A: "M&A / Acquisition",
+    COMP: "Comp KPI", GOV: "Governance"
   };
   var CLASS_GROUP = {
     BUYBACK_INIT:"BUYBACK", BUYBACK_BLOCK:"BUYBACK", CANCEL:"CANCEL",
     COC_INITIAL:"COC", COC_UPDATE:"COC", DIV_HIKE:"DIV", DIV_POLICY:"DIV",
-    CROSS:"CROSS", MBO:"MBO", M_AND_A:"MBO"
+    CROSS:"CROSS", MBO:"MBO", M_AND_A:"M_AND_A"
   };
   function groupOf(row){ return CLASS_GROUP[row.class] || row.class; }
   var PAGE_SIZE = 80;

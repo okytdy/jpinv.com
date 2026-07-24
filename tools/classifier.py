@@ -259,6 +259,22 @@ _MBO_RE = re.compile(
     r"非公開化|スクイーズ.?アウト)"
 )
 
+# SELF-TAKE-PRIVATE markers: the LISTED FILER itself is the target being
+# delisted / squeezed out / bought out. Each marker puts 当社 (or the
+# squeeze-out / MBO machinery) on the RECEIVING end, which is how we tell a
+# real take-private apart from the filer buying someone else. The 当社株[式券]
+# branch deliberately requires the token 当社株式/当社株券 (our shares) to be
+# adjacent, so it does NOT fire on "当社による ○○ の株式取得" where 当社 is the
+# ACQUIRER. Used only inside _match_mbo.
+_SELF_TAKEPRIVATE_RE = re.compile(
+    r"MBO|ＭＢＯ|マネジメント・?バイアウト"
+    r"|非公開化"
+    r"|株式等売渡請求"
+    r"|当社[をの]完全子会社"
+    r"|当社(?:普通)?株[式券][^。\n]{0,30}(?:公開買付|公開買い付け|ＴＯＢ|TOB|売渡請求)"
+    r"|当社(?:普通)?株[式券][^。\n]{0,30}上場廃止"
+)
+
 
 def _match_mbo(d: dict) -> MatchResult:
     title = d.get("title_jp", "") or ""
@@ -285,14 +301,6 @@ def _match_mbo(d: dict) -> MatchResult:
         return _EMPTY
     if not _MBO_RE.search(title):
         return _EMPTY
-    if "MBO" in title or "ＭＢＯ" in title:
-        kind_en, kind_jp = "MBO", "MBO"
-    elif "完全子会社化" in title:
-        kind_en, kind_jp = "Going-private (parent)", "完全子会社化"
-    elif "公開買付" in title or "TOB" in title or "ＴＯＢ" in title:
-        kind_en, kind_jp = "Tender offer", "公開買付"
-    else:
-        kind_en, kind_jp = "Going-private", "非公開化"
 
     body = d.get("body_jp") or ""
     aggregate_yen: Optional[int] = None
@@ -309,33 +317,66 @@ def _match_mbo(d: dict) -> MatchResult:
             unit = agg_match.group(2) or ""
             aggregate_yen = int(val * _YEN_UNIT_MULTIPLIERS.get(unit, 1.0))
     tag_suffix = f" · {_fmt_yen(aggregate_yen)}" if aggregate_yen else ""
-    tag = f"{kind_en}{tag_suffix}"[:60]
 
-    # OUTBOUND-TOB GUARD: if the title carries a target ticker in parens that
-    # differs from the filer's ticker, this is an outbound acquisition tender
-    # offer — not a take-private of the filer. Reclassify as M_AND_A.
-    # Examples: TDK (6762) tendering for InvenSense; infoNet (4444) acquiring
-    # a target. Without this guard ~10% of MBO rows are mislabeled.
-    # Match patterns: "(1234)", "（1234）", "(証券コード 1234)", "（コード番号: 1234）".
+    # ---- DIRECTION: is the FILER being taken private, or is the filer the
+    # ACQUIRER?  完全子会社化 ("make wholly owned") points in two opposite
+    # directions. A parent can make the LISTED FILER wholly owned (a real
+    # take-private that delists it), OR the LISTED FILER can make some OTHER
+    # company wholly owned (ordinary outbound M&A). The old code read EVERY
+    # 完全子会社化 as a take-private, so a listed company buying a private
+    # subsidiary — e.g. 6055 Japan Material buying the last 30% of GBS
+    # (Singapore) on 2026-07-23 — was mislabelled "Take-private". We now decide
+    # direction explicitly and route the acquirer case to M_AND_A.
     filer_ticker = str(d.get("ticker", "") or "").strip()
+
+    # (A) Filer is the TARGET: strong self-take-private markers (see
+    #     _SELF_TAKEPRIVATE_RE). These win over any outbound signal.
+    self_target = bool(_SELF_TAKEPRIVATE_RE.search(title))
+
+    # (B) Filer is the ACQUIRER of another LISTED company: a different 4-digit
+    #     target ticker in parens. Patterns: "(1234)", "（1234）",
+    #     "(証券コード 1234)", "（コード番号: 1234）".
     target_match = re.search(
         r"[(（]\s*(?:証券コード|コード番号|コード)?\s*[::]?\s*(\d{4})\s*[)）]",
         title,
     )
-    class_override = ""
-    if target_match:
-        target_ticker = target_match.group(1)
-        if filer_ticker and target_ticker != filer_ticker:
-            class_override = "M_AND_A"
-            tag = f"M&A · {kind_en}{tag_suffix}"[:60]
+    outbound_listed = bool(
+        target_match and filer_ticker
+        and target_match.group(1) != filer_ticker
+    )
+
+    # (C) Filer is the ACQUIRER making ANOTHER company wholly owned: a
+    #     完全子会社化 / 子会社化 with no self-target marker. The object is some
+    #     other entity — often unlisted, so there is no ticker to key off,
+    #     which is exactly the case the old ticker-only guard missed.
+    outbound_consol = (
+        not self_target
+        and bool(re.search(r"完全子会社化|子会社化", title))
+    )
+
+    is_outbound = (not self_target) and (outbound_listed or outbound_consol)
+
+    if is_outbound:
+        class_override = "M_AND_A"
+        if outbound_listed:
+            kind_en, kind_jp = "Tender offer", "公開買付"
+        elif "完全子会社化" in title:
+            kind_en, kind_jp = "Subsidiary consolidation", "完全子会社化"
+        else:
+            kind_en, kind_jp = "Subsidiary acquisition", "子会社化"
     else:
-        # No parseable target ticker — keep existing MBO classification but
-        # log a warning so the audit pass can review.
-        if filer_ticker:
-            print(
-                "[classifier:warn] MBO with no parseable target ticker - "
-                f"filer={filer_ticker} title={title[:80]!r}"
-            )
+        # Take-private / tender for the filer ITSELF.
+        class_override = ""
+        if "MBO" in title or "ＭＢＯ" in title:
+            kind_en, kind_jp = "MBO", "MBO"
+        elif "完全子会社化" in title:
+            kind_en, kind_jp = "Going-private (parent)", "完全子会社化"
+        elif "公開買付" in title or "TOB" in title or "ＴＯＢ" in title:
+            kind_en, kind_jp = "Tender offer", "公開買付"
+        else:
+            kind_en, kind_jp = "Going-private", "非公開化"
+
+    tag = f"{kind_en}{tag_suffix}"[:60]
 
     # Boilerplate summary stripped - LLM enricher (pdf_enricher.py) owns this.
     summary_en = ""
@@ -888,9 +929,13 @@ def _signal_score(class_code: str, facts: dict) -> int:
             isinstance(pct, (int, float)) and pct >= 3.0
         )
         return 2 if big else 1
+    # Outbound M&A (the filer acquiring another company) is material capital
+    # deployment, now its own visible category — not housekeeping.
+    if class_code == "M_AND_A":
+        return 2
 
     # --- 1: Housekeeping ---------------------------------------------------
-    if class_code in ("BUYBACK_PROGRESS", "BUYBACK_HOUSE", "M_AND_A"):
+    if class_code in ("BUYBACK_PROGRESS", "BUYBACK_HOUSE"):
         return 1
 
     # Fallback: legacy class codes (GOV, COC, DIV) and anything else default
@@ -1196,8 +1241,79 @@ def _run_tests() -> tuple[int, int]:
                 ticker="6762",
             ),
             "M_AND_A",
-            "M&A",
-            1,
+            "Tender offer",
+            2,
+        ),
+        (
+            # Regression: 6055 Japan Material, 2026-07-23. The filer is BUYING
+            # the last 30% of an unlisted subsidiary (GBS Singapore) to make it
+            # wholly owned. No ticker on the private target, so the old
+            # ticker-only guard missed it and it printed "Take-private". Must be
+            # M_AND_A now.
+            "M_AND_A . outbound 完全子会社化 of unlisted sub (6055 GBS)",
+            _make_disclosure(
+                title_jp=(
+                    "連結子会社ＧＢＳ（ＳＩＮＧＡＰＯＲＥ）ＰＴＥ．ＬＴＤ．"
+                    "の株式の追加取得（完全子会社化）に関するお知らせ"
+                ),
+                body_jp="追加取得する株式数 60,000 株。",
+                ticker="6055",
+            ),
+            "M_AND_A",
+            "Subsidiary consolidation",
+            2,
+        ),
+        (
+            "M_AND_A . outbound 株式取得（完全子会社化）of named private target",
+            _make_disclosure(
+                title_jp="株式会社OMTの株式取得（完全子会社化）に関するお知らせ",
+                ticker="3374",
+            ),
+            "M_AND_A",
+            "Subsidiary consolidation",
+            2,
+        ),
+        (
+            # 当社 appears, but as the ACQUIRER ("当社による ... の株式取得"),
+            # NOT the target. Must NOT be read as a self take-private.
+            "M_AND_A . 当社による ... acquisition is outbound, not self",
+            _make_disclosure(
+                title_jp="当社による株式会社平野屋物産の株式取得（完全子会社化）に関するお知らせ",
+                ticker="6287",
+            ),
+            "M_AND_A",
+            "Subsidiary consolidation",
+            2,
+        ),
+        (
+            # Genuine self take-private via 完全子会社化: the FILER's own shares
+            # are delisted (当社株式の上場廃止). Must stay MBO / take-private.
+            "MBO . self 完全子会社化 with 当社株式 上場廃止 (delist)",
+            _make_disclosure(
+                title_jp=(
+                    "当社株式の上場廃止申請及び株式会社佐渡島への"
+                    "全株式譲渡（完全子会社化）のお知らせ"
+                ),
+                ticker="136A",
+            ),
+            "MBO",
+            "Going-private (parent)",
+            3,
+        ),
+        (
+            # Self squeeze-out: 株式等売渡請求 against the filer's minorities +
+            # 当社株式の上場廃止. Stays MBO / take-private.
+            "MBO . self squeeze-out (株式等売渡請求 + 上場廃止)",
+            _make_disclosure(
+                title_jp=(
+                    "オムロンヘルスケア株式会社による当社株券等に係る株式等売渡請求"
+                    "及び当社株式の上場廃止に関するお知らせ"
+                ),
+                ticker="7317",
+            ),
+            "MBO",
+            "Going-private",
+            3,
         ),
         (
             "MBO . filer == target ticker -> true MBO",

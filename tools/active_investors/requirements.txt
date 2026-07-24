@@ -1,3 +1,6 @@
 # Core pipeline (EDINET ingest + parse + classify + template summaries) uses the
 # Python standard library only. The optional Claude summary tier needs:
 anthropic>=0.39.0
+# Tentative English romanization of filer / issuer names that have no official
+# English form, so the EN feed never shows raw Japanese (common.tentative_en).
+pykakasi>=2.2.1
