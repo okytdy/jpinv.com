@@ -7,15 +7,21 @@
 <meta name="description" content="Every JII Compounder profile, filterable by TSE segment and searchable by ticker or name.">
 <meta property="og:title" content="Profiles · JII Compounders">
 <meta property="og:description" content="Every JII Compounder profile, filterable by TSE segment and searchable by ticker or name.">
-<meta property="og:url" content="https://jpinv.com/en/compounders/profiles/">
+<meta property="og:url" content="https://jpinv.com/en/compounders/">
 <meta property="og:image" content="https://jpinv.com/assets/logo-jii-wordmark.svg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://jpinv.com/assets/logo-jii-wordmark.svg">
-<link rel="canonical" href="https://jpinv.com/en/compounders/profiles/">
-<link rel="alternate" hreflang="en" href="https://jpinv.com/en/compounders/profiles/">
-<link rel="alternate" hreflang="ja" href="https://jpinv.com/compounders/profiles/">
+<!-- Canonical points at /en/compounders/ on purpose. This page renders the same card set
+     with the same blurbs as the hub; measured 2026-07-28, 97% of this page's tokens also
+     appear on /en/compounders/, and the only text unique to it is the filter chrome
+     (Segment / Prime / Standard / Growth / Sort / Latest / Ticker). Google was already
+     collapsing the pair and picking its own canonical, which is what Search Console
+     reported as "Duplicate, Google chose different canonical than user". The filter UI
+     still works for visitors; the page is simply consolidated into the hub for search.
+     hreflang is deliberately absent: language annotations belong on canonical pages only. -->
+<link rel="canonical" href="https://jpinv.com/en/compounders/">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">

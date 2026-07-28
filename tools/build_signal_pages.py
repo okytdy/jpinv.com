@@ -156,17 +156,38 @@ def fmt_dt(ts, lang):
     hm = ts[11:16] if len(ts) >= 16 else ""
     return f"{d} · {hm} JST" if hm else d
 
-def head(lang, title, desc, canon, alt_ja, alt_en):
+def head(lang, title, desc, canon, alt_ja, alt_en, noindex=False):
+    # noindex=True is used for the per-ticker signal pages only.
+    #
+    # Why: each per-ticker page is a filtered slice of /compounders/feed/. The unique
+    # part of the page is 2-5 short disclosure summaries; the rest (nav, hero, the full
+    # bilingual disclaimer, footer) is byte-identical across every ticker. Measured on
+    # 2026-07-28, median pairwise text similarity between two such pages was 0.65 (EN)
+    # and 0.73 (JA), and the median EN page carried 69 unique words out of 334.
+    # Google therefore clustered all ~216 of them as duplicates, picked one member as
+    # the cluster representative, and rejected the self-canonical on the rest. That is
+    # what Search Console reported as "Duplicate, Google chose different canonical
+    # than user" on https://jpinv.com/ (validation failed 2026-07-03, 07-18, 07-27).
+    #
+    # noindex,follow keeps the pages crawlable and keeps link equity flowing through to
+    # the Compounder profiles, while removing them from the index deliberately instead
+    # of having Google exclude them as an error. The indexable representation of the
+    # same data stays /compounders/feed/ and /compounders/universe/.
+    #
+    # Do NOT set noindex on the /compounders/signals/ hub page - it is a real index page.
     htmltag = '<html lang="ja">' if lang == "ja" else '<html lang="en">'
+    robots = '<meta name="robots" content="noindex,follow">\n' if noindex else ''
     return (f'<!DOCTYPE html>\n{htmltag}\n<head>\n<meta charset="UTF-8">\n'
       '<meta name="viewport" content="width=device-width,initial-scale=1">\n'
       f'<title>{esc(title)}</title>\n<meta name="description" content="{esc(desc)}">\n'
       f'<meta property="og:title" content="{esc(title)}">\n'
       f'<meta property="og:description" content="{esc(desc)}">\n'
       f'<meta property="og:url" content="{esc(canon)}">\n'
+      f'{robots}'
       f'<link rel="canonical" href="{esc(canon)}">\n'
       f'<link rel="alternate" hreflang="ja" href="{esc(alt_ja)}">\n'
       f'<link rel="alternate" hreflang="en" href="{esc(alt_en)}">\n'
+      f'<link rel="alternate" hreflang="x-default" href="{esc(alt_ja)}">\n'
       '<link rel="icon" type="image/svg+xml" href="/favicon.svg">\n'
       '<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">\n'
       f'{FONTS}\n<style>{CSS}</style>\n'
@@ -224,7 +245,8 @@ def name_page(n, lang):
     univurl = "/en/compounders/universe/" if lang == "en" else "/compounders/universe/"
     acts.append(f'<a href="{feedurl}">{"全社フィードで見る →" if lang=="ja" else "Open in the full feed →"}</a>')
     acts.append(f'<a href="{univurl}">{"← ユニバースに戻る" if lang=="ja" else "← Back to the universe"}</a>')
-    body = [head(lang, title, desc, canon, alt_ja, alt_en)]
+    # Per-ticker page: noindex,follow. See the comment on head() for the reasoning.
+    body = [head(lang, title, desc, canon, alt_ja, alt_en, noindex=True)]
     body.append('<body>')
     body.append(f'<a class="skip-link" href="#main-content">{"本文へ移動" if lang=="ja" else "Skip to main content"}</a>')
     body.append('<main id="main-content" tabindex="-1"><div class="wrap"><header class="hero">')
