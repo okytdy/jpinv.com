@@ -32,7 +32,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:
 .label{font-family:var(--mono);font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-soft)}
 
 @media(max-width:768px){:root{--gutter:22px}}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--nav-h);background:rgba(255,255,255,0.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--rule);display:flex;align-items:center;transition:box-shadow .3s}
+nav#main-nav{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--nav-h);background:rgba(255,255,255,0.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--rule);display:flex;align-items:center;transition:box-shadow .3s}nav:not(#main-nav):not(.mobile-menu){position:static;height:auto;z-index:auto;background:none;backdrop-filter:none;border-bottom:none;display:block}
 nav.scrolled{box-shadow:0 4px 24px rgba(15,31,58,.08)}
 
 .nav-links a{font-size:.78rem;color:var(--text);text-decoration:none;letter-spacing:.04em}
