@@ -238,3 +238,40 @@
   .jh-slide { transition: none; }
   .jh-dot { animation: none; }
 }
+
+
+/* ===================================================================
+   The band directly under the hero - two cards, Nikkato's banner shape.
+
+   Nikkato puts two introductory videos here. JII has none, so this
+   carries the two things it can actually show: how an engagement runs,
+   and what it publishes. NO COUNTS - a hand-written number on a page is
+   a number that goes stale.
+   =================================================================== */
+.jb { background: #12203a; padding: 56px 0 60px; }
+.jb-in { max-width: 1100px; margin: 0 auto; padding: 0 48px; }
+.jb-lab { font-family: var(--mono, monospace); font-size: 11px; letter-spacing: .2em;
+  text-transform: uppercase; color: #c9a464; margin-bottom: 22px; }
+.jb-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.jb-card { display: flex; background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.14); text-decoration: none;
+  transition: border-color .2s, background .2s; }
+.jb-card:hover { border-color: rgba(201,164,100,.65); background: rgba(255,255,255,.08); }
+.jb-card img { flex: 0 0 190px; width: 190px; height: auto; align-self: stretch;
+  object-fit: cover; display: block; }
+.jb-body { padding: 20px 22px; display: flex; flex-direction: column; gap: 8px;
+  justify-content: center; }
+.jb-n { font-family: var(--mono, monospace); font-size: 10.5px; letter-spacing: .16em; color: #c9a464; }
+.jb-t { font-family: var(--sans,'Noto Sans JP',sans-serif); font-size: 16px; color: #fff;
+  font-weight: 500; line-height: 1.5; }
+.jb-d { font-family: var(--sans,'Noto Sans JP',sans-serif); font-size: 13px; line-height: 1.75;
+  color: rgba(255,255,255,.72); }
+.jb-go { font-family: var(--sans,'Noto Sans JP',sans-serif); font-size: 12.5px; color: #c9a464; margin-top: 4px; }
+.jb-card:hover .jb-go { color: #fff; }
+@media (max-width: 860px) { .jb-grid { grid-template-columns: 1fr; } }
+@media (max-width: 560px) {
+  .jb { padding: 40px 0 44px; }
+  .jb-in { padding: 0 22px; }
+  .jb-card { flex-direction: column; }
+  .jb-card img { flex: 0 0 auto; width: 100%; height: 150px; }
+}
