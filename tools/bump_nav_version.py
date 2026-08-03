@@ -5,7 +5,7 @@ that version into every file that loads it.
 
 WHY THIS EXISTS. Every page loads the navigation as
 
-    <script src="/assets/nav.js?v=a1ce6a1509" defer></script>
+    <script src="/assets/nav.js?v=5e14e4a92a" defer></script>
 
 The browser caches that URL. If nav.js changes but the `?v=` does not, the
 browser keeps serving the copy it already has, and the site appears not to have
@@ -41,7 +41,9 @@ def walk_site():
     for base, dirs, files in os.walk(ROOT):
         dirs[:] = [d for d in dirs if d not in (".git", "node_modules", "__pycache__")]
         for name in files:
-            if name.endswith((".html", ".py", ".md")):
+            # .js is included because assets/compounders-nav.js is a shim that
+            # loads nav.js by URL and therefore carries the version too.
+            if name.endswith((".html", ".py", ".md", ".js")):
                 yield os.path.join(base, name)
 
 

@@ -81,8 +81,12 @@
         { ja: "銘柄スクリーニング", en: "Universe",         jaHref: "/compounders/universe/",          enHref: "/en/compounders/universe/" },
         { ja: "資本政策開示",       en: "Capital actions",  jaHref: "/compounders/feed/",              enHref: "/en/compounders/feed/" },
         { ja: "大量保有報告",       en: "5% filings",       jaHref: "/compounders/active-investors/",  enHref: "/en/compounders/active-investors/" },
-        { ja: "シグナルログ",       en: "Signal log",       jaHref: "/compounders/signals/",           enHref: "/en/compounders/signals/" },
         { ja: "着眼点",             en: "Methodology",      jaHref: "/compounders/methodology/",       enHref: "/en/compounders/methodology/" }
+        /* シグナルログ (/compounders/signals/) is deliberately NOT listed here.
+           It is a per-name history, not a destination: a reader reaches one
+           name's log by clicking that name's Latest Signal cell on the universe
+           page. The two market-wide feeds above are the destinations. The signal
+           log still appears in full on /sitemap/. Decided by Teddy, August 3, 2026. */
       ] },
     { head: SECONDARY[0], items: [
         { ja: "改革の起源",     en: "Origins of reform",   jaHref: "/governance/foundations/",          enHref: "/en/governance/foundations/" },
