@@ -6,8 +6,13 @@
      2. assets/compounders-nav.js, which drew a separate bar with its own
         brand and no route back to the main site
 
-   Include on every page with:
-     <script src="/assets/nav.js?v=20260803" defer></script>
+   Include on every page with one line, where the version is a hash of this
+   file stamped by tools/bump_nav_version.py:
+     <script src="/assets/nav.js?v=HASH" defer></script>
+
+   AFTER ANY EDIT TO THIS FILE, RUN tools/bump_nav_version.py. Without it the
+   browser keeps serving the copy it already cached and the site looks
+   unchanged.
 
    To change the navigation anywhere on jpinv.com, edit the SECTIONS array
    below. Nothing else needs to be touched.
