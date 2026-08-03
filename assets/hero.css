@@ -246,9 +246,11 @@
    continuous block with no break. Nikkato's banners sit on white with a
    hairline border, and that is what separates them from the hero.
 
-   Image left at 3:2, which is the native aspect of the newsletter cover,
-   so nothing is cropped out of it. Text is one line per card - these are
-   doors, not paragraphs.
+   Neither card carries a photograph. Both left panels are type: a step
+   list and the newsletter masthead. Stock photography read as generic,
+   and a real post cover names one company and dates the moment that post
+   stops being the newest. Type ages at nobody's pace and cannot be
+   cropped. One line of copy per card - these are doors, not paragraphs.
    =================================================================== */
 .jb { background: #fff; padding: 64px 0 68px; }
 .jb-in { max-width: 1100px; margin: 0 auto; padding: 0 48px; }
@@ -300,4 +302,29 @@
   .jb-in { padding: 0 22px; }
   .jb-card { flex-direction: column; }
   .jb-fig { flex: 0 0 auto; aspect-ratio: 3 / 2; }
+}
+
+/* Card titles break between clauses, not inside a word — same device as the
+   hero headline. 海外投資家向けニュースレター was wrapping as ...ニュース / レター. */
+.jb-t .ln { display: inline-block; }
+
+/* Card 02's visual. Deliberately NOT a post cover: any single cover names one
+   company and dates the moment that post stops being the newest. This is the
+   masthead every cover carries, rebuilt in type, so it never goes stale and
+   nothing can be cropped out of it. */
+.jb-mast {
+  position: absolute; inset: 0; background: #fbfaf7;
+  display: flex; flex-direction: column; justify-content: center;
+  gap: 14px; padding: 22px 26px;
+}
+.jb-mast i {
+  font-style: normal;
+  font-family: var(--sans, 'Noto Sans JP', sans-serif);
+  font-size: 12px; letter-spacing: 0.22em; color: var(--accent, #9a7838);
+}
+.jb-mast hr { width: 74px; height: 1px; border: 0; background: var(--accent, #9a7838); margin: 0; }
+.jb-mast em {
+  font-style: normal;
+  font-family: var(--mono, monospace); font-size: 10.5px;
+  letter-spacing: 0.16em; color: var(--text-dim, #5f6875);
 }
