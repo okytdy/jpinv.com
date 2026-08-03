@@ -165,7 +165,13 @@ def main():
         json.dump(payload, fh, ensure_ascii=False, indent=1)
         fh.write("\n")
 
-    bake(payload)
+    # --no-bake is for CI. The scheduled feed job stages only
+    # compounders/feed/data/ and the signal pages, so anything baked into
+    # index.html there is thrown away — and if it were staged instead, a bot
+    # would be committing to a file Teddy edits by hand every 30 minutes,
+    # which is how a stash/pop conflict across 382 files happens.
+    if "--no-bake" not in sys.argv:
+        bake(payload)
 
     size = os.path.getsize(OUT)
     print(f"hero.json written: {len(rows)} rows, {size:,} bytes")

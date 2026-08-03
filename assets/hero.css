@@ -240,48 +240,64 @@
 }
 
 /* ===================================================================
-   The band directly under the hero — two cards, Nikkato's banner shape.
+   The band directly under the hero - two cards, Nikkato's banner shape.
 
-   Nikkato puts two introductory videos here. JII has none, so this
-   carries the two things it can actually show: how an engagement runs,
-   and what it publishes. No counts, because a hand-written number on a
-   page is a number that goes stale.
+   White, not navy: the hero above is navy, so a navy band read as one
+   continuous block with no break. Nikkato's banners sit on white with a
+   hairline border, and that is what separates them from the hero.
+
+   Image left at 3:2, which is the native aspect of the newsletter cover,
+   so nothing is cropped out of it. Text is one line per card - these are
+   doors, not paragraphs.
    =================================================================== */
-
-.jb { background: #12203a; padding: 56px 0 60px; }
+.jb { background: #fff; padding: 64px 0 68px; }
 .jb-in { max-width: 1100px; margin: 0 auto; padding: 0 48px; }
-.jb-lab {
-  font-family: var(--mono, monospace);
-  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
-  color: #c9a464; margin-bottom: 22px;
-}
-.jb-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.jb-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 
 .jb-card {
-  display: flex;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  text-decoration: none;
-  transition: border-color 0.2s, background 0.2s;
+  display: flex; align-items: stretch;
+  border: 1px solid var(--rule, #d6dee8);
+  background: #fff; text-decoration: none;
+  transition: border-color .2s, box-shadow .2s;
 }
-.jb-card:hover { border-color: rgba(201, 164, 100, 0.65); background: rgba(255, 255, 255, 0.08); }
-.jb-card img { flex: 0 0 190px; width: 190px; height: 100%; object-fit: cover; display: block; }
-.jb-body { padding: 20px 22px; display: flex; flex-direction: column; gap: 8px; justify-content: center; }
-.jb-n { font-family: var(--mono, monospace); font-size: 10.5px; letter-spacing: 0.16em; color: #c9a464; }
-.jb-t { font-family: var(--sans, 'Noto Sans JP', sans-serif); font-size: 16px; color: #fff; font-weight: 500; line-height: 1.5; }
-.jb-d { font-family: var(--sans, 'Noto Sans JP', sans-serif); font-size: 13px; line-height: 1.75; color: rgba(255, 255, 255, 0.72); }
-.jb-go {
-  font-family: var(--sans, 'Noto Sans JP', sans-serif);
-  font-size: 12.5px; color: #c9a464; margin-top: 4px;
-}
-.jb-card:hover .jb-go { color: #fff; }
+.jb-card:hover { border-color: var(--ink-mid, #172641); box-shadow: 0 6px 22px rgba(15,31,58,.07); }
 
-@media (max-width: 860px) {
-  .jb-grid { grid-template-columns: 1fr; }
+.jb-fig { flex: 0 0 44%; position: relative; overflow: hidden; background: #f5f7fa; }
+.jb-fig img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Card 01 has no photograph. A tile in the same cream-and-navy register as
+   the newsletter cover, so the pair reads as one house style rather than
+   stock photography next to a designed cover. */
+.jb-steps {
+  position: absolute; inset: 0; background: #fbfaf7;
+  display: flex; flex-direction: column; justify-content: center;
+  gap: 9px; padding: 20px 22px;
 }
+.jb-steps span {
+  display: flex; align-items: baseline; gap: 10px;
+  font-family: var(--sans, 'Noto Sans JP', sans-serif);
+  font-size: 12px; color: var(--ink, #1a2a4a); line-height: 1.4;
+}
+.jb-steps b {
+  font-family: var(--mono, monospace); font-size: 10.5px; font-weight: 400;
+  color: var(--accent, #9a7838); letter-spacing: .1em; flex: 0 0 auto;
+}
+
+.jb-body { flex: 1 1 auto; padding: 22px 24px; display: flex; flex-direction: column;
+  justify-content: center; gap: 10px; }
+.jb-t { font-family: var(--serif, 'Noto Serif JP', serif); font-size: 19px; font-weight: 400;
+  color: var(--ink, #1a2a4a); line-height: 1.5; }
+.jb-d { font-family: var(--sans, 'Noto Sans JP', sans-serif); font-size: 13px;
+  color: var(--text-mid, #4a5566); line-height: 1.7; }
+.jb-go { align-self: flex-start; margin-top: 4px;
+  font-family: var(--sans, 'Noto Sans JP', sans-serif); font-size: 12px; letter-spacing: .06em;
+  color: #fff; background: var(--ink, #1a2a4a); padding: 9px 20px; transition: background .15s; }
+.jb-card:hover .jb-go { background: var(--accent, #9a7838); }
+
+@media (max-width: 900px) { .jb-grid { grid-template-columns: 1fr; } }
 @media (max-width: 560px) {
-  .jb { padding: 40px 0 44px; }
+  .jb { padding: 44px 0 48px; }
   .jb-in { padding: 0 22px; }
   .jb-card { flex-direction: column; }
-  .jb-card img { flex: 0 0 auto; width: 100%; height: 150px; }
+  .jb-fig { flex: 0 0 auto; aspect-ratio: 3 / 2; }
 }

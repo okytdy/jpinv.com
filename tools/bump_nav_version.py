@@ -5,7 +5,7 @@ that version into every file that loads it.
 
 WHY THIS EXISTS. Every page loads the navigation as
 
-    <script src="/assets/nav.js?v=4c267b5128" defer></script>
+    <script src="/assets/nav.js?v=855f1c7f2d" defer></script>
 
 The browser caches that URL. If nav.js changes but the `?v=` does not, the
 browser keeps serving the copy it already has, and the site appears not to have
@@ -60,12 +60,16 @@ def main():
     # cannot change the hash and send this into a loop where every run
     # produces a different answer. One shared version keeps it simple: edit
     # any of them and every page picks up all of them.
-    blob = ""
+    # One hash PER ASSET, not one shared hash. A shared hash meant that editing
+    # hero.css — which only the two homepages load — changed the version on all
+    # 400 pages, producing a 400-file diff for a two-file change. Git churn on
+    # that scale is what turned a stash/pop into 382 conflicts on August 3, 2026.
+    version = {}
     for name in VERSIONED:
         p = os.path.join(ROOT, "assets", name)
         if os.path.exists(p):
-            blob += PATTERN.sub(r"\1", open(p, encoding="utf-8").read())
-    version = hashlib.sha256(blob.encode("utf-8")).hexdigest()[:10]
+            src = PATTERN.sub(r"\1", open(p, encoding="utf-8").read())
+            version[name] = hashlib.sha256(src.encode("utf-8")).hexdigest()[:10]
 
     roots = sys.argv[1:]
     changed = 0
@@ -84,12 +88,13 @@ def main():
         if "assets/nav.js?v=" not in text:
             continue
         scanned += 1
-        new = PATTERN.sub(lambda m: m.group(1) + version, text)
+        new = PATTERN.sub(lambda m: m.group(1) + version.get(m.group(1).split('/')[-1].split('?')[0], m.group(2)), text)
         if new != text:
             open(path, "w", encoding="utf-8").write(new)
             changed += 1
 
-    print(f"nav.js version: {version}")
+    for k, v in version.items():
+        print(f"  {k}: {v}")
     print(f"files carrying the tag: {scanned}")
     print(f"files rewritten: {changed}")
     if changed == 0 and scanned:

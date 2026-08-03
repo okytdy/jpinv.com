@@ -76,7 +76,12 @@ jobs:
           python tools/build_signal_pages.py
           # The homepage hero reads a small hero.json rather than the 2MB feed.
           # It must be rebuilt here or the hero goes stale while the feed moves.
-          python tools/build_hero_data.py
+          # --no-bake because this job stages only compounders/feed/data/ and the
+          # signal pages: anything written into index.html here is discarded, and
+          # staging it instead would have a bot editing a file Teddy edits by hand
+          # every 30 minutes. The baked rows are the no-JavaScript fallback and are
+          # refreshed when the site is built, not on this schedule.
+          python tools/build_hero_data.py --no-bake
 
       - name: Check for changes under compounders/feed/data/
         id: diff
