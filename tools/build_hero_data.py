@@ -18,6 +18,7 @@ import glob
 import json
 import os
 import re
+import sys  # read by the --no-bake check in main(); see the comment there
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FEED = os.path.join(ROOT, "compounders", "feed", "data", "feed.json")

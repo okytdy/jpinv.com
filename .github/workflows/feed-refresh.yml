@@ -51,6 +51,36 @@ jobs:
             pip install --disable-pip-version-check requests beautifulsoup4 lxml
           fi
 
+      - name: Check the scripts this job runs for undefined names
+        timeout-minutes: 2
+        run: |
+          set -euo pipefail
+          # Why this step exists. On August 3, 2026 tools/build_hero_data.py was
+          # committed with a reference to `sys.argv` and no `import sys`. That
+          # line sits behind the `--no-bake` flag, and this workflow is the only
+          # thing that passes that flag, so running the script by hand never
+          # reached the line. Seven scheduled runs in a row then died on it and
+          # the feed stopped updating for eleven hours.
+          #
+          # pyflakes reads each file and reports names that are used but never
+          # defined. That is exactly the defect above, and the check takes about
+          # a second. Only "undefined name" fails the job. Style findings such as
+          # an unused import are printed and then ignored, so a cosmetic warning
+          # can never stop the feed from refreshing.
+          pip install --disable-pip-version-check --quiet pyflakes
+          python -m pyflakes \
+            tools/feed_refresh.py tools/classifier.py tools/pdf_enricher.py \
+            tools/llm_budget.py tools/tdnet_scraper.py tools/jpx_master.py \
+            tools/scrub_sample_signals.py tools/watchlist_join.py \
+            tools/build_signal_pages.py tools/build_hero_data.py \
+            tools/build_news_data.py > pyflakes.txt 2>&1 || true
+          cat pyflakes.txt
+          if grep -q "undefined name" pyflakes.txt; then
+            echo "::error::A script this job runs uses a name it never defines."
+            exit 1
+          fi
+          rm -f pyflakes.txt
+
       - name: Run feed_refresh.py
         id: refresh
         timeout-minutes: 10
@@ -63,17 +93,50 @@ jobs:
           python tools/feed_refresh.py
 
       - name: Scrub sample signals + rebuild join + signal pages
+        id: rebuild
         timeout-minutes: 3
         run: |
-          set -euo pipefail
-          # Remove any leftover EDINET-SAMPLE placeholder signals from feed.json + the
-          # per-ticker archives (a one-time backfill artifact; runs server-side here where
-          # feed.json is fully hydrated). Then join the fresh feed to the watchlist and
-          # regenerate the per-name signal pages. All three are deterministic/idempotent:
-          # identical inputs produce identical bytes, so unchanged data makes no git diff.
-          python tools/scrub_sample_signals.py
-          python tools/watchlist_join.py
-          python tools/build_signal_pages.py
+          # NOTE: `set -e` is deliberately absent here. Every other step in this
+          # file uses it. This one must not, for the reason in the next comment.
+          set -uo pipefail
+
+          # Each script below turns the feed that the previous step just wrote
+          # into something derived from it: cleaned archives, the watchlist join,
+          # the per-name signal pages, the homepage hero file, the news file.
+          # They are deterministic and idempotent, so identical inputs produce
+          # identical bytes and unchanged data makes no git diff.
+          #
+          # Until August 3, 2026 this step ran them under `set -e`, so the first
+          # script to fail ended the step, and the commit step below is skipped
+          # when an earlier step fails. The feed itself had already been fetched,
+          # classified and written to disk at that point. It was then thrown away
+          # with the runner. A one-line crash in the homepage hero file, which
+          # nothing depends on, froze the live feed for eleven hours.
+          #
+          # So each script now runs on its own and a failure is recorded rather
+          # than raised. Whatever was produced still gets committed, the run
+          # still ends in failure, and the notification email still arrives --
+          # the last step in this file reads the record below and exits 1.
+          failed=""
+          run_script() {
+            echo "::group::$1"
+            if python "$@"; then
+              echo "$1 ok"
+            else
+              echo "::error::$1 failed"
+              failed="${failed}${failed:+, }$1"
+            fi
+            echo "::endgroup::"
+          }
+
+          # Remove any leftover EDINET-SAMPLE placeholder signals from feed.json
+          # and the per-ticker archives (a one-time backfill artifact; it runs
+          # server-side here, where feed.json is fully hydrated).
+          run_script tools/scrub_sample_signals.py
+          # Join the fresh feed to the watchlist, then regenerate the per-name
+          # signal pages from that join.
+          run_script tools/watchlist_join.py
+          run_script tools/build_signal_pages.py
           # The homepage hero reads a small hero.json rather than the 2MB feed.
           # It must be rebuilt here or the hero goes stale while the feed moves.
           # --no-bake because this job stages only compounders/feed/data/ and the
@@ -81,8 +144,10 @@ jobs:
           # staging it instead would have a bot editing a file Teddy edits by hand
           # every 30 minutes. The baked rows are the no-JavaScript fallback and are
           # refreshed when the site is built, not on this schedule.
-          python tools/build_hero_data.py --no-bake
-          python tools/build_news_data.py --no-bake
+          run_script tools/build_hero_data.py --no-bake
+          run_script tools/build_news_data.py --no-bake
+
+          echo "failed=${failed}" >> "$GITHUB_OUTPUT"
 
       - name: Check for changes under compounders/feed/data/
         id: diff
@@ -136,5 +201,17 @@ jobs:
             echo ""
             echo "- changed: ${{ steps.diff.outputs.changed }}"
             echo "- new rows appended: ${{ steps.diff.outputs.added }}"
+            echo "- rebuild scripts that failed: ${{ steps.rebuild.outputs.failed }}"
             echo "- run id: ${{ github.run_id }}"
           } >> "$GITHUB_STEP_SUMMARY"
+
+      # This runs last so that the data is already committed and the summary is
+      # already written by the time the job is marked failed. A failed rebuild
+      # script must still send the notification email; it just must not take the
+      # feed down with it.
+      - name: Fail the run if a rebuild script failed
+        if: always() && steps.rebuild.outputs.failed != ''
+        run: |
+          echo "::error::Rebuild scripts that failed: ${{ steps.rebuild.outputs.failed }}"
+          echo "The feed data written before the failure was committed anyway." >&2
+          exit 1
