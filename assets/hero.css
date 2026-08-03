@@ -328,3 +328,51 @@
   font-family: var(--mono, monospace); font-size: 10.5px;
   letter-spacing: 0.16em; color: var(--text-dim, #5f6875);
 }
+
+
+/* ===================================================================
+   The news block - Nikkato's shape: heading left, tabs and rows right.
+
+   Three tabs and deliberately no すべて: the two machine feeds run at
+   roughly 300 and 85 rows a month against a handful of JII reports, so
+   a merged list would drown the one tab that is JII's own news. The
+   default tab is the reports.
+   =================================================================== */
+.nw { background: var(--bg-soft, #fafbfc); border-top: 1px solid var(--rule, #d6dee8); padding: 72px 0 76px; }
+.nw-in { max-width: 1100px; margin: 0 auto; padding: 0 48px;
+  display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 48px; }
+.nw-head h2 { font-family: var(--serif, 'Noto Serif JP', serif); font-size: clamp(24px, 2.6vw, 32px);
+  font-weight: 300; color: var(--ink, #1a2a4a); letter-spacing: .06em; margin: 0 0 8px; }
+.nw-head .label { display: block; margin-bottom: 10px; }
+.nw-more { display: inline-block; margin-top: 22px; font-family: var(--sans, 'Noto Sans JP', sans-serif);
+  font-size: 12.5px; letter-spacing: .06em; color: var(--ink, #1a2a4a);
+  border: 1px solid var(--ink-mid, #172641); padding: 11px 26px; text-decoration: none; transition: all .15s; }
+.nw-more:hover { background: var(--ink, #1a2a4a); color: #fff; }
+.nw-tabs { display: flex; gap: 0; border-bottom: 1px solid var(--rule, #d6dee8); margin-bottom: 6px; }
+.nw-tabs button { font-family: var(--sans, 'Noto Sans JP', sans-serif); font-size: 13px; letter-spacing: .04em;
+  color: var(--text-mid, #4a5566); background: none; border: none; cursor: pointer;
+  padding: 10px 22px; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color .15s; }
+.nw-tabs button:hover { color: var(--ink, #1a2a4a); }
+.nw-tabs button[aria-selected="true"] { color: var(--ink, #1a2a4a);
+  border-bottom-color: var(--accent, #9a7838); font-weight: 500; }
+.nw-list { list-style: none; margin: 0; padding: 0; }
+.nw-list[hidden] { display: none; }
+.nw-list li { border-bottom: 1px solid var(--rule, #d6dee8); }
+.nw-list li, .nw-list li a { display: flex; align-items: baseline; gap: 16px;
+  padding: 15px 4px; font-size: 13.5px; color: var(--text, #1f2937); text-decoration: none; }
+.nw-list li a { padding: 15px 4px; margin: -15px -4px; flex: 1 1 auto; transition: background .15s; }
+.nw-list li a:hover { background: #fff; }
+.nw-date { flex: 0 0 84px; font-family: var(--mono, monospace); font-size: 11.5px; color: var(--text-dim, #5f6875); }
+.nw-tag { flex: 0 0 auto; font-family: var(--sans, 'Noto Sans JP', sans-serif); font-size: 10.5px;
+  letter-spacing: .05em; color: var(--ink, #1a2a4a); border: 1px solid var(--rule, #d6dee8);
+  background: #fff; padding: 2px 10px; white-space: nowrap; }
+.nw-tx { min-width: 0; line-height: 1.6; }
+.nw-tx b { font-family: var(--mono, monospace); font-size: 11.5px; font-weight: 400;
+  color: var(--text-dim, #5f6875); margin-right: 2px; }
+@media (max-width: 860px) {
+  .nw { padding: 48px 0 52px; }
+  .nw-in { grid-template-columns: 1fr; gap: 26px; padding: 0 22px; }
+  .nw-tabs { overflow-x: auto; }
+  .nw-tabs button { padding: 10px 14px; white-space: nowrap; }
+  .nw-date { flex-basis: 70px; }
+}

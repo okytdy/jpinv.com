@@ -15,7 +15,7 @@ Run after watchlist_join.py.
 import json, os, html, datetime
 
 # The one navigation for jpinv.com. See assets/nav.js.
-NAV_TAG = '<script src="/assets/nav.js?v=855f1c7f2d" defer></script>'
+NAV_TAG = '<script src="/assets/nav.js?v=15d0e8ab92" defer></script>'
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "compounders", "feed", "data", "watchlist_signals.json")

@@ -126,4 +126,21 @@
   function stat(v, label) {
     return "<span><b>" + nf(v) + "</b><span>" + esc(label) + "</span></span>";
   }
+
+  /* ---------------- 3. News tabs ----------------
+     The rows are baked into the page at build time; this only switches
+     which list is visible and points 詳しく見る at the active tab's page.
+     No fetch: the lists are rebuilt whenever the site is built, and a
+     half-day-old news row is not a failure the way an empty panel is. */
+
+  var newsTabs = [].slice.call(document.querySelectorAll(".nw-tabs button"));
+  var newsLists = [].slice.call(document.querySelectorAll(".nw-list"));
+  var newsMore = document.querySelector(".nw-more");
+  newsTabs.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      newsTabs.forEach(function (b) { b.setAttribute("aria-selected", String(b === btn)); });
+      newsLists.forEach(function (l) { l.hidden = l.getAttribute("data-list") !== btn.getAttribute("data-tab"); });
+      if (newsMore) newsMore.setAttribute("href", btn.getAttribute("data-more"));
+    });
+  });
 })();

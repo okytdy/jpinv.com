@@ -82,6 +82,7 @@ jobs:
           # every 30 minutes. The baked rows are the no-JavaScript fallback and are
           # refreshed when the site is built, not on this schedule.
           python tools/build_hero_data.py --no-bake
+          python tools/build_news_data.py --no-bake
 
       - name: Check for changes under compounders/feed/data/
         id: diff

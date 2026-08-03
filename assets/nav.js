@@ -30,11 +30,16 @@
 
   /* The top bar. Four sections, in the order a first-time visitor needs
      them: what we do, what it costs, who we are, what we publish. */
+  /* `panel` names the FOOTER column (by head) whose items open in a
+     dropdown under the bar, Nikkato-style. 料金 and 会社概要 are single
+     pages, so they stay plain links. */
   var SECTIONS = [
-    { ja: "サービス",     en: "Services", jaHref: "/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/", enHref: "/en/services/" },
+    { ja: "サービス",     en: "Services", jaHref: "/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/", enHref: "/en/services/", panel: true,
+      tag: { ja: "英文開示から面談まで", en: "Disclosure to the meeting" } },
     { ja: "料金",         en: "Pricing",  jaHref: "/%E6%96%99%E9%87%91/",                   enHref: "/en/pricing/" },
     { ja: "会社概要",     en: "Company",  jaHref: "/%E4%BC%9A%E7%A4%BE%E6%A6%82%E8%A6%81/", enHref: "/en/company/" },
-    { ja: "銘柄レポート", en: "Research", jaHref: "/compounders/",                          enHref: "/en/compounders/" }
+    { ja: "銘柄レポート", en: "Research", jaHref: "/compounders/",                          enHref: "/en/compounders/", panel: true,
+      tag: { ja: "日本株を、日英で読み解く", en: "Japanese equities, in both languages" } }
   ];
 
   /* Reachable, but not from the top bar. These appear in the mobile menu
@@ -204,6 +209,40 @@
     "@media(min-width:1001px){#jii-nav .jn-menu{display:none!important;}}",
     "@media(max-width:760px){#jii-nav .jn-bar{padding-left:22px;}#jii-nav .jn-sub-in{padding:0 22px;}#jii-nav .jn-burger{margin-right:12px;}}",
     "@media(max-width:560px){#jii-nav .jn-logo img{display:none;}#jii-nav .jn-logo .jn-logo-sm{display:block;}}",
+    /* ---- dropdown panels (desktop only) ----
+       Nikkato's pattern: hover a section, a full-width white panel opens
+       with the page list on the left and a visual tile on the right.
+       White with a hairline top rule and a soft shadow — the panel is a
+       sheet of paper under the bar, not a second dark block. The tile is
+       navy so the panel carries the same two colors as the site: paper
+       and ink, with gold only as the accent. */
+    "#jii-nav .jn-links > li{position:static;}",
+    "#jii-nav .jn-pw{position:absolute;top:100%;left:0;right:0;display:none;",
+    "background:#fff;border-top:1px solid var(--rule,#d6dee8);box-shadow:0 22px 44px rgba(15,31,58,.10);}",
+    "@media(min-width:1001px){",
+    "#jii-nav .jn-links > li:hover .jn-pw,#jii-nav .jn-links > li:focus-within .jn-pw{display:block;}",
+    "}",
+    "#jii-nav .jn-pin{max-width:1100px;margin:0 auto;padding:38px 48px 42px;",
+    "display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:52px;}",
+    "#jii-nav .jn-pcols{display:grid;grid-template-columns:1fr 1fr;gap:0 44px;align-content:start;}",
+    "#jii-nav .jn-pcols a{display:block;font-family:var(--sans,'Noto Sans JP',system-ui,sans-serif);",
+    "font-size:13.5px;color:var(--text,#1f2937);padding:11px 2px;border-bottom:1px solid var(--rule,#d6dee8);",
+    "transition:color .15s;position:relative;}",
+    "#jii-nav .jn-pcols a::after{content:'→';position:absolute;right:4px;color:var(--accent,#9a7838);",
+    "opacity:0;transition:opacity .15s;}",
+    "#jii-nav .jn-pcols a:hover{color:var(--ink,#1a2a4a);}",
+    "#jii-nav .jn-pcols a:hover::after{opacity:1;}",
+    "#jii-nav .jn-tile{display:flex;flex-direction:column;justify-content:center;gap:12px;",
+    "background:var(--ink,#1a2a4a);padding:30px 32px;text-decoration:none;transition:background .15s;}",
+    "#jii-nav .jn-tile:hover{background:var(--ink-mid,#172641);}",
+    "#jii-nav .jn-tile b{font-family:var(--serif,'Noto Serif JP',serif);font-size:19px;font-weight:400;",
+    "color:#fff;line-height:1.5;}",
+    "#jii-nav .jn-tile i{font-style:normal;font-family:var(--mono,'DM Mono',monospace);font-size:10.5px;",
+    "letter-spacing:.18em;color:#c9a464;}",
+    "#jii-nav .jn-tile s{text-decoration:none;font-family:var(--sans,'Noto Sans JP',system-ui,sans-serif);",
+    "font-size:12px;color:rgba(255,255,255,.75);}",
+    "#jii-nav .jn-tile em{font-style:normal;font-family:var(--sans,'Noto Sans JP',system-ui,sans-serif);",
+    "font-size:12px;color:#c9a464;margin-top:6px;}",
     /* footer sitemap */
     "#jii-foot{background:var(--ink,#1a2a4a);color:#cfd6e2;font-family:var(--sans,'Noto Sans JP',system-ui,sans-serif);",
     "font-size:13px;line-height:1.8;margin-top:0;}",
@@ -255,9 +294,33 @@
   var other = counterpart();
   var linksHtml = "", menuHtml = "";
 
+  function panelFor(section) {
+    /* The panel's list is the FOOTER column with the same head, so the
+       dropdown, the footer and the sitemap can never disagree. */
+    var col = null;
+    for (var f = 0; f < FOOTER.length; f++) {
+      if (FOOTER[f].head === section) col = FOOTER[f];
+    }
+    if (!col) return "";
+    var links = "";
+    for (var g = 0; g < col.items.length; g++) {
+      links += '<a href="' + esc(href(col.items[g])) + '">' + esc(label(col.items[g])) + '</a>';
+    }
+    return '<div class="jn-pw"><div class="jn-pin">' +
+      '<div class="jn-pcols">' + links + '</div>' +
+      '<a class="jn-tile" href="' + esc(href(section)) + '">' +
+        '<i>' + esc(isEn ? section.ja : section.en).toUpperCase() + '</i>' +
+        '<b>' + esc(label(section)) + '</b>' +
+        '<s>' + esc(section.tag ? (isEn ? section.tag.en : section.tag.ja) : "") + '</s>' +
+        '<em>' + (isEn ? "Open →" : "トップページへ →") + '</em>' +
+      '</a>' +
+    '</div></div>';
+  }
+
   for (var i = 0; i < SECTIONS.length; i++) {
     var s = SECTIONS[i], h = href(s), on = isActive(h);
-    linksHtml += '<li><a href="' + esc(h) + '"' + (on ? ' class="jn-on" aria-current="page"' : '') + '>' + esc(label(s)) + '</a></li>';
+    linksHtml += '<li><a href="' + esc(h) + '"' + (on ? ' class="jn-on" aria-current="page"' : '') + '>' + esc(label(s)) + '</a>' +
+                 (s.panel ? panelFor(s) : '') + '</li>';
     menuHtml += '<a href="' + esc(h) + '">' + esc(label(s)) + '</a>';
   }
 
