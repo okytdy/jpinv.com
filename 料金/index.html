@@ -316,33 +316,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 </script></head>
 <body>
 <a class="skip-link" href="#main-content">本文へ移動</a>
-<nav id="main-nav" role="navigation" aria-label="メインナビゲーション">
-  <div class="wrap nav-inner">
-    <a href="/" class="nav-logo" aria-label="JII トップページへ">
-      <img class="nav-logo-img nav-logo-img--desktop" src="/assets/logo-jii-wordmark.svg" decoding="async" fetchpriority="high" alt="Japan Investor Interface ロゴ" width="282" height="40">
-      <img class="nav-logo-img nav-logo-img--mobile" src="/assets/logo-jii-monogram.svg" decoding="async" fetchpriority="high" alt="Japan Investor Interface ロゴ" width="32" height="32">
-    </a>
-    <div class="nav-center">
-      <ul class="nav-links" role="list">
-        <li><a href="/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/">サービス</a></li>
-        <li><a href="/%E6%96%99%E9%87%91/">料金</a></li>
-        <li><a href="/%E4%BC%9A%E7%A4%BE%E6%A6%82%E8%A6%81/">会社概要</a></li>
-        <li><a href="/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B/">お問い合わせ</a></li>
-      </ul>
-    </div>
-    <div class="nav-right">
-      <span class="locale-switcher nav-locale-switcher" aria-label="言語切替"><a href="/%E6%96%99%E9%87%91/" class="current" aria-current="page" lang="ja">JP</a><a href="/en/pricing/" data-locale-route lang="en">EN</a></span>
-    </div>
-    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
-  </div>
-</nav>
-<nav class="mobile-menu" id="mobileMenu" aria-label="モバイルナビゲーション" hidden>
-  <a href="/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/" onclick="toggleMenu()">サービス</a>
-  <a href="/%E6%96%99%E9%87%91/" onclick="toggleMenu()">料金</a>
-  <a href="/%E4%BC%9A%E7%A4%BE%E6%A6%82%E8%A6%81/" onclick="toggleMenu()">会社概要</a>
-  <a href="/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B/" onclick="toggleMenu()">お問い合わせ</a>
-<a href="/en/pricing/" data-locale-route onclick="toggleMenu()" lang="en">EN</a>
-</nav>
 <main id="main-content" tabindex="-1">
 <!-- HERO -->
 <section id="top" aria-label="料金">
@@ -736,7 +709,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 <script>
 // Nav scroll shadow
 const nav = document.getElementById('main-nav');
-window.addEventListener('scroll', () => {
+if (nav) window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 40);
 }, { passive: true });
 
@@ -1078,5 +1051,6 @@ inquiryForm.addEventListener('submit', async (e) => {
 });
 </script>
 <script src="/assets/motion.js" defer></script>
+<script src="/assets/nav.js?v=20260803" defer></script>
 </body>
 </html>

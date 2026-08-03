@@ -40,33 +40,6 @@
 </style>
 <style>.sc-wrap{margin:26px 0}.sc-lead{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--ink-soft);text-transform:uppercase;margin-bottom:16px}.sc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}@media(max-width:760px){.sc-grid{grid-template-columns:repeat(2,1fr)}}.sc-cell{border:1px solid var(--rule);background:#fff;padding:14px 14px 12px;transition:transform .25s,border-color .25s,box-shadow .25s}.sc-cell:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:0 12px 24px -14px rgba(15,31,58,.3)}.sc-name{font-family:var(--sans);font-size:12.5px;color:var(--ink-mid);line-height:1.5;min-height:38px}.sc-dots{display:flex;gap:5px;margin-top:8px}.sc-dots i{width:9px;height:9px;border-radius:50%;border:1.5px solid var(--rule);display:block;transition:background .25s,border-color .25s}.sc-cell:hover .sc-dots i{background:var(--accent);border-color:var(--accent)}</style></head>
 <body>
-<nav id="main-nav" role="navigation" aria-label="メインナビゲーション">
-  <div class="wrap nav-inner">
-    <a href="/" class="nav-logo" aria-label="JII トップページへ">
-      <img class="nav-logo-img nav-logo-img--desktop" src="/assets/logo-jii-wordmark.svg" decoding="async" fetchpriority="high" alt="Japan Investor Interface ロゴ" width="282" height="40">
-      <img class="nav-logo-img nav-logo-img--mobile" src="/assets/logo-jii-monogram.svg" decoding="async" fetchpriority="high" alt="Japan Investor Interface ロゴ" width="32" height="32">
-    </a>
-    <div class="nav-center">
-      <ul class="nav-links" role="list">
-        <li><a href="/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/">サービス</a></li>
-        <li><a href="/%E6%96%99%E9%87%91/">料金</a></li>
-        <li><a href="/%E4%BC%9A%E7%A4%BE%E6%A6%82%E8%A6%81/">会社概要</a></li>
-        <li><a href="/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B/">お問い合わせ</a></li>
-      </ul>
-    </div>
-    <div class="nav-right">
-      <span class="locale-switcher nav-locale-switcher" aria-label="言語切替"><a href="/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/%E6%B5%B7%E5%A4%96IR%E8%A8%BA%E6%96%AD/" class="current" aria-current="page" lang="ja">JP</a><a href="/en/services/ir-diagnosis/" data-locale-route lang="en">EN</a></span>
-    </div>
-    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
-  </div>
-</nav>
-<nav class="mobile-menu" id="mobileMenu" aria-label="モバイルナビゲーション" hidden>
-  <a href="/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/" onclick="toggleMenu()">サービス</a>
-  <a href="/%E6%96%99%E9%87%91/" onclick="toggleMenu()">料金</a>
-  <a href="/%E4%BC%9A%E7%A4%BE%E6%A6%82%E8%A6%81/" onclick="toggleMenu()">会社概要</a>
-  <a href="/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B/" onclick="toggleMenu()">お問い合わせ</a>
-<a href="/en/services/ir-diagnosis/" data-locale-route onclick="toggleMenu()" lang="en">EN</a>
-</nav>
 <div class="wrap crumbs"><a href="/">ホーム</a><span>/</span><a href="/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/">サービス</a><span>/</span>海外IR診断・レビュー</div>
 <main id="main-content" tabindex="-1">
 <section id="top"><div class="wrap"><span class="label">海外IR診断</span><h1 class="mincho-xl">海外投資家にどう伝わるかを点検</h1><div class="rule-accent"></div><p class="lead">決算資料、英文開示、IRサイト、想定問答などを12項目で点検し、改善点を一枚の診断カードに整理します。海外投資家との面談経験をもとに、英語の正しさだけでなく、知りたい情報が明確に伝わるかを確認します。</p><div class="hero-ctas"><a class="btn btn-primary" href="/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B/">見積り・相談をする</a></div>
@@ -95,5 +68,6 @@ document.addEventListener('click', (e) => {
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenuOpen(false); });
 </script>
 <script src="/assets/motion.js" defer></script>
+<script src="/assets/nav.js?v=20260803" defer></script>
 </body>
 </html>

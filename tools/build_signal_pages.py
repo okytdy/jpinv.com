@@ -14,6 +14,9 @@ Run after watchlist_join.py.
 """
 import json, os, html, datetime
 
+# The one navigation for jpinv.com. See assets/nav.js.
+NAV_TAG = '<script src="/assets/nav.js?v=20260803" defer></script>'
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "compounders", "feed", "data", "watchlist_signals.json")
 
@@ -263,6 +266,7 @@ def name_page(n, lang):
     body.append('</section></div></main>')
     body.append(DISC_JP if lang == "ja" else DISC_EN)
     body.append(footer(lang, alt_ja, alt_en))
+    body.append(NAV_TAG)
     body.append('</body></html>')
     return "\n".join(body)
 
@@ -312,6 +316,7 @@ def index_page(names, lang):
     body.append('<div class="wrap"><section class="idx">' + "".join(rows) + '</section></div></main>')
     body.append(DISC_JP if lang == "ja" else DISC_EN)
     body.append(footer(lang, alt_ja, alt_en))
+    body.append(NAV_TAG)
     body.append('</body></html>')
     return "\n".join(body)
 

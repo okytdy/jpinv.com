@@ -27,33 +27,6 @@
 <link rel="stylesheet" href="/assets/site.css">
 <style>.ensp-hero{position:relative;height:240px;overflow:hidden;background:var(--ink-mid)}.ensp-hero img,.ensp-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.85) brightness(1.07) contrast(1.02)}.ensp-hero::after,.ensp-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(23,38,65,.5) 0%,rgba(23,38,65,.08) 46%,rgba(23,38,65,.1) 100%)}.ensp-photo{position:relative;height:220px;overflow:hidden;background:var(--ink-mid);margin:26px 0;border:1px solid var(--rule)}</style></head>
 <body>
-<nav id="main-nav" role="navigation" aria-label="Main navigation">
-  <div class="wrap nav-inner">
-    <a href="/en/" class="nav-logo" aria-label="JII home">
-      <img class="nav-logo-img nav-logo-img--desktop" src="/assets/logo-jii-wordmark.svg" decoding="async" fetchpriority="high" alt="Japan Investor Interface logo" width="282" height="40">
-      <img class="nav-logo-img nav-logo-img--mobile" src="/assets/logo-jii-monogram.svg" decoding="async" fetchpriority="high" alt="Japan Investor Interface logo" width="32" height="32">
-    </a>
-    <div class="nav-center">
-      <ul class="nav-links" role="list">
-        <li><a href="/en/services/">Services</a></li>
-        <li><a href="/en/pricing/">Pricing</a></li>
-        <li><a href="/en/company/">Company</a></li>
-        <li><a href="/en/contact/">Contact</a></li>
-      </ul>
-    </div>
-    <div class="nav-right">
-      <span class="locale-switcher nav-locale-switcher" aria-label="Language switcher"><a href="/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/AI%E3%81%A8%E6%A9%9F%E5%AF%86%E4%BF%9D%E6%8C%81/" data-locale-route lang="ja">JP</a><a href="/en/services/ai-confidentiality/" class="current" aria-current="page" lang="en">EN</a></span>
-    </div>
-    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
-  </div>
-</nav>
-<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" hidden>
-  <a href="/en/services/" onclick="toggleMenu()">Services</a>
-  <a href="/en/pricing/" onclick="toggleMenu()">Pricing</a>
-  <a href="/en/company/" onclick="toggleMenu()">Company</a>
-  <a href="/en/contact/" onclick="toggleMenu()">Contact</a>
-<a href="/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/AI%E3%81%A8%E6%A9%9F%E5%AF%86%E4%BF%9D%E6%8C%81/" data-locale-route onclick="toggleMenu()" lang="ja">日本語</a>
-</nav>
 <div class="wrap crumbs"><a href="/en/">Home</a><span>/</span><a href="/en/services/">Services</a><span>/</span>AI & confidentiality</div>
 <main id="main-content" tabindex="-1">
 <section id="top"><div class="wrap"><span class="label">POLICY / AI & CONFIDENTIALITY</span><h1 class="mincho-xl">AI usage policy and confidentiality controls</h1><div class="rule-accent"></div><p class="lead">We agree AI use, material handling, access, and retention before each engagement—especially for unreleased disclosure and investor-meeting content.</p><div class="hero-ctas"><a class="btn btn-primary" href="/en/contact/">Request a quote</a></div>
@@ -82,5 +55,6 @@ document.addEventListener('click', (e) => {
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenuOpen(false); });
 </script>
 <script src="/assets/motion.js" defer></script>
+<script src="/assets/nav.js?v=20260803" defer></script>
 </body>
 </html>

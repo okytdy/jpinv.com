@@ -35,33 +35,6 @@
 </style>
 </head>
 <body>
-<nav id="main-nav" role="navigation" aria-label="メインナビゲーション">
-  <div class="wrap nav-inner">
-    <a href="/" class="nav-logo" aria-label="JII トップページへ">
-      <img class="nav-logo-img nav-logo-img--desktop" src="/assets/logo-jii-wordmark.svg" decoding="async" fetchpriority="high" alt="Japan Investor Interface ロゴ" width="282" height="40">
-      <img class="nav-logo-img nav-logo-img--mobile" src="/assets/logo-jii-monogram.svg" decoding="async" fetchpriority="high" alt="Japan Investor Interface ロゴ" width="32" height="32">
-    </a>
-    <div class="nav-center">
-      <ul class="nav-links" role="list">
-        <li><a href="/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/">サービス</a></li>
-        <li><a href="/%E6%96%99%E9%87%91/">料金</a></li>
-        <li><a href="/%E4%BC%9A%E7%A4%BE%E6%A6%82%E8%A6%81/">会社概要</a></li>
-        <li><a href="/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B/">お問い合わせ</a></li>
-      </ul>
-    </div>
-    <div class="nav-right">
-      <span class="locale-switcher nav-locale-switcher" aria-label="言語切替"><a href="/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/%E6%8B%9B%E9%9B%86%E9%80%9A%E7%9F%A5%E3%83%BB%E6%9C%89%E5%A0%B1%E3%83%BB%E7%B5%B1%E5%90%88%E5%A0%B1%E5%91%8A%E6%9B%B8%E7%BF%BB%E8%A8%B3/" class="current" aria-current="page" lang="ja">JP</a><a href="/en/services/annual-agm-translation/" data-locale-route lang="en">EN</a></span>
-    </div>
-    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
-  </div>
-</nav>
-<nav class="mobile-menu" id="mobileMenu" aria-label="モバイルナビゲーション" hidden>
-  <a href="/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/" onclick="toggleMenu()">サービス</a>
-  <a href="/%E6%96%99%E9%87%91/" onclick="toggleMenu()">料金</a>
-  <a href="/%E4%BC%9A%E7%A4%BE%E6%A6%82%E8%A6%81/" onclick="toggleMenu()">会社概要</a>
-  <a href="/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B/" onclick="toggleMenu()">お問い合わせ</a>
-<a href="/en/services/annual-agm-translation/" data-locale-route onclick="toggleMenu()" lang="en">EN</a>
-</nav>
 <div class="wrap crumbs"><a href="/">ホーム</a><span>/</span><a href="/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/">サービス</a><span>/</span>招集通知・有報・統合報告書翻訳</div>
 <main id="main-content" tabindex="-1">
 <section id="top"><div class="wrap"><span class="label">年次報告書の翻訳</span><h1 class="mincho-xl">招集通知・有報・統合報告書を、社内日程に合わせて英訳</h1><div class="rule-accent"></div><p class="lead">全文・抜粋の範囲を決め、発送、電子提供、制作、社内承認の日程に合わせて進めます。過年度との用語統一や終盤の修正にも対応し、用語集と修正履歴を翌年も使える形で残します。</p><div class="hero-ctas"><a class="btn btn-primary" href="/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B/">見積り・相談をする</a></div>
@@ -90,5 +63,6 @@ document.addEventListener('click', (e) => {
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenuOpen(false); });
 </script>
 <script src="/assets/motion.js" defer></script>
+<script src="/assets/nav.js?v=20260803" defer></script>
 </body>
 </html>

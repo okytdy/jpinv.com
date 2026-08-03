@@ -27,33 +27,6 @@
 <link rel="stylesheet" href="/assets/site.css">
 <style>.ip-hero-band{position:relative;height:240px;overflow:hidden;background:var(--ink-mid)}.ip-hero-band img,.ip-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.85) brightness(1.07) contrast(1.02)}.ip-hero-band::after,.ip-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(23,38,65,.5) 0%,rgba(23,38,65,.08) 46%,rgba(23,38,65,.1) 100%)}.ip-photo{position:relative;height:220px;overflow:hidden;background:var(--ink-mid);margin:26px 0;border:1px solid var(--rule)}</style></head>
 <body>
-<nav id="main-nav" role="navigation" aria-label="メインナビゲーション">
-  <div class="wrap nav-inner">
-    <a href="/" class="nav-logo" aria-label="JII トップページへ">
-      <img class="nav-logo-img nav-logo-img--desktop" src="/assets/logo-jii-wordmark.svg" decoding="async" fetchpriority="high" alt="Japan Investor Interface ロゴ" width="282" height="40">
-      <img class="nav-logo-img nav-logo-img--mobile" src="/assets/logo-jii-monogram.svg" decoding="async" fetchpriority="high" alt="Japan Investor Interface ロゴ" width="32" height="32">
-    </a>
-    <div class="nav-center">
-      <ul class="nav-links" role="list">
-        <li><a href="/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/">サービス</a></li>
-        <li><a href="/%E6%96%99%E9%87%91/">料金</a></li>
-        <li><a href="/%E4%BC%9A%E7%A4%BE%E6%A6%82%E8%A6%81/">会社概要</a></li>
-        <li><a href="/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B/">お問い合わせ</a></li>
-      </ul>
-    </div>
-    <div class="nav-right">
-      <span class="locale-switcher nav-locale-switcher" aria-label="言語切替"><a href="/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/IR%E9%80%9A%E8%A8%B3/" class="current" aria-current="page" lang="ja">JP</a><a href="/en/services/ir-interpretation/" data-locale-route lang="en">EN</a></span>
-    </div>
-    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
-  </div>
-</nav>
-<nav class="mobile-menu" id="mobileMenu" aria-label="モバイルナビゲーション" hidden>
-  <a href="/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/" onclick="toggleMenu()">サービス</a>
-  <a href="/%E6%96%99%E9%87%91/" onclick="toggleMenu()">料金</a>
-  <a href="/%E4%BC%9A%E7%A4%BE%E6%A6%82%E8%A6%81/" onclick="toggleMenu()">会社概要</a>
-  <a href="/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B/" onclick="toggleMenu()">お問い合わせ</a>
-<a href="/en/services/ir-interpretation/" data-locale-route onclick="toggleMenu()" lang="en">EN</a>
-</nav>
 <div class="wrap crumbs"><a href="/">ホーム</a><span>/</span><a href="/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/">サービス</a><span>/</span>IR通訳</div>
 <main id="main-content" tabindex="-1">
 <section id="top"><div class="wrap"><span class="label">IR通訳</span><h1 class="mincho-xl">海外投資家との対話を支える、IRに強い通訳。</h1><div class="rule-accent"></div><p class="lead">機関投資家との個別面談、決算説明会、IR説明会、海外ロードショー、株主総会などに対応。事前に開示資料や想定問答を確認し、投資家の質問と経営陣の意図を正確に伝えます。</p><div class="hero-ctas"><a class="btn btn-primary" href="/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B/">見積り・相談をする</a></div>
@@ -82,5 +55,6 @@ document.addEventListener('click', (e) => {
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenuOpen(false); });
 </script>
 <script src="/assets/motion.js" defer></script>
+<script src="/assets/nav.js?v=20260803" defer></script>
 </body>
 </html>

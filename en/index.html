@@ -48,33 +48,6 @@
 </script>
 </head>
 <body>
-<nav id="main-nav" role="navigation" aria-label="Main navigation">
-  <div class="wrap nav-inner">
-    <a href="/en/" class="nav-logo" aria-label="JII home">
-      <img class="nav-logo-img nav-logo-img--desktop" src="/assets/logo-jii-wordmark.svg" decoding="async" fetchpriority="high" alt="Japan Investor Interface logo" width="282" height="40">
-      <img class="nav-logo-img nav-logo-img--mobile" src="/assets/logo-jii-monogram.svg" decoding="async" fetchpriority="high" alt="Japan Investor Interface logo" width="32" height="32">
-    </a>
-    <div class="nav-center">
-      <ul class="nav-links" role="list">
-        <li><a href="/en/services/">Services</a></li>
-        <li><a href="/en/pricing/">Pricing</a></li>
-        <li><a href="/en/company/">Company</a></li>
-        <li><a href="/en/contact/">Contact</a></li>
-      </ul>
-    </div>
-    <div class="nav-right">
-      <span class="locale-switcher nav-locale-switcher" aria-label="Language switcher"><a href="/" data-locale-route lang="ja">JP</a><a href="/en/" class="current" aria-current="page" lang="en">EN</a></span>
-    </div>
-    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
-  </div>
-</nav>
-<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" hidden>
-  <a href="/en/services/" onclick="toggleMenu()">Services</a>
-  <a href="/en/pricing/" onclick="toggleMenu()">Pricing</a>
-  <a href="/en/company/" onclick="toggleMenu()">Company</a>
-  <a href="/en/contact/" onclick="toggleMenu()">Contact</a>
-<a href="/" data-locale-route onclick="toggleMenu()" lang="ja">日本語</a>
-</nav>
 
 <main id="main-content" tabindex="-1">
 <section id="top"><div class="wrap hero-2col"><div class="hero-copy"><span class="label">Overseas IR Support</span><h1 class="mincho-xl">Understood by global investors — on the page and in the room.</h1><div class="rule-accent"></div><p class="lead">JII helps Japanese listed companies turn disclosure and investor dialogue into clearer market understanding—supporting access to global capital, a lower cost of capital, and long-term corporate value.</p><div class="hero-ctas"><a class="btn btn-primary" href="/en/contact/">Contact us</a></div>
@@ -103,5 +76,6 @@ document.addEventListener('click', (e) => {
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenuOpen(false); });
 </script>
 <script src="/assets/motion.js" defer></script>
+<script src="/assets/nav.js?v=20260803" defer></script>
 </body>
 </html>

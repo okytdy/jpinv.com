@@ -242,41 +242,6 @@ main.curriculum { padding-top: var(--nav-h); }
 }
 </script></head>
 <body>
-<nav id="main-nav" role="navigation" aria-label="Main navigation">
-  <div class="wrap nav-inner">
-    <a href="/en/" class="nav-logo" aria-label="JII home">
-      <img class="nav-logo-img nav-logo-img--desktop" src="/assets/logo-jii-wordmark.svg" alt="Japan Investor Interface logo" width="282" height="40">
-      <img class="nav-logo-img nav-logo-img--mobile" src="/assets/logo-jii-monogram.svg" alt="Japan Investor Interface logo" width="32" height="32">
-    </a>
-    <div class="nav-center">
-      <ul class="nav-links" role="list">
-        <li><a href="/en/services/">Services</a></li>
-        <li><a href="/en/pricing/">Pricing</a></li>
-        <li><a href="/en/company/">Company</a></li>
-        <li><a href="/en/faq/">FAQ</a></li>
-        <li><a href="/en/governance/">IR Training</a></li>
-        <li><a href="/en/compounders/">Compounders</a></li>
-      </ul>
-    </div>
-    <div class="nav-right">
-      <a href="/en/contact/" class="btn btn-primary nav-cta">Free 30-min call</a>
-      <span class="locale-switcher nav-locale-switcher" aria-label="Language switcher"><a href="/governance/foundations/1.2-pre-reform-architecture/" data-locale-route lang="ja">JP</a><a href="/en/governance/foundations/1.2-pre-reform-architecture/" class="current" aria-current="page" lang="en">EN</a></span>
-    </div>
-    <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" hidden>
-  <a href="/en/services/" onclick="toggleMenu()">Services</a>
-  <a href="/en/pricing/" onclick="toggleMenu()">Pricing</a>
-  <a href="/en/company/" onclick="toggleMenu()">Company</a>
-  <a href="/en/faq/" onclick="toggleMenu()">FAQ</a>
-  <a href="/en/governance/" onclick="toggleMenu()">IR Training</a>
-  <a href="/en/compounders/" onclick="toggleMenu()">Compounders</a>
-  <a href="/governance/foundations/1.2-pre-reform-architecture/" data-locale-route onclick="toggleMenu()" lang="ja">JP</a>
-  <a href="/en/contact/" class="btn btn-primary mobile-menu-cta" onclick="toggleMenu()">Book a free 30-min call</a>
-</nav>
 <main id="main-content" class="curriculum" tabindex="-1">
 <div class="wrap crumbs">
   <a href="/en/">JII</a> <span class="sep">/</span>
@@ -470,5 +435,6 @@ document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenuOpe
 import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs';
 mermaid.initialize({ startOnLoad: true, theme: 'neutral', fontFamily: 'Noto Sans JP, Hiragino Kaku Gothic ProN, sans-serif', themeVariables: { primaryColor: '#f4eee4', primaryTextColor: '#1a2a4a', primaryBorderColor: '#9a7838', lineColor: '#304466', secondaryColor: '#f5f7fa', tertiaryColor: '#fafbfc' } });
 </script>
+<script src="/assets/nav.js?v=20260803" defer></script>
 </body>
 </html>
