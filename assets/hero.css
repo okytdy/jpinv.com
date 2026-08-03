@@ -55,7 +55,7 @@
   align-items: center;
   gap: 56px;
 }
-.jh-copy { flex: 1 1 auto; max-width: 640px; }
+.jh-copy { flex: 1 1 auto; max-width: 720px; }
 
 .jh-kick {
   font-family: var(--sans, 'Noto Sans JP', sans-serif);
@@ -66,13 +66,24 @@
 }
 .jh h1, .jh-h {
   font-family: var(--serif, 'Noto Serif JP', serif);
-  font-size: clamp(30px, 3.6vw, 50px);
+  font-size: clamp(28px, 3.1vw, 46px);
   font-weight: 300;
   line-height: 1.44;
   letter-spacing: 0.04em;
   color: #fff;
   margin: 0;
+  /* Japanese has no spaces, so without this the browser breaks a headline
+     wherever the line happens to end — which is how 意図まで伝える。 came to
+     wrap after 伝え and leave る。 alone on the second line. `strict` also
+     stops small kana and 、。 from starting a line. */
+  line-break: strict;
 }
+
+/* Each clause of a headline is wrapped in <span class="ln"> in the markup.
+   inline-block means the browser will only break BETWEEN clauses while they
+   still fit, so a headline lands on clean grammatical lines. A clause wider
+   than the column still breaks inside itself, so nothing overflows. */
+.jh h1 .ln, .jh-h .ln { display: inline-block; }
 .jh-lead {
   font-family: var(--sans, 'Noto Sans JP', sans-serif);
   font-size: 15px;

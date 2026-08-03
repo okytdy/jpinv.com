@@ -5,7 +5,7 @@ that version into every file that loads it.
 
 WHY THIS EXISTS. Every page loads the navigation as
 
-    <script src="/assets/nav.js?v=5e14e4a92a" defer></script>
+    <script src="/assets/nav.js?v=02757dad69" defer></script>
 
 The browser caches that URL. If nav.js changes but the `?v=` does not, the
 browser keeps serving the copy it already has, and the site appears not to have
@@ -28,13 +28,18 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 NAV = os.path.join(ROOT, "assets", "nav.js")
 
-# Files outside the site tree that also carry the tag.
+# Every asset that is loaded by URL and therefore cached by the browser.
+# Add a file here the moment it starts being loaded with a ?v= query.
+VERSIONED = ["nav.js", "hero.js", "hero.css"]
+
+# Files outside the site tree that also carry a tag.
 EXTERNAL = [
     os.path.join(ROOT, "tools", "build_signal_pages.py"),
     os.path.join(ROOT, "tools", "build_sitemap_page.py"),
 ]
 
-PATTERN = re.compile(r"(assets/nav\.js\?v=)([0-9a-zA-Z]+)")
+PATTERN = re.compile(
+    r"(assets/(?:%s)\?v=)([0-9a-zA-Z]+)" % "|".join(re.escape(n) for n in VERSIONED))
 
 
 def walk_site():
@@ -50,11 +55,17 @@ def walk_site():
 def main():
     if not os.path.exists(NAV):
         sys.exit("assets/nav.js not found")
-    # Hash the file with any version strings stripped out, so that a version
-    # written into nav.js's own header comment cannot change the hash and send
-    # this into a loop where every run produces a different answer.
-    source = PATTERN.sub(r"\1", open(NAV, encoding="utf-8").read())
-    version = hashlib.sha256(source.encode("utf-8")).hexdigest()[:10]
+    # Hash every versioned asset together, with any version strings stripped
+    # out first, so that a version written into a file's own header comment
+    # cannot change the hash and send this into a loop where every run
+    # produces a different answer. One shared version keeps it simple: edit
+    # any of them and every page picks up all of them.
+    blob = ""
+    for name in VERSIONED:
+        p = os.path.join(ROOT, "assets", name)
+        if os.path.exists(p):
+            blob += PATTERN.sub(r"\1", open(p, encoding="utf-8").read())
+    version = hashlib.sha256(blob.encode("utf-8")).hexdigest()[:10]
 
     roots = sys.argv[1:]
     changed = 0
