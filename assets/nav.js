@@ -194,7 +194,10 @@
     "#jii-nav .jn-menu a{font-family:var(--sans,'Noto Sans JP',system-ui,sans-serif);font-size:15px;color:var(--ink,#1a2a4a);padding:14px 40px;}",
     "#jii-nav .jn-menu .jn-menu-sub{font-size:13px;color:var(--text-mid,#4a5566);padding-left:58px;}",
     "#jii-nav .jn-menu .jn-menu-rule{border-top:1px solid var(--rule,#d6dee8);margin:8px 40px;}",
-    "#jii-nav .jn-menu .jn-cta{margin:16px 40px 0;justify-content:center;padding:15px 0;}",
+    /* This must come after ".jn-menu a", which is more specific than
+       ".jn-cta" and was painting the contact button's text navy on navy —
+       it rendered as an empty dark block. */
+    "#jii-nav .jn-menu a.jn-cta{color:#fff;margin:16px 40px 0;justify-content:center;padding:15px 0;}",
     "@media(max-width:1000px){#jii-nav .jn-links,#jii-nav .jn-right .jn-cta{display:none;}#jii-nav .jn-burger{display:block;}",
     "#jii-nav .jn-right{margin-left:auto;order:2;}#jii-nav .jn-burger{order:3;margin-left:0;}",
     "#jii-nav .jn-lang{padding:0 4px 0 0;}}",
@@ -306,7 +309,14 @@
       '<button class="jn-burger" aria-label="Menu" aria-expanded="false" aria-controls="jii-nav-menu"><span></span><span></span><span></span></button>' +
     '</div>' +
     subHtml +
-    '<nav class="jn-menu" id="jii-nav-menu" aria-label="' + (isEn ? "Mobile navigation" : "モバイルナビゲーション") + '">' + menuHtml + '</nav>';
+    /* A <div>, not a <nav>, on purpose. site.css carries
+         nav:not(#main-nav):not(.mobile-menu){ … display:block … }
+       which matched this element, outranked "#jii-nav .jn-menu" on
+       specificity, and left the mobile menu permanently open with its items
+       flowing in rows instead of a column. role="navigation" keeps the
+       semantics without the collision. */
+    '<div class="jn-menu" id="jii-nav-menu" role="navigation" aria-label="' +
+      (isEn ? "Mobile navigation" : "モバイルナビゲーション") + '">' + menuHtml + '</div>';
 
   var nav = document.createElement("header");
   nav.id = "jii-nav";
@@ -380,6 +390,11 @@
   });
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") setOpen(false);
+  });
+  /* Close on a link tap. Navigation closes it anyway, but a same-page
+     anchor would otherwise leave the panel covering what it jumped to. */
+  menu.addEventListener("click", function (e) {
+    if (e.target.closest("a")) setOpen(false);
   });
 
   /* Older pages call toggleMenu() from inline onclick handlers. Keep the
