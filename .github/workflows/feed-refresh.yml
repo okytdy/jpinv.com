@@ -74,6 +74,9 @@ jobs:
           python tools/scrub_sample_signals.py
           python tools/watchlist_join.py
           python tools/build_signal_pages.py
+          # The homepage hero reads a small hero.json rather than the 2MB feed.
+          # It must be rebuilt here or the hero goes stale while the feed moves.
+          python tools/build_hero_data.py
 
       - name: Check for changes under compounders/feed/data/
         id: diff
