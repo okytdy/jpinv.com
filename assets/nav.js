@@ -23,13 +23,21 @@
 
   /* ---------- 1. THE NAVIGATION. Edit here and nowhere else. ---------- */
 
+  /* The top bar. Four sections, in the order a first-time visitor needs
+     them: what we do, what it costs, who we are, what we publish. */
   var SECTIONS = [
-    { ja: "サービス",     en: "Services",    jaHref: "/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/", enHref: "/en/services/" },
-    { ja: "料金",         en: "Pricing",     jaHref: "/%E6%96%99%E9%87%91/",                   enHref: "/en/pricing/" },
-    { ja: "銘柄レポート", en: "Research",    jaHref: "/compounders/",                          enHref: "/en/compounders/" },
-    { ja: "IR研修",       en: "IR Training", jaHref: "/governance/",                           enHref: "/en/governance/" },
-    { ja: "会社概要",     en: "Company",     jaHref: "/%E4%BC%9A%E7%A4%BE%E6%A6%82%E8%A6%81/", enHref: "/en/company/" },
-    { ja: "FAQ",          en: "FAQ",         jaHref: "/faq/",                                  enHref: "/en/faq/" }
+    { ja: "サービス",     en: "Services", jaHref: "/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/", enHref: "/en/services/" },
+    { ja: "料金",         en: "Pricing",  jaHref: "/%E6%96%99%E9%87%91/",                   enHref: "/en/pricing/" },
+    { ja: "会社概要",     en: "Company",  jaHref: "/%E4%BC%9A%E7%A4%BE%E6%A6%82%E8%A6%81/", enHref: "/en/company/" },
+    { ja: "銘柄レポート", en: "Research", jaHref: "/compounders/",                          enHref: "/en/compounders/" }
+  ];
+
+  /* Reachable, but not from the top bar. These appear in the mobile menu
+     and in the footer. IR研修 and FAQ live here because a visitor who has
+     never heard of JII does not need either one to decide anything. */
+  var SECONDARY = [
+    { ja: "IR研修", en: "IR Training", jaHref: "/governance/", enHref: "/en/governance/" },
+    { ja: "FAQ",    en: "FAQ",         jaHref: "/faq/",        enHref: "/en/faq/" }
   ];
 
   var CONTACT = { ja: "お問い合わせ", en: "Contact",
@@ -89,28 +97,31 @@
   var css = [
     "#jii-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.97);",
     "backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--rule,#d6dee8);}",
-    "#jii-nav .jn-bar{height:" + NAV_H + "px;max-width:1100px;margin:0 auto;padding:0 48px;display:flex;align-items:center;gap:18px;}",
+    /* Full-bleed like Nikkato: logo hard left, sections centered in the
+       space that is left, language and the contact block hard right. */
+    "#jii-nav .jn-bar{height:" + NAV_H + "px;display:flex;align-items:center;padding:0 0 0 40px;}",
     "#jii-nav a{text-decoration:none;color:inherit;}",
     "#jii-nav .jn-logo{flex:0 0 auto;display:flex;align-items:center;}",
-    "#jii-nav .jn-logo img{display:block;height:34px;width:auto;}",
+    "#jii-nav .jn-logo img{display:block;height:32px;width:auto;}",
     "#jii-nav .jn-logo .jn-logo-sm{display:none;height:30px;}",
-    "#jii-nav .jn-links{display:flex;align-items:center;gap:26px;margin-left:auto;list-style:none;padding:0;}",
-    "#jii-nav .jn-links a{font-family:var(--sans,'Noto Sans JP',system-ui,sans-serif);font-size:13px;letter-spacing:.04em;",
-    "color:var(--text,#1f2937);padding:6px 0;border-bottom:2px solid transparent;white-space:nowrap;transition:color .15s,border-color .15s;}",
+    "#jii-nav .jn-links{flex:1 1 auto;display:flex;align-items:center;justify-content:center;gap:40px;list-style:none;padding:0 32px;margin:0;}",
+    "#jii-nav .jn-links a{font-family:var(--sans,'Noto Sans JP',system-ui,sans-serif);font-size:14px;letter-spacing:.05em;",
+    "color:var(--text,#1f2937);padding:8px 0;border-bottom:2px solid transparent;white-space:nowrap;transition:color .15s,border-color .15s;}",
     "#jii-nav .jn-links a:hover{color:var(--ink,#1a2a4a);}",
     "#jii-nav .jn-links a.jn-on{color:var(--ink,#1a2a4a);border-bottom-color:var(--accent,#9a7838);font-weight:500;}",
-    "#jii-nav .jn-right{display:flex;align-items:center;gap:14px;flex:0 0 auto;}",
-    "#jii-nav .jn-lang{font-family:var(--mono,'DM Mono',monospace);font-size:11px;letter-spacing:.1em;color:var(--text-dim,#5f6875);display:flex;gap:5px;}",
+    "#jii-nav .jn-right{display:flex;align-items:stretch;flex:0 0 auto;height:100%;}",
+    "#jii-nav .jn-lang{font-family:var(--mono,'DM Mono',monospace);font-size:11.5px;letter-spacing:.1em;color:var(--text-dim,#5f6875);",
+    "display:flex;align-items:center;gap:7px;padding:0 30px;}",
     "#jii-nav .jn-lang a:hover{color:var(--ink,#1a2a4a);}",
     "#jii-nav .jn-lang .jn-cur{color:var(--ink,#1a2a4a);font-weight:600;}",
-    "#jii-nav .jn-cta{font-family:var(--sans,'Noto Sans JP',system-ui,sans-serif);font-size:12.5px;letter-spacing:.05em;",
-    "background:var(--ink,#1a2a4a);color:#fff;padding:10px 20px;white-space:nowrap;}",
-    "#jii-nav .jn-cta:hover{background:var(--ink-mid,#172641);}",
-    "#jii-nav .jn-burger{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto;}",
+    "#jii-nav .jn-cta{font-family:var(--sans,'Noto Sans JP',system-ui,sans-serif);font-size:13px;letter-spacing:.06em;",
+    "background:var(--ink,#1a2a4a);color:#fff;display:flex;align-items:center;padding:0 34px;white-space:nowrap;transition:background .15s;}",
+    "#jii-nav .jn-cta:hover{background:var(--accent,#9a7838);}",
+    "#jii-nav .jn-burger{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto;margin-right:22px;}",
     "#jii-nav .jn-burger span{display:block;width:22px;height:1.5px;background:var(--ink,#1a2a4a);margin:5px 0;transition:transform .2s,opacity .2s;}",
     /* section sub-tabs */
     "#jii-nav .jn-sub{border-top:1px solid var(--rule,#d6dee8);background:var(--bg-soft,#fafbfc);}",
-    "#jii-nav .jn-sub-in{height:" + SUB_H + "px;max-width:1100px;margin:0 auto;padding:0 48px;display:flex;align-items:center;gap:22px;overflow-x:auto;}",
+    "#jii-nav .jn-sub-in{height:" + SUB_H + "px;padding:0 40px;display:flex;align-items:center;gap:26px;overflow-x:auto;}",
     "#jii-nav .jn-sub a{font-family:var(--sans,'Noto Sans JP',system-ui,sans-serif);font-size:12.5px;color:var(--text-mid,#4a5566);",
     "padding:5px 0;border-bottom:2px solid transparent;white-space:nowrap;}",
     "#jii-nav .jn-sub a:hover{color:var(--ink,#1a2a4a);}",
@@ -119,13 +130,15 @@
     "#jii-nav .jn-menu{display:none;flex-direction:column;background:#fff;border-top:1px solid var(--rule,#d6dee8);padding:8px 0 18px;",
     "box-shadow:0 14px 28px rgba(15,31,58,.08);max-height:calc(100vh - " + NAV_H + "px);overflow-y:auto;}",
     "#jii-nav .jn-menu.jn-open{display:flex;}",
-    "#jii-nav .jn-menu a{font-family:var(--sans,'Noto Sans JP',system-ui,sans-serif);font-size:15px;color:var(--ink,#1a2a4a);padding:14px 32px;}",
-    "#jii-nav .jn-menu .jn-menu-sub{font-size:13px;color:var(--text-mid,#4a5566);padding-left:48px;}",
-    "#jii-nav .jn-menu .jn-cta{margin:14px 32px 0;text-align:center;}",
-    "@media(max-width:1120px){#jii-nav .jn-links,#jii-nav .jn-right .jn-cta{display:none;}#jii-nav .jn-burger{display:block;}",
-    "#jii-nav .jn-right{margin-left:auto;order:2;}#jii-nav .jn-burger{order:3;margin-left:0;}}",
-    "@media(min-width:1121px){#jii-nav .jn-menu{display:none!important;}}",
-    "@media(max-width:760px){#jii-nav .jn-bar,#jii-nav .jn-sub-in{padding:0 22px;}}",
+    "#jii-nav .jn-menu a{font-family:var(--sans,'Noto Sans JP',system-ui,sans-serif);font-size:15px;color:var(--ink,#1a2a4a);padding:14px 40px;}",
+    "#jii-nav .jn-menu .jn-menu-sub{font-size:13px;color:var(--text-mid,#4a5566);padding-left:58px;}",
+    "#jii-nav .jn-menu .jn-menu-rule{border-top:1px solid var(--rule,#d6dee8);margin:8px 40px;}",
+    "#jii-nav .jn-menu .jn-cta{margin:16px 40px 0;justify-content:center;padding:15px 0;}",
+    "@media(max-width:1000px){#jii-nav .jn-links,#jii-nav .jn-right .jn-cta{display:none;}#jii-nav .jn-burger{display:block;}",
+    "#jii-nav .jn-right{margin-left:auto;order:2;}#jii-nav .jn-burger{order:3;margin-left:0;}",
+    "#jii-nav .jn-lang{padding:0 4px 0 0;}}",
+    "@media(min-width:1001px){#jii-nav .jn-menu{display:none!important;}}",
+    "@media(max-width:760px){#jii-nav .jn-bar{padding-left:22px;}#jii-nav .jn-sub-in{padding:0 22px;}#jii-nav .jn-burger{margin-right:12px;}}",
     "@media(max-width:560px){#jii-nav .jn-logo img{display:none;}#jii-nav .jn-logo .jn-logo-sm{display:block;}}",
     /* retire the old systems wherever they still exist on the page */
     "nav#main-nav,nav.mobile-menu,#cmpnav{display:none!important;}",
@@ -165,6 +178,11 @@
       var t = SUBTABS[j];
       menuHtml += '<a class="jn-menu-sub" href="' + esc((isEn ? "/en" : "") + t.path) + '">' + esc(isEn ? t.en : t.ja) + '</a>';
     }
+  }
+
+  menuHtml += '<div class="jn-menu-rule"></div>';
+  for (var m = 0; m < SECONDARY.length; m++) {
+    menuHtml += '<a href="' + esc(href(SECONDARY[m])) + '">' + esc(label(SECONDARY[m])) + '</a>';
   }
 
   menuHtml += '<a href="' + esc(isEn ? "/" : "/en/") + '" lang="' + (isEn ? "ja" : "en") + '">' + (isEn ? "日本語" : "English") + '</a>';
