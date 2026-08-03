@@ -33,13 +33,31 @@
   /* `panel` names the FOOTER column (by head) whose items open in a
      dropdown under the bar, Nikkato-style. 料金 and 会社概要 are single
      pages, so they stay plain links. */
+  /* Every section opens a panel. `img` is the tile photo; sections without
+     their own FOOTER column carry an explicit `items` list of the pages
+     that belong with them. */
   var SECTIONS = [
-    { ja: "サービス",     en: "Services", jaHref: "/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/", enHref: "/en/services/", panel: true,
-      tag: { ja: "英文開示から面談まで", en: "Disclosure to the meeting" } },
-    { ja: "料金",         en: "Pricing",  jaHref: "/%E6%96%99%E9%87%91/",                   enHref: "/en/pricing/" },
-    { ja: "会社概要",     en: "Company",  jaHref: "/%E4%BC%9A%E7%A4%BE%E6%A6%82%E8%A6%81/", enHref: "/en/company/" },
-    { ja: "銘柄レポート", en: "Research", jaHref: "/compounders/",                          enHref: "/en/compounders/", panel: true,
-      tag: { ja: "日本株を、日英で読み解く", en: "Japanese equities, in both languages" } }
+    { ja: "サービス",     en: "Services", jaHref: "/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/", enHref: "/en/services/",
+      panel: true, img: "slot02_mendan_card" },
+    { ja: "料金",         en: "Pricing",  jaHref: "/%E6%96%99%E9%87%91/",                   enHref: "/en/pricing/",
+      panel: true, img: "slot04_disclosure_card",
+      items: [
+        { ja: "料金表",       en: "Pricing",            jaHref: "/%E6%96%99%E9%87%91/",                   enHref: "/en/pricing/" },
+        { ja: "特急翻訳",     en: "Express translation", jaHref: "/%E7%89%B9%E6%80%A5%E7%BF%BB%E8%A8%B3/", enHref: "/%E7%89%B9%E6%80%A5%E7%BF%BB%E8%A8%B3/" },
+        { ja: "よくある質問", en: "FAQ",                jaHref: "/faq/",                                  enHref: "/en/faq/" },
+        { ja: "お問い合わせ", en: "Contact",            jaHref: "/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B/", enHref: "/en/contact/" }
+      ] },
+    { ja: "会社概要",     en: "Company",  jaHref: "/%E4%BC%9A%E7%A4%BE%E6%A6%82%E8%A6%81/", enHref: "/en/company/",
+      panel: true, img: "slot05_interpretation_card",
+      items: [
+        { ja: "会社概要",             en: "Company profile", jaHref: "/%E4%BC%9A%E7%A4%BE%E6%A6%82%E8%A6%81/", enHref: "/en/company/" },
+        { ja: "IR研修",               en: "IR training",     jaHref: "/governance/",  enHref: "/en/governance/" },
+        { ja: "考察記事",             en: "Articles (JP)",   jaHref: "/articles/",    enHref: "/articles/" },
+        { ja: "プライバシーポリシー", en: "Privacy policy",  jaHref: "/privacy/",     enHref: "/en/privacy/" },
+        { ja: "サイトマップ",         en: "Sitemap",         jaHref: "/sitemap/",     enHref: "/en/sitemap/" }
+      ] },
+    { ja: "銘柄レポート", en: "Research", jaHref: "/compounders/",                          enHref: "/en/compounders/",
+      panel: true, img: "slot06_diagnosis_card" }
   ];
 
   /* Reachable, but not from the top bar. These appear in the mobile menu
@@ -232,20 +250,26 @@
     "opacity:0;transition:opacity .15s;}",
     "#jii-nav .jn-pcols a:hover{color:var(--ink,#1a2a4a);}",
     "#jii-nav .jn-pcols a:hover::after{opacity:1;}",
-    "#jii-nav .jn-tile{display:flex;flex-direction:column;justify-content:center;gap:12px;",
-    "background:var(--ink,#1a2a4a);padding:30px 32px;text-decoration:none;transition:background .15s;}",
-    "#jii-nav .jn-tile:hover{background:var(--ink-mid,#172641);}",
-    "#jii-nav .jn-tile b{font-family:var(--serif,'Noto Serif JP',serif);font-size:19px;font-weight:400;",
-    "color:#fff;line-height:1.5;}",
-    "#jii-nav .jn-tile i{font-style:normal;font-family:var(--mono,'DM Mono',monospace);font-size:10.5px;",
-    "letter-spacing:.18em;color:#c9a464;}",
-    "#jii-nav .jn-tile s{text-decoration:none;font-family:var(--sans,'Noto Sans JP',system-ui,sans-serif);",
-    "font-size:12px;color:rgba(255,255,255,.75);}",
-    "#jii-nav .jn-tile em{font-style:normal;font-family:var(--sans,'Noto Sans JP',system-ui,sans-serif);",
-    "font-size:12px;color:#c9a464;margin-top:6px;}",
+    /* The tile: a photograph with a navy caption bar, Nikkato's own tile
+       pattern. The photo zooms slightly on hover; the caption never moves. */
+    "#jii-nav .jn-tile{display:block;text-decoration:none;border:1px solid var(--rule,#d6dee8);}",
+    "#jii-nav .jn-timg{display:block;overflow:hidden;aspect-ratio:3/2;background:#f5f7fa;}",
+    "#jii-nav .jn-timg img{width:100%;height:100%;object-fit:cover;display:block;",
+    "transition:transform .6s ease;}",
+    "#jii-nav .jn-tile:hover .jn-timg img{transform:scale(1.06);}",
+    "#jii-nav .jn-tcap{display:flex;align-items:center;justify-content:space-between;gap:10px;",
+    "background:var(--ink,#1a2a4a);padding:13px 16px;}",
+    "#jii-nav .jn-tcap b{font-family:var(--sans,'Noto Sans JP',system-ui,sans-serif);font-size:13.5px;",
+    "font-weight:500;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}",
+    "#jii-nav .jn-tcap em{font-style:normal;font-family:var(--sans,'Noto Sans JP',system-ui,sans-serif);",
+    "font-size:11.5px;color:#c9a464;white-space:nowrap;}",
     /* footer sitemap */
+    /* flex rules because Compounder profile pages set body{display:flex} to
+       center their column — without these the footer rendered as a dark
+       column BESIDE the report instead of below it (seen August 3, 2026). */
+    "body{flex-wrap:wrap;}",
     "#jii-foot{background:var(--ink,#1a2a4a);color:#cfd6e2;font-family:var(--sans,'Noto Sans JP',system-ui,sans-serif);",
-    "font-size:13px;line-height:1.8;margin-top:0;}",
+    "font-size:13px;line-height:1.8;margin-top:0;flex:0 0 100%;width:100%;min-width:100%;}",
     "#jii-foot a{color:#cfd6e2;text-decoration:none;}",
     "#jii-foot a:hover{color:#fff;text-decoration:underline;}",
     "#jii-foot .jf-in{max-width:1100px;margin:0 auto;padding:56px 48px 30px;}",
@@ -295,24 +319,28 @@
   var linksHtml = "", menuHtml = "";
 
   function panelFor(section) {
-    /* The panel's list is the FOOTER column with the same head, so the
-       dropdown, the footer and the sitemap can never disagree. */
-    var col = null;
-    for (var f = 0; f < FOOTER.length; f++) {
-      if (FOOTER[f].head === section) col = FOOTER[f];
+    /* The list: the section's own `items` if it declares them, otherwise
+       the FOOTER column with the same head — so dropdown, footer and
+       sitemap read from one source wherever they overlap. */
+    var items = section.items || null;
+    if (!items) {
+      for (var f = 0; f < FOOTER.length; f++) {
+        if (FOOTER[f].head === section) items = FOOTER[f].items;
+      }
     }
-    if (!col) return "";
+    if (!items) return "";
     var links = "";
-    for (var g = 0; g < col.items.length; g++) {
-      links += '<a href="' + esc(href(col.items[g])) + '">' + esc(label(col.items[g])) + '</a>';
+    for (var g = 0; g < items.length; g++) {
+      links += '<a href="' + esc(href(items[g])) + '">' + esc(label(items[g])) + '</a>';
     }
     return '<div class="jn-pw"><div class="jn-pin">' +
       '<div class="jn-pcols">' + links + '</div>' +
       '<a class="jn-tile" href="' + esc(href(section)) + '">' +
-        '<i>' + esc(isEn ? section.ja : section.en).toUpperCase() + '</i>' +
-        '<b>' + esc(label(section)) + '</b>' +
-        '<s>' + esc(section.tag ? (isEn ? section.tag.en : section.tag.ja) : "") + '</s>' +
-        '<em>' + (isEn ? "Open →" : "トップページへ →") + '</em>' +
+        '<span class="jn-timg"><img src="/assets/photos/' + section.img + '.webp" ' +
+          'srcset="/assets/photos/' + section.img + '.webp 1x, /assets/photos/' + section.img + '@2x.webp 2x" ' +
+          'alt="" loading="lazy" decoding="async"></span>' +
+        '<span class="jn-tcap"><b>' + esc(label(section)) + '</b>' +
+        '<em>' + (isEn ? "Open →" : "詳しく見る →") + '</em></span>' +
       '</a>' +
     '</div></div>';
   }
