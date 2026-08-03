@@ -53,6 +53,56 @@
     { k: "disclosures", ja: "大量保有報告",       en: "5% Filings",   path: "/compounders/active-investors/" }
   ];
 
+  /* ---------- 1b. THE FOOTER SITEMAP. Same idea: edit here only. ----------
+     One column per section. The column head is the section's own landing
+     page; the items under it are the pages inside that section.
+
+     The footer is a navigational summary, not a complete index. IR研修 has
+     34 pages and 銘柄レポート has 32 profiles; listing all of them here
+     would bury the sections that sell. The complete index is /sitemap/. */
+
+  var FOOTER = [
+    { head: SECTIONS[0], items: [
+        { ja: "開示翻訳",   en: "Disclosure translation",  jaHref: "/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/%E9%96%8B%E7%A4%BA%E7%BF%BB%E8%A8%B3/", enHref: "/en/services/disclosure-translation/" },
+        { ja: "IR通訳",     en: "IR interpretation",       jaHref: "/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/IR%E9%80%9A%E8%A8%B3/",                 enHref: "/en/services/ir-interpretation/" },
+        { ja: "海外IR診断", en: "IR diagnosis",            jaHref: "/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/%E6%B5%B7%E5%A4%96IR%E8%A8%BA%E6%96%AD/", enHref: "/en/services/ir-diagnosis/" },
+        { ja: "継続IR支援", en: "Ongoing IR support",      jaHref: "/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/%E7%B6%99%E7%B6%9AIR%E6%94%AF%E6%8F%B4/", enHref: "/en/services/ongoing-ir-support/" },
+        { ja: "招集通知・有報・統合報告書翻訳", en: "AGM notice and annual report", jaHref: "/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/%E6%8B%9B%E9%9B%86%E9%80%9A%E7%9F%A5%E3%83%BB%E6%9C%89%E5%A0%B1%E3%83%BB%E7%B5%B1%E5%90%88%E5%A0%B1%E5%91%8A%E6%9B%B8%E7%BF%BB%E8%A8%B3/", enHref: "/en/services/annual-agm-translation/" },
+        { ja: "特急翻訳",   en: "Express translation (JP)", jaHref: "/%E7%89%B9%E6%80%A5%E7%BF%BB%E8%A8%B3/",                                     enHref: "/%E7%89%B9%E6%80%A5%E7%BF%BB%E8%A8%B3/" },
+        { ja: "AIと機密保持", en: "AI and confidentiality", jaHref: "/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/AI%E3%81%A8%E6%A9%9F%E5%AF%86%E4%BF%9D%E6%8C%81/", enHref: "/en/services/ai-confidentiality/" }
+      ] },
+    { head: SECTIONS[3], items: [
+        { ja: "銘柄分析",           en: "Profiles",         jaHref: "/compounders/profiles/",          enHref: "/en/compounders/profiles/" },
+        { ja: "銘柄スクリーニング", en: "Universe",         jaHref: "/compounders/universe/",          enHref: "/en/compounders/universe/" },
+        { ja: "資本政策開示",       en: "Capital actions",  jaHref: "/compounders/feed/",              enHref: "/en/compounders/feed/" },
+        { ja: "大量保有報告",       en: "5% filings",       jaHref: "/compounders/active-investors/",  enHref: "/en/compounders/active-investors/" },
+        { ja: "シグナルログ",       en: "Signal log",       jaHref: "/compounders/signals/",           enHref: "/en/compounders/signals/" },
+        { ja: "着眼点",             en: "Methodology",      jaHref: "/compounders/methodology/",       enHref: "/en/compounders/methodology/" }
+      ] },
+    { head: SECONDARY[0], items: [
+        { ja: "改革の起源",     en: "Origins of reform",   jaHref: "/governance/foundations/",          enHref: "/en/governance/foundations/" },
+        { ja: "コードの時代",   en: "The code era",        jaHref: "/governance/cg-code/",              enHref: "/en/governance/cg-code/" },
+        { ja: "市場区分の見直し", en: "Market restructuring", jaHref: "/governance/market-restructuring/", enHref: "/en/governance/market-restructuring/" },
+        { ja: "資本効率革命",   en: "Capital efficiency",  jaHref: "/governance/capital-efficiency/",   enHref: "/en/governance/capital-efficiency/" },
+        { ja: "最前線",         en: "The frontier",        jaHref: "/governance/frontier/",             enHref: "/en/governance/frontier/" },
+        { ja: "IRツールボックス", en: "IR toolbox",        jaHref: "/governance/toolbox/",              enHref: "/en/governance/toolbox/" }
+      ] },
+    { head: SECTIONS[2], items: [
+        { ja: "料金",         en: "Pricing",  jaHref: "/%E6%96%99%E9%87%91/", enHref: "/en/pricing/" },
+        { ja: "お問い合わせ", en: "Contact",  jaHref: CONTACT.jaHref,         enHref: CONTACT.enHref },
+        { ja: "よくある質問", en: "FAQ",      jaHref: "/faq/",                enHref: "/en/faq/" },
+        { ja: "考察記事",     en: "Articles (JP)", jaHref: "/articles/",      enHref: "/articles/" }
+      ] }
+  ];
+
+  var POLICY = [
+    { ja: "プライバシーポリシー", en: "Privacy policy", jaHref: "/privacy/", enHref: "/en/privacy/" },
+    { ja: "サイトマップ",         en: "Sitemap",        jaHref: "/sitemap/", enHref: "/en/sitemap/" }
+  ];
+
+  var LEGAL_JA = "© Japan Investor Interface Co., Ltd.｜代表取締役 屋山テディ｜大阪府大阪市北区梅田1丁目2番2号 大阪駅前第2ビル 12-12";
+  var LEGAL_EN = "© Japan Investor Interface Co., Ltd.｜Representative Director Teddy Okuyama｜Osaka Ekimae Dai-2 Bldg. 12-12, 1-2-2 Umeda, Kita-ku, Osaka";
+
   /* ---------- 2. Where are we? ---------- */
 
   var path = location.pathname;
@@ -104,14 +154,16 @@
     "#jii-nav .jn-logo{flex:0 0 auto;display:flex;align-items:center;}",
     "#jii-nav .jn-logo img{display:block;height:32px;width:auto;}",
     "#jii-nav .jn-logo .jn-logo-sm{display:none;height:30px;}",
-    "#jii-nav .jn-links{flex:1 1 auto;display:flex;align-items:center;justify-content:center;gap:40px;list-style:none;padding:0 32px;margin:0;}",
+    /* Links sit against the right group, not centered. Centering leaves a
+       gap on both sides of them; Nikkato has one gap, after the logo. */
+    "#jii-nav .jn-links{flex:0 0 auto;display:flex;align-items:center;gap:44px;list-style:none;padding:0;margin:0 0 0 auto;}",
     "#jii-nav .jn-links a{font-family:var(--sans,'Noto Sans JP',system-ui,sans-serif);font-size:14px;letter-spacing:.05em;",
     "color:var(--text,#1f2937);padding:8px 0;border-bottom:2px solid transparent;white-space:nowrap;transition:color .15s,border-color .15s;}",
     "#jii-nav .jn-links a:hover{color:var(--ink,#1a2a4a);}",
     "#jii-nav .jn-links a.jn-on{color:var(--ink,#1a2a4a);border-bottom-color:var(--accent,#9a7838);font-weight:500;}",
     "#jii-nav .jn-right{display:flex;align-items:stretch;flex:0 0 auto;height:100%;}",
     "#jii-nav .jn-lang{font-family:var(--mono,'DM Mono',monospace);font-size:11.5px;letter-spacing:.1em;color:var(--text-dim,#5f6875);",
-    "display:flex;align-items:center;gap:7px;padding:0 30px;}",
+    "display:flex;align-items:center;gap:7px;padding:0 32px 0 48px;}",
     "#jii-nav .jn-lang a:hover{color:var(--ink,#1a2a4a);}",
     "#jii-nav .jn-lang .jn-cur{color:var(--ink,#1a2a4a);font-weight:600;}",
     "#jii-nav .jn-cta{font-family:var(--sans,'Noto Sans JP',system-ui,sans-serif);font-size:13px;letter-spacing:.06em;",
@@ -140,8 +192,32 @@
     "@media(min-width:1001px){#jii-nav .jn-menu{display:none!important;}}",
     "@media(max-width:760px){#jii-nav .jn-bar{padding-left:22px;}#jii-nav .jn-sub-in{padding:0 22px;}#jii-nav .jn-burger{margin-right:12px;}}",
     "@media(max-width:560px){#jii-nav .jn-logo img{display:none;}#jii-nav .jn-logo .jn-logo-sm{display:block;}}",
+    /* footer sitemap */
+    "#jii-foot{background:var(--ink,#1a2a4a);color:#cfd6e2;font-family:var(--sans,'Noto Sans JP',system-ui,sans-serif);",
+    "font-size:13px;line-height:1.8;margin-top:0;}",
+    "#jii-foot a{color:#cfd6e2;text-decoration:none;}",
+    "#jii-foot a:hover{color:#fff;text-decoration:underline;}",
+    "#jii-foot .jf-in{max-width:1100px;margin:0 auto;padding:56px 48px 30px;}",
+    "#jii-foot .jf-cols{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px;}",
+    "#jii-foot .jf-head{display:block;color:#fff;font-size:13.5px;font-weight:500;letter-spacing:.05em;",
+    "padding-bottom:11px;margin-bottom:12px;border-bottom:1px solid rgba(255,255,255,.18);}",
+    "#jii-foot ul{list-style:none;margin:0;padding:0;}",
+    "#jii-foot li{margin-bottom:7px;font-size:12.5px;line-height:1.6;}",
+    "#jii-foot li a{color:rgba(255,255,255,.72);}",
+    "#jii-foot .jf-mark{margin-top:44px;padding-top:26px;border-top:1px solid rgba(255,255,255,.14);",
+    "display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px;}",
+    "#jii-foot .jf-mark img{height:26px;width:auto;display:block;}",
+    "#jii-foot .jf-policy{display:flex;gap:22px;flex-wrap:wrap;font-size:12px;}",
+    "#jii-foot .jf-legal{margin-top:20px;font-family:var(--mono,'DM Mono',monospace);font-size:11px;",
+    "letter-spacing:.06em;color:rgba(255,255,255,.5);line-height:1.8;}",
+    "#jii-foot .jf-top{display:block;text-align:right;font-size:11.5px;color:rgba(255,255,255,.6);padding-bottom:22px;}",
+    "@media(max-width:860px){#jii-foot .jf-cols{grid-template-columns:repeat(2,minmax(0,1fr));gap:26px;}}",
+    "@media(max-width:520px){#jii-foot .jf-cols{grid-template-columns:1fr;}#jii-foot .jf-in{padding:40px 22px 26px;}",
+    "#jii-foot .jf-mark{flex-direction:column;align-items:flex-start;}}",
     /* retire the old systems wherever they still exist on the page */
     "nav#main-nav,nav.mobile-menu,#cmpnav{display:none!important;}",
+    "footer:has(.footer-row){display:none!important;}",
+    "footer .footer-row,footer .footer-bottom{display:none!important;}",
     "@media(prefers-reduced-motion:reduce){#jii-nav *{transition:none!important;}}"
   ].join("");
 
@@ -229,6 +305,44 @@
   nav.setAttribute("aria-label", isEn ? "Main navigation" : "メインナビゲーション");
   nav.innerHTML = html;
   document.body.insertBefore(nav, document.body.firstChild);
+
+  /* ---------- 4b. The footer sitemap ---------- */
+
+  var colsHtml = "";
+  for (var c1 = 0; c1 < FOOTER.length; c1++) {
+    var col = FOOTER[c1], itemsHtml = "";
+    for (var c2 = 0; c2 < col.items.length; c2++) {
+      itemsHtml += '<li><a href="' + esc(href(col.items[c2])) + '">' + esc(label(col.items[c2])) + '</a></li>';
+    }
+    colsHtml += '<div><a class="jf-head" href="' + esc(href(col.head)) + '">' + esc(label(col.head)) +
+                '</a><ul>' + itemsHtml + '</ul></div>';
+  }
+
+  var policyHtml = "";
+  for (var c3 = 0; c3 < POLICY.length; c3++) {
+    policyHtml += '<a href="' + esc(href(POLICY[c3])) + '">' + esc(label(POLICY[c3])) + '</a>';
+  }
+
+  var foot = document.createElement("footer");
+  foot.id = "jii-foot";
+  foot.innerHTML =
+    '<div class="jf-in">' +
+      '<a class="jf-top" href="#">' + (isEn ? "Back to top ↑" : "上へ戻る ↑") + '</a>' +
+      '<div class="jf-cols">' + colsHtml + '</div>' +
+      '<div class="jf-mark">' +
+        '<a href="' + homeHref + '" aria-label="' + (isEn ? "JII home" : "JII トップページへ") + '">' +
+          '<img src="/assets/logo-jii-wordmark-white.svg" alt="Japan Investor Interface Co., Ltd." width="282" height="40" loading="lazy" decoding="async">' +
+        '</a>' +
+        '<div class="jf-policy">' + policyHtml + '</div>' +
+      '</div>' +
+      '<div class="jf-legal">' + (isEn ? LEGAL_EN : LEGAL_JA) + '</div>' +
+    '</div>';
+  document.body.appendChild(foot);
+
+  foot.querySelector(".jf-top").addEventListener("click", function (e) {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
 
   /* ---------- 5. Reserve space ----------
      Pages that load site.css already leave room for a 64px fixed bar.
