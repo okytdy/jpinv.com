@@ -20,7 +20,7 @@ import re
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-NAV_TAG = '<script src="/assets/nav.js?v=8cca961b90" defer></script>'
+NAV_TAG = '<script src="/assets/nav.js?v=392ed8bf97" defer></script>'
 
 TITLE_RE = re.compile(r"<title>(.*?)</title>", re.S)
 REFRESH_RE = re.compile(r'http-equiv="refresh"', re.I)
@@ -137,10 +137,12 @@ def build(lang):
     # Company
     co = []
     for row in ([
+        ("en/about-jii", "すぐわかるJII", "About JII"),
         ("en/company", "会社概要", "Company"), ("en/pricing", "料金", "Pricing"),
         ("en/contact", "お問い合わせ", "Contact"), ("en/faq", "よくある質問", "FAQ"),
         ("en/privacy", "プライバシーポリシー", "Privacy policy"),
     ] if en else [
+        ("すぐわかるJII", "すぐわかるJII", ""),
         ("会社概要", "会社概要", ""), ("料金", "料金", ""), ("お問い合わせ", "お問い合わせ", ""),
         ("faq", "よくある質問", ""), ("articles", "考察記事", ""), ("privacy", "プライバシーポリシー", ""),
     ]):

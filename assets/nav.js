@@ -37,6 +37,12 @@
      their own FOOTER column carry an explicit `items` list of the pages
      that belong with them. */
   var SECTIONS = [
+    /* Leftmost on purpose. This is the page a cold-pitch recipient lands on,
+       and it is the only one that answers "what is this company" before the
+       reader has to pick a service. It carries no dropdown: it is a single
+       page, and a panel would put a menu between the reader and the answer. */
+    { ja: "すぐわかるJII", en: "About JII", jaHref: "/%E3%81%99%E3%81%90%E3%82%8F%E3%81%8B%E3%82%8BJII/", enHref: "/en/about-jii/",
+      panel: false },
     { ja: "サービス",     en: "Services", jaHref: "/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/", enHref: "/en/services/",
       panel: true, img: "slot02_mendan_card" },
     { ja: "料金",         en: "Pricing",  jaHref: "/%E6%96%99%E9%87%91/",                   enHref: "/en/pricing/",
@@ -59,6 +65,19 @@
     { ja: "銘柄レポート", en: "Research", jaHref: "/compounders/",                          enHref: "/en/compounders/",
       panel: true, img: "slot06_diagnosis_card" }
   ];
+
+  /* Look a section up by its Japanese name.
+     The FOOTER below used to index SECTIONS by POSITION (SECTIONS[0],
+     SECTIONS[2], SECTIONS[3]). On August 4, 2026 すぐわかるJII was inserted at
+     the front of the array, which shifted every index by one and silently
+     repointed all three footer columns at the wrong section heads. Nothing
+     errors when that happens; the footer just renders wrong. Names do not
+     shift, so the lookup is by name and it throws loudly if the name is gone.
+     Do not go back to numbers. */
+  function S(ja) {
+    for (var i = 0; i < SECTIONS.length; i++) { if (SECTIONS[i].ja === ja) return SECTIONS[i]; }
+    throw new Error("nav.js: no section named " + ja);
+  }
 
   /* Reachable, but not from the top bar. These appear in the mobile menu
      and in the footer. IR研修 and FAQ live here because a visitor who has
@@ -90,7 +109,7 @@
      would bury the sections that sell. The complete index is /sitemap/. */
 
   var FOOTER = [
-    { head: SECTIONS[0], items: [
+    { head: S("サービス"), items: [
         { ja: "開示翻訳",   en: "Disclosure translation",  jaHref: "/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/%E9%96%8B%E7%A4%BA%E7%BF%BB%E8%A8%B3/", enHref: "/en/services/disclosure-translation/" },
         { ja: "IR通訳",     en: "IR interpretation",       jaHref: "/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/IR%E9%80%9A%E8%A8%B3/",                 enHref: "/en/services/ir-interpretation/" },
         { ja: "海外IR診断", en: "IR diagnosis",            jaHref: "/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/%E6%B5%B7%E5%A4%96IR%E8%A8%BA%E6%96%AD/", enHref: "/en/services/ir-diagnosis/" },
@@ -99,7 +118,7 @@
         { ja: "特急翻訳",   en: "Express translation (JP)", jaHref: "/%E7%89%B9%E6%80%A5%E7%BF%BB%E8%A8%B3/",                                     enHref: "/%E7%89%B9%E6%80%A5%E7%BF%BB%E8%A8%B3/" },
         { ja: "AIと機密保持", en: "AI and confidentiality", jaHref: "/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/AI%E3%81%A8%E6%A9%9F%E5%AF%86%E4%BF%9D%E6%8C%81/", enHref: "/en/services/ai-confidentiality/" }
       ] },
-    { head: SECTIONS[3], items: [
+    { head: S("銘柄レポート"), items: [
         { ja: "銘柄分析",           en: "Profiles",         jaHref: "/compounders/profiles/",          enHref: "/en/compounders/profiles/" },
         { ja: "銘柄スクリーニング", en: "Universe",         jaHref: "/compounders/universe/",          enHref: "/en/compounders/universe/" },
         { ja: "資本政策開示",       en: "Capital actions",  jaHref: "/compounders/feed/",              enHref: "/en/compounders/feed/" },
@@ -119,7 +138,7 @@
         { ja: "最前線",         en: "The frontier",        jaHref: "/governance/frontier/",             enHref: "/en/governance/frontier/" },
         { ja: "IRツールボックス", en: "IR toolbox",        jaHref: "/governance/toolbox/",              enHref: "/en/governance/toolbox/" }
       ] },
-    { head: SECTIONS[2], items: [
+    { head: S("会社概要"), items: [
         { ja: "料金",         en: "Pricing",  jaHref: "/%E6%96%99%E9%87%91/", enHref: "/en/pricing/" },
         { ja: "お問い合わせ", en: "Contact",  jaHref: CONTACT.jaHref,         enHref: CONTACT.enHref },
         { ja: "よくある質問", en: "FAQ",      jaHref: "/faq/",                enHref: "/en/faq/" },
