@@ -1,6 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="640" height="100" viewBox="0 0 640 100" role="img" aria-labelledby="t d">
+<!-- The canvas is 820 wide, not 640, ONLY because the text was enlarged on
+     August 4, 2026 and needs the room. The icon is untouched: same paths, same
+     translate(6,10) scale(0.8), so it still occupies 80 of the 100 units of
+     height and renders at 25.6px in the 32px-tall header. The text went from
+     font-size 30 to 42, which is 9.6px to 13.4px on screen — 30 was starved
+     because the whole file is scaled to 0.32 by the header's height:32px.
+     If you change the canvas width, update the width/height attributes on the
+     two <img> tags in assets/nav.js to match, or the browser reserves the
+     wrong space and the bar jumps as the logo loads. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="100" viewBox="0 0 820 100" role="img" aria-labelledby="t d">
   <title id="t">Japan Investor Interface logo</title>
   <desc id="d">A navy doorframe with a gold door standing open, beside the words Japan Investor Interface Co., Ltd.</desc>
   <g transform="translate(6,10) scale(0.8)"><path fill="#1a2a4a" d="M8,4 H92 V96 H66 V30 H34 V96 H8 Z"/><path fill="#b08a4a" d="M44 32 L62 26 L62 96 L44 88 Z"/></g>
-  <text x="106" y="63" fill="#1a2a4a" font-family="'Noto Serif JP','Yu Mincho','Hiragino Mincho ProN',serif" font-size="30" font-weight="400" letter-spacing=".02em">Japan Investor Interface Co., Ltd.</text>
+  <text x="106" y="65" fill="#1a2a4a" font-family="'Noto Serif JP','Yu Mincho','Hiragino Mincho ProN',serif" font-size="42" font-weight="400" letter-spacing=".02em">Japan Investor Interface Co., Ltd.</text>
 </svg>

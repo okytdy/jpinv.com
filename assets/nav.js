@@ -404,7 +404,7 @@
   var html =
     '<div class="jn-bar">' +
       '<a class="jn-logo" href="' + homeHref + '" aria-label="' + (isEn ? "JII home" : "JII トップページへ") + '">' +
-        '<img src="/assets/logo-jii-wordmark.svg" alt="Japan Investor Interface" width="282" height="40" decoding="async" fetchpriority="high">' +
+        '<img src="/assets/logo-jii-wordmark.svg" alt="Japan Investor Interface" width="328" height="40" decoding="async" fetchpriority="high">' +
         '<img class="jn-logo-sm" src="/assets/logo-jii-monogram.svg" alt="Japan Investor Interface" width="32" height="32" decoding="async">' +
       '</a>' +
       '<ul class="jn-links" role="list">' + linksHtml + '</ul>' +
@@ -460,7 +460,7 @@
       '<div class="jf-cols">' + colsHtml + '</div>' +
       '<div class="jf-mark">' +
         '<a href="' + homeHref + '" aria-label="' + (isEn ? "JII home" : "JII トップページへ") + '">' +
-          '<img src="/assets/logo-jii-wordmark-white.svg" alt="Japan Investor Interface Co., Ltd." width="282" height="40" loading="lazy" decoding="async">' +
+          '<img src="/assets/logo-jii-wordmark-white.svg" alt="Japan Investor Interface Co., Ltd." width="328" height="40" loading="lazy" decoding="async">' +
         '</a>' +
         '<div class="jf-policy">' + policyHtml + '</div>' +
       '</div>' +
