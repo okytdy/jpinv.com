@@ -207,11 +207,26 @@
     "#jii-nav .jn-logo .jn-logo-sm{display:none;height:30px;}",
     /* Links sit against the right group, not centered. Centering leaves a
        gap on both sides of them; Nikkato has one gap, after the logo. */
-    "#jii-nav .jn-links{flex:0 0 auto;display:flex;align-items:center;gap:44px;list-style:none;padding:0;margin:0 0 0 auto;}",
-    "#jii-nav .jn-links a{font-family:var(--sans,'Noto Sans JP',system-ui,sans-serif);font-size:14px;letter-spacing:.05em;",
-    "color:var(--text,#1f2937);padding:8px 0;border-bottom:2px solid transparent;white-space:nowrap;transition:color .15s,border-color .15s;}",
-    "#jii-nav .jn-links a:hover{color:var(--ink,#1a2a4a);}",
-    "#jii-nav .jn-links a.jn-on{color:var(--ink,#1a2a4a);border-bottom-color:var(--accent,#9a7838);font-weight:500;}",
+    /* `align-self:stretch` + `align-items:stretch` make the <ul> and every <li>
+       inside it exactly as tall as the 64px bar. That is what closes the gap
+       described at .jn-pw below: the bottom edge of the hover target lands on
+       the top edge of the panel, with nothing in between. Do not change either
+       one back to `center` — the label stays vertically centered because each
+       <li> is itself a centering flex box. */
+    "#jii-nav .jn-links{flex:0 0 auto;align-self:stretch;display:flex;align-items:stretch;gap:44px;list-style:none;padding:0;margin:0 0 0 auto;}",
+    /* `> li > a`, not a bare `a`. A bare descendant selector also matched every
+       link INSIDE the dropdown panel, since the panel lives in the <li>, and it
+       was putting the bar's 8px vertical padding on the panel's photo tile. */
+    /* `line-height:20px` is here to hold the label exactly where it was.
+       Making the <li> a flex box, two rules below, turns this anchor from an
+       inline box into a block one, and a block box counts its line-height and
+       its 8px padding toward its own height where an inline box did not. Left
+       alone the label drifted about a pixel up and the gold underline a pixel
+       down. 20px is the height the line box had before, so nothing moves. */
+    "#jii-nav .jn-links > li > a{font-family:var(--sans,'Noto Sans JP',system-ui,sans-serif);font-size:14px;letter-spacing:.05em;",
+    "line-height:20px;color:var(--text,#1f2937);padding:8px 0;border-bottom:2px solid transparent;white-space:nowrap;transition:color .15s,border-color .15s;}",
+    "#jii-nav .jn-links > li > a:hover{color:var(--ink,#1a2a4a);}",
+    "#jii-nav .jn-links > li > a.jn-on{color:var(--ink,#1a2a4a);border-bottom-color:var(--accent,#9a7838);font-weight:500;}",
     "#jii-nav .jn-right{display:flex;align-items:stretch;flex:0 0 auto;height:100%;}",
     "#jii-nav .jn-lang{font-family:var(--mono,'DM Mono',monospace);font-size:11.5px;letter-spacing:.1em;color:var(--text-dim,#5f6875);",
     "display:flex;align-items:center;gap:7px;padding:0 32px 0 48px;}",
@@ -253,11 +268,51 @@
        sheet of paper under the bar, not a second dark block. The tile is
        navy so the panel carries the same two colors as the site: paper
        and ink, with gold only as the accent. */
-    "#jii-nav .jn-links > li{position:static;}",
-    "#jii-nav .jn-pw{position:absolute;top:100%;left:0;right:0;display:none;",
+    /* `position:static` on purpose, so the panel below measures itself against
+       #jii-nav and spans the full width of the window rather than the width of
+       one label. `display:flex;align-items:center` makes the <li> fill the whole
+       height of the bar while keeping its label centered — see .jn-links above. */
+    "#jii-nav .jn-links > li{position:static;display:flex;align-items:center;}",
+    /* WHY `top:64px` AND NOT `top:100%` — the bug fixed on August 4, 2026.
+       The panel is only on screen while the CSS `:hover` on the <li> is true,
+       and it vanishes the instant that stops being true. So every pixel between
+       the bottom of the <li> and the top of the panel is a trap: the reader
+       moves the mouse down toward a menu item, crosses that strip, the hover
+       ends, and the panel closes before the click lands.
+
+       Two separate faults put a strip there.
+
+       First, the <li> used to be only as tall as its own text — about 25px,
+       floating in the middle of a 64px bar — so roughly 19px of bar underneath
+       the label belonged to no <li> at all. That is fixed above, by stretching
+       the <li> to the full height of the bar.
+
+       Second, `top:100%` measured 100% of #jii-nav, and #jii-nav is not just the
+       bar. On every /compounders/ page it also contains the 46px row of section
+       tabs, which pushed the panel down to y=110 and opened a 46px strip even
+       once the <li> was full height. A fixed 64px is the bottom of the bar on
+       every page, with or without that second row, so the panel now hangs
+       directly off the bar and simply covers the tabs while it is open.
+
+       Both numbers now come from the same NAV_H constant, so they cannot drift
+       apart. If you ever change the height of the bar, change NAV_H and nothing
+       else. */
+    "#jii-nav .jn-pw{position:absolute;top:" + NAV_H + "px;left:0;right:0;z-index:1;display:none;",
     "background:#fff;border-top:1px solid var(--rule,#d6dee8);box-shadow:0 22px 44px rgba(15,31,58,.10);}",
+    /* Two ways a panel can be open. `.jn-open` is a class that section 6b puts
+       on the <li> for the mouse, and `:focus-within` covers a reader moving
+       through the bar with the Tab key.
+
+       There used to be a third, `li:hover`, and it is deliberately gone. Plain
+       `:hover` is instantaneous and cannot be held or delayed, which is the
+       whole difficulty section 6b exists to solve; leaving it in would have
+       overridden the timing there and reopened the bug. Nothing is lost by
+       removing it, because this entire bar is drawn by this script — a reader
+       with JavaScript switched off has no navigation to fall back to, so there
+       is no CSS-only case left to protect. */
     "@media(min-width:1001px){",
-    "#jii-nav .jn-links > li:hover .jn-pw,#jii-nav .jn-links > li:focus-within .jn-pw{display:block;}",
+    "#jii-nav .jn-links > li:focus-within .jn-pw,",
+    "#jii-nav .jn-links > li.jn-open .jn-pw{display:block;}",
     "}",
     "#jii-nav .jn-pin{max-width:1100px;margin:0 auto;padding:38px 48px 42px;",
     "display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:52px;}",
@@ -513,6 +568,112 @@
      anchor would otherwise leave the panel covering what it jumped to. */
   menu.addEventListener("click", function (e) {
     if (e.target.closest("a")) setOpen(false);
+  });
+
+  /* ---------- 6b. Keeping a dropdown panel open ----------
+
+     The CSS above can open a panel on its own, and on the straight path down
+     from a tab into the panel it is enough. It is not enough on the path a hand
+     actually takes.
+
+     The reason is that the row of tabs is not one solid strip. There is a 44px
+     space between one tab and the next, and that space belongs to no tab at
+     all. A reader who hovers 会社概要 near the right of the bar and heads for
+     サイトマップ, which sits at the far left of the panel, does not travel down
+     and then left in two straight moves. The hand cuts the corner. On the way
+     the pointer clips one of those 44px spaces, every `:hover` in the bar goes
+     false at once, and the panel is gone before the click arrives — the same
+     symptom as the vertical gap fixed above, from a different hole.
+
+     So the panel does not close the moment the pointer leaves. Leaving starts a
+     180ms timer, and coming back anywhere inside the bar or the panel cancels
+     it. A clipped corner is over in a few milliseconds, so the panel never
+     notices. A reader who has genuinely left sees it close, slightly late,
+     which nobody reads as a fault.
+
+     Note what the pointerover handler does when the pointer is over a space
+     between two tabs: `closest("li")` finds nothing, and the handler returns
+     without touching anything. The open panel simply stays open. That is the
+     whole repair for the gaps.
+
+     Touch is excluded. A tap fires pointerover with no matching pointerout, so
+     a touch-opened panel would stay on screen until the next tap somewhere
+     else. Phones get the burger menu instead, and it is separate from this. */
+
+  var links = nav.querySelector(".jn-links");
+  var openLi = null;            /* the <li> whose panel is on screen, or null */
+  var closeTimer = null;        /* pending "close what is open"               */
+  var switchTimer = null;       /* pending "swap to a different tab"          */
+  var pendingLi = null;         /* which tab that pending swap is aimed at.
+                                   A separate variable because setTimeout gives
+                                   back a plain number in a browser, so there is
+                                   nothing on the timer to hang this on. */
+
+  function cancelClose() { if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; } }
+  function cancelSwitch() { if (switchTimer) { clearTimeout(switchTimer); switchTimer = null; } pendingLi = null; }
+
+  function showPanel(li) {
+    cancelClose(); cancelSwitch();
+    if (openLi && openLi !== li) openLi.classList.remove("jn-open");
+    openLi = li;
+    li.classList.add("jn-open");
+  }
+  function hidePanel() {
+    cancelClose(); cancelSwitch();
+    if (openLi) { openLi.classList.remove("jn-open"); openLi = null; }
+  }
+  function hidePanelSoon() {
+    cancelClose(); cancelSwitch();
+    closeTimer = setTimeout(hidePanel, 180);
+  }
+
+  /* Opening the first panel is instant. Swapping to a DIFFERENT tab while one
+     is already open waits 140ms, and here is why.
+
+     Look at where things are on a 1440px window. The 会社概要 tab occupies
+     x=964 to x=1023. Its first menu item sits at about x=115, roughly 850px to
+     the left. Nobody travels that distance as two straight lines. The hand
+     leaves the tab heading down and to the left at once, and on the way through
+     the bar it passes over 料金 and サービス. Swapping on contact would hand the
+     reader サービス's menu when they were already halfway to a サイトマップ link
+     they could see.
+
+     A pass costs a few tens of milliseconds. Deliberately choosing another tab
+     means resting on it. 140ms tells those two apart, and is short enough that
+     a deliberate move still feels immediate. */
+  function showPanelSoon(li) {
+    if (openLi === li) { cancelClose(); cancelSwitch(); return; }
+    if (!openLi) { showPanel(li); return; }
+    cancelClose();
+    if (pendingLi === li) return;
+    cancelSwitch();
+    pendingLi = li;
+    switchTimer = setTimeout(function () { switchTimer = null; pendingLi = null; showPanel(li); }, 140);
+  }
+
+  links.addEventListener("pointerover", function (e) {
+    if (e.pointerType === "touch") return;
+    var li = e.target.closest ? e.target.closest("li") : null;
+    /* Nothing under the pointer, which happens in the 44px space between two
+       tabs. Leave whatever is open alone — that is the repair for the gaps. */
+    if (!li || !links.contains(li)) return;
+    if (li.querySelector(".jn-pw")) showPanelSoon(li);
+    else hidePanelSoon();   /* すぐわかるJII has no panel of its own */
+  });
+  /* pointerleave counts the panel as inside, because the panel is a descendant
+     of the <li>. Moving from the tab down into the panel therefore does not
+     fire this at all. It fires when the reader leaves the navigation. */
+  links.addEventListener("pointerleave", function (e) {
+    if (e.pointerType === "touch") return;
+    hidePanelSoon();
+  });
+  /* A click inside the panel is followed by a page load, but a link to the
+     page you are already on does not reload, and the panel would sit there. */
+  links.addEventListener("click", function (e) {
+    if (e.target.closest && e.target.closest(".jn-pw")) hidePanel();
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") hidePanel();
   });
 
   /* Older pages call toggleMenu() from inline onclick handlers. Keep the
