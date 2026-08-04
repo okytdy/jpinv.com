@@ -46,7 +46,7 @@
     { ja: "サービス",     en: "Services", jaHref: "/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/", enHref: "/en/services/",
       panel: true, img: "slot02_mendan_card" },
     { ja: "料金",         en: "Pricing",  jaHref: "/%E6%96%99%E9%87%91/",                   enHref: "/en/pricing/",
-      panel: true, img: "slot04_disclosure_card",
+      panel: true, img: "slot01_kaiji_card",
       items: [
         { ja: "料金表",       en: "Pricing",            jaHref: "/%E6%96%99%E9%87%91/",                   enHref: "/en/pricing/" },
         { ja: "特急翻訳",     en: "Express translation", jaHref: "/%E7%89%B9%E6%80%A5%E7%BF%BB%E8%A8%B3/", enHref: "/%E7%89%B9%E6%80%A5%E7%BF%BB%E8%A8%B3/" },
@@ -54,7 +54,7 @@
         { ja: "お問い合わせ", en: "Contact",            jaHref: "/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B/", enHref: "/en/contact/" }
       ] },
     { ja: "会社概要",     en: "Company",  jaHref: "/%E4%BC%9A%E7%A4%BE%E6%A6%82%E8%A6%81/", enHref: "/en/company/",
-      panel: true, img: "slot05_interpretation_card",
+      panel: true, img: "slot07_company_card",
       items: [
         { ja: "会社概要",             en: "Company profile", jaHref: "/%E4%BC%9A%E7%A4%BE%E6%A6%82%E8%A6%81/", enHref: "/en/company/" },
         { ja: "IR研修",               en: "IR training",     jaHref: "/governance/",  enHref: "/en/governance/" },
@@ -63,7 +63,7 @@
         { ja: "サイトマップ",         en: "Sitemap",         jaHref: "/sitemap/",     enHref: "/en/sitemap/" }
       ] },
     { ja: "銘柄レポート", en: "Research", jaHref: "/compounders/",                          enHref: "/en/compounders/",
-      panel: true, img: "slot06_diagnosis_card" }
+      panel: true, img: "free05_shoshu_card" }
   ];
 
   /* Look a section up by its Japanese name.
@@ -355,9 +355,17 @@
     return '<div class="jn-pw"><div class="jn-pin">' +
       '<div class="jn-pcols">' + links + '</div>' +
       '<a class="jn-tile" href="' + esc(href(section)) + '">' +
+        /* `section.img` needs BOTH /assets/photos/{img}.webp AND {img}@2x.webp to
+           exist. From August 3 to August 4, 2026 サービス pointed at
+           slot02_mendan_card, which had never been generated, and the panel showed
+           the browser's broken-image icon to every visitor who hovered it. The
+           onerror below hides the picture area so a missing file degrades to a
+           caption-only tile instead of a broken icon — but that is a safety net,
+           not permission to ship a missing image. Check the file exists. */
         '<span class="jn-timg"><img src="/assets/photos/' + section.img + '.webp" ' +
           'srcset="/assets/photos/' + section.img + '.webp 1x, /assets/photos/' + section.img + '@2x.webp 2x" ' +
-          'alt="" loading="lazy" decoding="async"></span>' +
+          'alt="" loading="lazy" decoding="async" ' +
+          'onerror="this.parentNode.style.display=\'none\'"></span>' +
         '<span class="jn-tcap"><b>' + esc(label(section)) + '</b>' +
         '<em>' + (isEn ? "Open →" : "詳しく見る →") + '</em></span>' +
       '</a>' +

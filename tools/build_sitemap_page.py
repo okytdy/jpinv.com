@@ -20,7 +20,7 @@ import re
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-NAV_TAG = '<script src="/assets/nav.js?v=129cd945c8" defer></script>'
+NAV_TAG = '<script src="/assets/nav.js?v=f522f93c22" defer></script>'
 
 TITLE_RE = re.compile(r"<title>(.*?)</title>", re.S)
 REFRESH_RE = re.compile(r'http-equiv="refresh"', re.I)
