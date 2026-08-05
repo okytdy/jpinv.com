@@ -73,7 +73,7 @@ jobs:
             tools/llm_budget.py tools/tdnet_scraper.py tools/jpx_master.py \
             tools/scrub_sample_signals.py tools/watchlist_join.py \
             tools/build_signal_pages.py tools/build_hero_data.py \
-            tools/build_news_data.py > pyflakes.txt 2>&1 || true
+            tools/build_news_data.py tools/check_data_is_read.py > pyflakes.txt 2>&1 || true
           cat pyflakes.txt
           if grep -q "undefined name" pyflakes.txt; then
             echo "::error::A script this job runs uses a name it never defines."
@@ -137,15 +137,42 @@ jobs:
           # signal pages from that join.
           run_script tools/watchlist_join.py
           run_script tools/build_signal_pages.py
-          # The homepage hero reads a small hero.json rather than the 2MB feed.
-          # It must be rebuilt here or the hero goes stale while the feed moves.
+          # The homepage hero and news section each read a small JSON file rather
+          # than the 2MB feed. Both must be rebuilt here or they go stale while
+          # the feed moves.
+          #
           # --no-bake because this job stages only compounders/feed/data/ and the
           # signal pages: anything written into index.html here is discarded, and
           # staging it instead would have a bot editing a file Teddy edits by hand
-          # every 30 minutes. The baked rows are the no-JavaScript fallback and are
-          # refreshed when the site is built, not on this schedule.
+          # every 30 minutes.
+          #
+          # CORRECTION, August 5, 2026. This comment used to end: "The baked rows
+          # are the no-JavaScript fallback and are refreshed when the site is
+          # built, not on this schedule." Both halves were false. There is no site
+          # build — jpinv.com is a static repo on GitHub Pages and nothing
+          # regenerates index.html on deploy. And the news rows were not a
+          # fallback, because no JavaScript read news.json at all; they were the
+          # only thing rendering, so the tab froze on whatever a person last baked
+          # by hand. assets/hero.js now fetches news.json the way it already
+          # fetched hero.json, which makes the baked rows a real fallback and
+          # makes --no-bake correct here rather than merely harmless.
           run_script tools/build_hero_data.py --no-bake
           run_script tools/build_news_data.py --no-bake
+
+          # Confirm every data file this job writes is actually read by the site.
+          #
+          # Why. Until August 5, 2026 the line above rebuilt news.json every 30
+          # minutes and nothing on jpinv.com ever fetched it. The homepage news
+          # rows were baked into index.html and only changed when someone ran the
+          # script by hand without --no-bake, so the 大量保有報告 tab sat on July 31
+          # filings for days while this workflow reported success every half hour.
+          #
+          # Nothing was in an error state. The workflow was green, the file was
+          # fresh, the classifier was right — the output simply went nowhere. The
+          # only symptom was a date on the live site that a person had to notice.
+          # This check compares what the build writes against what the site reads,
+          # which is the one comparison that would have caught it.
+          run_script tools/check_data_is_read.py
 
           echo "failed=${failed}" >> "$GITHUB_OUTPUT"
 

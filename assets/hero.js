@@ -128,10 +128,30 @@
   }
 
   /* ---------------- 3. News tabs ----------------
-     The rows are baked into the page at build time; this only switches
-     which list is visible and points 詳しく見る at the active tab's page.
-     No fetch: the lists are rebuilt whenever the site is built, and a
-     half-day-old news row is not a failure the way an empty panel is. */
+     Switches which list is visible and points 詳しく見る at the active tab's
+     page.
+
+     THIS BLOCK USED TO SAY: "No fetch: the lists are rebuilt whenever the site
+     is built, and a half-day-old news row is not a failure the way an empty
+     panel is."
+
+     Both halves of that were wrong, and it froze the news section for days at a
+     time. There is no site build. jpinv.com is a static repo served by GitHub
+     Pages; nothing regenerates index.html on deploy. And the rows were not half
+     a day old — they only ever changed when someone ran build_news_data.py by
+     hand without --no-bake and committed the result, so on August 5, 2026 the
+     大量保有報告 tab was showing filings from July 31.
+
+     Meanwhile the workflow rebuilt compounders/feed/data/news.json every 30
+     minutes and nothing on the site ever read it. The drift was visible inside a
+     single commit: news.json carried two August 4 capital rows while the baked
+     HTML beside it still showed five from August 3.
+
+     So the news section now does exactly what the hero panel above already does,
+     and for the same reason. Same failure design too: if the fetch fails, times
+     out, or returns something unexpected, the baked rows stay on screen. They
+     were described as a no-JavaScript fallback before there was any JavaScript
+     for them to fall back from. Now that is true. */
 
   var newsTabs = [].slice.call(document.querySelectorAll(".nw-tabs button"));
   var newsLists = [].slice.call(document.querySelectorAll(".nw-list"));
@@ -143,4 +163,71 @@
       if (newsMore) newsMore.setAttribute("href", btn.getAttribute("data-more"));
     });
   });
+
+  /* ---------------- 4. Fill the news lists from news.json ----------------
+     The markup written by tools/build_news_data.py is reproduced exactly here.
+     If the two ever diverge the page changes shape on load, so any edit to
+     rows_html() in that script has to be made here as well. */
+
+  if (newsLists.length) {
+    var listOf = {};
+    newsLists.forEach(function (l) { listOf[l.getAttribute("data-list")] = l; });
+
+    function newsDate(iso) {
+      var p = String(iso || "").split("-");
+      return p.length === 3 ? p[0] + "." + p[1] + "." + p[2] : "";
+    }
+
+    function reportRow(r) {
+      var href = (isEn ? r.href_en : r.href_jp) || "#";
+      var name = (isEn ? r.name_en : r.name_jp) || r.name_jp || "";
+      return '<li><a href="' + esc(href) + '">' +
+             '<span class="nw-date">' + newsDate(r.date) + '</span>' +
+             '<span class="nw-tag">' + (isEn ? "Report" : "銘柄レポート") + '</span>' +
+             '<span class="nw-tx"><b>' + esc(r.ticker) + '</b> ' + esc(name) +
+             '</span></a></li>';
+    }
+
+    function capitalRow(r) {
+      return '<li><span class="nw-date">' + newsDate(r.date) + '</span>' +
+             '<span class="nw-tag">' + esc(isEn ? r.label_en : r.label_jp) + '</span>' +
+             '<span class="nw-tx"><b>' + esc(r.ticker) + '</b> ' +
+             esc(isEn ? r.name_en : r.name_jp) + '</span></li>';
+    }
+
+    function holdingRow(r) {
+      var pct = (typeof r.pct === "number") ? " (" + r.pct.toFixed(2) + "%)" : "";
+      var tail = r.filer_en + " → " + r.ticker + " " +
+                 (isEn ? r.issuer_en : r.issuer_jp) + pct;
+      return '<li><span class="nw-date">' + newsDate(r.date) + '</span>' +
+             '<span class="nw-tag">' + esc(isEn ? r.label_en : r.label_jp) + '</span>' +
+             '<span class="nw-tx">' + esc(tail) + '</span></li>';
+    }
+
+    var render = { reports: reportRow, capital: capitalRow, holdings: holdingRow };
+
+    var newsCtrl = new AbortController();
+    var newsGiveUp = setTimeout(function () { newsCtrl.abort(); }, 4000);
+
+    fetch("/compounders/feed/data/news.json", { signal: newsCtrl.signal, cache: "no-cache" })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (d) {
+        clearTimeout(newsGiveUp);
+        if (!d) return;
+        Object.keys(render).forEach(function (which) {
+          var el = listOf[which];
+          var rows = d[which];
+          /* An empty list is not an update. Leaving the baked rows in place is
+             better than replacing five real ones with nothing. */
+          if (!el || !rows || !rows.length) return;
+          el.innerHTML = rows.map(render[which]).join("");
+        });
+      })
+      .catch(function () {
+        clearTimeout(newsGiveUp);
+        /* Silent on purpose, exactly as the hero panel above. The baked rows
+           stay on screen and carry real dates, so nothing claims to be newer
+           than it is. */
+      });
+  }
 })();
