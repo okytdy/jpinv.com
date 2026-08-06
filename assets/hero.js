@@ -197,7 +197,8 @@
 
     function holdingRow(r) {
       var pct = (typeof r.pct === "number") ? " (" + r.pct.toFixed(2) + "%)" : "";
-      var tail = r.filer_en + " → " + r.ticker + " " +
+      var filer = (isEn ? r.filer_en : r.filer_jp) || r.filer_en || "";
+      var tail = filer + " → " + r.ticker + " " +
                  (isEn ? r.issuer_en : r.issuer_jp) + pct;
       return '<li><span class="nw-date">' + newsDate(r.date) + '</span>' +
              '<span class="nw-tag">' + esc(isEn ? r.label_en : r.label_jp) + '</span>' +

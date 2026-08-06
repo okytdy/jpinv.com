@@ -97,6 +97,7 @@ def holdings():
         out.append({"date": r["filing_date"], "ticker": r.get("issuer_code", ""),
                     "issuer_jp": r.get("issuer_name", ""),
                     "issuer_en": r.get("issuer_name_en") or r.get("issuer_name", ""),
+                    "filer_jp": r.get("filer_raw_name") or r.get("filer_name_en", ""),
                     "filer_en": r.get("filer_name_en") or r.get("filer_raw_name", ""),
                     "pct": round(pct, 2) if isinstance(pct, (int, float)) else None,
                     "label_jp": ja, "label_en": en})
@@ -135,7 +136,8 @@ def rows_html(payload, which, lang):
     else:
         for r in payload["holdings"]:
             pct = (" (%.2f%%)" % r["pct"]) if r.get("pct") is not None else ""
-            tail = ("%s → %s %s%s" % (r["filer_en"], r["ticker"],
+            filer = r.get("filer_en" if en else "filer_jp") or r.get("filer_en", "")
+            tail = ("%s → %s %s%s" % (filer, r["ticker"],
                     r["issuer_en" if en else "issuer_jp"], pct))
             L.append('<li><span class="nw-date">%s</span>'
                      '<span class="nw-tag">%s</span>'
