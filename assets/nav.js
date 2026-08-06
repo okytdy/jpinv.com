@@ -359,15 +359,56 @@
     "#jii-foot .jf-policy{display:flex;gap:22px;flex-wrap:wrap;font-size:12px;}",
     "#jii-foot .jf-legal{margin-top:20px;font-family:var(--mono,'DM Mono',monospace);font-size:11px;",
     "letter-spacing:.06em;color:rgba(255,255,255,.5);line-height:1.8;}",
-    "#jii-foot .jf-top{display:block;text-align:right;font-size:11.5px;color:rgba(255,255,255,.6);padding-bottom:22px;}",
+    /* Contact strip: a light visual bridge into the navy sitemap. The warm
+       image treatment is deliberate; repeating navy here would merge the
+       call to action and the footer into one undifferentiated block. */
+    "#jii-contact{position:relative;overflow:hidden;flex:0 0 100%;width:100%;min-width:100%;",
+    "background:#f3efe7;color:var(--text,#1f2937);font-family:var(--sans,'Noto Sans JP',system-ui,sans-serif);}",
+    "#jii-contact .jfc-media{position:absolute;inset:0 0 0 48%;overflow:hidden;background:#ded7ca;}",
+    "#jii-contact .jfc-media img{display:block;width:100%;height:100%;object-fit:cover;object-position:48% center;",
+    "filter:saturate(.72) contrast(.96) brightness(1.03);}",
+    "#jii-contact .jfc-media::after{content:'';position:absolute;inset:0;",
+    "background:linear-gradient(90deg,#f3efe7 0%,rgba(243,239,231,.84) 14%,rgba(243,239,231,.12) 54%,rgba(243,239,231,.03) 100%);}",
+    "#jii-contact .jfc-in{position:relative;z-index:1;max-width:1100px;min-height:330px;margin:0 auto;",
+    "padding:64px 48px;display:flex;align-items:center;}",
+    "#jii-contact .jfc-copy{width:48%;max-width:510px;}",
+    "#jii-contact .jfc-kicker{display:block;margin-bottom:12px;font-family:var(--mono,'DM Mono',monospace);",
+    "font-size:10.5px;letter-spacing:.2em;color:var(--accent,#9a7838);}",
+    "#jii-contact h2{margin:0;font-family:var(--serif,'Noto Serif JP','Yu Mincho',serif);",
+    "font-size:clamp(25px,2.6vw,34px);font-weight:300;line-height:1.5;letter-spacing:.03em;color:var(--ink,#1a2a4a);}",
+    "#jii-contact .jfc-rule{width:32px;height:2px;margin:16px 0 20px;background:var(--accent,#9a7838);}",
+    "#jii-contact p{max-width:430px;margin:0;font-size:14px;line-height:1.9;color:var(--text-mid,#4a5566);}",
+    "#jii-contact .jfc-btn{display:inline-flex;align-items:center;justify-content:space-between;gap:30px;",
+    "min-width:220px;margin-top:26px;padding:13px 17px 13px 20px;border:1px solid var(--ink,#1a2a4a);",
+    "background:var(--ink,#1a2a4a);color:#fff;text-decoration:none;font-size:13px;letter-spacing:.04em;",
+    "transition:background .2s,color .2s,transform .2s;}",
+    "#jii-contact .jfc-btn::after{content:'→';color:#d4b675;font-size:15px;line-height:1;}",
+    "#jii-contact .jfc-btn:hover{background:#fff;color:var(--ink,#1a2a4a);text-decoration:none;transform:translateY(-2px);}",
+    /* Floating top control. The text link remains available as an aria-label,
+       while the visible control is the same quiet circular gesture on every
+       background and in both languages. */
+    "#jii-top{position:fixed;right:clamp(16px,2.7vw,40px);bottom:clamp(16px,2.7vw,32px);z-index:95;",
+    "width:48px;height:48px;border:1px solid rgba(255,255,255,.34);border-radius:50%;padding:0;",
+    "background:var(--ink-mid,#172641);box-shadow:0 7px 20px rgba(15,31,58,.22);cursor:pointer;",
+    "opacity:0;visibility:hidden;pointer-events:none;transform:translateY(10px);",
+    "transition:opacity .2s,transform .2s,visibility .2s,background .2s;}",
+    "#jii-top::before{content:'';position:absolute;left:50%;top:52%;width:9px;height:9px;",
+    "border-left:1.5px solid #fff;border-top:1.5px solid #fff;transform:translate(-50%,-30%) rotate(45deg);}",
+    "#jii-top.jt-visible{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0);}",
+    "#jii-top:hover{background:#263b60;}",
+    "#jii-top:focus-visible{outline:3px solid rgba(154,120,56,.55);outline-offset:3px;}",
     "@media(max-width:860px){#jii-foot .jf-cols{grid-template-columns:repeat(2,minmax(0,1fr));gap:26px;}}",
+    "@media(max-width:700px){#jii-contact .jfc-media{position:relative;inset:auto;width:100%;height:190px;}",
+    "#jii-contact .jfc-media::after{background:linear-gradient(0deg,#f3efe7 0%,rgba(243,239,231,.08) 42%);}",
+    "#jii-contact .jfc-in{min-height:0;padding:38px 22px 48px;}#jii-contact .jfc-copy{width:100%;max-width:520px;}",
+    "#jii-contact .jfc-btn{min-width:0;width:100%;max-width:330px;}}",
     "@media(max-width:520px){#jii-foot .jf-cols{grid-template-columns:1fr;}#jii-foot .jf-in{padding:40px 22px 26px;}",
     "#jii-foot .jf-mark{flex-direction:column;align-items:flex-start;}}",
     /* retire the old systems wherever they still exist on the page */
     "nav#main-nav,nav.mobile-menu,#cmpnav{display:none!important;}",
     "footer:has(.footer-row){display:none!important;}",
     "footer .footer-row,footer .footer-bottom{display:none!important;}",
-    "@media(prefers-reduced-motion:reduce){#jii-nav *{transition:none!important;}}"
+    "@media(prefers-reduced-motion:reduce){#jii-nav *,#jii-contact *,#jii-top{transition:none!important;}}"
   ].join("");
 
   /* Compounder profile pages carry their own logo and breadcrumb inside the
@@ -519,7 +560,6 @@
   foot.id = "jii-foot";
   foot.innerHTML =
     '<div class="jf-in">' +
-      '<a class="jf-top" href="#">' + (isEn ? "Back to top ↑" : "上へ戻る ↑") + '</a>' +
       '<div class="jf-cols">' + colsHtml + '</div>' +
       '<div class="jf-mark">' +
         '<a href="' + homeHref + '" aria-label="' + (isEn ? "JII home" : "JII トップページへ") + '">' +
@@ -529,12 +569,59 @@
       '</div>' +
       '<div class="jf-legal">' + (isEn ? LEGAL_EN : LEGAL_JA) + '</div>' +
     '</div>';
+  /* The homepages used to carry a small boxed contact card in their source.
+     Retire it at runtime so the shared strip below is the only invitation,
+     without coupling this footer release to a rewrite of the minified pages. */
+  if (path === "/" || path === "/en/") {
+    var oldContactBand = document.querySelector(".contact-band");
+    var oldContactSection = oldContactBand && oldContactBand.closest("section");
+    if (oldContactSection) oldContactSection.remove();
+  }
+  /* The contact page is already the destination, so repeating the contact
+     invitation there would add a redundant block immediately above its
+     sitemap. Everywhere else, this is the consistent bridge into the footer. */
+  var onContact = path.replace(/\/$/, "") === href(CONTACT).replace(/\/$/, "");
+  if (!onContact) {
+    var contactStrip = document.createElement("section");
+    contactStrip.id = "jii-contact";
+    contactStrip.setAttribute("aria-labelledby", "jii-contact-title");
+    contactStrip.innerHTML =
+      '<div class="jfc-media" aria-hidden="true">' +
+        '<img src="/assets/photos/slot10_contact.webp" ' +
+          'srcset="/assets/photos/slot10_contact.webp 1x, /assets/photos/slot10_contact@2x.webp 2x" ' +
+          'alt="" loading="lazy" decoding="async">' +
+      '</div>' +
+      '<div class="jfc-in"><div class="jfc-copy">' +
+        '<span class="jfc-kicker">CONTACT</span>' +
+        '<h2 id="jii-contact-title">' + (isEn ? "Inquiries and quotes" : "ご相談・お見積り") + '</h2>' +
+        '<div class="jfc-rule" aria-hidden="true"></div>' +
+        '<p>' + (isEn
+          ? "You are welcome to contact us before the scope or timing is fixed. We can arrange an NDA before materials are shared."
+          : "資料や納期が決まっていなくても、ご相談いただけます。必要に応じて、資料を共有する前にNDAを締結します。") + '</p>' +
+        '<a class="jfc-btn" href="' + esc(href(CONTACT)) + '">' +
+          (isEn ? "Go to contact form" : "お問い合わせフォームへ") + '</a>' +
+      '</div></div>';
+    document.body.appendChild(contactStrip);
+  }
+
   document.body.appendChild(foot);
 
-  foot.querySelector(".jf-top").addEventListener("click", function (e) {
-    e.preventDefault();
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  var topButton = document.createElement("button");
+  topButton.id = "jii-top";
+  topButton.type = "button";
+  topButton.setAttribute("aria-label", isEn ? "Back to top" : "ページ上部へ戻る");
+  topButton.setAttribute("title", isEn ? "Back to top" : "ページ上部へ戻る");
+  document.body.appendChild(topButton);
+
+  function syncTopButton() {
+    topButton.classList.toggle("jt-visible", window.scrollY > Math.max(320, window.innerHeight * 0.5));
+  }
+  topButton.addEventListener("click", function () {
+    var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
   });
+  window.addEventListener("scroll", syncTopButton, { passive: true });
+  syncTopButton();
 
   /* ---------- 5. Reserve space ----------
      Pages that load site.css already leave room for a 64px fixed bar.
