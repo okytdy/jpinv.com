@@ -17,7 +17,8 @@ permissions:
   contents: write    # so the job can commit and push the refreshed JSON
 
 concurrency:
-  # Never let two refresh runs race each other -- newer one wins.
+  # Never let two refresh runs race each other. Keep the active run and queue
+  # the next one rather than cancelling useful work that is already in flight.
   group: feed-refresh
   cancel-in-progress: false
 
@@ -25,7 +26,13 @@ jobs:
   refresh:
     name: Poll disclosures and append new matches
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    # The bounded steps below can legitimately use up to 21 minutes in total
+    # (dependency install 3 + lint 2 + refresh 10 + rebuild 3 + push 3), before
+    # checkout/setup overhead. A 15-minute job cap cancelled the 2026-08-07 run
+    # while it was still in progress and suppressed all step-level diagnostics.
+    # Keep this below the 30-minute schedule interval while leaving enough room
+    # for the individual step timeout to identify a genuinely stuck operation.
+    timeout-minutes: 25
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -193,6 +200,7 @@ jobs:
 
       - name: Commit and push refreshed data
         if: steps.diff.outputs.changed == 'true'
+        timeout-minutes: 3
         run: |
           set -euo pipefail
           git config user.name  "jii-feed-bot"
@@ -226,6 +234,7 @@ jobs:
           {
             echo "## Feed refresh"
             echo ""
+            echo "- refresh step: ${{ steps.refresh.outcome }}"
             echo "- changed: ${{ steps.diff.outputs.changed }}"
             echo "- new rows appended: ${{ steps.diff.outputs.added }}"
             echo "- rebuild scripts that failed: ${{ steps.rebuild.outputs.failed }}"
