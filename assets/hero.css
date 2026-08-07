@@ -421,3 +421,64 @@ html[lang="en"] .svr-tx h3 { letter-spacing: 0; }
   .svr-tx { padding: 34px 24px 40px; }
   .svr-head { padding: 48px 0 26px; }
 }
+
+
+/* ===================================================================
+   Investor voices — editorial proof panels.
+
+   These deliberately avoid portraits and logos: neither should be implied
+   without a direct association or permission. Visual hierarchy instead
+   comes from a short pull quote, restrained tonal fields, a quotation mark,
+   and a firm attribution block. The full endorsement remains visible.
+   =================================================================== */
+.voices { padding: 76px 0 84px; background: #fff; }
+.voices .voice-grid { gap: 18px; align-items: stretch; }
+.voices .voice-card2 {
+  position: relative; overflow: hidden; display: flex; flex-direction: column;
+  min-height: 440px; padding: 34px 30px 30px; border: 0;
+  border-top: 3px solid var(--accent, #9a7838); box-shadow: none;
+}
+.voices .voice-card2:nth-child(1) { background: #f6f1e8; }
+.voices .voice-card2:nth-child(2) { background: #f2f5f7; }
+.voices .voice-card2:nth-child(3) { background: #f7f6f2; }
+.voices .voice-card2::before {
+  content: '“'; position: absolute; z-index: 0; top: 10px; right: 20px;
+  font-family: Georgia, 'Times New Roman', serif; font-size: 100px;
+  font-weight: 400; line-height: 1; color: rgba(154, 120, 56, .13);
+}
+.voices .voice-card2 .tag {
+  position: relative; z-index: 1; align-self: flex-start; display: inline-block;
+  margin: 0; padding: 5px 9px; border: 1px solid rgba(26, 42, 74, .18);
+  background: rgba(255, 255, 255, .48); color: var(--ink-soft, #304466) !important;
+  line-height: 1.25; white-space: normal;
+}
+.voices .voice-pull {
+  position: relative; z-index: 1; margin: 26px 0 22px;
+  font-family: var(--serif, 'Noto Serif JP', 'Yu Mincho', serif);
+  font-size: clamp(18px, 1.55vw, 21px); font-weight: 400; line-height: 1.72;
+  letter-spacing: .025em; color: var(--ink, #1a2a4a);
+}
+.voices .voice-card2 blockquote {
+  position: relative; z-index: 1; margin: 0; padding: 20px 0 22px;
+  border-top: 1px solid rgba(26, 42, 74, .14); font-size: 12.5px;
+  line-height: 1.9; color: var(--text-mid, #4a5566);
+}
+.voices .voice-card2 figcaption {
+  position: relative; z-index: 1; margin-top: auto; padding-top: 18px;
+  border-top: 1px solid rgba(26, 42, 74, .14); font-size: 13.5px;
+  font-weight: 600; letter-spacing: .01em; color: var(--ink, #1a2a4a);
+}
+.voices .voice-card2 .voice-firm {
+  margin-top: 4px; font-size: 11px; font-weight: 400; line-height: 1.6;
+  color: var(--text-dim, #5f6875);
+}
+html[lang="en"] .voices .voice-pull { letter-spacing: 0; line-height: 1.55; }
+@media (max-width: 900px) {
+  .voices { padding: 54px 0 62px; }
+  .voices .voice-grid { gap: 14px; }
+  .voices .voice-card2 { min-height: 0; padding: 30px 26px 28px; }
+  .voices .voice-pull { margin: 22px 0 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .voices .voice-card2 { transition: none; }
+}
