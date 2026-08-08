@@ -330,6 +330,32 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     .cap-feed-viewall { margin-left: 0; }
   }
 
+
+  /* Honebuto deep-dive strip (added 2026-08-04) — same chrome as .notes-gem so the two read as a set */
+  .dd-gem { position: relative; overflow: hidden; margin-top: 54px; background: var(--bg-soft); border: 1px solid var(--rule); border-left: 3px solid var(--accent); }
+  .dd-gem::before {
+    content:''; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(15,31,58,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(15,31,58,0.025) 1px, transparent 1px);
+    background-size: 44px 44px;
+    -webkit-mask-image: linear-gradient(180deg, transparent, black 22%, black 78%, transparent);
+            mask-image: linear-gradient(180deg, transparent, black 22%, black 78%, transparent);
+    pointer-events: none;
+  }
+  .dd-gem::after { content:''; position: absolute; right: -70px; top: -104px; width: 232px; height: 232px; border: 1px solid rgba(255,103,25,0.16); border-radius: 50%; pointer-events: none; }
+  .dd-gem-inner { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr auto; gap: 36px; align-items: center; padding: 34px 38px; }
+  .dd-gem-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.22em; color: var(--accent-deep); text-transform: uppercase; margin-bottom: 13px; font-weight: 500; }
+  .dd-gem-title { font-family: var(--serif); font-size: 1.5rem; font-weight: 300; color: var(--ink-mid); line-height: 1.32; margin: 0 0 10px; }
+  .dd-gem-sub { font-size: 0.95rem; color: var(--text-mid); margin: 0; max-width: 62ch; line-height: 1.6; }
+  .dd-gem-cta { display: inline-flex; align-items: center; gap: 10px; white-space: nowrap; background: var(--accent); color: #fff; text-decoration: none; font-weight: 600; font-size: 0.95rem; padding: 15px 26px; border: 0; }
+  .dd-gem-cta:hover { filter: brightness(0.94); }
+  .dd-gem-meta { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-top: 11px; text-align: right; }
+  @media (max-width: 760px) {
+    .dd-gem-inner { grid-template-columns: 1fr; gap: 20px; padding: 26px 22px; }
+    .dd-gem-meta { text-align: left; }
+  }
+
 </style>
 <script src="/assets/locale-switcher.js" defer></script>
 <link rel="stylesheet" href="/assets/active-investors.css">
@@ -1342,6 +1368,22 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     </div>
       <button type="button" class="reel-nav reel-next" aria-label="次へ">&rsaquo;</button>
     </div>
+
+    <!-- 骨太2026 ディープダイブ (added 2026-08-04) -->
+    <section class="dd-gem" aria-labelledby="dd-gem-title">
+      <div class="dd-gem-inner">
+        <div>
+          <span class="dd-gem-eyebrow">JII Deep Dive</span>
+          <h2 class="dd-gem-title" id="dd-gem-title">骨太の方針2026 — 投資国家への転換</h2>
+          <p class="dd-gem-sub">財政アンカーの変更、国債利回りの上昇、そして支出の連鎖に位置する小型株14社。17の戦略分野を、予算措置から受注残まで追う。</p>
+        </div>
+        <div>
+          <a class="dd-gem-cta" href="/honebuto-2026/index_ja.html">ディープダイブを読む &rarr;</a>
+          <div class="dd-gem-meta">無料 &middot; 全21セクション</div>
+        </div>
+      </div>
+    </section>
+
     
     <section class="voices-reel" aria-label="投資家からの評価">
       <div class="reel-head">
