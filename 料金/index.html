@@ -320,11 +320,23 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 <main id="main-content" tabindex="-1">
 <!-- PAGE HEAD AND ESTIMATE -->
 <section id="top" class="price-page-head" aria-labelledby="price-page-title">
+  <div class="price-hero-cut" aria-hidden="true"></div>
   <div class="wrap">
     <nav class="price-breadcrumb" aria-label="パンくずリスト"><a href="/">トップ</a><span aria-hidden="true">›</span><span>料金</span></nav>
-    <div class="price-title">
-      <h1 id="price-page-title">料金</h1>
-      <p>IR翻訳・IR通訳・海外IR支援の料金です。表示金額は税別です。</p>
+    <div class="price-hero-head">
+      <div class="price-title">
+        <span class="price-hero-kicker">IR翻訳・IR通訳・海外IR支援</span>
+        <h1 id="price-page-title">料金</h1>
+        <p>表示金額は税別です。</p>
+      </div>
+      <aside class="price-basis" aria-label="料金の算定基準">
+        <span>料金の算定基準</span>
+        <dl>
+          <div><dt>翻訳</dt><dd>文字数・ワード数</dd></div>
+          <div><dt>通訳</dt><dd>拘束時間・回数</dd></div>
+          <div><dt>海外IR支援</dt><dd>月額・契約期間</dd></div>
+        </dl>
+      </aside>
     </div>
 
     <section class="quote-card" id="instant-quote" aria-labelledby="quote-title">
@@ -387,7 +399,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 <!-- TRANSLATION -->
 <section id="translation-rate" class="price-section" aria-labelledby="translation-title">
   <div class="wrap">
-    <div class="price-section-head reveal"><h2 id="translation-title">翻訳料金</h2><p>原稿の文字数またはワード数をもとに算定します。</p></div>
+    <div class="price-section-head reveal"><span class="label">単発でのご依頼</span><h2 id="translation-title">翻訳料金</h2><div class="rule-accent"></div><p>原稿の文字数またはワード数をもとに算定します。</p></div>
     <div class="price-table-wrap reveal" tabindex="0" aria-label="翻訳料金表。横にスクロールできます">
       <table class="price-table">
         <thead><tr><th scope="col">翻訳方向</th><th scope="col">資料</th><th scope="col">料金の目安</th></tr></thead>
@@ -410,7 +422,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 <!-- INTERPRETATION -->
 <section id="interpretation-rate" class="price-section price-section--subtle" aria-labelledby="interpretation-title">
   <div class="wrap">
-    <div class="price-section-head reveal"><h2 id="interpretation-title">通訳料金</h2><p>海外投資家との個別面談、決算説明会、ロードショーなどに対応します。</p></div>
+    <div class="price-section-head reveal"><span class="label">投資家面談</span><h2 id="interpretation-title">通訳料金</h2><div class="rule-accent"></div><p>海外投資家との個別面談、決算説明会、ロードショーなどに対応します。</p></div>
     <div class="price-table-wrap reveal" tabindex="0" aria-label="通訳料金表。横にスクロールできます">
       <table class="price-table">
         <thead><tr><th scope="col">通訳形式</th><th scope="col">拘束時間</th><th scope="col">料金の目安</th></tr></thead>
@@ -431,7 +443,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 <!-- CONTINUOUS SUPPORT -->
 <section id="plans" class="price-section" aria-labelledby="plans-title">
   <div class="wrap">
-    <div class="price-section-head reveal"><h2 id="plans-title">海外IR診断・継続支援</h2><p>英文開示と投資家面談を継続して見直すための料金です。</p></div>
+    <div class="price-section-head reveal"><span class="label">診断・継続支援</span><h2 id="plans-title">海外IR診断・継続支援</h2><div class="rule-accent"></div><p>英文開示と投資家面談を継続して見直すための料金です。</p></div>
     <div class="price-table-wrap reveal" tabindex="0" aria-label="海外IR支援料金表。横にスクロールできます">
       <table class="price-table price-table--plans">
         <thead><tr><th scope="col">プラン</th><th scope="col">料金</th><th scope="col">主な内容</th><th scope="col">契約期間</th></tr></thead>
@@ -449,7 +461,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 <!-- ESTIMATE NOTES -->
 <section class="price-section price-section--subtle" aria-labelledby="estimate-notes-title">
   <div class="wrap">
-    <div class="price-section-head reveal"><h2 id="estimate-notes-title">お見積もりについて</h2></div>
+    <div class="price-section-head reveal"><span class="label">ご依頼前に</span><h2 id="estimate-notes-title">お見積もりについて</h2><div class="rule-accent"></div></div>
     <dl class="estimate-note-list reveal">
       <div><dt>表示料金</dt><dd>すべて税別です。</dd></div>
       <div><dt>正式料金</dt><dd>資料の内容、分量、納期、納品形式を確認してお見積もりします。</dd></div>
@@ -462,8 +474,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 <section id="contact" aria-label="お見積もり依頼">
   <div class="wrap">
     <div class="section-head reveal">
-      <div class="rule-accent"></div>
+      <span class="label">お問い合わせ</span>
       <h2 class="mincho-lg">お見積もり依頼</h2>
+      <div class="rule-accent"></div>
       <p>資料の種類、分量、希望納期をご入力ください。通常1営業日以内にご連絡します。</p>
     </div>
     <div class="contact-grid">
