@@ -569,19 +569,14 @@
       '</div>' +
       '<div class="jf-legal">' + (isEn ? LEGAL_EN : LEGAL_JA) + '</div>' +
     '</div>';
-  /* The homepages used to carry a small boxed contact card in their source.
-     Retire it at runtime so the shared strip below is the only invitation,
-     without coupling this footer release to a rewrite of the minified pages. */
-  if (path === "/" || path === "/en/") {
-    var oldContactBand = document.querySelector(".contact-band");
-    var oldContactSection = oldContactBand && oldContactBand.closest("section");
-    if (oldContactSection) oldContactSection.remove();
-  }
-  /* The contact page is already the destination, so repeating the contact
-     invitation there would add a redundant block immediately above its
-     sitemap. Everywhere else, this is the consistent bridge into the footer. */
+  /* Do not append the shared contact strip when the page already supplies a
+     contextual CTA or an inquiry form. One clear conversion endpoint is
+     enough; the shared strip is only a fallback for pages without one. */
   var onContact = path.replace(/\/$/, "") === href(CONTACT).replace(/\/$/, "");
-  if (!onContact) {
+  var hasPageContact = document.querySelector(
+    "#inquiry-form, #urgent-form, .cta-band, .cta-box, .contact-band"
+  );
+  if (!onContact && !hasPageContact) {
     var contactStrip = document.createElement("section");
     contactStrip.id = "jii-contact";
     contactStrip.setAttribute("aria-labelledby", "jii-contact-title");

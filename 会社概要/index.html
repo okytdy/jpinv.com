@@ -173,13 +173,6 @@ em { font-style: normal; color: var(--ink); font-weight: 600; }
 
 .btn-outline:hover { border-color: var(--ink); color: var(--ink); }
 
-.section-cta { margin-top: 22px; display: flex; gap: 12px; flex-wrap: wrap; }
-.cta-band { margin-top: 42px; padding: 26px 28px; border: 1px solid var(--rule); background: #fff; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: center; }
-.cta-band h3 { font-family: var(--serif); color: var(--ink); font-size: clamp(1.05rem, 2vw, 1.35rem); font-weight: 400; line-height: 1.5; margin: 8px 0 6px; }
-.cta-band p { font-size: 0.84rem; line-height: 1.75; color: var(--text-mid); margin: 0; }
-.cta-actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
-@media (max-width: 760px) { .cta-band { grid-template-columns: 1fr; align-items: start; } .cta-actions, .section-cta { width: 100%; } .cta-actions .btn, .section-cta .btn { width: 100%; text-align: center; } }
-
 /* SCROLL REVEAL */
 .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .reveal.on { opacity: 1; transform: none; }
@@ -358,7 +351,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
       <span class="label">JIIについて</span>
       <div class="rule-accent"></div>
       <h2 class="mincho-lg about-heading"><span>海外投資家との面談経験を、</span><span>IR支援に生かす</span></h2>
-      <div class="section-cta reveal"><a href="#contact" class="btn btn-primary" data-rfq-service="diagnostic" data-rfq-document="meeting_script" data-rfq-source="company_primary" data-rfq-message="代表に、面談準備や資料診断の進め方を相談したいです。">代表に直接相談する</a></div>
     </div>
     <div class="about-grid reveal">
       <div>
@@ -375,16 +367,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
           <div class="proof-cell"><div class="proof-num">80<em>件以上</em></div><div class="proof-label">CFO・経営幹部との面談</div></div>
           <div class="proof-cell"><div class="proof-num">40<em>社以上</em></div><div class="proof-label">対応した海外投資家</div></div>
         </div>
-      </div>
-    </div>
-    <div class="cta-band reveal" aria-label="面談準備のご相談">
-      <div>
-        <span class="label">直接相談</span>
-        <h3>代表が直接ご相談を伺います</h3>
-        <p>面談の予定、想定質問、既存の想定問答を伺い、資料、回答、通訳の準備を整理します。</p>
-      </div>
-      <div class="cta-actions">
-        <a href="#contact" class="btn btn-outline" data-rfq-service="interpretation" data-rfq-document="meeting_script" data-rfq-source="company_secondary" data-rfq-message="海外投資家面談の準備、通訳、診断結果の説明について相談したいです。">面談準備について相談する</a>
       </div>
     </div>
   </div>
@@ -857,6 +839,6 @@ inquiryForm.addEventListener('submit', async (e) => {
 });
 </script>
 <script src="/assets/motion.js" defer></script>
-<script src="/assets/nav.js?v=e9d2dc243f" defer></script>
+<script src="/assets/nav.js?v=42a38d2772" defer></script>
 </body>
 </html>
