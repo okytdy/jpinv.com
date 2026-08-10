@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>料金｜IR英訳・通訳・海外IR診断｜JII</title>
-<meta name="description" content="IR翻訳、IR通訳、海外IR診断・継続支援の料金をご案内します。表示金額はすべて税別です。">
+<meta name="description" content="IR翻訳・IR通訳の概算料金を文字数、ワード数、面談回数からすぐ計算できます。海外IR診断・継続支援の料金と含まれる内容も比較できます。">
 <meta property="og:title" content="料金｜IR英訳・通訳・海外IR診断｜JII">
-<meta property="og:description" content="IR翻訳、IR通訳、海外IR診断・継続支援の料金をご案内します。表示金額はすべて税別です。">
+<meta property="og:description" content="IR翻訳・IR通訳の概算料金をその場で計算。海外IR診断・継続支援の料金と含まれる内容も比較できます。">
 <meta property="og:url" content="https://jpinv.com/%E6%96%99%E9%87%91/">
 <link rel="canonical" href="https://jpinv.com/%E6%96%99%E9%87%91/">
 <link rel="alternate" hreflang="ja" href="https://jpinv.com/%E6%96%99%E9%87%91/">
@@ -31,6 +31,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/pricing.css">
 <style>
 /* page-specific rules only — shared rules live in /assets/site.css (migrated Phase 7, 2026-07-12) */
 :root {
@@ -310,64 +311,165 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   "@type": "WebPage",
   "url": "https://jpinv.com/%E6%96%99%E9%87%91/",
   "name": "料金｜IR英訳・通訳・海外IR診断｜JII",
-  "description": "IR翻訳、IR通訳、海外IR診断・継続支援の料金をご案内します。表示金額はすべて税別です。",
+  "description": "IR翻訳・IR通訳の概算料金を文字数、ワード数、面談回数から計算でき、海外IR診断・継続支援の料金も比較できます。",
   "inLanguage": "ja"
 }
 </script></head>
-<body>
+<body class="pricing-page">
 <a class="skip-link" href="#main-content">本文へ移動</a>
 <main id="main-content" tabindex="-1">
 <!-- HERO -->
-<section id="top" aria-label="料金">
-  <div class="hero-texture" aria-hidden="true"></div>
-  <div class="hero-glow" aria-hidden="true"></div>
+<section id="top" class="price-hero" aria-labelledby="price-hero-title">
   <div class="wrap">
-    <div class="hero-body">
-      <div class="hero-eyebrow"><span class="label">料金</span></div>
-      <div class="hero-title"><h1 class="mincho-xl">IR翻訳・通訳・継続支援の料金</h1></div>
-      <p class="hero-sub">翻訳は文字・ワード単価、通訳は半日・1日単位、継続支援は月額です。表示金額はすべて税別です。</p>
-      <div class="hero-ctas"><a href="#contact" class="btn btn-primary" data-rfq-service="other" data-rfq-source="pricing_hero_consult" data-rfq-message="資料や納期が未定のため、30分無料相談を希望します。">30分無料相談</a><a href="#standalone" class="btn btn-outline">単発料金を見る</a></div>
+    <div class="price-hero-grid">
+      <div class="price-hero-copy">
+        <span class="label">Pricing &amp; estimate</span>
+        <h1 id="price-hero-title"><span>料金の目安を、</span><em>すぐに。</em></h1>
+        <p>IR翻訳は文字数・ワード数、IR通訳は面談回数を入力するだけ。まず概算を確認し、そのまま正式なお見積もりへ進めます。</p>
+        <div class="price-hero-notes">
+          <span class="price-hero-note">入力だけで概算表示</span>
+          <span class="price-hero-note">メールアドレス不要</span>
+          <span class="price-hero-note">表示金額は税別</span>
+        </div>
+      </div>
+      <section class="quote-card" id="instant-quote" aria-labelledby="quote-title">
+        <div class="quote-card-head">
+          <span class="label">概算シミュレーター</span>
+          <h2 id="quote-title">何を依頼しますか？</h2>
+          <p>概算の確認だけでもご利用いただけます。</p>
+        </div>
+        <div class="quote-tabs" role="tablist" aria-label="見積もり対象">
+          <button class="quote-tab" id="quote-tab-translation" type="button" role="tab" aria-selected="true" aria-controls="quote-panel-translation" data-quote-mode="translation">IR翻訳</button>
+          <button class="quote-tab" id="quote-tab-interpretation" type="button" role="tab" aria-selected="false" aria-controls="quote-panel-interpretation" data-quote-mode="interpretation" tabindex="-1">IR通訳</button>
+        </div>
+        <div class="quote-panel" id="quote-panel-translation" role="tabpanel" aria-labelledby="quote-tab-translation" data-quote-panel="translation">
+          <div class="quote-fields">
+            <div class="quote-field">
+              <label for="quote-direction">翻訳方向</label>
+              <select id="quote-direction">
+                <option value="ja-en">日本語 → 英語</option>
+                <option value="en-ja">英語 → 日本語</option>
+              </select>
+            </div>
+            <div class="quote-field">
+              <label for="quote-document">資料の種類</label>
+              <select id="quote-document">
+                <option value="standard">決算短信・適時開示など</option>
+                <option value="strategic">統合報告書・有報・中計など</option>
+              </select>
+            </div>
+            <div class="quote-field full">
+              <label for="quote-count">原稿の分量</label>
+              <div class="quote-unit-wrap">
+                <input id="quote-count" type="number" inputmode="numeric" min="1" max="1000000" step="100" value="8000">
+                <span class="quote-unit" id="quote-unit">文字</span>
+              </div>
+            </div>
+          </div>
+          <div class="quote-result" aria-live="polite">
+            <div><span class="quote-result-label">概算料金</span><strong class="quote-result-price" id="quote-translation-price">¥48,000〜¥72,000</strong></div>
+            <span class="quote-result-tax">税別</span>
+          </div>
+          <p class="quote-summary" id="quote-translation-summary"></p>
+        </div>
+        <div class="quote-panel" id="quote-panel-interpretation" role="tabpanel" aria-labelledby="quote-tab-interpretation" data-quote-panel="interpretation" hidden>
+          <div class="quote-fields">
+            <div class="quote-field">
+              <label for="quote-duration">1回あたりの拘束時間</label>
+              <select id="quote-duration">
+                <option value="half">半日（3時間まで）</option>
+                <option value="full">1日（8時間まで）</option>
+              </select>
+            </div>
+            <div class="quote-field">
+              <label for="quote-meetings">面談・開催回数</label>
+              <div class="quote-unit-wrap">
+                <input id="quote-meetings" type="number" inputmode="numeric" min="1" max="24" step="1" value="1">
+                <span class="quote-unit">回</span>
+              </div>
+            </div>
+          </div>
+          <div class="quote-result" aria-live="polite">
+            <div><span class="quote-result-label">概算料金</span><strong class="quote-result-price" id="quote-interpretation-price">¥50,000〜</strong></div>
+            <span class="quote-result-tax">税別</span>
+          </div>
+          <p class="quote-summary" id="quote-interpretation-summary"></p>
+        </div>
+        <div class="quote-card-actions">
+          <a href="#contact" class="btn btn-primary" id="quote-cta">この条件で正式見積もりへ</a>
+          <p class="quote-disclaimer">概算は標準的な条件での目安です。専門性、納期、形式、機材・移動の有無により正式料金は変わります。</p>
+        </div>
+      </section>
     </div>
   </div>
 </section>
-<!-- PRICING PHILOSOPHY -->
-<section id="philosophy" aria-label="料金の考え方">
+<!-- ASSURANCE -->
+<section class="price-assurance" aria-label="見積もりと機密保持">
+  <div class="wrap">
+    <div class="price-assurance-grid">
+      <div class="price-assurance-item"><span>Response</span><strong>通常1営業日以内にご連絡</strong></div>
+      <div class="price-assurance-item"><span>Confidential</span><strong>NDA締結後の資料共有に対応</strong></div>
+      <div class="price-assurance-item"><span>Flexible</span><strong>単発1件から依頼可能</strong></div>
+      <div class="price-assurance-item"><span>Continuity</span><strong>用語・表現を継続管理</strong></div>
+    </div>
+  </div>
+</section>
+<!-- QUICK NAVIGATION -->
+<nav class="price-jumpnav" aria-label="料金ページ内ナビゲーション">
+  <div class="wrap">
+    <a href="#instant-quote">概算を計算</a>
+    <a href="#standalone">単発料金</a>
+    <a href="#self-check">プラン診断</a>
+    <a href="#plans">継続支援</a>
+    <a href="#contact">正式見積もり</a>
+  </div>
+</nav>
+<!-- THREE ENTRY POINTS -->
+<section id="philosophy" aria-labelledby="price-path-title">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="label">料金の考え方</span>
+      <span class="label">Choose by need</span>
       <div class="rule-accent"></div>
-      <h2 class="mincho-lg">必要な範囲だけご相談ください</h2>
-      <p>翻訳・通訳は1件から承ります。継続してご依頼いただく場合は、過去の用語や表現を引き継いで進めます。</p>
+      <h2 id="price-path-title" class="mincho-lg">目的から選ぶ、3つの入口</h2>
+      <p>まず必要な支援を選んでください。各サービスの料金と含まれる内容を、同じ基準で比較できます。</p>
     </div>
-    <div class="why-grid reveal">
-      <div class="why-card">
-        <span class="label">単発支援</span>
-        <h3>1件からご依頼いただけます</h3>
-        <p>日英翻訳は文字数、英日翻訳はワード数、通訳は拘束時間をもとにお見積りします。</p>
-      </div>
-      <div class="why-card is-diag">
-        <span class="label">継続支援</span>
-        <h3>四半期ごとの継続支援</h3>
-        <p>英文開示の改善から投資家面談の支援まで、目的に応じた3つのプランをご用意しています。</p>
-      </div>
+    <div class="price-path-grid reveal">
+      <a class="price-path" href="#translation-rate" data-number="01">
+        <span class="price-path-kicker">IR Translation</span>
+        <h3>英文開示を整える</h3>
+        <p>決算短信、適時開示、統合報告書など。原稿量に応じた料金です。</p>
+        <div class="price-path-price">6円〜<small>／日本語1文字</small></div>
+      </a>
+      <a class="price-path" href="#interpretation-rate" data-number="02">
+        <span class="price-path-kicker">IR Interpretation</span>
+        <h3>投資家面談を支える</h3>
+        <p>個別面談、決算説明会、ロードショーなど。拘束時間に応じた料金です。</p>
+        <div class="price-path-price">50,000円〜<small>／半日</small></div>
+      </a>
+      <a class="price-path" href="#plans" data-number="03">
+        <span class="price-path-kicker">Continuous Support</span>
+        <h3>開示と対話を改善する</h3>
+        <p>診断、英文レビュー、面談支援を四半期ごとに循環させます。</p>
+        <div class="price-path-price">100,000円〜<small>／月</small></div>
+      </a>
     </div>
   </div>
 </section>
 <!-- FAST TRACK STRIP -->
-<section id="fast-track" aria-label="短納期・緊急案件への対応" style="background:#fff;border-top:1px solid var(--rule);padding:24px 0">
+<section id="fast-track" class="price-fast-track" aria-label="短納期・緊急案件への対応">
   <div class="wrap">
-    <div style="display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center;border:1px solid var(--accent);border-left:3px solid var(--accent);padding:18px 22px;background:var(--accent-soft)">
+    <div class="price-fast-card">
       <div>
-        <span class="label" style="color:var(--accent)">短納期・緊急案件への対応</span>
-        <p style="font-size:0.88rem;line-height:1.7;color:var(--ink);margin-top:6px">海外株主からの書簡、急な投資家面談、当日中の英訳もご相談ください。<strong>24時間以内に対応可否と概算をご連絡</strong>します。お見積りは無料です。</p>
+        <span class="label">短納期・緊急案件への対応</span>
+        <p>海外株主からの書簡、急な投資家面談、当日中の英訳もご相談ください。<strong>24時間以内に対応可否と概算をご連絡</strong>します。お見積りは無料です。</p>
       </div>
-      <a href="#contact" class="btn btn-outline" style="white-space:nowrap" data-rfq-service="other" data-rfq-source="pricing_fast_track" data-rfq-message="短納期の案件について相談したいです。資料と希望納期をお知らせしますので、24時間以内に対応可否をご連絡ください。">緊急案件を相談する</a>
+      <a href="#contact" class="btn btn-outline price-fast-cta" data-rfq-service="other" data-rfq-source="pricing_fast_track" data-rfq-message="短納期の案件について相談したいです。資料と希望納期をお知らせしますので、24時間以内に対応可否をご連絡ください。">緊急案件を相談する</a>
     </div>
   </div>
 </section>
 
 <!-- STANDALONE PRICING -->
-<section id="standalone" aria-label="単発の料金目安" style="background:var(--bg-mid);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)">
+<section id="standalone" class="price-rates" aria-label="単発の料金目安">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="label">単発料金</span>
@@ -375,107 +477,65 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
       <h2 class="mincho-lg">単発の英訳・通訳</h2>
       <p>料金は分量、専門性、納期、納品形式によって変わります。下記は税別の目安です。</p>
     </div>
-    <div class="plan-grid reveal">
-      <div class="plan-card">
+    <div class="price-rate-grid reveal">
+      <article class="price-rate-card" id="translation-rate">
         <span class="plan-tag">日英翻訳</span>
         <h3>IR文書（日→英）</h3>
-        <div class="plan-sub">1文字あたり</div>
-        <div class="plan-price" style="font-size:1.4rem">¥6〜¥9<small> ／文字</small></div>
-        <div class="plan-sub" style="margin-top:-4px">決算短信・適時開示・短文プレス</div>
-        <div class="plan-sub" style="margin-top:6px"><a href="/サービス/#earnings-summary-translation">決算短信翻訳サービスの詳細はこちら</a> / <a href="/サービス/#earnings-presentation-translation">決算説明会資料翻訳サービスはこちら</a></div>
-        <div class="plan-sub" style="margin-top:6px"><a href="/サービス/#agm-convocation-translation">招集通知翻訳サービスの詳細はこちら</a></div>
-        <div class="plan-sub" style="margin-top:6px"><a href="/特急翻訳/">特急対応（当日・翌営業日納品）の詳細はこちら</a></div>
-        <div class="plan-price" style="font-size:1.4rem;margin-top:10px">¥10〜¥14<small> ／文字</small></div>
-        <div class="plan-sub" style="margin-top:-4px">統合報告書・有報・中計・社長メッセージ</div>
-        <div class="plan-tax">税別</div>
-        <div class="plan-best"><strong>提供内容：</strong>用語集、翻訳メモリ、英文・対訳チェック、簡易レイアウト調整、PDF・Word・PowerPoint納品。継続案件は単価をご相談いただけます。</div>
-        <ul class="plan-list">
-          <li>決算短信・四半期決算短信</li>
-          <li>株主総会招集通知（添付書類含む）</li>
-          <li>適時開示リリース</li>
-          <li>有価証券報告書（全訳・要約）</li>
-          <li>決算説明会資料・統合報告書</li>
-          <li>中期経営計画・社長メッセージ</li>
-          <li>サステナビリティ／ESGレポート</li>
-          <li>IRウェブサイト英訳</li>
-        </ul>
+        <div class="price-rate-lead">
+          <div class="price-rate-row"><span>決算短信・適時開示</span><strong>6〜9円<small>／文字</small></strong></div>
+          <div class="price-rate-row"><span>統合報告書・有報・中計</span><strong>10〜14円<small>／文字</small></strong></div>
+        </div>
+        <p class="price-includes"><strong>含まれるもの</strong><br>用語集・翻訳メモリ、英文・対訳チェック、簡易レイアウト調整、PDF・Word・PowerPoint納品。</p>
+        <details class="price-details">
+          <summary>対応資料を見る</summary>
+          <ul><li>決算短信・四半期決算短信</li><li>株主総会招集通知</li><li>適時開示リリース</li><li>有価証券報告書</li><li>決算説明会資料・統合報告書</li><li>中期経営計画・社長メッセージ</li></ul>
+        </details>
         <a href="#contact" class="btn btn-primary" data-rfq-service="translation" data-rfq-source="pricing_standalone_translation" data-rfq-message="単発の英訳について見積りを希望します。資料の種類と分量をお知らせします。">英訳のお見積りを依頼</a>
-      </div>
-      <div class="plan-card">
+      </article>
+      <article class="price-rate-card">
         <span class="plan-tag">英日翻訳</span>
         <h3>IR関連文書（英→日）</h3>
-        <div class="plan-sub">1ワードあたり・個別見積り</div>
-        <div class="plan-price" style="font-size:1.5rem">¥12〜¥22<small> ／ワード</small></div>
-        <div class="plan-tax">税別・文書の形式や機密性により個別算定</div>
-        <div class="plan-best"><strong>提供内容：</strong>用語集、IR・対訳チェック、PDF・Word・PowerPoint納品。AIの利用範囲と情報管理条件は事前に確認します。</div>
-        <ul class="plan-list">
-          <li>海外投資家・アクティビストの書簡和訳</li>
-          <li>海外開示・SEC文書の和訳</li>
-          <li>海外メディア・アナリストレポートの和訳</li>
-          <li>海外株主向け書類の和訳</li>
-        </ul>
+        <div class="price-rate-lead"><div class="price-rate-row"><span>英語原文</span><strong>12〜22円<small>／ワード</small></strong></div></div>
+        <p class="price-includes"><strong>含まれるもの</strong><br>用語集、IR・対訳チェック、PDF・Word・PowerPoint納品。AIの利用範囲は事前に確認します。</p>
+        <details class="price-details">
+          <summary>対応資料を見る</summary>
+          <ul><li>海外投資家・アクティビストの書簡</li><li>海外開示・SEC文書</li><li>海外メディア・アナリストレポート</li><li>海外株主向け書類</li></ul>
+        </details>
         <a href="#contact" class="btn btn-primary" data-rfq-service="translation" data-rfq-source="pricing_standalone_en_ja" data-rfq-message="英日翻訳のお見積りを相談したいです。">英日翻訳のお見積り</a>
-      </div>
-      <div class="plan-card">
+      </article>
+      <article class="price-rate-card" id="interpretation-rate">
         <span class="plan-tag">IR通訳</span>
-        <h3>IR通訳（海外投資家対応）</h3>
-        <div class="plan-sub" style="margin-top:6px"><a href="/サービス/#investor-meeting-interpretation">海外投資家面談の通訳について詳しく見る</a></div>
-        <div class="plan-sub">半日・1日単位</div>
-        <div class="plan-price" style="font-size:1.4rem">¥50,000〜<small> ／半日</small></div>
-        <div class="plan-sub" style="margin-top:-4px">逐次通訳・3時間まで／オンライン個別面談</div>
-        <div class="plan-price" style="font-size:1.4rem;margin-top:10px">¥80,000〜<small> ／1日</small></div>
-        <div class="plan-sub" style="margin-top:-4px">逐次通訳・8時間まで／IR説明会・決算説明会</div>
-        <div class="plan-tax">税別・同時通訳、海外帯同、機材手配は別途</div>
-        <div class="plan-best"><strong>提供内容：</strong>事前資料の確認、想定問答の整理、当日の通訳、論点メモ（任意）。<br>12:00をまたぐ半日案件は1日扱い。延長は時間単位で算定します。</div>
-        <ul class="plan-list">
-          <li>機関投資家との個別面談</li>
-          <li>決算説明会の通訳（同時／逐次）</li>
-          <li>IR説明会・事業説明会</li>
-          <li>カンファレンス面談の通訳</li>
-          <li>海外ロードショーの帯同通訳</li>
-          <li>株主総会の通訳</li>
-        </ul>
+        <h3>海外投資家対応</h3>
+        <div class="price-rate-lead">
+          <div class="price-rate-row"><span>半日・3時間まで</span><strong>50,000円〜</strong></div>
+          <div class="price-rate-row"><span>1日・8時間まで</span><strong>80,000円〜</strong></div>
+        </div>
+        <p class="price-includes"><strong>含まれるもの</strong><br>事前資料の確認、想定問答の整理、当日の逐次通訳、論点メモ（任意）。</p>
+        <details class="price-details">
+          <summary>対応する面談を見る</summary>
+          <ul><li>機関投資家との個別面談</li><li>決算説明会・IR説明会</li><li>カンファレンス面談</li><li>海外ロードショー</li><li>株主総会</li></ul>
+        </details>
         <a href="#contact" class="btn btn-primary" data-rfq-service="interpretation" data-rfq-source="pricing_standalone_interpretation" data-rfq-message="単発の通訳について見積りを希望します。日時、場所、通訳形式をお知らせします。">投資家面談の通訳を相談する</a>
-      </div>
+      </article>
     </div>
-    <div style="margin-top:28px;padding:18px 22px;border:1px solid var(--rule);background:#fff;font-size:0.8rem;color:var(--text-mid);line-height:1.8">
-      <strong style="display:block;margin-bottom:6px;color:var(--ink);font-size:0.82rem">ご依頼前にご確認ください</strong>
-      ※ 原稿データを納品します。EDINET・TDnetへの提出代行や本格的なDTP組版は対象外です。必要に応じて提携先をご紹介します。<br>
-      ※ 翻訳料金は、専門性、分量、納期、既存の用語集・翻訳メモリ、機密性をもとに算定します。継続案件は単価をご相談いただけます。<br>
-      ※ 通訳料金は、形式、機材、移動時間、海外帯同の有無で変わります。日時と通訳方法を伺い、お見積りします。
-    </div>
+    <div class="price-note-box"><strong>正式料金が変わる主な要素：</strong>専門性、納期、納品形式、既存の用語集・翻訳メモリ、機密性。通訳は形式、機材、移動・海外帯同の有無も確認します。同時通訳・本格的なDTP組版は個別見積もりです。</div>
   </div>
 </section>
 
 <!-- CONFIDENTIALITY -->
 <section id="confidentiality" aria-label="機密保持と運用">
   <div class="wrap">
-    <div class="section-head reveal">
-      <span class="label">機密保持と運用体制</span>
-      <div class="rule-accent"></div>
-      <h2 class="mincho-lg">開示前の資料もお預かりします</h2>
-      <p>NDA、データ管理、AIの利用範囲を案件ごとに確認します。</p>
-    </div>
-    <div class="why-grid reveal" style="grid-template-columns:repeat(2,minmax(0,1fr))">
-      <div class="why-card">
-        <span class="label">NDA・機密保持</span>
-        <h3>個別NDAにも対応します</h3>
-        <p>当社・お客様いずれのひな型にも対応します。必要に応じて、NDA締結後に資料をお送りください。</p>
+    <div class="price-security reveal">
+      <div class="price-security-intro">
+        <span class="label">Security &amp; operation</span>
+        <h2>開示前の資料も、安心してご相談ください。</h2>
+        <p>NDA、未公表情報、AI利用、担当体制を案件ごとに確認します。</p>
       </div>
-      <div class="why-card">
-        <span class="label">未公表情報</span>
-        <h3>未公表情報は用途を限定して管理</h3>
-        <p>未公表資料は合意した条件で管理し、業務目的以外には使用しません。納品後のデータ保管は原則90日です。</p>
-      </div>
-      <div class="why-card">
-        <span class="label">AI利用の範囲</span>
-        <h3>使う場合は事前に確認します</h3>
-        <p>AIを使うかどうか、使う場合の範囲は事前に確認します。機密保持の考え方は<a href="/サービス/AIと機密保持/">AIと機密保持</a>にもまとめています。</p>
-      </div>
-      <div class="why-card">
-        <span class="label">対応体制</span>
-        <h3>担当者を固定して進めます</h3>
-        <p>代表が直接担当します。繁忙期は受託件数を調整し、納期と品質を優先します。</p>
+      <div class="price-security-grid">
+        <div class="price-security-item"><span>01 / NDA</span><h3>個別NDAにも対応</h3><p>当社・お客様いずれのひな型にも対応します。</p></div>
+        <div class="price-security-item"><span>02 / Data</span><h3>用途を限定して管理</h3><p>納品後のデータ保管は原則90日です。</p></div>
+        <div class="price-security-item"><span>03 / AI</span><h3>利用範囲を事前確認</h3><p>AIを使うか、使う場合の範囲を明確にします。</p></div>
+        <div class="price-security-item"><span>04 / Team</span><h3>担当者を固定</h3><p>代表が直接担当し、納期と品質を優先します。</p></div>
       </div>
     </div>
   </div>
@@ -487,14 +547,14 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
       <span class="label">継続支援プランの選び方</span>
       <div class="rule-accent"></div>
       <h2 class="mincho-lg">現在の課題からお選びください</h2>
-      <p>近い項目を選ぶと、おすすめのプランが表示されます。単発の英訳・通訳は、<a href="#standalone" style="border-bottom:1px solid var(--ink)">単発料金セクション</a>をご覧ください。</p>
+      <p>近い項目を選ぶと、おすすめのプランが表示されます。単発の英訳・通訳は、<a href="#standalone" class="price-inline-link">単発料金セクション</a>をご覧ください。</p>
     </div>
     <div class="selfcheck reveal">
       <div class="selfcheck-grid" role="group" aria-label="セルフチェック">
-        <button class="selfcheck-opt" data-rec="light">海外投資家と面談しているが、評価につながっていない</button>
-        <button class="selfcheck-opt" data-rec="standard">英文資料はあるが、質問が毎回同じところに戻る</button>
-        <button class="selfcheck-opt" data-rec="standard">資本配分、ROIC、中期経営計画を説明しにくい</button>
-        <button class="selfcheck-opt" data-rec="pro">アクティビスト・主要株主への対応が必要</button>
+        <button class="selfcheck-opt" type="button" data-rec="light">海外投資家と面談しているが、評価につながっていない</button>
+        <button class="selfcheck-opt" type="button" data-rec="standard">英文資料はあるが、質問が毎回同じところに戻る</button>
+        <button class="selfcheck-opt" type="button" data-rec="standard">資本配分、ROIC、中期経営計画を説明しにくい</button>
+        <button class="selfcheck-opt" type="button" data-rec="pro">アクティビスト・主要株主への対応が必要</button>
       </div>
       <div class="selfcheck-result show" id="selfcheck-result" role="status" aria-live="polite">
         <span class="sr-tag" id="sr-tag">当てはまる項目をお選びください</span>
@@ -563,7 +623,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
         <a href="#contact" class="btn btn-primary" data-rfq-service="interpretation" data-rfq-document="meeting_script" data-rfq-source="pricing_pro" data-rfq-message="面談を含むIR支援（¥200,000／月・6ヶ月〜）について相談したいです。今後の面談予定をお知らせします。">面談支援プランの初回相談</a>
       </div>
     </div>
-    <div class="cta-band reveal" aria-label="料金についてのご相談" style="margin-top:32px">
+    <div class="cta-band reveal price-plan-cta">
       <div>
         <span class="label">迷われる場合は、まず現状をお聞かせください</span>
         <h3>まずは30分無料相談をご利用ください</h3>
@@ -703,8 +763,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   </div>
 </section>
 </main>
+<a class="price-mobile-cta" href="#instant-quote">概算料金をすぐ計算する</a>
 <!-- FOOTER -->
-<style>.footer-row{list-style:none;display:flex;flex-wrap:wrap;gap:8px 26px;margin:0 0 26px;padding:0}.footer-row a{color:#cfd6e2;text-decoration:none;font-size:0.8rem}</style>
 <script>
 // Nav scroll shadow
 const nav = document.getElementById('main-nav');
@@ -1049,6 +1109,7 @@ inquiryForm.addEventListener('submit', async (e) => {
   }
 });
 </script>
+<script src="/assets/pricing.js" defer></script>
 <script src="/assets/motion.js" defer></script>
 <script src="/assets/nav.js?v=e9d2dc243f" defer></script>
 </body>
