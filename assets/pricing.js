@@ -10,21 +10,24 @@
   const translationCount = document.getElementById('quote-count');
   const translationUnit = document.getElementById('quote-unit');
   const translationPrice = document.getElementById('quote-translation-price');
+  const translationResult = document.getElementById('quote-translation-result');
   const translationSummary = document.getElementById('quote-translation-summary');
   const meetingCount = document.getElementById('quote-meetings');
   const meetingDuration = document.getElementById('quote-duration');
   const interpretationPrice = document.getElementById('quote-interpretation-price');
+  const interpretationResult = document.getElementById('quote-interpretation-result');
   const interpretationSummary = document.getElementById('quote-interpretation-summary');
 
   if (!tabs.length || !quoteCta) return;
 
   let activeMode = 'translation';
-  let currentEstimate = {};
+  let currentEstimate = null;
 
-  function clampNumber(value, min, max) {
-    const number = Number(value);
-    if (!Number.isFinite(number)) return min;
-    return Math.min(Math.max(Math.round(number), min), max);
+  function readPositiveNumber(field, max) {
+    if (!field || !field.value.trim()) return null;
+    const number = Number(field.value);
+    if (!Number.isFinite(number) || number < 1) return null;
+    return Math.min(Math.round(number), max);
   }
 
   function displayRange(low, high) {
@@ -46,17 +49,30 @@
       const firstField = panel && panel.querySelector('select, input');
       if (firstField) firstField.focus();
     }
-    quoteCta.textContent = mode === 'translation' ? 'この条件で正式見積もりへ' : 'この日程で正式見積もりへ';
     updateEstimate();
+  }
+
+  function setResultState(result, summary, valid) {
+    result.classList.toggle('is-empty', !valid);
+    summary.hidden = !valid;
+    quoteCta.hidden = !valid;
+    if (!valid) currentEstimate = null;
   }
 
   function updateTranslation() {
     const direction = translationDirection.value;
-    const count = clampNumber(translationCount.value, 1, 1000000);
     const isEnglishSource = direction === 'en-ja';
     documentType.disabled = isEnglishSource;
     documentType.setAttribute('aria-disabled', isEnglishSource ? 'true' : 'false');
     translationUnit.textContent = isEnglishSource ? 'ワード' : '文字';
+
+    const count = readPositiveNumber(translationCount, 1000000);
+    if (count === null) {
+      translationPrice.textContent = '原稿の分量を入力してください';
+      translationSummary.textContent = '';
+      setResultState(translationResult, translationSummary, false);
+      return;
+    }
 
     let lowRate = 6;
     let highRate = 9;
@@ -74,27 +90,34 @@
     const low = count * lowRate;
     const high = count * highRate;
     translationPrice.textContent = displayRange(low, high);
-    translationSummary.textContent = `${serviceLabel}｜${yen.format(count)}${isEnglishSource ? 'ワード' : '文字'} × ${lowRate}〜${highRate}円。用語管理、対訳チェック、簡易レイアウト調整を含む目安です。`;
+    translationSummary.textContent = `${yen.format(count)}${isEnglishSource ? 'ワード' : '文字'} × ${lowRate}～${highRate}円`;
     currentEstimate = {
       mode: 'translation',
       direction,
       count,
       unit: isEnglishSource ? 'ワード' : '文字',
-      document: isEnglishSource ? 'other' : (documentType.value === 'strategic' ? 'annual_report' : 'earnings_presentation'),
+      document: isEnglishSource ? 'other' : (documentType.value === 'strategic' ? 'annual_report' : 'earnings_release'),
       low,
       high,
       label: serviceLabel
     };
+    setResultState(translationResult, translationSummary, true);
   }
 
   function updateInterpretation() {
-    const meetings = clampNumber(meetingCount.value, 1, 24);
+    const meetings = readPositiveNumber(meetingCount, 24);
+    if (meetings === null) {
+      interpretationPrice.textContent = '回数を入力してください';
+      interpretationSummary.textContent = '';
+      setResultState(interpretationResult, interpretationSummary, false);
+      return;
+    }
     const duration = meetingDuration.value;
     const unitPrice = duration === 'full' ? 80000 : 50000;
     const total = meetings * unitPrice;
     const durationLabel = duration === 'full' ? '1日（8時間まで）' : '半日（3時間まで）';
     interpretationPrice.textContent = `¥${yen.format(total)}〜`;
-    interpretationSummary.textContent = `${durationLabel} × ${meetings}回。事前資料の確認、想定問答の整理、当日の逐次通訳を含む目安です。`;
+    interpretationSummary.textContent = `${durationLabel} × ${meetings}回`;
     currentEstimate = {
       mode: 'interpretation',
       meetings,
@@ -102,6 +125,7 @@
       durationLabel,
       total
     };
+    setResultState(interpretationResult, interpretationSummary, true);
   }
 
   function updateEstimate() {
@@ -118,6 +142,7 @@
   }
 
   function prefillInquiry() {
+    if (!currentEstimate) return;
     const form = document.getElementById('inquiry-form');
     if (!form) return;
     const volume = form.elements.estimated_volume;
