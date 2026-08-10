@@ -125,13 +125,6 @@ em { font-style: normal; color: var(--ink); font-weight: 600; }
 .btn-primary:hover { background: var(--ink-mid); }
 
 .btn-outline:hover { border-color: var(--ink); color: var(--ink); }
-.section-cta { margin-top: 22px; display: flex; gap: 12px; flex-wrap: wrap; }
-.cta-band { margin-top: 42px; padding: 26px 28px; border: 1px solid var(--rule); background: #fff; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: center; }
-.cta-band h3 { font-family: var(--serif); color: var(--ink); font-size: clamp(1.05rem, 2vw, 1.35rem); font-weight: 400; line-height: 1.5; margin: 8px 0 6px; }
-.cta-band p { font-size: 0.84rem; line-height: 1.75; color: var(--text-mid); margin: 0; }
-.cta-actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
-@media (max-width: 760px) { .cta-band { grid-template-columns: 1fr; align-items: start; } .cta-actions, .section-cta { width: 100%; } .cta-actions .btn, .section-cta .btn { width: 100%; text-align: center; } }
-
 /* SCROLL REVEAL */
 .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .reveal.on { opacity: 1; transform: none; }
@@ -445,7 +438,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
       <div class="rule-accent"></div>
       <h2 class="mincho-lg">Three monthly plans</h2>
       <p>Light sets the baseline. Standard improves disclosure each quarter. Pro closes the loop with investor meetings. All work is founder-led; prices exclude tax.</p>
-      <div class="section-cta reveal"><a href="#contact" class="btn btn-primary" data-rfq-service="diagnostic" data-rfq-document="earnings_presentation" data-rfq-source="pricing_primary" data-rfq-message="Pricing primary CTA: Please help us choose between Light, Standard, and Pro based on our current IR cycle.">Ask us which plan fits</a></div>
     </div>
     <div class="plan-grid reveal">
       <div class="plan-card">
@@ -493,16 +485,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
           <li>Top 3 reaction note after meetings</li>
         </ul>
         <a href="#contact" class="btn btn-primary" data-rfq-service="interpretation" data-rfq-document="meeting_script" data-rfq-source="pricing_pro" data-rfq-message="I would like to discuss Pro — Investor Meeting Cycle (¥200,000/mo).">Discuss Pro</a>
-      </div>
-    </div>
-    <div class="cta-band reveal" aria-label="Pricing next action">
-      <div>
-        <span class="label">Plan selection</span>
-        <h3>Start with Light, then add only what creates value.</h3>
-        <p>We separate the initial diagnosis from ongoing disclosure and meeting support.</p>
-      </div>
-      <div class="cta-actions">
-        <a href="#contact" class="btn btn-outline" data-rfq-service="diagnostic" data-rfq-document="earnings_presentation" data-rfq-source="pricing_secondary" data-rfq-message="Pricing secondary CTA: Please scope from Light first and advise whether Standard or Pro is necessary.">Discuss scope and pricing</a>
       </div>
     </div>
   </div>
@@ -947,6 +929,6 @@ inquiryForm.addEventListener('submit', async (e) => {
 });
 </script>
 <script src="/assets/motion.js" defer></script>
-<script src="/assets/nav.js?v=e9d2dc243f" defer></script>
+<script src="/assets/nav.js?v=42a38d2772" defer></script>
 </body>
 </html>
