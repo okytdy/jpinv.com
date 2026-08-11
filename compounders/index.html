@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>JII Compounders｜企業の本質を、投資家へ届ける</title>
-<meta name="description" content="JII Compoundersは、日本企業のストーリーを投資家目線で読み解く銘柄分析シリーズです。各レポートでは、収益力や成長の質、市場で評価されている点、なお見方が分かれる論点を整理し、企業価値をより正しく伝える開示のあり方を考えます。">
-<meta property="og:title" content="JII Compounders｜企業の本質を、投資家へ届ける">
-<meta property="og:description" content="JII Compoundersは、日本企業のストーリーを投資家目線で読み解く銘柄分析シリーズです。各レポートでは、収益力や成長の質、市場で評価されている点、なお見方が分かれる論点を整理し、企業価値をより正しく伝える開示のあり方を考えます。">
+<title>JII Compounders｜日本企業を探す・知る・追う</title>
+<meta name="description" content="日本企業を投資家の視点で調べるJII Compounders。銘柄スクリーニング、裁量ウォッチ、銘柄分析、資本政策開示、大量保有報告を一つの研究ハブにまとめています。">
+<meta property="og:title" content="JII Compounders｜日本企業を探す・知る・追う">
+<meta property="og:description" content="日本企業を投資家の視点で調べるJII Compounders。銘柄スクリーニング、裁量ウォッチ、銘柄分析、資本政策開示、大量保有報告を一つの研究ハブにまとめています。">
 <meta property="og:url" content="https://jpinv.com/compounders/">
 <meta property="og:image" content="https://jpinv.com/og/compounders/default.png">
 <meta property="og:image:width" content="1200">
@@ -25,364 +25,61 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --ink: #1a2a4a; --ink-mid: #172641; --ink-soft: #304466;
-    --rule: #d6dee8; --rule-soft: #e8edf3;
-    --bg: #ffffff; --bg-mid: #f5f7fa; --bg-soft: #fafbfc;
-    --text: #1f2937; --text-mid: #4a5566; --text-dim: #7a8290;
-    --accent: #9a7838; --accent-deep: #9a7838; --accent-soft: #f4eee4;
-    --ok: #2f6f4f; --bad: #b91c1c;
-    --serif: 'Noto Serif JP', 'Yu Mincho', serif;
-    --sans: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
-    --mono: 'DM Mono', monospace;
-    --max: 1100px;
-  }
-  *,*::before,*::after { box-sizing: border-box; }
-  html,body { margin:0; padding:0; background: var(--bg); color: var(--text); font-family: var(--sans); }
-  body { font-size: 15px; line-height: 1.85; }
-  a { color: var(--ink-soft); text-decoration: none; }
-  a:hover { color: var(--ink); }
-  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 28px; }
-
-  .hero { position: relative; padding: 90px 0 64px; border-bottom: 1px solid var(--rule); overflow: hidden; }
-  .hero::before {
-    content:''; position: absolute; inset: 0;
-    background-image:
-      linear-gradient(rgba(15,31,58,0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(15,31,58,0.04) 1px, transparent 1px);
-    background-size: 64px 64px;
-    -webkit-mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent);
-            mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent);
-  }
-  .hero-inner { position: relative; z-index: 2; }
-  .hero-brand { display: flex; align-items: center; gap: 14px; margin-bottom: 32px; }
-  .hero-home-link { display: inline-flex; align-items: center; gap: 14px; color: inherit; text-decoration: none; }
-  .hero-home-link:hover .mark, .hero-home-link:hover .sub { color: var(--ink); }
-  .hero-home-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 6px; }
-  .hero-brand .mark { font-family: var(--serif); font-size: 28px; font-weight: 300; color: var(--ink-mid); letter-spacing: 0.04em; line-height: 1; }
-  .hero-brand .mark .pipe { color: var(--accent); font-weight: 200; margin: 0 4px; }
-  .hero-brand .sub { font-family: var(--sans); font-size: 12.5px; color: var(--ink-soft); letter-spacing: 0.04em; line-height: 1.4; }
-  .hero-lang { margin-left: auto; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; }
-  .hero-lang a { color: var(--ink-soft); padding: 5px 10px; border: 1px solid var(--rule); margin-left: 6px; }
-  .hero-lang a.current { background: var(--bg-soft); border-color: var(--ink-mid); color: var(--ink-mid); }
-  .hero-text { max-width: 880px; }
-  .hero-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.32em; color: var(--accent-deep); text-transform: uppercase; margin-bottom: 18px; font-weight: 500; }
-  .hero h1 { font-family: var(--serif); font-size: clamp(1.85rem, 4.4vw, 3.2rem); font-weight: 300; color: var(--ink-mid); line-height: 1.5; letter-spacing: 0.03em; margin: 0 0 22px; }
-  .hero h1 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-  .hero p.lede { font-size: 1.02rem; line-height: 1.95; color: var(--text); margin: 0; }
-  .hero p.lede b { color: var(--ink-mid); font-weight: 500; }
-
-  .gallery { padding: 56px 0 80px; }
-  .gallery-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 28px; flex-wrap: wrap; gap: 18px; padding-bottom: 14px; border-bottom: 1px solid var(--rule); }
-  .gallery-title { font-family: var(--serif); font-size: 1.7rem; font-weight: 300; color: var(--ink-mid); margin: 0; letter-spacing: 0.03em; }
-  .gallery-controls { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-  .sort-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; color: var(--text-dim); text-transform: uppercase; margin-right: 4px; font-weight: 500; }
-  .sort-btn { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; color: var(--text-mid); text-transform: uppercase; padding: 7px 14px; border: 1px solid var(--rule); background: var(--bg); cursor: pointer; transition: all 0.18s; font-weight: 500; }
-  .sort-btn:hover { color: var(--ink); border-color: var(--ink-soft); }
-  .sort-btn.active { color: var(--ink-mid); border-color: var(--ink-mid); background: var(--bg-soft); }
-  /* Universe callout — the gem of the page */
-  .universe-band { position: relative; padding: 56px 0; border-bottom: 1px solid var(--rule); background: var(--bg-soft); overflow: hidden; }
-  .universe-band::before {
-    content:''; position: absolute; inset: 0;
-    background-image:
-      linear-gradient(rgba(15,31,58,0.025) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(15,31,58,0.025) 1px, transparent 1px);
-    background-size: 48px 48px;
-    -webkit-mask-image: linear-gradient(180deg, transparent, black 20%, black 80%, transparent);
-            mask-image: linear-gradient(180deg, transparent, black 20%, black 80%, transparent);
-    pointer-events: none;
-  }
-  .universe-band-inner { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center; }
-  .universe-band-text { max-width: 720px; }
-  .universe-band-eyebrow { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.32em; color: var(--accent-deep); text-transform: uppercase; margin-bottom: 12px; font-weight: 500; }
-  .universe-band-title { font-family: var(--serif); font-size: 1.7rem; font-weight: 300; color: var(--ink-mid); line-height: 1.3; margin: 0 0 12px; letter-spacing: 0.01em; }
-  .universe-band-title em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-  .universe-band-body { font-size: 0.97rem; line-height: 1.75; color: var(--text); margin: 0; }
-  .universe-cta { display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--bg); background: var(--ink-mid); padding: 16px 26px; border: 1px solid var(--ink-mid); white-space: nowrap; transition: all 0.18s; font-weight: 500; }
-  .universe-cta:hover { background: var(--ink); border-color: var(--ink); color: var(--accent-soft); }
-  .universe-cta-arrow { font-family: var(--serif); font-size: 14px; }
-  @media (max-width: 760px) {
-    .universe-band { padding: 40px 0; }
-    .universe-band-inner { grid-template-columns: 1fr; gap: 22px; }
-    .universe-band-title { font-size: 1.35rem; }
-    .universe-cta { width: 100%; justify-content: center; padding: 14px 20px; }
-  }
-
-
-  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-  @media (max-width: 760px) {
-    .grid { grid-template-columns: 1fr; }
-    .wrap { padding: 0 20px; }
-    .hero { padding: 60px 0 44px; }
-    .hero-brand { margin-bottom: 24px; flex-wrap: wrap; }
-    .hero-lang { margin-left: 0; }
-    .hero p.lede { font-size: 1rem; line-height: 1.85; }
-    .gallery { padding: 40px 0 56px; }
-    .gallery-head { gap: 12px; }
-    .card { padding: 22px 20px 18px; }
-    .card-stats { gap: 16px; }
-    .substack-cta { padding: 24px 22px; gap: 18px; }
-    .substack-cta-title { font-size: 1.18rem; }
-    .substack-btn { width: 100%; justify-content: center; }
-    .disclaimer { padding: 40px 0 48px; margin-top: 40px; }
-    .d-title { font-size: 20px; }
-    .disclaimer-body { font-size: 13px; line-height: 1.85; }
-    .foot-row { flex-direction: column; gap: 8px; text-align: center; }
-  }
-
-  .card {
-    display: flex; flex-direction: column;
-    background: var(--bg); border: 1px solid var(--rule); padding: 26px 28px 22px;
-    transition: border-color 0.2s, transform 0.2s;
-  }
-  .card:hover { border-color: var(--accent); transform: translateY(-2px); }
-  .card-head { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 12px; border-bottom: 1px solid var(--rule-soft); margin-bottom: 14px; }
-  .card-ticker { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--ink-soft); }
-  .card-sector { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; }
-  .card-name { font-family: var(--serif); font-size: 1.45rem; color: var(--ink-mid); font-weight: 300; line-height: 1.35; letter-spacing: 0.03em; margin: 0; }
-  .card-jp { font-family: var(--serif); font-size: 0.92rem; color: var(--text-dim); margin: 4px 0 14px; letter-spacing: 0.04em; }
-  .card-hook { font-family: var(--serif); font-size: 0.96rem; color: var(--text); line-height: 1.85; margin-bottom: 14px; letter-spacing: 0.02em; }
-  .card-hook b { color: var(--ink-mid); font-weight: 500; }
-  .card-stats { display: flex; gap: 22px; padding-top: 12px; border-top: 1px solid var(--rule-soft); margin-top: auto; flex-wrap: wrap; }
-  .card-stat-label { font-family: var(--mono); font-size: 8.5px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 3px; }
-  .card-stat-val { font-family: var(--serif); font-size: 1.08rem; color: var(--ink-mid); font-weight: 400; }
-  .card-stat-val small { font-family: var(--mono); font-size: 10px; color: var(--text-dim); margin-left: 3px; }
-  .card-meta-row { display: flex; gap: 12px; margin-top: 6px; font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; }
-
-  .placeholder {
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    background: var(--bg-soft); border: 1px dashed var(--rule); padding: 40px 28px;
-    text-align: center; min-height: 200px;
-  }
-  .placeholder .label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 8px; }
-  .placeholder .msg { font-family: var(--serif); font-size: 1rem; color: var(--text-mid); line-height: 1.75; max-width: 320px; }
-
-  /* Company-call request form */
-  .company-call-cta { margin-top: 42px; }
-  .company-call-card { position: relative; overflow: hidden; background: linear-gradient(135deg, #ffffff 0%, var(--bg-soft) 100%); border: 1px solid var(--rule); border-left: 3px solid var(--accent); padding: 32px 36px; display: grid; grid-template-columns: minmax(260px, 0.78fr) minmax(0, 1.22fr); gap: 32px; align-items: start; box-shadow: 0 12px 30px rgba(15,31,58,0.045); }
-  .company-call-card::before { content:''; position: absolute; right: -80px; top: -120px; width: 260px; height: 260px; border: 1px solid rgba(176,138,74,0.18); border-radius: 50%; pointer-events: none; }
-  .company-call-copy, .company-call-form-wrap { position: relative; z-index: 2; }
-  .company-call-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.24em; color: var(--accent-deep); text-transform: uppercase; margin-bottom: 9px; font-weight: 500; }
-  .company-call-title { font-family: var(--serif); font-size: 1.42rem; font-weight: 300; color: var(--ink-mid); line-height: 1.45; margin: 0 0 10px; letter-spacing: 0.02em; }
-  .company-call-body { font-family: var(--sans); font-size: 13.8px; line-height: 1.8; color: var(--text-mid); margin: 0; }
-  .company-call-body b { color: var(--ink-mid); font-weight: 500; }
-  .company-call-terms { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-  .company-call-pill { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.13em; color: var(--ink-soft); text-transform: uppercase; border: 1px solid var(--rule); background: rgba(255,255,255,0.72); padding: 6px 9px; }
-  .company-call-form { background: rgba(255,255,255,0.84); border: 1px solid var(--rule-soft); padding: 22px; }
-  .company-call-form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
-  .company-call-field.full { grid-column: 1 / -1; }
-  .company-call-field label { display: block; font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px; }
-  .company-call-required { color: var(--bad); letter-spacing: 0; margin-left: 3px; }
-  .company-call-field input, .company-call-field select, .company-call-field textarea { width: 100%; background: var(--bg-soft); color: var(--text); border: 1px solid var(--rule); padding: 10px 12px; font-family: var(--sans); font-size: 13px; line-height: 1.45; border-radius: 0; }
-  .company-call-field textarea { min-height: 92px; resize: vertical; }
-  .company-call-field select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--ink-mid) 50%), linear-gradient(135deg, var(--ink-mid) 50%, transparent 50%); background-position: calc(100% - 17px) 50%, calc(100% - 12px) 50%; background-size: 5px 5px, 5px 5px; background-repeat: no-repeat; padding-right: 32px; }
-  .company-call-submit { width: 100%; margin-top: 16px; display: inline-flex; align-items: center; justify-content: center; padding: 13px 22px; background: var(--ink-mid); border: 1px solid var(--ink-mid); color: #fff; font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: 0.06em; cursor: pointer; transition: all 0.18s; }
-  .company-call-submit:hover { background: var(--ink); border-color: var(--ink); }
-  .company-call-submit:disabled { opacity: 0.65; cursor: wait; }
-  .company-call-status { min-height: 1.5em; margin: 10px 0 0; font-size: 12px; line-height: 1.6; color: var(--text-dim); }
-  .company-call-status[data-state="error"] { color: var(--bad); }
-  .company-call-status[data-state="success"] { color: var(--ok); }
-  .company-call-help { margin: 8px 0 0; font-size: 11.5px; line-height: 1.6; color: var(--text-dim); }
-  .company-call-help a { border-bottom: 1px solid var(--rule); }
-  .company-call-success { background: rgba(255,255,255,0.84); border: 1px solid var(--rule-soft); padding: 22px; }
-  .company-call-success h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 300; color: var(--ink-mid); margin: 0 0 8px; }
-  .company-call-success p { margin: 0; color: var(--text-mid); font-size: 13px; line-height: 1.7; }
-
-  @media (max-width: 860px) {
-    .company-call-card { grid-template-columns: 1fr; padding: 24px 22px; gap: 22px; }
-    .company-call-title { font-size: 1.2rem; }
-  }
-  @media (max-width: 560px) {
-    .company-call-form-grid { grid-template-columns: 1fr; }
-  }
-
-  .substack-cta { margin-top: 50px; padding: 32px 36px; background: var(--bg-soft); border: 1px solid var(--rule); border-left: 3px solid var(--accent); display: flex; gap: 28px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
-  .substack-cta-text { flex: 1; min-width: 280px; }
-  .substack-cta-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; color: var(--accent-deep); text-transform: uppercase; margin-bottom: 8px; font-weight: 500; }
-  .substack-cta-title { font-family: var(--serif); font-size: 1.3rem; font-weight: 300; color: var(--ink-mid); line-height: 1.5; margin: 0 0 10px; letter-spacing: 0.03em; }
-  .substack-cta-body { font-family: var(--sans); font-size: 13.5px; line-height: 1.85; color: var(--text-mid); margin: 0; }
-  .substack-cta-body b { color: var(--ink-mid); font-weight: 500; }
-  .substack-btn { display: inline-flex; align-items: center; gap: 10px; padding: 13px 24px; background: var(--ink-mid); color: #fff; font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: 0.06em; text-decoration: none; transition: background 0.18s; flex: none; }
-  .substack-btn:hover { background: var(--ink); color: #fff; }
-
-  .disclaimer { padding: 56px 0 64px; background: var(--bg-soft); border-top: 1px solid var(--rule); margin-top: 56px; }
-  .disclaimer-head { margin-bottom: 18px; }
-  .d-eyebrow { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.22em; color: var(--text-dim); text-transform: uppercase; font-weight: 500; }
-  .d-title { font-family: var(--serif); font-size: 24px; font-weight: 300; color: var(--ink-mid); margin: 6px 0 0; letter-spacing: 0.03em; }
-  .disclaimer-body { font-family: var(--sans); font-size: 12px; color: var(--text-mid); line-height: 2.0; }
-  .disclaimer-body p { margin: 0 0 12px; }
-  .disclaimer-body b { color: var(--ink-mid); font-weight: 500; }
-  .d-en-note { font-family: var(--sans); font-size: 11px; color: var(--text-dim); line-height: 1.78; padding-top: 10px; margin-top: 14px; border-top: 1px solid var(--rule); }
-
-  footer { padding: 22px 0; border-top: 1px solid var(--rule); background: var(--bg); }
-  .foot-row { display: flex; justify-content: space-between; align-items: baseline; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; }
-  .foot-row a { color: var(--ink-soft); border-bottom: 1px solid var(--rule); }
-
-/* WCAG 2.1 AA accessibility helpers */
-.skip-link {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  z-index: 1000;
-  transform: translateY(-150%);
-  padding: 10px 14px;
-  background: var(--ink, #1a2a4a);
-  color: #fff;
-  text-decoration: none;
-  border-radius: 4px;
-  box-shadow: 0 4px 12px rgba(15,31,58,0.18);
-}
-.skip-link:focus, .skip-link:focus-visible { transform: translateY(0); outline: 3px solid var(--accent, #9a7838); outline-offset: 3px; }
-main:focus { outline: none; }
-a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, [tabindex]:focus-visible {
-  outline: 3px solid var(--accent, #9a7838);
-  outline-offset: 3px;
-}
-.form-row input:focus-visible, .form-row select:focus-visible, .form-row textarea:focus-visible { outline: 3px solid var(--accent, #9a7838); outline-offset: 2px; }
-.form-field-error:empty { min-height: 0; }
-.mobile-menu[hidden] { display: none !important; }
-.mobile-menu a:focus-visible { outline-offset: -2px; }
-@media (max-width: 360px) {
-  .wrap { padding-left: 16px; padding-right: 16px; }
-  .hero-ctas, .cta-row, .share-btns, .week-nav, .toolbar { align-items: stretch; flex-direction: column; }
-  .btn, .form-submit, .mobile-menu-cta, .share-btn { width: 100%; justify-content: center; text-align: center; }
-  .nav-logo-img--desktop { display: none !important; }
-  .nav-logo-img--mobile { display: block !important; }
-  .nav-inner { gap: 10px; }
-  .nav-right { gap: 6px; }
-  .locale-switcher a, .nav-locale-switcher a { min-width: 36px; min-height: 36px; display: inline-flex; align-items: center; justify-content: center; }
-}
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
-}
-
-
-  /* ---- Gallery search input (cap-at-6 + filter) ---- */
-  .gallery-search { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.04em; color: var(--ink-mid); padding: 7px 11px; border: 1px solid var(--rule); background: var(--bg); width: 240px; margin-right: 14px; }
-  .gallery-search:focus { outline: none; border-color: var(--ink-mid); }
-  .gallery-search::placeholder { color: var(--text-dim); }
-  .card.is-hidden { display: none; }
-  @media (max-width: 760px) {
-    .gallery-search { width: 100%; margin-right: 0; margin-bottom: 8px; }
-  }
-
-  /* ---- 5-card horizontal reel (landing) ---- */
-  .reel-section { padding: 56px 0 0; }
-  .reel-head { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:24px; padding-bottom:14px; border-bottom:1px solid var(--rule); gap:18px; flex-wrap:wrap; }
-  .reel-title { font-family:var(--serif); font-size:1.7rem; font-weight:300; color:var(--ink-mid); margin:0; letter-spacing:0.02em; }
-  .reel-viewall-link { font-family:var(--mono); font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--accent-deep); border-bottom:1px solid var(--accent); padding-bottom:2px; }
-  .reel-viewall-link:hover { color:var(--ink); border-color:var(--ink-mid); }
-  .reel { display:flex; gap:24px; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none; -ms-overflow-style:none; padding-bottom:8px; }
-  .reel::-webkit-scrollbar { display:none; }
-  .card--reel { flex:0 0 340px; scroll-snap-align:start; min-height:380px; }
-  @media (max-width:760px) { .card--reel { flex:0 0 280px; } .reel-section { padding: 40px 0 0; } }
-  .card--viewall { background:var(--bg-soft); border-style:dashed; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; min-height:380px; }
-  .card--viewall:hover { background:var(--bg-mid); }
-  .card-viewall-arrow { font-family:var(--serif); font-size:48px; color:var(--accent-deep); line-height:1; display:block; margin-bottom:14px; }
-  .card-viewall-label { font-family:var(--mono); font-size:11.5px; letter-spacing:0.18em; text-transform:uppercase; color:var(--ink-mid); }
-
-  /* ---- Voices reel (testimonials) ---- */
-  .voices-reel { margin-top: 50px; }
-  .voice-card { margin: 0; }
-  .voice-tag { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent-deep); font-weight: 500; margin-bottom: 16px; }
-  .voice-quote { font-family: var(--serif); font-size: 1rem; line-height: 1.85; color: var(--ink-mid); font-weight: 300; margin: 0 0 18px; }
-  .voice-attr { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--rule-soft); font-family: var(--sans); font-size: 13.5px; color: var(--ink-mid); font-weight: 500; line-height: 1.45; }
-  .voice-firm { display: block; font-family: var(--mono); font-size: 10.5px; font-weight: 400; color: var(--text-mid); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 4px; }
-
-  .cap-feed-show-low { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--text-mid); text-transform: uppercase; padding: 7px 12px; border: 1px solid var(--rule); background: var(--bg); cursor: pointer; transition: all 0.15s; }
-  .cap-feed-show-low:hover { color: var(--ink); border-color: var(--ink-soft); }
-  .cap-feed-show-low.active { color: var(--ink-mid); border-color: var(--ink-mid); background: var(--bg-soft); }
-
-  /* Reel navigation arrows */
-  .reel-wrap { position: relative; }
-  .reel-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; background: var(--bg); border: 1px solid var(--rule); cursor: pointer; z-index: 10; box-shadow: 0 2px 8px rgba(15,31,58,0.08); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 22px; color: var(--ink-mid); transition: all 0.15s; }
-  .reel-nav:hover { border-color: var(--ink-mid); color: var(--ink); }
-  .reel-nav[hidden] { display: none; }
-  .reel-prev { left: -22px; }
-  .reel-next { right: -22px; }
-  @media (max-width:760px) { .reel-nav { display: none; } }
-
-  /* ---- Capital Allocation Signals widget ---- */
-  .cap-feed { padding: 64px 28px 56px; border-top: 1px solid var(--rule); background: var(--bg-soft); margin-top: 24px; }
-  .cap-feed-head { margin: 0 auto 24px; max-width: 1100px; }
-  .cap-feed-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.24em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 12px; }
-  .cap-feed-title { font-family: var(--serif); font-size: clamp(1.4rem, 2.6vw, 1.85rem); font-weight: 300; color: var(--ink-mid); margin: 0 0 12px; letter-spacing: 0.02em; line-height: 1.35; }
-  .cap-feed-lede { font-size: 14px; color: var(--text-mid); margin: 0; max-width: 860px; line-height: 1.85; }
-  .cap-feed-controls { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; margin: 0 auto 14px; padding-bottom: 12px; border-bottom: 1px solid var(--rule); max-width: 1100px; }
-  .cap-feed-search { font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em; color: var(--ink-mid); padding: 8px 12px; border: 1px solid var(--rule); background: var(--bg); width: 260px; }
-  .cap-feed-search:focus { outline: none; border-color: var(--ink-mid); }
-  .cap-feed-viewall { margin-left: auto; font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--accent-deep); text-transform: uppercase; border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
-  .cap-feed-viewall:hover { color: var(--ink-mid); border-color: var(--ink-mid); }
-  .cap-feed-list { max-width: 1100px; margin: 0 auto; }
-  .cap-feed-loading, .cap-feed-empty { padding: 36px 0; text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; }
-  .cap-feed-row { display: flex; gap: 14px; align-items: center; padding: 12px 4px; border-bottom: 1px solid var(--rule-soft); font-size: 13px; flex-wrap: wrap; transition: background 0.1s; color: var(--text); text-decoration: none; }
-  .cap-feed-row:hover { background: var(--bg); color: var(--text); }
-  .cap-feed-row-ts { font-family: var(--mono); font-size: 11px; color: var(--text-dim); white-space: nowrap; min-width: 130px; letter-spacing: 0.04em; }
-  .cap-feed-row-tk { font-family: var(--mono); font-weight: 500; color: var(--accent-deep); }
-  .cap-feed-row-name { font-family: var(--serif); color: var(--ink-mid); }
-  .cap-feed-row-class { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; padding: 3px 8px; border: 1px solid var(--accent); color: var(--accent-deep); background: var(--accent-soft); white-space: nowrap; }
-  .cap-feed-row-tag { font-family: var(--sans); color: var(--text-mid); flex: 1 1 0; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .cap-feed-footnote { max-width: 1100px; margin: 14px auto 0; font-family: var(--sans); font-size: 11.5px; color: var(--text-dim); line-height: 1.7; font-style: italic; }
-  @media (max-width: 760px) {
-    .cap-feed-row-ts { min-width: 0; flex-basis: 100%; }
-    .cap-feed-search { width: 100%; }
-    .cap-feed-viewall { margin-left: 0; }
-  }
-
-
-  /* Honebuto deep-dive strip (added 2026-08-04) — same chrome as .notes-gem so the two read as a set */
-  .dd-gem { position: relative; overflow: hidden; margin-top: 54px; background: var(--bg-soft); border: 1px solid var(--rule); border-left: 3px solid var(--accent); }
-  .dd-gem::before {
-    content:''; position: absolute; inset: 0;
-    background-image:
-      linear-gradient(rgba(15,31,58,0.025) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(15,31,58,0.025) 1px, transparent 1px);
-    background-size: 44px 44px;
-    -webkit-mask-image: linear-gradient(180deg, transparent, black 22%, black 78%, transparent);
-            mask-image: linear-gradient(180deg, transparent, black 22%, black 78%, transparent);
-    pointer-events: none;
-  }
-  .dd-gem::after { content:''; position: absolute; right: -70px; top: -104px; width: 232px; height: 232px; border: 1px solid rgba(255,103,25,0.16); border-radius: 50%; pointer-events: none; }
-  .dd-gem-inner { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr auto; gap: 36px; align-items: center; padding: 34px 38px; }
-  .dd-gem-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.22em; color: var(--accent-deep); text-transform: uppercase; margin-bottom: 13px; font-weight: 500; }
-  .dd-gem-title { font-family: var(--serif); font-size: 1.5rem; font-weight: 300; color: var(--ink-mid); line-height: 1.32; margin: 0 0 10px; }
-  .dd-gem-sub { font-size: 0.95rem; color: var(--text-mid); margin: 0; max-width: 62ch; line-height: 1.6; }
-  .dd-gem-cta { display: inline-flex; align-items: center; gap: 10px; white-space: nowrap; background: var(--accent); color: #fff; text-decoration: none; font-weight: 600; font-size: 0.95rem; padding: 15px 26px; border: 0; }
-  .dd-gem-cta:hover { filter: brightness(0.94); }
-  .dd-gem-meta { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-top: 11px; text-align: right; }
-  @media (max-width: 760px) {
-    .dd-gem-inner { grid-template-columns: 1fr; gap: 20px; padding: 26px 22px; }
-    .dd-gem-meta { text-align: left; }
-  }
-
-</style>
-<script src="/assets/locale-switcher.js" defer></script>
-<link rel="stylesheet" href="/assets/active-investors.css">
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/compounders-hub.css">
 </head>
-<body>
+<body class="compounders-hub">
 <a class="skip-link" href="#main-content">本文へ移動</a>
 
 <main id="main-content" tabindex="-1">
-<section class="hero">
-  <div class="wrap hero-inner">
-    <div class="hero-brand">
-      <a class="hero-home-link" href="/" aria-label="JIIホームへ戻る">
-        <span class="mark">J<span class="pipe">|</span>I</span>
-        <span class="sub"><span lang="ja">株式会社ジャパン・インベスター・インターフェース</span><br><span lang="en">Japan Investor Interface Co., Ltd.</span></span>
-      </a>
-      <span class="hero-lang"><a href="/en/compounders/" data-locale-route lang="en">EN</a><a href="/compounders/" class="current" lang="ja">JP</a></span>
+<section class="ch-hero" aria-labelledby="ch-hero-title">
+  <div class="ch-hero-cut" aria-hidden="true"></div>
+  <div class="wrap ch-hero-grid">
+    <div>
+      <span class="ch-kicker">JII Compounders / Research</span>
+      <h1 id="ch-hero-title">企業を知る。<br>変化を追う。<br>対話につなげる。</h1>
+      <p class="ch-hero-lede">公開情報を投資家の視点で読み解き、日本企業の収益力、資本配分、成長の質を整理します。銘柄を探すところから、変化を追い、企業との対話に進むところまでを一つにつなぎます。</p>
+      <div class="ch-hero-actions">
+        <a class="ch-hero-action" href="#sec-profiles"><span>最新レポート</span><span aria-hidden="true">↓</span></a>
+        <a class="ch-hero-action" href="#explore"><span>調べ方から選ぶ</span><span aria-hidden="true">↓</span></a>
+      </div>
     </div>
-    <div class="hero-text">
-      <h1>企業の本質を、投資家へ届ける。</h1>
-      <p class="lede">JII Compoundersは、日本企業のストーリーを投資家目線で読み解く銘柄分析シリーズです。<br>各レポートでは、収益力や成長の質、市場で評価されている点、なお見方が分かれる論点を整理し、企業価値をより正しく伝える開示のあり方を考えます。<br><br>読み方の軸は、<a href="/compounders/methodology/" style="color:var(--ink-mid); border-bottom:1px solid var(--accent);">6つの着眼点</a>にまとめています。</p>
-    
-    </div>
+    <aside class="ch-hero-map" aria-label="Compoundersの使い方">
+      <span class="ch-hero-map-label">Research desk</span>
+      <ol>
+        <li><span>01</span><strong>探す</strong><em>スクリーン・裁量ウォッチ</em></li>
+        <li><span>02</span><strong>読む</strong><em>銘柄分析・6つの着眼点</em></li>
+        <li><span>03</span><strong>追う</strong><em>資本政策・大量保有報告</em></li>
+      </ol>
+    </aside>
   </div>
 </section>
 
-
-
+<section class="ch-directory" id="explore" aria-labelledby="ch-directory-title">
+  <div class="wrap">
+    <header class="ch-section-head">
+      <div><span class="ch-kicker">Explore Compounders</span><h2 id="ch-directory-title">目的から選ぶ</h2></div>
+      <p>すべてを順番に読む必要はありません。新しい銘柄を探す、企業を深く知る、変化を追う。いま知りたいことから始められます。</p>
+    </header>
+    <div class="ch-directory-grid">
+      <div class="ch-directory-row">
+        <div class="ch-directory-kind"><small>01 / Discover</small>銘柄を探す</div>
+        <a class="ch-directory-link" href="/compounders/universe/#lane-screen"><strong>スクリーン合格</strong><span>7つの条件を満たす企業を比較する</span></a>
+        <a class="ch-directory-link" href="/compounders/universe/#lane-disc"><strong>裁量ウォッチ</strong><span>条件外でも継続して追う企業を見る</span></a>
+      </div>
+      <div class="ch-directory-row">
+        <div class="ch-directory-kind"><small>02 / Understand</small>企業を知る</div>
+        <a class="ch-directory-link" href="/compounders/profiles/"><strong>銘柄分析</strong><span>事業、評価、論点を一社ずつ読む</span></a>
+        <a class="ch-directory-link" href="/compounders/methodology/"><strong>6つの着眼点</strong><span>分析で何を見ているかを確認する</span></a>
+      </div>
+      <div class="ch-directory-row">
+        <div class="ch-directory-kind"><small>03 / Monitor</small>変化を追う</div>
+        <a class="ch-directory-link" href="/compounders/feed/"><strong>資本政策開示</strong><span>自社株買い、増配、MBOなどを追う</span></a>
+        <a class="ch-directory-link" href="/compounders/active-investors/"><strong>大量保有報告</strong><span>5％以上の新規保有と動きを見る</span></a>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 <section class="gallery" id="sec-profiles">
@@ -395,7 +92,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
     <div class="reel-wrap">
       <button type="button" class="reel-nav reel-prev" aria-label="前へ" hidden>&lsaquo;</button>
-      <div class="reel" role="region" aria-label="最新レポート">
+      <section class="reel" aria-label="最新レポート">
 
 
       <a class="card card--reel" href="/compounders/5930/initiation/" data-date="2026-07-27" data-ticker="5930">
@@ -645,790 +342,48 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
           <span>2026年7月14日公開</span>
         </div>
       </a>
-      <a class="card card--reel" href="/compounders/1850/initiation/" data-date="2026-07-13" data-ticker="1850">
-        <div class="card-head">
-          <span class="card-ticker">東証スタンダード · 1850</span>
-          <span class="card-sector">鉄道系総合建設</span>
-        </div>
-        <h3 class="card-name">南海辰村建設株式会社</h3>
-        <p class="card-jp">NANKAI TATSUMURA CONSTRUCTION</p>
-        <p class="card-hook"><b>関西で事務所・マンション・土木を手がける創業100年の総合建設会社。南海電鉄グループ（現・株式会社NANKAI）が議決権62％を握る唯一の上場子会社で、グループの駅・商業施設の多くを施工する。2026年4月に初の自己株取得と増配を実施。純現金は時価総額の約48％にあたる。</b></p>
-        <div class="card-stats">
-          <div>
-            <div class="card-stat-label">終値</div>
-            <div class="card-stat-val">¥438</div>
-          </div>
-          <div>
-            <div class="card-stat-label">EV / EBIT</div>
-            <div class="card-stat-val">2.2<small>x</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ROCE</div>
-            <div class="card-stat-val">20.6<small>%</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">純現金 / 時価総額</div>
-            <div class="card-stat-val">48<small>%</small></div>
-          </div>
-        </div>
-        <div class="card-meta-row">
-          <span>2026年7月13日公開</span>
-        </div>
-      </a>
-      <a class="card card--reel" href="/compounders/9991/initiation/" data-date="2026-07-13" data-ticker="9991">
-        <div class="card-head">
-          <span class="card-ticker">東証プライム · 9991</span>
-          <span class="card-sector">重仮設レンタル</span>
-        </div>
-        <h3 class="card-name">ジェコス株式会社</h3>
-        <p class="card-jp">GECOSS CORPORATION</p>
-        <p class="card-hook"><b>ジェコスは、大型建設現場を支える重仮設鋼材（H形鋼・鋼矢板など）を賃貸・設計・施工する、JFEスチール系の会社。2024〜2025年にJFEスチールが持株を27.6％へ引き下げる一方、みずほリースが資本業務提携で20％を取得した。</b></p>
-        <div class="card-stats">
-          <div>
-            <div class="card-stat-label">終値</div>
-            <div class="card-stat-val">¥1,574</div>
-          </div>
-          <div>
-            <div class="card-stat-label">EV / EBIT</div>
-            <div class="card-stat-val">5.7<small>x</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ROCE</div>
-            <div class="card-stat-val">9.7<small>%</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">純現金 / 時価総額</div>
-            <div class="card-stat-val">13<small>%</small></div>
-          </div>
-        </div>
-        <div class="card-meta-row">
-          <span>2026年7月13日公開</span>
-        </div>
-      </a>
-      <a class="card card--reel" href="/compounders/2378/initiation/" data-date="2026-07-09" data-ticker="2378">
-        <div class="card-head">
-          <span class="card-ticker">東証プライム · 2378</span>
-          <span class="card-sector">スポーツクラブ・健康</span>
-        </div>
-        <h3 class="card-name">株式会社ルネサンス</h3>
-        <p class="card-jp">RENAISSANCE INCORPORATED</p>
-        <p class="card-hook"><b>ルネサンスは、ジム・プール・スイミング／テニススクールを備えた総合スポーツクラブを全国で運営し、会員約44万人を抱える大手。1979年にDICの企業内ベンチャーとして発足した。2026年5月8日、38施設で30.6億円の減損と純損失を計上、社長を交代し、資本を低資本の健康事業へ振り向ける2026-2030中期経営計画を発表した。</b></p>
-        <div class="card-stats">
-          <div>
-            <div class="card-stat-label">終値</div>
-            <div class="card-stat-val">¥1,040</div>
-          </div>
-          <div>
-            <div class="card-stat-label">EV / EBIT</div>
-            <div class="card-stat-val">~23<small>x</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ROCE</div>
-            <div class="card-stat-val">3.9<small>%</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">純有利子負債 / 時価総額</div>
-            <div class="card-stat-val">113<small>%</small></div>
-          </div>
-        </div>
-        <div class="card-meta-row">
-          <span>2026年7月9日公開</span>
-        </div>
-      </a>
-      <a class="card card--reel" href="/compounders/7947/initiation/" data-date="2026-07-02" data-ticker="7947">
-        <div class="card-head">
-          <span class="card-ticker">東証プライム · 7947</span>
-          <span class="card-sector">食品容器・リサイクル</span>
-        </div>
-        <h3 class="card-name">株式会社エフピコ</h3>
-        <p class="card-jp">FP CORPORATION</p>
-        <p class="card-hook"><b>エフピコは、スーパーの生鮮食品や弁当・惣菜を載せる簡易食品容器の最大手で、店頭回収した使用済みトレーを自社工場で新しい容器に再生する循環網を持つ。2026年4月30日、中東情勢による原料急騰を受けて27年3月期業績予想を未定とし、6月1日出荷分から20％以上の価格改定を発表した。</b></p>
-        <div class="card-stats">
-          <div>
-            <div class="card-stat-label">終値</div>
-            <div class="card-stat-val">¥2,631</div>
-          </div>
-          <div>
-            <div class="card-stat-label">EV / EBIT</div>
-            <div class="card-stat-val">12.3<small>x</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ROCE</div>
-            <div class="card-stat-val">10.2<small>%</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">純有利子負債 / 時価総額</div>
-            <div class="card-stat-val">25<small>%</small></div>
-          </div>
-        </div>
-        <div class="card-meta-row">
-          <span>2026年7月2日公開</span>
-        </div>
-      </a>
-      <a class="card card--reel" href="/compounders/6328/initiation/" data-date="2026-07-01" data-ticker="6328">
-        <div class="card-head">
-          <span class="card-ticker">東証プライム · 6328</span>
-          <span class="card-sector">水・環境エンジニアリング</span>
-        </div>
-        <h3 class="card-name">荏原実業株式会社</h3>
-        <p class="card-jp">EBARA JITSUGYO CO., LTD.</p>
-        <p class="card-hook"><b>荏原実業は、自治体向けに上下水道プラントを設計・施工し、荏原製作所のポンプを販売し、自社開発の環境製品も手がける、ネットキャッシュ・ROCE約22％のエンジニアリング企業。2026年6月30日時点でEV/営業利益は約7.2倍、ネットキャッシュは時価総額の約21％に相当し、受注残高は過去最高にある。</b></p>
-        <div class="card-stats">
-          <div>
-            <div class="card-stat-label">終値</div>
-            <div class="card-stat-val">¥2,446</div>
-          </div>
-          <div>
-            <div class="card-stat-label">EV / EBIT</div>
-            <div class="card-stat-val">7.2<small>x</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ROCE</div>
-            <div class="card-stat-val">22<small>%</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ネットキャッシュ / 時価総額</div>
-            <div class="card-stat-val">21<small>%</small></div>
-          </div>
-        </div>
-        <div class="card-meta-row">
-          <span>2026年7月1日公開</span>
-        </div>
-      </a>
-      <a class="card card--reel" href="/compounders/7378/initiation/" data-date="2026-06-18" data-ticker="7378">
-        <div class="card-head">
-          <span class="card-ticker">東証グロース · 7378</span>
-          <span class="card-sector">法務メディア・弁護士紹介</span>
-        </div>
-        <h3 class="card-name">株式会社アシロ</h3>
-        <p class="card-jp">ASIRO Inc.</p>
-        <p class="card-hook"><b>アシロは弁護士ポータル「ベンナビ」を中核に、弁護士から月額掲載料を得るストック型の法務メディアを運営する。FY2025は営業利益が約3.6倍・ROE37.8%へ急回復。2026年3月、英アクティビストAVIが創業者を上回る35%を保有するなか、配当性向を40%超へ引き上げた。</b></p>
-        <div class="card-stats">
-          <div>
-            <div class="card-stat-label">終値</div>
-            <div class="card-stat-val">¥1,481</div>
-          </div>
-          <div>
-            <div class="card-stat-label">EV / EBIT</div>
-            <div class="card-stat-val">5.9<small>x</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ROCE</div>
-            <div class="card-stat-val">~42<small>%</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ネットキャッシュ / 時価総額</div>
-            <div class="card-stat-val">~16<small>%</small></div>
-          </div>
-        </div>
-        <div class="card-meta-row">
-          <span>2026年6月18日更新</span>
-        </div>
-      </a>
-
-      <a class="card card--reel" href="/compounders/6835/initiation/" data-date="2026-06-17" data-ticker="6835">
-  <div class="card-head">
-    <span class="card-ticker">東証スタンダード &middot; 6835</span>
-    <span class="card-sector">ネットワーク機器 &middot; 導入・保守 &middot; 国内中心</span>
-  </div>
-  <h3 class="card-name">アライドテレシスホールディングス株式会社</h3>
-  <p class="card-jp">Allied Telesis Holdings K.K.</p>
-  <p class="card-hook"><b>アライドテレシスは、ネットワークスイッチや無線LAN機器を開発・製造し、現地導入と複数年保守をつけて主に国内の学校・病院・自治体に販売する。2026年6月16日には新たな自己株式取得を決議したが、株価はEV/EBIT約4倍、時価総額の約46%を占めるネットキャッシュを抱えたまま推移している。</b></p>
-  <div class="card-stats">
-    <div><div class="card-stat-label">終値</div><div class="card-stat-val">&yen;238</div></div>
-    <div><div class="card-stat-label">EV / EBIT</div><div class="card-stat-val">4.1<small>x</small></div></div>
-    <div><div class="card-stat-label">ROCE</div><div class="card-stat-val">16<small>%</small></div></div>
-    <div><div class="card-stat-label">ネットキャッシュ / 時価総額</div><div class="card-stat-val">46<small>%</small></div></div>
-  </div>
-  <div class="card-meta-row">
-    <span>2026年6月17日公開</span>
-  </div>
-</a>
-
-      <a class="card card--reel" href="/compounders/2353/initiation/" data-date="2026-06-09" data-ticker="2353">
-        <div class="card-head">
-          <span class="card-ticker">東証プライム · 2353</span>
-          <span class="card-sector">駐車場・スキー場・地域テーマパーク</span>
-        </div>
-        <h3 class="card-name">日本駐車場開発株式会社</h3>
-        <p class="card-jp">Nippon Parking Development Co., Ltd.</p>
-        <p class="card-hook"><b>日本駐車場開発は、駐車場の運営受託・賃借を起点に、スキー場や那須のテーマパークまで手がける「運営改善」の会社。最高益を更新する一方、レジャー投資で資産は重くなりROEは低下。上限10億円の自己株買いと増配で、ROE30％超を維持できるかが焦点になる。</b></p>
-        <div class="card-stats">
-          <div>
-            <div class="card-stat-label">終値</div>
-            <div class="card-stat-val">¥243</div>
-          </div>
-          <div>
-            <div class="card-stat-label">EV / EBIT</div>
-            <div class="card-stat-val">8.5<small>x</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ROCE</div>
-            <div class="card-stat-val">~20<small>%</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ネットキャッシュ / 時価総額</div>
-            <div class="card-stat-val">5<small>%</small></div>
-          </div>
-        </div>
-        <div class="card-meta-row">
-          <span>2026年6月8日公開</span>
-        </div>
-      </a>
-        <a class="card card--reel" href="/compounders/2301/initiation/" data-date="2026-06-08" data-ticker="2301">
-        <div class="card-head">
-          <span class="card-ticker">東証プライム · 2301</span>
-          <span class="card-sector">採用メディア・人材紹介・合同説明会</span>
-        </div>
-        <h3 class="card-name">株式会社学情</h3>
-        <p class="card-jp">GAKUJO CO., Ltd.</p>
-        <p class="card-hook"><b>学情は、20代採用に特化した「Ｒｅ就活」、人材紹介、新卒向けサービス、合同企業セミナーを展開する無借金の採用支援会社。上期は計画未達で通期営業利益を26億円に下方修正したが、受注と人材紹介は伸びており、6.5億円の自己株買いと厚い現金の使い方が問われる。</b></p>
-        <div class="card-stats">
-          <div>
-            <div class="card-stat-label">終値</div>
-            <div class="card-stat-val">¥1,547</div>
-          </div>
-          <div>
-            <div class="card-stat-label">EV / EBIT</div>
-            <div class="card-stat-val">5.5<small>x</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ROCE</div>
-            <div class="card-stat-val">~15<small>%</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ネットキャッシュ / 時価総額</div>
-            <div class="card-stat-val">54<small>%</small></div>
-          </div>
-        </div>
-        <div class="card-meta-row">
-          <span>2026年6月8日公開</span>
-        </div>
-      </a>
-
-      
-
-      <a class="card card--reel" href="/compounders/2477/initiation/" data-date="2026-06-07" data-ticker="2477">
-        <div class="card-head">
-          <span class="card-ticker">東証スタンダード · 2477</span>
-          <span class="card-sector">ホテルSaaS・予約サイトコントローラー</span>
-        </div>
-        <h3 class="card-name">手間いらず株式会社</h3>
-        <p class="card-jp">Temairazu, Inc.</p>
-        <p class="card-hook"><b>ホテルや旅館の販売現場を裏側で支える『TEMAIRAZU』は、楽天トラベルやBooking.comなど複数の予約サイトの在庫・料金をまとめて動かすサイトコントローラー。売上の大半は月額課金で、FY2025の営業利益率は73％台。無借金で64億円のネットキャッシュを抱える一方、株価は2年前の水準に沈み、焦点は成長の持続性と資本還元の本気度に移っている。</b></p>
-        <div class="card-stats">
-          <div>
-            <div class="card-stat-label">終値</div>
-            <div class="card-stat-val">¥2,146</div>
-          </div>
-          <div>
-            <div class="card-stat-label">EV / EBIT</div>
-            <div class="card-stat-val">4.6<small>x</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ROCE</div>
-            <div class="card-stat-val">26<small>%</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ネットキャッシュ / 時価総額</div>
-            <div class="card-stat-val">46<small>%</small></div>
-          </div>
-        </div>
-        <div class="card-meta-row">
-          <span>2026年6月7日公開</span>
-        </div>
-      </a>
-
-      <a class="card card--reel" href="/compounders/6532/initiation/" data-date="2026-06-04" data-ticker="6532">
-  <div class="card-head">
-    <span class="card-ticker">東証プライム &middot; 6532</span>
-    <span class="card-sector">単一セグメント &middot; 総合コンサルティング</span>
-  </div>
-  <h3 class="card-name">株式会社ベイカレント</h3>
-  <p class="card-jp">BayCurrent, Inc.</p>
-  <p class="card-hook"><b>ベイカレントは、日本の大企業向けに戦略、業務改革、DX、生成AI、システム実装までを一気通貫で担う独立系コンサルティング会社。約5,600人のコンサルタントを一つの人材プールとして動かし、案件ごとの稼働率と単価を管理し、高い利益率を維持している。足元では&yen;300億の自社株買いと全株消却を決め、成長力だけでなく資本規律も問われる局面に入った。</b></p>
-  <div class="card-stats">
-    <div><div class="card-stat-label">終値</div><div class="card-stat-val">&yen;5,857</div></div>
-    <div><div class="card-stat-label">EV / EBIT</div><div class="card-stat-val">12.7<small>x</small></div></div>
-    <div><div class="card-stat-label">ROCE</div><div class="card-stat-val">46<small>%</small></div></div>
-    <div><div class="card-stat-label">ネットキャッシュ / 時価総額</div><div class="card-stat-val">7<small>%</small></div></div>
-  </div>
-  <div class="card-meta-row">
-    <span>2026年6月4日公開</span>
-  </div>
-</a>
-
-
-      <a class="card card--reel" href="/compounders/5570/initiation/" data-date="2026-05-28" data-ticker="5570">
-        <div class="card-head">
-          <span class="card-ticker">東証グロース · 5570</span>
-          <span class="card-sector">単一セグメント · GNSS位置補正データ配信</span>
-        </div>
-        <h3 class="card-name">株式会社ジェノバ</h3>
-        <p class="card-jp">JENOBA Co., Ltd.</p>
-        <p class="card-hook"><b>ジェノバは、日本全国約1,300点の電子基準点から得られるGNSSデータを、測量・建設・農業・ドローン向けのセンチメートル級測位補正データとして月額配信する。FY2025期末の有料契約数は9,348件、契約者数の5年CAGRは約6%、営業利益率は56.6%、純現金は30億円で時価総額の34%に相当する。</b></p>
-        <div class="card-stats">
-          <div>
-            <div class="card-stat-label">終値</div>
-            <div class="card-stat-val">¥669</div>
-          </div>
-          <div>
-            <div class="card-stat-label">EV / EBIT</div>
-            <div class="card-stat-val">7.5<small>x</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ROCE</div>
-            <div class="card-stat-val">23<small>%</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ネットキャッシュ / 時価総額</div>
-            <div class="card-stat-val">34<small>%</small></div>
-          </div>
-        </div>
-        <div class="card-meta-row">
-          <span>2026年5月28日公開</span>
-        </div>
-      </a>
-
-      <a class="card card--reel" href="/compounders/4493/initiation/" data-date="2026-05-28" data-ticker="4493">
-        <div class="card-head">
-          <span class="card-ticker">東証グロース · 4493</span>
-          <span class="card-sector">単一セグメント · クラウド型WAF · AIサイバーセキュリティSaaS</span>
-        </div>
-        <h3 class="card-name">株式会社サイバーセキュリティクラウド</h3>
-        <p class="card-jp">Cyber Security Cloud, Inc.</p>
-        <p class="card-hook"><b>サイバーセキュリティクラウドは、国内シェアNo.1のクラウド型WAF「攻撃遮断くん」とAWS WAF自動運用サービス「WafCharm」を運営し、年間20億件超の攻撃データを独自AIエンジンに蓄積する。売上の約90%が継続課金で、解約率は1%未満、売上高と営業利益はいずれも6期連続で25%超の成長を続けている。</b></p>
-        <div class="card-stats">
-          <div>
-            <div class="card-stat-label">終値</div>
-            <div class="card-stat-val">¥1,721</div>
-          </div>
-          <div>
-            <div class="card-stat-label">EV / EBIT</div>
-            <div class="card-stat-val">11.9<small>x</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ROCE</div>
-            <div class="card-stat-val">24<small>%</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ネットキャッシュ / 時価総額</div>
-            <div class="card-stat-val">19<small>%</small></div>
-          </div>
-        </div>
-        <div class="card-meta-row">
-          <span>2026年5月28日公開</span>
-        </div>
-      </a>
-
-      <a class="card card--reel" href="/compounders/6037/initiation/" data-date="2026-05-27" data-ticker="6037">
-        <div class="card-head">
-          <span class="card-ticker">東証スタンダード · 6037</span>
-          <span class="card-sector">不動産投資ポータル · 楽待</span>
-        </div>
-        <h3 class="card-name">楽待株式会社</h3>
-        <p class="card-jp">Rakumachi, Inc.</p>
-        <p class="card-hook"><b>楽待は、日本の不動産仲介会社5,459社に月額掲載サービスを提供し、賃貸アパートや小型商業物件を48.7万人の個人投資家に届けている。2026年5月25日には、これまで主要な集客指標として掲げてきたページビュー（PV）の過去数値を訂正した。</b></p>
-        <div class="card-stats">
-          <div>
-            <div class="card-stat-label">終値</div>
-            <div class="card-stat-val">¥977</div>
-          </div>
-          <div>
-            <div class="card-stat-label">EV / EBIT</div>
-            <div class="card-stat-val">10.0<small>x</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ROCE</div>
-            <div class="card-stat-val">28<small>%</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ネットキャッシュ / 時価総額</div>
-            <div class="card-stat-val">6<small>%</small></div>
-          </div>
-        </div>
-        <div class="card-meta-row">
-          <span>2026年5月27日公開</span>
-        </div>
-      </a>
-
-      <a class="card card--reel" href="/compounders/4377/initiation/" data-date="2026-05-26" data-ticker="4377">
-        <div class="card-head">
-          <span class="card-ticker">東証グロース · 4377</span>
-          <span class="card-sector">単一セグメント・キャリアデータプラットフォーム · 新卒採用 · 中途採用 · 認証クチコミデータベース</span>
-        </div>
-        <h3 class="card-name">株式会社ワンキャリア</h3>
-        <p class="card-jp">ONE CAREER, Inc.</p>
-        <p class="card-hook"><b>ワンキャリアは、卒業予定の就活生の3人に2人が利用する新卒採用プラットフォームを運営し、競合が容易に再現できない70万件の選考体験データベースを持つ。投資論点は、57%を保有する創業者がROCE38%の収益力を再投資に振り向けるのか、株主還元に回すのかにある。</b></p>
-        <div class="card-stats">
-          <div>
-            <div class="card-stat-label">終値</div>
-            <div class="card-stat-val">¥1,947</div>
-          </div>
-          <div>
-            <div class="card-stat-label">EV / EBIT</div>
-            <div class="card-stat-val">9.7<small>x</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ROCE</div>
-            <div class="card-stat-val">38<small>%</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ネットキャッシュ / 時価総額</div>
-            <div class="card-stat-val">18<small>%</small></div>
-          </div>
-        </div>
-        <div class="card-meta-row">
-          <span>2026年5月26日公開</span>
-        </div>
-      </a>
-
-      <a class="card card--reel" href="/compounders/3984/initiation/" data-date="2026-05-25" data-ticker="3984">
-        <div class="card-head">
-          <span class="card-ticker">東証プライム · 3984</span>
-          <span class="card-sector">単一セグメントSaaS · ウェブ解析 · ソーシャル傾聴 · 法人向け生成AI</span>
-        </div>
-        <h3 class="card-name">株式会社ユーザーローカル</h3>
-        <p class="card-jp">User Local, Inc.</p>
-        <p class="card-hook"><b>ユーザーローカルは、Webサイト、ソーシャルチャネル、社内AIチャット業務にまたがる顧客行動分析を企業に提供する単一セグメントのSaaS企業だ。既存の解析プロダクトによる粘着性の高いサブスク収益に、新しいAI-DX需要が重なり、高い利益率と厳格なコスト管理が収益モデルを支えている。</b></p>
-        <div class="card-stats">
-          <div>
-            <div class="card-stat-label">終値</div>
-            <div class="card-stat-val">¥1,791</div>
-          </div>
-          <div>
-            <div class="card-stat-label">EV / EBIT</div>
-            <div class="card-stat-val">8.6<small>x</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ROCE</div>
-            <div class="card-stat-val">24<small>%</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ネットキャッシュ / 時価総額</div>
-            <div class="card-stat-val">33<small>%</small></div>
-          </div>
-        </div>
-        <div class="card-meta-row">
-          <span>2026年5月25日公開</span>
-        </div>
-      </a>
-
-      <a class="card card--reel" href="/compounders/6947/initiation/" data-date="2026-05-21" data-ticker="6947">
-        <div class="card-head">
-          <span class="card-ticker">東証プライム · 6947</span>
-          <span class="card-sector">電子設計自動化 · PCB／ハーネスCAD・MBSE</span>
-        </div>
-        <h3 class="card-name">株式会社図研</h3>
-        <p class="card-jp">Zuken Inc.</p>
-        <p class="card-hook"><b>図研は、電気設計の意図を実際のプリント基板やワイヤハーネスに落とし込む、国内OEMの設計ライブラリに深く組み込まれた50年の事業基盤を持つ。更新のたびに積み上がる保守・サービス収益が複利的に拡大しており、投資論点は始まったばかりの資本還元をめぐる議論にある。</b></p>
-        <div class="card-stats">
-          <div>
-            <div class="card-stat-label">終値</div>
-            <div class="card-stat-val">¥4,820</div>
-          </div>
-          <div>
-            <div class="card-stat-label">EV / EBIT</div>
-            <div class="card-stat-val">9.8<small>x</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ROCE</div>
-            <div class="card-stat-val">13<small>%</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ネットキャッシュ / 時価総額</div>
-            <div class="card-stat-val">36<small>%</small></div>
-          </div>
-        </div>
-        <div class="card-meta-row">
-          <span>2026年5月21日公開</span>
-        </div>
-      </a>
-
-      <a class="card card--reel" href="/compounders/4168/initiation/" data-date="2026-05-21" data-ticker="4168">
-        <div class="card-head">
-          <span class="card-ticker">東証グロース · 4168</span>
-          <span class="card-sector">ノーコード モバイルDXプラットフォーム・マルチプロダクトSaaS</span>
-        </div>
-        <h3 class="card-name">株式会社ヤプリ</h3>
-        <p class="card-jp">Yappli, Inc.</p>
-        <p class="card-hook"><b>ヤプリは、日本の小売・外食企業がネイティブアプリを運用するためのノーコード基盤を提供し、解約率1%未満という低さが競争優位を支えている。同じID基盤に4つのプロダクトを接続できる構造を持ち、投資論点はまだ制度化されていない資本還元方針にある。</b></p>
-        <div class="card-stats">
-          <div>
-            <div class="card-stat-label">終値</div>
-            <div class="card-stat-val">¥745</div>
-          </div>
-          <div>
-            <div class="card-stat-label">EV / EBIT</div>
-            <div class="card-stat-val">8.5<small>x</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ROCE</div>
-            <div class="card-stat-val">24<small>%</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ネットキャッシュ / 時価総額</div>
-            <div class="card-stat-val">11<small>%</small></div>
-          </div>
-        </div>
-        <div class="card-meta-row">
-          <span>2026年5月21日公開</span>
-        </div>
-      </a>
-
-      <a class="card card--reel" href="/compounders/5843/initiation/" data-date="2026-05-19" data-ticker="5843">
-        <div class="card-head">
-          <span class="card-ticker">東証スタンダード · 5843</span>
-          <span class="card-sector">家賃債務保証・東証スタンダード唯一の専業上場</span>
-        </div>
-        <h3 class="card-name">ニッポンインシュア株式会社</h3>
-        <p class="card-jp">Nippon Insure Co., Ltd.</p>
-        <p class="card-hook"><b>ニッポンインシュアは、人的連帯保証人を受け入れない貸主が増えるなか、日本の借主の家賃支払いを保証する企業であり、高齢化がその需要をさらに広げている。ROCE32%の事業で現金が積み上がるなか、経営陣が10%の配当性向を引き上げるかが焦点だ。</b></p>
-        <div class="card-stats">
-          <div>
-            <div class="card-stat-label">終値</div>
-            <div class="card-stat-val">¥2,418</div>
-          </div>
-          <div>
-            <div class="card-stat-label">EV / EBIT</div>
-            <div class="card-stat-val">5.3<small>x</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ROCE</div>
-            <div class="card-stat-val">32<small>%</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ネットキャッシュ / 時価総額</div>
-            <div class="card-stat-val">33<small>%</small></div>
-          </div>
-        </div>
-        <div class="card-meta-row">
-          <span>2026年5月19日公開</span>
-        </div>
-      </a>
-
-      <a class="card card--reel" href="/compounders/4071/initiation/" data-date="2026-05-19" data-ticker="4071">
-        <div class="card-head">
-          <span class="card-ticker">東証プライム · 4071</span>
-          <span class="card-sector">HR・マーケティングSaaS · 日本語NLP複利型</span>
-        </div>
-        <h3 class="card-name">株式会社プラスアルファ・コンサルティング</h3>
-        <p class="card-jp">Plus Alpha Consulting Co., Ltd.</p>
-        <p class="card-hook"><b>プラスアルファ・コンサルティングは、タレントパレットを中心に、粘着性の高いエンタープライズ契約と高い資本収益性を持つ国内HR SaaS企業である。本レポートでは、成長性と資本政策を投資家が検証しやすくなれば、株価の再評価余地が生まれる理由を整理している。</b></p>
-        <div class="card-stats">
-          <div>
-            <div class="card-stat-label">終値</div>
-            <div class="card-stat-val">¥2,394</div>
-          </div>
-          <div>
-            <div class="card-stat-label">EV / EBIT</div>
-            <div class="card-stat-val">11.6<small>x</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ROCE</div>
-            <div class="card-stat-val">46<small>%</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ネットキャッシュ / 時価総額</div>
-            <div class="card-stat-val">14<small>%</small></div>
-          </div>
-        </div>
-        <div class="card-meta-row">
-          <span>2026年5月19日公開</span>
-        </div>
-      </a>
-
-      <a class="card card--reel" href="/compounders/4058/initiation/" data-date="2026-05-18" data-ticker="4058">
-        <div class="card-head">
-          <span class="card-ticker">東証グロース · 4058</span>
-          <span class="card-sector">クラウドビジネスSaaS · 安否確認 · kintone連携 · NotePM</span>
-        </div>
-        <h3 class="card-name">トヨクモ株式会社</h3>
-        <p class="card-jp">Toyokumo, Inc.</p>
-        <p class="card-hook"><b>トヨクモは、日本の中小企業が災害時の安否確認、kintone業務アプリ基盤の拡張、チーム内ナレッジ管理に使う3つのクラウドソフトを提供している。投資論点は、NotePM買収がのれん負担に見合う収益を生めるか、そして44億円の現金が株主に還元されるかにある。</b></p>
-        <div class="card-stats">
-          <div>
-            <div class="card-stat-label">終値</div>
-            <div class="card-stat-val">¥1,943</div>
-          </div>
-          <div>
-            <div class="card-stat-label">EV / EBIT</div>
-            <div class="card-stat-val">8.8<small>x</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ROCE</div>
-            <div class="card-stat-val">44<small>%</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ネットキャッシュ / 時価総額</div>
-            <div class="card-stat-val">21<small>%</small></div>
-          </div>
-        </div>
-        <div class="card-meta-row">
-          <span>2026年5月18日公開</span>
-        </div>
-      </a>
-
-      <a class="card card--reel" href="/compounders/4776/initiation/" data-date="2026-05-15" data-ticker="4776">
-        <div class="card-head">
-          <span class="card-ticker">東証プライム · 4776</span>
-          <span class="card-sector">グループウェア・ノーコードSaaS</span>
-        </div>
-        <h3 class="card-name">サイボウズ株式会社</h3>
-        <p class="card-jp">Cybozu, Inc.</p>
-        <p class="card-hook"><b>サイボウズは、日本企業3万9,000社が社内業務アプリを構築するノーコード基盤「kintone」を提供している。投資論点は、FY25の価格改定による利益急増が高くなった費用水準のもとでも維持できるか、そして5月の30億円自社株買いが明文化された方針になるかにある。</b></p>
-        <div class="card-stats">
-          <div>
-            <div class="card-stat-label">終値</div>
-            <div class="card-stat-val">¥2,197</div>
-          </div>
-          <div>
-            <div class="card-stat-label">EV / EBIT</div>
-            <div class="card-stat-val">8.9<small>x</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ROCE</div>
-            <div class="card-stat-val">68<small>%</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ネットキャッシュ / 時価総額</div>
-            <div class="card-stat-val">8<small>%</small></div>
-          </div>
-        </div>
-        <div class="card-meta-row">
-          <span>2026年5月15日公開</span>
-        </div>
-      </a>
-      <a class="card card--reel" href="/compounders/4475/initiation/" data-date="2026-05-14" data-ticker="4475">
-        <div class="card-head">
-          <span class="card-ticker">東証グロース · 4475</span>
-          <span class="card-sector">クラウドセキュリティ · ID &amp; DLP SaaS</span>
-        </div>
-        <h3 class="card-name">HENNGE K.K.</h3>
-        <p class="card-jp">ＨＥＮＮＧＥ株式会社</p>
-        <p class="card-hook"><b>HENNGEは、日本企業が業務メールや各種アプリに安全にログインするためのクラウドセキュリティソフトを提供し、データ保護やエンドポイント領域のモジュールも展開している。投資論点は、ARR成長率が+14.7%から再加速するか、そして新製品が投資負担を吸収するなかで利益率がどの水準に落ち着くかにある。</b></p>
-        <div class="card-stats">
-          <div>
-            <div class="card-stat-label">直近終値</div>
-            <div class="card-stat-val">¥1,016</div>
-          </div>
-          <div>
-            <div class="card-stat-label">EV / EBIT</div>
-            <div class="card-stat-val">12.5<small>倍</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ROCE</div>
-            <div class="card-stat-val">~48<small>%</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ネットキャッシュ / 時価総額</div>
-            <div class="card-stat-val">22<small>%</small></div>
-          </div>
-        </div>
-        <div class="card-meta-row">
-          <span>2026年5月14日 公開</span>
-        </div>
-      </a>
-      <a class="card card--reel" href="/compounders/4194/initiation/" data-date="2026-05-12" data-ticker="4194">
-        <div class="card-head">
-          <span class="card-ticker">東証プライム · 4194</span>
-          <span class="card-sector">人材・採用支援</span>
-        </div>
-        <h3 class="card-name">Visional, Inc.</h3>
-        <p class="card-jp">株式会社ビジョナル</p>
-        <p class="card-hook"><b>ビジョナルは、中途プロフェッショナル人材向けのダイレクトリクルーティング基盤「ビズリーチ」を運営し、黒字化したHR管理SaaS「HRMOS」も展開している。投資論点は、HRMOSの黒字化が自律的なものか、それともsonar ATS連結によるものか、そして700億円の現金をどう使うかにある。</b></p>
-        <div class="card-stats">
-          <div>
-            <div class="card-stat-label">直近終値</div>
-            <div class="card-stat-val">¥7,337</div>
-          </div>
-          <div>
-            <div class="card-stat-label">EV / EBIT</div>
-            <div class="card-stat-val">9.8<small>倍</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ROCE</div>
-            <div class="card-stat-val">~35<small>%</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ネットキャッシュ / 時価総額</div>
-            <div class="card-stat-val">24<small>%</small></div>
-          </div>
-        </div>
-        <div class="card-meta-row">
-          <span>2026年5月12日 公開</span>
-        </div>
-      </a>
-
       <a class="card card--reel card--viewall" href="/compounders/profiles/">
         <span class="card-viewall-arrow" aria-hidden="true">&rarr;</span>
         <span class="card-viewall-label">レポート一覧へ</span>
       </a>
 
-    </div>
+    </section>
       <button type="button" class="reel-nav reel-next" aria-label="次へ">&rsaquo;</button>
     </div>
 
-    <!-- 骨太2026 ディープダイブ (added 2026-08-04) — TEMPORARILY HIDDEN 2026-08-08 while page is unpublished (fixing corrupt JP images). To restore: remove the surrounding comment markers and re-add the honebuto-2026 folder to the repo. -->
-    <!--
-    <section class="dd-gem" aria-labelledby="dd-gem-title">
-      <div class="dd-gem-inner">
-        <div>
-          <span class="dd-gem-eyebrow">JII Deep Dive</span>
-          <h2 class="dd-gem-title" id="dd-gem-title">骨太の方針2026 — 投資国家への転換</h2>
-          <p class="dd-gem-sub">財政アンカーの変更、国債利回りの上昇、そして支出の連鎖に位置する小型株14社。17の戦略分野を、予算措置から受注残まで追う。</p>
-        </div>
-        <div>
-          <a class="dd-gem-cta" href="/honebuto-2026/index_ja.html">ディープダイブを読む &rarr;</a>
-          <div class="dd-gem-meta">無料 &middot; 全21セクション</div>
-        </div>
+    <section class="ch-formats" aria-labelledby="ch-formats-title">
+      <header class="ch-formats-head">
+        <h2 id="ch-formats-title">これから加わる読み方</h2>
+        <p>同じ調査基盤を、テーマ別の長編と音声でも届けます。</p>
+      </header>
+      <div class="ch-format-grid">
+        <article class="ch-format">
+          <span class="ch-format-status">Coming soon</span>
+          <span class="ch-format-icon" aria-hidden="true">D</span>
+          <h3>JII Deep Dive</h3>
+          <p>政策、産業、資本市場を横断し、一つのテーマを長編で掘り下げます。</p>
+        </article>
+        <article class="ch-format ch-format--podcast">
+          <span class="ch-format-status">In development</span>
+          <span class="ch-format-icon" aria-hidden="true">◉</span>
+          <h3>JII Podcast</h3>
+          <p>企業を見る視点と市場の変化を、対話形式でわかりやすく届けます。</p>
+        </article>
       </div>
     </section>
-    -->
 
-    
-    <section class="voices-reel" aria-label="投資家からの評価">
-      <div class="reel-head">
-        <h2 class="reel-title">投資家からの評価</h2>
-      </div>
-      <div class="reel-wrap">
-        <button type="button" class="reel-nav reel-prev" aria-label="前へ" hidden>&lsaquo;</button>
-        <div class="reel" role="region" aria-label="投資家からの評価">
-
-          <figure class="card card--reel voice-card">
-            <div class="voice-tag">通訳</div>
-            <blockquote class="voice-quote">「JIIとはもう数年来の付き合いで、来日時には対面で、海外にいるときはビデオ会議で仕事をしてもらっています。テディさんはいつもコールに向けて入念に準備し、議論の機微を丁寧に汲み取ってくれます。これは口で言うほど簡単なことではありません。海外投資家として通訳が必要な場面なら、JIIを全面的に推薦します。」</blockquote>
-            <figcaption class="voice-attr">Mark Landecker<span class="voice-firm">FPA パートナー</span></figcaption>
-          </figure>
-
-          <figure class="card card--reel voice-card">
-            <div class="voice-tag">アレンジ＋通訳</div>
-            <blockquote class="voice-quote">「2023年、JIIに日本企業との一連のミーティングをアレンジしてもらいましたが、その仕事ぶりは見事でした。準備も時間管理も的確で、通訳の質も一級品です。さらに、当ファンドが保有する日本株の最大級のポジション2銘柄は、いずれもJIIのTwitterで初めて知ったアイデアでした。」</blockquote>
-            <figcaption class="voice-attr">Evan Tindell<span class="voice-firm">Bireme Capital 共同創業者 兼 CIO</span></figcaption>
-          </figure>
-
-          <figure class="card card--reel voice-card">
-            <div class="voice-tag">マーケットインサイト</div>
-            <blockquote class="voice-quote">「海外から日本の小型株にアプローチする投資家には、頼れる『シェルパ』が欠かせません。テディさんはプロの翻訳者として、この市場を作り変えつつあるガバナンス・資本配分・IR慣行の変化を、最前列で見てきた人物です。彼の経験と知見を取り入れれば、自らのプロセスを補強し、学習曲線を一気に縮められるはずです。」</blockquote>
-            <figcaption class="voice-attr">Toby Shute</figcaption>
-          </figure>
-
-        </div>
-        <button type="button" class="reel-nav reel-next" aria-label="次へ">&rsaquo;</button>
-      </div>
-    </section>
-    <section class="company-call-cta" id="company-call-request" aria-label="企業面談リクエスト">
+    <section class="company-call-cta cta-box" id="company-call-request" aria-label="企業面談リクエスト">
       <div class="company-call-card">
         <div class="company-call-copy">
           <div class="company-call-eyebrow">Company access · Institutional investors</div>
           <h2 class="company-call-title">企業との面談をリクエスト</h2>
           <p class="company-call-body">銘柄コードまたは会社名をお送りください。ユニバース未掲載の企業でも確認します。機関投資家向けの面談設定は<b>無料</b>です。通訳・同席が必要な場合のみ、事前に<b>15分</b>ほど論点を確認します。</p>
-          <div class="company-call-terms" aria-label="リクエストの流れ">
-            <span class="company-call-pill">掲載外の企業も可</span>
-            <span class="company-call-pill">機関投資家は設定無料</span>
-            <span class="company-call-pill">通訳・同席は別途</span>
-            <span class="company-call-pill">事前確認は15分</span>
-          </div>
+          <ul class="company-call-terms">
+            <li class="company-call-pill">掲載外の企業も可</li>
+            <li class="company-call-pill">機関投資家は設定無料</li>
+            <li class="company-call-pill">通訳・同席は別途</li>
+            <li class="company-call-pill">事前確認は15分</li>
+          </ul>
         </div>
         <div class="company-call-form-wrap">
           <form class="company-call-form" id="company-call-form" action="https://formspree.io/f/mdayglyl" method="POST">
@@ -1490,10 +445,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
 <section class="disclaimer">
   <div class="wrap">
-    <div class="disclaimer-head">
+    <details class="disclaimer-details">
+    <summary>
       <span class="d-eyebrow">重要なご注意 · Important Disclaimer</span>
-      <h2 class="d-title">本コンテンツは投資助言ではありません。</h2>
-    </div>
+      <strong class="d-title">本コンテンツは投資助言ではありません。</strong>
+      <span class="d-open">全文を読む</span>
+    </summary>
     <div class="disclaimer-body">
       <p>
         <b>株式会社ジャパン・インベスター・インターフェース（以下「JII」といいます。）</b>は、上場会社のIR支援、開示資料の改善支援、翻訳・通訳等を主な業務とする会社です。JIIは、金融商品取引法上の金融商品取引業者（第一種金融商品取引業、第二種金融商品取引業、投資運用業または投資助言・代理業を行う者を含みます。）として登録を受けておらず、証券会社、投資顧問会社その他の金融機関として業務を行うものではありません。
@@ -1520,17 +477,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
         Japan Investor Interface Co., Ltd. ("JII") is an IR consultancy and is not registered as a Financial Instruments Business Operator in Japan. JII Compounders is editorial research content based on public information and is not investment advice, an offer, a solicitation, or a recommendation to buy, sell, or hold any financial instrument. Readers should make decisions independently and consult qualified professionals as appropriate.
       </p>
     </div>
+    </details>
   </div>
 </section>
 
 </main>
-<footer>
-  <div class="wrap foot-row">
-    <span><a href="/compounders/methodology/">6つの着眼点</a> · <a href="/">jpinv.com トップ</a> · <a href="https://japaninterface.substack.com/" rel="noopener" target="_blank">Substack（英語配信）</a></span>
-    <span>Japan Investor Interface Co., Ltd.</span>
-    <span class="footer-locale-switcher">言語: <a href="/compounders/" class="current" aria-current="page" lang="ja">JP</a> · <a href="/en/compounders/" data-locale-route lang="en">EN</a></span>
-  </div>
-</footer>
 
 
 
@@ -1538,7 +489,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
 <script>
 (function(){
-  // ---- Horizontal reels (Recent Profiles + Voices): prev/next arrow navigation ----
+  // ---- Horizontal report reel: prev/next arrow navigation ----
   var wraps = document.querySelectorAll('.reel-wrap');
   if (!wraps.length) return;
   Array.prototype.forEach.call(wraps, function(wrap){

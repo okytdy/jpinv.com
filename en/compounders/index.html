@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>JII Compounders | Japanese Equity Profiles for Global Investors</title>
-<meta name="description" content="JII Compounders profiles Japanese listed companies through the lens of global investors, focusing on valuation, disclosure, capital efficiency, and compounding quality.">
-<meta property="og:title" content="JII Compounders | Japanese Equity Profiles for Global Investors">
-<meta property="og:description" content="JII Compounders profiles Japanese listed companies through the lens of global investors, focusing on valuation, disclosure, capital efficiency, and compounding quality.">
+<title>JII Compounders | Discover, Understand, and Monitor Japanese Equities</title>
+<meta name="description" content="Research Japanese listed companies with JII Compounders: screens, a discretionary watchlist, company profiles, capital-action signals, and 5% ownership filings in one hub.">
+<meta property="og:title" content="JII Compounders | Discover, Understand, and Monitor Japanese Equities">
+<meta property="og:description" content="Research Japanese listed companies with JII Compounders: screens, a discretionary watchlist, company profiles, capital-action signals, and 5% ownership filings in one hub.">
 <meta property="og:url" content="https://jpinv.com/en/compounders/">
 <meta property="og:image" content="https://jpinv.com/og/compounders/default.png">
 <meta property="og:image:width" content="1200">
@@ -25,423 +25,61 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --ink: #1a2a4a; --ink-mid: #172641; --ink-soft: #304466;
-    --rule: #d6dee8; --rule-soft: #e8edf3;
-    --bg: #ffffff; --bg-mid: #f5f7fa; --bg-soft: #fafbfc;
-    --text: #1f2937; --text-mid: #4a5566; --text-dim: #7a8290;
-    --accent: #9a7838; --accent-deep: #9a7838; --accent-soft: #f4eee4;
-    --ok: #2f6f4f; --bad: #b91c1c;
-    --serif: 'Noto Serif JP', 'Yu Mincho', serif;
-    --sans: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
-    --mono: 'DM Mono', monospace;
-    --max: 1100px;
-  }
-  *,*::before,*::after { box-sizing: border-box; }
-  html,body { margin:0; padding:0; background: var(--bg); color: var(--text); font-family: var(--sans); }
-  body { font-size: 15px; line-height: 1.7; }
-  a { color: var(--ink-soft); text-decoration: none; }
-  a:hover { color: var(--ink); }
-  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 28px; }
-
-  /* Hero */
-  .hero { position: relative; padding: 90px 0 64px; border-bottom: 1px solid var(--rule); overflow: hidden; }
-  .hero::before {
-    content:''; position: absolute; inset: 0;
-    background-image:
-      linear-gradient(rgba(15,31,58,0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(15,31,58,0.04) 1px, transparent 1px);
-    background-size: 64px 64px;
-    -webkit-mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent);
-            mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent);
-  }
-  .hero-inner { position: relative; z-index: 2; }
-  .hero-brand { display: flex; align-items: center; gap: 14px; margin-bottom: 32px; }
-  .hero-home-link { display: inline-flex; align-items: center; gap: 14px; color: inherit; text-decoration: none; }
-  .hero-home-link:hover .mark, .hero-home-link:hover .sub { color: var(--ink); }
-  .hero-home-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 6px; }
-  .hero-brand .mark { font-family: var(--serif); font-size: 28px; font-weight: 300; color: var(--ink-mid); letter-spacing: 0.04em; line-height: 1; }
-  .hero-brand .mark .pipe { color: var(--accent); font-weight: 200; margin: 0 4px; }
-  .hero-brand .sub { font-family: var(--sans); font-size: 12.5px; color: var(--ink-soft); letter-spacing: 0.04em; line-height: 1.4; }
-  .hero-lang { margin-left: auto; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; }
-  .hero-lang a { color: var(--ink-soft); padding: 5px 10px; border: 1px solid var(--rule); margin-left: 6px; }
-  .hero-lang a.current { background: var(--bg-soft); border-color: var(--ink-mid); color: var(--ink-mid); }
-  .hero-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.32em; color: var(--accent-deep); text-transform: uppercase; margin-bottom: 18px; font-weight: 500; }
-  /* Both h1 and lede share the same max-width so the line breaks align */
-  .hero-text { max-width: 880px; }
-  .hero h1 { font-family: var(--serif); font-size: clamp(1.85rem, 4.4vw, 3.2rem); font-weight: 300; color: var(--ink-mid); line-height: 1.35; letter-spacing: 0.02em; margin: 0 0 22px; }
-  .hero h1 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-  .hero p.lede { font-size: 1.02rem; line-height: 1.85; color: var(--text); margin: 0; }
-  .hero p.lede b { color: var(--ink-mid); font-weight: 500; }
-
-  /* Gallery controls */
-  .gallery { padding: 56px 0 80px; }
-  .gallery-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 28px; flex-wrap: wrap; gap: 18px; padding-bottom: 14px; border-bottom: 1px solid var(--rule); }
-  .gallery-title { font-family: var(--serif); font-size: 1.7rem; font-weight: 300; color: var(--ink-mid); margin: 0; letter-spacing: 0.02em; }
-  .gallery-meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; }
-
-  .gallery-controls { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-  .sort-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; color: var(--text-dim); text-transform: uppercase; margin-right: 4px; font-weight: 500; }
-  .sort-btn { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; color: var(--text-mid); text-transform: uppercase; padding: 7px 14px; border: 1px solid var(--rule); background: var(--bg); cursor: pointer; transition: all 0.18s; font-weight: 500; }
-  .sort-btn:hover { color: var(--ink); border-color: var(--ink-soft); }
-  .sort-btn.active { color: var(--ink-mid); border-color: var(--ink-mid); background: var(--bg-soft); }
-  /* Universe callout — the gem of the page */
-  .universe-band { position: relative; padding: 56px 0; border-bottom: 1px solid var(--rule); background: var(--bg-soft); overflow: hidden; }
-  .universe-band::before {
-    content:''; position: absolute; inset: 0;
-    background-image:
-      linear-gradient(rgba(15,31,58,0.025) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(15,31,58,0.025) 1px, transparent 1px);
-    background-size: 48px 48px;
-    -webkit-mask-image: linear-gradient(180deg, transparent, black 20%, black 80%, transparent);
-            mask-image: linear-gradient(180deg, transparent, black 20%, black 80%, transparent);
-    pointer-events: none;
-  }
-  .universe-band-inner { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center; }
-  .universe-band-text { max-width: 720px; }
-  .universe-band-eyebrow { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.32em; color: var(--accent-deep); text-transform: uppercase; margin-bottom: 12px; font-weight: 500; }
-  .universe-band-title { font-family: var(--serif); font-size: 1.7rem; font-weight: 300; color: var(--ink-mid); line-height: 1.3; margin: 0 0 12px; letter-spacing: 0.01em; }
-  .universe-band-title em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-  .universe-band-body { font-size: 0.97rem; line-height: 1.75; color: var(--text); margin: 0; }
-  .universe-cta { display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--bg); background: var(--ink-mid); padding: 16px 26px; border: 1px solid var(--ink-mid); white-space: nowrap; transition: all 0.18s; font-weight: 500; }
-  .universe-cta:hover { background: var(--ink); border-color: var(--ink); color: var(--accent-soft); }
-  .universe-cta-arrow { font-family: var(--serif); font-size: 14px; }
-  @media (max-width: 760px) {
-    .universe-band { padding: 40px 0; }
-    .universe-band-inner { grid-template-columns: 1fr; gap: 22px; }
-    .universe-band-title { font-size: 1.35rem; }
-    .universe-cta { width: 100%; justify-content: center; padding: 14px 20px; }
-  }
-
-
-  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-  @media (max-width: 760px) {
-    .grid { grid-template-columns: 1fr; }
-    .wrap { padding: 0 20px; }
-    .hero { padding: 60px 0 44px; }
-    .hero-brand { margin-bottom: 24px; flex-wrap: wrap; }
-    .hero-lang { margin-left: 0; }
-    .hero p.lede { font-size: 1rem; line-height: 1.85; }
-    .gallery { padding: 40px 0 56px; }
-    .gallery-head { gap: 12px; }
-    .card { padding: 22px 20px 18px; }
-    .card-stats { gap: 16px; }
-    .substack-cta { padding: 24px 22px; gap: 18px; }
-    .substack-cta-title { font-size: 1.18rem; }
-    .substack-btn { width: 100%; justify-content: center; }
-    .disclaimer { padding: 40px 0 48px; margin-top: 40px; }
-    .d-title { font-size: 20px; }
-    .disclaimer-body { font-size: 13px; line-height: 1.85; }
-    .foot-row { flex-direction: column; gap: 8px; text-align: center; }
-  }
-
-  .card {
-    display: flex; flex-direction: column;
-    background: var(--bg); border: 1px solid var(--rule); padding: 26px 28px 22px;
-    transition: border-color 0.2s, transform 0.2s;
-  }
-  .card:hover { border-color: var(--accent); transform: translateY(-2px); }
-  .card-head { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 12px; border-bottom: 1px solid var(--rule-soft); margin-bottom: 14px; }
-  .card-ticker { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--ink-soft); }
-  .card-sector { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; }
-  .card-name { font-family: var(--serif); font-size: 1.45rem; color: var(--ink-mid); font-weight: 300; line-height: 1.25; letter-spacing: 0.01em; margin: 0; }
-  .card-jp { font-family: var(--serif); font-size: 0.92rem; color: var(--text-dim); margin: 4px 0 14px; letter-spacing: 0.04em; }
-  .card-hook { font-family: var(--serif); font-size: 0.96rem; color: var(--text); line-height: 1.7; margin-bottom: 14px; }
-  .card-hook b { color: var(--ink-mid); font-weight: 500; }
-  .card-stats { display: flex; gap: 22px; padding-top: 12px; border-top: 1px solid var(--rule-soft); margin-top: auto; flex-wrap: wrap; }
-  .card-stat-label { font-family: var(--mono); font-size: 8.5px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 3px; }
-  .card-stat-val { font-family: var(--serif); font-size: 1.08rem; color: var(--ink-mid); font-weight: 400; }
-  .card-stat-val small { font-family: var(--mono); font-size: 10px; color: var(--text-dim); margin-left: 3px; }
-  .card-meta-row { display: flex; gap: 12px; margin-top: 6px; font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; }
-
-  .placeholder {
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    background: var(--bg-soft); border: 1px dashed var(--rule); padding: 40px 28px;
-    text-align: center; min-height: 200px;
-  }
-  .placeholder .label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 8px; }
-  .placeholder .msg { font-family: var(--serif); font-size: 1rem; color: var(--text-mid); line-height: 1.55; max-width: 320px; }
-
-
-  /* Company-call request form */
-  .company-call-cta { margin-top: 42px; }
-  .company-call-card { position: relative; overflow: hidden; background: linear-gradient(135deg, #ffffff 0%, var(--bg-soft) 100%); border: 1px solid var(--rule); border-left: 3px solid var(--accent); padding: 32px 36px; display: grid; grid-template-columns: minmax(260px, 0.78fr) minmax(0, 1.22fr); gap: 32px; align-items: start; box-shadow: 0 12px 30px rgba(15,31,58,0.045); }
-  .company-call-card::before { content:''; position: absolute; right: -80px; top: -120px; width: 260px; height: 260px; border: 1px solid rgba(176,138,74,0.18); border-radius: 50%; pointer-events: none; }
-  .company-call-copy, .company-call-form-wrap { position: relative; z-index: 2; }
-  .company-call-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.24em; color: var(--accent-deep); text-transform: uppercase; margin-bottom: 9px; font-weight: 500; }
-  .company-call-title { font-family: var(--serif); font-size: 1.42rem; font-weight: 300; color: var(--ink-mid); line-height: 1.45; margin: 0 0 10px; letter-spacing: 0.02em; }
-  .company-call-body { font-family: var(--sans); font-size: 13.8px; line-height: 1.8; color: var(--text-mid); margin: 0; }
-  .company-call-body b { color: var(--ink-mid); font-weight: 500; }
-  .company-call-terms { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-  .company-call-pill { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.13em; color: var(--ink-soft); text-transform: uppercase; border: 1px solid var(--rule); background: rgba(255,255,255,0.72); padding: 6px 9px; }
-  .company-call-form { background: rgba(255,255,255,0.84); border: 1px solid var(--rule-soft); padding: 22px; }
-  .company-call-form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
-  .company-call-field.full { grid-column: 1 / -1; }
-  .company-call-field label { display: block; font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px; }
-  .company-call-required { color: var(--bad); letter-spacing: 0; margin-left: 3px; }
-  .company-call-field input, .company-call-field select, .company-call-field textarea { width: 100%; background: var(--bg-soft); color: var(--text); border: 1px solid var(--rule); padding: 10px 12px; font-family: var(--sans); font-size: 13px; line-height: 1.45; border-radius: 0; }
-  .company-call-field textarea { min-height: 92px; resize: vertical; }
-  .company-call-field select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--ink-mid) 50%), linear-gradient(135deg, var(--ink-mid) 50%, transparent 50%); background-position: calc(100% - 17px) 50%, calc(100% - 12px) 50%; background-size: 5px 5px, 5px 5px; background-repeat: no-repeat; padding-right: 32px; }
-  .company-call-submit { width: 100%; margin-top: 16px; display: inline-flex; align-items: center; justify-content: center; padding: 13px 22px; background: var(--ink-mid); border: 1px solid var(--ink-mid); color: #fff; font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: 0.06em; cursor: pointer; transition: all 0.18s; }
-  .company-call-submit:hover { background: var(--ink); border-color: var(--ink); }
-  .company-call-submit:disabled { opacity: 0.65; cursor: wait; }
-  .company-call-status { min-height: 1.5em; margin: 10px 0 0; font-size: 12px; line-height: 1.6; color: var(--text-dim); }
-  .company-call-status[data-state="error"] { color: var(--bad); }
-  .company-call-status[data-state="success"] { color: var(--ok); }
-  .company-call-help { margin: 8px 0 0; font-size: 11.5px; line-height: 1.6; color: var(--text-dim); }
-  .company-call-help a { border-bottom: 1px solid var(--rule); }
-  .company-call-success { background: rgba(255,255,255,0.84); border: 1px solid var(--rule-soft); padding: 22px; }
-  .company-call-success h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 300; color: var(--ink-mid); margin: 0 0 8px; }
-  .company-call-success p { margin: 0; color: var(--text-mid); font-size: 13px; line-height: 1.7; }
-
-  @media (max-width: 860px) {
-    .company-call-card { grid-template-columns: 1fr; padding: 24px 22px; gap: 22px; }
-    .company-call-title { font-size: 1.2rem; }
-  }
-  @media (max-width: 560px) {
-    .company-call-form-grid { grid-template-columns: 1fr; }
-  }
-
-  /* Substack CTA */
-  .substack-cta { margin-top: 50px; padding: 32px 36px; background: var(--bg-soft); border: 1px solid var(--rule); border-left: 3px solid var(--accent); display: flex; gap: 28px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
-  .substack-cta-text { flex: 1; min-width: 280px; }
-  .substack-cta-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.22em; color: var(--accent-deep); text-transform: uppercase; margin-bottom: 8px; font-weight: 500; }
-  .substack-cta-title { font-family: var(--serif); font-size: 1.3rem; font-weight: 300; color: var(--ink-mid); line-height: 1.35; margin: 0 0 10px; letter-spacing: 0.02em; }
-  .substack-cta-body { font-family: var(--sans); font-size: 13.5px; line-height: 1.7; color: var(--text-mid); margin: 0; }
-  .substack-cta-body b { color: var(--ink-mid); font-weight: 500; }
-  .substack-btn { display: inline-flex; align-items: center; gap: 10px; padding: 13px 24px; background: var(--ink-mid); color: #fff; font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: 0.06em; text-decoration: none; transition: background 0.18s; flex: none; }
-  .substack-btn:hover { background: var(--ink); color: #fff; }
-
-  /* English Notes — Substack subscribe gem strip (EN root only, added 2026-07-29) */
-
-  /* Honebuto deep-dive strip (added 2026-08-04) — same chrome as .notes-gem so the two read as a set */
-  .dd-gem { position: relative; overflow: hidden; margin-top: 54px; background: var(--bg-soft); border: 1px solid var(--rule); border-left: 3px solid var(--accent); }
-  .dd-gem::before {
-    content:''; position: absolute; inset: 0;
-    background-image:
-      linear-gradient(rgba(15,31,58,0.025) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(15,31,58,0.025) 1px, transparent 1px);
-    background-size: 44px 44px;
-    -webkit-mask-image: linear-gradient(180deg, transparent, black 22%, black 78%, transparent);
-            mask-image: linear-gradient(180deg, transparent, black 22%, black 78%, transparent);
-    pointer-events: none;
-  }
-  .dd-gem::after { content:''; position: absolute; right: -70px; top: -104px; width: 232px; height: 232px; border: 1px solid rgba(255,103,25,0.16); border-radius: 50%; pointer-events: none; }
-  .dd-gem-inner { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr auto; gap: 36px; align-items: center; padding: 34px 38px; }
-  .dd-gem-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.22em; color: var(--accent-deep); text-transform: uppercase; margin-bottom: 13px; font-weight: 500; }
-  .dd-gem-title { font-family: var(--serif); font-size: 1.5rem; font-weight: 300; color: var(--ink-mid); line-height: 1.32; margin: 0 0 10px; }
-  .dd-gem-sub { font-size: 0.95rem; color: var(--text-mid); margin: 0; max-width: 62ch; line-height: 1.6; }
-  .dd-gem-cta { display: inline-flex; align-items: center; gap: 10px; white-space: nowrap; background: var(--accent); color: #fff; text-decoration: none; font-weight: 600; font-size: 0.95rem; padding: 15px 26px; border: 0; }
-  .dd-gem-cta:hover { filter: brightness(0.94); }
-  .dd-gem-meta { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-top: 11px; text-align: right; }
-  @media (max-width: 760px) {
-    .dd-gem-inner { grid-template-columns: 1fr; gap: 20px; padding: 26px 22px; }
-    .dd-gem-meta { text-align: left; }
-  }
-
-  .notes-gem { position: relative; overflow: hidden; margin-top: 54px; background: var(--bg-soft); border: 1px solid var(--rule); border-left: 3px solid var(--accent); }
-  .notes-gem::before {
-    content:''; position: absolute; inset: 0;
-    background-image:
-      linear-gradient(rgba(15,31,58,0.025) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(15,31,58,0.025) 1px, transparent 1px);
-    background-size: 44px 44px;
-    -webkit-mask-image: linear-gradient(180deg, transparent, black 22%, black 78%, transparent);
-            mask-image: linear-gradient(180deg, transparent, black 22%, black 78%, transparent);
-    pointer-events: none;
-  }
-  .notes-gem::after {
-    content:''; position: absolute; right: -70px; top: -104px; width: 232px; height: 232px;
-    border: 1px solid rgba(255,103,25,0.16); border-radius: 50%; pointer-events: none;
-  }
-  .notes-gem-inner { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr minmax(316px, 400px); gap: 36px; align-items: center; padding: 34px 38px; }
-  .notes-gem-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.22em; color: var(--accent-deep); text-transform: uppercase; margin-bottom: 13px; font-weight: 500; }
-  .notes-gem-mark { width: 15px; height: 15px; color: #FF6719; flex: none; }
-  .notes-gem-title { font-family: var(--serif); font-size: 1.5rem; font-weight: 300; color: var(--ink-mid); line-height: 1.32; margin: 0; letter-spacing: 0.01em; }
-  .notes-gem-title em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-  .notes-gem-body { font-family: var(--sans); font-size: 13.8px; line-height: 1.75; color: var(--text-mid); margin: 0; max-width: 470px; }
-  .notes-gem-body b { color: var(--ink-mid); font-weight: 500; }
-  .notes-gem-form { position: relative; z-index: 2; }
-  .notes-gem-field { display: flex; gap: 10px; }
-  .notes-gem-input { flex: 1; min-width: 0; background: var(--bg); color: var(--text); border: 1px solid var(--rule); padding: 13px 14px; font-family: var(--sans); font-size: 14px; line-height: 1.4; border-radius: 0; }
-  .notes-gem-input:focus { outline: none; border-color: var(--ink-mid); }
-  .notes-gem-input::placeholder { color: var(--text-dim); }
-  .notes-gem-btn { flex: none; display: inline-flex; align-items: center; gap: 8px; padding: 13px 22px; background: #FF6719; color: #fff; border: 1px solid #FF6719; font-family: var(--sans); font-size: 13.5px; font-weight: 600; letter-spacing: 0.03em; cursor: pointer; white-space: nowrap; transition: background 0.18s, border-color 0.18s; }
-  .notes-gem-btn:hover { background: #e35a10; border-color: #e35a10; color: #fff; }
-  .notes-gem-btn .notes-gem-mark { color: #fff; }
-  .notes-gem-note { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; color: var(--text-dim); text-transform: uppercase; margin: 12px 0 0; }
-  @media (max-width: 820px) {
-    .notes-gem-inner { grid-template-columns: 1fr; gap: 20px; padding: 26px 22px; }
-    .notes-gem-title { font-size: 1.28rem; }
-    .notes-gem-field { flex-direction: column; }
-    .notes-gem-btn { width: 100%; justify-content: center; }
-  }
-
-  /* Disclaimer (same as on each profile) */
-  .disclaimer { padding: 56px 0 64px; background: var(--bg-soft); border-top: 1px solid var(--rule); margin-top: 56px; }
-  .disclaimer-head { margin-bottom: 18px; }
-  .d-eyebrow { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.22em; color: var(--text-dim); text-transform: uppercase; font-weight: 500; }
-  .d-title { font-family: var(--serif); font-size: 24px; font-weight: 300; color: var(--ink-mid); margin: 6px 0 0; letter-spacing: 0.01em; }
-  .disclaimer-body { font-family: var(--sans); font-size: 12px; color: var(--text-mid); line-height: 1.78; }
-  .disclaimer-body p { margin: 0 0 12px; }
-  .disclaimer-body b { color: var(--ink-mid); font-weight: 500; }
-  .d-jp-note { font-family: var(--serif); font-size: 11.5px; color: var(--text-dim); line-height: 1.85; padding-top: 10px; margin-top: 14px; border-top: 1px solid var(--rule); }
-
-  /* Footer */
-  footer { padding: 22px 0; border-top: 1px solid var(--rule); background: var(--bg); }
-  .foot-row { display: flex; justify-content: space-between; align-items: baseline; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; }
-  .foot-row a { color: var(--ink-soft); border-bottom: 1px solid var(--rule); }
-
-/* WCAG 2.1 AA accessibility helpers */
-.skip-link {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  z-index: 1000;
-  transform: translateY(-150%);
-  padding: 10px 14px;
-  background: var(--ink, #1a2a4a);
-  color: #fff;
-  text-decoration: none;
-  border-radius: 4px;
-  box-shadow: 0 4px 12px rgba(15,31,58,0.18);
-}
-.skip-link:focus, .skip-link:focus-visible { transform: translateY(0); outline: 3px solid var(--accent, #9a7838); outline-offset: 3px; }
-main:focus { outline: none; }
-a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, [tabindex]:focus-visible {
-  outline: 3px solid var(--accent, #9a7838);
-  outline-offset: 3px;
-}
-.form-row input:focus-visible, .form-row select:focus-visible, .form-row textarea:focus-visible { outline: 3px solid var(--accent, #9a7838); outline-offset: 2px; }
-.form-field-error:empty { min-height: 0; }
-.mobile-menu[hidden] { display: none !important; }
-.mobile-menu a:focus-visible { outline-offset: -2px; }
-@media (max-width: 360px) {
-  .wrap { padding-left: 16px; padding-right: 16px; }
-  .hero-ctas, .cta-row, .share-btns, .week-nav, .toolbar { align-items: stretch; flex-direction: column; }
-  .btn, .form-submit, .mobile-menu-cta, .share-btn { width: 100%; justify-content: center; text-align: center; }
-  .nav-logo-img--desktop { display: none !important; }
-  .nav-logo-img--mobile { display: block !important; }
-  .nav-inner { gap: 10px; }
-  .nav-right { gap: 6px; }
-  .locale-switcher a, .nav-locale-switcher a { min-width: 36px; min-height: 36px; display: inline-flex; align-items: center; justify-content: center; }
-}
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
-}
-
-
-  /* ---- Gallery search input (cap-at-6 + filter) ---- */
-  .gallery-search { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.04em; color: var(--ink-mid); padding: 7px 11px; border: 1px solid var(--rule); background: var(--bg); width: 240px; margin-right: 14px; }
-  .gallery-search:focus { outline: none; border-color: var(--ink-mid); }
-  .gallery-search::placeholder { color: var(--text-dim); }
-  .card.is-hidden { display: none; }
-  @media (max-width: 760px) {
-    .gallery-search { width: 100%; margin-right: 0; margin-bottom: 8px; }
-  }
-
-    /* ---- 5-card horizontal reel (landing) ---- */
-  .reel-section { padding: 56px 0 0; }
-  .reel-head { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:24px; padding-bottom:14px; border-bottom:1px solid var(--rule); gap:18px; flex-wrap:wrap; }
-  .reel-title { font-family:var(--serif); font-size:1.7rem; font-weight:300; color:var(--ink-mid); margin:0; letter-spacing:0.02em; }
-  .reel-viewall-link { font-family:var(--mono); font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--accent-deep); border-bottom:1px solid var(--accent); padding-bottom:2px; }
-  .reel-viewall-link:hover { color:var(--ink); border-color:var(--ink-mid); }
-  .reel { display:flex; gap:24px; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:none; -ms-overflow-style:none; padding-bottom:8px; }
-  .reel::-webkit-scrollbar { display:none; }
-  .card--reel { flex:0 0 340px; scroll-snap-align:start; min-height:380px; }
-  @media (max-width:760px) { .card--reel { flex:0 0 280px; } .reel-section { padding: 40px 0 0; } }
-  .card--viewall { background:var(--bg-soft); border-style:dashed; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; min-height:380px; }
-  .card--viewall:hover { background:var(--bg-mid); }
-  .card-viewall-arrow { font-family:var(--serif); font-size:48px; color:var(--accent-deep); line-height:1; display:block; margin-bottom:14px; }
-  .card-viewall-label { font-family:var(--mono); font-size:11.5px; letter-spacing:0.18em; text-transform:uppercase; color:var(--ink-mid); }
-
-  /* ---- Voices reel (testimonials) ---- */
-  .voices-reel { margin-top: 50px; }
-  .voice-card { margin: 0; }
-  .voice-tag { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent-deep); font-weight: 500; margin-bottom: 16px; }
-  .voice-quote { font-family: var(--serif); font-size: 1rem; line-height: 1.72; color: var(--ink-mid); font-weight: 300; margin: 0 0 18px; }
-  .voice-attr { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--rule-soft); font-family: var(--sans); font-size: 13.5px; color: var(--ink-mid); font-weight: 500; line-height: 1.45; }
-  .voice-firm { display: block; font-family: var(--mono); font-size: 10.5px; font-weight: 400; color: var(--text-mid); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 4px; }
-
-  .cap-feed-show-low { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--text-mid); text-transform: uppercase; padding: 7px 12px; border: 1px solid var(--rule); background: var(--bg); cursor: pointer; transition: all 0.15s; }
-  .cap-feed-show-low:hover { color: var(--ink); border-color: var(--ink-soft); }
-  .cap-feed-show-low.active { color: var(--ink-mid); border-color: var(--ink-mid); background: var(--bg-soft); }
-
-  /* Reel navigation arrows */
-  .reel-wrap { position: relative; }
-  .reel-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 50%; background: var(--bg); border: 1px solid var(--rule); cursor: pointer; z-index: 10; box-shadow: 0 2px 8px rgba(15,31,58,0.08); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 22px; color: var(--ink-mid); transition: all 0.15s; }
-  .reel-nav:hover { border-color: var(--ink-mid); color: var(--ink); }
-  .reel-nav[hidden] { display: none; }
-  .reel-prev { left: -22px; }
-  .reel-next { right: -22px; }
-  @media (max-width:760px) { .reel-nav { display: none; } }
-
-  /* ---- Capital Allocation Signals widget ---- */
-  .cap-feed { padding: 64px 28px 56px; border-top: 1px solid var(--rule); background: var(--bg-soft); margin-top: 24px; }
-  .cap-feed-head { margin: 0 auto 24px; max-width: 1100px; }
-  .cap-feed-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.24em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 12px; }
-  .cap-feed-title { font-family: var(--serif); font-size: clamp(1.4rem, 2.6vw, 1.85rem); font-weight: 300; color: var(--ink-mid); margin: 0 0 12px; letter-spacing: 0.02em; line-height: 1.35; }
-  .cap-feed-lede { font-size: 14px; color: var(--text-mid); margin: 0; max-width: 860px; line-height: 1.85; }
-  .cap-feed-controls { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; margin: 0 auto 14px; padding-bottom: 12px; border-bottom: 1px solid var(--rule); max-width: 1100px; }
-  .cap-feed-search { font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em; color: var(--ink-mid); padding: 8px 12px; border: 1px solid var(--rule); background: var(--bg); width: 260px; }
-  .cap-feed-search:focus { outline: none; border-color: var(--ink-mid); }
-  .cap-feed-viewall { margin-left: auto; font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--accent-deep); text-transform: uppercase; border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
-  .cap-feed-viewall:hover { color: var(--ink-mid); border-color: var(--ink-mid); }
-  .cap-feed-list { max-width: 1100px; margin: 0 auto; }
-  .cap-feed-loading, .cap-feed-empty { padding: 36px 0; text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; }
-  .cap-feed-row { display: flex; flex-direction: column; gap: 6px; padding: 14px 4px; border-bottom: 1px solid var(--rule-soft); font-size: 13px; color: var(--text); transition: background 0.1s; cursor: pointer; }
-  .cap-feed-row:hover { background: var(--bg); }
-  .cap-feed-row-line1 { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
-  .cap-feed-row-line2 { display: flex; gap: 14px; align-items: center; padding-left: 144px; flex-wrap: wrap; }
-  .cap-feed-row-ts { font-family: var(--mono); font-size: 11px; color: var(--text-dim); white-space: nowrap; min-width: 130px; letter-spacing: 0.04em; }
-  .cap-feed-row-tk { font-family: var(--mono); font-weight: 500; color: var(--accent-deep); }
-  .cap-feed-row-name { font-family: var(--serif); color: var(--ink-mid); }
-  .cap-feed-row-class { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; padding: 3px 8px; border: 1px solid var(--accent); color: var(--accent-deep); background: var(--accent-soft); white-space: nowrap; }
-  .cap-feed-row-tag { font-family: var(--sans); color: var(--text-mid); flex: 1 1 0; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .cap-feed-row-source { margin-left: auto; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-deep); border-bottom: 1px solid var(--accent); padding-bottom: 1px; white-space: nowrap; }
-  .cap-feed-row:hover .cap-feed-row-source { color: var(--ink-mid); border-color: var(--ink-mid); }
-  .cap-feed-hint { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin: 4px auto 14px; max-width: 1100px; }
-  .cap-feed-footnote { max-width: 1100px; margin: 14px auto 0; font-family: var(--sans); font-size: 11.5px; color: var(--text-dim); line-height: 1.7; font-style: italic; }
-
-  @media (max-width: 760px) {
-      }
-
-  @media (max-width: 760px) {
-    .cap-feed-row-ts { min-width: 0; flex-basis: 100%; }
-    .cap-feed-search { width: 100%; }
-    .cap-feed-viewall { margin-left: 0; }
-  }
-
-</style>
-<script src="/assets/locale-switcher.js" defer></script>
-<link rel="stylesheet" href="/assets/active-investors.css">
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/compounders-hub.css">
 </head>
-<body>
+<body class="compounders-hub">
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
 <main id="main-content" tabindex="-1">
-<section class="hero">
-  <div class="wrap hero-inner">
-    <div class="hero-brand">
-      <a class="hero-home-link" href="/en/" aria-label="Return to JII home">
-        <span class="mark">J<span class="pipe">|</span>I</span>
-        <span class="sub"><span lang="en">Japan Investor Interface Co., Ltd.</span><br><span lang="ja">株式会社ジャパン・インベスター・インターフェース</span></span>
-      </a>
-      <span class="hero-lang"><a href="/en/compounders/" class="current" lang="en">EN</a><a href="/compounders/" data-locale-route lang="ja">JP</a></span>
+<section class="ch-hero" aria-labelledby="ch-hero-title">
+  <div class="ch-hero-cut" aria-hidden="true"></div>
+  <div class="wrap ch-hero-grid">
+    <div>
+      <span class="ch-kicker">JII Compounders / Research</span>
+      <h1 id="ch-hero-title">Find companies.<br>Follow change.<br>Start a conversation.</h1>
+      <p class="ch-hero-lede">We read public information through an investor&rsquo;s lens, mapping how Japanese companies earn, allocate capital, and compound. Compounders connects discovery, research, monitoring, and company access in one place.</p>
+      <div class="ch-hero-actions">
+        <a class="ch-hero-action" href="#sec-profiles"><span>Latest reports</span><span aria-hidden="true">↓</span></a>
+        <a class="ch-hero-action" href="#explore"><span>Choose your route</span><span aria-hidden="true">↓</span></a>
+      </div>
     </div>
-    <div class="hero-text">
-      <h1>Capital efficiency, <em>compounded further</em>.</h1>
-      <p class="lede">Profiles of mispriced Japanese cash compounders. Each profile explains <b>what the company does</b>, <b>why the stock has moved</b>, <b>what investors care about</b>, and <b>what could change next</b> — one company at a time.<br><br>For more detail, read the <a href="/en/compounders/methodology/" style="color:var(--ink-mid); border-bottom:1px solid var(--accent);">Methodology</a>.</p>
-    
-    </div>
+    <aside class="ch-hero-map" aria-label="How to use Compounders">
+      <span class="ch-hero-map-label">Research desk</span>
+      <ol>
+        <li><span>01</span><strong>Discover</strong><em>Screen and discretionary watch</em></li>
+        <li><span>02</span><strong>Understand</strong><em>Profiles and methodology</em></li>
+        <li><span>03</span><strong>Monitor</strong><em>Capital actions and 5% filings</em></li>
+      </ol>
+    </aside>
   </div>
 </section>
 
-
-
-
-
+<section class="ch-directory" id="explore" aria-labelledby="ch-directory-title">
+  <div class="wrap">
+    <header class="ch-section-head">
+      <div><span class="ch-kicker">Explore Compounders</span><h2 id="ch-directory-title">Start with your question.</h2></div>
+      <p>You do not need to work through the site in order. Discover a company, understand it, or monitor what changed — begin with the task in front of you.</p>
+    </header>
+    <div class="ch-directory-grid">
+      <div class="ch-directory-row">
+        <div class="ch-directory-kind"><small>01 / Discover</small>Find companies</div>
+        <a class="ch-directory-link" href="/en/compounders/universe/#lane-screen"><strong>Screen-qualified</strong><span>Compare companies that pass all seven tests</span></a>
+        <a class="ch-directory-link" href="/en/compounders/universe/#lane-disc"><strong>Discretionary watch</strong><span>See names JII follows outside the screen</span></a>
+      </div>
+      <div class="ch-directory-row">
+        <div class="ch-directory-kind"><small>02 / Understand</small>Read the company</div>
+        <a class="ch-directory-link" href="/en/compounders/profiles/"><strong>Company profiles</strong><span>Business, valuation, debate, and catalysts</span></a>
+        <a class="ch-directory-link" href="/en/compounders/methodology/"><strong>Methodology</strong><span>The six lenses behind every profile</span></a>
+      </div>
+      <div class="ch-directory-row">
+        <div class="ch-directory-kind"><small>03 / Monitor</small>Follow change</div>
+        <a class="ch-directory-link" href="/en/compounders/feed/"><strong>Capital actions</strong><span>Buybacks, dividends, MBOs, and more</span></a>
+        <a class="ch-directory-link" href="/en/compounders/active-investors/"><strong>5% filings</strong><span>New substantial positions and ownership moves</span></a>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 <section class="gallery" id="sec-profiles">
@@ -454,7 +92,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
     <div class="reel-wrap">
       <button type="button" class="reel-nav reel-prev" aria-label="Previous" hidden>&lsaquo;</button>
-      <div class="reel" role="region" aria-label="Recent Profiles">
+      <section class="reel" aria-label="Recent profiles">
 
 
       <a class="card card--reel" href="/en/compounders/5930/initiation/" data-date="2026-07-27" data-ticker="5930">
@@ -704,810 +342,49 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
           <span>Published 14 Jul 2026</span>
         </div>
       </a>
-      <a class="card card--reel" href="/en/compounders/1850/initiation/" data-date="2026-07-13" data-ticker="1850">
-        <div class="card-head">
-          <span class="card-ticker">TSE STANDARD · 1850</span>
-          <span class="card-sector">Railway-Group General Contractor</span>
-        </div>
-        <h3 class="card-name">NANKAI TATSUMURA CONSTRUCTION</h3>
-        <p class="card-jp">南海辰村建設株式会社</p>
-        <p class="card-hook"><b>A 100-year Osaka general contractor building offices, condominiums and civil works across Kansai — and much of the Nankai railway group's own stations; the group owns 62%. In April 2026 it made its first-ever buyback and raised the dividend, on net cash worth ~48% of its market value.</b></p>
-        <div class="card-stats">
-          <div>
-            <div class="card-stat-label">Last Close</div>
-            <div class="card-stat-val">¥438</div>
-          </div>
-          <div>
-            <div class="card-stat-label">EV / OP</div>
-            <div class="card-stat-val">2.2<small>x</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ROCE</div>
-            <div class="card-stat-val">20.6<small>%</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">Net Cash / MC</div>
-            <div class="card-stat-val">48<small>%</small></div>
-          </div>
-        </div>
-        <div class="card-meta-row">
-          <span>Published 13 Jul 2026</span>
-        </div>
-      </a>
-      <a class="card card--reel" href="/en/compounders/9991/initiation/" data-date="2026-07-13" data-ticker="9991">
-        <div class="card-head">
-          <span class="card-ticker">TSE PRIME · 9991</span>
-          <span class="card-sector">Heavy Temporary-Construction Rental</span>
-        </div>
-        <h3 class="card-name">GECOSS CORPORATION</h3>
-        <p class="card-jp">ジェコス株式会社</p>
-        <p class="card-hook"><b>Gecoss rents, designs and installs the heavy temporary steel — H-beams and sheet piles — that shores up big construction sites; it is majority-held within the JFE steel group. In 2024–2025 JFE Steel cut its stake to 27.6% while Mizuho Leasing took 20%.</b></p>
-        <div class="card-stats">
-          <div>
-            <div class="card-stat-label">Last Close</div>
-            <div class="card-stat-val">¥1,574</div>
-          </div>
-          <div>
-            <div class="card-stat-label">EV / OP</div>
-            <div class="card-stat-val">5.7<small>x</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ROCE</div>
-            <div class="card-stat-val">9.7<small>%</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">Net Cash / MC</div>
-            <div class="card-stat-val">13<small>%</small></div>
-          </div>
-        </div>
-        <div class="card-meta-row">
-          <span>Published 13 Jul 2026</span>
-        </div>
-      </a>
-      <a class="card card--reel" href="/en/compounders/2378/initiation/" data-date="2026-07-09" data-ticker="2378">
-        <div class="card-head">
-          <span class="card-ticker">TSE PRIME · 2378</span>
-          <span class="card-sector">Sports Clubs &amp; Health</span>
-        </div>
-        <h3 class="card-name">RENAISSANCE INCORPORATED</h3>
-        <p class="card-jp">株式会社ルネサンス</p>
-        <p class="card-hook"><b>Renaissance runs total sports clubs — gyms, pools and swim and tennis schools — for 442,000 monthly members, spun out of DIC in 1979. On May 8, 2026 it took a ¥3.06bn impairment and net loss, changed CEO, and issued a 2026–2030 plan pivoting to lighter-capital health lines.</b></p>
-        <div class="card-stats">
-          <div>
-            <div class="card-stat-label">Last Close</div>
-            <div class="card-stat-val">¥1,040</div>
-          </div>
-          <div>
-            <div class="card-stat-label">EV / OP</div>
-            <div class="card-stat-val">~23<small>x</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ROCE</div>
-            <div class="card-stat-val">3.9<small>%</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">Net Debt / MC</div>
-            <div class="card-stat-val">113<small>%</small></div>
-          </div>
-        </div>
-        <div class="card-meta-row">
-          <span>Published 9 Jul 2026</span>
-        </div>
-      </a>
-      <a class="card card--reel" href="/en/compounders/7947/initiation/" data-date="2026-07-02" data-ticker="7947">
-        <div class="card-head">
-          <span class="card-ticker">TSE PRIME · 7947</span>
-          <span class="card-sector">Food Containers &amp; Recycling</span>
-        </div>
-        <h3 class="card-name">FP CORPORATION</h3>
-        <p class="card-jp">株式会社エフピコ</p>
-        <p class="card-hook"><b>FP Corporation makes the trays and prepared-food containers Japanese supermarkets pack fresh food in; stores collect used trays and FPCO recycles them into new ones. On April 30, 2026 it withheld its FY3/27 forecast and announced a 20%-plus price revision from June 1.</b></p>
-        <div class="card-stats">
-          <div>
-            <div class="card-stat-label">Last Close</div>
-            <div class="card-stat-val">¥2,631</div>
-          </div>
-          <div>
-            <div class="card-stat-label">EV / OP</div>
-            <div class="card-stat-val">12.3<small>x</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ROCE</div>
-            <div class="card-stat-val">10.2<small>%</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">Net Debt / MC</div>
-            <div class="card-stat-val">25<small>%</small></div>
-          </div>
-        </div>
-        <div class="card-meta-row">
-          <span>Published 2 Jul 2026</span>
-        </div>
-      </a>
-      <a class="card card--reel" href="/en/compounders/6328/initiation/" data-date="2026-07-01" data-ticker="6328">
-        <div class="card-head">
-          <span class="card-ticker">TSE PRIME · 6328</span>
-          <span class="card-sector">Water &amp; Environmental Engineering</span>
-        </div>
-        <h3 class="card-name">EBARA JITSUGYO CO., LTD.</h3>
-        <p class="card-jp">荏原実業株式会社</p>
-        <p class="card-hook"><b>EBARA JITSUGYO designs and builds water and sewerage plant for Japan's municipalities, resells EBARA Corporation pumps, and makes its own environmental products — a net-cash, 22%-ROCE engineer. On June 30, 2026 the shares traded at 7.2x EV/OP with net cash worth 21% of its market value and a record backlog.</b></p>
-        <div class="card-stats">
-          <div>
-            <div class="card-stat-label">Last Close</div>
-            <div class="card-stat-val">¥2,446</div>
-          </div>
-          <div>
-            <div class="card-stat-label">EV / OP</div>
-            <div class="card-stat-val">7.2<small>x</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ROCE</div>
-            <div class="card-stat-val">22<small>%</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">Net Cash / MC</div>
-            <div class="card-stat-val">21<small>%</small></div>
-          </div>
-        </div>
-        <div class="card-meta-row">
-          <span>Published 1 Jul 2026</span>
-        </div>
-      </a>
-      <a class="card card--reel" href="/en/compounders/7378/initiation/" data-date="2026-06-18" data-ticker="7378">
-        <div class="card-head">
-          <span class="card-ticker">TSE GROWTH · 7378</span>
-          <span class="card-sector">Legal Media · Lawyer Referral</span>
-        </div>
-        <h3 class="card-name">ASIRO Inc.</h3>
-        <p class="card-jp">株式会社アシロ</p>
-        <p class="card-hook"><b>ASIRO runs Japan's Bennavi lawyer-referral websites, where lawyers pay monthly listing fees — a recurring base that more than tripled operating profit in FY2025. In March 2026 it lifted its payout policy above 40% as UK activist AVI built a 35% stake, larger than the founder's.</b></p>
-        <div class="card-stats">
-          <div>
-            <div class="card-stat-label">Last Close</div>
-            <div class="card-stat-val">¥1,481</div>
-          </div>
-          <div>
-            <div class="card-stat-label">EV / OP</div>
-            <div class="card-stat-val">5.9<small>x</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ROCE</div>
-            <div class="card-stat-val">~42<small>%</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">Net Cash / MC</div>
-            <div class="card-stat-val">~16<small>%</small></div>
-          </div>
-        </div>
-        <div class="card-meta-row">
-          <span>Updated 18 Jun 2026</span>
-        </div>
-      </a>
-
-      <a class="card card--reel" href="/en/compounders/6835/initiation/" data-date="2026-06-17" data-ticker="6835">
-  <div class="card-head">
-    <span class="card-ticker">TSE STANDARD &middot; 6835</span>
-    <span class="card-sector">Network Hardware &middot; Install &amp; Maintenance &middot; Japan-Led</span>
-  </div>
-  <h3 class="card-name">Allied Telesis Holdings K.K.</h3>
-  <p class="card-jp" lang="ja">アライドテレシスホールディングス株式会社</p>
-  <p class="card-hook"><b>Allied Telesis makes network switches and wireless gear, sold with on-site install and multi-year maintenance to Japan's schools, hospitals, and local governments. On June 16, 2026 it authorized a fresh buyback; the shares trade near 4x EV/OP, with net cash equal to 46% of market value.</b></p>
-  <div class="card-stats">
-    <div><div class="card-stat-label">Close</div><div class="card-stat-val">&yen;238</div></div>
-    <div><div class="card-stat-label">EV / OP</div><div class="card-stat-val">4.1<small>x</small></div></div>
-    <div><div class="card-stat-label">ROCE</div><div class="card-stat-val">16<small>%</small></div></div>
-    <div><div class="card-stat-label">Net Cash / Mkt Cap</div><div class="card-stat-val">46<small>%</small></div></div>
-  </div>
-  <div class="card-meta-row">
-    <span>Published 17 June 2026</span>
-  </div>
-</a>
-
-      <a class="card card--reel" href="/en/compounders/2353/initiation/" data-date="2026-06-09" data-ticker="2353">
-        <div class="card-head">
-          <span class="card-ticker">TSE PRIME · 2353</span>
-          <span class="card-sector">Parking · Ski Resorts · Theme Parks</span>
-        </div>
-        <h3 class="card-name">Nippon Parking Development Co., Ltd.</h3>
-        <p class="card-jp">日本駐車場開発株式会社</p>
-        <p class="card-hook"><b>Nippon Parking Development turns underused land into cash — car parks on an asset-light sublease model, plus Hakuba Valley ski resorts and regional theme parks. On June 5, 2026 it authorized a ¥1.0bn buyback, defending its ROE-above-30% target as ROE slid 42% to 28%, against ROCE near 19%.</b></p>
-        <div class="card-stats">
-          <div>
-            <div class="card-stat-label">Last Close</div>
-            <div class="card-stat-val">¥243</div>
-          </div>
-          <div>
-            <div class="card-stat-label">EV / OP</div>
-            <div class="card-stat-val">8.5<small>x</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ROCE</div>
-            <div class="card-stat-val">~20<small>%</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">Net Cash / MC</div>
-            <div class="card-stat-val">5<small>%</small></div>
-          </div>
-        </div>
-        <div class="card-meta-row">
-          <span>Published 8 Jun 2026</span>
-        </div>
-      </a>
-        <a class="card card--reel" href="/en/compounders/2301/initiation/" data-date="2026-06-08" data-ticker="2301">
-        <div class="card-head">
-          <span class="card-ticker">TSE PRIME · 2301</span>
-          <span class="card-sector">Recruiting Media · Agent · Job Fairs</span>
-        </div>
-        <h3 class="card-name">GAKUJO CO., Ltd.</h3>
-        <p class="card-jp">株式会社学情</p>
-        <p class="card-hook"><b>Gakujo runs Japan's leading recruiting media and job fairs for people in their twenties — the Re-Shukatsu career-change site, an agent, and new-graduate services. On June 8, 2026 it cut full-year operating-profit guidance to ¥2.6bn and authorized a ¥650m buyback.</b></p>
-        <div class="card-stats">
-          <div>
-            <div class="card-stat-label">Last Close</div>
-            <div class="card-stat-val">¥1,547</div>
-          </div>
-          <div>
-            <div class="card-stat-label">EV / OP</div>
-            <div class="card-stat-val">5.5<small>x</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ROCE</div>
-            <div class="card-stat-val">~15<small>%</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">Net Cash / MC</div>
-            <div class="card-stat-val">54<small>%</small></div>
-          </div>
-        </div>
-        <div class="card-meta-row">
-          <span>Published 8 Jun 2026</span>
-        </div>
-      </a>
-
-      
-
-      <a class="card card--reel" href="/en/compounders/2477/initiation/" data-date="2026-06-07" data-ticker="2477">
-        <div class="card-head">
-          <span class="card-ticker">TSE STANDARD · 2477</span>
-          <span class="card-sector">Hotel SaaS · Booking Site Controller</span>
-        </div>
-        <h3 class="card-name">Temairazu, Inc.</h3>
-        <p class="card-jp">手間いらず株式会社</p>
-        <p class="card-hook"><b>Temairazu runs TEMAIRAZU, the booking site-controller Japanese hotels use to manage inventory and rates across every online travel agency from one screen — a ~73% operating-margin, near-zero-capital subscription business. On June 5, 2026 it launched a ¥300mn buyback, with net cash worth 46% of its market value.</b></p>
-        <div class="card-stats">
-          <div>
-            <div class="card-stat-label">Last Close</div>
-            <div class="card-stat-val">¥2,146</div>
-          </div>
-          <div>
-            <div class="card-stat-label">EV / OP</div>
-            <div class="card-stat-val">4.6<small>x</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ROCE</div>
-            <div class="card-stat-val">26<small>%</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">Net Cash / MC</div>
-            <div class="card-stat-val">46<small>%</small></div>
-          </div>
-        </div>
-        <div class="card-meta-row">
-          <span>Published 7 Jun 2026</span>
-        </div>
-      </a>
-
-      <a class="card card--reel" href="/en/compounders/6532/initiation/" data-date="2026-06-04" data-ticker="6532">
-  <div class="card-head">
-    <span class="card-ticker">TSE PRIME &middot; 6532</span>
-    <span class="card-sector">Single Segment &middot; Consulting &middot; Strategy through AI Execution</span>
-  </div>
-  <h3 class="card-name">BayCurrent, Inc.</h3>
-  <p class="card-jp" lang="ja">株式会社ベイカレント</p>
-  <p class="card-hook"><b>BayCurrent sells consulting projects to Japan's largest companies; one pool of about 5,600 consultants bills by time for strategy, digital, and generative-AI work. On March 18, 2026 the board authorized a &yen;30bn buyback, ten times last year's, with all repurchased shares cancelled in August.</b></p>
-  <div class="card-stats">
-    <div><div class="card-stat-label">Close</div><div class="card-stat-val">&yen;5,857</div></div>
-    <div><div class="card-stat-label">EV / OP</div><div class="card-stat-val">12.7<small>x</small></div></div>
-    <div><div class="card-stat-label">ROCE</div><div class="card-stat-val">46<small>%</small></div></div>
-    <div><div class="card-stat-label">Net Cash / Mkt Cap</div><div class="card-stat-val">7<small>%</small></div></div>
-  </div>
-  <div class="card-meta-row">
-    <span>Published 4 June 2026</span>
-  </div>
-</a>
-
-
-      <a class="card card--reel" href="/en/compounders/5570/initiation/" data-date="2026-05-28" data-ticker="5570">
-        <div class="card-head">
-          <span class="card-ticker">TSE GROWTH · 5570</span>
-          <span class="card-sector">Single Segment · Centimeter-positioning data subscription</span>
-        </div>
-        <h3 class="card-name">JENOBA Co., Ltd.</h3>
-        <p class="card-jp">株式会社ジェノバ</p>
-        <p class="card-hook"><b>JENOBA turns Japan&rsquo;s 1,300 public GNSS reference stations into subscription correction data for centimeter-level positioning in surveying, construction, agriculture, and drones. 9,348 paying subscribers at FY2025 year-end, ~6% five-year subscriber CAGR, 56.6% operating margin, and &yen;3.0bn net cash equal to 34% of market cap.</b></p>
-        <div class="card-stats">
-          <div>
-            <div class="card-stat-label">Close</div>
-            <div class="card-stat-val">¥669</div>
-          </div>
-          <div>
-            <div class="card-stat-label">EV / OP</div>
-            <div class="card-stat-val">7.5<small>x</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ROCE</div>
-            <div class="card-stat-val">23<small>%</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">Net Cash / Mkt Cap</div>
-            <div class="card-stat-val">34<small>%</small></div>
-          </div>
-        </div>
-        <div class="card-meta-row">
-          <span>Published May 28, 2026</span>
-        </div>
-      </a>
-
-      <a class="card card--reel" href="/en/compounders/4493/initiation/" data-date="2026-05-28" data-ticker="4493">
-        <div class="card-head">
-          <span class="card-ticker">TSE GROWTH · 4493</span>
-          <span class="card-sector">Single Segment · Cloud WAF · AI Cybersecurity SaaS</span>
-        </div>
-        <h3 class="card-name">Cyber Security Cloud, Inc.</h3>
-        <p class="card-jp">株式会社サイバーセキュリティクラウド</p>
-        <p class="card-hook"><b>Cyber Security Cloud operates Japan's #1 cloud-based WAF "Shadan-kun" and the AWS WAF auto-management service "WafCharm," accumulating 2B+ annual attack data points into proprietary AI engines. ~90% recurring revenue, sub-1% churn, and six consecutive years of 25%+ growth in both revenue and operating profit.</b></p>
-        <div class="card-stats">
-          <div>
-            <div class="card-stat-label">Close</div>
-            <div class="card-stat-val">¥1,721</div>
-          </div>
-          <div>
-            <div class="card-stat-label">EV / OP</div>
-            <div class="card-stat-val">11.9<small>x</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ROCE</div>
-            <div class="card-stat-val">24<small>%</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">Net Cash / Mkt Cap</div>
-            <div class="card-stat-val">19<small>%</small></div>
-          </div>
-        </div>
-        <div class="card-meta-row">
-          <span>Published 28 May 2026</span>
-        </div>
-      </a>
-
-      <a class="card card--reel" href="/en/compounders/6037/initiation/" data-date="2026-05-27" data-ticker="6037">
-        <div class="card-head">
-          <span class="card-ticker">TSE STANDARD · 6037</span>
-          <span class="card-sector">Real Estate Investment Portal · Rakumachi</span>
-        </div>
-        <h3 class="card-name">Rakumachi, Inc.</h3>
-        <p class="card-jp">楽待株式会社</p>
-        <p class="card-hook"><b>Rakumachi sells monthly listing subscriptions to 5,459 Japanese brokerages; the brokerages put rental apartments and small commercial properties in front of 487,000 individual investors. On May 25, 2026 the company restated the page-view figures it had called its headline audience indicator.</b></p>
-        <div class="card-stats">
-          <div>
-            <div class="card-stat-label">Last Close</div>
-            <div class="card-stat-val">¥977</div>
-          </div>
-          <div>
-            <div class="card-stat-label">EV / OP</div>
-            <div class="card-stat-val">10.0<small>x</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ROCE</div>
-            <div class="card-stat-val">28<small>%</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">Net Cash / MC</div>
-            <div class="card-stat-val">6<small>%</small></div>
-          </div>
-        </div>
-        <div class="card-meta-row">
-          <span>Published 27 May 2026</span>
-        </div>
-      </a>
-
-      <a class="card card--reel" href="/en/compounders/4377/initiation/" data-date="2026-05-26" data-ticker="4377">
-        <div class="card-head">
-          <span class="card-ticker">TSE GROWTH · 4377</span>
-          <span class="card-sector">Single-segment career-data platform · New-graduate hiring · Mid-career hiring · Verified interview-review database</span>
-        </div>
-        <h3 class="card-name">ONE CAREER, Inc.</h3>
-        <p class="card-jp">株式会社ワンキャリア</p>
-        <p class="card-hook"><b>ONE CAREER runs the new-graduate hiring platform two-thirds of graduating Japanese students use &mdash; a closed database of 700,000 interview reviews competitors cannot replicate. The question is whether a founder owning 57% reinvests a 38% return on capital, or returns it.</b></p>
-        <div class="card-stats">
-          <div>
-            <div class="card-stat-label">Last Close</div>
-            <div class="card-stat-val">¥1,947</div>
-          </div>
-          <div>
-            <div class="card-stat-label">EV / OP</div>
-            <div class="card-stat-val">9.7<small>x</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ROCE</div>
-            <div class="card-stat-val">38<small>%</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">Net Cash / MC</div>
-            <div class="card-stat-val">18<small>%</small></div>
-          </div>
-        </div>
-        <div class="card-meta-row">
-          <span>Published 26 May 2026</span>
-        </div>
-      </a>
-
-      <a class="card card--reel" href="/en/compounders/3984/initiation/" data-date="2026-05-25" data-ticker="3984">
-        <div class="card-head">
-          <span class="card-ticker">TSE PRIME · 3984</span>
-          <span class="card-sector">Single-segment SaaS · Web analytics · Social listening · Enterprise generative AI</span>
-        </div>
-        <h3 class="card-name">User Local, Inc.</h3>
-        <p class="card-jp">株式会社ユーザーローカル</p>
-        <p class="card-hook"><b>User Local is a single-segment SaaS company that helps enterprises analyze customer behavior across websites, social channels, and in-house AI chat workflows. Its earnings model combines sticky subscription revenue from legacy analytics products with newer AI-DX demand, supported by high margins and tight cost control.</b></p>
-        <div class="card-stats">
-          <div>
-            <div class="card-stat-label">Last Close</div>
-            <div class="card-stat-val">¥1,791</div>
-          </div>
-          <div>
-            <div class="card-stat-label">EV / OP</div>
-            <div class="card-stat-val">8.6<small>x</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ROCE</div>
-            <div class="card-stat-val">24<small>%</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">Net Cash / MC</div>
-            <div class="card-stat-val">33<small>%</small></div>
-          </div>
-        </div>
-        <div class="card-meta-row">
-          <span>Published 25 May 2026</span>
-        </div>
-      </a>
-
-      <a class="card card--reel" href="/en/compounders/6947/initiation/" data-date="2026-05-21" data-ticker="6947">
-        <div class="card-head">
-          <span class="card-ticker">TSE PRIME · 6947</span>
-          <span class="card-sector">Electronic Design Automation · PCB / Wire-harness CAD · MBSE</span>
-        </div>
-        <h3 class="card-name">Zuken Inc.</h3>
-        <p class="card-jp">株式会社図研</p>
-        <p class="card-hook"><b>Zuken turns electrical-engineering intent into the working circuit board and the wire harness &mdash; a fifty-year franchise locked into Japanese OEM design libraries. The recurring Client Services book compounds with each renewal; the case settles on a capital-return debate just beginning.</b></p>
-        <div class="card-stats">
-          <div>
-            <div class="card-stat-label">Last Close</div>
-            <div class="card-stat-val">¥4,820</div>
-          </div>
-          <div>
-            <div class="card-stat-label">EV / OP</div>
-            <div class="card-stat-val">9.8<small>x</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ROCE</div>
-            <div class="card-stat-val">13<small>%</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">Net Cash / MC</div>
-            <div class="card-stat-val">36<small>%</small></div>
-          </div>
-        </div>
-        <div class="card-meta-row">
-          <span>Published 21 May 2026</span>
-        </div>
-      </a>
-
-      <a class="card card--reel" href="/en/compounders/4168/initiation/" data-date="2026-05-21" data-ticker="4168">
-        <div class="card-head">
-          <span class="card-ticker">TSE GROWTH · 4168</span>
-          <span class="card-sector">No-code Mobile DX Platform · Multi-product engagement SaaS</span>
-        </div>
-        <h3 class="card-name">Yappli, Inc.</h3>
-        <p class="card-jp">株式会社ヤプリ</p>
-        <p class="card-hook"><b>Yappli sells the no-code platform Japanese retailers and restaurants run native apps on &mdash; a moat sub-one-percent churn underwrites. Four products attach to the same identifier layer; the case settles on a capital-return policy still unformalized.</b></p>
-        <div class="card-stats">
-          <div>
-            <div class="card-stat-label">Last Close</div>
-            <div class="card-stat-val">¥745</div>
-          </div>
-          <div>
-            <div class="card-stat-label">EV / OP</div>
-            <div class="card-stat-val">8.5<small>x</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ROCE</div>
-            <div class="card-stat-val">24<small>%</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">Net Cash / MC</div>
-            <div class="card-stat-val">11<small>%</small></div>
-          </div>
-        </div>
-        <div class="card-meta-row">
-          <span>Published 21 May 2026</span>
-        </div>
-      </a>
-
-      <a class="card card--reel" href="/en/compounders/5843/initiation/" data-date="2026-05-19" data-ticker="5843">
-        <div class="card-head">
-          <span class="card-ticker">TSE STANDARD · 5843</span>
-          <span class="card-sector">Rent-Debt Guarantee · Pure-Play Specialty Credit</span>
-        </div>
-        <h3 class="card-name">Nippon Insure Co., Ltd.</h3>
-        <p class="card-jp">ニッポンインシュア株式会社</p>
-        <p class="card-hook"><b>Nippon Insure guarantees rent for Japanese tenants whose landlords no longer accept human cosigners &mdash; a need aging households keep widening. What matters now is whether management raises a 10% payout as cash builds against a business earning 32% on capital.</b></p>
-        <div class="card-stats">
-          <div>
-            <div class="card-stat-label">Last Close</div>
-            <div class="card-stat-val">¥2,418</div>
-          </div>
-          <div>
-            <div class="card-stat-label">EV / OP</div>
-            <div class="card-stat-val">5.3<small>x</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ROCE</div>
-            <div class="card-stat-val">32<small>%</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">Net Cash / MC</div>
-            <div class="card-stat-val">33<small>%</small></div>
-          </div>
-        </div>
-        <div class="card-meta-row">
-          <span>Published 19 May 2026</span>
-        </div>
-      </a>
-
-      <a class="card card--reel" href="/en/compounders/4071/initiation/" data-date="2026-05-19" data-ticker="4071">
-        <div class="card-head">
-          <span class="card-ticker">TSE PRIME · 4071</span>
-          <span class="card-sector">HR &amp; Marketing SaaS · Japanese-NLP Compounder</span>
-        </div>
-        <h3 class="card-name">Plus Alpha Consulting Co., Ltd.</h3>
-        <p class="card-jp">株式会社プラスアルファ・コンサルティング</p>
-        <p class="card-hook"><b>Plus Alpha Consulting is an HR SaaS company in Japan, centered on Talent Palette, with sticky enterprise contracts and high returns on capital. The profile explains why the stock can re-rate if growth and capital policy become easier for investors to verify.</b></p>
-        <div class="card-stats">
-          <div>
-            <div class="card-stat-label">Last Close</div>
-            <div class="card-stat-val">¥2,394</div>
-          </div>
-          <div>
-            <div class="card-stat-label">EV / OP</div>
-            <div class="card-stat-val">11.6<small>x</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ROCE</div>
-            <div class="card-stat-val">46<small>%</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">Net Cash / MC</div>
-            <div class="card-stat-val">14<small>%</small></div>
-          </div>
-        </div>
-        <div class="card-meta-row">
-          <span>Published 19 May 2026</span>
-        </div>
-      </a>
-
-      <a class="card card--reel" href="/en/compounders/4058/initiation/" data-date="2026-05-18" data-ticker="4058">
-        <div class="card-head">
-          <span class="card-ticker">TSE GROWTH · 4058</span>
-          <span class="card-sector">Cloud Business SaaS · Anpi · kintone Integration · NotePM</span>
-        </div>
-        <h3 class="card-name">Toyokumo, Inc.</h3>
-        <p class="card-jp">トヨクモ株式会社</p>
-        <p class="card-hook"><b>Toyokumo sells three pieces of cloud software Japanese small companies use to send disaster-safety alerts, extend the kintone business-app platform, and manage team knowledge. The debate is whether the NotePM acquisition earns back its goodwill, and whether ¥4.4bn of cash returns to shareholders.</b></p>
-        <div class="card-stats">
-          <div>
-            <div class="card-stat-label">Last Close</div>
-            <div class="card-stat-val">¥1,943</div>
-          </div>
-          <div>
-            <div class="card-stat-label">EV / OP</div>
-            <div class="card-stat-val">8.8<small>x</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ROCE</div>
-            <div class="card-stat-val">44<small>%</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">Net Cash / MC</div>
-            <div class="card-stat-val">21<small>%</small></div>
-          </div>
-        </div>
-        <div class="card-meta-row">
-          <span>Published 18 May 2026</span>
-        </div>
-      </a>
-
-      <a class="card card--reel" href="/en/compounders/4776/initiation/" data-date="2026-05-15" data-ticker="4776">
-        <div class="card-head">
-          <span class="card-ticker">TSE PRIME · 4776</span>
-          <span class="card-sector">Groupware &amp; No-Code Business-App SaaS</span>
-        </div>
-        <h3 class="card-name">Cybozu, Inc.</h3>
-        <p class="card-jp">サイボウズ株式会社</p>
-        <p class="card-hook"><b>Cybozu makes kintone, the no-code platform 39,000 Japanese companies use to build internal business apps. The open question is whether FY25&apos;s price-revision profit jump holds at the higher cost base, and whether the May ¥3bn buyback becomes a stated policy.</b></p>
-        <div class="card-stats">
-          <div>
-            <div class="card-stat-label">Last Close</div>
-            <div class="card-stat-val">¥2,197</div>
-          </div>
-          <div>
-            <div class="card-stat-label">EV / OP</div>
-            <div class="card-stat-val">8.9<small>x</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ROCE</div>
-            <div class="card-stat-val">68<small>%</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">Net Cash / MC</div>
-            <div class="card-stat-val">8<small>%</small></div>
-          </div>
-        </div>
-        <div class="card-meta-row">
-          <span>Published 15 May 2026</span>
-        </div>
-      </a>
-      <a class="card card--reel" href="/en/compounders/4475/initiation/" data-date="2026-05-14" data-ticker="4475">
-        <div class="card-head">
-          <span class="card-ticker">TSE GROWTH · 4475</span>
-          <span class="card-sector">Cloud Security · Identity &amp; DLP SaaS</span>
-        </div>
-        <h3 class="card-name">HENNGE K.K.</h3>
-        <p class="card-jp">ＨＥＮＮＧＥ株式会社</p>
-        <p class="card-hook"><b>HENNGE sells cloud security software Japanese companies use to sign in to work email and apps safely, with data-protection and endpoint modules. The test is whether ARR growth re-accelerates from +14.7% and whether margins settle as new products absorb spend.</b></p>
-        <div class="card-stats">
-          <div>
-            <div class="card-stat-label">Last Close</div>
-            <div class="card-stat-val">¥1,016</div>
-          </div>
-          <div>
-            <div class="card-stat-label">EV / OP</div>
-            <div class="card-stat-val">12.5<small>x</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ROCE</div>
-            <div class="card-stat-val">~48<small>%</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">Net Cash / MC</div>
-            <div class="card-stat-val">22<small>%</small></div>
-          </div>
-        </div>
-        <div class="card-meta-row">
-          <span>Published 14 May 2026</span>
-        </div>
-      </a>
-      <a class="card card--reel" href="/en/compounders/4194/initiation/" data-date="2026-05-12" data-ticker="4194">
-        <div class="card-head">
-          <span class="card-ticker">TSE PRIME · 4194</span>
-          <span class="card-sector">HR Tech · Recruiting Platform</span>
-        </div>
-        <h3 class="card-name">Visional, Inc.</h3>
-        <p class="card-jp">株式会社ビジョナル</p>
-        <p class="card-hook"><b>Visional runs BizReach, Japan&apos;s direct-sourcing recruitment platform for mid-career professionals, alongside HRMOS, an HR-management SaaS that just turned profitable. The debate now is whether HRMOS profitability is organic or driven by sonar ATS consolidation, and the use of ¥70bn cash.</b></p>
-        <div class="card-stats">
-          <div>
-            <div class="card-stat-label">Last Close</div>
-            <div class="card-stat-val">¥7,337</div>
-          </div>
-          <div>
-            <div class="card-stat-label">EV / OP</div>
-            <div class="card-stat-val">9.8<small>x</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">ROCE</div>
-            <div class="card-stat-val">~35<small>%</small></div>
-          </div>
-          <div>
-            <div class="card-stat-label">Net Cash / MC</div>
-            <div class="card-stat-val">24<small>%</small></div>
-          </div>
-        </div>
-        <div class="card-meta-row">
-          <span>Published 12 May 2026</span>
-        </div>
-      </a>
-
       <a class="card card--reel card--viewall" href="/en/compounders/profiles/">
         <span class="card-viewall-arrow" aria-hidden="true">&rarr;</span>
         <span class="card-viewall-label">View all profiles</span>
       </a>
 
-    </div>
+    </section>
       <button type="button" class="reel-nav reel-next" aria-label="Next">&rsaquo;</button>
     </div>
 
 
-    <!-- Honebuto 2026 deep dive (added 2026-08-04) — TEMPORARILY HIDDEN 2026-08-08 while page is unpublished (fixing corrupt JP images). To restore: remove the surrounding comment markers and re-add the honebuto-2026 folder to the repo. -->
-    <!--
-    <section class="dd-gem" aria-labelledby="dd-gem-title">
-      <div class="dd-gem-inner">
-        <div>
-          <span class="dd-gem-eyebrow">JII Deep Dive</span>
-          <h2 class="dd-gem-title" id="dd-gem-title">Honebuto 2026: Japan&rsquo;s Investment State</h2>
-          <p class="dd-gem-sub">A new fiscal anchor, rising bond costs, and 14 underfollowed small caps in the spending chain. Seventeen strategic fields, mapped from appropriation to order book.</p>
-        </div>
-        <div>
-          <a class="dd-gem-cta" href="/honebuto-2026/">Read the deep dive &rarr;</a>
-          <div class="dd-gem-meta">Free &middot; 21 sections</div>
-        </div>
-      </div>
-    </section>
-    -->
-
-    <!-- English Notes · Substack subscribe gem strip (EN only) -->
-    <section class="notes-gem" aria-labelledby="notes-gem-title">
-      <div class="notes-gem-inner">
-        <div class="notes-gem-text">
-          <h2 class="notes-gem-title" id="notes-gem-title">Get our notes directly in your mailbox.</h2>
-        </div>
-        <form class="notes-gem-form" action="https://japaninterface.substack.com/subscribe" method="get" target="_blank" rel="noopener">
-          <input type="hidden" name="utm_source" value="jpinv-compounders">
-          <div class="notes-gem-field">
-            <input class="notes-gem-input" type="email" name="email" required placeholder="you@fund.com" autocomplete="email" aria-label="Email address">
-            <button class="notes-gem-btn" type="submit">
-              <svg class="notes-gem-mark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
-              Subscribe
-            </button>
-          </div>
-          <p class="notes-gem-note">Free &middot; unsubscribe anytime</p>
-        </form>
+    <section class="ch-formats" aria-labelledby="ch-formats-title">
+      <header class="ch-formats-head">
+        <h2 id="ch-formats-title">More ways to follow the research.</h2>
+        <p>The same research base, extended into thematic and audio formats.</p>
+      </header>
+      <div class="ch-format-grid">
+        <article class="ch-format">
+          <span class="ch-format-status">Coming soon</span>
+          <span class="ch-format-icon" aria-hidden="true">D</span>
+          <h3>JII Deep Dive</h3>
+          <p>Long-form research connecting policy, industry structure, capital markets, and the companies in between.</p>
+        </article>
+        <article class="ch-format ch-format--podcast">
+          <span class="ch-format-status">In development</span>
+          <span class="ch-format-icon" aria-hidden="true">◉</span>
+          <h3>JII Podcast</h3>
+          <p>Conversations on how to read Japanese companies and the market changes that matter.</p>
+        </article>
       </div>
     </section>
 
-    <section class="voices-reel" aria-label="Voices">
-      <div class="reel-head">
-        <h2 class="reel-title">Voices</h2>
-      </div>
-      <div class="reel-wrap">
-        <button type="button" class="reel-nav reel-prev" aria-label="Previous" hidden>&lsaquo;</button>
-        <div class="reel" role="region" aria-label="Voices">
-
-          <figure class="card card--reel voice-card">
-            <div class="voice-tag">Interpretation</div>
-            <blockquote class="voice-quote">&ldquo;I&rsquo;ve been working with JII for several years &mdash; either in person when I am in Japan or via videoconference when abroad. Teddy always does a great job preparing for the calls and helping to work through the nuance of the discussion, which is easier said than done. I wholly endorse JII for any interpretation requirements you may have as an overseas investor.&rdquo;</blockquote>
-            <figcaption class="voice-attr">Mark Landecker<span class="voice-firm">Partner &middot; FPA</span></figcaption>
-          </figure>
-
-          <figure class="card card--reel voice-card">
-            <div class="voice-tag">Arrangement + interpretation</div>
-            <blockquote class="voice-quote">&ldquo;JII arranged a series of meetings with Japanese companies for us in 2023 and did a great job &mdash; thorough, punctual, and their interpretation is top-notch. On top of that, two of our largest positions in Japan are ideas I first discovered via JII&rsquo;s Twitter feed.&rdquo;</blockquote>
-            <figcaption class="voice-attr">Evan Tindell<span class="voice-firm">Co-founder &amp; CIO &middot; Bireme Capital</span></figcaption>
-          </figure>
-
-          <figure class="card card--reel voice-card">
-            <div class="voice-tag">Market insight</div>
-            <blockquote class="voice-quote">&ldquo;Anyone approaching Japanese small-cap companies from overseas could use a good sherpa, and as a professional translator Teddy has had a front-row seat to the shifting governance, capital allocation, and IR norms reshaping this market. Tap into his experience and insights to augment your process and flatten the learning curve.&rdquo;</blockquote>
-            <figcaption class="voice-attr">Toby Shute</figcaption>
-          </figure>
-
-        </div>
-        <button type="button" class="reel-nav reel-next" aria-label="Next">&rsaquo;</button>
-      </div>
-    </section>
-    <section class="company-call-cta" id="company-call-request" aria-label="Request a company call">
+    <section class="company-call-cta cta-box" id="company-call-request" aria-label="Request a company call">
       <div class="company-call-card">
         <div class="company-call-copy">
           <div class="company-call-eyebrow">Company access · Institutional investors</div>
-          <h2 class="company-call-title">Request a company call.</h2>
-          <p class="company-call-body">Want to speak with a Japanese listed company after reviewing our profiles, methodology, or universe? Send the company name or ticker — in our universe or not. For eligible institutional investors, <b>setup is free</b>. Interpretation / attendance is fee-based, so we first confirm context, scope, and frequency in a <b>required 15-minute briefing</b>.</p>
-          <div class="company-call-terms" aria-label="How the request works">
-            <span class="company-call-pill">Universe or off-universe</span>
-            <span class="company-call-pill">Free setup for institutions</span>
-            <span class="company-call-pill">Paid interpretation</span>
-            <span class="company-call-pill">15-min briefing first</span>
-          </div>
+          <h2 class="company-call-title">Request a company call</h2>
+          <p class="company-call-body">Send the company name or ticker; we will also check names outside the universe. Call setup is <b>free for eligible institutional investors</b>. Interpretation or attendance is fee-based and begins with a <b>15-minute briefing</b>.</p>
+          <ul class="company-call-terms">
+            <li class="company-call-pill">Universe or off-universe</li>
+            <li class="company-call-pill">Free setup for institutions</li>
+            <li class="company-call-pill">Paid interpretation</li>
+            <li class="company-call-pill">15-min briefing first</li>
+          </ul>
         </div>
         <div class="company-call-form-wrap">
           <form class="company-call-form" id="company-call-form" action="https://formspree.io/f/mdayglyl" method="POST">
@@ -1569,10 +446,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
 <section class="disclaimer">
   <div class="wrap">
-    <div class="disclaimer-head">
+    <details class="disclaimer-details">
+    <summary>
       <span class="d-eyebrow">Important Disclaimer · 重要なご注意</span>
-      <h2 class="d-title">This is not investment advice.</h2>
-    </div>
+      <strong class="d-title">This is not investment advice.</strong>
+      <span class="d-open">Read in full</span>
+    </summary>
     <div class="disclaimer-body">
       <p>
         <b>Japan Investor Interface Co., Ltd. ("JII")</b> is an investor-relations (IR) consultancy. JII is <b>not</b> a registered investment advisor, financial advisor, broker-dealer, or securities firm in any jurisdiction. JII is <b>not</b> registered as a Financial Instruments Business Operator (金融商品取引業者) under Japan's Financial Instruments and Exchange Act. JII does not have a 投資助言・代理業 registration and does not provide investment advice or solicit the purchase, sale, or holding of any security.
@@ -1596,17 +475,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
         本資料は、日本の金融商品取引法に基づく投資助言・代理業ではなく、特定の有価証券の売買その他の取引の勧誘・推奨を目的とするものではありません。本資料は教育・研究を目的とした分析記事であり、JII（株式会社ジャパン・インベスター・インターフェース）は、本資料の内容に基づく投資判断について一切の責任を負いません。投資の判断はご自身の責任と独立した調査に基づいて行ってください。
       </p>
     </div>
+    </details>
   </div>
 </section>
 
 </main>
-<footer>
-  <div class="wrap foot-row">
-    <span><a href="/en/compounders/methodology/">Methodology</a> · Japan Investor Interface Co., Ltd.</span>
-    <span><a href="/en/">jpinv.com</a> · <a href="https://japaninterface.substack.com/" rel="noopener" target="_blank">Substack (English notes)</a></span>
-    <span class="footer-locale-switcher">Language: <a href="/en/compounders/" class="current" aria-current="page" lang="en">EN</a> · <a href="/compounders/" data-locale-route lang="ja">JP</a></span>
-  </div>
-</footer>
 
 
 
@@ -1614,7 +487,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
 <script>
 (function(){
-  // ---- Horizontal reels (Recent Profiles + Voices): prev/next arrow navigation ----
+  // ---- Horizontal report reel: prev/next arrow navigation ----
   var wraps = document.querySelectorAll('.reel-wrap');
   if (!wraps.length) return;
   Array.prototype.forEach.call(wraps, function(wrap){
