@@ -185,3 +185,16 @@
   .sp-stage-nav a,.sp-service-media img,.sp-subservices a,.sp-text-link,.sp-final a{transition:none}
   .sp-service-media:hover img,.sp-service-media:focus-visible img,.sp-final a:hover,.sp-final a:focus-visible{transform:none}
 }
+
+html[lang="en"] .sp-page h1,
+html[lang="en"] .sp-page h2,
+html[lang="en"] .sp-page h3{letter-spacing:0;line-break:auto}
+html[lang="en"] .sp-hero-copy h1{max-width:960px;font-size:clamp(31px,3.35vw,41px);line-height:1.4}
+html[lang="en"] .sp-stage-nav b{font-size:16px;letter-spacing:0}
+html[lang="en"] .sp-service-copy h2,
+html[lang="en"] .sp-ongoing-copy h2{letter-spacing:0}
+html[lang="en"] .sp-spec>div{grid-template-columns:110px 1fr}
+@media(max-width:760px){
+  html[lang="en"] .sp-hero-copy h1{font-size:clamp(25px,7.2vw,31px);line-height:1.43}
+  html[lang="en"] .sp-spec>div{grid-template-columns:90px 1fr}
+}
