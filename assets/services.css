@@ -8,15 +8,15 @@
 .sp-kicker::before,.sp-section-kicker::before{content:"";width:20px;height:1px;background:currentColor}
 
 /* Hero */
-#top.sp-hero{padding:calc(var(--nav-h) + 48px) 0 0;border:0;background:#0f1f3a;color:#fff;overflow:hidden}
+#top.sp-hero{padding:calc(var(--nav-h) + 40px) 0 0;border:0;background:#0f1f3a;color:#fff;overflow:hidden}
 .sp-hero-cut{position:absolute;inset:0 -4% 0 38%;background:#16294a;clip-path:polygon(25% 0,100% 0,100% 100%,0 100%);opacity:.96}
 .sp-hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.024) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.024) 1px,transparent 1px);background-size:72px 72px;pointer-events:none;-webkit-mask-image:linear-gradient(180deg,#000,transparent 92%);mask-image:linear-gradient(180deg,#000,transparent 92%)}
 .sp-hero .wrap{position:relative;z-index:2}
-.sp-crumbs{display:flex;gap:9px;align-items:center;margin-bottom:56px;font-family:var(--mono);font-size:9px;letter-spacing:.12em;color:rgba(255,255,255,.45)}
+.sp-crumbs{display:flex;gap:9px;align-items:center;margin-bottom:43px;font-family:var(--mono);font-size:9px;letter-spacing:.12em;color:rgba(255,255,255,.45)}
 .sp-crumbs a{color:rgba(255,255,255,.62);text-decoration:none}
-.sp-hero-copy{max-width:900px;padding-bottom:64px}
+.sp-hero-copy{max-width:900px;padding-bottom:50px}
 .sp-hero-copy .sp-kicker{margin-bottom:20px;color:#d0ad6a}
-.sp-hero-copy h1{margin:0;font-family:var(--serif);font-size:clamp(35px,4.6vw,55px);font-weight:300;line-height:1.55;letter-spacing:.045em;color:#fff}
+.sp-hero-copy h1{margin:0;font-family:var(--serif);font-size:var(--hero-title,clamp(32px,3.5vw,42px));font-weight:300;line-height:1.5;letter-spacing:.04em;color:#fff}
 .sp-hero-copy h1 span{display:inline-block}
 .sp-hero-copy p{max-width:650px;margin-top:24px;font-size:15px;line-height:2;color:rgba(255,255,255,.76)}
 .sp-stage-nav{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(255,255,255,.2)}
@@ -131,7 +131,7 @@
   .sp-hero-cut{inset:0 -45% 0 12%}
   .sp-crumbs{margin-bottom:38px}
   .sp-hero-copy{padding-bottom:42px}
-  .sp-hero-copy h1{font-size:clamp(27px,8.3vw,35px);line-height:1.62;letter-spacing:.035em}
+  .sp-hero-copy h1{font-size:var(--hero-title-mobile,clamp(25px,7.2vw,29px));line-height:1.54;letter-spacing:.03em}
   .sp-hero-copy h1 br{display:none}
   .sp-hero-copy p{margin-top:18px;font-size:13px;line-height:1.95}
   .sp-stage-nav{grid-template-columns:1fr}
