@@ -196,6 +196,14 @@
   var NAV_H = 64, SUB_H = 46;
 
   var css = [
+    /* Japanese normally permits a line break between almost any two
+       characters. That is appropriate for body copy, but it can split a
+       heading in the middle of a word (リクエス / ト, for example).
+       `auto-phrase` asks the browser to use natural bunsetsu boundaries.
+       Section 6c supplies a word-level fallback for browsers that do not yet
+       implement it. English keeps its normal wrapping rules. */
+    "html[lang='ja'] :where(h1,h2,h3,h4,h5,h6){word-break:auto-phrase;line-break:strict;}",
+    ".jii-no-break-word{white-space:nowrap;}",
     "#jii-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.97);",
     "backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--rule,#d6dee8);}",
     /* Full-bleed like Nikkato: logo hard left, sections centered in the
@@ -651,6 +659,80 @@
   menu.addEventListener("click", function (e) {
     if (e.target.closest("a")) setOpen(false);
   });
+
+  /* ---------- 6a. Phrase-safe Japanese headings ----------
+
+     Chrome/Edge and current WebKit understand `word-break:auto-phrase`, which
+     produces the best Japanese line breaks. Older engines ignore that value.
+     For those engines, protect the words inside headings with small inline
+     spans so a line can move before or after リクエスト, ガバナンス, etc., but
+     never through the word itself.
+
+     Intl.Segmenter occasionally splits one katakana loanword into several
+     short pieces (ガバ / ナン / ス). Adjacent short katakana pieces are merged
+     again before spans are written. Long compounds retain the larger word
+     boundaries so they do not become a single unbreakable line. */
+  function protectJapaneseHeadingWords() {
+    if (isEn || !window.Intl || !Intl.Segmenter) return;
+    if (window.CSS && CSS.supports && CSS.supports("word-break", "auto-phrase")) return;
+
+    var segmenter = new Intl.Segmenter("ja", { granularity: "word" });
+    var headings = document.querySelectorAll("h1,h2,h3,h4,h5,h6");
+    var katakana = /^[\u30A0-\u30FF\u31F0-\u31FF\uFF65-\uFF9F]+$/;
+
+    function appendWord(fragment, value) {
+      var span = document.createElement("span");
+      span.className = "jii-no-break-word";
+      span.textContent = value;
+      fragment.appendChild(span);
+    }
+
+    function appendKatakanaRun(fragment, pieces) {
+      var shortRun = "";
+      for (var i = 0; i < pieces.length; i++) {
+        var value = pieces[i];
+        if (value.length <= 3) {
+          shortRun += value;
+        } else {
+          if (shortRun) { appendWord(fragment, shortRun); shortRun = ""; }
+          appendWord(fragment, value);
+        }
+      }
+      if (shortRun) appendWord(fragment, shortRun);
+    }
+
+    for (var h = 0; h < headings.length; h++) {
+      var walker = document.createTreeWalker(headings[h], NodeFilter.SHOW_TEXT);
+      var nodes = [];
+      while (walker.nextNode()) nodes.push(walker.currentNode);
+
+      for (var n = 0; n < nodes.length; n++) {
+        var node = nodes[n];
+        if (!node.nodeValue || !node.nodeValue.trim()) continue;
+        if (node.parentElement && node.parentElement.closest(".jii-no-break-word,svg,script,style")) continue;
+
+        var segments = Array.from(segmenter.segment(node.nodeValue));
+        var fragment = document.createDocumentFragment();
+        for (var s = 0; s < segments.length;) {
+          var part = segments[s];
+          if (part.isWordLike && katakana.test(part.segment)) {
+            var run = [];
+            while (s < segments.length && segments[s].isWordLike && katakana.test(segments[s].segment)) {
+              run.push(segments[s].segment);
+              s++;
+            }
+            appendKatakanaRun(fragment, run);
+          } else {
+            if (part.isWordLike) appendWord(fragment, part.segment);
+            else fragment.appendChild(document.createTextNode(part.segment));
+            s++;
+          }
+        }
+        node.parentNode.replaceChild(fragment, node);
+      }
+    }
+  }
+  protectJapaneseHeadingWords();
 
   /* ---------- 6b. Keeping a dropdown panel open ----------
 
