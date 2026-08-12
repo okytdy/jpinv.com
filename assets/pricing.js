@@ -1,6 +1,7 @@
 (function () {
   'use strict';
 
+  const isEnglish = document.documentElement.lang.toLowerCase().startsWith('en');
   const yen = new Intl.NumberFormat('ja-JP');
   const tabs = Array.from(document.querySelectorAll('.quote-tab'));
   const panels = Array.from(document.querySelectorAll('.quote-panel'));
@@ -31,7 +32,7 @@
   }
 
   function displayRange(low, high) {
-    return `¥${yen.format(low)}〜¥${yen.format(high)}`;
+    return `¥${yen.format(low)}${isEnglish ? '–' : '〜'}¥${yen.format(high)}`;
   }
 
   function setActiveMode(mode, focusPanel) {
@@ -64,11 +65,13 @@
     const isEnglishSource = direction === 'en-ja';
     documentType.disabled = isEnglishSource;
     documentType.setAttribute('aria-disabled', isEnglishSource ? 'true' : 'false');
-    translationUnit.textContent = isEnglishSource ? 'ワード' : '文字';
+    translationUnit.textContent = isEnglish
+      ? (isEnglishSource ? 'words' : 'characters')
+      : (isEnglishSource ? 'ワード' : '文字');
 
     const count = readPositiveNumber(translationCount, 1000000);
     if (count === null) {
-      translationPrice.textContent = '原稿の分量を入力してください';
+      translationPrice.textContent = isEnglish ? 'Enter the source volume' : '原稿の分量を入力してください';
       translationSummary.textContent = '';
       setResultState(translationResult, translationSummary, false);
       return;
@@ -76,26 +79,28 @@
 
     let lowRate = 6;
     let highRate = 9;
-    let serviceLabel = '決算短信・適時開示など';
+    let serviceLabel = isEnglish ? 'earnings release or timely disclosure' : '決算短信・適時開示など';
     if (isEnglishSource) {
       lowRate = 12;
       highRate = 22;
-      serviceLabel = 'IR関連文書の英日翻訳';
+      serviceLabel = isEnglish ? 'English-to-Japanese IR translation' : 'IR関連文書の英日翻訳';
     } else if (documentType.value === 'strategic') {
       lowRate = 10;
       highRate = 14;
-      serviceLabel = '統合報告書・有報・中計など';
+      serviceLabel = isEnglish ? 'integrated report, securities report, or medium-term plan' : '統合報告書・有報・中計など';
     }
 
     const low = count * lowRate;
     const high = count * highRate;
     translationPrice.textContent = displayRange(low, high);
-    translationSummary.textContent = `${yen.format(count)}${isEnglishSource ? 'ワード' : '文字'} × ${lowRate}～${highRate}円`;
+    translationSummary.textContent = isEnglish
+      ? `${yen.format(count)} ${isEnglishSource ? 'words' : 'characters'} × ¥${lowRate}–${highRate}`
+      : `${yen.format(count)}${isEnglishSource ? 'ワード' : '文字'} × ${lowRate}～${highRate}円`;
     currentEstimate = {
       mode: 'translation',
       direction,
       count,
-      unit: isEnglishSource ? 'ワード' : '文字',
+      unit: isEnglish ? (isEnglishSource ? ' words' : ' characters') : (isEnglishSource ? 'ワード' : '文字'),
       document: isEnglishSource ? 'other' : (documentType.value === 'strategic' ? 'annual_report' : 'earnings_release'),
       low,
       high,
@@ -107,7 +112,7 @@
   function updateInterpretation() {
     const meetings = readPositiveNumber(meetingCount, 24);
     if (meetings === null) {
-      interpretationPrice.textContent = '回数を入力してください';
+      interpretationPrice.textContent = isEnglish ? 'Enter the number of bookings' : '回数を入力してください';
       interpretationSummary.textContent = '';
       setResultState(interpretationResult, interpretationSummary, false);
       return;
@@ -115,9 +120,11 @@
     const duration = meetingDuration.value;
     const unitPrice = duration === 'full' ? 80000 : 50000;
     const total = meetings * unitPrice;
-    const durationLabel = duration === 'full' ? '1日（8時間まで）' : '半日（3時間まで）';
-    interpretationPrice.textContent = `¥${yen.format(total)}〜`;
-    interpretationSummary.textContent = `${durationLabel} × ${meetings}回`;
+    const durationLabel = isEnglish
+      ? (duration === 'full' ? 'Full day (up to 8 hours)' : 'Half day (up to 3 hours)')
+      : (duration === 'full' ? '1日（8時間まで）' : '半日（3時間まで）');
+    interpretationPrice.textContent = `¥${yen.format(total)}${isEnglish ? '+' : '〜'}`;
+    interpretationSummary.textContent = isEnglish ? `${durationLabel} × ${meetings}` : `${durationLabel} × ${meetings}回`;
     currentEstimate = {
       mode: 'interpretation',
       meetings,
@@ -158,14 +165,20 @@
       setSelect('source_language', isEnglishSource ? 'en' : 'ja');
       setSelect('target_language', isEnglishSource ? 'ja' : 'en');
       if (volume) volume.value = `${yen.format(currentEstimate.count)}${currentEstimate.unit}`;
-      messageText = `${currentEstimate.label}の正式見積もりを希望します。概算条件：${yen.format(currentEstimate.count)}${currentEstimate.unit}、${displayRange(currentEstimate.low, currentEstimate.high)}（税別）。`;
+      messageText = isEnglish
+        ? `I would like a formal quote for ${currentEstimate.label}. Estimate: ${yen.format(currentEstimate.count)}${currentEstimate.unit}, ${displayRange(currentEstimate.low, currentEstimate.high)} excluding tax.`
+        : `${currentEstimate.label}の正式見積もりを希望します。概算条件：${yen.format(currentEstimate.count)}${currentEstimate.unit}、${displayRange(currentEstimate.low, currentEstimate.high)}（税別）。`;
     } else {
       setSelect('service_type', 'interpretation');
       setSelect('document_type', 'meeting_script');
       setSelect('source_language', 'ja');
       setSelect('target_language', 'bilingual');
-      if (volume) volume.value = `${currentEstimate.durationLabel} × ${currentEstimate.meetings}回`;
-      messageText = `IR通訳の正式見積もりを希望します。概算条件：${currentEstimate.durationLabel} × ${currentEstimate.meetings}回、¥${yen.format(currentEstimate.total)}〜（税別）。`;
+      if (volume) volume.value = isEnglish
+        ? `${currentEstimate.durationLabel} × ${currentEstimate.meetings}`
+        : `${currentEstimate.durationLabel} × ${currentEstimate.meetings}回`;
+      messageText = isEnglish
+        ? `I would like a formal quote for IR interpretation. Estimate: ${currentEstimate.durationLabel} × ${currentEstimate.meetings}, from ¥${yen.format(currentEstimate.total)} excluding tax.`
+        : `IR通訳の正式見積もりを希望します。概算条件：${currentEstimate.durationLabel} × ${currentEstimate.meetings}回、¥${yen.format(currentEstimate.total)}〜（税別）。`;
     }
 
     if (message && !message.value.trim()) message.value = messageText;
