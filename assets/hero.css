@@ -70,7 +70,7 @@
 }
 .jh h1, .jh-h {
   font-family: var(--serif, 'Noto Serif JP', serif);
-  font-size: clamp(28px, 3.1vw, 46px);
+  font-size: var(--hero-title, clamp(32px, 3.5vw, 42px));
   font-weight: 300;
   line-height: 1.44;
   letter-spacing: 0.04em;
@@ -227,6 +227,7 @@
   .jh-slide.is-on, .jh-slide:first-child { display: block; }
   .jh-slide:first-child:not(.is-on) { display: none; }
   .jh-in { flex-direction: column; align-items: stretch; padding: 56px 24px 92px; gap: 30px; }
+  .jh h1, .jh-h { font-size: var(--hero-title-mobile, clamp(25px, 7.2vw, 29px)); line-height: 1.5; }
   .jh-copy { max-width: none; }
   .jh-panel { flex-basis: auto; }
   .jh-dots { left: 24px; bottom: 30px; }
