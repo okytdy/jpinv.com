@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>料金｜IR英訳・通訳・海外IR診断｜JII</title>
+<title>料金｜IR英訳・通訳・継続支援｜JII</title>
 <meta name="description" content="IR翻訳・IR通訳・海外IR支援の料金をご案内します。文字数、ワード数、面談時間から概算料金を確認できます。">
-<meta property="og:title" content="料金｜IR英訳・通訳・海外IR診断｜JII">
+<meta property="og:title" content="料金｜IR英訳・通訳・継続支援｜JII">
 <meta property="og:description" content="IR翻訳・IR通訳・海外IR支援の料金と、概算料金の計算方法をご案内します。">
 <meta property="og:url" content="https://jpinv.com/%E6%96%99%E9%87%91/">
 <link rel="canonical" href="https://jpinv.com/%E6%96%99%E9%87%91/">
@@ -152,56 +152,6 @@ em { font-style: normal; color: var(--ink); font-weight: 600; }
 .hero-title h1 { margin: 0 0 26px; word-break: keep-all; line-break: strict; overflow-wrap: break-word; }
 .hero-sub { font-size: 1rem; line-height: 1.85; color: var(--text); max-width: 600px; margin-bottom: 36px; }
 
-/* DIAGNOSTIC CARD MOCK */
-#card { background: var(--bg-mid); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
-
-/* SELF-CHECK */
-.selfcheck { max-width: 800px; }
-
-.selfcheck-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-@media (max-width: 700px) { .selfcheck-grid { grid-template-columns: 1fr; } }
-.selfcheck-opt { background: var(--bg-soft); border: 1px solid var(--rule); color: var(--ink); text-align: left; padding: 16px 18px; cursor: pointer; transition: all 0.2s; font-family: var(--sans); font-size: 0.86rem; line-height: 1.55; }
-.selfcheck-opt:hover, .selfcheck-opt.active { border-color: var(--ink-soft); background: var(--rule-soft); color: var(--ink); }
-.selfcheck-result { margin-top: 22px; padding: 22px 24px; background: var(--bg-soft); border: 1px solid var(--rule); display: none; }
-.selfcheck-result.show { display: block; }
-.selfcheck-result .sr-tag { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; }
-.selfcheck-result h4, .selfcheck-result h3 { font-family: var(--sans); color: var(--ink); font-size: 1.1rem; margin: 8px 0 10px; font-weight: 500; }
-.selfcheck-result p { font-size: 0.86rem; line-height: 1.75; }
-.selfcheck-result a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink); margin-top: 12px; display: inline-block; font-size: 0.8rem; }
-
-/* WHY (translation vs diagnostic) */
-.why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
-@media (max-width: 760px) { .why-grid { grid-template-columns: 1fr; } }
-.why-card { background: var(--bg-soft); border: 1px solid var(--rule); padding: 28px 30px; }
-.why-card.is-diag { background: var(--bg-mid); border-left: 2px solid var(--accent); }
-.why-card .label { display: block; margin-bottom: 10px; }
-.why-card h3 { font-family: var(--sans); font-size: 1rem; color: var(--ink); margin-bottom: 14px; font-weight: 500; line-height: 1.5; }
-.why-card p { font-size: 0.85rem; line-height: 1.8; }
-
-/* RECEIVE GRID */
-
-/* PROCESS */
-
-/* PLANS */
-.plan-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; background: transparent; }
-@media (max-width: 920px) { .plan-grid { grid-template-columns: 1fr; gap: 14px; background: transparent; } }
-.plan-card { background: #fff; border: 1px solid #e6e6e0; padding: 32px 28px; display: flex; flex-direction: column; position: relative; }
-.plan-card.is-mid { background: #fff; border: 1px solid #e6e6e0; border-top: 2px solid var(--ink); }
-.plan-tag { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.14em; color: var(--ink); text-transform: uppercase; }
-.plan-card h3 { font-family: var(--sans); font-size: 1.4rem; color: var(--ink); margin: 8px 0 4px; font-weight: 500; }
-.plan-sub { font-size: 0.85rem; color: var(--text-dim); margin-bottom: 14px; }
-.plan-price { font-family: var(--sans); color: var(--ink); font-size: 1.55rem; font-weight: 500; line-height: 1.2; margin: 10px 0 2px; }
-.plan-price small { font-size: 0.75rem; color: var(--text-dim); font-family: var(--mono); letter-spacing: 0.06em; }
-.plan-tax { font-size: 0.7rem; color: var(--text-dim); margin-bottom: 18px; }
-.plan-best { padding: 12px 14px; background: rgba(26,42,74,0.06); border-left: 3px solid var(--ink); font-size: 0.78rem; line-height: 1.65; color: var(--ink); margin-bottom: 16px; }
-.plan-best strong { color: var(--ink); display: block; font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 4px; font-family: var(--mono); font-weight: 600; }
-.plan-badge { position: absolute; top: -14px; right: 24px; background: var(--ink); color: #fff; font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 10px; }
-.plan-list { list-style: none; margin: 8px 0 22px; }
-.plan-list li { font-size: 0.78rem; line-height: 1.7; padding: 6px 0 6px 16px; position: relative; color: var(--text); border-bottom: 1px solid var(--rule); }
-.plan-list li:last-child { border-bottom: none; }
-.plan-list li::before { content: '+'; position: absolute; left: 0; color: var(--ink); top: 6px; font-size: 0.85rem; }
-.plan-card .btn { margin-top: auto; align-self: flex-start; }
-
 /* CASES */
 
 /* ABOUT */
@@ -310,7 +260,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   "@context": "https://schema.org",
   "@type": "WebPage",
   "url": "https://jpinv.com/%E6%96%99%E9%87%91/",
-  "name": "料金｜IR英訳・通訳・海外IR診断｜JII",
+  "name": "料金｜IR英訳・通訳・継続支援｜JII",
   "description": "IR翻訳・IR通訳・海外IR支援の料金と、文字数・ワード数・面談時間による概算料金をご案内します。",
   "inLanguage": "ja"
 }
@@ -383,7 +333,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 </section>
 
 <nav class="price-index" aria-label="料金ページ内メニュー">
-  <div class="wrap"><a href="#translation-rate">翻訳料金</a><a href="#interpretation-rate">通訳料金</a><a href="#plans">海外IR支援</a><a href="#contact">見積もり依頼</a></div>
+  <div class="wrap"><a href="#translation-rate">翻訳料金</a><a href="#interpretation-rate">通訳料金</a><a href="#plans">継続翻訳・IR相談</a><a href="#contact">見積もり依頼</a></div>
 </nav>
 
 <!-- TRANSLATION -->
@@ -433,18 +383,17 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 <!-- CONTINUOUS SUPPORT -->
 <section id="plans" class="price-section" aria-labelledby="plans-title">
   <div class="wrap">
-    <div class="price-section-head reveal"><span class="label">診断・継続支援</span><h2 id="plans-title">海外IR診断・継続支援</h2><div class="rule-accent"></div><p>英文開示と投資家面談を継続して見直すための料金です。</p></div>
-    <div class="price-table-wrap reveal" tabindex="0" aria-label="海外IR支援料金表。横にスクロールできます">
+    <div class="price-section-head reveal"><span class="label">次の四半期も</span><h2 id="plans-title">継続翻訳・IR相談</h2><div class="rule-accent"></div><p>最初のご依頼後、会社の用語と過去訳を引き継いで継続対応します。</p></div>
+    <div class="price-table-wrap reveal" tabindex="0" aria-label="継続翻訳とIR相談の料金表。横にスクロールできます">
       <table class="price-table price-table--plans">
-        <thead><tr><th scope="col">プラン</th><th scope="col">料金</th><th scope="col">主な内容</th><th scope="col">契約期間</th></tr></thead>
+        <thead><tr><th scope="col">内容</th><th scope="col">料金</th><th scope="col">主な対応</th><th scope="col">契約期間</th></tr></thead>
         <tbody>
-          <tr id="light"><th scope="row">初回診断</th><td class="price-cell"><strong>200,000円</strong><span>1回</span></td><td>診断カード、優先課題3点、改善案、結果説明</td><td>単発</td></tr>
-          <tr id="standard"><th scope="row">四半期ごとの開示改善</th><td class="price-cell"><strong>100,000円</strong><span>月額</span></td><td>初回診断、四半期ごとの再診断、英文資料の点検・改善</td><td>6か月から</td></tr>
-          <tr id="pro"><th scope="row">面談を含むIR支援</th><td class="price-cell"><strong>200,000円</strong><span>月額</span></td><td>開示改善、面談準備、通訳・振り返り（月2回まで）</td><td>6か月から</td></tr>
+          <tr><th scope="row">四半期ごとの継続翻訳</th><td class="price-cell"><strong>案件ごと</strong><span>事前見積もり</span></td><td>決算短信、説明資料、適時開示。過去訳と用語を引き継ぎます。</td><td>最低期間なし</td></tr>
+          <tr><th scope="row">英文レビュー・IR相談</th><td class="price-cell"><strong>内容に応じて</strong><span>事前見積もり</span></td><td>実際の資料や面談に沿った英文レビュー、説明整理、面談準備</td><td>単発可</td></tr>
         </tbody>
       </table>
     </div>
-    <a href="#contact" class="price-text-link" data-rfq-service="diagnostic" data-rfq-source="pricing_support" data-rfq-message="海外IR診断・継続支援の見積もりを希望します。現在の課題と希望時期を連絡します。">海外IR支援の見積もりを依頼する</a>
+    <a href="#contact" class="price-text-link" data-rfq-service="ongoing" data-rfq-source="pricing_support" data-rfq-message="継続翻訳またはIR相談の見積もりを希望します。資料と希望時期を連絡します。">継続翻訳・IR相談の見積もりを依頼する</a>
   </div>
 </section>
 
@@ -491,7 +440,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
                 <option value="translation">IR・開示資料の翻訳</option>
                 <option value="editing_review">英文開示のレビュー・編集</option>
                 <option value="interpretation">海外投資家面談の通訳</option>
-                <option value="diagnostic">海外IR診断・改善提案</option>
+                <option value="ongoing">継続翻訳・英文レビュー</option>
+                <option value="consultation">IRに関する相談</option>
                 <option value="other">その他・未定</option>
               </select>
               <p class="form-field-error" id="service_type-error" role="alert" aria-live="assertive" aria-atomic="true"></p>
@@ -702,7 +652,7 @@ function applyRfqParams() {
 
 function presetInquiry(value) {
   const sel = document.getElementById('service_type');
-  if (sel && value) sel.value = value.includes('interpret') ? 'interpretation' : 'diagnostic';
+  if (sel && value) sel.value = value.includes('interpret') ? 'interpretation' : value.includes('consult') ? 'consultation' : 'ongoing';
 }
 
 // Inquiry form submission — form refs already declared above
@@ -871,6 +821,6 @@ inquiryForm.addEventListener('submit', async (e) => {
 </script>
 <script src="/assets/pricing.js" defer></script>
 <script src="/assets/motion.js" defer></script>
-<script src="/assets/nav.js?v=42a38d2772" defer></script>
+<script src="/assets/nav.js?v=2afdb577e8" defer></script>
 </body>
 </html>

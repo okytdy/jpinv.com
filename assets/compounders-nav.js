@@ -19,7 +19,7 @@
   if (document.getElementById("jii-nav")) return;
   if (document.querySelector('script[src*="assets/nav.js"]')) return;
   var s = document.createElement("script");
-  s.src = "/assets/nav.js?v=42a38d2772";
+  s.src = "/assets/nav.js?v=2afdb577e8";
   s.defer = true;
   document.head.appendChild(s);
 })();
