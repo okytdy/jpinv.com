@@ -595,7 +595,7 @@
       '</div>' +
       '<div class="jfc-in"><div class="jfc-copy">' +
         '<span class="jfc-kicker">CONTACT</span>' +
-        '<h2 id="jii-contact-title">' + (isEn ? "Inquiries and quotes" : "ご相談・お見積り") + '</h2>' +
+        '<h2 id="jii-contact-title">' + (isEn ? "Inquiries and quotes" : "ご相談・お見積もり") + '</h2>' +
         '<div class="jfc-rule" aria-hidden="true"></div>' +
         '<p>' + (isEn
           ? "You are welcome to contact us before the scope or timing is fixed. We can arrange an NDA before materials are shared."
