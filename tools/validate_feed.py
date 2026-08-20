@@ -186,6 +186,16 @@ def _validate_row(row: Any, scope: str, idx: int, report: Report) -> None:
     if pu is not None and not isinstance(pu, str):
         report.add(scope, f"row[{idx}] id={row.get('id')!r} profile_url={pu!r} "
                           f"not a string or null")
+    elif isinstance(pu, str):
+        ticker = row.get("ticker")
+        expected = f"/en/compounders/{ticker}/initiation/"
+        profile = REPO_ROOT / "en" / "compounders" / str(ticker) / "initiation" / "index.html"
+        if pu != expected:
+            report.add(scope, f"row[{idx}] id={row.get('id')!r} profile_url={pu!r} "
+                              f"must use canonical profile URL {expected!r}")
+        elif not profile.is_file():
+            report.add(scope, f"row[{idx}] id={row.get('id')!r} profile_url={pu!r} "
+                              "points to a profile that is not published")
 
 
 def _validate_feed_json(data: Any, report: Report) -> list[dict]:

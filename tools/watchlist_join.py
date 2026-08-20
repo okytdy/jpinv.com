@@ -6,7 +6,7 @@ Reads:
   _watchlist_v4_compounders.csv          (the 200-name screen: rank, stats, status)
   compounders/universe/index.html        (the standing universe the reader clicks)
   compounders/feed/data/by-ticker/*.json (per-ticker signal archives, already built)
-  compounders/{ticker}/index.html        (profile existence)
+  compounders/{ticker}/initiation/index.html  (profile existence)
 
 Writes:
   compounders/feed/data/watchlist_signals.json
@@ -77,7 +77,7 @@ def load_universe():
     return out
 
 def profile_exists(tk):
-    return os.path.exists(os.path.join(ROOT, "compounders", tk, "index.html"))
+    return os.path.exists(os.path.join(ROOT, "compounders", tk, "initiation", "index.html"))
 
 def main():
     # Preserve entries for tickers whose by-ticker file is unreadable in THIS environment
@@ -144,7 +144,7 @@ def main():
             "composite_score": sc.get("composite_score"),
             "status": sc.get("status", ""),
             "profile_exists": prof,
-            "profile_url": f"/en/compounders/{tk}/" if prof else None,
+            "profile_url": f"/en/compounders/{tk}/initiation/" if prof else None,
             "signal_page": f"/compounders/signals/{tk}/",
             "signal_page_en": f"/en/compounders/signals/{tk}/",
             "signal_count": len(sigs),

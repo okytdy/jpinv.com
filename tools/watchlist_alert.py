@@ -97,7 +97,7 @@ def main():
         tag = it["tag_en"] or it["class_en"]
         if tag.startswith(it["class_en"] + " - "): tag = tag[len(it["class_en"])+3:]
         badge = "Standing universe" if it["in_universe"] else "Wider screen"
-        prof = f' &middot; <a href="{BASE}/en/compounders/{it["ticker"]}/">profile</a>' if it["profile_exists"] else ""
+        prof = f' &middot; <a href="{BASE}/en/compounders/{it["ticker"]}/initiation/">profile</a>' if it["profile_exists"] else ""
         doc = f' &middot; <a href="{it["doc_url"]}">TDnet</a>' if it["doc_url"] else ""
         return (f'<tr><td style="padding:8px 10px;border-bottom:1px solid #e8edf3;font:12px monospace;color:#7a8290;white-space:nowrap">{it["date"]}</td>'
                 f'<td style="padding:8px 10px;border-bottom:1px solid #e8edf3"><b>{it["ticker"]}</b> {it["name_en"]}<br>'

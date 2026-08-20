@@ -242,7 +242,7 @@ def name_page(n, lang):
     # action links
     acts = []
     if n["profile_exists"]:
-        purl = f"/en/compounders/{tk}/" if lang == "en" else f"/compounders/{tk}/"
+        purl = f"/en/compounders/{tk}/initiation/" if lang == "en" else f"/compounders/{tk}/initiation/"
         acts.append(f'<a href="{purl}">{"JII Compounderレポートを読む →" if lang=="ja" else "Read the JII Compounder profile →"}</a>')
     feedurl = "/en/compounders/feed/" if lang == "en" else "/compounders/feed/"
     univurl = "/en/compounders/universe/" if lang == "en" else "/compounders/universe/"

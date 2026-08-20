@@ -41,6 +41,7 @@ _FALLBACK_UNIVERSE: frozenset[str] = frozenset({
 _WATCHLIST_CSV = Path(
     r"C:\Users\okuya\OneDrive\Desktop\JII\3 Pipeline\watchlist_v4_compounders.csv"
 )
+_REPO_ROOT = Path(__file__).resolve().parent.parent
 
 
 # ---------------------------------------------------------------------------
@@ -95,6 +96,12 @@ _UNIVERSE: frozenset[str] = _load_universe()
 
 def _in_universe(ticker: str) -> bool:
     return ticker in _UNIVERSE
+
+
+def _profile_url(ticker: str) -> Optional[str]:
+    """Return a canonical profile URL only when the published page exists."""
+    profile = _REPO_ROOT / "en" / "compounders" / ticker / "initiation" / "index.html"
+    return f"/en/compounders/{ticker}/initiation/" if profile.is_file() else None
 
 
 # ---------------------------------------------------------------------------
@@ -968,7 +975,7 @@ def classify(disclosure: dict) -> Optional[dict]:
             ts = _normalise_ts(disclosure.get("submitted_at", ""))
             name_en = disclosure.get("name_en") or disclosure.get("name_jp", "")
             name_jp = disclosure.get("name_jp", "")
-            profile_url = f"/en/compounders/{ticker}/" if _in_universe(ticker) else None
+            profile_url = _profile_url(ticker)
             return {
                 "id": f"{source}-{doc_id}",
                 "ts": ts,
@@ -1455,9 +1462,7 @@ def _run_tests() -> tuple[int, int]:
                 )
             else:
                 tk = disc.get("ticker", "")
-                exp_profile = (
-                    f"/en/compounders/{tk}/" if _in_universe(tk) else None
-                )
+                exp_profile = _profile_url(tk)
                 if result.get("profile_url") != exp_profile:
                     ok = False
                     reason = (
