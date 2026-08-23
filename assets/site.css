@@ -5,8 +5,9 @@
 /* Canonical main navigation support */
 nav#main-nav { transition: box-shadow 0.3s; }
 nav#main-nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
-/* Guard: no other <nav> (breadcrumbs, in-page section nav, footer nav) may inherit header chrome. */
-nav:not(#main-nav):not(.mobile-menu){position:static;height:auto;z-index:auto;background:none;backdrop-filter:none;border-bottom:none;display:block;align-items:initial}
+/* Guard: no other <nav> (breadcrumbs, in-page section nav, footer nav) may inherit header chrome.
+   Keep this selector deliberately weak so component styles can choose their own layout. */
+nav:where(:not(#main-nav):not(.mobile-menu)){position:static;height:auto;z-index:auto;background:none;backdrop-filter:none;border-bottom:none;display:block;align-items:initial}
 .nav-logo { display: inline-flex; align-items: center; flex: 0 0 auto; min-width: max-content; white-space: nowrap; }
 .nav-logo-img { display: block; width: auto; height: 40px; max-width: none; object-fit: contain; object-position: left center; }
 .nav-logo-img--mobile { display: none; width: 32px; height: 32px; object-fit: contain; }
