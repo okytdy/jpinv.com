@@ -207,7 +207,7 @@ def build(days: int, single_date: str | None, max_downloads: int, force_llm: boo
                 "current_holding_ratio": cur,
                 "move_type": "new_5pct",
                 "japanese_title": d.get("docDescription") or "大量保有報告書",
-                "source_url": (C.nikkei_edinet_url(doc_id, (d.get("submitDateTime") or "")[:10])
+                "source_url": (C.edinet_filing_url(doc_id)
                                or (KABUTAN_HOLDER.format(code=filer_code) if filer_code else EDINET_VIEW)),
                 "intent": s["intent"],
                 "signal": s["signal"],
@@ -229,6 +229,9 @@ def build(days: int, single_date: str | None, max_downloads: int, force_llm: boo
     for r in rows.values():
         if _reresolve_names(r, inv_by_id):
             healed += 1
+        official_source = C.edinet_filing_url(r.get("edinet_doc_id", ""))
+        if official_source:
+            r["source_url"] = official_source
     if healed:
         print(f"[new5] re-resolved English names on {healed} existing row(s).")
 
@@ -259,6 +262,9 @@ def build(days: int, single_date: str | None, max_downloads: int, force_llm: boo
             "issuer_name_en": r.get("issuer_name_en", ""),
             "issuer_code": r.get("issuer_code", ""),
             "current_holding_ratio": r.get("current_holding_ratio"),
+            "edinet_doc_id": r.get("edinet_doc_id", ""),
+            "source_url": r.get("source_url", ""),
+            "japanese_title": r.get("japanese_title", ""),
             "summary_en": r.get("summary_en", {}),
             "summary_ja": r.get("summary_ja", {}),
         } for r in allrows if r.get("issuer_code") and float(r.get("current_holding_ratio") or 0) >= 5][:HOME_ROWS],
