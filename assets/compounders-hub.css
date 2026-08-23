@@ -346,14 +346,16 @@
 .ch-access a { display: inline-flex; justify-content: space-between; gap: 24px; min-width: 214px; padding: 11px 14px; border: 1px solid rgba(255,255,255,.65); font-size: 12px; color: #fff; white-space: nowrap; }
 .ch-access a:hover { border-color: #fff; background: #fff; color: var(--ch-ink); }
 
-/* A reader feedback loop sits beside the institutional service, not inside it. */
-.ch-feedback { padding: 0; border-bottom: 1px solid var(--ch-rule); background: var(--ch-paper); }
-.ch-feedback-inner { display: grid; grid-template-columns: minmax(260px, .9fr) minmax(300px, 1fr) auto; gap: 42px; align-items: center; padding-top: 27px; padding-bottom: 27px; }
-.ch-feedback-inner > div > span { display: block; margin-bottom: 5px; font-family: var(--mono); font-size: 10px; letter-spacing: .09em; color: var(--ch-gold); text-transform: uppercase; }
-.ch-feedback h2 { margin: 0; font-family: var(--sans); font-size: 20px; font-weight: 500; line-height: 1.45; color: var(--ch-ink); }
-.ch-feedback p { margin: 0; font-size: 13px; line-height: 1.65; color: var(--ch-copy); }
-.ch-feedback a { display: inline-flex; justify-content: space-between; gap: 24px; min-width: 214px; padding: 11px 14px; border: 1px solid var(--ch-ink); font-size: 12px; color: var(--ch-ink); white-space: nowrap; }
-.ch-feedback a:hover { background: var(--ch-ink); color: #fff; }
+/* Existing client voices lower the hurdle immediately after the access invitation. */
+.ch-investor-voices { padding: 40px 0 44px; border-bottom: 1px solid var(--ch-rule); background: var(--ch-paper); }
+.ch-voices-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 18px; }
+.ch-voices-head > span { display: block; font-family: var(--mono); font-size: 10px; letter-spacing: .09em; color: var(--ch-gold); text-transform: uppercase; }
+.ch-voices-head h2 { margin: 0; font-family: var(--sans); font-size: 24px; font-weight: 500; line-height: 1.4; color: var(--ch-ink); }
+.ch-voices-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.ch-voice-card { display: flex; flex-direction: column; margin: 0; padding: 24px 26px; border-top: 2px solid var(--ch-ink); background: #fff; }
+.ch-voice-card blockquote { flex: 1; margin: 0; font-size: 14px; line-height: 1.75; color: var(--ch-copy); }
+.ch-voice-card figcaption { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--ch-rule); font-size: 14px; font-weight: 500; color: var(--ch-ink); }
+.ch-voice-card figcaption span { display: block; margin-top: 3px; font-family: var(--mono); font-size: 10px; font-weight: 400; line-height: 1.5; letter-spacing: .03em; color: var(--ch-muted); }
 
 /* Legal copy remains available without ending the page in a text wall. */
 .disclaimer { padding: 46px 0 56px; border-top: 0; background: #fff; }
@@ -380,8 +382,7 @@
   .ch-feed-card { padding-right: 20px; padding-left: 20px; }
   .ch-access-inner { grid-template-columns: 1fr 1fr; }
   .ch-access a { grid-column: 2; width: fit-content; }
-  .ch-feedback-inner { grid-template-columns: 1fr 1fr; }
-  .ch-feedback a { grid-column: 2; width: fit-content; }
+  .ch-voices-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 760px) {
@@ -424,9 +425,11 @@
   .ch-access-inner { display: block; padding-top: 27px; padding-bottom: 29px; }
   .ch-access p { margin-top: 13px; }
   .ch-access a { width: 100%; margin-top: 20px; }
-  .ch-feedback-inner { display: block; padding-top: 25px; padding-bottom: 27px; }
-  .ch-feedback p { margin-top: 13px; }
-  .ch-feedback a { width: 100%; margin-top: 20px; }
+  .ch-investor-voices { padding: 34px 0 38px; }
+  .ch-voices-head { display: block; }
+  .ch-voices-head h2 { margin-top: 5px; font-size: 22px; }
+  .ch-voice-card { padding: 21px 20px; }
+  .ch-voice-card blockquote { font-size: 13px; }
   .disclaimer-details summary { grid-template-columns: 1fr auto; gap: 7px 18px; padding-right: 28px; }
   .d-title { grid-column: 1 / -1; grid-row: 2; }
   .d-open { grid-column: 2; grid-row: 1; }
