@@ -58,6 +58,39 @@ def home_group(row):
         return "capital-cost"
     return cls or "other"
 
+
+def _pct(value):
+    """Format a structural percentage without inventing precision."""
+    try:
+        number = float(value)
+    except (TypeError, ValueError):
+        return ""
+    return (f"{number:.2f}").rstrip("0").rstrip(".")
+
+
+def home_detail(row):
+    """Return short, factual homepage copy from structural feed fields only."""
+    cls = str(row.get("class") or "").upper()
+    facts = row.get("key_facts") or {}
+    pct = _pct(facts.get("pct_so"))
+    if cls == "MBO" or "TOB" in cls:
+        return "公開買付けの進捗", "Tender-offer update"
+    if cls.startswith("BUYBACK"):
+        if pct:
+            return f"発行済株式の{pct}%を取得", f"Buyback covering {pct}% of shares"
+        return "自己株式を取得", "Share buyback"
+    if "CANCEL" in cls:
+        return "自己株式を消却", "Share cancellation"
+    if cls == "DIV_HIKE":
+        return "配当を引き上げ", "Dividend increased"
+    if cls == "DIV_POLICY":
+        return "配当方針を変更", "Dividend policy changed"
+    if cls.startswith("COC"):
+        return "資本コストを意識した経営方針", "Plan addressing cost of capital"
+    if cls == "CROSS":
+        return "政策保有株式の方針を開示", "Cross-holding policy disclosed"
+    return "資本政策を開示", "Capital-allocation disclosure"
+
 """
 NO YEN FIGURES GO IN THIS FILE — deliberately, from August 3, 2026.
 
@@ -175,6 +208,7 @@ def main():
         home_tickers.add(ticker)
         home_groups.add(group)
         ja, en = LABELS.get(r.get("class"), ("資本政策", "Capital action"))
+        detail_jp, detail_en = home_detail(r)
         home_rows.append({
             "date": r["ts"][:10],
             "ticker": ticker,
@@ -182,6 +216,8 @@ def main():
             "name_en": r.get("name_en", "") or r.get("name_jp", ""),
             "label_jp": ja,
             "label_en": en,
+            "detail_jp": detail_jp,
+            "detail_en": detail_en,
         })
         if len(home_rows) >= HOME_ROWS:
             break

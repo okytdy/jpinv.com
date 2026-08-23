@@ -65,7 +65,7 @@
     detail.textContent = options.detail;
     tag.textContent = options.tag;
     body.appendChild(strong);
-    body.appendChild(detail);
+    if (options.detail) body.appendChild(detail);
     link.appendChild(time);
     link.appendChild(body);
     link.appendChild(tag);
@@ -83,7 +83,7 @@
     var fragment = document.createDocumentFragment();
     chosen.forEach(function (row) {
       var label = capitalLabel(row);
-      var detail = isJa ? label + "に関する新しい開示。" : "New " + label.toLowerCase() + " disclosure.";
+      var detail = (isJa ? row.detail_jp : row.detail_en) || "";
       fragment.appendChild(makeSignalRow({
         href: isJa ? "/compounders/feed/" : "/en/compounders/feed/",
         date: row.date,
@@ -98,16 +98,15 @@
     if (asof) asof.textContent = isJa ? longDate(chosen[0].date) + "までの最新開示" : "Latest disclosures through " + longDate(chosen[0].date);
   }
 
-  function ownershipDetail(row) {
-    var ratio = Number(row.current_holding_ratio || 0).toFixed(2).replace(/\.00$/, "");
-    var label = row.summary_en && row.summary_en.label ? row.summary_en.label : "";
-    if (isJa) {
-      var jpLabel = row.summary_ja && row.summary_ja.label ? row.summary_ja.label : "";
-      return (row.filer_raw_name || "新たな株主") + "が" + ratio + "%を新規保有" + (jpLabel ? "。保有目的は" + jpLabel + "。" : "。");
-    }
-    var owner = String(row.filer_name_en || "").trim();
-    var subject = owner && owner.length <= 48 ? owner : "A new shareholder";
-    return subject + " reported a new " + ratio + "% position" + (label ? " with " + label.toLowerCase() + "." : ".");
+  function ownershipOwner(row) {
+    var owner = String((isJa ? row.filer_raw_name : row.filer_name_en) || "").replace(/[　\s]+/g, " ").trim();
+    return trimText(owner || (isJa ? "提出者名は一覧で確認" : "See filer in the full list"), isJa ? 32 : 48);
+  }
+
+  function issuerName(row) {
+    var name = String((isJa ? row.issuer_name : row.issuer_name_en) || row.issuer_name || row.issuer_name_en || "").trim();
+    if (isJa) name = name.replace(/^株式会社/, "").replace(/株式会社$/, "");
+    return name;
   }
 
   function renderOwnership(payload) {
@@ -120,13 +119,16 @@
     var fragment = document.createDocumentFragment();
     chosen.forEach(function (row) {
       var ratio = Number(row.current_holding_ratio || 0).toFixed(2).replace(/\.00$/, "") + "%";
+      var label = isJa
+        ? (row.summary_ja && row.summary_ja.label ? row.summary_ja.label : "")
+        : (row.summary_en && row.summary_en.label ? row.summary_en.label : "");
       fragment.appendChild(makeSignalRow({
         href: isJa ? "/compounders/active-investors/" : "/en/compounders/active-investors/",
         date: row.filing_date,
-        name: (isJa ? row.issuer_name : row.issuer_name_en) || row.issuer_name || row.issuer_name_en,
+        name: issuerName(row),
         ticker: row.issuer_code,
-        detail: trimText(ownershipDetail(row), isJa ? 78 : 120),
-        tag: ratio
+        detail: ownershipOwner(row),
+        tag: ratio + (label ? (isJa ? "・" : " · ") + label : "")
       }));
     });
     ownershipList.replaceChildren(fragment);
