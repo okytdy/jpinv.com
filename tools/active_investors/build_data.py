@@ -75,7 +75,7 @@ def normalize_filing(raw: dict) -> dict:
         "purpose_category": raw.get("purpose_category", ""),
         "purpose_ja": raw.get("purpose_ja", ""),
         "intent": C.intent_from(raw.get("purpose_ja", ""), raw.get("purpose_category", "")),
-        "source_url": (C.nikkei_edinet_url(doc_id, date) or raw.get("source_url", "")),
+        "source_url": (C.edinet_filing_url(doc_id) or raw.get("source_url", "")),
         "confidence": confidence,
         "caveats": list(raw.get("caveats") or []),
         "seed": bool(raw.get("seed", False)),

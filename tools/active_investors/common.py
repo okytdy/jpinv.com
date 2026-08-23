@@ -375,6 +375,14 @@ def nikkei_edinet_url(doc_id: str, filing_date: str) -> str:
     return "https://www.nikkei.com/nkd/disclosure/ednr/" + d + doc_id + "/"
 
 
+def edinet_filing_url(doc_id: str) -> str:
+    """Official FSA EDINET viewer URL for an individual filing."""
+    doc_id = (doc_id or "").strip()
+    if not doc_id:
+        return ""
+    return "https://disclosure2.edinet-fsa.go.jp/WZEK0040.aspx?" + doc_id
+
+
 # ---------------------------------------------------------------------------
 # Best-effort fund-name translation (katakana -> English)
 # ---------------------------------------------------------------------------

@@ -55,8 +55,14 @@
     var ticker = document.createElement("b");
     var detail = document.createElement("em");
     var tag = document.createElement("small");
+    var source = document.createElement("i");
 
     link.href = options.href;
+    if (/^https?:\/\//.test(options.href)) {
+      link.target = "_blank";
+      link.rel = "noopener";
+      link.title = isJa ? "一次資料を開く" : "Open the source document";
+    }
     time.dateTime = String(options.date || "").slice(0, 10);
     time.textContent = shortDate(options.date);
     strong.textContent = options.name + " ";
@@ -64,6 +70,10 @@
     strong.appendChild(ticker);
     detail.textContent = options.detail;
     tag.textContent = options.tag;
+    if (options.sourceLabel) {
+      source.textContent = options.sourceLabel + " ↗";
+      tag.appendChild(source);
+    }
     body.appendChild(strong);
     if (options.detail) body.appendChild(detail);
     link.appendChild(time);
@@ -85,12 +95,13 @@
       var label = capitalLabel(row);
       var detail = (isJa ? row.detail_jp : row.detail_en) || "";
       fragment.appendChild(makeSignalRow({
-        href: isJa ? "/compounders/feed/" : "/en/compounders/feed/",
+        href: row.source_url || (isJa ? "/compounders/feed/" : "/en/compounders/feed/"),
         date: row.date,
         name: (isJa ? row.name_jp : row.name_en) || row.name_jp || row.name_en,
         ticker: row.ticker,
         detail: detail,
-        tag: label
+        tag: label,
+        sourceLabel: row.source_url ? (isJa ? "原文" : "Source") : ""
       }));
     });
     capitalList.replaceChildren(fragment);
@@ -123,12 +134,13 @@
         ? (row.summary_ja && row.summary_ja.label ? row.summary_ja.label : "")
         : (row.summary_en && row.summary_en.label ? row.summary_en.label : "");
       fragment.appendChild(makeSignalRow({
-        href: isJa ? "/compounders/active-investors/" : "/en/compounders/active-investors/",
+        href: row.source_url || (isJa ? "/compounders/active-investors/" : "/en/compounders/active-investors/"),
         date: row.filing_date,
         name: issuerName(row),
         ticker: row.issuer_code,
         detail: ownershipOwner(row),
-        tag: ratio + (label ? (isJa ? "・" : " · ") + label : "")
+        tag: ratio + (label ? (isJa ? "・" : " · ") + label : ""),
+        sourceLabel: row.source_url ? (isJa ? "原文" : "Source") : ""
       }));
     });
     ownershipList.replaceChildren(fragment);
@@ -138,7 +150,7 @@
 
   if (capitalList && window.fetch) {
     capitalList.setAttribute("aria-busy", "true");
-    fetch("/compounders/feed/data/hero.json", { credentials: "same-origin" })
+    fetch("/compounders/feed/data/hero.json?v=20260823d", { credentials: "same-origin", cache: "no-cache" })
       .then(function (response) { if (!response.ok) throw new Error("capital feed"); return response.json(); })
       .then(renderCapital)
       .catch(function () { /* Keep the dated HTML fallback. */ })
@@ -147,7 +159,7 @@
 
   if (ownershipList && window.fetch) {
     ownershipList.setAttribute("aria-busy", "true");
-    fetch("/compounders/active-investors/data/new5_home.json", { credentials: "same-origin" })
+    fetch("/compounders/active-investors/data/new5_home.json?v=20260823d", { credentials: "same-origin", cache: "no-cache" })
       .then(function (response) { if (!response.ok) throw new Error("ownership feed"); return response.json(); })
       .then(renderOwnership)
       .catch(function () { /* Keep the dated HTML fallback. */ })
