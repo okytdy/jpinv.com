@@ -265,6 +265,12 @@
     "@media(max-width:1000px){#jii-nav .jn-links,#jii-nav .jn-right .jn-cta{display:none;}#jii-nav .jn-burger{display:block;}",
     "#jii-nav .jn-right{margin-left:auto;order:2;}#jii-nav .jn-burger{order:3;margin-left:0;}",
     "#jii-nav .jn-lang{padding:0 4px 0 0;}}",
+    /* The full Japanese legal name makes the wordmark about 347px wide.
+       Collapse the Japanese menu sooner so the brand, links, and right-side
+       controls keep at least 30px of breathing room instead of overlapping. */
+    "@media(max-width:1205px){html[lang='ja'] #jii-nav .jn-links,html[lang='ja'] #jii-nav .jn-right .jn-cta{display:none;}",
+    "html[lang='ja'] #jii-nav .jn-burger{display:block;}html[lang='ja'] #jii-nav .jn-right{margin-left:auto;order:2;}",
+    "html[lang='ja'] #jii-nav .jn-burger{order:3;margin-left:0;}html[lang='ja'] #jii-nav .jn-lang{padding:0 4px 0 0;}}",
     "@media(min-width:1001px){#jii-nav .jn-menu{display:none!important;}}",
     "@media(max-width:760px){#jii-nav .jn-bar{padding-left:22px;}#jii-nav .jn-sub-in{padding:0 22px;}#jii-nav .jn-burger{margin-right:12px;}}",
     "@media(max-width:560px){#jii-nav .jn-logo img{display:none;}#jii-nav .jn-logo .jn-logo-sm{display:block;}}",
@@ -515,8 +521,11 @@
   var html =
     '<div class="jn-bar">' +
       '<a class="jn-logo" href="' + homeHref + '" aria-label="' + (isEn ? "JII home" : "JII トップページへ") + '">' +
-        '<img src="/assets/logo-jii-wordmark.svg" alt="Japan Investor Interface" width="328" height="40" decoding="async" fetchpriority="high">' +
-        '<img class="jn-logo-sm" src="/assets/logo-jii-monogram.svg" alt="Japan Investor Interface" width="32" height="32" decoding="async">' +
+        '<img src="' + (isEn ? "/assets/logo-jii-wordmark.svg" : "/assets/logo-jii-wordmark-ja.svg") + '" alt="' +
+          (isEn ? "Japan Investor Interface" : "株式会社ジャパン・インベスター・インターフェース") + '" width="' +
+          (isEn ? "328" : "434") + '" height="40" decoding="async" fetchpriority="high">' +
+        '<img class="jn-logo-sm" src="/assets/logo-jii-monogram.svg" alt="' +
+          (isEn ? "Japan Investor Interface" : "株式会社ジャパン・インベスター・インターフェース") + '" width="32" height="32" decoding="async">' +
       '</a>' +
       '<ul class="jn-links" role="list">' + linksHtml + '</ul>' +
       '<div class="jn-right">' +
