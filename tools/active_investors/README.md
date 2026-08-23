@@ -30,7 +30,7 @@ tools/active_investors/
   requirements.txt     # anthropic (optional Claude tier); core is stdlib-only
 
 compounders/active-investors/data/        # PUBLIC data the page fetches (committed)
-  investors.json  filings.json  summaries.json  feed.json  new5_feed.json  _meta.json
+  investors.json  filings.json  summaries.json  feed.json  new5_feed.json  new5_home.json  _meta.json
 
 assets/active-investors.css   assets/active-investors.js   # the shared UI component
 
