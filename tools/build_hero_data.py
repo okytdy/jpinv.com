@@ -26,6 +26,7 @@ WATCH = os.path.join(ROOT, "compounders", "feed", "data", "watchlist_signals.jso
 OUT = os.path.join(ROOT, "compounders", "feed", "data", "hero.json")
 
 ROWS = 6
+HOME_ROWS = 4
 
 # Short labels. feed.json's tag_jp is a full descriptor and far too long for a
 # chip, so the chip comes from the class instead.
@@ -42,6 +43,20 @@ LABELS = {
     "COC_INITIAL":   ("資本コスト",   "Cost of capital"),
     "CROSS":         ("政策保有",     "Cross-holdings"),
 }
+
+
+def home_group(row):
+    """Keep the Compounders front page useful when one event type dominates a day."""
+    cls = str(row.get("class") or "").upper()
+    if cls == "MBO" or "TOB" in cls:
+        return "mbo"
+    if cls.startswith("BUYBACK") or "CANCEL" in cls:
+        return "buyback"
+    if cls.startswith("DIV"):
+        return "dividend"
+    if cls.startswith("COC"):
+        return "capital-cost"
+    return cls or "other"
 
 """
 NO YEN FIGURES GO IN THIS FILE — deliberately, from August 3, 2026.
@@ -149,6 +164,28 @@ def main():
 
     profiles = len(glob.glob(os.path.join(ROOT, "compounders", "[0-9]*", "initiation", "index.html")))
 
+    home_rows, home_groups, home_tickers = [], set(), set()
+    for r in feed:
+        if r.get("signal_score", 0) < 1:
+            continue
+        group = home_group(r)
+        ticker = r.get("ticker")
+        if not ticker or ticker in home_tickers or group in home_groups:
+            continue
+        home_tickers.add(ticker)
+        home_groups.add(group)
+        ja, en = LABELS.get(r.get("class"), ("資本政策", "Capital action"))
+        home_rows.append({
+            "date": r["ts"][:10],
+            "ticker": ticker,
+            "name_jp": r.get("name_jp", ""),
+            "name_en": r.get("name_en", "") or r.get("name_jp", ""),
+            "label_jp": ja,
+            "label_en": en,
+        })
+        if len(home_rows) >= HOME_ROWS:
+            break
+
     payload = {
         "generated_at": datetime.datetime.now().astimezone().isoformat(timespec="seconds"),
         "since": feed[-1]["ts"][:10] if feed else "",
@@ -159,6 +196,7 @@ def main():
             "profiles": profiles,
         },
         "rows": rows,
+        "home_rows": home_rows,
     }
 
     os.makedirs(os.path.dirname(OUT), exist_ok=True)

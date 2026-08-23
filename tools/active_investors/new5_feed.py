@@ -8,6 +8,9 @@ reports (EDINET docTypeCode 350, 大量保有報告書) from ANY filer — i.e. 
 
     compounders/active-investors/data/new5_feed.json
 
+It also writes a four-row new5_home.json for the Compounders front page so
+that page does not download the full rolling archive on every visit.
+
 Each row carries the filer, the target company + ticker, the reported holding,
 a neutral EN/JA one-line summary, the EDINET doc id and a source link. Filings
 by one of the 9 tracked investors are flagged is_tracked=true so the UI can mark
@@ -34,7 +37,9 @@ from edinet_client import EdinetClient, parse_large_holding_csv, _finalize_row, 
 from summarize import template_summary
 
 NEW5_PATH = DATA_DIR / "new5_feed.json"
+NEW5_HOME_PATH = DATA_DIR / "new5_home.json"
 ROWS_CAP = 300
+HOME_ROWS = 4
 KEEP_DAYS = 180
 LARGE_HOLDING_THRESHOLD = 5.0
 
@@ -244,8 +249,23 @@ def build(days: int, single_date: str | None, max_downloads: int, force_llm: boo
         "rows": allrows,
     }
     C.write_json(NEW5_PATH, out)
+    home = {
+        "meta": out["meta"],
+        "rows": [{
+            "filing_date": r.get("filing_date", ""),
+            "filer_raw_name": r.get("filer_raw_name", ""),
+            "filer_name_en": r.get("filer_name_en", ""),
+            "issuer_name": r.get("issuer_name", ""),
+            "issuer_name_en": r.get("issuer_name_en", ""),
+            "issuer_code": r.get("issuer_code", ""),
+            "current_holding_ratio": r.get("current_holding_ratio"),
+            "summary_en": r.get("summary_en", {}),
+            "summary_ja": r.get("summary_ja", {}),
+        } for r in allrows if r.get("issuer_code") and float(r.get("current_holding_ratio") or 0) >= 5][:HOME_ROWS],
+    }
+    C.write_json(NEW5_HOME_PATH, home)
     print(f"[new5] {len(allrows)} rows ({out['meta']['tracked_count']} by tracked funds); "
-          f"{downloads} CSVs fetched this run -> {NEW5_PATH}")
+          f"{downloads} CSVs fetched this run -> {NEW5_PATH} + {NEW5_HOME_PATH}")
     return 0
 
 
@@ -280,4 +300,3 @@ def main():
 
 if __name__ == "__main__":
     raise SystemExit(main())
-  
