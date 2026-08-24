@@ -62,7 +62,7 @@
         { ja: "プライバシーポリシー", en: "Privacy policy",  jaHref: "/privacy/",     enHref: "/en/privacy/" },
         { ja: "サイトマップ",         en: "Sitemap",         jaHref: "/sitemap/",     enHref: "/en/sitemap/" }
       ] },
-    { ja: "銘柄レポート", en: "Research", jaHref: "/compounders/",                          enHref: "/en/compounders/",
+    { ja: "調査レポート", en: "Research", jaHref: "/compounders/",                          enHref: "/en/compounders/",
       panel: true, img: "free05_shoshu_card" }
   ];
 
@@ -105,7 +105,7 @@
      page; the items under it are the pages inside that section.
 
      The footer is a navigational summary, not a complete index. IR研修 has
-     34 pages and 銘柄レポート has 32 profiles; listing all of them here
+     34 pages and 調査レポート has 32 profiles; listing all of them here
      would bury the sections that sell. The complete index is /sitemap/. */
 
   var FOOTER = [
@@ -117,7 +117,7 @@
         { ja: "特急翻訳",   en: "Express translation (JP)", jaHref: "/%E7%89%B9%E6%80%A5%E7%BF%BB%E8%A8%B3/",                                     enHref: "/%E7%89%B9%E6%80%A5%E7%BF%BB%E8%A8%B3/" },
         { ja: "AIと機密保持", en: "AI and confidentiality", jaHref: "/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/AI%E3%81%A8%E6%A9%9F%E5%AF%86%E4%BF%9D%E6%8C%81/", enHref: "/en/services/ai-confidentiality/" }
       ] },
-    { head: S("銘柄レポート"), items: [
+    { head: S("調査レポート"), items: [
         { ja: "銘柄分析",           en: "Profiles",         jaHref: "/compounders/profiles/",          enHref: "/en/compounders/profiles/" },
         { ja: "銘柄スクリーニング", en: "Universe",         jaHref: "/compounders/universe/",          enHref: "/en/compounders/universe/" },
         { ja: "資本政策開示",       en: "Capital actions",  jaHref: "/compounders/feed/",              enHref: "/en/compounders/feed/" },
