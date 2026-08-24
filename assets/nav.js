@@ -58,7 +58,6 @@
       items: [
         { ja: "会社概要",             en: "Company profile", jaHref: "/%E4%BC%9A%E7%A4%BE%E6%A6%82%E8%A6%81/", enHref: "/en/company/" },
         { ja: "IR研修",               en: "IR training",     jaHref: "/governance/",  enHref: "/en/governance/" },
-        { ja: "考察記事",             en: "Articles (JP)",   jaHref: "/articles/",    enHref: "/articles/" },
         { ja: "プライバシーポリシー", en: "Privacy policy",  jaHref: "/privacy/",     enHref: "/en/privacy/" },
         { ja: "サイトマップ",         en: "Sitemap",         jaHref: "/sitemap/",     enHref: "/en/sitemap/" }
       ] },
@@ -140,8 +139,7 @@
     { head: S("会社概要"), items: [
         { ja: "料金",         en: "Pricing",  jaHref: "/%E6%96%99%E9%87%91/", enHref: "/en/pricing/" },
         { ja: "お問い合わせ", en: "Contact",  jaHref: CONTACT.jaHref,         enHref: CONTACT.enHref },
-        { ja: "よくある質問", en: "FAQ",      jaHref: "/faq/",                enHref: "/en/faq/" },
-        { ja: "考察記事",     en: "Articles (JP)", jaHref: "/articles/",      enHref: "/articles/" }
+        { ja: "よくある質問", en: "FAQ",      jaHref: "/faq/",                enHref: "/en/faq/" }
       ] }
   ];
 
