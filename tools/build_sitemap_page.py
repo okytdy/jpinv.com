@@ -20,7 +20,7 @@ import re
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-NAV_TAG = '<script src="/assets/nav.js?v=eae5f964b8" defer></script>'
+NAV_TAG = '<script src="/assets/nav.js?v=fa896de2e2" defer></script>'
 
 TITLE_RE = re.compile(r"<title>(.*?)</title>", re.S)
 REFRESH_RE = re.compile(r'http-equiv="refresh"', re.I)
@@ -144,13 +144,10 @@ def build(lang):
     ] if en else [
         ("すぐわかるJII", "すぐわかるJII", ""),
         ("会社概要", "会社概要", ""), ("料金", "料金", ""), ("お問い合わせ", "お問い合わせ", ""),
-        ("faq", "よくある質問", ""), ("articles", "考察記事", ""), ("privacy", "プライバシーポリシー", ""),
+        ("faq", "よくある質問", ""), ("privacy", "プライバシーポリシー", ""),
     ]):
         if page_title(row[0]):
             co.append(("/" + row[0] + "/", L(row[1], row[2] or row[1])))
-    if not en:
-        for href, t in children("articles"):
-            co.append((href, t))
     groups.append((L("会社情報", "Company"), f"{P}/company/" if en else "/会社概要/", [("", co)]))
 
     total = sum(len(i) for _, _, gg in groups for _, i in gg)
