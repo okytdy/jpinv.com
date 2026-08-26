@@ -1,5 +1,6 @@
 /* Visual-first Compounder research format · finalized with Nippon Gear 6356. */
 .research-profile{--gear:#8da322;--gear-dark:#56640f;--gear-soft:#f3f6e6;--navy:#172641;--paper:#fff;}
+.research-profile .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
 .research-profile .masthead{border-top:5px solid var(--gear);}
 .research-profile .head-industry{max-width:760px;text-transform:none;letter-spacing:.08em;line-height:1.55;}
 .research-profile .lead-section{padding-top:44px;}
@@ -157,7 +158,10 @@
 .research-profile .source-list{display:grid;grid-template-columns:repeat(2,1fr);gap:7px 28px;margin:0;padding:0;list-style:none;counter-reset:sources;}
 .research-profile .source-list li{counter-increment:sources;font:400 11.5px/1.45 var(--sans);color:var(--text-mid);}
 .research-profile .source-list li:before{content:counter(sources,decimal-leading-zero);font:500 9px/1 var(--mono);color:var(--gear-dark);margin-right:9px;}
+.research-profile .source-list.source-list-explicit li:before{content:none;margin-right:0;}
 .research-profile .source-list a{color:var(--text-mid);text-decoration:underline;text-underline-offset:2px;}
+.research-profile .ask-grid.two-up{grid-template-columns:repeat(2,1fr);}
+.research-profile .share-perm code{overflow-wrap:anywhere;word-break:break-all;}
 .research-profile .publication-note{padding:18px 56px;background:#fff;font:400 11px/1.6 var(--sans);color:var(--text-dim);border-bottom:1px solid var(--rule);}
 .research-profile .publication-note details summary{cursor:pointer;font:500 10px/1.4 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--text-mid);}
 .research-profile .publication-note p{max-width:900px;margin:12px 0 0;}
