@@ -1,0 +1,39 @@
+name: Compounder visual-first structure
+
+on:
+  pull_request:
+    paths:
+      - "compounders/**/initiation/index.html"
+      - "en/compounders/**/initiation/index.html"
+      - "assets/compounder-research.css"
+      - "assets/compounder-research.js"
+      - "assets/share-bar.js"
+      - "assets/nav.js"
+      - "tools/check-compounder-visual-first.mjs"
+      - ".github/workflows/compounder-visual-first.yml"
+      - "package.json"
+  push:
+    branches: [main]
+    paths:
+      - "compounders/**/initiation/index.html"
+      - "en/compounders/**/initiation/index.html"
+      - "assets/compounder-research.css"
+      - "assets/compounder-research.js"
+      - "assets/share-bar.js"
+      - "assets/nav.js"
+      - "tools/check-compounder-visual-first.mjs"
+      - ".github/workflows/compounder-visual-first.yml"
+      - "package.json"
+
+permissions:
+  contents: read
+
+jobs:
+  visual-first:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node tools/check-compounder-visual-first.mjs
