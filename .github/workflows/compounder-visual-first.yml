@@ -3,6 +3,10 @@ name: Compounder visual-first structure
 on:
   pull_request:
     paths:
+      - "compounders/index.html"
+      - "compounders/profiles/index.html"
+      - "en/compounders/index.html"
+      - "en/compounders/profiles/index.html"
       - "compounders/**/initiation/index.html"
       - "en/compounders/**/initiation/index.html"
       - "assets/compounder-research.css"
@@ -10,11 +14,16 @@ on:
       - "assets/share-bar.js"
       - "assets/nav.js"
       - "tools/check-compounder-visual-first.mjs"
+      - "tools/check-compounder-hub-recency.mjs"
       - ".github/workflows/compounder-visual-first.yml"
       - "package.json"
   push:
     branches: [main]
     paths:
+      - "compounders/index.html"
+      - "compounders/profiles/index.html"
+      - "en/compounders/index.html"
+      - "en/compounders/profiles/index.html"
       - "compounders/**/initiation/index.html"
       - "en/compounders/**/initiation/index.html"
       - "assets/compounder-research.css"
@@ -22,6 +31,7 @@ on:
       - "assets/share-bar.js"
       - "assets/nav.js"
       - "tools/check-compounder-visual-first.mjs"
+      - "tools/check-compounder-hub-recency.mjs"
       - ".github/workflows/compounder-visual-first.yml"
       - "package.json"
 
@@ -37,3 +47,4 @@ jobs:
         with:
           node-version: 20
       - run: node tools/check-compounder-visual-first.mjs
+      - run: node tools/check-compounder-hub-recency.mjs
