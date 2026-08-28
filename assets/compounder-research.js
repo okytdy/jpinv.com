@@ -25,9 +25,16 @@
   var candles = chart.addCandlestickSeries({ upColor:'#56640f', downColor:'#b91c1c', borderUpColor:'#56640f', borderDownColor:'#b91c1c', wickUpColor:'#56640f', wickDownColor:'#b91c1c' });
   candles.setData(data.candles || []);
   if(data.peak_close && data.post_peak_low_close){
+    var isJapanese = (document.documentElement.lang || '').toLowerCase().indexOf('ja') === 0;
+    var peakLabel = container.dataset.peakMarkerLabel || 'peak close';
+    var postPeakLabel = container.dataset.postPeakMarkerLabel || 'post-peak low';
+    function markerText(point, label){
+      var value = Number(point.value).toLocaleString(isJapanese ? 'ja-JP' : 'en-US');
+      return isJapanese ? value + '円 ' + label : '¥' + value + ' ' + label;
+    }
     candles.setMarkers([
-      {time:data.peak_close.time,position:'aboveBar',color:'#56640f',shape:'arrowDown',text:'¥2,200 peak close'},
-      {time:data.post_peak_low_close.time,position:'belowBar',color:'#b91c1c',shape:'arrowUp',text:'¥1,177 post-peak low'}
+      {time:data.peak_close.time,position:'aboveBar',color:'#56640f',shape:'arrowDown',text:markerText(data.peak_close, peakLabel)},
+      {time:data.post_peak_low_close.time,position:'belowBar',color:'#b91c1c',shape:'arrowUp',text:markerText(data.post_peak_low_close, postPeakLabel)}
     ]);
   }
   var volume = chart.addHistogramSeries({ color:'rgba(48,68,102,.38)', priceFormat:{type:'volume'}, priceScaleId:'volume' });

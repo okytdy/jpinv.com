@@ -76,11 +76,11 @@
   .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; padding-bottom: 60px; }
   @media (max-width:760px) { .grid { grid-template-columns: 1fr; gap: 18px; } }
 
-  .card { display: block; padding: 26px 26px 22px; border: 1px solid var(--rule); background: var(--bg); transition: border-color 0.2s, transform 0.2s; }
+  .card { display: block; min-width: 0; max-width: 100%; overflow-wrap: anywhere; padding: 26px 26px 22px; border: 1px solid var(--rule); background: var(--bg); transition: border-color 0.2s, transform 0.2s; }
   .card:hover { border-color: var(--ink-soft); transform: translateY(-2px); }
   .card-head { display: flex; gap: 10px; align-items: center; margin-bottom: 14px; flex-wrap: wrap; }
   .card-ticker { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--accent-deep); text-transform: uppercase; padding: 3px 9px; border: 1px solid var(--accent); background: var(--accent-soft); border-radius: 0; font-weight: 500; }
-  .card-sector { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; color: var(--text-dim); text-transform: uppercase; }
+  .card-sector { min-width: 0; overflow-wrap: anywhere; font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; color: var(--text-dim); text-transform: uppercase; }
   .card-segment { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; padding: 2px 7px; border: 1px solid var(--rule); color: var(--text-dim); background: var(--bg-soft); border-radius: 0; margin-left: auto; }
   .card-name { font-family: var(--serif); font-size: 1.25rem; font-weight: 400; color: var(--ink-mid); margin: 0 0 4px; letter-spacing: 0.01em; }
   .card-jp { font-family: var(--sans); font-size: 0.78rem; color: var(--text-dim); margin: 0 0 14px; letter-spacing: 0.04em; }
@@ -135,6 +135,24 @@
   </div>
 
   <div class="grid" id="profile-grid">
+
+      <a class="card" data-segment="PRIME" href="/en/compounders/4290/initiation/" data-date="2026-08-28" data-ticker="4290">
+        <div class="card-head">
+          <span class="card-ticker">TSE PRIME · 4290</span>
+          <span class="card-sector">Contact-center, dispatch and administration infrastructure</span>
+          <span class="card-segment" data-segment="PRIME">PRIME</span>
+        </div>
+        <h3 class="card-name">Prestige International Inc.</h3>
+        <p class="card-jp">株式会社プレステージ・インターナショナル</p>
+        <p class="card-hook"><b>Prestige International runs the contact-center, dispatch and administration infrastructure behind insurers’ roadside-assistance promises. FY3/27 guidance assumes only a 12.6% operating margin; the key question is whether fee revisions can restore margins while the new Katagami Campus ramps, supported by net cash equal to 24.4% of market capitalization.</b></p>
+        <div class="card-stats">
+          <div><div class="card-stat-label">Last Close</div><div class="card-stat-val">¥726</div></div>
+          <div><div class="card-stat-label">EV / EBIT</div><div class="card-stat-val">8.34<small>x</small></div></div>
+          <div><div class="card-stat-label">ROCE</div><div class="card-stat-val">16.4<small>%</small></div></div>
+          <div><div class="card-stat-label">Net Cash / MC</div><div class="card-stat-val">24.4<small>%</small></div></div>
+        </div>
+        <div class="card-meta-row"><span>Published 28 Aug 2026</span></div>
+      </a>
 
       <a class="card" data-segment="STANDARD" href="/en/compounders/4628/initiation/" data-date="2026-08-26" data-ticker="4628">
         <div class="card-head">
