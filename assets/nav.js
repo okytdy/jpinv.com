@@ -28,11 +28,10 @@
 
   /* ---------- 1. THE NAVIGATION. Edit here and nowhere else. ---------- */
 
-  /* The top bar. Four sections, in the order a first-time visitor needs
+  /* The top bar. Five sections, in the order a first-time visitor needs
      them: what we do, what it costs, who we are, what we publish. */
-  /* `panel` names the FOOTER column (by head) whose items open in a
-     dropdown under the bar, Nikkato-style. 料金 and 会社概要 are single
-     pages, so they stay plain links. */
+  /* `panel` controls whether a section opens a dropdown under the bar,
+     Nikkato-style. About JII is the only single-page section. */
   /* Every section opens a panel. `img` is the tile photo; sections without
      their own FOOTER column carry an explicit `items` list of the pages
      that belong with them. */
@@ -53,13 +52,12 @@
         { ja: "よくある質問", en: "FAQ",                jaHref: "/faq/",                                  enHref: "/en/faq/" },
         { ja: "お問い合わせ", en: "Contact",            jaHref: "/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B/", enHref: "/en/contact/" }
       ] },
-    { ja: "会社概要",     en: "Company",  jaHref: "/%E4%BC%9A%E7%A4%BE%E6%A6%82%E8%A6%81/", enHref: "/en/company/",
+    { ja: "会社情報",     en: "Company",  jaHref: "/%E4%BC%9A%E7%A4%BE%E6%A6%82%E8%A6%81/", enHref: "/en/company/",
       panel: true, img: "slot07_company_card",
       items: [
-        { ja: "会社概要",             en: "Company profile", jaHref: "/%E4%BC%9A%E7%A4%BE%E6%A6%82%E8%A6%81/", enHref: "/en/company/" },
-        { ja: "IR研修",               en: "IR training",     jaHref: "/governance/",  enHref: "/en/governance/" },
-        { ja: "プライバシーポリシー", en: "Privacy policy",  jaHref: "/privacy/",     enHref: "/en/privacy/" },
-        { ja: "サイトマップ",         en: "Sitemap",         jaHref: "/sitemap/",     enHref: "/en/sitemap/" }
+        { ja: "代表メッセージ", en: "Message from the Founder", jaHref: "/%E4%BB%A3%E8%A1%A8%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8/", enHref: "/en/founder-message/" },
+        { ja: "会社概要",       en: "Company Profile",          jaHref: "/%E4%BC%9A%E7%A4%BE%E6%A6%82%E8%A6%81/", enHref: "/en/company/" },
+        { ja: "沿革",           en: "History",                  jaHref: "/%E6%B2%BF%E9%9D%A9/", enHref: "/en/history/" }
       ] },
     { ja: "調査レポート", en: "Research", jaHref: "/compounders/",                          enHref: "/en/compounders/",
       panel: true, img: "free05_shoshu_card" }
@@ -114,7 +112,7 @@
         { ja: "継続翻訳・IR相談", en: "Ongoing translation and IR consultation", jaHref: "/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/%E7%B6%99%E7%B6%9AIR%E6%94%AF%E6%8F%B4/", enHref: "/en/services/ongoing-ir-support/" },
         { ja: "招集通知・有報・統合報告書翻訳", en: "AGM notice and annual report", jaHref: "/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/%E6%8B%9B%E9%9B%86%E9%80%9A%E7%9F%A5%E3%83%BB%E6%9C%89%E5%A0%B1%E3%83%BB%E7%B5%B1%E5%90%88%E5%A0%B1%E5%91%8A%E6%9B%B8%E7%BF%BB%E8%A8%B3/", enHref: "/en/services/annual-agm-translation/" },
         { ja: "特急翻訳",   en: "Express translation (JP)", jaHref: "/%E7%89%B9%E6%80%A5%E7%BF%BB%E8%A8%B3/",                                     enHref: "/%E7%89%B9%E6%80%A5%E7%BF%BB%E8%A8%B3/" },
-        { ja: "AIと機密保持", en: "AI and confidentiality", jaHref: "/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/AI%E3%81%A8%E6%A9%9F%E5%AF%86%E4%BF%9D%E6%8C%81/", enHref: "/en/services/ai-confidentiality/" }
+        { ja: "品質管理と機密保持", en: "Quality Control and Confidentiality", jaHref: "/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/AI%E3%81%A8%E6%A9%9F%E5%AF%86%E4%BF%9D%E6%8C%81/", enHref: "/en/services/ai-confidentiality/" }
       ] },
     { head: S("調査レポート"), items: [
         { ja: "銘柄分析",           en: "Profiles",         jaHref: "/compounders/profiles/",          enHref: "/en/compounders/profiles/" },
@@ -136,10 +134,11 @@
         { ja: "最前線",         en: "The frontier",        jaHref: "/governance/frontier/",             enHref: "/en/governance/frontier/" },
         { ja: "IRツールボックス", en: "IR toolbox",        jaHref: "/governance/toolbox/",              enHref: "/en/governance/toolbox/" }
       ] },
-    { head: S("会社概要"), items: [
-        { ja: "料金",         en: "Pricing",  jaHref: "/%E6%96%99%E9%87%91/", enHref: "/en/pricing/" },
-        { ja: "お問い合わせ", en: "Contact",  jaHref: CONTACT.jaHref,         enHref: CONTACT.enHref },
-        { ja: "よくある質問", en: "FAQ",      jaHref: "/faq/",                enHref: "/en/faq/" }
+    { head: S("会社情報"), items: [
+        { ja: "代表メッセージ", en: "Message from the Founder", jaHref: "/%E4%BB%A3%E8%A1%A8%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8/", enHref: "/en/founder-message/" },
+        { ja: "会社概要",       en: "Company Profile",          jaHref: "/%E4%BC%9A%E7%A4%BE%E6%A6%82%E8%A6%81/", enHref: "/en/company/" },
+        { ja: "沿革",           en: "History",                  jaHref: "/%E6%B2%BF%E9%9D%A9/", enHref: "/en/history/" },
+        { ja: "お問い合わせ",   en: "Contact",                  jaHref: CONTACT.jaHref, enHref: CONTACT.enHref }
       ] }
   ];
 
@@ -748,8 +747,8 @@
 
      The reason is that the row of tabs is not one solid strip. There is a 44px
      space between one tab and the next, and that space belongs to no tab at
-     all. A reader who hovers 会社概要 near the right of the bar and heads for
-     サイトマップ, which sits at the far left of the panel, does not travel down
+     all. A reader who hovers 会社情報 near the right of the bar and heads for
+     代表メッセージ, which sits at the far left of the panel, does not travel down
      and then left in two straight moves. The hand cuts the corner. On the way
      the pointer clips one of those 44px spaces, every `:hover` in the bar goes
      false at once, and the panel is gone before the click arrives — the same
@@ -800,12 +799,12 @@
   /* Opening the first panel is instant. Swapping to a DIFFERENT tab while one
      is already open waits 140ms, and here is why.
 
-     Look at where things are on a 1440px window. The 会社概要 tab occupies
+     Look at where things are on a 1440px window. The 会社情報 tab occupies
      x=964 to x=1023. Its first menu item sits at about x=115, roughly 850px to
      the left. Nobody travels that distance as two straight lines. The hand
      leaves the tab heading down and to the left at once, and on the way through
      the bar it passes over 料金 and サービス. Swapping on contact would hand the
-     reader サービス's menu when they were already halfway to a サイトマップ link
+     reader サービス's menu when they were already halfway to a 代表メッセージ link
      they could see.
 
      A pass costs a few tens of milliseconds. Deliberately choosing another tab

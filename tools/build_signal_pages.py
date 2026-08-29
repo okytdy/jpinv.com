@@ -15,7 +15,7 @@ Run after watchlist_join.py.
 import json, os, html, datetime
 
 # The one navigation for jpinv.com. See assets/nav.js.
-NAV_TAG = '<script src="/assets/nav.js?v=fa896de2e2" defer></script>'
+NAV_TAG = '<script src="/assets/nav.js?v=9c7d31c581" defer></script>'
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "compounders", "feed", "data", "watchlist_signals.json")
@@ -111,6 +111,7 @@ DISC_JP = """<section class="disclaimer"><div class="wrap">
   <p><b>株式会社ジャパン・インベスター・インターフェース（以下「JII」）</b>はIRコンサルティング事業を行う会社であり、いかなる管轄においても投資助言業者、金融アドバイザー、証券会社、または証券業者として登録されていません。JIIは、日本の金融商品取引法に基づく<b>金融商品取引業者</b>ではなく、投資助言・代理業の登録も保有しておりません。JIIは、投資助言を行うものでも、特定の有価証券の取得・売却・保有を勧誘するものでもありません。</p>
   <p><b>JII Compoundersは、教育・調査を目的とする編集コンテンツです。</b>各銘柄レポートおよび本シグナルログは、日本の上場企業が公表している情報をもとに、その情報が市場でどのように受け止められてきたかを考察するものです。<b>掲載内容は、いかなる有価証券の取得・売却・保有を推奨、提案、勧誘するものではありません。</b></p>
   <p><b>ご利用にあたって。</b>記載情報は不完全であったり、古くなっていたり、誤りを含んでいたりする可能性があります。過去の株価推移は将来の成果を示すものではありません。投資判断にあたっては、資格を有する専門家にご相談ください。</p>
+  <p><b>利益相反に関する開示。</b> JII、その役員および関係者は、本レポートで取り上げる有価証券を保有または売買する場合があります。重要な保有ポジション、または対象企業との有償の取引関係がある場合は、該当するレポート内でその旨を開示します。JIIが公表する情報は、情報提供を目的とするものであり、投資助言または特定の有価証券の売買を推奨するものではありません。</p>
   <p class="d-en-note" lang="en">Japan Investor Interface Co., Ltd. ("JII") is an investor-relations consultancy and is not registered as a Financial Instruments Business Operator under Japan's Financial Instruments and Exchange Act. JII does not provide investment advice. JII Compounders is an editorial publication for educational and research purposes. Nothing herein constitutes a recommendation. Consult qualified, licensed advisors before any investment decision.</p>
   </div></div></section>"""
 
@@ -119,9 +120,9 @@ DISC_EN = """<section class="disclaimer"><div class="wrap">
   <h2 class="d-title">This is not investment advice.</h2></div>
   <div class="disclaimer-body">
   <p><b>Japan Investor Interface Co., Ltd. ("JII")</b> is an investor-relations (IR) consultancy. JII is <b>not</b> a registered investment advisor, financial advisor, broker-dealer, or securities firm in any jurisdiction, and is <b>not</b> registered as a Financial Instruments Business Operator (金融商品取引業者) under Japan's Financial Instruments and Exchange Act. JII does not provide investment advice or solicit the purchase, sale, or holding of any security.</p>
-  <p><b>JII Compounders is an editorial publication.</b> Each profile and this signal log are analytical studies of how publicly disclosed information about Japanese listed companies has been received by the market, for educational and research purposes. <b>Nothing here constitutes a recommendation or solicitation to buy, sell, or hold any security.</b> JII does not have an investment opinion on any security discussed.</p>
+  <p><b>JII Compounders is an editorial publication.</b> Each profile and this signal log are analytical studies of how publicly disclosed information about Japanese listed companies has been received by the market, for educational and research purposes. <b>Nothing here constitutes a recommendation or solicitation to buy, sell, or hold any security.</b></p>
   <p><b>No reliance.</b> The information may be incomplete, out of date, or incorrect. Past price performance does not indicate future results. Before any investment, tax, accounting, or legal decision, consult qualified, licensed advisors and conduct your own due diligence based on the company's primary disclosures.</p>
-  <p><b>Conflicts &amp; positions.</b> JII may provide paid IR services to Japanese listed companies, including companies discussed here. JII does not trade in or hold positions in the securities of companies profiled. Any engagement with a profiled company is disclosed at the top of that profile.</p>
+  <p><b>Conflicts of interest and positions.</b> JII, its officers, and related parties may hold or trade securities discussed in a report. Any material position or paid relationship with a company covered will be disclosed in the relevant report. JII's publications are provided for informational purposes only and do not constitute investment advice or a recommendation to buy or sell any security.</p>
   <p class="d-jp-note" lang="ja">本資料は投資助言・代理業ではなく、特定の有価証券の売買の勧誘・推奨を目的とするものではありません。教育・研究を目的とした分析記事です。</p>
   </div></div></section>"""
 

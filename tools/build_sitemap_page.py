@@ -20,7 +20,7 @@ import re
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-NAV_TAG = '<script src="/assets/nav.js?v=fa896de2e2" defer></script>'
+NAV_TAG = '<script src="/assets/nav.js?v=9c7d31c581" defer></script>'
 
 TITLE_RE = re.compile(r"<title>(.*?)</title>", re.S)
 REFRESH_RE = re.compile(r'http-equiv="refresh"', re.I)
@@ -138,12 +138,15 @@ def build(lang):
     co = []
     for row in ([
         ("en/about-jii", "すぐわかるJII", "About JII"),
-        ("en/company", "会社概要", "Company"), ("en/pricing", "料金", "Pricing"),
+        ("en/founder-message", "代表メッセージ", "Message from the Founder"),
+        ("en/company", "会社概要", "Company Profile"),
+        ("en/history", "沿革", "History"), ("en/pricing", "料金", "Pricing"),
         ("en/contact", "お問い合わせ", "Contact"), ("en/faq", "よくある質問", "FAQ"),
         ("en/privacy", "プライバシーポリシー", "Privacy policy"),
     ] if en else [
         ("すぐわかるJII", "すぐわかるJII", ""),
-        ("会社概要", "会社概要", ""), ("料金", "料金", ""), ("お問い合わせ", "お問い合わせ", ""),
+        ("代表メッセージ", "代表メッセージ", ""), ("会社概要", "会社概要", ""),
+        ("沿革", "沿革", ""), ("料金", "料金", ""), ("お問い合わせ", "お問い合わせ", ""),
         ("faq", "よくある質問", ""), ("privacy", "プライバシーポリシー", ""),
     ]):
         if page_title(row[0]):
