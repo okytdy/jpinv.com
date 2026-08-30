@@ -40,7 +40,7 @@
        and it is the only one that answers "what is this company" before the
        reader has to pick a service. It carries no dropdown: it is a single
        page, and a panel would put a menu between the reader and the answer. */
-    { ja: "すぐわかるJII", en: "About JII", jaHref: "/%E3%81%99%E3%81%90%E3%82%8F%E3%81%8B%E3%82%8BJII/", enHref: "/en/about-jii/",
+    { ja: "JIIの特徴", en: "About JII", jaHref: "/%E3%81%99%E3%81%90%E3%82%8F%E3%81%8B%E3%82%8BJII/", enHref: "/en/about-jii/",
       panel: false },
     { ja: "サービス",     en: "Services", jaHref: "/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/", enHref: "/en/services/",
       panel: true, img: "slot02_mendan_card" },
@@ -65,7 +65,7 @@
 
   /* Look a section up by its Japanese name.
      The FOOTER below used to index SECTIONS by POSITION (SECTIONS[0],
-     SECTIONS[2], SECTIONS[3]). On August 4, 2026 すぐわかるJII was inserted at
+     SECTIONS[2], SECTIONS[3]). On August 4, 2026 the About JII page was inserted at
      the front of the array, which shifted every index by one and silently
      repointed all three footer columns at the wrong section heads. Nothing
      errors when that happens; the footer just renders wrong. Names do not
@@ -827,7 +827,7 @@
        tabs. Leave whatever is open alone — that is the repair for the gaps. */
     if (!li || !links.contains(li)) return;
     if (li.querySelector(".jn-pw")) showPanelSoon(li);
-    else hidePanelSoon();   /* すぐわかるJII has no panel of its own */
+    else hidePanelSoon();   /* JIIの特徴 has no panel of its own */
   });
   /* pointerleave counts the panel as inside, because the panel is a descendant
      of the <li>. Moving from the tab down into the panel therefore does not
