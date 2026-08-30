@@ -9,6 +9,18 @@
 .qj-kicker{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--ink-soft)}
 .qj-kicker::before{content:"";width:20px;height:1px;background:var(--accent)}
 
+/* Concise company-strengths version */
+.qj-page--concise .qj-hero-head{margin-bottom:0}
+.qj-page--concise .qj-hero-copy h1{line-height:1.35}
+.qj-strengths{padding:90px 0!important;background:var(--bg-soft);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.qj-strength-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--ink);border-left:1px solid var(--rule)}
+.qj-strength{min-height:285px;padding:32px 34px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);background:#fff}
+.qj-strength>span{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--accent)}
+.qj-strength h3{margin-top:14px;font-family:var(--serif);font-size:22px;font-weight:400;line-height:1.55;color:var(--ink)}
+.qj-strength p{margin-top:14px;font-size:13px;line-height:1.95;color:var(--text-mid)}
+.qj-strength a{display:inline-block;margin-top:22px;padding-bottom:3px;border-bottom:1px solid var(--accent);font-size:11px;letter-spacing:.04em;color:var(--ink);text-decoration:none}
+.qj-strength a:hover,.qj-strength a:focus-visible{color:var(--accent);outline:0}
+
 /* Hero — homepageの紺・斜線・情報パネルを継承し、写真はこのページ専用 */
 #top.qj-hero{min-height:auto;padding:calc(var(--nav-h) + 44px) 0 42px;border:0;background:#0f1f3a;color:#fff;overflow:hidden}
 .qj-hero-cut{position:absolute;inset:0 0 auto 36%;height:470px;background:#16294a;clip-path:polygon(28% 0,100% 0,100% 100%,0 100%);opacity:.92}
@@ -172,6 +184,7 @@
   .qj-output-grid{gap:30px}.qj-paper{min-height:300px}
   .qj-process-line{grid-template-columns:1fr;gap:28px}.qj-process-line::before{top:22px;bottom:22px;left:29px;right:auto;width:1px;height:auto}.qj-step{display:grid;grid-template-columns:60px 1fr;gap:18px;padding:0;text-align:left}.qj-step-no{grid-row:1/3;margin:0}.qj-step h3{align-self:end}.qj-step p{margin-top:0}
   .qj-related-grid{grid-template-columns:1fr}
+  .qj-strengths{padding:66px 0!important}.qj-strength-grid{grid-template-columns:1fr}.qj-strength{min-height:0;padding:27px 24px}.qj-strength h3{font-size:20px}
 }
 
 @media(max-width:420px){
