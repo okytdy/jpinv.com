@@ -1,508 +1,246 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-
-<title>次のガバナンス・ルールを書いているワーキング・グループ群 | JII ガバナンス改革カリキュラム</title>
-<meta name="description" content="日本のガバナンス政策を生む10の現役ワーキング・グループ・審議会の実務マップ。各エントリは日本語・英語の名称、所管省庁、座長、付託事項、現行課題、想定アウトプットを網羅する。IRチームがブックマークすべきファイルだ ― 次のサプライズはこれらの表のひとつから来る。">
-<meta property="og:title" content="次のガバナンス・ルールを書いているワーキング・グループ群 | JII ガバナンス改革カリキュラム">
-<meta property="og:description" content="日本のガバナンス政策を生む10の現役ワーキング・グループ・審議会の実務マップ。各エントリは日本語・英語の名称、所管省庁、座長、付託事項、現行課題、想定アウトプットを網羅する。IRチームがブックマークすべきファイルだ ― 次のサプライズはこれらの表のひとつから来る。">
-<meta property="og:url" content="https://jpinv.com/governance/frontier/5.8-working-groups-landscape/">
-<link rel="canonical" href="https://jpinv.com/governance/frontier/5.8-working-groups-landscape/">
-<link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/frontier/5.8-working-groups-landscape/">
-<link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/frontier/5.8-working-groups-landscape/">
-<link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/frontier/5.8-working-groups-landscape/">
-
-<style>
-:root {
-  --ink:        #1a2a4a;
-  --ink-mid:    #172641;
-  --ink-soft:   #304466;
-  --rule:       #d6dee8;
-  --rule-soft:  #e8edf3;
-  --bg:         #ffffff;
-  --bg-mid:     #f5f7fa;
-  --bg-soft:    #fafbfc;
-  --text:       #1f2937;
-  --text-mid:   #4a5566;
-  --text-dim:   #5f6875;
-  --accent:     #9a7838;
-  --accent-deep:#9a7838;
-  --accent-soft:#f4eee4;
-  --bad:        #b91c1c;
-  --warn:       #8a682b;
-  --ok:         #2f6f4f;
-  --serif: 'Noto Serif JP', 'Yu Mincho', serif;
-  --sans:  'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
-  --mono:  'DM Mono', monospace;
-  --max: 1100px;
-  --pad: 88px;
-  --gutter: 48px;
-  --nav-h: 64px;
-  --measure: 720px;
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 400; line-height: 1.7; overflow-x: hidden; }
-img { max-width: 100%; display: block; }
-a { color: var(--ink-soft); text-decoration: none; }
-a:hover { color: var(--ink); }
-.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
-@media (max-width: 768px) { :root { --gutter: 22px; --pad: 56px; } }
-strong { font-weight: 600; color: var(--ink); }
-em { font-style: normal; color: var(--ink); font-weight: 600; }
-.label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); }
-
-/* Nav (copied from jpinv.com base) */
-nav#main-nav { position: fixed; top:0; left:0; right:0; z-index:100; height: var(--nav-h); background: rgba(255,255,255,0.96); backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule); display: flex; align-items: center; transition: box-shadow 0.3s; }
-nav#main-nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
-.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; }
-.nav-logo { text-decoration: none; display: inline-flex; align-items: center; flex: 0 0 auto; min-width: max-content; white-space: nowrap; }
-.nav-logo-img { display: block; width: auto; height: 40px; max-width: none; object-fit: contain; object-position: left center; }
-.nav-logo-img--mobile { display: none; width: 32px; height: 32px; object-fit: contain; }
-.nav-center { flex: 1; display: flex; justify-content: center; }
-.nav-links { display: flex; gap: 18px; list-style: none; flex-wrap: nowrap; white-space: nowrap; }
-.nav-links a { font-family: var(--sans); font-size: 0.74rem; font-weight: 400; letter-spacing: 0.02em; color: var(--text); text-decoration: none; transition: color 0.2s; }
-.nav-links a:hover { color: var(--ink-soft); }
-.nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; margin-left: auto; }
-.nav-cta { padding: 7px 11px; font-size: 0.66rem; letter-spacing: 0.05em; }
-.locale-switcher { display: inline-flex; align-items: center; gap: 0; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; }
-.locale-switcher a { color: var(--text-dim); border: 1px solid var(--rule); padding: 6px 9px; text-decoration: none; transition: all 0.2s; }
-.locale-switcher a + a { margin-left: -1px; }
-.locale-switcher a:hover, .locale-switcher a.current { color: var(--ink); border-color: var(--ink-mid); background: var(--bg-soft); position: relative; z-index: 1; }
-.hamburger { display: none; flex-shrink:0; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
-.hamburger span { display:block; width:22px; height:1px; background:var(--ink); transition: all 0.25s; }
-@media (max-width: 900px) { .nav-center, .nav-right .nav-cta { display:none; } .hamburger { display:flex; } }
-@media (max-width: 768px) { .nav-logo-img--desktop { display:none; } .nav-logo-img--mobile { display:block; } }
-.mobile-menu { display:none; position:fixed; top:var(--nav-h); left:0; right:0; background:var(--bg); border-bottom:1px solid var(--rule); z-index:99; padding:8px var(--gutter) 20px; flex-direction:column; gap:0; }
-.mobile-menu.open { display:flex; }
-.mobile-menu a { font-size:0.88rem; color:var(--text); text-decoration:none; padding:14px 0; border-bottom:1px solid var(--rule); letter-spacing:0.04em; }
-.mobile-menu a:last-child { border-bottom:none; }
-.mobile-menu .mobile-menu-cta { margin-top:12px; padding:13px 18px; text-align:center; color:#fff; border-bottom:none; }
-
-.btn { display: inline-block; text-decoration: none; font-family: var(--sans); font-size: 0.84rem; font-weight: 400; letter-spacing: 0.06em; padding: 13px 28px; transition: all 0.2s; cursor: pointer; border: none; }
-.btn-primary { background: var(--ink); color: #fff; }
-.btn-primary:hover { background: var(--ink-mid); color: #fff; }
-.btn-outline { border: 1px solid var(--ink-mid); color: var(--ink); background: transparent; }
-.btn-outline:hover { border-color: var(--ink); color: var(--ink); }
-.rule-accent { width: 32px; height: 2px; background: var(--accent); margin: 14px 0 22px; }
-
-/* Footer (mirror) */
-footer { border-top: 1px solid var(--rule); padding: 52px 0 28px; background: var(--bg-soft); font-size: 0.82rem; color: var(--text-dim); }
-footer .footer-grid { display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 32px; align-items: start; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
-footer h2 { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.2em; color: var(--ink-soft); text-transform: uppercase; margin-bottom: 12px; font-weight: 500; }
-footer h3 { font-family: var(--serif); font-size: 1rem; font-weight: 400; color: var(--ink); margin-bottom: 8px; }
-footer ul { list-style: none; }
-footer ul li { padding: 4px 0; }
-footer ul li a { color: var(--text-mid); }
-footer ul li a:hover { color: var(--ink); }
-footer .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 18px; flex-wrap: wrap; gap: 12px; }
-footer .footer-locale-switcher a.current { font-weight: 600; color: var(--ink); }
-@media (max-width: 900px) { footer .footer-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 580px) { footer .footer-grid { grid-template-columns: 1fr; } }
-
-/* === Curriculum-specific === */
-main.curriculum { padding-top: var(--nav-h); }
-.curr-hero { padding: 96px 0 64px; border-bottom: 1px solid var(--rule); position: relative; overflow: hidden; }
-.curr-hero::before { content:''; position:absolute; inset:0;
-  background-image: linear-gradient(rgba(15,31,58,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(15,31,58,0.04) 1px, transparent 1px);
-  background-size: 64px 64px;
-  -webkit-mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent);
-          mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent); }
-.curr-hero-inner { position:relative; z-index:2; max-width: 880px; }
-.curr-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.32em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 18px; }
-.curr-hero h1 { font-family: var(--serif); font-size: clamp(1.9rem, 4.4vw, 3.1rem); font-weight: 300; color: var(--ink-mid); line-height: 1.3; letter-spacing: 0.02em; margin: 0 0 22px; }
-.curr-hero h1 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-.curr-hero .lede { font-size: 1.05rem; line-height: 1.85; color: var(--text); margin: 0 0 24px; max-width: 700px; }
-.curr-hero-meta { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
-.curr-hero-meta strong { color: var(--ink); font-family: var(--mono); }
-
-.crumbs { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; padding: 22px 0 0; }
-.crumbs a { color: var(--text-mid); }
-.crumbs a:hover { color: var(--ink); }
-.crumbs .sep { color: var(--rule); margin: 0 8px; }
-
-.theme-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; padding: 56px 0; }
-.theme-card { display: block; background: #fff; border: 1px solid var(--rule); padding: 30px 28px; position: relative; transition: all 0.2s; }
-.theme-card:hover { border-color: var(--ink-soft); box-shadow: 0 12px 32px rgba(15,31,58,0.08); transform: translateY(-2px); }
-.theme-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background: var(--accent); opacity: 0.85; }
-.theme-card-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; }
-.theme-card-name { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--ink-mid); margin: 10px 0 8px; line-height: 1.35; }
-.theme-card-period { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 14px; }
-.theme-card-desc { font-size: 0.92rem; line-height: 1.7; color: var(--text); margin-bottom: 18px; }
-.theme-card-list { font-size: 0.84rem; color: var(--text-mid); list-style: none; padding-top: 14px; border-top: 1px solid var(--rule-soft); }
-.theme-card-list li { padding: 5px 0; }
-.theme-card-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; }
-.theme-card-foot .arrow { color: var(--accent-deep); }
-
-.post-list { padding: 28px 0 56px; }
-.post-list-row { display: grid; grid-template-columns: 60px 1fr auto; gap: 22px; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--rule-soft); transition: all 0.18s; }
-.post-list-row:hover { background: var(--bg-mid); padding-left: 12px; padding-right: 12px; }
-.post-list-num { font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em; color: var(--accent-deep); font-weight: 500; }
-.post-list-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--ink-mid); line-height: 1.45; }
-.post-list-meta { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; white-space: nowrap; }
-@media (max-width: 600px) { .post-list-row { grid-template-columns: 50px 1fr; } .post-list-meta { grid-column: 1 / -1; padding-left: 72px; } }
-
-/* Post body */
-.post-body { padding: 48px 0 80px; }
-.post-content { max-width: var(--measure); margin: 0 auto; }
-.post-content > p, .post-content > ul, .post-content > ol, .post-content > blockquote, .post-content > pre, .post-content > table, .post-content > hr, .post-content > h2, .post-content > h3, .post-content > h4 { max-width: var(--measure); margin-left: auto; margin-right: auto; }
-.post-content h2 { font-family: var(--serif); font-size: 1.55rem; font-weight: 400; color: var(--ink-mid); line-height: 1.35; margin: 56px 0 14px; padding-top: 22px; border-top: 1px solid var(--rule-soft); }
-.post-content h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 500; color: var(--ink); margin: 36px 0 10px; line-height: 1.4; }
-.post-content h4 { font-family: var(--sans); font-size: 1rem; font-weight: 600; color: var(--ink); margin: 26px 0 8px; letter-spacing: 0.02em; }
-.post-content p { margin: 0 0 18px; font-size: 1rem; line-height: 1.85; color: var(--text); }
-.post-content p:first-of-type { font-size: 1.05rem; }
-.post-content ul, .post-content ol { margin: 0 0 22px; padding-left: 28px; }
-.post-content ul li, .post-content ol li { font-size: 0.97rem; line-height: 1.8; margin-bottom: 8px; color: var(--text); }
-.post-content ul li::marker { color: var(--accent-deep); }
-.post-content blockquote { margin: 30px 0; padding: 20px 24px; border-left: 3px solid var(--accent); background: var(--accent-soft); color: var(--ink-mid); font-style: normal; }
-.post-content blockquote p { margin-bottom: 8px; font-size: 0.97rem; }
-.post-content blockquote p:last-child { margin-bottom: 0; }
-.post-content blockquote strong { color: var(--ink); }
-.post-content code { background: #f0f0f0; color: var(--ink-mid); font-family: var(--mono); font-size: 0.88rem; padding: 2px 6px; border-radius: 3px; }
-.post-content pre { background: #f9f9fb; border: 1px solid var(--rule); padding: 18px 22px; overflow-x: auto; font-family: var(--mono); font-size: 0.85rem; line-height: 1.55; margin: 24px 0; }
-.post-content pre code { background: transparent; padding: 0; font-size: inherit; }
-.post-content a { color: var(--accent-deep); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; transition: text-decoration-color 0.18s; overflow-wrap: anywhere; word-break: break-word; }
-.post-content a:hover { text-decoration-color: var(--accent-deep); }
-.post-content hr { border: none; border-top: 1px solid var(--rule); margin: 40px auto; max-width: 120px; }
-.post-content table { width: 100%; max-width: var(--measure); margin: 28px auto; border-collapse: collapse; font-size: 0.9rem; }
-.post-content th { background: var(--bg-mid); color: var(--ink-mid); font-family: var(--sans); font-weight: 600; text-align: left; padding: 12px 14px; border-bottom: 2px solid var(--rule); }
-.post-content td { padding: 10px 14px; border-bottom: 1px solid var(--rule-soft); vertical-align: top; color: var(--text); }
-.post-content tr:nth-child(even) td { background: #fafbfc; }
-
-/* Mermaid container */
-.mermaid-wrap { background: #fdfdfe; border: 1px solid var(--rule); padding: 22px 18px; margin: 28px 0; overflow-x: auto; }
-.mermaid { font-family: var(--sans); text-align: center; }
-
-/* Post header */
-.post-header { padding: 48px 0 28px; border-bottom: 1px solid var(--rule); }
-.post-header-inner { max-width: var(--measure); margin: 0 auto; }
-.post-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.28em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 14px; }
-.post-title { font-family: var(--serif); font-size: clamp(1.7rem, 3.6vw, 2.4rem); font-weight: 400; color: var(--ink-mid); line-height: 1.3; margin: 0 0 16px; letter-spacing: 0.005em; }
-.post-summary { font-size: 1.02rem; line-height: 1.8; color: var(--text); margin: 0 0 22px; max-width: 660px; }
-.post-meta { display: flex; gap: 26px; flex-wrap: wrap; padding-top: 18px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
-.post-meta span strong { color: var(--ink); font-family: var(--mono); }
-
-/* Post nav (prev/next) */
-.post-nav { max-width: var(--measure); margin: 56px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding-top: 36px; border-top: 1px solid var(--rule); }
-.post-nav-link { display: block; padding: 18px 20px; background: var(--bg-mid); border: 1px solid var(--rule); transition: all 0.18s; }
-.post-nav-link:hover { border-color: var(--ink-soft); background: #fff; transform: translateY(-1px); }
-.post-nav-dir { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px; }
-.post-nav-title { font-family: var(--serif); font-size: 0.94rem; color: var(--ink-mid); line-height: 1.4; }
-.post-nav-link.next { text-align: right; }
-@media (max-width: 640px) { .post-nav { grid-template-columns: 1fr; } .post-nav-link.next { text-align: left; } }
-
-/* Knowledge check */
-.kcheck { background: var(--bg-mid); padding: 72px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
-.kcheck-head { max-width: 720px; margin: 0 auto 36px; text-align: center; }
-.kcheck h2 { font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 300; color: var(--ink-mid); margin: 0 0 14px; line-height: 1.3; }
-.kcheck h2 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-.kcheck p.lede { font-size: 0.98rem; line-height: 1.75; color: var(--text); }
-.kcheck-q { background: #fff; border: 1px solid var(--rule); padding: 28px 30px; margin-bottom: 18px; max-width: 760px; margin-left: auto; margin-right: auto; }
-.kcheck-q-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; margin-bottom: 12px; }
-.kcheck-q-text { font-family: var(--serif); font-size: 1.1rem; line-height: 1.5; color: var(--ink-mid); margin-bottom: 18px; }
-.kcheck-opts { display: grid; gap: 8px; }
-.kcheck-opt { display: block; padding: 12px 16px; background: var(--bg-soft); border: 1px solid var(--rule); text-align: left; font-family: var(--sans); font-size: 0.92rem; color: var(--text); cursor: pointer; transition: all 0.15s; }
-.kcheck-opt:hover { background: #fff; border-color: var(--ink-soft); }
-.kcheck-opt.correct { background: #e8f3ec; border-color: var(--ok); color: var(--ok); }
-.kcheck-opt.incorrect { background: #fbe9e9; border-color: var(--bad); color: var(--bad); }
-.kcheck-explain { margin-top: 16px; padding: 14px 18px; background: var(--accent-soft); border-left: 3px solid var(--accent); font-size: 0.9rem; line-height: 1.7; color: var(--ink-mid); display: none; }
-.kcheck-q.answered .kcheck-explain { display: block; }
-.kcheck-score { text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--text-dim); margin-top: 28px; text-transform: uppercase; }
-.kcheck-score strong { color: var(--ink-mid); font-family: var(--mono); }
-
-/* Stats / hero stats */
-.stat-band { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; padding: 56px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); background: var(--bg-soft); }
-.stat-item { padding: 0 18px; }
-.stat-num { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 300; color: var(--ink-mid); line-height: 1; margin-bottom: 8px; }
-.stat-num em { color: var(--accent-deep); font-weight: 400; font-style: normal; }
-.stat-label { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; }
-</style>
-
-<meta property="og:image" content="https://jpinv.com/og/jii-default.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://jpinv.com/og/jii-default.png">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "url": "https://jpinv.com/governance/frontier/5.8-working-groups-landscape/",
-  "name": "次のガバナンス・ルールを書いているワーキング・グループ群 | JII ガバナンス改革カリキュラム",
-  "description": "日本のガバナンス政策を生む10の現役ワーキング・グループ・審議会の実務マップ。各エントリは日本語・英語の名称、所管省庁、座長、付託事項、現行課題、想定アウトプットを網羅する。IRチームがブックマークすべきファイルだ ― 次のサプライズはこれらの表のひとつから来る。",
-  "inLanguage": "ja"
-}
-</script></head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>次の制度改正を読む――ガバナンス関連会議・研究会の全体像｜JII ガバナンス改革講座</title>
+  <meta name="description" content="日本のガバナンス制度は、金融庁、東証、経済産業省、法務省、SSBJがそれぞれ所管する会議・研究会を通じて形成される。2026年にはコーポレートガバナンス・コード改訂が完了し、SSBJ基準の法定適用や買収指針の実務整理も進んだ。一方、サステナビリティ保証、会社法制、法定開示の見直しなどは引き続き検討中である。本稿では、すでに結論が出た制度と、これから追うべき検討を分け、IR担当者のための実務地図として整理する。">
+  <link rel="canonical" href="https://jpinv.com/governance/frontier/5.8-working-groups-landscape/">
+  <link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/frontier/5.8-working-groups-landscape/">
+  <link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/frontier/5.8-working-groups-landscape/">
+  <link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/frontier/5.8-working-groups-landscape/">
+  <meta property="og:title" content="次の制度改正を読む――ガバナンス関連会議・研究会の全体像｜JII ガバナンス改革講座">
+  <meta property="og:description" content="日本のガバナンス制度は、金融庁、東証、経済産業省、法務省、SSBJがそれぞれ所管する会議・研究会を通じて形成される。2026年にはコーポレートガバナンス・コード改訂が完了し、SSBJ基準の法定適用や買収指針の実務整理も進んだ。一方、サステナビリティ保証、会社法制、法定開示の見直しなどは引き続き検討中である。本稿では、すでに結論が出た制度と、これから追うべき検討を分け、IR担当者のための実務地図として整理する。">
+  <meta property="og:url" content="https://jpinv.com/governance/frontier/5.8-working-groups-landscape/">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://jpinv.com/og/jii-default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://jpinv.com/og/jii-default.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&amp;family=Noto+Sans+JP:wght@300;400;500;600&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/governance.css?v=b6280834c3">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","name":"次の制度改正を読む――ガバナンス関連会議・研究会の全体像｜JII ガバナンス改革講座","description":"日本のガバナンス制度は、金融庁、東証、経済産業省、法務省、SSBJがそれぞれ所管する会議・研究会を通じて形成される。2026年にはコーポレートガバナンス・コード改訂が完了し、SSBJ基準の法定適用や買収指針の実務整理も進んだ。一方、サステナビリティ保証、会社法制、法定開示の見直しなどは引き続き検討中である。本稿では、すでに結論が出た制度と、これから追うべき検討を分け、IR担当者のための実務地図として整理する。","url":"https://jpinv.com/governance/frontier/5.8-working-groups-landscape/","inLanguage":"ja","isPartOf":{"@type":"WebSite","name":"Japan Investor Interface","url":"https://jpinv.com/"},"headline":"次の制度改正を読む――ガバナンス関連会議・研究会の全体像","dateModified":"2026-08-30","author":{"@type":"Organization","name":"Japan Investor Interface Co., Ltd."},"publisher":{"@type":"Organization","name":"Japan Investor Interface Co., Ltd.","url":"https://jpinv.com/"}}</script>
+</head>
 <body>
-<main id="main-content" class="curriculum" tabindex="-1">
-<div class="wrap crumbs">
-  <a href="/">JII</a> <span class="sep">/</span>
-  <a href="/governance/">IR研修</a> <span class="sep">/</span>
-  <a href="/governance/frontier/">最前線 ― 現在の論点</a> <span class="sep">/</span>
-  記事 5.8
-</div>
-<header class="post-header">
-  <div class="wrap">
-    <div class="post-header-inner">
-      <div class="post-eyebrow">テーマ 5 · 記事 5.8</div>
-      <h1 class="post-title">次のガバナンス・ルールを書いているワーキング・グループ群</h1>
-      <p class="post-summary">日本のガバナンス政策を生む10の現役ワーキング・グループ・審議会の実務マップ。各エントリは日本語・英語の名称、所管省庁、座長、付託事項、現行課題、想定アウトプットを網羅する。IRチームがブックマークすべきファイルだ ― 次のサプライズはこれらの表のひとつから来る。</p>
-      <div class="post-meta">
-        <span>テーマ: <strong>最前線 ― 現在の論点</strong></span>
-        <span>読了目安: <strong>18 分</strong></span>
-        <span>更新: <strong>2026-05-18</strong></span>
-      </div>
-    </div>
-  </div>
-</header>
-<section class="post-body">
-  <div class="wrap">
-    <article class="post-content">
-<blockquote>
-<p><strong>要点</strong>
-- 日本のガバナンス政策は、金融庁、JPX/東証、METI、法務省、FASF/SSBJに分散する約<strong>10の現役ワーキング・グループ・審議会・研究会</strong>によって生み出される。
-- 最も議題設定力を持つのは、<strong>金融庁/東証フォローアップ会議</strong>(アクション・プログラム)、新設の<strong>コーポレートガバナンス・コードの見直しに関する有識者会議</strong>(初回開催2025年10月21日)、<strong>金融庁情報開示WG</strong>および<strong>サステナビリティ開示WG</strong>である。
-- 各WGの課題を読むことが、今後12~24か月の日本ガバナンス改革を予見する実務的手段だ。2026-27年の次回CGC改訂は有識者会議から、次のSSBJ保証規則はサステナビリティWGから、次の買収ドクトリン更新は再開された公正な買収の在り方に関する研究会から、それぞれ生まれる。</p>
+  <a class="gov-skip" href="#main-content">本文へ移動</a>
+  <main id="main-content" class="governance-page" tabindex="-1">
+    <nav class="gov-wrap gov-crumbs" aria-label="パンくず"><a href="/">ホーム</a><span class="sep">/</span><a href="/governance/">ガバナンス改革講座</a><span class="sep">/</span><a href="/governance/frontier/">現在進行中の論点</a><span class="sep">/</span><span aria-current="page">記事 5.8</span></nav>
+    <header class="post-header"><div class="gov-wrap"><div class="post-header-inner"><span class="post-eyebrow">テーマ 5 · 記事 5.8</span><h1 class="post-title">次の制度改正を読む――ガバナンス関連会議・研究会の全体像</h1><p class="post-summary">日本のガバナンス制度は、金融庁、東証、経済産業省、法務省、SSBJがそれぞれ所管する会議・研究会を通じて形成される。2026年にはコーポレートガバナンス・コード改訂が完了し、SSBJ基準の法定適用や買収指針の実務整理も進んだ。一方、サステナビリティ保証、会社法制、法定開示の見直しなどは引き続き検討中である。本稿では、すでに結論が出た制度と、これから追うべき検討を分け、IR担当者のための実務地図として整理する。</p><div class="post-meta"><span>テーマ: <strong>現在進行中の論点</strong></span><span>読了目安: <strong>11分</strong></span><span>更新: <strong>2026-08-30</strong></span></div></div></div></header>
+    <section class="post-body"><div class="gov-wrap"><article class="post-content"><blockquote>
+<p><strong>要点</strong></p>
+<ul>
+<li>制度動向を追うときは、<strong>改訂が完了した会議、実施状況を点検する会議、現在も制度設計を行う会議</strong>を分ける。</li>
+<li>2026年7月、コーポレートガバナンス・コード改訂は確定し、東証で適用が始まった。したがって、改訂有識者会議を「今後のルールを作る会議」として追う段階は終わっている。</li>
+<li>今後の重要論点は、サステナビリティ保証、会社法制、法定開示、東証の市場区分・資本コスト施策、買収実務の定着である。</li>
+</ul>
 </blockquote>
-<h2>このマップの読み方</h2>
-<p>日本のガバナンス改革は分散制度アーキテクチャを通じて生み出される。ルールを書く単一の主体はない。代わりに、4省と1自主規制機関がそれぞれ独自の審議会、研究会、ワーキング・グループを運営し、相当のクロスメンバーシップと非公式協調が伴う。次の政策サプライズを予見しようとするIRチームにとって、最も作動的なスキルは、<strong>関連WGの議題を読み</strong>、当該WGが生むであろう文書を予測することだ。</p>
-<p>幾つかのオリエンテーション・ルールが当てはまる。</p>
-<p><strong>ルール一 ― 文書を生む審議会は、文書を採択する審議会と概して異なる。</strong> 金融庁のフォローアップ会議が政策フレーミングを書き、金融庁の有識者会議が条文ドラフトを書き、東証上場規則部門が運用規則を採択し、内閣府令が法定本文となる。改革は実効化するまでに3~4の主体を通過しうる。IRチームは政策フレーミングをフォローアップ会議資料で追跡し、そこから前進して有識者会議とルール採択主体へとトレースすべきだ。</p>
-<p><strong>ルール二 ― 重要政策の大半はアクション・プログラムで予告される。</strong> 「コーポレートガバナンス改革に向けた行動計画」 ― 金融庁フォローアップ会議が2014年以来毎年公表 ― は、日本ガバナンス政策で最も議題設定力を持つ単一の文書だ。2024年版(2024年6月7日)は次回CGC改訂を予告し、これが2025年10月21日に初開催した有識者会議を生んだ。2025年版(2025年6月30日)はSSBJ開示見通し、スチュワードシップ・コードv3.0改訂、政策保有株式点検強化を予告した。2026年版 ― 2026年6月下旬予想 ― が2026-27年の議題を設定する。</p>
-<p><strong>ルール三 ― 座長があなたに何を予期すべきかを教える。</strong> ワーキング・グループの座長は通常、日本ガバナンス政策に対し数十年の可視性を持つ著名な学者やシニア実務家だ。フォローアップ会議は2014年以来<strong>神田秀樹氏</strong>(東京大学名誉教授)が議長を務め、同氏は新設の有識者会議の座長も兼務する。神田氏の政策フレーミングは継続的かつ認識可能であり、同氏の2025-26年発言は、有識者会議が生むであろうものを予告する。</p>
-<h2>ワーキング・グループの全体マップ</h2>
-<p>下表が作動的テーブル ― IRチームがブックマークすべきファイルである。</p>
+<h2 id="section-1">まず、三つの状態に分ける</h2>
+<p>政策会議の一覧は、数を増やすほど分かりにくくなる。実務では、各会議を次の三つに分類するとよい。</p>
+<ol>
+<li><strong>制度改正を終えた会議。</strong> 最終文書や法令が出ており、会社側は実装段階にある。</li>
+<li><strong>実施状況を点検する会議。</strong> 新しい条文を作るより、既存制度が実質的に機能しているかを確認する。</li>
+<li><strong>制度設計を続ける会議。</strong> 中間整理、公開草案、法案など、今後の義務を生む可能性がある。</li>
+</ol>
+<p>2026年8月時点の主要な流れは、次のとおりである。</p>
 <table>
 <thead>
 <tr>
-<th>#</th>
-<th>英語名称</th>
-<th>日本語名称</th>
+<th>政策の流れ</th>
 <th>所管</th>
-<th>座長</th>
-<th>付託事項</th>
-<th>現行重点</th>
-<th>想定アウトプット</th>
+<th>現在の状態</th>
+<th>直近の成果</th>
+<th>次に確認すること</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Council of Experts Concerning the Follow-up of Japan's Stewardship Code and Japan's Corporate Governance Code(「フォローアップ会議」)</td>
-<td>スチュワードシップ・コード及びコーポレートガバナンス・コードのフォローアップ会議</td>
-<td>金融庁/東証</td>
-<td><strong>神田秀樹</strong>(東京大学名誉教授)</td>
-<td>コード実施の年次政策フレーミング。アクション・プログラムを生む</td>
-<td>政策保有点検、資本コスト実装、サクセッション、英文開示</td>
-<td><strong>コーポレートガバナンス改革行動計画2026</strong>(2026年6月予想)</td>
+<tbody><tr>
+<td>コーポレートガバナンス・コード改訂</td>
+<td>金融庁・東証</td>
+<td><strong>完了・実装</strong></td>
+<td>2026年7月21日に改訂版確定、東証で適用開始</td>
+<td>自社CG報告書、取締役会運営、政策保有、人材戦略への反映</td>
 </tr>
 <tr>
-<td>2</td>
-<td>Expert Panel on the Revision of the Corporate Governance Code(2025-26)</td>
-<td>コーポレートガバナンス・コードの見直しに関する有識者会議</td>
-<td>金融庁/東証</td>
-<td><strong>神田秀樹</strong></td>
-<td>次回CGC改訂をドラフト</td>
-<td>コードのスリム化・統合、SSBJとの整合、構造的論点(政策保有、上場子会社、多様性)</td>
-<td><strong>次回CGC改訂</strong>(2026年ドラフト、2027年確定)</td>
+<td>両コードのフォローアップ</td>
+<td>金融庁・東証</td>
+<td><strong>実施状況の点検</strong></td>
+<td>アクション・プログラム2025</td>
+<td>改訂コードとスチュワードシップ実務の定着状況</td>
 </tr>
 <tr>
-<td>3</td>
-<td>Expert Panel on the Stewardship Code</td>
-<td>スチュワードシップ・コードに関する有識者検討会</td>
-<td>金融庁</td>
-<td>(有識者ローテーション)</td>
-<td>スチュワードシップ・コードの改訂をドラフト</td>
-<td>v3.0の実施点検、協働対話、実質株主情報の応対</td>
-<td>点検・レポート、2027-28年にv3.1の可能性</td>
+<td>市場区分・資本コスト・グロース市場</td>
+<td>東証</td>
+<td><strong>継続的な点検・運用</strong></td>
+<td>資本コスト要請の更新、グロース市場の新基準、TOPIX改革</td>
+<td>開示の質、実行、上場維持、指数移行</td>
 </tr>
 <tr>
-<td>4</td>
-<td>Council of Experts Concerning the Follow-up of Market Restructuring</td>
-<td>市場区分の見直しに関するフォローアップ会議</td>
-<td>東証/JPX</td>
-<td>(東証指名)</td>
-<td>プライム/スタンダード/グロース移行および資本コスト施策をモニター</td>
-<td>資本コスト「グッド・プラクティス」例、グロース上場継続基準</td>
-<td>定期点検・レポート、グロース上場継続基準改正(2025年12月施行)</td>
+<td>法定開示制度</td>
+<td>金融庁・金融審議会</td>
+<td><strong>制度設計中</strong></td>
+<td>有価証券報告書、人的資本、サステナビリティ開示の改正</td>
+<td>総会前開示、英文開示、記述情報の追加見直し</td>
 </tr>
 <tr>
-<td>5</td>
-<td>Working Group on Corporate Disclosure(FSA Financial System Council)</td>
-<td>金融審議会情報開示・ワーキング・グループ</td>
-<td>金融庁 金融審議会</td>
-<td>(金融審議会委員)</td>
-<td>法定開示(YUHO、半期、適時)の改革</td>
-<td>政策保有開示テンプレート(2022年6月報告)、YUHO英文義務化、開示拡大</td>
-<td>YUHO英文義務化提案、内閣府令追加改正</td>
+<td>サステナビリティ開示・保証</td>
+<td>金融庁・金融審議会</td>
+<td><strong>開示は一部確定、保証は検討継続</strong></td>
+<td>SSBJ基準の段階適用を法制化</td>
+<td>保証対象、開始時期、保証業務の担い手と監督</td>
 </tr>
 <tr>
-<td>6</td>
-<td>Working Group on Disclosure and Assurance of Sustainability-related Financial Information</td>
-<td>サステナビリティ情報の開示・保証のあり方に関するワーキング・グループ</td>
-<td>金融庁 金融審議会</td>
-<td>(金融審議会委員)</td>
-<td>SSBJ実装、保証見通し</td>
-<td>第1段階(2027年3月期)準備、保証枠組み</td>
-<td>中間報告(2025年11月)、最終報告(2026年1月/4月)、実装点検継続</td>
+<td>買収実務</td>
+<td>経済産業省</td>
+<td><strong>指針確定・実務整理</strong></td>
+<td>2023年指針、2026年「ポイント・Q&amp;A」</td>
+<td>市場実務、裁判例、TOB制度との接続</td>
 </tr>
 <tr>
-<td>7</td>
-<td>Fair Acquisition Study Group</td>
-<td>公正な買収の在り方に関する研究会</td>
-<td>METI</td>
-<td>(METI指名)</td>
-<td>買収ドクトリン、公正なM&amp;A/企業買収における行動指針</td>
-<td><strong>2026年2月3日再開</strong>、敵対的買収防衛策、前提条件付TOB</td>
-<td>改訂買収指針(2026年後半~2027年予想)</td>
+<td>会社法制</td>
+<td>法務省・法制審議会</td>
+<td><strong>制度設計中</strong></td>
+<td>会社法制部会で中間試案を検討</td>
+<td>実質株主、株主総会、株式制度、企業統治の法改正</td>
 </tr>
 <tr>
-<td>8</td>
-<td>Corporate Governance System Study Group(「CGS研究会」)</td>
-<td>コーポレート・ガバナンス・システム研究会</td>
-<td>METI</td>
-<td>(METI指名)</td>
-<td>CGS指針の維持、サクセッション補足</td>
-<td>取締役会レベルの資本配分監督、特別委員会ベスト・プラクティス、支配株主企業のPSU/RSU</td>
-<td>CGS指針改訂(2026-27年見込み)</td>
+<td>SSBJ基準開発</td>
+<td>SSBJ</td>
+<td><strong>基準保守・実務支援</strong></td>
+<td>2025年基準、2026年改正、実務対応基準</td>
+<td>実務解説、ISSB改訂への対応、追加テーマ基準</td>
 </tr>
-<tr>
-<td>9</td>
-<td>Legislative Council Subcommittee on Companies Act(法制審議会会社法制部会)</td>
-<td>法制審議会会社法制部会</td>
-<td>法務省</td>
-<td>(法務省指名)</td>
-<td>会社法改正</td>
-<td><strong>実質株主開示制度</strong>(2025年4月23日開始)、会社法現代化</td>
-<td>会社法改正(2026-27年予想)、実質株主開示の制度化</td>
-</tr>
-<tr>
-<td>10</td>
-<td>TCFD Consortium(民間-公的)</td>
-<td>TCFDコンソーシアム</td>
-<td>METI/金融庁/環境省</td>
-<td>(コンソーシアム議長)</td>
-<td>TCFD手引きとISSB/SSBJ実装支援</td>
-<td>移行計画、SSBJ基準2号実装支援、業種別ガイダンス</td>
-<td>TCFD手引き4.0(移行)、SSBJ実装ツールキット</td>
-</tr>
-</tbody>
-</table>
-<h2>主体ごとの詳細</h2>
-<h3>1. フォローアップ会議 ― 議題設定主体</h3>
-<p>公式名称は印象的に長い。実務上、日本のIRチームはいずれも<em>フォローアップ会議</em>と呼ぶ。その制度的位置は構造的だ。金融庁と東証が2014年に設けた、スチュワードシップ・コードとコーポレートガバナンス・コードの実施をモニターする共同主体だ。そのアウトプット ― アクション・プログラム ― は、2015年以来あらゆる日本のガバナンス改革にとっての政策見通しだった。</p>
-<p>会議は概ね四半期ごとに開催される。各会合は公表資料(日本語、選択された英訳付き)と議事録を生む。資料は金融庁作成の政策フレーミング、規制専門家からのプレゼンテーション、統計調査、対話・コミュニティの提出物を含む。各会合の資料を読むことは、日本ガバナンス政策の未来を見ることに最も近い。</p>
-<p>会議は<strong>神田秀樹氏</strong>が議長を務め、同氏のフレーミングは2014年以来継続的だ。政策保有、上場子会社、少数株主保護に関する同氏の立場は、すべての関連改革の方向を設定してきた。同氏が新有識者会議(項目2)の座長を兼ねることは、政策フレーミングが構造的に整合的であることを意味する。</p>
-<p>2025年6月30日公表の<strong>コーポレートガバナンス改革に向けた行動計画2025</strong>は、2025-26年政策議題の正典である。2026年版は2026年6月下旬予想で、2026-27年議題を設定する。両者は、すべてのIRチームが読むべき文書である。</p>
-<h3>2. コーポレートガバナンス・コードの見直しに関する有識者会議</h3>
-<p>新設の有識者会議 ― 正式名称<em>コーポレートガバナンス・コードの見直しに関する有識者会議</em> ― は<strong>2025年10月21日</strong>に初開催した。付託事項は現行WG課題で最も帰結が大きい。次回CGC改訂を生み出し、それは2021年以来の最初の改訂、2026-27年完了が目標である。</p>
-<p>会議の報告された課題は次のとおり。</p>
+</tbody></table>
+<h2 id="section-2">1. 2026年コーポレートガバナンス・コード改訂――すでに実装段階</h2>
+<p>コーポレートガバナンス・コードの改訂に関する有識者会議は、翁百合氏を座長として2025年10月から議論を行い、2026年4月に改訂案を公表した。パブリックコメントを経て、2026年7月21日に改訂版が確定した。東証も同日、改訂コードの適用を開始した。</p>
+<p>したがって、IR担当者が今読むべきなのは、会議の将来予測ではなく、次の文書である。</p>
 <ul>
-<li><strong>スリム化</strong> ― 2018年と2021年の改訂は実質的な新原則を加えた。会議はコードのアーキテクチャ(5+30+38原則構造)の単純化が必要かを検討中だ。</li>
-<li><strong>SSBJとの統合</strong> ― コードの補充原則3-1③のTCFD義務はSSBJ法定義務と調和させる必要がある。会議は文言を整合させると予想される。</li>
-<li><strong>政策保有株式の強化</strong> ― 2024年フォローアップ会議資料と2024年5月のACGA公開書簡を踏まえ、会議は原則1-4のさらなる鋭利化を検討する。</li>
-<li><strong>上場子会社の精緻化</strong> ― 豊田自動織機ディールと金融庁フォローアップ会議資料を踏まえ、会議は補充原則4-8③を見直しうる。</li>
-<li><strong>多様性の進展</strong> ― 2030年期限が迫る中、2-4①の3軸フレーミングの作動的引き締めが必要かを評価する。</li>
-<li><strong>対話とスチュワードシップの統合</strong> ― 2025年6月のスチュワードシップ・コードv3.0との整合。</li>
+<li>2026年改訂版コード本文</li>
+<li>改訂前からの変更点</li>
+<li>改訂の趣旨と概要</li>
+<li>パブリックコメントへの回答</li>
+<li>取締役会の機能強化に関する事例集2026</li>
 </ul>
-<p>会議の座長は神田氏。メンバーシップは機関投資家、学者、上場会社実務家、証券規制専門家代表を含む。会合は公開され資料は金融庁ウェブサイトに掲載される。<strong>IRチームは2026年中の各会合をモニターすべきだ ― 次回CGC改訂のドラフト本文は当主体から生まれる</strong>。</p>
-<h3>3. スチュワードシップ・コードに関する有識者検討会</h3>
-<p>当検討会は<strong>2025年6月のスチュワードシップ・コードv3.0</strong>を生んだ。付託事項はいまやv3.0の実施点検と、2027-28年にv3.1をドラフトする可能性だ。第5.7回で論じた協働対話再定義とガイダンス4-2(実質株主情報照会への対応方針)は、当検討会の最重要近時アウトプットだ。会合は公開され、資料は金融庁ウェブサイトに掲載される。</p>
-<h3>4. 東証 市場区分の見直しに関するフォローアップ会議</h3>
-<p>東証の市場区分の見直しに関するフォローアップ会議 ― 金融庁/東証共同のフォローアップ会議とは別 ― はプライム/スタンダード/グロースの実施をモニターする。2024-25年の課題は、資本コストの「資本コストや株価を意識した経営の実現に向けた対応」(テーマ4)、グロース上場継続基準改正(2025年12月施行)、移行措置クリフ(テーマ3.3)の継続点検を含んだ。</p>
-<p>2024年7月末時点で、会議は<strong>プライム発行体の86%、スタンダード発行体の44%がアクションプランを開示(または「検討中」)</strong>したと報告した。発行体別ステータスを公表する東証の開示リスト機構(テーマ4.3)は、当会議を通じて運営される。</p>
-<h3>5. 金融庁情報開示WG</h3>
-<p>金融庁金融審議会の情報開示・ワーキング・グループは、法定開示改革 ― YUHO、半期報告書、適時開示制度 ― を担当する主体だ。<strong>2022年6月報告</strong>で、いまや拘束力を持つ銘柄別政策保有開示テンプレートを導入した(第5.2回)。2025年12月18日の第4回会合は、YUHO英文開示の拡大(第5.1回)を取り上げたと報じられている。</p>
-<p>WGのアウトプットは金融庁内閣府令へと流れ、それが法定開示を拘束する。WGの課題はYUHOと半期開示変更の先行指標である。</p>
-<h3>6. 金融庁サステナビリティ開示WG</h3>
-<p>金融庁金融審議会下の「サステナビリティ情報の開示・保証のあり方に関するワーキング・グループ」は、SSBJ実装見通しを担当する主体だ。<strong>中間報告(2025年11月6日)</strong>および<strong>最終報告(2026年1月8日/4月9日)</strong>が、2027年3月期の第1段階義務開示にとっての作動的テキストである。</p>
-<p>WGの課題は、SSBJ開示、保証、将来のダブル・マテリアリティ再検討の先行指標である。</p>
-<h3>7. METI 公正な買収の在り方に関する研究会</h3>
-<p>公正な買収の在り方に関する研究会は、<strong>2023年8月31日「企業買収における行動指針」</strong>を生んだMETI主催の主体である。<strong>2026年2月3日に再開</strong>され、敵対的買収防衛策と前提条件付TOBに関する指針を更新する(第5.4回)。</p>
-<p>再開された研究会のアウトプット ― 2026-27年中に予想 ― は、買収防衛関連の開示や取締役会判断にとっての作動的参照となる。</p>
-<h3>8. METI CGS研究会</h3>
-<p>コーポレート・ガバナンス・システム研究会は、<strong>CGS指針</strong>を維持し、指名・報酬・サクセッションに関する補足を生むMETI主催の主体だ。2022年7月改訂で60ページのサクセッション計画補足を導入した(第5.6回)。</p>
-<p>研究会の2026年課題は、取締役会レベルの資本配分監督、2023年指針後の特別委員会ベスト・プラクティス、支配株主企業のPSU/RSU報酬設計を含むと報じられている。さらなる改訂は2026-27年に予期される。</p>
-<h3>9. 法務省 会社法制部会</h3>
-<p>法制審議会会社法制部会は、実質的な会社法改正を担当する法務省主体だ。<strong>2025年4月23日</strong>に現行作業を開始し、<strong>実質株主開示</strong>を重点にしている。</p>
-<p>部会の付託事項は、英国の会社法第793条の通知に倣ったモデルで、会社法レベルの実質株主開示制度を設計することだ。日本の上場会社が名義人保有株式の背後の実質株主に正式に開示を求め、これを義務付ける制度である。第5.7回サイドバーで論じた、ACGAと海外投資家による長年の要請だ。</p>
-<p>会社法改正は2026年中にドラフトされ、2026-27年に段階的施行日付で採択される予定。改正は金商法ベースの5%ルールとTOB制度と並行(置換ではない)して運用される。</p>
-<h3>10. TCFDコンソーシアム</h3>
-<p>TCFDコンソーシアムは、METI、金融庁、環境省が共催する民間-公的主体である。2025-26年の機能は移行的だ ― TCFD整合の任意開示からSSBJ整合の法定開示への移行を支援する。歴史的にTCFD手引き文書(2018年版1.0、2019年版2.0、2022年版3.0)を生んできた主体であり、2026年中に業種別SSBJ実装ガイダンスを生むことが予期される。</p>
-<p>コンソーシアムのメンバーシップは金融庁WGより広く、上場会社実務家、投資家、学者を含む。アウトプットは第1段階・第2段階SSBJ発行体にとって運用上有用だ。</p>
-<h2>協調に関する補足</h2>
-<p>上記10主体は孤立して運用するわけではない。クロスメンバーシップは相当だ ― 神田氏はフォローアップ会議とCGC見直し有識者会議の双方を主宰する。主要機関投資家代表は複数のWGに座る。金融庁職員はMETIの対応者に並行論題をブリーフする。非公式の昼食会と学術フォーラムが、結合組織を作る。</p>
-<p>可視の協調メカニズムは次を含む。</p>
-<ul>
-<li><strong>金融庁/東証共同主体。</strong> フォローアップ会議自体が金融庁/東証共同であり、政策フレーミングが東証上場規則改正へ直接移動できる。</li>
-<li><strong>METI-金融庁情報開示WGの相互交配。</strong> METIのCGSと公正な買収の研究会はソフトローを生み、金融庁WGがそれを法定開示や内閣府令にアンカーする。</li>
-<li><strong>年次アクション・プログラム。</strong> 金融庁アクション・プログラムは複数主体の課題を統合し、単一の見通しを提供する。</li>
-<li><strong>公的意見公募。</strong> 各主体のアウトプットは採択前に公的意見公募に付されるのが典型で、IRチーム、機関投資家、対話・コミュニティへのフィードバック・ループを提供する。</li>
-</ul>
-<p>日本ガバナンス政策を追跡するための単一のブックマークを求めるIRチームにとって、金融庁の「有識者会議(フォローアップ会議)」ページが構造的選択肢である。そこから、リンクされた有識者会議、WG、アクション・プログラムが、アーキテクチャの他主体すべてへのナビゲーションを提供する。</p>
-<h2>IRにとっての含意</h2>
+<p>改訂の内容をCG報告書に反映するだけでなく、取締役会資料、指名・報酬委員会、政策保有株式の検証、人材戦略、成長投資の監督まで見直す必要がある。</p>
+<h2 id="section-3">2. フォローアップ会議――制度の「実質」を見る</h2>
+<p>金融庁と東証の「スチュワードシップ・コード及びコーポレートガバナンス・コードのフォローアップ会議」は、2015年以降、両コードの実施状況を確認し、意見書やアクション・プログラムを公表してきた。</p>
+<p>直近の正式なアクション・プログラムは2025年版である。2026年改訂コードが確定した後は、条文をさらに増やすことより、取締役会が成長投資や経営資源配分を実質的に監督しているか、投資家との対話が意思決定に反映されているかが焦点になる。</p>
+<p>会議資料を読む際は、会社名の挙がる好事例だけでなく、課題として整理された項目を見る。そこに、翌年の東証資料、金融庁レビュー、次回改訂の種が現れる。</p>
+<h2 id="section-4">3. 東証の市場区分フォローアップ――上場後の行動を変える</h2>
+<p>東証の「市場区分の見直しに関するフォローアップ会議」は、市場再編後の上場維持基準、資本コストや株価を意識した経営、英文開示、グロース市場、指数改革などを扱う。</p>
+<p>この会議の特徴は、法律を作らずに上場会社の行動を変える点にある。要請、公表リスト、事例集、上場維持基準、段階的移行を組み合わせる。IR担当者は、ニュースリリースだけでなく、会議資料と東証の「今後の対応」を合わせて読むべきである。</p>
+<h2 id="section-5">4. 金融審議会の情報開示ワーキング・グループ――有価証券報告書の次を作る</h2>
+<p>情報開示ワーキング・グループは、法定開示の制度設計を担う。2026年にも会合が続き、有価証券報告書、半期報告書、株主総会前開示、人的資本、政策保有株式、英文情報などの課題を扱っている。</p>
+<p>この会議の資料が重要なのは、最終的に内閣府令や開示様式へ落ちる可能性があるからだ。コードの議論が原則を示すのに対し、情報開示WGは、誰が、いつ、どの様式で、何を記載するかを具体化する。</p>
+<h2 id="section-6">5. サステナビリティ情報の開示・保証WG――次の焦点は保証</h2>
+<p>SSBJ基準の法定適用については、2026年2月の内閣府令改正で、平均時価総額3兆円以上、1兆円以上のプライム会社の適用時期が確定した。一方、保証制度は検討が続いている。</p>
+<p>今後確認すべき論点は、限定的保証の対象、開始年度、Scope 3の扱い、保証業務の担い手、品質管理、監督制度である。対象会社は制度確定を待たず、証憑と内部統制を整える必要がある。</p>
+<h2 id="section-7">6. 経済産業省の公正な買収の在り方に関する研究会――指針から実務へ</h2>
+<p>研究会は2026年に再開され、2023年「企業買収における行動指針」のポイントとQ&amp;Aを2026年7月に公表した。現時点では、2023年指針を別の指針に置き換えたのではなく、実務上の疑問を整理した段階である。</p>
+<p>IR・法務担当者は、今後の会議予定を予想するより、2023年指針と2026年Q&amp;Aを自社の買収対応手順へ落とし込むべきである。未承諾提案の受付、特別委員会、情報開示、株主意思の確認を平時に設計する。</p>
+<h2 id="section-8">7. 法制審議会会社法制部会――会社法の土台を見直す</h2>
+<p>法務省の会社法制部会は2025年4月に第1回会合を開き、その後も審議を続けている。株主総会、株式、実質株主、企業統治など、会社法の基礎に関わる論点が対象となる。</p>
+<p>会社法改正は、コードや東証要請より時間がかかる一方、成立すれば全株式会社に法的効果を持つ。中間試案、パブリックコメント、要綱案、法案という順に進むため、IR担当者は法務部門と役割を分け、株主との対話や総会運営に影響する論点を早めに把握する。</p>
+<h2 id="section-9">8. SSBJ――基準を公表した後も追う</h2>
+<p>SSBJは2025年に三本の基準を公表し、2026年に改正と実務対応基準を出した。基準設定主体の仕事は、公表で終わらない。ISSB基準の変更、国内法令との接続、実務上の質問、業種別の課題に応じて、参考情報、ハンドブック、実務対応基準を追加する。</p>
+<p>対象会社は、金融庁の法令ページだけでなく、SSBJの基準ページ、議事概要、公開草案も追う必要がある。</p>
+<h2 id="section-10">制度ができるまでの読み方</h2>
+<p>日本のガバナンス制度は、概ね次の順で具体化する。</p>
 <ol>
-<li><strong>金融庁フォローアップ会議ページとJPX equities follow-upページをブックマークする。</strong> この2つのURLは、日本ガバナンス政策WGアーキテクチャ全体への構造的入口だ。</li>
-<li><strong>各アクション・プログラムを公表時に読む。</strong> コーポレートガバナンス改革行動計画2026 ― 2026年6月下旬予想 ― は2026-27年議題を設定する。すべての日本のIRチームは公表後48時間以内にこれを読むべきだ。</li>
-<li><strong>CGC見直し有識者会議を追跡する。</strong> 次回CGC改訂は当主体から生まれる。改訂本文のドラフトは2026年後半に予想され、運用改訂は2027年に実効化する見込み。あなたのCGCコンプライ・オア・エクスプレイン開示は新本文を反映する必要がある。</li>
-<li><strong>法務省の実質株主開示制度を予期する。</strong> 会社法改正は日本の上場会社が実質株主情報を正式に要求できるようにする見込みだ。対話・レター応答枠組みを大きく変える。</li>
-<li><strong>WG課題を先行IR計画ツールとして使う。</strong> 各主体の課題は公表されている。課題を読むことで、何の開示義務、コード改訂、法定改正が来るかについて6~18か月の先行シグナルが得られる。</li>
+<li>政府方針やアクション・プログラムで課題が示される。</li>
+<li>有識者会議、研究会、ワーキング・グループで論点が整理される。</li>
+<li>中間整理、報告書、指針案、公開草案が公表される。</li>
+<li>パブリックコメントを経て、コード、指針、内閣府令、東証規則が確定する。</li>
+<li>FAQ、記載例、好事例、レビュー結果によって実務上の期待が具体化する。</li>
 </ol>
-<h2>出典と参考資料</h2>
+<p>最も早いシグナルは会議資料だが、会社が対応を確定すべきなのは最終文書である。検討段階の案を「決まったルール」として社内に伝えない。一方で、最終決定を待ってからデータや人材を整え始めると間に合わない。<strong>制度の確度と準備の可逆性を分けて管理する</strong>ことが重要だ。</p>
+<h2 id="section-11">IR部門の月次確認表</h2>
+<table>
+<thead>
+<tr>
+<th>頻度</th>
+<th>確認するページ</th>
+<th>目的</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>月次</td>
+<td>JPX「市場区分の見直しに関するフォローアップ会議」</td>
+<td>資本コスト、上場維持、英文開示、グロース市場の更新</td>
+</tr>
+<tr>
+<td>会合時</td>
+<td>金融庁フォローアップ会議</td>
+<td>コード運用、対話、政策保有、取締役会の課題</td>
+</tr>
+<tr>
+<td>会合時</td>
+<td>金融審議会 情報開示WG</td>
+<td>有価証券報告書・半期報告書の制度改正</td>
+</tr>
+<tr>
+<td>会合時</td>
+<td>サステナビリティ開示・保証WG</td>
+<td>SSBJ適用と保証制度</td>
+</tr>
+<tr>
+<td>四半期</td>
+<td>経済産業省の企業統治・買収関連研究会</td>
+<td>買収、グループガバナンス、取締役会実務</td>
+</tr>
+<tr>
+<td>四半期</td>
+<td>法制審議会会社法制部会</td>
+<td>株主総会、実質株主、会社法改正</td>
+</tr>
+<tr>
+<td>月次</td>
+<td>SSBJ基準・公開草案ページ</td>
+<td>基準改正、実務対応、解説資料</td>
+</tr>
+</tbody></table>
+<h2 id="section-12">IR担当者が押さえるべき含意</h2>
+<ol>
+<li><strong>「検討中」「確定」「施行済み」を資料ごとに明記する。</strong> 社内説明で将来案と現行義務を混同しない。</li>
+<li><strong>2026年改訂コードは、予測対象ではなく実装対象である。</strong> 最新本文に照らし、CG報告書と取締役会実務を更新する。</li>
+<li><strong>会議名より、成果物の法的性質を見る。</strong> 意見書、指針、コード、内閣府令、東証規則では効力が違う。</li>
+<li><strong>会議資料を先行指標に、最終文書を実行基準にする。</strong> 早く準備しつつ、未確定事項に過剰投資しない。</li>
+<li><strong>IR、法務、経理、サステナビリティ、人事で一つの制度台帳を持つ。</strong> 同じ改正が複数部署の開示と取締役会運営にまたがるためである。</li>
+</ol>
+<h2 id="section-13">出典・参考資料</h2>
 <ul>
-<li>金融庁「有識者会議(フォローアップ会議)」ページ: https://www.fsa.go.jp/en/refer/councils/follow-up/index.html</li>
-<li>金融庁「コーポレートガバナンス改革に向けた行動計画2025の公表について」(2025年6月30日): https://www.fsa.go.jp/en/news/2025/20250630-1.html</li>
-<li>金融庁「コーポレートガバナンス・コードの見直しに関する有識者会議」ページ: https://www.fsa.go.jp/en/refer/councils/revision_corporategovernance/index.html</li>
-<li>金融庁「情報開示WG」: https://www.fsa.go.jp/en/refer/councils/disclosure_wg/index.html</li>
-<li>金融庁「サステナビリティ情報の開示・保証のあり方に関するワーキング・グループ」: https://www.fsa.go.jp/en/news/2025/20251106/20251106.html</li>
-<li>東証/JPX 市場区分の見直しに関するフォローアップ会議: https://www.jpx.co.jp/english/equities/follow-up/index.html</li>
-<li>METI コーポレートガバナンス・ページ: https://www.meti.go.jp/english/policy/economy/corporate_governance/index.html</li>
-<li>METI「公正な買収の在り方に関する研究会の再開について」(2026年2月): https://www.meti.go.jp/english/press/2026/0203_001.html</li>
-<li>法務省 法制審議会ページ: https://www.moj.go.jp/shingi1/housei02_index.html</li>
-<li>TCFDコンソーシアム: https://tcfd-consortium.jp/en</li>
+<li>金融庁「スチュワードシップ・コード及びコーポレートガバナンス・コードのフォローアップ会議」: <a href="https://www.fsa.go.jp/singi/follow-up/index.html">https://www.fsa.go.jp/singi/follow-up/index.html</a></li>
+<li>金融庁「コーポレートガバナンス改革の実質化に向けたアクション・プログラム2025」: <a href="https://www.fsa.go.jp/news/r6/singi/20250630-1.html">https://www.fsa.go.jp/news/r6/singi/20250630-1.html</a></li>
+<li>金融庁・東証「コーポレートガバナンス・コード（2026年改訂版）」: <a href="https://www.fsa.go.jp/singi/follow-up/index.html">https://www.fsa.go.jp/singi/follow-up/index.html</a></li>
+<li>東証「改訂コーポレートガバナンス・コードの公表」（2026年7月21日）: <a href="https://www.jpx.co.jp/corporate/news/news-releases/1020/20260721-01.html">https://www.jpx.co.jp/corporate/news/news-releases/1020/20260721-01.html</a></li>
+<li>東証「市場区分の見直しに関するフォローアップ会議」: <a href="https://www.jpx.co.jp/equities/follow-up/">https://www.jpx.co.jp/equities/follow-up/</a></li>
+<li>金融庁「金融審議会 情報開示ワーキング・グループ」: <a href="https://www.fsa.go.jp/singi/singi_kinyu/disclosure_wg/">https://www.fsa.go.jp/singi/singi_kinyu/disclosure_wg/</a></li>
+<li>金融庁「サステナビリティ情報の開示・保証のあり方に関するワーキング・グループ」: <a href="https://www.fsa.go.jp/singi/singi_kinyu/sustainability_disclose_wg/">https://www.fsa.go.jp/singi/singi_kinyu/sustainability_disclose_wg/</a></li>
+<li>経済産業省「公正な買収の在り方に関する研究会」: <a href="https://www.meti.go.jp/shingikai/economy/kosei_baishu/index.html">https://www.meti.go.jp/shingikai/economy/kosei_baishu/index.html</a></li>
+<li>法務省「法制審議会会社法制部会」: <a href="https://www.moj.go.jp/shingi1/housei02_index.html">https://www.moj.go.jp/shingi1/housei02_index.html</a></li>
+<li>SSBJ「サステナビリティ開示基準」: <a href="https://www.ssb-j.jp/jp/ssbj_standards.html">https://www.ssb-j.jp/jp/ssbj_standards.html</a></li>
 </ul>
 <hr>
-<p><strong>本カリキュラムの次回:</strong> <a href="/governance/">IRツールボックス ― JPX/金融庁/METI/SSBJのアーティファクトを索引化</a></p>
-<p><strong>本テーマの関連記事:</strong>
-- <a href="/governance/">5.1 2025年4月は通過点、終着点ではない ― 英文開示義務化</a>
-- <a href="/governance/">5.2 政策保有株のエンドゲーム</a>
-- <a href="/governance/">5.3 豊田自動織機ディールが終わらせた系列構造</a>
-- <a href="/governance/">5.4 「敵対的」はもう蔑称ではない</a>
-- <a href="/governance/">5.5 SSBJ実務 ― 3段階のサステナビリティ開示見通し</a>
-- <a href="/governance/">5.6 「30 by 30」はパイプライン問題である</a>
-- <a href="/governance/">5.7 スチュワードシップ・コード3.0以後の協働対話</a></p>
-<p><strong>他テーマの関連記事:</strong>
-- <a href="/governance/">2.5 コード vs 指針 ― 経済産業省の体系</a>
-- [4.5 開示から実行へ ― 2026年4月「更新」が変えたもの](../0</p>
-    </article>
-    <div class="post-nav"><a href="/governance/frontier/5.7-activism-engagement-2025/" class="post-nav-link prev"><div class="post-nav-dir">← 前の記事</div><div class="post-nav-title">スチュワードシップ・コード3.0以後の協働対話</div></a><a href="/governance/" class="post-nav-link next"><div class="post-nav-dir">カリキュラム一覧 →</div><div class="post-nav-title">全27記事に戻る</div></a></div>
-    <div style="max-width: var(--measure); margin: 32px auto 0; padding-top: 24px; border-top: 1px solid var(--rule); font-size: 0.82rem; color: var(--text-dim); text-align:right;">
-      <a href="/en/governance/frontier/5.8-working-groups-landscape/" style="color: var(--ink-soft);">English version →</a>
-    </div>
-  </div>
-</section>
-</main>
-<style>footer{background:var(--ink,#1a2a4a);color:#cfd6e2;padding:48px 0 30px;font-size:0.8rem;line-height:1.8;border-top:none}footer a{color:#cfd6e2;text-decoration:none}footer .footer-row{list-style:none;display:flex;flex-wrap:wrap;gap:8px 26px;margin:0 0 26px;padding:0}footer .footer-row li{padding:0}footer .footer-row a{color:#cfd6e2;text-decoration:none;font-size:0.8rem}footer .footer-bottom{padding-top:24px;border-top:1px solid rgba(255,255,255,0.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-family:var(--mono),monospace;font-size:0.68rem;letter-spacing:0.06em;color:rgba(255,255,255,0.55)}</style><script>
-const nav = document.getElementById('main-nav');
-if (nav) window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
-const hamburgerBtn = document.querySelector('.hamburger');
-function setMenuOpen(isOpen) { const menu = document.getElementById('mobileMenu'); if (!menu || !hamburgerBtn) return; menu.classList.toggle('open', isOpen); menu.hidden = !isOpen; hamburgerBtn.setAttribute('aria-expanded', String(isOpen)); }
-function toggleMenu() { const menu = document.getElementById('mobileMenu'); setMenuOpen(!(menu && menu.classList.contains('open'))); }
-document.addEventListener('click', (e) => { const menu = document.getElementById('mobileMenu'); if (menu && menu.classList.contains('open') && !menu.contains(e.target) && hamburgerBtn && !hamburgerBtn.contains(e.target)) setMenuOpen(false); });
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenuOpen(false); });
-</script>
-<script type="module">
-import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs';
-mermaid.initialize({ startOnLoad: true, theme: 'neutral', fontFamily: 'Noto Sans JP, Hiragino Kaku Gothic ProN, sans-serif', themeVariables: { primaryColor: '#f4eee4', primaryTextColor: '#1a2a4a', primaryBorderColor: '#9a7838', lineColor: '#304466', secondaryColor: '#f5f7fa', tertiaryColor: '#fafbfc' } });
-</script>
-<script src="/assets/nav.js?v=348fa48c4e" defer></script>
+<p><strong>本カリキュラムの次:</strong> <a href="/governance/toolbox/">IRツールボックス――JPX・金融庁・経済産業省・SSBJの一次資料を探す</a></p>
+<p><strong>本テーマの関連記事:</strong></p>
+<ul>
+<li><a href="/governance/frontier/5.1-english-disclosure-mandate/">5.1 日英同時開示は始まりにすぎない――2025年4月の義務化</a></li>
+<li><a href="/governance/frontier/5.2-cross-shareholdings-end-game/">5.2 政策保有株式の最終局面――銘柄ごとの検証と開示</a></li>
+<li><a href="/governance/frontier/5.3-listed-subsidiaries/">5.3 豊田自動織機の非公開化が示したもの</a></li>
+<li><a href="/governance/frontier/5.4-mbo-takeover-guidelines/">5.4 未承諾買収をどう扱うか</a></li>
+<li><a href="/governance/frontier/5.5-ssbj-sustainability/">5.5 SSBJ基準の実務――段階適用と準備の要点</a></li>
+<li><a href="/governance/frontier/5.6-board-diversity-30-by-30/">5.6 「2030年30%」を実現するには</a></li>
+<li><a href="/governance/frontier/5.7-activism-engagement-2025/">5.7 スチュワードシップ・コード第三次改訂後の協働対話</a></li>
+</ul>
+<p><strong>他テーマの関連記事:</strong></p>
+<ul>
+<li><a href="/governance/cg-code/2.5-meti-guideline-family/">2.5 コードと指針――役割の違いと読み分け方</a></li>
+<li><a href="/governance/capital-efficiency/4.5-action-plan-2-update/">4.5 開示から実行へ――2026年4月の要請更新</a></li>
+</ul></article><nav class="post-nav" aria-label="前後の記事"><a class="post-nav-link prev" href="/governance/frontier/5.7-activism-engagement-2025/"><div class="post-nav-dir">← 前の記事</div><div class="post-nav-title">スチュワードシップ・コード第三次改訂後の協働対話</div></a><a class="post-nav-link next" href="/governance/toolbox/"><div class="post-nav-dir">次に読む →</div><div class="post-nav-title">IRツールボックス</div></a></nav><div class="post-language"><a href="/en/governance/frontier/5.8-working-groups-landscape/">English version →</a></div></div></section>
+  </main>
+  <script src="/assets/governance.js?v=cc6033456e" defer></script>
+  <script src="/assets/nav.js?v=348fa48c4e" defer></script>
 </body>
 </html>

@@ -1,467 +1,185 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-
-<title>資本コスト開示の7つの落とし穴 ― 「投資家視点との乖離」事例集 | JII ガバナンス改革カリキュラム</title>
-<meta name="description" content="東証が300社超の機関投資家へのヒアリングから抽出した10の「乖離」類型 ― 本稿はこれを7つの覚えやすい「落とし穴」に整理し、各々に対する「整合」行動を対置する。自社のCG報告書と中計を診断するための実務チェックリスト。">
-<meta property="og:title" content="資本コスト開示の7つの落とし穴 ― 「投資家視点との乖離」事例集 | JII ガバナンス改革カリキュラム">
-<meta property="og:description" content="東証が300社超の機関投資家へのヒアリングから抽出した10の「乖離」類型 ― 本稿はこれを7つの覚えやすい「落とし穴」に整理し、各々に対する「整合」行動を対置する。自社のCG報告書と中計を診断するための実務チェックリスト。">
-<meta property="og:url" content="https://jpinv.com/governance/capital-efficiency/4.4-seven-sins-misalignment/">
-<link rel="canonical" href="https://jpinv.com/governance/capital-efficiency/4.4-seven-sins-misalignment/">
-<link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/capital-efficiency/4.4-seven-sins-misalignment/">
-<link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/capital-efficiency/4.4-seven-sins-misalignment/">
-<link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/capital-efficiency/4.4-seven-sins-misalignment/">
-
-<style>
-:root {
-  --ink:        #1a2a4a;
-  --ink-mid:    #172641;
-  --ink-soft:   #304466;
-  --rule:       #d6dee8;
-  --rule-soft:  #e8edf3;
-  --bg:         #ffffff;
-  --bg-mid:     #f5f7fa;
-  --bg-soft:    #fafbfc;
-  --text:       #1f2937;
-  --text-mid:   #4a5566;
-  --text-dim:   #5f6875;
-  --accent:     #9a7838;
-  --accent-deep:#9a7838;
-  --accent-soft:#f4eee4;
-  --bad:        #b91c1c;
-  --warn:       #8a682b;
-  --ok:         #2f6f4f;
-  --serif: 'Noto Serif JP', 'Yu Mincho', serif;
-  --sans:  'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
-  --mono:  'DM Mono', monospace;
-  --max: 1100px;
-  --pad: 88px;
-  --gutter: 48px;
-  --nav-h: 64px;
-  --measure: 720px;
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 400; line-height: 1.7; overflow-x: hidden; }
-img { max-width: 100%; display: block; }
-a { color: var(--ink-soft); text-decoration: none; }
-a:hover { color: var(--ink); }
-.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
-@media (max-width: 768px) { :root { --gutter: 22px; --pad: 56px; } }
-strong { font-weight: 600; color: var(--ink); }
-em { font-style: normal; color: var(--ink); font-weight: 600; }
-.label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); }
-
-/* Nav (copied from jpinv.com base) */
-nav#main-nav { position: fixed; top:0; left:0; right:0; z-index:100; height: var(--nav-h); background: rgba(255,255,255,0.96); backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule); display: flex; align-items: center; transition: box-shadow 0.3s; }
-nav#main-nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
-.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; }
-.nav-logo { text-decoration: none; display: inline-flex; align-items: center; flex: 0 0 auto; min-width: max-content; white-space: nowrap; }
-.nav-logo-img { display: block; width: auto; height: 40px; max-width: none; object-fit: contain; object-position: left center; }
-.nav-logo-img--mobile { display: none; width: 32px; height: 32px; object-fit: contain; }
-.nav-center { flex: 1; display: flex; justify-content: center; }
-.nav-links { display: flex; gap: 18px; list-style: none; flex-wrap: nowrap; white-space: nowrap; }
-.nav-links a { font-family: var(--sans); font-size: 0.74rem; font-weight: 400; letter-spacing: 0.02em; color: var(--text); text-decoration: none; transition: color 0.2s; }
-.nav-links a:hover { color: var(--ink-soft); }
-.nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; margin-left: auto; }
-.nav-cta { padding: 7px 11px; font-size: 0.66rem; letter-spacing: 0.05em; }
-.locale-switcher { display: inline-flex; align-items: center; gap: 0; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; }
-.locale-switcher a { color: var(--text-dim); border: 1px solid var(--rule); padding: 6px 9px; text-decoration: none; transition: all 0.2s; }
-.locale-switcher a + a { margin-left: -1px; }
-.locale-switcher a:hover, .locale-switcher a.current { color: var(--ink); border-color: var(--ink-mid); background: var(--bg-soft); position: relative; z-index: 1; }
-.hamburger { display: none; flex-shrink:0; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
-.hamburger span { display:block; width:22px; height:1px; background:var(--ink); transition: all 0.25s; }
-@media (max-width: 900px) { .nav-center, .nav-right .nav-cta { display:none; } .hamburger { display:flex; } }
-@media (max-width: 768px) { .nav-logo-img--desktop { display:none; } .nav-logo-img--mobile { display:block; } }
-.mobile-menu { display:none; position:fixed; top:var(--nav-h); left:0; right:0; background:var(--bg); border-bottom:1px solid var(--rule); z-index:99; padding:8px var(--gutter) 20px; flex-direction:column; gap:0; }
-.mobile-menu.open { display:flex; }
-.mobile-menu a { font-size:0.88rem; color:var(--text); text-decoration:none; padding:14px 0; border-bottom:1px solid var(--rule); letter-spacing:0.04em; }
-.mobile-menu a:last-child { border-bottom:none; }
-.mobile-menu .mobile-menu-cta { margin-top:12px; padding:13px 18px; text-align:center; color:#fff; border-bottom:none; }
-
-.btn { display: inline-block; text-decoration: none; font-family: var(--sans); font-size: 0.84rem; font-weight: 400; letter-spacing: 0.06em; padding: 13px 28px; transition: all 0.2s; cursor: pointer; border: none; }
-.btn-primary { background: var(--ink); color: #fff; }
-.btn-primary:hover { background: var(--ink-mid); color: #fff; }
-.btn-outline { border: 1px solid var(--ink-mid); color: var(--ink); background: transparent; }
-.btn-outline:hover { border-color: var(--ink); color: var(--ink); }
-.rule-accent { width: 32px; height: 2px; background: var(--accent); margin: 14px 0 22px; }
-
-/* Footer (mirror) */
-footer { border-top: 1px solid var(--rule); padding: 52px 0 28px; background: var(--bg-soft); font-size: 0.82rem; color: var(--text-dim); }
-footer .footer-grid { display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 32px; align-items: start; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
-footer h2 { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.2em; color: var(--ink-soft); text-transform: uppercase; margin-bottom: 12px; font-weight: 500; }
-footer h3 { font-family: var(--serif); font-size: 1rem; font-weight: 400; color: var(--ink); margin-bottom: 8px; }
-footer ul { list-style: none; }
-footer ul li { padding: 4px 0; }
-footer ul li a { color: var(--text-mid); }
-footer ul li a:hover { color: var(--ink); }
-footer .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 18px; flex-wrap: wrap; gap: 12px; }
-footer .footer-locale-switcher a.current { font-weight: 600; color: var(--ink); }
-@media (max-width: 900px) { footer .footer-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 580px) { footer .footer-grid { grid-template-columns: 1fr; } }
-
-/* === Curriculum-specific === */
-main.curriculum { padding-top: var(--nav-h); }
-.curr-hero { padding: 96px 0 64px; border-bottom: 1px solid var(--rule); position: relative; overflow: hidden; }
-.curr-hero::before { content:''; position:absolute; inset:0;
-  background-image: linear-gradient(rgba(15,31,58,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(15,31,58,0.04) 1px, transparent 1px);
-  background-size: 64px 64px;
-  -webkit-mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent);
-          mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent); }
-.curr-hero-inner { position:relative; z-index:2; max-width: 880px; }
-.curr-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.32em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 18px; }
-.curr-hero h1 { font-family: var(--serif); font-size: clamp(1.9rem, 4.4vw, 3.1rem); font-weight: 300; color: var(--ink-mid); line-height: 1.3; letter-spacing: 0.02em; margin: 0 0 22px; }
-.curr-hero h1 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-.curr-hero .lede { font-size: 1.05rem; line-height: 1.85; color: var(--text); margin: 0 0 24px; max-width: 700px; }
-.curr-hero-meta { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
-.curr-hero-meta strong { color: var(--ink); font-family: var(--mono); }
-
-.crumbs { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; padding: 22px 0 0; }
-.crumbs a { color: var(--text-mid); }
-.crumbs a:hover { color: var(--ink); }
-.crumbs .sep { color: var(--rule); margin: 0 8px; }
-
-.theme-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; padding: 56px 0; }
-.theme-card { display: block; background: #fff; border: 1px solid var(--rule); padding: 30px 28px; position: relative; transition: all 0.2s; }
-.theme-card:hover { border-color: var(--ink-soft); box-shadow: 0 12px 32px rgba(15,31,58,0.08); transform: translateY(-2px); }
-.theme-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background: var(--accent); opacity: 0.85; }
-.theme-card-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; }
-.theme-card-name { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--ink-mid); margin: 10px 0 8px; line-height: 1.35; }
-.theme-card-period { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 14px; }
-.theme-card-desc { font-size: 0.92rem; line-height: 1.7; color: var(--text); margin-bottom: 18px; }
-.theme-card-list { font-size: 0.84rem; color: var(--text-mid); list-style: none; padding-top: 14px; border-top: 1px solid var(--rule-soft); }
-.theme-card-list li { padding: 5px 0; }
-.theme-card-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; }
-.theme-card-foot .arrow { color: var(--accent-deep); }
-
-.post-list { padding: 28px 0 56px; }
-.post-list-row { display: grid; grid-template-columns: 60px 1fr auto; gap: 22px; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--rule-soft); transition: all 0.18s; }
-.post-list-row:hover { background: var(--bg-mid); padding-left: 12px; padding-right: 12px; }
-.post-list-num { font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em; color: var(--accent-deep); font-weight: 500; }
-.post-list-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--ink-mid); line-height: 1.45; }
-.post-list-meta { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; white-space: nowrap; }
-@media (max-width: 600px) { .post-list-row { grid-template-columns: 50px 1fr; } .post-list-meta { grid-column: 1 / -1; padding-left: 72px; } }
-
-/* Post body */
-.post-body { padding: 48px 0 80px; }
-.post-content { max-width: var(--measure); margin: 0 auto; }
-.post-content > p, .post-content > ul, .post-content > ol, .post-content > blockquote, .post-content > pre, .post-content > table, .post-content > hr, .post-content > h2, .post-content > h3, .post-content > h4 { max-width: var(--measure); margin-left: auto; margin-right: auto; }
-.post-content h2 { font-family: var(--serif); font-size: 1.55rem; font-weight: 400; color: var(--ink-mid); line-height: 1.35; margin: 56px 0 14px; padding-top: 22px; border-top: 1px solid var(--rule-soft); }
-.post-content h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 500; color: var(--ink); margin: 36px 0 10px; line-height: 1.4; }
-.post-content h4 { font-family: var(--sans); font-size: 1rem; font-weight: 600; color: var(--ink); margin: 26px 0 8px; letter-spacing: 0.02em; }
-.post-content p { margin: 0 0 18px; font-size: 1rem; line-height: 1.85; color: var(--text); }
-.post-content p:first-of-type { font-size: 1.05rem; }
-.post-content ul, .post-content ol { margin: 0 0 22px; padding-left: 28px; }
-.post-content ul li, .post-content ol li { font-size: 0.97rem; line-height: 1.8; margin-bottom: 8px; color: var(--text); }
-.post-content ul li::marker { color: var(--accent-deep); }
-.post-content blockquote { margin: 30px 0; padding: 20px 24px; border-left: 3px solid var(--accent); background: var(--accent-soft); color: var(--ink-mid); font-style: normal; }
-.post-content blockquote p { margin-bottom: 8px; font-size: 0.97rem; }
-.post-content blockquote p:last-child { margin-bottom: 0; }
-.post-content blockquote strong { color: var(--ink); }
-.post-content code { background: #f0f0f0; color: var(--ink-mid); font-family: var(--mono); font-size: 0.88rem; padding: 2px 6px; border-radius: 3px; }
-.post-content pre { background: #f9f9fb; border: 1px solid var(--rule); padding: 18px 22px; overflow-x: auto; font-family: var(--mono); font-size: 0.85rem; line-height: 1.55; margin: 24px 0; }
-.post-content pre code { background: transparent; padding: 0; font-size: inherit; }
-.post-content a { color: var(--accent-deep); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; transition: text-decoration-color 0.18s; overflow-wrap: anywhere; word-break: break-word; }
-.post-content a:hover { text-decoration-color: var(--accent-deep); }
-.post-content hr { border: none; border-top: 1px solid var(--rule); margin: 40px auto; max-width: 120px; }
-.post-content table { width: 100%; max-width: var(--measure); margin: 28px auto; border-collapse: collapse; font-size: 0.9rem; }
-.post-content th { background: var(--bg-mid); color: var(--ink-mid); font-family: var(--sans); font-weight: 600; text-align: left; padding: 12px 14px; border-bottom: 2px solid var(--rule); }
-.post-content td { padding: 10px 14px; border-bottom: 1px solid var(--rule-soft); vertical-align: top; color: var(--text); }
-.post-content tr:nth-child(even) td { background: #fafbfc; }
-
-/* Mermaid container */
-.mermaid-wrap { background: #fdfdfe; border: 1px solid var(--rule); padding: 22px 18px; margin: 28px 0; overflow-x: auto; }
-.mermaid { font-family: var(--sans); text-align: center; }
-
-/* Post header */
-.post-header { padding: 48px 0 28px; border-bottom: 1px solid var(--rule); }
-.post-header-inner { max-width: var(--measure); margin: 0 auto; }
-.post-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.28em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 14px; }
-.post-title { font-family: var(--serif); font-size: clamp(1.7rem, 3.6vw, 2.4rem); font-weight: 400; color: var(--ink-mid); line-height: 1.3; margin: 0 0 16px; letter-spacing: 0.005em; }
-.post-summary { font-size: 1.02rem; line-height: 1.8; color: var(--text); margin: 0 0 22px; max-width: 660px; }
-.post-meta { display: flex; gap: 26px; flex-wrap: wrap; padding-top: 18px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
-.post-meta span strong { color: var(--ink); font-family: var(--mono); }
-
-/* Post nav (prev/next) */
-.post-nav { max-width: var(--measure); margin: 56px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding-top: 36px; border-top: 1px solid var(--rule); }
-.post-nav-link { display: block; padding: 18px 20px; background: var(--bg-mid); border: 1px solid var(--rule); transition: all 0.18s; }
-.post-nav-link:hover { border-color: var(--ink-soft); background: #fff; transform: translateY(-1px); }
-.post-nav-dir { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px; }
-.post-nav-title { font-family: var(--serif); font-size: 0.94rem; color: var(--ink-mid); line-height: 1.4; }
-.post-nav-link.next { text-align: right; }
-@media (max-width: 640px) { .post-nav { grid-template-columns: 1fr; } .post-nav-link.next { text-align: left; } }
-
-/* Knowledge check */
-.kcheck { background: var(--bg-mid); padding: 72px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
-.kcheck-head { max-width: 720px; margin: 0 auto 36px; text-align: center; }
-.kcheck h2 { font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 300; color: var(--ink-mid); margin: 0 0 14px; line-height: 1.3; }
-.kcheck h2 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-.kcheck p.lede { font-size: 0.98rem; line-height: 1.75; color: var(--text); }
-.kcheck-q { background: #fff; border: 1px solid var(--rule); padding: 28px 30px; margin-bottom: 18px; max-width: 760px; margin-left: auto; margin-right: auto; }
-.kcheck-q-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; margin-bottom: 12px; }
-.kcheck-q-text { font-family: var(--serif); font-size: 1.1rem; line-height: 1.5; color: var(--ink-mid); margin-bottom: 18px; }
-.kcheck-opts { display: grid; gap: 8px; }
-.kcheck-opt { display: block; padding: 12px 16px; background: var(--bg-soft); border: 1px solid var(--rule); text-align: left; font-family: var(--sans); font-size: 0.92rem; color: var(--text); cursor: pointer; transition: all 0.15s; }
-.kcheck-opt:hover { background: #fff; border-color: var(--ink-soft); }
-.kcheck-opt.correct { background: #e8f3ec; border-color: var(--ok); color: var(--ok); }
-.kcheck-opt.incorrect { background: #fbe9e9; border-color: var(--bad); color: var(--bad); }
-.kcheck-explain { margin-top: 16px; padding: 14px 18px; background: var(--accent-soft); border-left: 3px solid var(--accent); font-size: 0.9rem; line-height: 1.7; color: var(--ink-mid); display: none; }
-.kcheck-q.answered .kcheck-explain { display: block; }
-.kcheck-score { text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--text-dim); margin-top: 28px; text-transform: uppercase; }
-.kcheck-score strong { color: var(--ink-mid); font-family: var(--mono); }
-
-/* Stats / hero stats */
-.stat-band { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; padding: 56px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); background: var(--bg-soft); }
-.stat-item { padding: 0 18px; }
-.stat-num { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 300; color: var(--ink-mid); line-height: 1; margin-bottom: 8px; }
-.stat-num em { color: var(--accent-deep); font-weight: 400; font-style: normal; }
-.stat-label { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; }
-</style>
-
-<meta property="og:image" content="https://jpinv.com/og/jii-default.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://jpinv.com/og/jii-default.png">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "url": "https://jpinv.com/governance/capital-efficiency/4.4-seven-sins-misalignment/",
-  "name": "資本コスト開示の7つの落とし穴 ― 「投資家視点との乖離」事例集 | JII ガバナンス改革カリキュラム",
-  "description": "東証が300社超の機関投資家へのヒアリングから抽出した10の「乖離」類型 ― 本稿はこれを7つの覚えやすい「落とし穴」に整理し、各々に対する「整合」行動を対置する。自社のCG報告書と中計を診断するための実務チェックリスト。",
-  "inLanguage": "ja"
-}
-</script></head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>資本コスト開示で避けたい7つの落とし穴｜JII ガバナンス改革講座</title>
+  <meta name="description" content="東証は2024年11月、上場会社の取組みを投資家がどう読んでいるかを「投資者の目線とギャップのある事例」として整理した。公式資料が示すのは、分析・評価、取組みの検討・開示、対話・アップデートの3段階にまたがる10の典型例である。本稿では、その内容をIR実務で使いやすい7つの確認項目に組み替え、自社の開示を点検する方法を示す。">
+  <link rel="canonical" href="https://jpinv.com/governance/capital-efficiency/4.4-seven-sins-misalignment/">
+  <link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/capital-efficiency/4.4-seven-sins-misalignment/">
+  <link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/capital-efficiency/4.4-seven-sins-misalignment/">
+  <link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/capital-efficiency/4.4-seven-sins-misalignment/">
+  <meta property="og:title" content="資本コスト開示で避けたい7つの落とし穴｜JII ガバナンス改革講座">
+  <meta property="og:description" content="東証は2024年11月、上場会社の取組みを投資家がどう読んでいるかを「投資者の目線とギャップのある事例」として整理した。公式資料が示すのは、分析・評価、取組みの検討・開示、対話・アップデートの3段階にまたがる10の典型例である。本稿では、その内容をIR実務で使いやすい7つの確認項目に組み替え、自社の開示を点検する方法を示す。">
+  <meta property="og:url" content="https://jpinv.com/governance/capital-efficiency/4.4-seven-sins-misalignment/">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://jpinv.com/og/jii-default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://jpinv.com/og/jii-default.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&amp;family=Noto+Sans+JP:wght@300;400;500;600&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/governance.css?v=b6280834c3">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","name":"資本コスト開示で避けたい7つの落とし穴｜JII ガバナンス改革講座","description":"東証は2024年11月、上場会社の取組みを投資家がどう読んでいるかを「投資者の目線とギャップのある事例」として整理した。公式資料が示すのは、分析・評価、取組みの検討・開示、対話・アップデートの3段階にまたがる10の典型例である。本稿では、その内容をIR実務で使いやすい7つの確認項目に組み替え、自社の開示を点検する方法を示す。","url":"https://jpinv.com/governance/capital-efficiency/4.4-seven-sins-misalignment/","inLanguage":"ja","isPartOf":{"@type":"WebSite","name":"Japan Investor Interface","url":"https://jpinv.com/"},"headline":"資本コスト開示で避けたい7つの落とし穴","dateModified":"2026-08-30","author":{"@type":"Organization","name":"Japan Investor Interface Co., Ltd."},"publisher":{"@type":"Organization","name":"Japan Investor Interface Co., Ltd.","url":"https://jpinv.com/"}}</script>
+</head>
 <body>
-<main id="main-content" class="curriculum" tabindex="-1">
-<div class="wrap crumbs">
-  <a href="/">JII</a> <span class="sep">/</span>
-  <a href="/governance/">IR研修</a> <span class="sep">/</span>
-  <a href="/governance/capital-efficiency/">資本効率革命</a> <span class="sep">/</span>
-  記事 4.4
-</div>
-<header class="post-header">
-  <div class="wrap">
-    <div class="post-header-inner">
-      <div class="post-eyebrow">テーマ 4 · 記事 4.4</div>
-      <h1 class="post-title">資本コスト開示の7つの落とし穴 ― 「投資家視点との乖離」事例集</h1>
-      <p class="post-summary">東証が300社超の機関投資家へのヒアリングから抽出した10の「乖離」類型 ― 本稿はこれを7つの覚えやすい「落とし穴」に整理し、各々に対する「整合」行動を対置する。自社のCG報告書と中計を診断するための実務チェックリスト。</p>
-      <div class="post-meta">
-        <span>テーマ: <strong>資本効率革命</strong></span>
-        <span>読了目安: <strong>16 分</strong></span>
-        <span>更新: <strong>2026-05-18</strong></span>
-      </div>
-    </div>
-  </div>
-</header>
-<section class="post-body">
-  <div class="wrap">
-    <article class="post-content">
-<h2>要点</h2>
+  <a class="gov-skip" href="#main-content">本文へ移動</a>
+  <main id="main-content" class="governance-page" tabindex="-1">
+    <nav class="gov-wrap gov-crumbs" aria-label="パンくず"><a href="/">ホーム</a><span class="sep">/</span><a href="/governance/">ガバナンス改革講座</a><span class="sep">/</span><a href="/governance/capital-efficiency/">資本効率をめぐる改革</a><span class="sep">/</span><span aria-current="page">記事 4.4</span></nav>
+    <header class="post-header"><div class="gov-wrap"><div class="post-header-inner"><span class="post-eyebrow">テーマ 4 · 記事 4.4</span><h1 class="post-title">資本コスト開示で避けたい7つの落とし穴</h1><p class="post-summary">東証は2024年11月、上場会社の取組みを投資家がどう読んでいるかを「投資者の目線とギャップのある事例」として整理した。公式資料が示すのは、分析・評価、取組みの検討・開示、対話・アップデートの3段階にまたがる10の典型例である。本稿では、その内容をIR実務で使いやすい7つの確認項目に組み替え、自社の開示を点検する方法を示す。</p><div class="post-meta"><span>テーマ: <strong>資本効率をめぐる改革</strong></span><span>読了目安: <strong>11分</strong></span><span>更新: <strong>2026-08-30</strong></span></div></div></div></header>
+    <section class="post-body"><div class="gov-wrap"><article class="post-content"><h2 id="section-1">要点</h2>
 <ul>
-<li><strong>2024年11月21日</strong>、東証は<strong>「投資者の視点と乖離があると感じられる事例」</strong>を公表した――<strong>300社超の機関投資家</strong>へのヒアリングを蒸留して10の典型「乖離」類型を提示した冊子であり、貧弱な資本コスト開示を自己診断する単一文書として最も有用である。</li>
-<li>本稿はこの10類型を<strong>7つの覚えやすい落とし穴</strong>に凝縮し、それぞれに実例と東証が明示的に推奨する「整合」行動を対置する。</li>
-<li>乖離冊子は55の好事例の<em>ネガフィルム</em>であり、東証が<strong>やめてほしい</strong>ことを示す。CG報告書や中計のたった一節がこの類型のどれかに当てはまれば、この冊子を片手に読む投資家はその箇所を捕捉する。</li>
+<li>東証は<strong>2024年11月21日</strong>、「投資者の目線とギャップのある事例」を公表した。対象は、①分析・評価、②取組みの検討・開示、③対話・アップデートの3段階に分かれる計10項目である。</li>
+<li>問題は、数字が少ないことだけではない。自社の見方だけで現状を評価する、目指すバランスシートを決めない、施策を列挙するだけで因果関係を示さない、投資家との対話を次の判断に反映しない、といった一連の弱さが問われている。</li>
+<li>以下の「7つの落とし穴」は、本講座が東証の10項目を実務上の点検順序に沿って再整理したものである。東証自身が7分類を示しているわけではない。</li>
 </ul>
 <hr>
-<h2>なぜ好事例集よりこの冊子の方が重要なのか</h2>
-<p>東証の定性文書には2冊ある。<strong>「ポイントと事例」</strong>冊子(2024年2月、2025年後半改訂)には<strong>55の好事例</strong>が、<strong>「投資者の視点と乖離があると感じられる事例」</strong>冊子(2024年11月)には10の乖離類型が収められている。IRチームはルーチンに前者を熟読し、後者を流し読みで済ませる。順序は逆にすべきだ。</p>
-<p>好事例は理想形である――日立や丸井グループの姿を示す。多くの企業が日立のセグメント別ROICツリーを単年で再現することは不可能で、字面ごとに模倣することはそれ自体が一つの失敗類型である。乖離冊子は<strong>実務的</strong>だ――投資家が自社の開示を読んだ瞬間に頭の中で何にフラグを立てるかを、平易な言葉で教えてくれる。<strong>やってはいけないこと</strong>の数は少なく、<strong>良い開示の作り方</strong>の数は多い。</p>
-<p>冊子の元データも特異である。東証は国内外<strong>300社超の機関投資家</strong>に対し、説得力に欠ける開示パターンをヒアリングした。10類型は学術的なものではなく、投資家が実際に不満を述べたパターンである。2025年後半の改訂では400社超の投資運用会社からの追加インプットを反映している。</p>
-<p>本稿はこの10類型を、記憶のしやすさのために<strong>7つの落とし穴</strong>にまとめ、各々に対応する「整合」行動を対置する。</p>
+<h2 id="section-2">「好事例をまねる」前に、ずれを点検する</h2>
+<p>好事例集は、完成度の高い開示がどのような姿かを知るうえで役に立つ。しかし、他社の指標や図表をそのまま移しても、自社の課題と結びついていなければ説得力は生まれない。先に行うべきなのは、自社の分析や説明が投資家の問題意識とどこでずれているかを見つけることである。</p>
+<p>東証の資料は、この点検を3段階で行う。</p>
+<ol>
+<li><strong>分析・評価</strong>――資本コスト、資本収益性、市場評価、バランスシートをどう捉えているか。</li>
+<li><strong>取組みの検討・開示</strong>――課題に対して、目標、資本配分、事業ポートフォリオ、役員報酬をどう設計し、どう説明しているか。</li>
+<li><strong>対話・アップデート</strong>――投資家との対話に応じ、その内容を開示や施策の見直しに反映しているか。</li>
+</ol>
+<p>2025年12月に改訂されたポイント・事例集は、国内外の延べ400社超の投資家との意見交換を踏まえている。したがって、ここに挙げられた論点は、抽象的な模範論ではなく、投資家が実際の開示を読んだときに感じる違和感を整理したものと考えるのがよい。</p>
 <hr>
-<h2>乖離と整合 ― 7つの落とし穴</h2>
+<h2 id="section-3">7つの落とし穴</h2>
 <table>
 <thead>
 <tr>
 <th>#</th>
-<th>落とし穴(乖離)</th>
-<th>実例で言うと</th>
-<th>整合の姿</th>
+<th>落とし穴</th>
+<th>開示に表れやすい兆候</th>
+<th>見直すべき方向</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><strong>1</strong></td>
-<td><strong>PBRを目標として扱う</strong></td>
-<td>中計の見出しに「2026年度までにPBR≧1を達成」。株主資本コスト、エクイティ・スプレッド、ROE経路への言及なし</td>
-<td>目標とすべきエクイティ・スプレッドあるいはROE水準を開示。PBRは評決であり、結果として動かす。<strong>山道社長も明言</strong>:PBR直接管理は因果が逆</td>
+<td><strong>自社の物差しだけで現状を評価する</strong></td>
+<td>同業平均を上回っていることだけで十分と判断する。株主資本コストの根拠や市場評価とのずれを検討していない。</td>
+<td>投資家との対話、事業リスク、株主構成、市場で求められる収益率も踏まえ、複数の角度から現状を評価する。</td>
 </tr>
 <tr>
 <td><strong>2</strong></td>
-<td><strong>株主資本コストが投資家コンセンサスを大きく下回る</strong></td>
-<td>機関投資家コンセンサスが7〜9%の市場で、rE 3〜5%を開示。マイナス金利政策解除前のリスクフリーレート、株式リスクプレミアム5%未満</td>
-<td>rEを<strong>7〜9%レンジ</strong>でCAPMインプット(rf、β、ERP)を遡れるかたちで開示。投資家コンセンサスへの明示的言及</td>
+<td><strong>PBRやROEの表面だけを見る</strong></td>
+<td>PBR1倍割れやROE低迷を指摘するだけで、収益性、成長期待、資産効率、情報の非対称性などの要因を分解していない。</td>
+<td>ROE、ROIC、利益率、資産回転率、事業別採算、市場との認識差まで掘り下げる。</td>
 </tr>
 <tr>
 <td><strong>3</strong></td>
-<td><strong>数字のない紋切り型</strong></td>
-<td>「資本コストや企業価値を意識した経営を進める」。WACCの数値なし、ROEの数値なし、KPIなし、時間軸なし</td>
-<td>WACCとrEの具体的数値。年度別軌道を伴うROE/ROIC目標。該当する場合はセグメント別ROIC</td>
+<td><strong>目指すバランスシートと資本配分を決めない</strong></td>
+<td>現預金、政策保有株式、有利子負債、成長投資、株主還元を個別に説明するだけで、全体としてどの姿を目指すかが見えない。</td>
+<td>必要資金、リスク耐性、投資機会、負債余力を踏まえ、目指す資本構成と資金配分の優先順位を示す。</td>
 </tr>
 <tr>
 <td><strong>4</strong></td>
-<td><strong>計画なきROE目標</strong></td>
-<td>「2027年度にROE10%を目指す」。ROEの分解(マージン?資産回転?自社株買い分母?)なし、リスク論議なし</td>
-<td>DuPontまたはROICツリーで目標を分解。<strong>各レバーがどう動くか</strong>を示す。実行リスクを特定</td>
+<td><strong>目標を先に置き、課題とのつながりを示さない</strong></td>
+<td>「ROE10%」「PBR1倍超」などの数字はあるが、なぜその水準なのか、何を変えて達成するのかが分からない。</td>
+<td>現状分析から目標までの論理をつなぎ、利益率、資産効率、事業構成、資本政策などの具体策に分解する。</td>
 </tr>
 <tr>
 <td><strong>5</strong></td>
-<td><strong>中計を以て代替する/株主還元を以て代替する</strong></td>
-<td>「東証要請への対応は既存中計が答え」あるいは「対応として配当性向を50%に引き上げる」</td>
-<td>中計と配当方針は構成要素の<em>一つ</em>。開示は事業ポートフォリオ、バランスシート、成長投資もカバーすべき。自社株買いだけではエクイティ・スプレッドは変わらない</td>
+<td><strong>不採算事業と経営者の動機付けに踏み込まない</strong></td>
+<td>すべての事業を成長させる前提で、不採算事業の縮小・撤退・売却を検討していない。役員報酬も単年度業績に偏る。</td>
+<td>事業ごとの資本収益性を点検し、再建・追加投資・売却・撤退を判断する。報酬制度も中長期の企業価値と整合させる。</td>
 </tr>
 <tr>
 <td><strong>6</strong></td>
-<td><strong>一度開示して止まっている</strong></td>
-<td>初回開示2023年6月、直近更新も同日。対話を踏まえた改訂なし</td>
-<td>投資家対話に目に見えて応答する年次(あるいは高頻度)更新。<strong>何が・なぜ</strong>変わったかを示す――PDCAのステップ5</td>
+<td><strong>施策を並べるだけで、因果関係を示さない</strong></td>
+<td>DX、人的資本、M&amp;A、自社株買いなどを列挙するが、どの課題をどう改善し、どの指標に効くのかが示されない。</td>
+<td>「課題→施策→KPI→期待する効果→検証時期」の順で説明する。</td>
 </tr>
 <tr>
 <td><strong>7</strong></td>
-<td><strong>要請を規制と誤称</strong></td>
-<td>「東証規制への対応として」「JPXに義務付けられた」――守りに徹したミニマム・コンプライアンス姿勢</td>
-<td>提出ではなく継続的経営規律として整理。要請は規制ではなく運用であり、開示もそうあるべき</td>
+<td><strong>対話を実施しても、経営判断を更新しない</strong></td>
+<td>面談回数だけを開示する、合理的な理由なく対話を断る、対話で得た論点を翌年の計画や開示に反映しない。</td>
+<td>対話で寄せられた主な論点、取締役会での検討、変更した施策や見送った理由まで開示する。</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <hr>
-<h2>落とし穴#1詳説 ― PBRは評決であって目標ではない</h2>
-<p>2023〜2024年のプライム市場開示で最も頻発した単一の失敗類型は、中計にPBR目標を入れることだった。乖離冊子は<strong>「中期経営計画における企業価値向上の取組を以て要請への対応とする」</strong>という枠組みを明示的に名指す――要請への対応であるかのように汎用的な中計目標を提示するコードである。</p>
-<p>PBR目標が問題なのは、<strong>PBRが制御変数ではない</strong>からだ。PBR=ROE×PER。このうちROEは経営陣が部分的に制御できる(収益性と資本構成を通じて)が、PERは将来期待ROEと株主資本コストの相対関係に基づいて市場が決める。ROE目標を達成しても、市場が持続可能性に納得しなければPER拡大は得られず、PBRは目標水準に達しない。逆に強気の市場ウィンドウに偶然乗ればROEは何も変わらずにPBRが上昇することもある。</p>
-<p>整合行動はエクイティ・スプレッドを目標として名指すこと――「エクイティ・スプレッド(ROE−株主資本コスト)を現状の−1.0ポイントから2027年度に+2.0ポイントへ移行させる」――そしてそこに至る運用経路を説明することだ。</p>
-<p>JPX社長の<strong>山道裕己</strong>はこの点について公開講演で異例なほど鋭く語ってきた。PBRは将来期待残余利益に対する市場の評決であり、PBRを直接管理することは、本人の繰り返し用いる比喩で言えば<strong>「感染症ではなく熱を治療しようとするようなもの」</strong>である。</p>
+<h2 id="section-4">落とし穴1――自社の物差しだけで現状を評価する</h2>
+<p>資本コストは、会社が都合よく決める社内基準ではない。事業リスクや市場環境を踏まえ、資金提供者が求める収益率を会社側が推定するものである。このため、算定式を示しただけでは十分とは限らない。投資家が認識する水準と大きく異なる場合には、なぜ差が生じるのかを説明する必要がある。</p>
+<p>また、同業平均を上回っていることも、それだけでは結論にならない。投資家は業種内だけでなく、他業種や海外企業も含めて投資先を選ぶ。業界全体の収益性が低ければ、「同業並み」は資本コストを上回る根拠にならない。</p>
+<p>開示では、資本コストの数値またはレンジに加え、主な前提、投資家との対話で得た認識、自社が考える市場評価とのずれを示すとよい。東証は一律の正解値を示していない。重要なのは、会社の推定が検証可能であり、投資家の見方と向き合っていることである。</p>
 <hr>
-<h2>落とし穴#2詳説 ― 株主資本コストのギャップ</h2>
-<p>これは日本企業が行う開示判断の中で最も診断的価値が高い単一の選択である。株主資本コストの数値は、開示されているかどうかも含めて、その会社が実際に作業をしたのか、それとも演技をしているのかを投資家に即座に伝える。</p>
-<p><strong>BOJのマイナス金利政策解除後(2024年以降)の経験則的現実</strong>:</p>
-<ul>
-<li>リスクフリーレート(10年JGB):<strong>1.0〜1.5%</strong>(2022年以前は概ね0.0〜0.3%)</li>
-<li>株式リスクプレミアム(機関投資家コンセンサス):<strong>5.5〜7.0%</strong></li>
-<li>ベータ:銘柄固有だが、市場全体は構造的にβ≈1.0</li>
-</ul>
-<p>β≈1.0の典型的な日本中型株であれば、防御可能な株主資本コストは<strong>6.5〜8.5%レンジ</strong>に着地する。大型ディフェンシブで6.0〜7.5%程度、景気循環産業・テクノロジーで8.0〜9.5%以上。5%未満の開示が投資家面談で取り沙汰されるラインである。</p>
-<p>乖離冊子は、株主資本コストを<strong>「投資家が認識する水準を大幅に下回って」</strong>開示する企業を指摘する。東証は数値そのものを指定しない――それは価格統制になる――が、メッセージは明確だ。rEが7〜9%の作業バンドから大きく下方乖離するなら、立証責任は会社側にある。CAPMインプットを遡って説明する必要がある。「社内ハードルレートは4%です」は防御にならない。</p>
-<p>整合行動は、rEを<strong>CAPMインプットを可視化して</strong>開示することだ。rf=X%、β=Y、ERP=Z%。投資家は各インプットをチェックできる。最も厳密な開示では、ERPに対する感応度(レンジ5〜7%)とβに対する感応度(レンジ±0.2)を示すのがベストプラクティスである。</p>
-<hr>
-<h2>落とし穴#3詳説 ― 紋切り型の問題</h2>
-<p>開示第一波(2023年中盤から2024年初頭)で最頻出のパターンが紋切り型だった――要請の用語を要請に向かって繰り返し、数値・時間軸・具体的施策にコミットしない段落である。サンプル(合成、特定の発行体のものではない):</p>
-<blockquote>
-<p><em>「当社は、東証要請を踏まえ、資本コストや株価を意識した経営を継続し、株主との対話を通じて中長期的な企業価値の向上に取り組んでまいります」</em></p>
-</blockquote>
-<p>この文は何にもコミットしていない。要請の語をすべて使いながら、検証可能な行動には縛られていない。乖離冊子の典型例は正にこの言語パターンであり、整合行動は抽象的な動詞を具体的な数値・時間軸・施策に置き換えることだ。</p>
-<p>整合の姿:</p>
-<blockquote>
-<p><em>「当社のWACCは5.8%、株主資本コストは8.1%。2024年度の連結ROEは7.2%でエクイティ・スプレッドは−0.9ポイント。2027年度に連結ROE9.5%、エクイティ・スプレッド+1.4ポイントを目標とし、(i)Aセグメントの営業利益率をX%からY%へ拡大、(ii)政策保有株式をZ億円からW億円へ削減、(iii)中計期間にV億円の株主還元、によって達成する」</em></p>
-</blockquote>
-<p>この文は7つの数値、3つの因果レバー、1つの時間軸にコミットしている。投資家は分析に異論を唱えることはあっても、紋切り型として一蹴することはできない。</p>
-<hr>
-<h2>落とし穴#4詳説 ― 計画なきROE目標</h2>
-<p>紋切り型の落とし穴の繊細な変種が<strong>素のROE目標</strong>――運用上の分解を伴わないROE数値である。「2027年度にROE10%を目指す」は「資本効率の向上に取り組む」より一歩進んでいるが、わずか一歩である。乖離冊子が「計画なきROE」を別の類型として扱うのは、それが経営陣が経路を分析したのではなく数字を選んだだけであることを示唆するからだ。</p>
-<p>整合行動は、<strong>DuPontあるいはROICツリーによる目標の分解</strong>である:</p>
+<h2 id="section-5">落とし穴2――PBRやROEの表面だけを見る</h2>
+<p>PBR1倍割れを確認して「市場評価が低い」と書くだけでは、分析とはいえない。ROEが資本コストを下回っているのか、成長の持続性に疑問を持たれているのか、過剰資産が収益性を押し下げているのか、事業内容が伝わっていないのかによって、必要な対応は異なる。</p>
+<p>ROE目標も同じである。たとえば、次の分解を使えば、どの経営課題を動かす必要があるかが見える。</p>
 <blockquote>
 <p><strong>ROE = 売上高純利益率 × 総資産回転率 × 財務レバレッジ</strong></p>
 </blockquote>
-<p>各要因について、開示は以下を示すべきだ:</p>
-<ul>
-<li>現状水準と目標水準</li>
-<li>それを動かすと期待される運用ドライバー(例:製品ミックス、価格、販管費削減、運転資本効率、資本構成)</li>
-<li>実行リスクとドライバーが期待を下回った場合のコンティンジェンシー</li>
-</ul>
-<p>日立のセグメント別ROICツリーは規範的な事例である。旭化成の足元の中計(FY2027 ROE9%/ROIC6%、FY2030野心目標ROE≧12%/ROIC≧8%)は軌道を事業単位で分解している。タダノ(2026年目標:ROIC8.0%、ROE9.5%、配当性向30%)も同様に各KPIに運用レバーを紐づけている。</p>
+<p>事業別にはROICとWACCの比較が有効である。会社全体のROEが改善していても、資本コストを下回る事業が残っていれば、ポートフォリオの課題は解消していない。市場評価の説明では、数字の水準よりも、数字を生んでいる構造を示すことが重要になる。</p>
 <hr>
-<h2>落とし穴#5詳説 ― 株主還元を以て代替する</h2>
-<p>最も結果重大な落とし穴である。同時に最も誘惑的でもあるからだ。自社株買いや増配は近期的にROEを押し上げる――自己資本という分母を縮めることで――し、株価を支える。したがってPBR1倍割れ圧力に対する素早い、可視性の高い応答策である。2024年の日本企業の自社株買い発表額が<strong>過去最高の18兆円</strong>(ブルームバーグ/ジャパンタイムズ)に達したのは、発行体がこのレバーに手を伸ばした結果でもある。</p>
-<p>乖離冊子の典型例は、<strong>全ての</strong>対応が株主還元に偏った会社である。これが乖離である理由は二つある。</p>
-<p>第一に、事業の根本的なユニットエコノミクスが変わらないからだ。マージン・回転率を改善しないまま分母削減でROEを上げる自社株買いは、長期残余利益を変えない。洗練された投資家は自社株買いの先を見抜いて価格付けし、PERがROE上昇を相殺するように縮み、PBRは持続的には改善しない。</p>
-<p>第二に、成長投資を放棄することになる。2026年4月の「更新」(Post 4.5)はこの点を明示的に強調する:「株主還元のような取組みやすい施策は進捗しているが、多くの投資家が重要課題と見る領域――事業ポートフォリオの見直し、経営資源の再評価、最適バランスシートの検討――では十分な進捗が得られていない」。</p>
-<p>整合は、株主還元を成長capex、R&amp;D、人的資本、M&amp;A、バランスシート最適化と並ぶ<strong>複数のうちの一つの</strong>資本配分レバーとして扱うことを意味する。開示は<strong>トレードオフ</strong>を明確にすべきだ。なぜ追加の1円を株主に還元するのか、なぜ投資しないのか。答えが「正のNPV成長機会がない」なら、それ自体が取締役会と投資家対話で議論されるべき戦略表明である。</p>
+<h2 id="section-6">落とし穴3――目指すバランスシートを決めない</h2>
+<p>現預金を多く持つ理由、政策保有株式を残す理由、有利子負債を増やさない理由を個別に説明しても、それらを合計したバランスシートが会社の戦略に適しているかは分からない。投資家が知りたいのは、事業リスクと成長機会を踏まえた必要資金の水準、そのうえで余剰となる資金をどこに配分するかである。</p>
+<p>自社株買いや増配は、分析の結果として適切な場合がある。ただし、それだけを東証要請への回答にすると、事業の競争力や将来の利益成長をどう高めるかが抜け落ちる。研究開発、人的資本、設備投資、M&amp;A、負債返済、株主還元を同じ表の中で比較し、優先順位と判断基準を示す必要がある。</p>
 <hr>
-<h2>落とし穴#6詳説 ― 一度きりの開示</h2>
-<p>東証要請は対応が<strong>継続的PDCA</strong>であって年次提出ではないことを明示している。乖離冊子は初回開示と直近更新が同日の会社、特に初回が2023年の会社を指摘する。</p>
-<p>メカニズムは単純だ。投資家が対話し、経営陣が見直し、開示がその見直しを反映する。12ヶ月以上更新されていない開示は次のいずれかを示唆する:(i)投資家対話が起きていない、(ii)対話は起きているが開示に反映されていない、(iii)開示が初日から正しく今も変更不要(最も寛容だが最も稀な解釈)。</p>
-<p>整合は可視的な反復である。ベストプラクティスの開示企業はCG報告書(あるいはIRサイトの専用ページ)の該当箇所を少なくとも年次、しばしば高頻度で更新する。更新は<strong>何が・なぜ</strong>変わったかを示すべきだ:「ベータ算出方法について投資家との対話を経て、株主資本コストのインプットを7.5%から8.0%へ修正し、開示するエクイティ・スプレッドを+1.5ポイントから+1.0ポイントへ縮小した」。この一文は紋切り型100文に値する。</p>
+<h2 id="section-7">落とし穴4――目標を先に置き、達成経路を示さない</h2>
+<p>「2027年度にROE10%」「PBR1倍以上」といった数値だけでは、投資家は計画の実現性を判断できない。PBRは市場が付ける評価であり、経営陣が直接決められる指標ではない。ROEも、利益率の改善、資産の圧縮、財務レバレッジの変更では意味が異なる。</p>
+<p>目標は、現状分析から導かれていなければならない。たとえば、低採算事業の再編で利益率を上げるのか、運転資本を減らして資産回転率を高めるのか、余剰資本を返すのかを分けて示す。各施策に期限と責任主体を置き、実績が計画から外れたときの見直し方針まで示せば、目標は単なる宣言から経営管理の道具に変わる。</p>
 <hr>
-<h2>落とし穴#7詳説 ― 要請を誤称する</h2>
-<p>繊細だが評判面で破壊的な落とし穴:東証要請を<em>規制</em>として、開示を<em>コンプライアンス</em>として枠付けることだ。「東証規制に従って」「JPXの要請事項として」のような表現は、技術的に誤りであり(要請は規制ではない)、運用上も破壊的だ(守りに徹したミニマム・エフォート姿勢を伝えるシグナルになる)。</p>
-<p>要請は要請である。開示は継続的経営規律である。この区別が重要なのは、枠組みが実質に滲み出るからだ。要請をコンプライアンスとして扱う会社はコンプライアンス・グレードの開示(紋切り型、低い具体性、低頻度更新)を出す。要請を運用規律として扱う会社は運用グレードの開示(具体的数値、遡れるインプット、定期的反復)を出す。</p>
-<p>整合行動は、開示を<strong>社内の経営規律の外向きの表現</strong>として枠付けることだ――取締役会が資本配分、事業ポートフォリオレビュー、中計策定で用いるのと同じ規律。要請はプロンプトであり、経営規律こそが実質である。</p>
+<h2 id="section-8">落とし穴5――不採算事業と役員報酬に踏み込まない</h2>
+<p>資本効率を高めるうえで最も難しいのは、利益が出ていない事業をどう扱うかである。改善の余地があるなら再建し、より適した保有者がいるなら売却し、将来も資本コストを上回る見通しが立たないなら撤退する。すべての事業を維持したまま全体目標だけを掲げても、経営資源の配分は変わらない。</p>
+<p>同時に、経営陣の評価制度も確認が必要である。単年度の売上高や営業利益だけに連動する報酬は、資産を積み増して規模を拡大する動機になりやすい。ROIC、ROE、TSR、事業ポートフォリオの進捗などを中長期の報酬にどう反映するかを示せば、計画を実行する仕組みまで説明できる。</p>
 <hr>
-<h2>自己診断</h2>
-<p>任意のIRチームのための90秒自己診断:</p>
+<h2 id="section-9">落とし穴6――施策を並べるだけで終える</h2>
+<p>次のような文章は、一見すると取組みが多い。しかし、何を解決するのかが分からない。</p>
+<blockquote>
+<p>「成長投資、DX、人的資本投資、M&amp;A、株主還元を通じて企業価値を高めます。」</p>
+</blockquote>
+<p>必要なのは施策の数ではなく、因果関係である。たとえば、「A事業の低い資産回転率がROICを押し下げているため、在庫日数をX日からY日に短縮し、2027年度までにROICをZ%へ引き上げる」と書けば、課題、行動、指標、期限が一続きになる。</p>
+<p>中期経営計画を東証要請への回答として使うこと自体に問題はない。ただし、中計の既存ページを示すだけではなく、資本コストとの関係、取締役会の分析、投資家との対話を踏まえた見直しが読み取れるようにする必要がある。</p>
+<hr>
+<h2 id="section-10">落とし穴7――対話が経営判断につながらない</h2>
+<p>面談回数や参加者数を開示しても、対話の成果は分からない。投資家がどの論点を提起し、経営陣や取締役会がどう検討し、何を変えたのかが重要である。</p>
+<p>また、未公表の重要事実を伝えられないことと、投資家との対話そのものを断ることは別の問題である。合理的な理由なく面談に応じない、社外取締役への面談要請を一律に拒む、といった姿勢は、対話を重視するコードや東証要請の趣旨と合わない。</p>
+<p>開示の更新では、前年から変わった箇所を明示するとよい。目標を変更したなら理由を示す。施策を見送ったなら、投資家の提案を検討したうえで見送った理由を説明する。対話に従うことではなく、対話を判断材料として使ったことを示すのが目的である。</p>
+<hr>
+<h2 id="section-11">90秒でできる自己点検</h2>
 <ol>
-<li><strong>足元の開示は具体的なPBR目標に言及しているか?</strong> はい――落とし穴#1。エクイティ・スプレッドを軸に再構成せよ</li>
-<li><strong>開示した株主資本コストは6%未満か?</strong> はい――落とし穴#2。遡れるCAPMインプットで防御するか、上方修正せよ</li>
-<li><strong>読者は開示から具体的な数値3つと時間軸1つを抽出できるか?</strong> いいえ――落とし穴#3。数値を加えよ</li>
-<li><strong>ROE目標は分解を伴うか?</strong> いいえ――落とし穴#4。DuPontあるいはROICツリーを構築せよ</li>
-<li><strong>具体的施策は株主還元だけか?</strong> はい――落とし穴#5。成長投資・ポートフォリオレビュー・バランスシート項目を追加せよ</li>
-<li><strong>開示は過去12ヶ月以内に更新されたか?</strong> いいえ――落とし穴#6。更新せよ</li>
-<li><strong>開示で「コンプライアンス」「要求」という語を使っているか?</strong> はい――落とし穴#7。経営規律として再構成せよ</li>
+<li>資本コストの根拠を、投資家との認識差も含めて説明できるか。</li>
+<li>PBR、ROE、ROICの水準を、事業や財務の要因に分解しているか。</li>
+<li>目指すバランスシートと資金配分の優先順位が示されているか。</li>
+<li>目標と具体策の間に、検証できる因果関係があるか。</li>
+<li>資本コストを下回る事業について、再建・追加投資・売却・撤退の判断を示しているか。</li>
+<li>施策の列挙ではなく、「課題→施策→KPI→期限」の順で説明しているか。</li>
+<li>投資家との対話を受けて、開示または経営判断を更新した事例があるか。</li>
 </ol>
-<p>7項目全てに合格すれば、日本の開示のトップ四分位にいる。2項目以上で不合格なら、次回の対話で投資家あるいはアナリストから取り上げられることを覚悟すべきだ。</p>
+<p>一つでも答えに詰まる項目があれば、そこが次の改訂箇所である。点数を付けることより、取締役会で具体的な問いに置き換えることの方が重要だ。</p>
 <hr>
-<h2>IRにとっての含意</h2>
+<h2 id="section-12">IRにとっての含意</h2>
 <ol>
-<li><strong>乖離冊子を年1回は通読せよ</strong>。2025年後半の「ポイントと事例」改訂版と並行して年次再読することは、ドリフトを捕捉する低コストの規律である。冊子は30ページ未満で、実例(匿名化済)を用いる。</li>
-<li><strong>直近3回の開示を7つの落とし穴に照らして点検せよ</strong>。最新版だけでなく、過去の開示が継続的PDCAが含意する<strong>進化</strong>を示しているかを確認せよ。落とし穴#6は単一スナップショットでは見えない。</li>
-<li><strong>CG報告書ドラフトサイクルに自己診断を組み込め</strong>。7問チェックを公表前必須ステップに。サイクルを回すチームは、伝統的にCG報告書を所管してきた法務・総務ではなく、IRプログラムを担うチームであるべきだ。</li>
-<li><strong>株主資本コストの表現をIRアドバイザーと擦り合わせよ</strong>。これが最も診断的な開示判断である。rEを投資家コンセンサスの作業レンジ(典型的なプライム発行体で7〜9%)に合わせ、CAPMインプットを示すことは、利用可能な信頼性向上策の中で最も安価である。</li>
-<li><strong>「コンプライアンス」と呼ぶのをやめよ</strong>。内部言語が重要である。チームが取締役会メモやIRブリーフィングで「東証要請への対応」を語る際、そのフレーミングが対外開示に流れ込む。経営陣に「経営規律」「継続的な取組」という言い方を訓練せよ。</li>
+<li><strong>東証の10項目を公表前の確認表にする。</strong> IR資料、中期経営計画、コーポレート・ガバナンス報告書を別々に点検せず、同じ論理で読めるかを確認する。</li>
+<li><strong>資本コストの数値だけを争点にしない。</strong> 数値の根拠、市場との認識差、その差をどう対話で検証したかまで一組で説明する。</li>
+<li><strong>取締役会の議論を開示につなげる。</strong> IR部門だけで文章を整えるのではなく、分析、目標、事業ポートフォリオ、資本配分が取締役会の判断として承認されていることを確認する。</li>
+<li><strong>毎年、同じ文章を出さない。</strong> 実績、対話、環境変化を踏まえ、何を維持し、何を変えたかが分かる更新にする。</li>
+<li><strong>好事例は構成を学び、数字は借りない。</strong> 他社のWACCやROIC目標を移すのではなく、「課題から施策までをどうつないでいるか」を参考にする。</li>
 </ol>
 <hr>
-<h2>出典・参考資料</h2>
-<p><strong>一次資料</strong>
-- 東証ニュースリリース(2024年11月21日)「投資者の視点と乖離があると感じられる事例」:<a href="https://www.jpx.co.jp/news/1020/20241121-01.html">https://www.jpx.co.jp/news/1020/20241121-01.html</a>
-- 「ポイントと事例」(2024年2月、PDF):<a href="https://www.jpx.co.jp/news/1020/u5j7e50000001bqd-att/240201en.pdf">https://www.jpx.co.jp/news/1020/u5j7e50000001bqd-att/240201en.pdf</a>
-- 「ポイントと事例」改訂版(2025年後半、PDF):<a href="https://www.jpx.co.jp/news/1020/vk0khi000000gi14-att/vk0khi000000gi4d.pdf">https://www.jpx.co.jp/news/1020/vk0khi000000gi14-att/vk0khi000000gi4d.pdf</a>
-- 東証ニュースリリース(2025年12月26日)「課題解決に向けた取組事例集」:<a href="https://www.jpx.co.jp/news/1020/20251226-01.html">https://www.jpx.co.jp/news/1020/20251226-01.html</a>
-- 「資本コストや株価を意識した経営の実現に向けた対応」ハブ:<a href="https://www.jpx.co.jp/equities/follow-up/02.html">https://www.jpx.co.jp/equities/follow-up/02.html</a></p>
-<p><strong>補足資料</strong>
-- 山道裕己、Japan Securities Summit講演資料(2024年3月6日):<a href="https://www.icmagroup.org/assets/Slides_Mr.-Hiromi-Yamaji_JPX_Japan-Securities-Summit-6-March-2024.pdf">https://www.icmagroup.org/assets/Slides_Mr.-Hiromi-Yamaji_JPX_Japan-Securities-Summit-6-March-2024.pdf</a>
-- Harvard Law CGIコメンタリー(2025年10月21日):<a href="https://corpgov.law.harvard.edu/2025/10/21/tokyo-stock-exchange-initiative-on-cost-of-capital-and-stock-price-conscious-management/">https://corpgov.law.harvard.edu/2025/10/21/tokyo-stock-exchange-initiative-on-cost-of-capital-and-stock-price-conscious-management/</a>
-- 第一生命経済研究所(2024年11月):<a href="https://www.dlri.co.jp/report/macro/202411YK.html">https://www.dlri.co.jp/report/macro/202411YK.html</a>
-- 旭化成 中計(ROIC/ROE目標):<a href="https://www.asahi-kasei.com/jp/company/strategy/">https://www.asahi-kasei.com/jp/company/strategy/</a>
-- 帝人 中期経営計画 2024–25:<a href="https://www.teijin.co.jp/ir/management/vision/pdf/plan_pm_240513.pdf">https://www.teijin.co.jp/ir/management/vision/pdf/plan_pm_240513.pdf</a></p>
-<hr>
-<h2>関連記事</h2>
+<h2 id="section-13">出典・参考資料</h2>
 <ul>
-<li><strong>テーマ4.1</strong> ― <a href="/governance/">PBR&lt;1は目標ではなく、市場の評決</a></li>
-<li><strong>テーマ4.2</strong> ― <a href="/governance/">WACC・ROIC・エクイティ・スプレッド ― IR担当が押さえるべき新語</a></li>
-<li><strong>テーマ4.3</strong> ― <a href="/governance/">公表というシェイムとショーケース ― TSEの開示企業リスト</a></li>
-<li><strong>テーマ4.5</strong> ― <a href="/governance/">開示から実行へ ― 2026年4月「更新」が変えたもの</a></li>
-<li><strong>テーマ5.2</strong> ― <a href="/governance/">政策保有株のエンドゲーム ― 「個別検証」開示の時代</a></li>
-<li><strong>テーマ5.7</strong> ― スチュワードシップ・コード3.0以降の協働対話</li>
+<li>東京証券取引所「『資本コストや株価を意識した経営』に関する『投資者の目線とギャップのある事例』等の公表について」（2024年11月21日）: <a href="https://www.jpx.co.jp/news/1020/20241121-01.html">https://www.jpx.co.jp/news/1020/20241121-01.html</a></li>
+<li>東京証券取引所「資本コストや株価を意識した経営の実現に向けた対応（プライム・スタンダード市場）」: <a href="https://www.jpx.co.jp/equities/follow-up/02.html">https://www.jpx.co.jp/equities/follow-up/02.html</a></li>
+<li>東京証券取引所「『資本コストや株価を意識した経営』のポイントと事例のアップデートの概要」（2024年）: <a href="https://www.jpx.co.jp/equities/follow-up/nlsgeu000006gevo-att/mklp77000000k4tq.pdf">https://www.jpx.co.jp/equities/follow-up/nlsgeu000006gevo-att/mklp77000000k4tq.pdf</a></li>
+<li>東京証券取引所「『資本コストや株価を意識した経営』に関する『課題解決に向けた企業の取組み事例』等の公表について」（2025年12月26日）: <a href="https://www.jpx.co.jp/news/1020/20251226-01.html">https://www.jpx.co.jp/news/1020/20251226-01.html</a></li>
+<li>東京証券取引所「ポイント・事例集の使い方ガイド」（2025年）: <a href="https://www.jpx.co.jp/equities/follow-up/jr4eth0000004vj2-att/t13vrt000000dlhw.pdf">https://www.jpx.co.jp/equities/follow-up/jr4eth0000004vj2-att/t13vrt000000dlhw.pdf</a></li>
+<li>東京証券取引所「『取組みの進展が見られる企業』等に関する機関投資家アンケートの結果について」（2026年8月12日）: <a href="https://www.jpx.co.jp/corporate/news/news-releases/1020/20260812-01.html">https://www.jpx.co.jp/corporate/news/news-releases/1020/20260812-01.html</a></li>
 </ul>
-    </article>
-    <div class="post-nav"><a href="/governance/capital-efficiency/4.3-the-disclosure-list/" class="post-nav-link prev"><div class="post-nav-dir">← 前の記事</div><div class="post-nav-title">公表というシェイムとショーケース ― TSEの開示企業リスト</div></a><a href="/governance/capital-efficiency/4.5-action-plan-2-update/" class="post-nav-link next"><div class="post-nav-dir">次の記事 →</div><div class="post-nav-title">開示から実行へ ― 2026年4月「更新」が変えたもの</div></a></div>
-    <div style="max-width: var(--measure); margin: 32px auto 0; padding-top: 24px; border-top: 1px solid var(--rule); font-size: 0.82rem; color: var(--text-dim); text-align:right;">
-      <a href="/en/governance/capital-efficiency/4.4-seven-sins-misalignment/" style="color: var(--ink-soft);">English version →</a>
-    </div>
-  </div>
-</section>
-</main>
-<style>footer{background:var(--ink,#1a2a4a);color:#cfd6e2;padding:48px 0 30px;font-size:0.8rem;line-height:1.8;border-top:none}footer a{color:#cfd6e2;text-decoration:none}footer .footer-row{list-style:none;display:flex;flex-wrap:wrap;gap:8px 26px;margin:0 0 26px;padding:0}footer .footer-row li{padding:0}footer .footer-row a{color:#cfd6e2;text-decoration:none;font-size:0.8rem}footer .footer-bottom{padding-top:24px;border-top:1px solid rgba(255,255,255,0.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-family:var(--mono),monospace;font-size:0.68rem;letter-spacing:0.06em;color:rgba(255,255,255,0.55)}</style><script>
-const nav = document.getElementById('main-nav');
-if (nav) window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
-const hamburgerBtn = document.querySelector('.hamburger');
-function setMenuOpen(isOpen) { const menu = document.getElementById('mobileMenu'); if (!menu || !hamburgerBtn) return; menu.classList.toggle('open', isOpen); menu.hidden = !isOpen; hamburgerBtn.setAttribute('aria-expanded', String(isOpen)); }
-function toggleMenu() { const menu = document.getElementById('mobileMenu'); setMenuOpen(!(menu && menu.classList.contains('open'))); }
-document.addEventListener('click', (e) => { const menu = document.getElementById('mobileMenu'); if (menu && menu.classList.contains('open') && !menu.contains(e.target) && hamburgerBtn && !hamburgerBtn.contains(e.target)) setMenuOpen(false); });
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenuOpen(false); });
-</script>
-<script type="module">
-import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs';
-mermaid.initialize({ startOnLoad: true, theme: 'neutral', fontFamily: 'Noto Sans JP, Hiragino Kaku Gothic ProN, sans-serif', themeVariables: { primaryColor: '#f4eee4', primaryTextColor: '#1a2a4a', primaryBorderColor: '#9a7838', lineColor: '#304466', secondaryColor: '#f5f7fa', tertiaryColor: '#fafbfc' } });
-</script>
-<script src="/assets/nav.js?v=348fa48c4e" defer></script>
+<hr>
+<h2 id="section-14">関連記事</h2>
+<ul>
+<li><strong>テーマ4.1</strong>――<a href="/governance/capital-efficiency/4.1-march-2023-request-anatomy/">PBR1倍割れをどう読むか――東証要請の本当の狙い</a></li>
+<li><strong>テーマ4.2</strong>――<a href="/governance/capital-efficiency/4.2-cost-of-capital-vocabulary/">WACC・ROIC・エクイティ・スプレッド――資本コスト経営の基本用語</a></li>
+<li><strong>テーマ4.3</strong>――<a href="/governance/capital-efficiency/4.3-the-disclosure-list/">東証の開示企業一覧――公表が生む規律</a></li>
+<li><strong>テーマ4.5</strong>――<a href="/governance/capital-efficiency/4.5-action-plan-2-update/">開示から実行へ――2026年4月の要請更新</a></li>
+<li><strong>テーマ5.2</strong>――<a href="/governance/frontier/5.2-cross-shareholdings-end-game/">政策保有株式の最終局面――銘柄ごとの検証と開示</a></li>
+</ul></article><nav class="post-nav" aria-label="前後の記事"><a class="post-nav-link prev" href="/governance/capital-efficiency/4.3-the-disclosure-list/"><div class="post-nav-dir">← 前の記事</div><div class="post-nav-title">東証の開示企業一覧――公表が生む規律</div></a><a class="post-nav-link next" href="/governance/capital-efficiency/4.5-action-plan-2-update/"><div class="post-nav-dir">次の記事 →</div><div class="post-nav-title">開示から実行へ――2026年4月の要請更新</div></a></nav><div class="post-language"><a href="/en/governance/capital-efficiency/4.4-seven-sins-misalignment/">English version →</a></div></div></section>
+  </main>
+  <script src="/assets/governance.js?v=cc6033456e" defer></script>
+  <script src="/assets/nav.js?v=348fa48c4e" defer></script>
 </body>
 </html>

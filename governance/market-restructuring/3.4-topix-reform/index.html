@@ -1,437 +1,156 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-
-<title>TOPIX 2.0 ― 全銘柄インデックスから選別インデックスへ | JII ガバナンス改革カリキュラム</title>
-<meta name="description" content="30年以上にわたりTOPIXは東証一部の構成銘柄を機械的に反映する「ほぼ全銘柄インデックス」であり、ピーク時の構成銘柄は約2,200。第1段階（2022年10月～2025年1月）で約400銘柄が段階的に除外され、第2段階（2026年10月～2028年7月）ではついに区分から切り離され、流動性基準で選別される。最終構成銘柄数は約1,200と見込まれる。">
-<meta property="og:title" content="TOPIX 2.0 ― 全銘柄インデックスから選別インデックスへ | JII ガバナンス改革カリキュラム">
-<meta property="og:description" content="30年以上にわたりTOPIXは東証一部の構成銘柄を機械的に反映する「ほぼ全銘柄インデックス」であり、ピーク時の構成銘柄は約2,200。第1段階（2022年10月～2025年1月）で約400銘柄が段階的に除外され、第2段階（2026年10月～2028年7月）ではついに区分から切り離され、流動性基準で選別される。最終構成銘柄数は約1,200と見込まれる。">
-<meta property="og:url" content="https://jpinv.com/governance/market-restructuring/3.4-topix-reform/">
-<link rel="canonical" href="https://jpinv.com/governance/market-restructuring/3.4-topix-reform/">
-<link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/market-restructuring/3.4-topix-reform/">
-<link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/market-restructuring/3.4-topix-reform/">
-<link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/market-restructuring/3.4-topix-reform/">
-
-<style>
-:root {
-  --ink:        #1a2a4a;
-  --ink-mid:    #172641;
-  --ink-soft:   #304466;
-  --rule:       #d6dee8;
-  --rule-soft:  #e8edf3;
-  --bg:         #ffffff;
-  --bg-mid:     #f5f7fa;
-  --bg-soft:    #fafbfc;
-  --text:       #1f2937;
-  --text-mid:   #4a5566;
-  --text-dim:   #5f6875;
-  --accent:     #9a7838;
-  --accent-deep:#9a7838;
-  --accent-soft:#f4eee4;
-  --bad:        #b91c1c;
-  --warn:       #8a682b;
-  --ok:         #2f6f4f;
-  --serif: 'Noto Serif JP', 'Yu Mincho', serif;
-  --sans:  'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
-  --mono:  'DM Mono', monospace;
-  --max: 1100px;
-  --pad: 88px;
-  --gutter: 48px;
-  --nav-h: 64px;
-  --measure: 720px;
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 400; line-height: 1.7; overflow-x: hidden; }
-img { max-width: 100%; display: block; }
-a { color: var(--ink-soft); text-decoration: none; }
-a:hover { color: var(--ink); }
-.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
-@media (max-width: 768px) { :root { --gutter: 22px; --pad: 56px; } }
-strong { font-weight: 600; color: var(--ink); }
-em { font-style: normal; color: var(--ink); font-weight: 600; }
-.label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); }
-
-/* Nav (copied from jpinv.com base) */
-nav#main-nav { position: fixed; top:0; left:0; right:0; z-index:100; height: var(--nav-h); background: rgba(255,255,255,0.96); backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule); display: flex; align-items: center; transition: box-shadow 0.3s; }
-nav#main-nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
-.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; }
-.nav-logo { text-decoration: none; display: inline-flex; align-items: center; flex: 0 0 auto; min-width: max-content; white-space: nowrap; }
-.nav-logo-img { display: block; width: auto; height: 40px; max-width: none; object-fit: contain; object-position: left center; }
-.nav-logo-img--mobile { display: none; width: 32px; height: 32px; object-fit: contain; }
-.nav-center { flex: 1; display: flex; justify-content: center; }
-.nav-links { display: flex; gap: 18px; list-style: none; flex-wrap: nowrap; white-space: nowrap; }
-.nav-links a { font-family: var(--sans); font-size: 0.74rem; font-weight: 400; letter-spacing: 0.02em; color: var(--text); text-decoration: none; transition: color 0.2s; }
-.nav-links a:hover { color: var(--ink-soft); }
-.nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; margin-left: auto; }
-.nav-cta { padding: 7px 11px; font-size: 0.66rem; letter-spacing: 0.05em; }
-.locale-switcher { display: inline-flex; align-items: center; gap: 0; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; }
-.locale-switcher a { color: var(--text-dim); border: 1px solid var(--rule); padding: 6px 9px; text-decoration: none; transition: all 0.2s; }
-.locale-switcher a + a { margin-left: -1px; }
-.locale-switcher a:hover, .locale-switcher a.current { color: var(--ink); border-color: var(--ink-mid); background: var(--bg-soft); position: relative; z-index: 1; }
-.hamburger { display: none; flex-shrink:0; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
-.hamburger span { display:block; width:22px; height:1px; background:var(--ink); transition: all 0.25s; }
-@media (max-width: 900px) { .nav-center, .nav-right .nav-cta { display:none; } .hamburger { display:flex; } }
-@media (max-width: 768px) { .nav-logo-img--desktop { display:none; } .nav-logo-img--mobile { display:block; } }
-.mobile-menu { display:none; position:fixed; top:var(--nav-h); left:0; right:0; background:var(--bg); border-bottom:1px solid var(--rule); z-index:99; padding:8px var(--gutter) 20px; flex-direction:column; gap:0; }
-.mobile-menu.open { display:flex; }
-.mobile-menu a { font-size:0.88rem; color:var(--text); text-decoration:none; padding:14px 0; border-bottom:1px solid var(--rule); letter-spacing:0.04em; }
-.mobile-menu a:last-child { border-bottom:none; }
-.mobile-menu .mobile-menu-cta { margin-top:12px; padding:13px 18px; text-align:center; color:#fff; border-bottom:none; }
-
-.btn { display: inline-block; text-decoration: none; font-family: var(--sans); font-size: 0.84rem; font-weight: 400; letter-spacing: 0.06em; padding: 13px 28px; transition: all 0.2s; cursor: pointer; border: none; }
-.btn-primary { background: var(--ink); color: #fff; }
-.btn-primary:hover { background: var(--ink-mid); color: #fff; }
-.btn-outline { border: 1px solid var(--ink-mid); color: var(--ink); background: transparent; }
-.btn-outline:hover { border-color: var(--ink); color: var(--ink); }
-.rule-accent { width: 32px; height: 2px; background: var(--accent); margin: 14px 0 22px; }
-
-/* Footer (mirror) */
-footer { border-top: 1px solid var(--rule); padding: 52px 0 28px; background: var(--bg-soft); font-size: 0.82rem; color: var(--text-dim); }
-footer .footer-grid { display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 32px; align-items: start; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
-footer h2 { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.2em; color: var(--ink-soft); text-transform: uppercase; margin-bottom: 12px; font-weight: 500; }
-footer h3 { font-family: var(--serif); font-size: 1rem; font-weight: 400; color: var(--ink); margin-bottom: 8px; }
-footer ul { list-style: none; }
-footer ul li { padding: 4px 0; }
-footer ul li a { color: var(--text-mid); }
-footer ul li a:hover { color: var(--ink); }
-footer .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 18px; flex-wrap: wrap; gap: 12px; }
-footer .footer-locale-switcher a.current { font-weight: 600; color: var(--ink); }
-@media (max-width: 900px) { footer .footer-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 580px) { footer .footer-grid { grid-template-columns: 1fr; } }
-
-/* === Curriculum-specific === */
-main.curriculum { padding-top: var(--nav-h); }
-.curr-hero { padding: 96px 0 64px; border-bottom: 1px solid var(--rule); position: relative; overflow: hidden; }
-.curr-hero::before { content:''; position:absolute; inset:0;
-  background-image: linear-gradient(rgba(15,31,58,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(15,31,58,0.04) 1px, transparent 1px);
-  background-size: 64px 64px;
-  -webkit-mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent);
-          mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent); }
-.curr-hero-inner { position:relative; z-index:2; max-width: 880px; }
-.curr-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.32em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 18px; }
-.curr-hero h1 { font-family: var(--serif); font-size: clamp(1.9rem, 4.4vw, 3.1rem); font-weight: 300; color: var(--ink-mid); line-height: 1.3; letter-spacing: 0.02em; margin: 0 0 22px; }
-.curr-hero h1 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-.curr-hero .lede { font-size: 1.05rem; line-height: 1.85; color: var(--text); margin: 0 0 24px; max-width: 700px; }
-.curr-hero-meta { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
-.curr-hero-meta strong { color: var(--ink); font-family: var(--mono); }
-
-.crumbs { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; padding: 22px 0 0; }
-.crumbs a { color: var(--text-mid); }
-.crumbs a:hover { color: var(--ink); }
-.crumbs .sep { color: var(--rule); margin: 0 8px; }
-
-.theme-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; padding: 56px 0; }
-.theme-card { display: block; background: #fff; border: 1px solid var(--rule); padding: 30px 28px; position: relative; transition: all 0.2s; }
-.theme-card:hover { border-color: var(--ink-soft); box-shadow: 0 12px 32px rgba(15,31,58,0.08); transform: translateY(-2px); }
-.theme-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background: var(--accent); opacity: 0.85; }
-.theme-card-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; }
-.theme-card-name { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--ink-mid); margin: 10px 0 8px; line-height: 1.35; }
-.theme-card-period { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 14px; }
-.theme-card-desc { font-size: 0.92rem; line-height: 1.7; color: var(--text); margin-bottom: 18px; }
-.theme-card-list { font-size: 0.84rem; color: var(--text-mid); list-style: none; padding-top: 14px; border-top: 1px solid var(--rule-soft); }
-.theme-card-list li { padding: 5px 0; }
-.theme-card-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; }
-.theme-card-foot .arrow { color: var(--accent-deep); }
-
-.post-list { padding: 28px 0 56px; }
-.post-list-row { display: grid; grid-template-columns: 60px 1fr auto; gap: 22px; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--rule-soft); transition: all 0.18s; }
-.post-list-row:hover { background: var(--bg-mid); padding-left: 12px; padding-right: 12px; }
-.post-list-num { font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em; color: var(--accent-deep); font-weight: 500; }
-.post-list-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--ink-mid); line-height: 1.45; }
-.post-list-meta { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; white-space: nowrap; }
-@media (max-width: 600px) { .post-list-row { grid-template-columns: 50px 1fr; } .post-list-meta { grid-column: 1 / -1; padding-left: 72px; } }
-
-/* Post body */
-.post-body { padding: 48px 0 80px; }
-.post-content { max-width: var(--measure); margin: 0 auto; }
-.post-content > p, .post-content > ul, .post-content > ol, .post-content > blockquote, .post-content > pre, .post-content > table, .post-content > hr, .post-content > h2, .post-content > h3, .post-content > h4 { max-width: var(--measure); margin-left: auto; margin-right: auto; }
-.post-content h2 { font-family: var(--serif); font-size: 1.55rem; font-weight: 400; color: var(--ink-mid); line-height: 1.35; margin: 56px 0 14px; padding-top: 22px; border-top: 1px solid var(--rule-soft); }
-.post-content h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 500; color: var(--ink); margin: 36px 0 10px; line-height: 1.4; }
-.post-content h4 { font-family: var(--sans); font-size: 1rem; font-weight: 600; color: var(--ink); margin: 26px 0 8px; letter-spacing: 0.02em; }
-.post-content p { margin: 0 0 18px; font-size: 1rem; line-height: 1.85; color: var(--text); }
-.post-content p:first-of-type { font-size: 1.05rem; }
-.post-content ul, .post-content ol { margin: 0 0 22px; padding-left: 28px; }
-.post-content ul li, .post-content ol li { font-size: 0.97rem; line-height: 1.8; margin-bottom: 8px; color: var(--text); }
-.post-content ul li::marker { color: var(--accent-deep); }
-.post-content blockquote { margin: 30px 0; padding: 20px 24px; border-left: 3px solid var(--accent); background: var(--accent-soft); color: var(--ink-mid); font-style: normal; }
-.post-content blockquote p { margin-bottom: 8px; font-size: 0.97rem; }
-.post-content blockquote p:last-child { margin-bottom: 0; }
-.post-content blockquote strong { color: var(--ink); }
-.post-content code { background: #f0f0f0; color: var(--ink-mid); font-family: var(--mono); font-size: 0.88rem; padding: 2px 6px; border-radius: 3px; }
-.post-content pre { background: #f9f9fb; border: 1px solid var(--rule); padding: 18px 22px; overflow-x: auto; font-family: var(--mono); font-size: 0.85rem; line-height: 1.55; margin: 24px 0; }
-.post-content pre code { background: transparent; padding: 0; font-size: inherit; }
-.post-content a { color: var(--accent-deep); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; transition: text-decoration-color 0.18s; overflow-wrap: anywhere; word-break: break-word; }
-.post-content a:hover { text-decoration-color: var(--accent-deep); }
-.post-content hr { border: none; border-top: 1px solid var(--rule); margin: 40px auto; max-width: 120px; }
-.post-content table { width: 100%; max-width: var(--measure); margin: 28px auto; border-collapse: collapse; font-size: 0.9rem; }
-.post-content th { background: var(--bg-mid); color: var(--ink-mid); font-family: var(--sans); font-weight: 600; text-align: left; padding: 12px 14px; border-bottom: 2px solid var(--rule); }
-.post-content td { padding: 10px 14px; border-bottom: 1px solid var(--rule-soft); vertical-align: top; color: var(--text); }
-.post-content tr:nth-child(even) td { background: #fafbfc; }
-
-/* Mermaid container */
-.mermaid-wrap { background: #fdfdfe; border: 1px solid var(--rule); padding: 22px 18px; margin: 28px 0; overflow-x: auto; }
-.mermaid { font-family: var(--sans); text-align: center; }
-
-/* Post header */
-.post-header { padding: 48px 0 28px; border-bottom: 1px solid var(--rule); }
-.post-header-inner { max-width: var(--measure); margin: 0 auto; }
-.post-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.28em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 14px; }
-.post-title { font-family: var(--serif); font-size: clamp(1.7rem, 3.6vw, 2.4rem); font-weight: 400; color: var(--ink-mid); line-height: 1.3; margin: 0 0 16px; letter-spacing: 0.005em; }
-.post-summary { font-size: 1.02rem; line-height: 1.8; color: var(--text); margin: 0 0 22px; max-width: 660px; }
-.post-meta { display: flex; gap: 26px; flex-wrap: wrap; padding-top: 18px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
-.post-meta span strong { color: var(--ink); font-family: var(--mono); }
-
-/* Post nav (prev/next) */
-.post-nav { max-width: var(--measure); margin: 56px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding-top: 36px; border-top: 1px solid var(--rule); }
-.post-nav-link { display: block; padding: 18px 20px; background: var(--bg-mid); border: 1px solid var(--rule); transition: all 0.18s; }
-.post-nav-link:hover { border-color: var(--ink-soft); background: #fff; transform: translateY(-1px); }
-.post-nav-dir { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px; }
-.post-nav-title { font-family: var(--serif); font-size: 0.94rem; color: var(--ink-mid); line-height: 1.4; }
-.post-nav-link.next { text-align: right; }
-@media (max-width: 640px) { .post-nav { grid-template-columns: 1fr; } .post-nav-link.next { text-align: left; } }
-
-/* Knowledge check */
-.kcheck { background: var(--bg-mid); padding: 72px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
-.kcheck-head { max-width: 720px; margin: 0 auto 36px; text-align: center; }
-.kcheck h2 { font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 300; color: var(--ink-mid); margin: 0 0 14px; line-height: 1.3; }
-.kcheck h2 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-.kcheck p.lede { font-size: 0.98rem; line-height: 1.75; color: var(--text); }
-.kcheck-q { background: #fff; border: 1px solid var(--rule); padding: 28px 30px; margin-bottom: 18px; max-width: 760px; margin-left: auto; margin-right: auto; }
-.kcheck-q-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; margin-bottom: 12px; }
-.kcheck-q-text { font-family: var(--serif); font-size: 1.1rem; line-height: 1.5; color: var(--ink-mid); margin-bottom: 18px; }
-.kcheck-opts { display: grid; gap: 8px; }
-.kcheck-opt { display: block; padding: 12px 16px; background: var(--bg-soft); border: 1px solid var(--rule); text-align: left; font-family: var(--sans); font-size: 0.92rem; color: var(--text); cursor: pointer; transition: all 0.15s; }
-.kcheck-opt:hover { background: #fff; border-color: var(--ink-soft); }
-.kcheck-opt.correct { background: #e8f3ec; border-color: var(--ok); color: var(--ok); }
-.kcheck-opt.incorrect { background: #fbe9e9; border-color: var(--bad); color: var(--bad); }
-.kcheck-explain { margin-top: 16px; padding: 14px 18px; background: var(--accent-soft); border-left: 3px solid var(--accent); font-size: 0.9rem; line-height: 1.7; color: var(--ink-mid); display: none; }
-.kcheck-q.answered .kcheck-explain { display: block; }
-.kcheck-score { text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--text-dim); margin-top: 28px; text-transform: uppercase; }
-.kcheck-score strong { color: var(--ink-mid); font-family: var(--mono); }
-
-/* Stats / hero stats */
-.stat-band { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; padding: 56px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); background: var(--bg-soft); }
-.stat-item { padding: 0 18px; }
-.stat-num { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 300; color: var(--ink-mid); line-height: 1; margin-bottom: 8px; }
-.stat-num em { color: var(--accent-deep); font-weight: 400; font-style: normal; }
-.stat-label { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; }
-</style>
-
-<meta property="og:image" content="https://jpinv.com/og/jii-default.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://jpinv.com/og/jii-default.png">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "url": "https://jpinv.com/governance/market-restructuring/3.4-topix-reform/",
-  "name": "TOPIX 2.0 ― 全銘柄インデックスから選別インデックスへ | JII ガバナンス改革カリキュラム",
-  "description": "30年以上にわたりTOPIXは東証一部の構成銘柄を機械的に反映する「ほぼ全銘柄インデックス」であり、ピーク時の構成銘柄は約2,200。第1段階（2022年10月～2025年1月）で約400銘柄が段階的に除外され、第2段階（2026年10月～2028年7月）ではついに区分から切り離され、流動性基準で選別される。最終構成銘柄数は約1,200と見込まれる。",
-  "inLanguage": "ja"
-}
-</script></head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TOPIX改革――市場区分から独立した選定指数へ｜JII ガバナンス改革講座</title>
+  <meta name="description" content="TOPIXは長く、東証一部の上場銘柄をほぼそのまま取り込む指数だった。市場区分の見直しを機に、JPXは指数の連続性を保ちながら、投資対象としての機能を高める二段階の改革に着手した。第1段階では、流通株式時価総額100億円未満の銘柄のウエイトを2022年10月から2025年1月まで10回に分けて引き下げた。第2段階では、2026年10月からプライム・スタンダード・グロースの3市場を母集団とし、売買代金と浮動株時価総額を基準に定期入替を行う。市場区分と指数採用は、今後それぞれ別の基準で決まる。">
+  <link rel="canonical" href="https://jpinv.com/governance/market-restructuring/3.4-topix-reform/">
+  <link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/market-restructuring/3.4-topix-reform/">
+  <link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/market-restructuring/3.4-topix-reform/">
+  <link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/market-restructuring/3.4-topix-reform/">
+  <meta property="og:title" content="TOPIX改革――市場区分から独立した選定指数へ｜JII ガバナンス改革講座">
+  <meta property="og:description" content="TOPIXは長く、東証一部の上場銘柄をほぼそのまま取り込む指数だった。市場区分の見直しを機に、JPXは指数の連続性を保ちながら、投資対象としての機能を高める二段階の改革に着手した。第1段階では、流通株式時価総額100億円未満の銘柄のウエイトを2022年10月から2025年1月まで10回に分けて引き下げた。第2段階では、2026年10月からプライム・スタンダード・グロースの3市場を母集団とし、売買代金と浮動株時価総額を基準に定期入替を行う。市場区分と指数採用は、今後それぞれ別の基準で決まる。">
+  <meta property="og:url" content="https://jpinv.com/governance/market-restructuring/3.4-topix-reform/">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://jpinv.com/og/jii-default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://jpinv.com/og/jii-default.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&amp;family=Noto+Sans+JP:wght@300;400;500;600&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/governance.css?v=b6280834c3">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","name":"TOPIX改革――市場区分から独立した選定指数へ｜JII ガバナンス改革講座","description":"TOPIXは長く、東証一部の上場銘柄をほぼそのまま取り込む指数だった。市場区分の見直しを機に、JPXは指数の連続性を保ちながら、投資対象としての機能を高める二段階の改革に着手した。第1段階では、流通株式時価総額100億円未満の銘柄のウエイトを2022年10月から2025年1月まで10回に分けて引き下げた。第2段階では、2026年10月からプライム・スタンダード・グロースの3市場を母集団とし、売買代金と浮動株時価総額を基準に定期入替を行う。市場区分と指数採用は、今後それぞれ別の基準で決まる。","url":"https://jpinv.com/governance/market-restructuring/3.4-topix-reform/","inLanguage":"ja","isPartOf":{"@type":"WebSite","name":"Japan Investor Interface","url":"https://jpinv.com/"},"headline":"TOPIX改革――市場区分から独立した選定指数へ","dateModified":"2026-08-30","author":{"@type":"Organization","name":"Japan Investor Interface Co., Ltd."},"publisher":{"@type":"Organization","name":"Japan Investor Interface Co., Ltd.","url":"https://jpinv.com/"}}</script>
+</head>
 <body>
-<main id="main-content" class="curriculum" tabindex="-1">
-<div class="wrap crumbs">
-  <a href="/">JII</a> <span class="sep">/</span>
-  <a href="/governance/">IR研修</a> <span class="sep">/</span>
-  <a href="/governance/market-restructuring/">市場区分の見直し</a> <span class="sep">/</span>
-  記事 3.4
-</div>
-<header class="post-header">
-  <div class="wrap">
-    <div class="post-header-inner">
-      <div class="post-eyebrow">テーマ 3 · 記事 3.4</div>
-      <h1 class="post-title">TOPIX 2.0 ― 全銘柄インデックスから選別インデックスへ</h1>
-      <p class="post-summary">30年以上にわたりTOPIXは東証一部の構成銘柄を機械的に反映する「ほぼ全銘柄インデックス」であり、ピーク時の構成銘柄は約2,200。第1段階（2022年10月～2025年1月）で約400銘柄が段階的に除外され、第2段階（2026年10月～2028年7月）ではついに区分から切り離され、流動性基準で選別される。最終構成銘柄数は約1,200と見込まれる。</p>
-      <div class="post-meta">
-        <span>テーマ: <strong>市場区分の見直し</strong></span>
-        <span>読了目安: <strong>13 分</strong></span>
-        <span>更新: <strong>2026-05-18</strong></span>
-      </div>
-    </div>
-  </div>
-</header>
-<section class="post-body">
-  <div class="wrap">
-    <article class="post-content">
-<blockquote>
-<p><strong>要点</strong>
-- 30年以上にわたりTOPIXは東証一部の構成銘柄を機械的に反映する指数として運用され、ピーク時には約2,200銘柄を擁する事実上の「全銘柄インデックス」だった。JPXの2019年12月「令和」報告書は、これを日本の株式市場における最大の歪みと指摘した。区分入りした企業に、投資適格性とは無関係にパッシブ資金が流れ込んでいたためである。
-- <strong>第1段階（2022年10月～2025年1月）</strong>は、流通株式時価総額100億円未満の銘柄を<strong>8四半期にわたる段階的な構成比率引き下げ</strong>で除外し、TOPIXの構成銘柄を約2,100から約1,700に削減した。
-- <strong>第2段階（2026年10月～2028年7月）</strong>では、TOPIXを<strong>区分から完全に切り離す</strong>。指数の母集団はプライム・スタンダード・グロースの3区分に広がり、2つの流動性基準 ― <strong>年間売買代金回転率0.14以上</strong>および<strong>累積浮動株調整時価総額の上位97%</strong>による選別となる。最終構成銘柄数は2028年7月で<strong>約1,200</strong>と試算されている。</p>
+  <a class="gov-skip" href="#main-content">本文へ移動</a>
+  <main id="main-content" class="governance-page" tabindex="-1">
+    <nav class="gov-wrap gov-crumbs" aria-label="パンくず"><a href="/">ホーム</a><span class="sep">/</span><a href="/governance/">ガバナンス改革講座</a><span class="sep">/</span><a href="/governance/market-restructuring/">市場区分の見直し</a><span class="sep">/</span><span aria-current="page">記事 3.4</span></nav>
+    <header class="post-header"><div class="gov-wrap"><div class="post-header-inner"><span class="post-eyebrow">テーマ 3 · 記事 3.4</span><h1 class="post-title">TOPIX改革――市場区分から独立した選定指数へ</h1><p class="post-summary">TOPIXは長く、東証一部の上場銘柄をほぼそのまま取り込む指数だった。市場区分の見直しを機に、JPXは指数の連続性を保ちながら、投資対象としての機能を高める二段階の改革に着手した。第1段階では、流通株式時価総額100億円未満の銘柄のウエイトを2022年10月から2025年1月まで10回に分けて引き下げた。第2段階では、2026年10月からプライム・スタンダード・グロースの3市場を母集団とし、売買代金と浮動株時価総額を基準に定期入替を行う。市場区分と指数採用は、今後それぞれ別の基準で決まる。</p><div class="post-meta"><span>テーマ: <strong>市場区分の見直し</strong></span><span>読了目安: <strong>8分</strong></span><span>更新: <strong>2026-08-30</strong></span></div></div></div></header>
+    <section class="post-body"><div class="gov-wrap"><article class="post-content"><blockquote>
+<p><strong>要点</strong></p>
+<ul>
+<li>TOPIXは、もともと東証一部の全銘柄を対象とする浮動株時価総額加重型の指数だった。市場区分再編後も投資家への影響を抑えるため既存銘柄をいったん継続採用し、段階的に見直してきた。</li>
+<li><strong>第1段階（2022年10月～2025年1月）</strong>では、流通株式時価総額100億円未満の銘柄について、構成比率を四半期ごとに<strong>10回</strong>に分けて引き下げた。構成銘柄数は約2,200から約1,700へ減少した。</li>
+<li><strong>第2段階</strong>では、2026年10月に初回の定期入替を行う。新規採用と継続採用で異なる基準を設け、プライム・スタンダード・グロースの3市場から銘柄を選ぶ。移行完了時の構成銘柄数は約1,200と試算されている。</li>
+</ul>
 </blockquote>
 <hr>
-<h2>なぜTOPIX改革は区分改革と一対の構造改革なのか</h2>
-<p>2022年以前の日本株市場における最大の歪み2つ ― 肥大化した東証一部と、それを機械的に追随していた指数 ― は、一つの設計上の欠陥の表裏であった。肥大化した東証一部こそがTOPIXであった。TOPIXに連動するパッシブ運用は、定義上、浮動株調整時価総額に比例して東証一部の全銘柄を買い付けていた。つまり、東証一部上場を獲得した会社は ― 厳格な基準で直接IPOしても、より緩い指定替え基準で東証二部から「卒業」しても ― 自動的にパッシブ資金の追い風を受けていた。</p>
-<p>2019年12月の金融審議会・市場構造専門グループ「令和」報告書は、この問題を明示的に指摘した。東証一部は「広範な国勢調査に近いものとなっており、選別された指数の性格を失っていた」。区分からパッシブ資金への機械的なリンクにより、東証一部入りした企業は、ファンダメンタルな投資適格性とは無関係に<em>指数主導の需要</em>を享受した。<strong>TOPIX構成銘柄の推定60%が資本コストを上回るリターンを稼げていない</strong>との状況で、指数は事実上、資本効率の悪い企業を補助していた。</p>
-<p>報告書の政策提言は明快な二本立てだった。区分の再設計（3.1）<strong>と</strong>指数の再設計の両輪である。両者は不可分である。指数改革なしには、たとえ3区分の構造を清潔に設計しても、プライム上場への機械的需要が残る。区分改革なしには、指数改革は適格性母集団の置き場所を失う。</p>
-<h2>第1段階（2022年10月～2025年1月） ― 経過的縮小</h2>
-<p>JPXは区分再編と並走する形でTOPIX改革を発表した。<strong>第1段階</strong>は区分発足の6か月後、2022年10月に始動し、区分基準を経過的フィルターとして利用した。</p>
-<p>仕組みは以下のとおり。TOPIX構成銘柄のうち、第1段階基準日時点で<strong>流通株式時価総額100億円未満</strong>だった銘柄を「段階的ウェイト調整銘柄」に指定。これら銘柄は即時除外せず、<strong>8四半期に分けて段階的にTOPIXウェイトを引き下げ</strong>、2025年1月までに調整を完了した。各四半期で1/8ずつカットされ、8回目には構成比率ゼロ（指数から除外）となる。</p>
-<p>「8四半期」という選択は意図的なものだった。JPXは段階性を、大量のパッシブ資金の動きが引き起こす市場インパクトを抑える手段として明示的に位置づけた。400銘柄超を一度に外せばインデックスファンドに大きなトラッキング・エラーが生じ、個別銘柄にも不要な売り圧力が集中する。8四半期のグライドパスは、この調整を27か月にわたって分散させた。</p>
-<p>第1段階の成果は以下のとおり。</p>
-<ul>
-<li><strong>開始時の構成銘柄数（2022年10月）：約2,100</strong>。</li>
-<li><strong>終了時の構成銘柄数（2025年1月）：約1,700</strong>。</li>
-<li><strong>削減数：約400銘柄、約19%の削減</strong>。</li>
-</ul>
-<p>第1段階は<strong>流通株式時価総額</strong>の軸でTOPIXを縮小した。プライム上場維持基準を支えるのと同じ指標である。結果として2025年初頭のTOPIXは、2022年の起点よりも大型・高流動性銘柄に集中した姿となった。</p>
-<h2>第2段階（2026年10月～2028年7月） ― 切り離し</h2>
-<p>第2段階は、2024年公表の「TOPIXおよびその他の指数の見直しの概要」で示された設計で、構造的論理を究極まで突き詰める。第2段階のもとでは、</p>
-<ul>
-<li>TOPIXの母集団は<strong>区分から切り離される</strong>。プライム、スタンダード、グロースの全区分から構成銘柄を抽出し、区分は適格性要因ではなくなる。</li>
-<li>選別は<strong>2つの流動性基準</strong>で行われる。</li>
-<li><strong>年間売買代金回転率0.14以上</strong>（年間売買代金÷浮動株調整時価総額）。これは<em>投資適格性</em>の指標である。利用可能な浮動株のうち、1年間で実際に売買される割合。</li>
-<li><strong>累積浮動株調整時価総額の上位97%に含まれること</strong>。これはサイズ・フィルターであり、累積浮動株の最下位3%のみを除外するものだ。</li>
-<li>基準未達銘柄は<strong>2026年10月から2028年7月までの8四半期</strong>で構成比率が段階的に引き下げられる。第1段階と同じ段階性のメカニズムである。</li>
-<li>最終構成銘柄数は2028年7月で<strong>約1,200と試算</strong>（JPX総研、2024年7月時点）。</li>
-</ul>
-<p>切り離しは運用上もっとも重要な変更である。流動性が強い<strong>スタンダード上場会社</strong> ― 回転率が高く、浮動株上位97%に入る ― は<strong>TOPIXに含まれる</strong>。流動性が弱い<strong>プライム上場会社</strong>は<strong>TOPIXから外れる</strong>。区分メンバーシップと指数メンバーシップは、別々の基準で動く2つの独立したステータスとなった。</p>
-<p>この切り離しは、パッシブ資金の誘因構造を抜本的に組み替える。旧体制ではパッシブ需要への道は東証一部入りを経由していた。第2段階では<em>流動性</em> ― 実際の売買回転率 ― がその道となる。集中した株主基盤や乏しい浮動株を抱えるプライム上場会社は、同じ流動性プロファイルのスタンダード上場会社と比べて、パッシブ資金から見たときに優位ではない。</p>
-<h2>第1段階と第2段階のタイムライン</h2>
+<h2 id="section-1">なぜTOPIX改革は市場区分改革と一体なのか</h2>
+<p>旧TOPIXは、東証一部の銘柄を広く網羅する指数として設計されていた。東証一部に上場すれば原則としてTOPIXにも組み入れられ、TOPIX連動資金の買い需要を受ける。この仕組みは市場全体を捉えるうえでは分かりやすい一方、東証一部の銘柄数が増えるにつれて、指数の構成と投資対象としての流動性が必ずしも一致しなくなった。</p>
+<p>2019年12月の金融審議会「市場構造専門グループ」報告書は、市場区分とTOPIXの構成を切り分ける方向を示した。市場区分は上場会社の位置づけと上場維持基準を定める制度であり、指数は運用資金が実際に売買できる銘柄群を表す投資指標である。両者を同じ基準で動かし続ける必然性はない。</p>
+<p>JPXは、この考え方に基づき、TOPIXの<strong>市場代表性</strong>と<strong>投資対象としての機能性</strong>を両立させる改革を進めている。2024年3月末時点でTOPIXへの連動運用資産は約110兆円に達しており、構成銘柄を一度に大きく入れ替えれば市場への影響も大きい。このため、改革は二段階に分けて実施されている。</p>
+<h2 id="section-2">第1段階（2022年10月～2025年1月）――既存銘柄を段階的に絞り込む</h2>
+<p>2022年4月の市場区分再編時、JPXは旧TOPIXの構成銘柄を、移行先がプライム、スタンダード、グロースのいずれであるかにかかわらず継続採用した。指数の連続性を優先したためである。</p>
+<p>そのうえで、所定の判定により<strong>流通株式時価総額が100億円未満</strong>となった銘柄を「段階的ウエイト低減銘柄」に指定した。対象銘柄の構成比率は、2022年10月末から2025年1月末まで、四半期ごとに<strong>10段階</strong>で引き下げられた。2023年10月には再評価も行われ、流通株式時価総額の改善を反映できる仕組みが設けられた。</p>
+<p>この移行によって、TOPIXの構成銘柄数は改革前の約2,200から約1,700へ減少した。小型銘柄を直ちに除外するのではなく、時間をかけてウエイトを低減したのは、指数連動ファンドの売買を分散し、個別銘柄への急激な市場影響を抑えるためである。</p>
+<h2 id="section-3">第2段階（2026年10月以降）――市場区分から独立して定期入替を行う</h2>
+<p>第2段階では、TOPIXの母集団がプライム市場だけでなく、<strong>プライム・スタンダード・グロースの3市場</strong>に広がる。市場区分そのものは採用条件ではなくなり、売買のしやすさと浮動株時価総額に基づいて銘柄を選ぶ。</p>
+<p>初回の定期入替は<strong>2026年10月</strong>、2回目は<strong>2028年10月</strong>に実施され、その後は毎年10月に定期入替を行う予定である。初回入替で継続採用されない銘柄は、2026年10月から2028年7月まで、四半期ごと8段階でウエイトが引き下げられる。2027年10月には再評価があり、継続基準を満たした銘柄は、その後のウエイト低減が停止される。</p>
+<h3 id="section-4">新規採用と継続採用の基準</h3>
+<p>次期TOPIXでは、構成銘柄でない会社に適用する<strong>追加基準</strong>と、すでに構成銘柄である会社に適用する<strong>継続基準</strong>が分けられている。</p>
 <table>
 <thead>
 <tr>
-<th>段階</th>
-<th>期間</th>
-<th>仕組み</th>
-<th>適格性フィルター</th>
-<th>構成銘柄数</th>
+<th>指標</th>
+<th align="right">追加基準</th>
+<th align="right">継続基準</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td><strong>現状（2022年10月以前）</strong></td>
-<td>2022年10月まで</td>
-<td>TOPIX＝東証一部の全銘柄</td>
-<td>東証一部上場のみ</td>
-<td><strong>約2,100</strong>（最近はピーク2,200から減少）</td>
+<tbody><tr>
+<td>年間売買代金回転率</td>
+<td align="right"><strong>0.20以上</strong></td>
+<td align="right"><strong>0.14以上</strong></td>
 </tr>
 <tr>
-<td><strong>第1段階</strong></td>
-<td>2022年10月→2025年1月</td>
-<td>「段階的ウェイト調整銘柄」を8四半期で除外</td>
-<td>流通株式時価総額<strong>100億円未満</strong>を段階的除外</td>
-<td>約2,100 → <strong>約1,700</strong></td>
+<td>浮動株時価総額の累積比率</td>
+<td align="right"><strong>上位96%以内</strong></td>
+<td align="right"><strong>上位97%以内</strong></td>
+</tr>
+</tbody></table>
+<p>継続基準を追加基準より緩くしているのは、わずかな数値変動で構成銘柄が頻繁に入れ替わるのを防ぐためである。指数の安定性を保ちながら、流動性の低い銘柄を徐々に入れ替える設計となっている。</p>
+<p>年間売買代金回転率は、単純な「年間売買代金÷期末時価総額」ではない。直近12か月の月次回転率を合計して算出し、各月の回転率には東証の売買立会における日次売買代金の中央値、営業日数、月末の浮動株時価総額を用いる。浮動株時価総額の累積比率も、回転率基準を満たし、整理銘柄や特別注意銘柄でない銘柄群の中で計算される。</p>
+<h2 id="section-5">「流通株式」と「浮動株」は同じではない</h2>
+<p>市場区分の上場維持基準で使う<strong>流通株式</strong>と、TOPIXの算出に使う<strong>浮動株</strong>は、似た考え方ではあるが同一ではない。流通株式は東証の上場制度に基づく定義であり、上場維持基準の判定に使われる。一方、TOPIXではJPX総研の算出要領に基づく<strong>浮動株比率</strong>を用い、指数ウエイトを調整する。</p>
+<p>そのため、流通株式比率が改善したからといって、TOPIXの浮動株比率や採用判定が同じ幅で動くとは限らない。政策保有株式の売却や大株主構成の変化は両方に影響し得るが、IR部門はそれぞれの算定方法を別に確認する必要がある。</p>
+<h2 id="section-6">第1段階と第2段階のスケジュール</h2>
+<table>
+<thead>
+<tr>
+<th>時期</th>
+<th>内容</th>
+<th align="right">構成銘柄数の目安</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>改革前</td>
+<td>東証一部の銘柄を原則として採用</td>
+<td align="right">約2,200</td>
 </tr>
 <tr>
-<td><strong>中間期</strong></td>
-<td>2025年2月→2026年9月</td>
-<td>第1段階完了、第2段階未開始</td>
-<td>第1段階後のTOPIX</td>
-<td>約1,700（横ばい）</td>
+<td>2022年10月～2025年1月</td>
+<td>第1段階。対象銘柄のウエイトを10回に分けて低減</td>
+<td align="right">約1,700</td>
 </tr>
 <tr>
-<td><strong>第2段階</strong></td>
-<td>2026年10月→2028年7月</td>
-<td>8四半期の段階的構成比率調整、<strong>母集団をプライム＋スタンダード＋グロースに拡大</strong></td>
-<td>（a）年間回転率<strong>0.14以上</strong>（b）累積浮動株調整時価総額の上位97%</td>
-<td>約1,700 → <strong>約1,200</strong>（試算）</td>
+<td>2025年2月～2026年9月</td>
+<td>第1段階完了後の移行期間</td>
+<td align="right">約1,700</td>
 </tr>
 <tr>
-<td><strong>定常状態（2028年7月以降）</strong></td>
-<td>2028年7月から</td>
-<td>第2段階基準に対する年次レビュー、随時組入れ・除外</td>
-<td>第2段階と同じ</td>
-<td>約1,200（試算）</td>
+<td>2026年10月</td>
+<td>次期TOPIXの初回定期入替</td>
+<td align="right">―</td>
 </tr>
-</tbody>
-</table>
-<p>このタイムラインに関する2つの分析的観察がある。</p>
-<p><strong>第一に</strong>、ピーク時からの総削減幅は2021年の約2,200から2028年の約1,200で、<strong>約45%の縮小</strong>となる。2028年のTOPIXは2021年のTOPIXに比べ、社数ベースで半分弱になる。浮動株加重ベースで見ればこの変化はもっと小さい（除外銘柄は小型のため）。だが、自社が指数に含まれるかどうかというIRの視点では、社数の差は重要である。</p>
-<p><strong>第二に</strong>、第1段階→中間期→第2段階という流れにより、約20か月の「中間期」が生じる。この中間期（2025年2月～2026年9月）は実務的に重要だ。スタンダードおよびグロース上場会社にとっては、第2段階の基準を満たすための流動性プロファイルを構築するウィンドウとなる。第2段階の開始時には、基準は周知され、最初の選別の測定窓も確定し、各社は採否の見通しを得ている状態となる。</p>
-<h2>第2段階の基準が実際に測るもの</h2>
-<p>第2段階の2基準は異なる行動を促す。</p>
-<ul>
-<li><strong>年間売買代金回転率0.14以上</strong>。これは<em>流通</em>テストである。絶対値で大きな浮動株を持っていても、株式が回転しなければ落ちる。長期機関投資家やパッシブ運用に大半が滞留する、株主構成が集中したケースで典型的に起こる。日本の中型上場会社にとって、年率0.14（浮動株調整時価総額の14%が年間で売買される）という閾値は達成可能だが自動的ではない。現状TOPIX適格銘柄の3分の1程度がこの水準近辺かそれ以下にある。</li>
-<li><strong>累積浮動株調整時価総額の上位97%</strong>。これは<em>サイズ</em>テストだが、許容的な設計だ。累積浮動株の最下位3%のみを除外する。約1,700銘柄のTOPIX母集団から見れば、浮動株の最下位約50～100銘柄に相当する。</li>
-</ul>
-<p>両者の相互作用が重要である。創業家が60%を依然保有する、浮動株の小さい小型プライム上場会社を考える。絶対時価総額はそれなりに大きくても、浮動株調整時価総額は小さく、回転率は0.14を下回る。旧体制では東証一部上場ゆえに自動でTOPIXに入っていた。第2段階では除外される可能性が高い。逆に、株主が広く分散し、創業家ブロックを持たず、日次売買代金が大きいスタンダード上場会社は、「スタンダード」というラベルでもTOPIXに組み入れられる可能性がある。</p>
-<h2>発行体への行動的含意</h2>
-<p>切り離しは、IRに関わる新たな誘因構造を生む。</p>
-<ul>
-<li><strong>株主集中度の高いプライム上場会社</strong>にとって、パッシブ需要への道はもはや区分ステータスではなく<em>浮動株拡大</em>（売出し、政策保有先からの売却、株式併合）を経由する。流通株式比率ルール（3.2）とTOPIXの浮動株・回転率テストは同じ方向に作用する。</li>
-<li><strong>流動性の高いスタンダード上場会社</strong>にとって、TOPIX組入れは区分の昇格なしに達成可能となる。高い回転率と意味のある浮動株を持つスタンダード上場会社は、従来プライム上場でしか得られなかったパッシブ資金を獲得しうる。</li>
-<li><strong>グロース上場会社</strong>は、第2段階では理論上はTOPIX組入れが可能だが、実務的にはサイズと回転率テストが多くを排除する。それでもシグナルとしての意味はある。十分な規模に達したグロース上場会社は、まずスタンダードやプライムに移行することなくTOPIXに「飛び級」できる。</li>
-</ul>
-<p>プライムの流通株式比率ルール、第1段階での小型銘柄の選別、そして第2段階の切り離しが組み合わさることで、区分選択の誘因構造全体が再配線された。日本の上場会社にとっての問いはもはや「どの区分にいるべきか」ではない。「自分が求める投資家層を引き寄せるためにどんな流動性プロファイルが必要か」だ。区分選択はその問いの一つの入力ではあるが、決定的な入力ではなくなった。</p>
-<h2>8四半期段階性のメカニズム自体が政策である理由</h2>
-<p>JPXは、8四半期段階性のメカニズムを今や2度使った ― 第1段階と第2段階である。この選択は意図的で、それ自体を政策インフラの一部として理解する価値がある。メカニズムの効用は、</p>
-<ul>
-<li><strong>売り圧力を27か月にわたって分散</strong>することで、パッシブファンドの単発的な市場インパクト・コストを抑える。</li>
-<li><strong>能動的投資家への予見性</strong>を与え、ウェイト引き下げのタイミングをモデル化して取引できるようにする。</li>
-<li><strong>発行体に対応時間</strong>を与え、構成比率の引き下げに対して自己株式取得、株式併合、浮動株拡大などのコーポレート・アクションを取りうる時間を確保する。</li>
-<li>区分改革で批判を浴びた「崖」型ではないことを可視化することで、<strong>規制上の正統性</strong>を維持する。</li>
-</ul>
-<p>最後の点が重要だ。経過措置の崖（3.3）は手続的には崖である ― 基準日で未達ならば改善期間に入る。TOPIX改革は明示的に<strong>崖ではない</strong>。グライドパスである。JPXは「段階性」を指数移行のツールとして制度化しており、今後の指数改革（JPXプライム150やその他のテーマ別指数など）にも同じテンプレートを使う可能性が高い。</p>
-<h2>IR担当者への示唆</h2>
+<tr>
+<td>2026年10月～2028年7月</td>
+<td>移行措置銘柄のウエイトを8段階で低減</td>
+<td align="right">約1,200へ縮小する試算</td>
+</tr>
+<tr>
+<td>2027年10月</td>
+<td>移行措置銘柄を再評価</td>
+<td align="right">―</td>
+</tr>
+<tr>
+<td>2028年10月以降</td>
+<td>2回目の定期入替。その後は毎年実施</td>
+<td align="right">約1,200を想定</td>
+</tr>
+</tbody></table>
+<p>約1,200という数字は試算であり、実際の構成銘柄数は定期入替時の市場状況や非定期の追加・除外によって変わる。それでも、改革前に比べて銘柄数が大きく絞られ、売買のしやすさを明示的に反映する指数へ変わる方向は明確である。</p>
+<h2 id="section-7">上場会社にとって何が変わるのか</h2>
+<p>最も重要なのは、<strong>市場区分と指数採用が別の評価になること</strong>である。スタンダード市場やグロース市場の会社でも、追加基準を満たせばTOPIXに採用され得る。一方、プライム市場の会社でも、流動性や浮動株時価総額が継続基準に届かなければ、TOPIXから外れる可能性がある。</p>
+<p>ただし、会社が短期的な施策だけで指数採用を確実に「取りに行ける」と考えるべきではない。売買代金は投資家の需要に左右され、浮動株比率の判定にも独自の算定方法がある。株式分割や株式併合は、株主構成や企業価値が変わらなければ、通常は浮動株時価総額そのものを増やさない。指数対応は、株主基盤の分散、情報開示の充実、投資家との継続的な対話、事業価値の向上といった中長期の取組みの結果として捉えるのが適切である。</p>
+<h2 id="section-8">IR担当者への示唆</h2>
 <ol>
-<li>
-<p><strong>自社のTOPIXステータスと第2段階の軌道を把握せよ</strong>。年間売買代金回転率と浮動株調整時価総額を四半期次で計算する。浮動株の下位3%にいる、もしくは回転率0.14を下回るのであれば、第2段階で構成比率は引き下げられる。投資家向けメッセージにこの見通しを織り込むべきだ。</p>
-</li>
-<li>
-<p><strong>区分ステータスと指数ステータスを別個のマーケティング資産として扱え</strong>。プライム上場かつTOPIX未組入れは一つのメッセージ（区分の品質はあるがパッシブのスポンサーシップなし）、スタンダード上場かつTOPIX組入れは別のメッセージ（プライム義務なしの真の投資適格性）を発する。両方を語れる準備をしておく。</p>
-</li>
-<li>
-<p><strong>流動性は戦略的目標であって受動的結果ではない</strong>。浮動株拡大と売買量の育成は、いまや一次的な資本市場活動である。IRは売出し、政策保有先売却、株式併合のタイミングといった浮動株マネジメントの意思決定に、CFOとともに関与すべきだ。</p>
-</li>
-<li>
-<p><strong>中間期（2025年2月～2026年9月）はアクションの窓</strong>。第2段階の基準は周知されており、最初の選別の測定窓も確定している。2026年末を高い回転率と浮動株メトリックで終えた発行体は安全圏に入る。そうでない発行体は2026年10月から8四半期の構成比率引き下げに直面する。</p>
-</li>
-<li>
-<p><strong>JPX総研「TOPIXおよびその他の指数の見直しの概要」を一次資料として使え</strong>。これが規律ある技術文書である。適格性基準、ウェイト調整スケジュール、基準日は運用精度で記載されている。IR部門は、上場維持基準PDFと同じ重みで扱うべきだ。</p>
-</li>
+<li><strong>市場区分とTOPIX採用を別々に管理する。</strong> プライム上場であることとTOPIX構成銘柄であることは、今後は独立した状態になる。社内資料でも二つを混同しない。</li>
+<li><strong>追加基準と継続基準を取り違えない。</strong> 既存構成銘柄には0.14・上位97%、新規採用候補には0.20・上位96%が適用される。</li>
+<li><strong>流通株式と浮動株の算定を分けて確認する。</strong> 上場維持基準の数値を、そのままTOPIX判定に流用しない。必要に応じて指数算出要領と浮動株比率の算定方法を参照する。</li>
+<li><strong>2026年10月の初回入替と2027年10月の再評価を日程に入れる。</strong> 移行措置銘柄に該当する場合、ウエイト低減の進み方と再評価の条件を投資家に説明できるようにする。</li>
+<li><strong>指数採用を短期的な株価対策として扱わない。</strong> 流動性の向上は、情報開示、投資家層の拡大、株主構成、企業価値の積み重ねで生まれる。IR、財務、経営企画が共通の前提で取り組む必要がある。</li>
 </ol>
-<h2>出典・参考資料</h2>
+<h2 id="section-9">出典・参考資料</h2>
 <ul>
-<li>JPX「TOPIX（東証株価指数）」 https://www.jpx.co.jp/markets/indices/topix/</li>
-<li>JPX総研「TOPIXおよびその他の指数の見直しの概要」（PDF、2024年） https://www.jpx.co.jp/markets/indices/revisions-indices/index.html</li>
-<li>JPX「第2段階の見直し」 https://www.jpx.co.jp/markets/indices/revisions-indices/02.html</li>
-<li>JPX「指数の見直しについて」 https://www.jpx.co.jp/markets/indices/revisions-indices/index.html</li>
-<li>金融庁「金融審議会「市場構造専門グループ」報告書」（2019年12月27日、令和報告書） https://www.fsa.go.jp/singi/singi_kinyu/tosin/20191227.html</li>
-<li>三井住友DSアセットマネジメント「新生TOPIX ― 日本株式市場改革における過小評価されたピース」</li>
+<li>JPX「TOPIX（東証株価指数、TPX）」 <a href="https://www.jpx.co.jp/markets/indices/topix/">https://www.jpx.co.jp/markets/indices/topix/</a></li>
+<li>JPX「TOPIXの見直しの概要」 <a href="https://www.jpx.co.jp/markets/indices/revisions-indices/">https://www.jpx.co.jp/markets/indices/revisions-indices/</a></li>
+<li>JPX「第1段階の見直し」 <a href="https://www.jpx.co.jp/markets/indices/revisions-indices/01.html">https://www.jpx.co.jp/markets/indices/revisions-indices/01.html</a></li>
+<li>JPX「第2段階の見直し」 <a href="https://www.jpx.co.jp/markets/indices/revisions-indices/02.html">https://www.jpx.co.jp/markets/indices/revisions-indices/02.html</a></li>
+<li>金融庁「金融審議会『市場構造専門グループ』報告書」（2019年12月27日） <a href="https://www.fsa.go.jp/singi/singi_kinyu/market-str/report/20191227.html">https://www.fsa.go.jp/singi/singi_kinyu/market-str/report/20191227.html</a></li>
 </ul>
-<h2>関連記事</h2>
+<h2 id="section-10">関連記事</h2>
 <ul>
-<li><strong>3.1 ― 4区分から3区分へ</strong>：TOPIX改革と構造的に対をなす区分改革。</li>
-<li><strong>3.2 ― 流通株式比率</strong>：区分と指数の双方の適格性を駆動する浮動株・株主基盤の力学。</li>
-<li><strong>3.3 ― 2025年3月の崖</strong>：TOPIX第1段階の縮小に対応する区分レベルのアナログ。</li>
-<li><strong>4.1 ― PBR&lt;1は目標ではなく、市場の評決</strong>：低品質銘柄をパッシブ指数から外すことを動機づけた資本コストの論理。</li>
-<li><strong>1.1 ― 「8%」が日本を変えた理由</strong>：「全銘柄TOPIX」のパッシブ体制が悪化させていたROEギャップ問題。</li>
-</ul>
-    </article>
-    <div class="post-nav"><a href="/governance/market-restructuring/3.3-transitional-measures-cliff/" class="post-nav-link prev"><div class="post-nav-dir">← 前の記事</div><div class="post-nav-title">2025年3月の崖 ― 経過措置の終了と改善期間</div></a><a href="/governance/market-restructuring/3.5-growth-market-2030/" class="post-nav-link next"><div class="post-nav-dir">次の記事 →</div><div class="post-nav-title">グロース市場2030年の崖 ― 100億円基準の意味</div></a></div>
-    <div style="max-width: var(--measure); margin: 32px auto 0; padding-top: 24px; border-top: 1px solid var(--rule); font-size: 0.82rem; color: var(--text-dim); text-align:right;">
-      <a href="/en/governance/market-restructuring/3.4-topix-reform/" style="color: var(--ink-soft);">English version →</a>
-    </div>
-  </div>
-</section>
-</main>
-<style>footer{background:var(--ink,#1a2a4a);color:#cfd6e2;padding:48px 0 30px;font-size:0.8rem;line-height:1.8;border-top:none}footer a{color:#cfd6e2;text-decoration:none}footer .footer-row{list-style:none;display:flex;flex-wrap:wrap;gap:8px 26px;margin:0 0 26px;padding:0}footer .footer-row li{padding:0}footer .footer-row a{color:#cfd6e2;text-decoration:none;font-size:0.8rem}footer .footer-bottom{padding-top:24px;border-top:1px solid rgba(255,255,255,0.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-family:var(--mono),monospace;font-size:0.68rem;letter-spacing:0.06em;color:rgba(255,255,255,0.55)}</style><script>
-const nav = document.getElementById('main-nav');
-if (nav) window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
-const hamburgerBtn = document.querySelector('.hamburger');
-function setMenuOpen(isOpen) { const menu = document.getElementById('mobileMenu'); if (!menu || !hamburgerBtn) return; menu.classList.toggle('open', isOpen); menu.hidden = !isOpen; hamburgerBtn.setAttribute('aria-expanded', String(isOpen)); }
-function toggleMenu() { const menu = document.getElementById('mobileMenu'); setMenuOpen(!(menu && menu.classList.contains('open'))); }
-document.addEventListener('click', (e) => { const menu = document.getElementById('mobileMenu'); if (menu && menu.classList.contains('open') && !menu.contains(e.target) && hamburgerBtn && !hamburgerBtn.contains(e.target)) setMenuOpen(false); });
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenuOpen(false); });
-</script>
-<script type="module">
-import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs';
-mermaid.initialize({ startOnLoad: true, theme: 'neutral', fontFamily: 'Noto Sans JP, Hiragino Kaku Gothic ProN, sans-serif', themeVariables: { primaryColor: '#f4eee4', primaryTextColor: '#1a2a4a', primaryBorderColor: '#9a7838', lineColor: '#304466', secondaryColor: '#f5f7fa', tertiaryColor: '#fafbfc' } });
-</script>
-<script src="/assets/nav.js?v=348fa48c4e" defer></script>
+<li><strong>3.1――4区分から3区分へ</strong>：TOPIX改革と同時に進んだ市場区分の見直し。</li>
+<li><strong>3.2――流通株式比率</strong>：上場維持基準で使う流通株式の定義と算定。</li>
+<li><strong>3.3――経過措置終了後の上場維持ルール</strong>：市場区分側の移行措置と改善期間。</li>
+<li><strong>4.1――PBR1倍割れをどう読むか</strong>：市場評価と資本効率をめぐる東証の要請。</li>
+<li><strong>1.1――「ROE8%」が改革の基準になった理由</strong>：資本効率を政策課題として捉えるようになった経緯。</li>
+</ul></article><nav class="post-nav" aria-label="前後の記事"><a class="post-nav-link prev" href="/governance/market-restructuring/3.3-transitional-measures-cliff/"><div class="post-nav-dir">← 前の記事</div><div class="post-nav-title">経過措置終了後の上場維持ルール</div></a><a class="post-nav-link next" href="/governance/market-restructuring/3.5-growth-market-2030/"><div class="post-nav-dir">次の記事 →</div><div class="post-nav-title">グロース市場の2030年基準――「上場5年で時価総額100億円」が意味すること</div></a></nav><div class="post-language"><a href="/en/governance/market-restructuring/3.4-topix-reform/">English version →</a></div></div></section>
+  </main>
+  <script src="/assets/governance.js?v=cc6033456e" defer></script>
+  <script src="/assets/nav.js?v=348fa48c4e" defer></script>
 </body>
 </html>

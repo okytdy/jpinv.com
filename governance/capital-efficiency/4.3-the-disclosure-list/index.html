@@ -1,554 +1,164 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-
-<title>公表というシェイムとショーケース ― TSEの開示企業リスト | JII ガバナンス改革カリキュラム</title>
-<meta name="description" content="東証は法的制裁の代わりに「公表」を執行手段に選んだ。月次開示企業リスト、3つの状態区分、6ヶ月ルール、そして4冊の付属文書 ― 罰則なきソフトロー執行アーキテクチャがいかに2年で93%の開示率を生んだかを分析する。">
-<meta property="og:title" content="公表というシェイムとショーケース ― TSEの開示企業リスト | JII ガバナンス改革カリキュラム">
-<meta property="og:description" content="東証は法的制裁の代わりに「公表」を執行手段に選んだ。月次開示企業リスト、3つの状態区分、6ヶ月ルール、そして4冊の付属文書 ― 罰則なきソフトロー執行アーキテクチャがいかに2年で93%の開示率を生んだかを分析する。">
-<meta property="og:url" content="https://jpinv.com/governance/capital-efficiency/4.3-the-disclosure-list/">
-<link rel="canonical" href="https://jpinv.com/governance/capital-efficiency/4.3-the-disclosure-list/">
-<link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/capital-efficiency/4.3-the-disclosure-list/">
-<link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/capital-efficiency/4.3-the-disclosure-list/">
-<link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/capital-efficiency/4.3-the-disclosure-list/">
-
-<style>
-:root {
-  --ink:        #1a2a4a;
-  --ink-mid:    #172641;
-  --ink-soft:   #304466;
-  --rule:       #d6dee8;
-  --rule-soft:  #e8edf3;
-  --bg:         #ffffff;
-  --bg-mid:     #f5f7fa;
-  --bg-soft:    #fafbfc;
-  --text:       #1f2937;
-  --text-mid:   #4a5566;
-  --text-dim:   #5f6875;
-  --accent:     #9a7838;
-  --accent-deep:#9a7838;
-  --accent-soft:#f4eee4;
-  --bad:        #b91c1c;
-  --warn:       #8a682b;
-  --ok:         #2f6f4f;
-  --serif: 'Noto Serif JP', 'Yu Mincho', serif;
-  --sans:  'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
-  --mono:  'DM Mono', monospace;
-  --max: 1100px;
-  --pad: 88px;
-  --gutter: 48px;
-  --nav-h: 64px;
-  --measure: 720px;
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 400; line-height: 1.7; overflow-x: hidden; }
-img { max-width: 100%; display: block; }
-a { color: var(--ink-soft); text-decoration: none; }
-a:hover { color: var(--ink); }
-.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
-@media (max-width: 768px) { :root { --gutter: 22px; --pad: 56px; } }
-strong { font-weight: 600; color: var(--ink); }
-em { font-style: normal; color: var(--ink); font-weight: 600; }
-.label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); }
-
-/* Nav (copied from jpinv.com base) */
-nav#main-nav { position: fixed; top:0; left:0; right:0; z-index:100; height: var(--nav-h); background: rgba(255,255,255,0.96); backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule); display: flex; align-items: center; transition: box-shadow 0.3s; }
-nav#main-nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
-.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; }
-.nav-logo { text-decoration: none; display: inline-flex; align-items: center; flex: 0 0 auto; min-width: max-content; white-space: nowrap; }
-.nav-logo-img { display: block; width: auto; height: 40px; max-width: none; object-fit: contain; object-position: left center; }
-.nav-logo-img--mobile { display: none; width: 32px; height: 32px; object-fit: contain; }
-.nav-center { flex: 1; display: flex; justify-content: center; }
-.nav-links { display: flex; gap: 18px; list-style: none; flex-wrap: nowrap; white-space: nowrap; }
-.nav-links a { font-family: var(--sans); font-size: 0.74rem; font-weight: 400; letter-spacing: 0.02em; color: var(--text); text-decoration: none; transition: color 0.2s; }
-.nav-links a:hover { color: var(--ink-soft); }
-.nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; margin-left: auto; }
-.nav-cta { padding: 7px 11px; font-size: 0.66rem; letter-spacing: 0.05em; }
-.locale-switcher { display: inline-flex; align-items: center; gap: 0; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; }
-.locale-switcher a { color: var(--text-dim); border: 1px solid var(--rule); padding: 6px 9px; text-decoration: none; transition: all 0.2s; }
-.locale-switcher a + a { margin-left: -1px; }
-.locale-switcher a:hover, .locale-switcher a.current { color: var(--ink); border-color: var(--ink-mid); background: var(--bg-soft); position: relative; z-index: 1; }
-.hamburger { display: none; flex-shrink:0; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
-.hamburger span { display:block; width:22px; height:1px; background:var(--ink); transition: all 0.25s; }
-@media (max-width: 900px) { .nav-center, .nav-right .nav-cta { display:none; } .hamburger { display:flex; } }
-@media (max-width: 768px) { .nav-logo-img--desktop { display:none; } .nav-logo-img--mobile { display:block; } }
-.mobile-menu { display:none; position:fixed; top:var(--nav-h); left:0; right:0; background:var(--bg); border-bottom:1px solid var(--rule); z-index:99; padding:8px var(--gutter) 20px; flex-direction:column; gap:0; }
-.mobile-menu.open { display:flex; }
-.mobile-menu a { font-size:0.88rem; color:var(--text); text-decoration:none; padding:14px 0; border-bottom:1px solid var(--rule); letter-spacing:0.04em; }
-.mobile-menu a:last-child { border-bottom:none; }
-.mobile-menu .mobile-menu-cta { margin-top:12px; padding:13px 18px; text-align:center; color:#fff; border-bottom:none; }
-
-.btn { display: inline-block; text-decoration: none; font-family: var(--sans); font-size: 0.84rem; font-weight: 400; letter-spacing: 0.06em; padding: 13px 28px; transition: all 0.2s; cursor: pointer; border: none; }
-.btn-primary { background: var(--ink); color: #fff; }
-.btn-primary:hover { background: var(--ink-mid); color: #fff; }
-.btn-outline { border: 1px solid var(--ink-mid); color: var(--ink); background: transparent; }
-.btn-outline:hover { border-color: var(--ink); color: var(--ink); }
-.rule-accent { width: 32px; height: 2px; background: var(--accent); margin: 14px 0 22px; }
-
-/* Footer (mirror) */
-footer { border-top: 1px solid var(--rule); padding: 52px 0 28px; background: var(--bg-soft); font-size: 0.82rem; color: var(--text-dim); }
-footer .footer-grid { display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 32px; align-items: start; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
-footer h2 { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.2em; color: var(--ink-soft); text-transform: uppercase; margin-bottom: 12px; font-weight: 500; }
-footer h3 { font-family: var(--serif); font-size: 1rem; font-weight: 400; color: var(--ink); margin-bottom: 8px; }
-footer ul { list-style: none; }
-footer ul li { padding: 4px 0; }
-footer ul li a { color: var(--text-mid); }
-footer ul li a:hover { color: var(--ink); }
-footer .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 18px; flex-wrap: wrap; gap: 12px; }
-footer .footer-locale-switcher a.current { font-weight: 600; color: var(--ink); }
-@media (max-width: 900px) { footer .footer-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 580px) { footer .footer-grid { grid-template-columns: 1fr; } }
-
-/* === Curriculum-specific === */
-main.curriculum { padding-top: var(--nav-h); }
-.curr-hero { padding: 96px 0 64px; border-bottom: 1px solid var(--rule); position: relative; overflow: hidden; }
-.curr-hero::before { content:''; position:absolute; inset:0;
-  background-image: linear-gradient(rgba(15,31,58,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(15,31,58,0.04) 1px, transparent 1px);
-  background-size: 64px 64px;
-  -webkit-mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent);
-          mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent); }
-.curr-hero-inner { position:relative; z-index:2; max-width: 880px; }
-.curr-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.32em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 18px; }
-.curr-hero h1 { font-family: var(--serif); font-size: clamp(1.9rem, 4.4vw, 3.1rem); font-weight: 300; color: var(--ink-mid); line-height: 1.3; letter-spacing: 0.02em; margin: 0 0 22px; }
-.curr-hero h1 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-.curr-hero .lede { font-size: 1.05rem; line-height: 1.85; color: var(--text); margin: 0 0 24px; max-width: 700px; }
-.curr-hero-meta { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
-.curr-hero-meta strong { color: var(--ink); font-family: var(--mono); }
-
-.crumbs { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; padding: 22px 0 0; }
-.crumbs a { color: var(--text-mid); }
-.crumbs a:hover { color: var(--ink); }
-.crumbs .sep { color: var(--rule); margin: 0 8px; }
-
-.theme-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; padding: 56px 0; }
-.theme-card { display: block; background: #fff; border: 1px solid var(--rule); padding: 30px 28px; position: relative; transition: all 0.2s; }
-.theme-card:hover { border-color: var(--ink-soft); box-shadow: 0 12px 32px rgba(15,31,58,0.08); transform: translateY(-2px); }
-.theme-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background: var(--accent); opacity: 0.85; }
-.theme-card-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; }
-.theme-card-name { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--ink-mid); margin: 10px 0 8px; line-height: 1.35; }
-.theme-card-period { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 14px; }
-.theme-card-desc { font-size: 0.92rem; line-height: 1.7; color: var(--text); margin-bottom: 18px; }
-.theme-card-list { font-size: 0.84rem; color: var(--text-mid); list-style: none; padding-top: 14px; border-top: 1px solid var(--rule-soft); }
-.theme-card-list li { padding: 5px 0; }
-.theme-card-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; }
-.theme-card-foot .arrow { color: var(--accent-deep); }
-
-.post-list { padding: 28px 0 56px; }
-.post-list-row { display: grid; grid-template-columns: 60px 1fr auto; gap: 22px; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--rule-soft); transition: all 0.18s; }
-.post-list-row:hover { background: var(--bg-mid); padding-left: 12px; padding-right: 12px; }
-.post-list-num { font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em; color: var(--accent-deep); font-weight: 500; }
-.post-list-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--ink-mid); line-height: 1.45; }
-.post-list-meta { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; white-space: nowrap; }
-@media (max-width: 600px) { .post-list-row { grid-template-columns: 50px 1fr; } .post-list-meta { grid-column: 1 / -1; padding-left: 72px; } }
-
-/* Post body */
-.post-body { padding: 48px 0 80px; }
-.post-content { max-width: var(--measure); margin: 0 auto; }
-.post-content > p, .post-content > ul, .post-content > ol, .post-content > blockquote, .post-content > pre, .post-content > table, .post-content > hr, .post-content > h2, .post-content > h3, .post-content > h4 { max-width: var(--measure); margin-left: auto; margin-right: auto; }
-.post-content h2 { font-family: var(--serif); font-size: 1.55rem; font-weight: 400; color: var(--ink-mid); line-height: 1.35; margin: 56px 0 14px; padding-top: 22px; border-top: 1px solid var(--rule-soft); }
-.post-content h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 500; color: var(--ink); margin: 36px 0 10px; line-height: 1.4; }
-.post-content h4 { font-family: var(--sans); font-size: 1rem; font-weight: 600; color: var(--ink); margin: 26px 0 8px; letter-spacing: 0.02em; }
-.post-content p { margin: 0 0 18px; font-size: 1rem; line-height: 1.85; color: var(--text); }
-.post-content p:first-of-type { font-size: 1.05rem; }
-.post-content ul, .post-content ol { margin: 0 0 22px; padding-left: 28px; }
-.post-content ul li, .post-content ol li { font-size: 0.97rem; line-height: 1.8; margin-bottom: 8px; color: var(--text); }
-.post-content ul li::marker { color: var(--accent-deep); }
-.post-content blockquote { margin: 30px 0; padding: 20px 24px; border-left: 3px solid var(--accent); background: var(--accent-soft); color: var(--ink-mid); font-style: normal; }
-.post-content blockquote p { margin-bottom: 8px; font-size: 0.97rem; }
-.post-content blockquote p:last-child { margin-bottom: 0; }
-.post-content blockquote strong { color: var(--ink); }
-.post-content code { background: #f0f0f0; color: var(--ink-mid); font-family: var(--mono); font-size: 0.88rem; padding: 2px 6px; border-radius: 3px; }
-.post-content pre { background: #f9f9fb; border: 1px solid var(--rule); padding: 18px 22px; overflow-x: auto; font-family: var(--mono); font-size: 0.85rem; line-height: 1.55; margin: 24px 0; }
-.post-content pre code { background: transparent; padding: 0; font-size: inherit; }
-.post-content a { color: var(--accent-deep); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; transition: text-decoration-color 0.18s; overflow-wrap: anywhere; word-break: break-word; }
-.post-content a:hover { text-decoration-color: var(--accent-deep); }
-.post-content hr { border: none; border-top: 1px solid var(--rule); margin: 40px auto; max-width: 120px; }
-.post-content table { width: 100%; max-width: var(--measure); margin: 28px auto; border-collapse: collapse; font-size: 0.9rem; }
-.post-content th { background: var(--bg-mid); color: var(--ink-mid); font-family: var(--sans); font-weight: 600; text-align: left; padding: 12px 14px; border-bottom: 2px solid var(--rule); }
-.post-content td { padding: 10px 14px; border-bottom: 1px solid var(--rule-soft); vertical-align: top; color: var(--text); }
-.post-content tr:nth-child(even) td { background: #fafbfc; }
-
-/* Mermaid container */
-.mermaid-wrap { background: #fdfdfe; border: 1px solid var(--rule); padding: 22px 18px; margin: 28px 0; overflow-x: auto; }
-.mermaid { font-family: var(--sans); text-align: center; }
-
-/* Post header */
-.post-header { padding: 48px 0 28px; border-bottom: 1px solid var(--rule); }
-.post-header-inner { max-width: var(--measure); margin: 0 auto; }
-.post-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.28em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 14px; }
-.post-title { font-family: var(--serif); font-size: clamp(1.7rem, 3.6vw, 2.4rem); font-weight: 400; color: var(--ink-mid); line-height: 1.3; margin: 0 0 16px; letter-spacing: 0.005em; }
-.post-summary { font-size: 1.02rem; line-height: 1.8; color: var(--text); margin: 0 0 22px; max-width: 660px; }
-.post-meta { display: flex; gap: 26px; flex-wrap: wrap; padding-top: 18px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
-.post-meta span strong { color: var(--ink); font-family: var(--mono); }
-
-/* Post nav (prev/next) */
-.post-nav { max-width: var(--measure); margin: 56px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding-top: 36px; border-top: 1px solid var(--rule); }
-.post-nav-link { display: block; padding: 18px 20px; background: var(--bg-mid); border: 1px solid var(--rule); transition: all 0.18s; }
-.post-nav-link:hover { border-color: var(--ink-soft); background: #fff; transform: translateY(-1px); }
-.post-nav-dir { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px; }
-.post-nav-title { font-family: var(--serif); font-size: 0.94rem; color: var(--ink-mid); line-height: 1.4; }
-.post-nav-link.next { text-align: right; }
-@media (max-width: 640px) { .post-nav { grid-template-columns: 1fr; } .post-nav-link.next { text-align: left; } }
-
-/* Knowledge check */
-.kcheck { background: var(--bg-mid); padding: 72px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
-.kcheck-head { max-width: 720px; margin: 0 auto 36px; text-align: center; }
-.kcheck h2 { font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 300; color: var(--ink-mid); margin: 0 0 14px; line-height: 1.3; }
-.kcheck h2 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-.kcheck p.lede { font-size: 0.98rem; line-height: 1.75; color: var(--text); }
-.kcheck-q { background: #fff; border: 1px solid var(--rule); padding: 28px 30px; margin-bottom: 18px; max-width: 760px; margin-left: auto; margin-right: auto; }
-.kcheck-q-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; margin-bottom: 12px; }
-.kcheck-q-text { font-family: var(--serif); font-size: 1.1rem; line-height: 1.5; color: var(--ink-mid); margin-bottom: 18px; }
-.kcheck-opts { display: grid; gap: 8px; }
-.kcheck-opt { display: block; padding: 12px 16px; background: var(--bg-soft); border: 1px solid var(--rule); text-align: left; font-family: var(--sans); font-size: 0.92rem; color: var(--text); cursor: pointer; transition: all 0.15s; }
-.kcheck-opt:hover { background: #fff; border-color: var(--ink-soft); }
-.kcheck-opt.correct { background: #e8f3ec; border-color: var(--ok); color: var(--ok); }
-.kcheck-opt.incorrect { background: #fbe9e9; border-color: var(--bad); color: var(--bad); }
-.kcheck-explain { margin-top: 16px; padding: 14px 18px; background: var(--accent-soft); border-left: 3px solid var(--accent); font-size: 0.9rem; line-height: 1.7; color: var(--ink-mid); display: none; }
-.kcheck-q.answered .kcheck-explain { display: block; }
-.kcheck-score { text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--text-dim); margin-top: 28px; text-transform: uppercase; }
-.kcheck-score strong { color: var(--ink-mid); font-family: var(--mono); }
-
-/* Stats / hero stats */
-.stat-band { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; padding: 56px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); background: var(--bg-soft); }
-.stat-item { padding: 0 18px; }
-.stat-num { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 300; color: var(--ink-mid); line-height: 1; margin-bottom: 8px; }
-.stat-num em { color: var(--accent-deep); font-weight: 400; font-style: normal; }
-.stat-label { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; }
-</style>
-
-<meta property="og:image" content="https://jpinv.com/og/jii-default.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://jpinv.com/og/jii-default.png">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "url": "https://jpinv.com/governance/capital-efficiency/4.3-the-disclosure-list/",
-  "name": "公表というシェイムとショーケース ― TSEの開示企業リスト | JII ガバナンス改革カリキュラム",
-  "description": "東証は法的制裁の代わりに「公表」を執行手段に選んだ。月次開示企業リスト、3つの状態区分、6ヶ月ルール、そして4冊の付属文書 ― 罰則なきソフトロー執行アーキテクチャがいかに2年で93%の開示率を生んだかを分析する。",
-  "inLanguage": "ja"
-}
-</script></head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>東証の開示企業一覧――公表が生む規律｜JII ガバナンス改革講座</title>
+  <meta name="description" content="東証は「資本コストや株価を意識した経営」を規則で強制する代わりに、対応状況を公表する仕組みを整えた。2024年1月に始まった開示企業一覧表は、各社のコーポレート・ガバナンス報告書をもとに、「開示済」「検討中」などの状況を月次で示す。2025年には「検討中」を6か月までとし、2026年には各社の開示内容も一覧上で確認できるようになった。リスト自体は質を採点しないが、比較と対話の入口を提供することで、継続的な開示更新を促している。">
+  <link rel="canonical" href="https://jpinv.com/governance/capital-efficiency/4.3-the-disclosure-list/">
+  <link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/capital-efficiency/4.3-the-disclosure-list/">
+  <link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/capital-efficiency/4.3-the-disclosure-list/">
+  <link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/capital-efficiency/4.3-the-disclosure-list/">
+  <meta property="og:title" content="東証の開示企業一覧――公表が生む規律｜JII ガバナンス改革講座">
+  <meta property="og:description" content="東証は「資本コストや株価を意識した経営」を規則で強制する代わりに、対応状況を公表する仕組みを整えた。2024年1月に始まった開示企業一覧表は、各社のコーポレート・ガバナンス報告書をもとに、「開示済」「検討中」などの状況を月次で示す。2025年には「検討中」を6か月までとし、2026年には各社の開示内容も一覧上で確認できるようになった。リスト自体は質を採点しないが、比較と対話の入口を提供することで、継続的な開示更新を促している。">
+  <meta property="og:url" content="https://jpinv.com/governance/capital-efficiency/4.3-the-disclosure-list/">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://jpinv.com/og/jii-default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://jpinv.com/og/jii-default.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&amp;family=Noto+Sans+JP:wght@300;400;500;600&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/governance.css?v=b6280834c3">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","name":"東証の開示企業一覧――公表が生む規律｜JII ガバナンス改革講座","description":"東証は「資本コストや株価を意識した経営」を規則で強制する代わりに、対応状況を公表する仕組みを整えた。2024年1月に始まった開示企業一覧表は、各社のコーポレート・ガバナンス報告書をもとに、「開示済」「検討中」などの状況を月次で示す。2025年には「検討中」を6か月までとし、2026年には各社の開示内容も一覧上で確認できるようになった。リスト自体は質を採点しないが、比較と対話の入口を提供することで、継続的な開示更新を促している。","url":"https://jpinv.com/governance/capital-efficiency/4.3-the-disclosure-list/","inLanguage":"ja","isPartOf":{"@type":"WebSite","name":"Japan Investor Interface","url":"https://jpinv.com/"},"headline":"東証の開示企業一覧――公表が生む規律","dateModified":"2026-08-30","author":{"@type":"Organization","name":"Japan Investor Interface Co., Ltd."},"publisher":{"@type":"Organization","name":"Japan Investor Interface Co., Ltd.","url":"https://jpinv.com/"}}</script>
+</head>
 <body>
-<main id="main-content" class="curriculum" tabindex="-1">
-<div class="wrap crumbs">
-  <a href="/">JII</a> <span class="sep">/</span>
-  <a href="/governance/">IR研修</a> <span class="sep">/</span>
-  <a href="/governance/capital-efficiency/">資本効率革命</a> <span class="sep">/</span>
-  記事 4.3
-</div>
-<header class="post-header">
-  <div class="wrap">
-    <div class="post-header-inner">
-      <div class="post-eyebrow">テーマ 4 · 記事 4.3</div>
-      <h1 class="post-title">公表というシェイムとショーケース ― TSEの開示企業リスト</h1>
-      <p class="post-summary">東証は法的制裁の代わりに「公表」を執行手段に選んだ。月次開示企業リスト、3つの状態区分、6ヶ月ルール、そして4冊の付属文書 ― 罰則なきソフトロー執行アーキテクチャがいかに2年で93%の開示率を生んだかを分析する。</p>
-      <div class="post-meta">
-        <span>テーマ: <strong>資本効率革命</strong></span>
-        <span>読了目安: <strong>12 分</strong></span>
-        <span>更新: <strong>2026-05-18</strong></span>
-      </div>
-    </div>
-  </div>
-</header>
-<section class="post-body">
-  <div class="wrap">
-    <article class="post-content">
-<h2>要点</h2>
+  <a class="gov-skip" href="#main-content">本文へ移動</a>
+  <main id="main-content" class="governance-page" tabindex="-1">
+    <nav class="gov-wrap gov-crumbs" aria-label="パンくず"><a href="/">ホーム</a><span class="sep">/</span><a href="/governance/">ガバナンス改革講座</a><span class="sep">/</span><a href="/governance/capital-efficiency/">資本効率をめぐる改革</a><span class="sep">/</span><span aria-current="page">記事 4.3</span></nav>
+    <header class="post-header"><div class="gov-wrap"><div class="post-header-inner"><span class="post-eyebrow">テーマ 4 · 記事 4.3</span><h1 class="post-title">東証の開示企業一覧――公表が生む規律</h1><p class="post-summary">東証は「資本コストや株価を意識した経営」を規則で強制する代わりに、対応状況を公表する仕組みを整えた。2024年1月に始まった開示企業一覧表は、各社のコーポレート・ガバナンス報告書をもとに、「開示済」「検討中」などの状況を月次で示す。2025年には「検討中」を6か月までとし、2026年には各社の開示内容も一覧上で確認できるようになった。リスト自体は質を採点しないが、比較と対話の入口を提供することで、継続的な開示更新を促している。</p><div class="post-meta"><span>テーマ: <strong>資本効率をめぐる改革</strong></span><span>読了目安: <strong>7分</strong></span><span>更新: <strong>2026-08-30</strong></span></div></div></div></header>
+    <section class="post-body"><div class="gov-wrap"><article class="post-content"><blockquote>
+<p><strong>要点</strong></p>
 <ul>
-<li><strong>月次開示企業リスト</strong>は<strong>2024年1月15日</strong>に初公表され、プライム・スタンダード市場の各社を「開示済」「検討中」、あるいは黙示的に「未開示」のいずれかとして名指しで分類している。毎月15日前後に更新され、東証のソフト執行システムの運用基盤を担う。</li>
-<li><strong>2025年1月のルール</strong>により、6ヶ月を超えて「検討中」のままの企業は「未開示」に再分類される――無期延期の抜け穴が塞がれた。</li>
-<li><strong>2026年3月13日</strong>時点で、<strong>プライム約93%(1,472社)、スタンダード約51%(807社)</strong>が開示済み。リストは日本の運用会社と海外投資家データベースの一次スクリーンとして直接消費されている。掲載は肯定的可視性、非掲載は警告フラグである。</li>
+<li>東証は2024年1月から、プライム市場・スタンダード市場の会社を対象に、要請への対応状況を示す<strong>開示企業一覧表</strong>を毎月公表している。</li>
+<li>2025年1月以降、「検討中」として一覧に載れるのは原則6か月までとなった。開示を更新した日や、機関投資家からの連絡を希望するかどうかも表示される。</li>
+<li>2026年1月以降は、コーポレート・ガバナンス報告書に記載された各社の開示内容も一覧上で確認できる。参加の有無だけでなく、中身の比較がしやすくなった。</li>
 </ul>
+</blockquote>
 <hr>
-<h2>メカニズム ― 公表による執行</h2>
-<p>東京証券取引所には、資本コスト経営の開示を怠った上場会社に罰金を課したり制裁したりする法的権限はない。2023年3月の要請(Post 4.1)は「お願い」であって規制ではない。それなのに、なぜ2年間でプライム市場の開示率がゼロから93%に達したのか。</p>
-<p>答えは月次開示企業リストにある。ソフトな言葉を硬い圧力に変換する運用メカニズムである。リストが機能するのは、独立した三つの聴衆がこれを権威ある情報源として扱うからだ:</p>
-<ul>
-<li><strong>国内運用会社</strong>は議決権行使と対話対象のスクリーンとして用いる</li>
-<li><strong>海外投資家</strong>は、東証プログラムに「入っている」企業と「入っていない」企業を識別するためのデータ化されたシグナルとして用いる</li>
-<li><strong>アクティビスト</strong>はターゲットリストとして用いる――未開示でPBR1倍割れのプライム発行体は、ほぼ定義上、資金化可能なキャンペーン対象である</li>
-</ul>
-<p>リストは「この会社は悪い」とは書かない。誰が関与し、誰がしていないかを公表するだけだ。日本のような高文脈ビジネス文化では、それで十分である。</p>
-<hr>
-<h2>リストのタイムライン</h2>
+<h2 id="section-1">なぜ一覧表を公表するのか</h2>
+<p>2023年3月の要請は、規則上の義務ではない。東証が各社の計画を審査して合否をつけたり、PBRやROEの数値目標を達成できない会社に罰金を科したりする制度でもない。</p>
+<p>そこで東証が採ったのが、対応状況を市場参加者に見えるようにする方法である。会社が何を開示しているかを一覧化すれば、投資家は同業他社を横並びで比較できる。会社側も、自社だけが対応を先送りしていないか、初回開示後に更新が止まっていないかを確認できる。</p>
+<p>この仕組みでは、東証自身が開示の優劣を一行ずつ採点する必要はない。公表された情報をもとに、投資家が対話、議決権行使、投資判断を行う。その比較可能性が、会社に開示と実行の改善を促す。</p>
+<h2 id="section-2">一覧表の変遷</h2>
 <table>
 <thead>
 <tr>
-<th>日付</th>
-<th>節目</th>
+<th>時期</th>
+<th>主な変更</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><strong>2023年3月31日</strong></td>
-<td>東証、プライム・スタンダード市場の上場会社に要請発出</td>
+<td>プライム・スタンダード全社に要請を公表</td>
 </tr>
 <tr>
-<td><strong>2023年10月26日</strong></td>
-<td>東証、開示済企業の月次リスト公表を予告</td>
+<td><strong>2023年10月</strong></td>
+<td>開示企業一覧表を公表する方針を予告</td>
 </tr>
 <tr>
-<td><strong>2024年1月15日</strong></td>
-<td><strong>初回リスト公表</strong>。1,115社開示済:プライム815社(1,656社中49.2%)+スタンダード300社(1,619社中18.5%)</td>
-</tr>
-<tr>
-<td><strong>2024年1月末</strong></td>
-<td>プライム899社(54%)+スタンダード325社(20%)。銀行業がトップ<strong>98.5%</strong></td>
-</tr>
-<tr>
-<td><strong>2024年2月1日</strong></td>
-<td>「投資者の視点を踏まえた『資本コストや株価を意識した経営』のポイントと事例」公表 ― リストの定性版コンパニオン</td>
-</tr>
-<tr>
-<td><strong>2024年11月21日</strong></td>
-<td>「投資者の視点と乖離があると感じられる事例」公表 ― 不十分事例冊子(Post 4.4参照)</td>
+<td><strong>2024年1月</strong></td>
+<td>初回の一覧表を公表。以後、原則として毎月15日を目途に更新</td>
 </tr>
 <tr>
 <td><strong>2025年1月</strong></td>
-<td>新ルール:「検討中」状態が6ヶ月を超えた企業は「未開示」に再分類</td>
+<td>更新日、機関投資家からの連絡希望、「検討中」の6か月上限を導入</td>
 </tr>
 <tr>
-<td><strong>2025年3月</strong></td>
-<td>プライム市場の開示率が初めて<strong>90%</strong>を突破</td>
+<td><strong>2026年1月</strong></td>
+<td>CG報告書における各社の開示内容を一覧表に掲載</td>
 </tr>
 <tr>
-<td><strong>2025年12月26日</strong></td>
-<td>「課題解決に向けた取組事例集」公表 ― 「何を言うか」から「何をしたか」へ</td>
+<td><strong>2026年8月</strong></td>
+<td>投資家アンケートをもとに「取組みの進展が見られる企業」の一覧を公表</td>
 </tr>
-<tr>
-<td><strong>2026年3月13日</strong></td>
-<td>直近状況:プライム約<strong>93%(1,472社)</strong>、スタンダード約<strong>51%(807社)</strong>が開示。初回開示後に少なくとも1回更新したのはプライム1,129社、スタンダード386社</td>
-</tr>
-<tr>
-<td><strong>2026年4月28日</strong></td>
-<td>「要請の更新」公表 ― 「開示から実行へ」への正式転換(Post 4.5参照)</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h2>リストの内容</h2>
-<p>公開リスト(<a href="https://www.jpx.co.jp/equities/improvements/cg-info/index.html">https://www.jpx.co.jp/equities/improvements/cg-info/index.html</a> で毎月更新)はフラットな表である。各行が1社に対応し、次の項目を含む:</p>
-<ul>
-<li><strong>会社名</strong>(日本語・英語)</li>
-<li><strong>証券コード</strong>(4桁)</li>
-<li><strong>市場区分</strong>(プライム/スタンダード)</li>
-<li><strong>業種</strong>(東証33業種分類)</li>
-<li><strong>状態</strong>:「開示済」または「検討中」</li>
-<li><strong>初回開示日</strong></li>
-<li><strong>直近更新日</strong></li>
-<li>直近のコーポレートガバナンス報告書の該当箇所への<strong>リンク</strong></li>
-</ul>
-<p>「開示済」でも「検討中」でもない会社はリストに載らない――黙示的に「未開示」となる。これが評判コストを伴う第三の状態である。</p>
-<h3>3状態分類</h3>
+</tbody></table>
+<p>一覧表は、各月末時点で直近に提出されたコーポレート・ガバナンス報告書をもとに作成される。2026年7月末時点の一覧は8月14日に公表されている。このように、最新状況は常に更新されるため、記事中の社数よりも東証の現行ファイルを確認する方が確実である。</p>
+<h2 id="section-3">現在の分類方法</h2>
+<p>各社は、CG報告書の「資本コストや株価を意識した経営の実現に向けた対応」欄で、開示内容を選択する。</p>
 <table>
 <thead>
 <tr>
-<th>状態</th>
-<th>何を示すか</th>
-<th>投資家の読み方</th>
+<th>一覧上の扱い</th>
+<th>CG報告書での選択</th>
+<th>意味</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><strong>開示済</strong></td>
-<td>取締役会が資本コストと株価を議論し、施策をCG報告書で開示</td>
-<td>要請に関与している。次の問いは開示の質</td>
+<td>「取組みの開示（初回）」または「取組みの開示（アップデート）」</td>
+<td>取組みまたはその更新を開示している</td>
 </tr>
 <tr>
 <td><strong>検討中</strong></td>
-<td>要請を受け止めて開示を約束したが、未着手</td>
-<td>過渡的状態として許容。<strong>ただし6ヶ月後に「未開示」へ再分類</strong></td>
+<td>「検討状況の開示」</td>
+<td>具体的な取組みの開示に向けて検討している。掲載は原則6か月まで</td>
 </tr>
 <tr>
-<td><strong>未開示</strong>(リスト不在による黙示)</td>
-<td>関与していない、あるいは「検討中」が6ヶ月を超えた</td>
-<td>スクリーン・対話で警告フラグ。アクティビストの潜在標的</td>
+<td><strong>一覧外</strong></td>
+<td>上記に該当しない</td>
+<td>一覧表上、開示済・検討中として確認できない</td>
 </tr>
-</tbody>
-</table>
-<p>この3状態システムは意図的なものだ。「開示済/未開示」の二分法では、リストに載るためだけの紋切り型開示が量産されるコンプライアンス・シアターになりかねない。中間の「検討中」状態は、株主資本コストを初めて算出するなど、真に作業時間を要する企業を許容する仕組みだった。一方で<strong>2025年1月の6ヶ月ルール</strong>は、その中間状態が恒久的駐車場と化すことを防いだ。</p>
-<hr>
-<h2>リストの読み方 ― 実例ウォークスルー</h2>
-<p>以下はリスト数行の代表的な模擬例である。<strong>説明用のモックであり</strong>、実際のリストはJPXのURL先にある。</p>
-<table>
-<thead>
-<tr>
-<th>会社名</th>
-<th>銘柄コード</th>
-<th>市場</th>
-<th>業種</th>
-<th>状態</th>
-<th>初回開示</th>
-<th>直近更新</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>日立製作所</td>
-<td>6501</td>
-<td>プライム</td>
-<td>電気機器</td>
-<td>開示済</td>
-<td>2023-06-22</td>
-<td>2025-12-19</td>
-</tr>
-<tr>
-<td>丸井グループ</td>
-<td>8252</td>
-<td>プライム</td>
-<td>小売業</td>
-<td>開示済</td>
-<td>2023-04-28</td>
-<td>2026-03-31</td>
-</tr>
-<tr>
-<td>旭化成</td>
-<td>3407</td>
-<td>プライム</td>
-<td>化学</td>
-<td>開示済</td>
-<td>2023-07-31</td>
-<td>2025-11-14</td>
-</tr>
-<tr>
-<td>タダノ</td>
-<td>6395</td>
-<td>プライム</td>
-<td>機械</td>
-<td>開示済</td>
-<td>2023-08-10</td>
-<td>2025-09-29</td>
-</tr>
-<tr>
-<td>[中堅地銀]</td>
-<td>83XX</td>
-<td>プライム</td>
-<td>銀行業</td>
-<td>開示済</td>
-<td>2023-05-15</td>
-<td>2025-05-15</td>
-</tr>
-<tr>
-<td>[中堅機械]</td>
-<td>64XX</td>
-<td>プライム</td>
-<td>機械</td>
-<td>検討中</td>
-<td>―</td>
-<td>2024-11-20</td>
-</tr>
-<tr>
-<td>[小型サービス業]</td>
-<td>96XX</td>
-<td>スタンダード</td>
-<td>サービス業</td>
-<td>開示済</td>
-<td>2024-02-18</td>
-<td>2024-02-18</td>
-</tr>
-</tbody>
-</table>
-<p>リスト自体はあっさりしている――質を採点せず、参加状況だけを記録する。実際の版をスキャンする際に有用な観察点が三つある。</p>
-<p><strong>観察1 ― 初回開示と直近更新の差</strong>。「初回」と「直近」が同日の会社は、一度開示してその後止まっている。東証2024年11月の不十分事例冊子はこれをトップの失敗類型として明示した。ベストプラクティスの開示企業(日立、丸井、旭化成、三井物産)は少なくとも年次で、中計改訂時にはさらに高頻度で更新している。</p>
-<p><strong>観察2 ― 業種集中</strong>。金融庁の強い圧力とPBR1倍割れの慢性的露出を抱える銀行業は、2024年1月末で<strong>98.5%</strong>の開示率を達成しトップを走った。逆に遅れる業種――歴史的には中小型のサービス業、不動産、一部の産業――はアクティビストが狩りをする領域である。</p>
-<p><strong>観察3 ― 「検討中」かつ更新日が古い</strong>のはアクティビストにとってのシグナルである。「検討中」のまま直近更新が6ヶ月以上前の会社は、2025年1月ルールにより「未開示」へ再分類される直前にある。これは公開され、日付印つきで、取引所が公表したフラグである。</p>
-<hr>
-<h2>開示リスト・ダッシュボード ― 担当者側の視点</h2>
-<p>洗練されたIRチームは、自社の状態を同業他社に対して追跡する社内ダッシュボードを維持する。最小構成版に含めるべき項目:</p>
-<ol>
-<li><strong>自社状態</strong> ― 開示済/検討中/未開示と直近更新日</li>
-<li><strong>ピアグループ状態</strong> ― 業種・規模が近い10〜20社のリストとそれぞれの状態</li>
-<li><strong>直近更新からの経過日数</strong> ― 自社・ピア両方。12ヶ月超は要注意</li>
-<li><strong>開示品質スコア</strong> ― 4つの期待開示要素(①資本コストの数値、②現状分析、③方針とKPI、④投資家との対話)に対する社内定性評価</li>
-<li><strong>トリガーイベント</strong> ― 開示を更新すべき今後の中計・決算・ガバナンス報告書サイクル</li>
-</ol>
-<p>jpinv.comではテーマ4.3のページにライブコンポーネントとしてこのダッシュボードの完全版を公開し、JPXリスト更新に合わせて月次で更新する。</p>
-<hr>
-<h2>なぜ公表は規制より鋭利なのか</h2>
-<p>東証の執行モデルがどれほど特異かは、立ち止まって整理する価値がある。伝統的な規制当局は「期限Xまでに開示しなければ罰金Yを科す」と言う。東証は「毎月、開示した者と未開示の者のリストを公表する」と言った。</p>
-<p>このモデルが機能するのは、根本的な聴衆――日本の機関投資家、海外運用会社、アクティビスト――が既に関心を持っていたからである。東証は執行を発明する必要はなく、<strong>参加を可視化する</strong>だけでよかった。リストは規制にはできない三つのことをこなす:</p>
-<p><strong>安価である</strong>。東証は調査・訴追・制裁を要さない。毎月のスプレッドシート更新が執行インフラの全てである。</p>
-<p><strong>情報が均一である</strong>。市場参加者全員が同じ情報を同時に得る。誰が開示しているかについて、大口投資家と小口投資家の間の情報非対称はない。</p>
-<p><strong>自己加速的である</strong>。同業他社の開示が進むほど、未開示の限界コストが評判面でもアクティビスト標的化リスク面でも上昇する。2023年初期の開示企業がレイトムーバーへの社会的証拠を作った。2026年3月時点でプライム93%という開示率は、規制締切日ではなく、自己加速的な規範の自然な帰結である。</p>
-<p>これは金融庁と経済産業省が他のガバナンス領域への応用を研究中のモデルだ――最も可視的なのは英文開示(テーマ5.1)で、2025年4月の義務化にも同じ月次リスト方式が採用された。</p>
-<hr>
-<h2>コンパニオン文書群 ― リスト+冊子</h2>
-<p>リストは単独で存在するわけではない。それぞれ特定の機能を果たす付属文書群がそれを支えている:</p>
+</tbody></table>
+<p>「開示済」は、内容が十分であるという認定ではない。数行の抽象的な説明でも、所定の形で開示されれば一覧上は開示済となり得る。反対に、詳細な資料を公表していても、CG報告書の参照先や選択項目が適切でなければ一覧に正しく反映されない場合がある。</p>
+<p>IR担当者は、資料を作るだけでなく、CG報告書と一覧表の表示が一致しているかまで確認する必要がある。</p>
+<h2 id="section-4">6か月ルールの意味</h2>
+<p>当初の「検討中」は、会社が十分な分析を行う時間を確保するための中間状態だった。しかし、期限がなければ、検討中のまま具体的な開示を先送りできる。</p>
+<p>東証は2025年1月から、検討中として一覧に掲載する期間を6か月に限定した。これは、6か月以内に必ずPBRを改善するという意味ではない。会社が少なくとも、現状分析、課題、今後の検討方針を具体的な開示へ進めることを期待したものだ。</p>
+<p>検討に時間がかかる場合でも、何を分析しているのか、取締役会でいつ議論したのか、いつまでに次の開示を行うのかを示す方が、単に「検討中」と記すよりも投資家の理解を得やすい。</p>
+<h2 id="section-5">一覧表で確認できること</h2>
+<p>一覧表には、会社名、証券コード、市場区分、業種、開示状況、初回開示日、更新日などが掲載される。2025年以降は、機関投資家からの連絡を希望する会社も確認できる。2026年以降は、CG報告書に記載された開示内容へのアクセスもしやすくなった。</p>
+<p>実務では、次の三点を見るとよい。</p>
+<h3 id="section-6">1. 初回開示日と更新日の間隔</h3>
+<p>初回開示後に更新がない会社は、一度資料を作って対応を止めている可能性がある。中期経営計画、資本政策、事業ポートフォリオが変われば、資本コストに関する開示も見直す必要がある。</p>
+<h3 id="section-7">2. 同業他社との違い</h3>
+<p>同じ業種・規模の会社でも、資本コストの数値、ROIC管理、事業別の改善策、株主還元方針の具体性には差がある。一覧表は比較対象を見つける入口として使える。</p>
+<h3 id="section-8">3. 「開示済」の中身</h3>
+<p>状態だけで判断せず、実際の記載を読む。資本コストの根拠、現状分析、目標、施策、進捗、対話を踏まえた更新がそろっているかを確認する。</p>
+<h2 id="section-9">一覧表を補う資料</h2>
+<p>東証は一覧表だけでなく、開示の質を考えるための資料を継続的に公表している。</p>
 <ul>
-<li><strong>「投資者の視点を踏まえた『資本コストや株価を意識した経営』のポイントと事例」</strong>(2024年2月、2025年後半改訂) ― 定性版コンパニオン。東証が実質的な開示と認める<strong>55の好事例</strong>を名指しで提示。Post 4.2で扱う。</li>
-<li><strong>「投資者の視点と乖離があると感じられる事例」</strong>(2024年11月) ― 典型的な乖離パターンを<strong>10類型</strong>にまとめる。Post 4.4で扱う。</li>
-<li><strong>「課題解決に向けた取組事例集」</strong>(2025年12月) ― 企業が組織内に資本コスト思考を埋め込むプロセスに焦点を当てた事例集。Post 4.5で扱う。</li>
-<li><strong>「要請の更新」</strong>(2026年4月28日) ― 「開示から実行へ」への正式転換。Post 4.5で扱う。</li>
+<li><strong>投資家の視点を踏まえたポイント</strong>：投資家が何を重視しているかを整理。</li>
+<li><strong>事例集（プライム・スタンダード）</strong>：実際の開示から参考事例を紹介。</li>
+<li><strong>投資者の目線とギャップのある事例</strong>：抽象的な説明、PBR目標の単独提示、株主還元への偏りなどを整理。</li>
+<li><strong>課題解決に向けた企業の取組み事例集</strong>：開示文言ではなく、社内でどう課題を解決したかを紹介。</li>
+<li><strong>2026年の企業・投資家アンケート</strong>：対話の課題と、投資家が進展を評価する会社を可視化。</li>
 </ul>
-<p>この4文書アーキテクチャ自体に学びがある。リストは<strong>誰が関与しているか</strong>を公表する。「ポイントと事例」冊子は<strong>何が良いか</strong>を示す。乖離冊子は<strong>何が不十分か</strong>を示す。「取組事例集」は<strong>実際にどう仕事が進むか</strong>を示す。「更新」は<strong>次の水準</strong>を設定する。各層が相互補強し、東証は単一文書ではなく一貫したソフト執行アーキテクチャを構築した。</p>
-<hr>
-<h2>IRにとっての含意</h2>
+<p>一覧表が「誰が開示しているか」を示すのに対し、これらの資料は「何が伝わる開示か」「どのような実行が評価されるか」を示す。両方を合わせて読む必要がある。</p>
+<h2 id="section-10">公表による規律の強みと限界</h2>
+<p>公表方式の強みは、全市場参加者が同じ情報を使えることにある。行政処分を待たず、同業比較、投資家対話、社内説明にすぐ使える。開示が進むほど、未開示や更新停止が目立ちやすくなる。</p>
+<p>一方で、一覧表に載ること自体が目的化する危険もある。状態区分は開示の質や実行成果を保証しない。数字を示していても、前提が不明であったり、目標と施策がつながっていなかったりすれば、投資家の評価は高まらない。</p>
+<p>したがって、一覧表は合格者名簿ではなく、対話の出発点と捉えるのが適切である。</p>
+<h2 id="section-11">IR担当者への示唆</h2>
 <ol>
-<li><strong>自社の状態を月次で確認せよ</strong>。投資家面談の前に、最新リストで自社が期待どおりの状態で掲載されているか確認すること。乖離(例:CG報告書の開示がリストに反映されていない)を見つけた場合は東証に即時照会する。</li>
-<li><strong>「検討中」のまま5ヶ月を超えないこと</strong>。2025年1月の6ヶ月ルールはその状態を「未開示」に変える。5ヶ月を社内デッドラインとして扱い、バッファを設けよ。</li>
-<li><strong>少なくとも年次で開示を更新せよ</strong>。「直近更新日」が12ヶ月超前は洗練された投資家にとってフラグである。CG報告書年次サイクルか中計改訂サイクル――どちらか頻度の高い方――に開示更新を紐づけよ。</li>
-<li><strong>業種平均ではなく、名指しのピアと比較せよ</strong>。投資家が比較する10〜20社のピアリストを作り、自社の状態・更新頻度・開示品質を彼らと比較する。業種平均では正しい比較対象が見えなくなる。</li>
-<li><strong>リストを「単発の提出書類」ではなく「開示システム」として扱え</strong>。リスト、4冊の冊子、更新は一貫した期待セットを形成する。開示は、東証が何を良いとし何を乖離とし次に何を期待しているか――その各々への明示的な意識を反映していなければならない。</li>
+<li><strong>毎月の一覧表で自社の表示を確認する。</strong> 状態、初回開示日、更新日、リンク先に誤りがないかを見る。</li>
+<li><strong>「検討中」は6か月以内に次の段階へ進める。</strong> 社内では5か月程度を期限として、CG報告書更新まで含めて管理する。</li>
+<li><strong>初回開示後の更新方針を決める。</strong> 少なくとも年1回、中計や資本政策の変更時には随時更新する。</li>
+<li><strong>同業10～20社を比較する。</strong> 状態だけでなく、資本コストの根拠、目標、施策、進捗の具体性を比べる。</li>
+<li><strong>一覧掲載を成果とみなさない。</strong> 投資家との対話と経営の実行に使われて初めて、開示の意味が生まれる。</li>
 </ol>
-<hr>
-<h2>出典・参考資料</h2>
-<p><strong>一次資料</strong>
-- 東証ニュースリリース(2023年10月26日)リスト公表予告:<a href="https://www.jpx.co.jp/news/1020/20231026-01.html">https://www.jpx.co.jp/news/1020/20231026-01.html</a>
-- 東証ニュースリリース(2024年1月15日)初回リスト公表:<a href="https://www.jpx.co.jp/news/1020/20240115-01.html">https://www.jpx.co.jp/news/1020/20240115-01.html</a>
-- 開示企業リストハブ:<a href="https://www.jpx.co.jp/equities/improvements/cg-info/index.html">https://www.jpx.co.jp/equities/improvements/cg-info/index.html</a>
-- 開示企業リスト最新PDF:<a href="https://www.jpx.co.jp/equities/improvements/cg-info/nlsgeu000006xn3l-att/follow_up_list_e.pdf">https://www.jpx.co.jp/equities/improvements/cg-info/nlsgeu000006xn3l-att/follow_up_list_e.pdf</a>
-- 「開示の状況」(2026年3月13日):<a href="https://www.jpx.co.jp/equities/follow-up/uorii50000004sse-att/dh3otn0000006l3i.pdf">https://www.jpx.co.jp/equities/follow-up/uorii50000004sse-att/dh3otn0000006l3i.pdf</a></p>
-<p><strong>補足資料</strong>
-- 「ポイントと事例」初版(2024年2月、PDF):<a href="https://www.jpx.co.jp/news/1020/u5j7e50000001bqd-att/240201en.pdf">https://www.jpx.co.jp/news/1020/u5j7e50000001bqd-att/240201en.pdf</a>
-- 東証ニュースリリース(2024年2月1日)ポイントと事例公表:<a href="https://www.jpx.co.jp/news/1020/20240201-01.html">https://www.jpx.co.jp/news/1020/20240201-01.html</a>
-- 東証ニュースリリース(2024年11月21日)乖離事例公表:<a href="https://www.jpx.co.jp/news/1020/20241121-01.html">https://www.jpx.co.jp/news/1020/20241121-01.html</a>
-- 東証ニュースリリース(2025年12月26日)取組事例集公表:<a href="https://www.jpx.co.jp/news/1020/20251226-01.html">https://www.jpx.co.jp/news/1020/20251226-01.html</a>
-- フォローアップ会議「議論の取りまとめ」:<a href="https://www.jpx.co.jp/equities/follow-up/01.html">https://www.jpx.co.jp/equities/follow-up/01.html</a></p>
-<hr>
-<h2>関連記事</h2>
+<h2 id="section-12">出典・参考資料</h2>
 <ul>
-<li><strong>テーマ3.3</strong> ― 2025年3月の崖:経過措置の終了</li>
-<li><strong>テーマ4.1</strong> ― <a href="/governance/">PBR&lt;1は目標ではなく、市場の評決</a></li>
-<li><strong>テーマ4.2</strong> ― <a href="/governance/">WACC・ROIC・エクイティ・スプレッド ― IR担当が押さえるべき新語</a></li>
-<li><strong>テーマ4.4</strong> ― <a href="/governance/">資本コスト開示の7つの落とし穴 ― 「投資家視点との乖離」事例集</a></li>
-<li><strong>テーマ4.5</strong> ― <a href="/governance/">開示から実行へ ― 2026年4月「更新」が変えたもの</a></li>
-<li><strong>テーマ5.1</strong> ― <a href="/governance/">2025年4月は通過点、終着点ではない ― 英文開示義務化</a>(同じ公表型執行モデルを採用)
-</li>
+<li>JPX「資本コストや株価を意識した経営の実現に向けた対応（プライム・スタンダード市場）」 <a href="https://www.jpx.co.jp/equities/follow-up/02.html">https://www.jpx.co.jp/equities/follow-up/02.html</a></li>
+<li>JPX「開示企業一覧表の見直しについて」（2024年9月27日） <a href="https://www.jpx.co.jp/news/1020/20240927-01.html">https://www.jpx.co.jp/news/1020/20240927-01.html</a></li>
+<li>JPX「開示企業一覧表の見直しについて」（2025年9月26日） <a href="https://www.jpx.co.jp/news/1020/20250926-02.html">https://www.jpx.co.jp/news/1020/20250926-02.html</a></li>
+<li>JPX「『資本コストや株価を意識した経営』に関する『投資者の目線とギャップのある事例』等の公表について」 <a href="https://www.jpx.co.jp/news/1020/20241121-01.html">https://www.jpx.co.jp/news/1020/20241121-01.html</a></li>
+<li>JPX「『資本コストや株価を意識した経営』に関する要請のアップデートについて」 <a href="https://www.jpx.co.jp/news/1020/20260428-01.html">https://www.jpx.co.jp/news/1020/20260428-01.html</a></li>
 </ul>
-    </article>
-    <div class="post-nav"><a href="/governance/capital-efficiency/4.2-cost-of-capital-vocabulary/" class="post-nav-link prev"><div class="post-nav-dir">← 前の記事</div><div class="post-nav-title">WACC・ROIC・エクイティ・スプレッド ― IR担当が押さえるべき新語</div></a><a href="/governance/capital-efficiency/4.4-seven-sins-misalignment/" class="post-nav-link next"><div class="post-nav-dir">次の記事 →</div><div class="post-nav-title">資本コスト開示の7つの落とし穴 ― 「投資家視点との乖離」事例集</div></a></div>
-    <div style="max-width: var(--measure); margin: 32px auto 0; padding-top: 24px; border-top: 1px solid var(--rule); font-size: 0.82rem; color: var(--text-dim); text-align:right;">
-      <a href="/en/governance/capital-efficiency/4.3-the-disclosure-list/" style="color: var(--ink-soft);">English version →</a>
-    </div>
-  </div>
-</section>
-</main>
-<style>footer{background:var(--ink,#1a2a4a);color:#cfd6e2;padding:48px 0 30px;font-size:0.8rem;line-height:1.8;border-top:none}footer a{color:#cfd6e2;text-decoration:none}footer .footer-row{list-style:none;display:flex;flex-wrap:wrap;gap:8px 26px;margin:0 0 26px;padding:0}footer .footer-row li{padding:0}footer .footer-row a{color:#cfd6e2;text-decoration:none;font-size:0.8rem}footer .footer-bottom{padding-top:24px;border-top:1px solid rgba(255,255,255,0.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-family:var(--mono),monospace;font-size:0.68rem;letter-spacing:0.06em;color:rgba(255,255,255,0.55)}</style><script>
-const nav = document.getElementById('main-nav');
-if (nav) window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
-const hamburgerBtn = document.querySelector('.hamburger');
-function setMenuOpen(isOpen) { const menu = document.getElementById('mobileMenu'); if (!menu || !hamburgerBtn) return; menu.classList.toggle('open', isOpen); menu.hidden = !isOpen; hamburgerBtn.setAttribute('aria-expanded', String(isOpen)); }
-function toggleMenu() { const menu = document.getElementById('mobileMenu'); setMenuOpen(!(menu && menu.classList.contains('open'))); }
-document.addEventListener('click', (e) => { const menu = document.getElementById('mobileMenu'); if (menu && menu.classList.contains('open') && !menu.contains(e.target) && hamburgerBtn && !hamburgerBtn.contains(e.target)) setMenuOpen(false); });
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenuOpen(false); });
-</script>
-<script type="module">
-import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs';
-mermaid.initialize({ startOnLoad: true, theme: 'neutral', fontFamily: 'Noto Sans JP, Hiragino Kaku Gothic ProN, sans-serif', themeVariables: { primaryColor: '#f4eee4', primaryTextColor: '#1a2a4a', primaryBorderColor: '#9a7838', lineColor: '#304466', secondaryColor: '#f5f7fa', tertiaryColor: '#fafbfc' } });
-</script>
-<script src="/assets/nav.js?v=348fa48c4e" defer></script>
+<h2 id="section-13">関連記事</h2>
+<ul>
+<li><strong>3.3――経過措置終了後の上場維持ルール</strong></li>
+<li><strong>4.1――PBR1倍割れをどう読むか</strong></li>
+<li><strong>4.2――WACC・ROIC・エクイティ・スプレッド</strong></li>
+<li><strong>4.4――資本コスト開示で避けたい7つの落とし穴</strong></li>
+<li><strong>4.5――開示から実行へ――2026年4月の要請更新</strong></li>
+<li><strong>5.1――日英同時開示は始まりにすぎない</strong></li>
+</ul></article><nav class="post-nav" aria-label="前後の記事"><a class="post-nav-link prev" href="/governance/capital-efficiency/4.2-cost-of-capital-vocabulary/"><div class="post-nav-dir">← 前の記事</div><div class="post-nav-title">WACC・ROIC・エクイティ・スプレッド――資本コスト経営の基本用語</div></a><a class="post-nav-link next" href="/governance/capital-efficiency/4.4-seven-sins-misalignment/"><div class="post-nav-dir">次の記事 →</div><div class="post-nav-title">資本コスト開示で避けたい7つの落とし穴</div></a></nav><div class="post-language"><a href="/en/governance/capital-efficiency/4.3-the-disclosure-list/">English version →</a></div></div></section>
+  </main>
+  <script src="/assets/governance.js?v=cc6033456e" defer></script>
+  <script src="/assets/nav.js?v=348fa48c4e" defer></script>
 </body>
 </html>

@@ -1,409 +1,164 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-
-<title>コード vs 指針 ― 経済産業省の体系 | JII ガバナンス改革カリキュラム</title>
-<meta name="description" content="経済産業省のCGS、GGS、公正M&amp;A、そして2023年の企業買収行動指針 ― これら4つの指針群は、金融庁・東証のコーポレートガバナンス・コードと並行する運用解釈レイヤーである。Comply-or-Explainの対象ではないが、議決権行使助言会社、対話投資家、D&amp;O保険会社は権威ある参照基準として扱う。">
-<meta property="og:title" content="コード vs 指針 ― 経済産業省の体系 | JII ガバナンス改革カリキュラム">
-<meta property="og:description" content="経済産業省のCGS、GGS、公正M&amp;A、そして2023年の企業買収行動指針 ― これら4つの指針群は、金融庁・東証のコーポレートガバナンス・コードと並行する運用解釈レイヤーである。Comply-or-Explainの対象ではないが、議決権行使助言会社、対話投資家、D&amp;O保険会社は権威ある参照基準として扱う。">
-<meta property="og:url" content="https://jpinv.com/governance/cg-code/2.5-meti-guideline-family/">
-<link rel="canonical" href="https://jpinv.com/governance/cg-code/2.5-meti-guideline-family/">
-<link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/cg-code/2.5-meti-guideline-family/">
-<link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/cg-code/2.5-meti-guideline-family/">
-<link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/cg-code/2.5-meti-guideline-family/">
-
-<style>
-:root {
-  --ink:        #1a2a4a;
-  --ink-mid:    #172641;
-  --ink-soft:   #304466;
-  --rule:       #d6dee8;
-  --rule-soft:  #e8edf3;
-  --bg:         #ffffff;
-  --bg-mid:     #f5f7fa;
-  --bg-soft:    #fafbfc;
-  --text:       #1f2937;
-  --text-mid:   #4a5566;
-  --text-dim:   #5f6875;
-  --accent:     #9a7838;
-  --accent-deep:#9a7838;
-  --accent-soft:#f4eee4;
-  --bad:        #b91c1c;
-  --warn:       #8a682b;
-  --ok:         #2f6f4f;
-  --serif: 'Noto Serif JP', 'Yu Mincho', serif;
-  --sans:  'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
-  --mono:  'DM Mono', monospace;
-  --max: 1100px;
-  --pad: 88px;
-  --gutter: 48px;
-  --nav-h: 64px;
-  --measure: 720px;
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 400; line-height: 1.7; overflow-x: hidden; }
-img { max-width: 100%; display: block; }
-a { color: var(--ink-soft); text-decoration: none; }
-a:hover { color: var(--ink); }
-.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
-@media (max-width: 768px) { :root { --gutter: 22px; --pad: 56px; } }
-strong { font-weight: 600; color: var(--ink); }
-em { font-style: normal; color: var(--ink); font-weight: 600; }
-.label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); }
-
-/* Nav (copied from jpinv.com base) */
-nav#main-nav { position: fixed; top:0; left:0; right:0; z-index:100; height: var(--nav-h); background: rgba(255,255,255,0.96); backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule); display: flex; align-items: center; transition: box-shadow 0.3s; }
-nav#main-nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
-.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; }
-.nav-logo { text-decoration: none; display: inline-flex; align-items: center; flex: 0 0 auto; min-width: max-content; white-space: nowrap; }
-.nav-logo-img { display: block; width: auto; height: 40px; max-width: none; object-fit: contain; object-position: left center; }
-.nav-logo-img--mobile { display: none; width: 32px; height: 32px; object-fit: contain; }
-.nav-center { flex: 1; display: flex; justify-content: center; }
-.nav-links { display: flex; gap: 18px; list-style: none; flex-wrap: nowrap; white-space: nowrap; }
-.nav-links a { font-family: var(--sans); font-size: 0.74rem; font-weight: 400; letter-spacing: 0.02em; color: var(--text); text-decoration: none; transition: color 0.2s; }
-.nav-links a:hover { color: var(--ink-soft); }
-.nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; margin-left: auto; }
-.nav-cta { padding: 7px 11px; font-size: 0.66rem; letter-spacing: 0.05em; }
-.locale-switcher { display: inline-flex; align-items: center; gap: 0; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; }
-.locale-switcher a { color: var(--text-dim); border: 1px solid var(--rule); padding: 6px 9px; text-decoration: none; transition: all 0.2s; }
-.locale-switcher a + a { margin-left: -1px; }
-.locale-switcher a:hover, .locale-switcher a.current { color: var(--ink); border-color: var(--ink-mid); background: var(--bg-soft); position: relative; z-index: 1; }
-.hamburger { display: none; flex-shrink:0; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
-.hamburger span { display:block; width:22px; height:1px; background:var(--ink); transition: all 0.25s; }
-@media (max-width: 900px) { .nav-center, .nav-right .nav-cta { display:none; } .hamburger { display:flex; } }
-@media (max-width: 768px) { .nav-logo-img--desktop { display:none; } .nav-logo-img--mobile { display:block; } }
-.mobile-menu { display:none; position:fixed; top:var(--nav-h); left:0; right:0; background:var(--bg); border-bottom:1px solid var(--rule); z-index:99; padding:8px var(--gutter) 20px; flex-direction:column; gap:0; }
-.mobile-menu.open { display:flex; }
-.mobile-menu a { font-size:0.88rem; color:var(--text); text-decoration:none; padding:14px 0; border-bottom:1px solid var(--rule); letter-spacing:0.04em; }
-.mobile-menu a:last-child { border-bottom:none; }
-.mobile-menu .mobile-menu-cta { margin-top:12px; padding:13px 18px; text-align:center; color:#fff; border-bottom:none; }
-
-.btn { display: inline-block; text-decoration: none; font-family: var(--sans); font-size: 0.84rem; font-weight: 400; letter-spacing: 0.06em; padding: 13px 28px; transition: all 0.2s; cursor: pointer; border: none; }
-.btn-primary { background: var(--ink); color: #fff; }
-.btn-primary:hover { background: var(--ink-mid); color: #fff; }
-.btn-outline { border: 1px solid var(--ink-mid); color: var(--ink); background: transparent; }
-.btn-outline:hover { border-color: var(--ink); color: var(--ink); }
-.rule-accent { width: 32px; height: 2px; background: var(--accent); margin: 14px 0 22px; }
-
-/* Footer (mirror) */
-footer { border-top: 1px solid var(--rule); padding: 52px 0 28px; background: var(--bg-soft); font-size: 0.82rem; color: var(--text-dim); }
-footer .footer-grid { display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 32px; align-items: start; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
-footer h2 { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.2em; color: var(--ink-soft); text-transform: uppercase; margin-bottom: 12px; font-weight: 500; }
-footer h3 { font-family: var(--serif); font-size: 1rem; font-weight: 400; color: var(--ink); margin-bottom: 8px; }
-footer ul { list-style: none; }
-footer ul li { padding: 4px 0; }
-footer ul li a { color: var(--text-mid); }
-footer ul li a:hover { color: var(--ink); }
-footer .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 18px; flex-wrap: wrap; gap: 12px; }
-footer .footer-locale-switcher a.current { font-weight: 600; color: var(--ink); }
-@media (max-width: 900px) { footer .footer-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 580px) { footer .footer-grid { grid-template-columns: 1fr; } }
-
-/* === Curriculum-specific === */
-main.curriculum { padding-top: var(--nav-h); }
-.curr-hero { padding: 96px 0 64px; border-bottom: 1px solid var(--rule); position: relative; overflow: hidden; }
-.curr-hero::before { content:''; position:absolute; inset:0;
-  background-image: linear-gradient(rgba(15,31,58,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(15,31,58,0.04) 1px, transparent 1px);
-  background-size: 64px 64px;
-  -webkit-mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent);
-          mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent); }
-.curr-hero-inner { position:relative; z-index:2; max-width: 880px; }
-.curr-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.32em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 18px; }
-.curr-hero h1 { font-family: var(--serif); font-size: clamp(1.9rem, 4.4vw, 3.1rem); font-weight: 300; color: var(--ink-mid); line-height: 1.3; letter-spacing: 0.02em; margin: 0 0 22px; }
-.curr-hero h1 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-.curr-hero .lede { font-size: 1.05rem; line-height: 1.85; color: var(--text); margin: 0 0 24px; max-width: 700px; }
-.curr-hero-meta { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
-.curr-hero-meta strong { color: var(--ink); font-family: var(--mono); }
-
-.crumbs { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; padding: 22px 0 0; }
-.crumbs a { color: var(--text-mid); }
-.crumbs a:hover { color: var(--ink); }
-.crumbs .sep { color: var(--rule); margin: 0 8px; }
-
-.theme-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; padding: 56px 0; }
-.theme-card { display: block; background: #fff; border: 1px solid var(--rule); padding: 30px 28px; position: relative; transition: all 0.2s; }
-.theme-card:hover { border-color: var(--ink-soft); box-shadow: 0 12px 32px rgba(15,31,58,0.08); transform: translateY(-2px); }
-.theme-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background: var(--accent); opacity: 0.85; }
-.theme-card-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; }
-.theme-card-name { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--ink-mid); margin: 10px 0 8px; line-height: 1.35; }
-.theme-card-period { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 14px; }
-.theme-card-desc { font-size: 0.92rem; line-height: 1.7; color: var(--text); margin-bottom: 18px; }
-.theme-card-list { font-size: 0.84rem; color: var(--text-mid); list-style: none; padding-top: 14px; border-top: 1px solid var(--rule-soft); }
-.theme-card-list li { padding: 5px 0; }
-.theme-card-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; }
-.theme-card-foot .arrow { color: var(--accent-deep); }
-
-.post-list { padding: 28px 0 56px; }
-.post-list-row { display: grid; grid-template-columns: 60px 1fr auto; gap: 22px; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--rule-soft); transition: all 0.18s; }
-.post-list-row:hover { background: var(--bg-mid); padding-left: 12px; padding-right: 12px; }
-.post-list-num { font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em; color: var(--accent-deep); font-weight: 500; }
-.post-list-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--ink-mid); line-height: 1.45; }
-.post-list-meta { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; white-space: nowrap; }
-@media (max-width: 600px) { .post-list-row { grid-template-columns: 50px 1fr; } .post-list-meta { grid-column: 1 / -1; padding-left: 72px; } }
-
-/* Post body */
-.post-body { padding: 48px 0 80px; }
-.post-content { max-width: var(--measure); margin: 0 auto; }
-.post-content > p, .post-content > ul, .post-content > ol, .post-content > blockquote, .post-content > pre, .post-content > table, .post-content > hr, .post-content > h2, .post-content > h3, .post-content > h4 { max-width: var(--measure); margin-left: auto; margin-right: auto; }
-.post-content h2 { font-family: var(--serif); font-size: 1.55rem; font-weight: 400; color: var(--ink-mid); line-height: 1.35; margin: 56px 0 14px; padding-top: 22px; border-top: 1px solid var(--rule-soft); }
-.post-content h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 500; color: var(--ink); margin: 36px 0 10px; line-height: 1.4; }
-.post-content h4 { font-family: var(--sans); font-size: 1rem; font-weight: 600; color: var(--ink); margin: 26px 0 8px; letter-spacing: 0.02em; }
-.post-content p { margin: 0 0 18px; font-size: 1rem; line-height: 1.85; color: var(--text); }
-.post-content p:first-of-type { font-size: 1.05rem; }
-.post-content ul, .post-content ol { margin: 0 0 22px; padding-left: 28px; }
-.post-content ul li, .post-content ol li { font-size: 0.97rem; line-height: 1.8; margin-bottom: 8px; color: var(--text); }
-.post-content ul li::marker { color: var(--accent-deep); }
-.post-content blockquote { margin: 30px 0; padding: 20px 24px; border-left: 3px solid var(--accent); background: var(--accent-soft); color: var(--ink-mid); font-style: normal; }
-.post-content blockquote p { margin-bottom: 8px; font-size: 0.97rem; }
-.post-content blockquote p:last-child { margin-bottom: 0; }
-.post-content blockquote strong { color: var(--ink); }
-.post-content code { background: #f0f0f0; color: var(--ink-mid); font-family: var(--mono); font-size: 0.88rem; padding: 2px 6px; border-radius: 3px; }
-.post-content pre { background: #f9f9fb; border: 1px solid var(--rule); padding: 18px 22px; overflow-x: auto; font-family: var(--mono); font-size: 0.85rem; line-height: 1.55; margin: 24px 0; }
-.post-content pre code { background: transparent; padding: 0; font-size: inherit; }
-.post-content a { color: var(--accent-deep); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; transition: text-decoration-color 0.18s; overflow-wrap: anywhere; word-break: break-word; }
-.post-content a:hover { text-decoration-color: var(--accent-deep); }
-.post-content hr { border: none; border-top: 1px solid var(--rule); margin: 40px auto; max-width: 120px; }
-.post-content table { width: 100%; max-width: var(--measure); margin: 28px auto; border-collapse: collapse; font-size: 0.9rem; }
-.post-content th { background: var(--bg-mid); color: var(--ink-mid); font-family: var(--sans); font-weight: 600; text-align: left; padding: 12px 14px; border-bottom: 2px solid var(--rule); }
-.post-content td { padding: 10px 14px; border-bottom: 1px solid var(--rule-soft); vertical-align: top; color: var(--text); }
-.post-content tr:nth-child(even) td { background: #fafbfc; }
-
-/* Mermaid container */
-.mermaid-wrap { background: #fdfdfe; border: 1px solid var(--rule); padding: 22px 18px; margin: 28px 0; overflow-x: auto; }
-.mermaid { font-family: var(--sans); text-align: center; }
-
-/* Post header */
-.post-header { padding: 48px 0 28px; border-bottom: 1px solid var(--rule); }
-.post-header-inner { max-width: var(--measure); margin: 0 auto; }
-.post-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.28em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 14px; }
-.post-title { font-family: var(--serif); font-size: clamp(1.7rem, 3.6vw, 2.4rem); font-weight: 400; color: var(--ink-mid); line-height: 1.3; margin: 0 0 16px; letter-spacing: 0.005em; }
-.post-summary { font-size: 1.02rem; line-height: 1.8; color: var(--text); margin: 0 0 22px; max-width: 660px; }
-.post-meta { display: flex; gap: 26px; flex-wrap: wrap; padding-top: 18px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
-.post-meta span strong { color: var(--ink); font-family: var(--mono); }
-
-/* Post nav (prev/next) */
-.post-nav { max-width: var(--measure); margin: 56px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding-top: 36px; border-top: 1px solid var(--rule); }
-.post-nav-link { display: block; padding: 18px 20px; background: var(--bg-mid); border: 1px solid var(--rule); transition: all 0.18s; }
-.post-nav-link:hover { border-color: var(--ink-soft); background: #fff; transform: translateY(-1px); }
-.post-nav-dir { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px; }
-.post-nav-title { font-family: var(--serif); font-size: 0.94rem; color: var(--ink-mid); line-height: 1.4; }
-.post-nav-link.next { text-align: right; }
-@media (max-width: 640px) { .post-nav { grid-template-columns: 1fr; } .post-nav-link.next { text-align: left; } }
-
-/* Knowledge check */
-.kcheck { background: var(--bg-mid); padding: 72px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
-.kcheck-head { max-width: 720px; margin: 0 auto 36px; text-align: center; }
-.kcheck h2 { font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 300; color: var(--ink-mid); margin: 0 0 14px; line-height: 1.3; }
-.kcheck h2 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-.kcheck p.lede { font-size: 0.98rem; line-height: 1.75; color: var(--text); }
-.kcheck-q { background: #fff; border: 1px solid var(--rule); padding: 28px 30px; margin-bottom: 18px; max-width: 760px; margin-left: auto; margin-right: auto; }
-.kcheck-q-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; margin-bottom: 12px; }
-.kcheck-q-text { font-family: var(--serif); font-size: 1.1rem; line-height: 1.5; color: var(--ink-mid); margin-bottom: 18px; }
-.kcheck-opts { display: grid; gap: 8px; }
-.kcheck-opt { display: block; padding: 12px 16px; background: var(--bg-soft); border: 1px solid var(--rule); text-align: left; font-family: var(--sans); font-size: 0.92rem; color: var(--text); cursor: pointer; transition: all 0.15s; }
-.kcheck-opt:hover { background: #fff; border-color: var(--ink-soft); }
-.kcheck-opt.correct { background: #e8f3ec; border-color: var(--ok); color: var(--ok); }
-.kcheck-opt.incorrect { background: #fbe9e9; border-color: var(--bad); color: var(--bad); }
-.kcheck-explain { margin-top: 16px; padding: 14px 18px; background: var(--accent-soft); border-left: 3px solid var(--accent); font-size: 0.9rem; line-height: 1.7; color: var(--ink-mid); display: none; }
-.kcheck-q.answered .kcheck-explain { display: block; }
-.kcheck-score { text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--text-dim); margin-top: 28px; text-transform: uppercase; }
-.kcheck-score strong { color: var(--ink-mid); font-family: var(--mono); }
-
-/* Stats / hero stats */
-.stat-band { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; padding: 56px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); background: var(--bg-soft); }
-.stat-item { padding: 0 18px; }
-.stat-num { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 300; color: var(--ink-mid); line-height: 1; margin-bottom: 8px; }
-.stat-num em { color: var(--accent-deep); font-weight: 400; font-style: normal; }
-.stat-label { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; }
-</style>
-
-<meta property="og:image" content="https://jpinv.com/og/jii-default.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://jpinv.com/og/jii-default.png">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "url": "https://jpinv.com/governance/cg-code/2.5-meti-guideline-family/",
-  "name": "コード vs 指針 ― 経済産業省の体系 | JII ガバナンス改革カリキュラム",
-  "description": "経済産業省のCGS、GGS、公正M&amp;A、そして2023年の企業買収行動指針 ― これら4つの指針群は、金融庁・東証のコーポレートガバナンス・コードと並行する運用解釈レイヤーである。Comply-or-Explainの対象ではないが、議決権行使助言会社、対話投資家、D&amp;O保険会社は権威ある参照基準として扱う。",
-  "inLanguage": "ja"
-}
-</script></head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>コードと指針――役割の違いと読み分け方｜JII ガバナンス改革講座</title>
+  <meta name="description" content="コーポレートガバナンス・コードと経済産業省の実務指針は、同じガバナンス課題を扱いながら、役割が異なる。コードは上場会社に求める原則と開示を示し、コンプライ・オア・エクスプレインで運用される。一方、CGSガイドライン、グループガイドライン、公正M&amp;A指針、企業買収における行動指針は、取締役会や特別委員会が実際にどのような手続を踏むべきかを具体化する。本稿では、両者の違いと、論点に応じた使い分けを整理する。">
+  <link rel="canonical" href="https://jpinv.com/governance/cg-code/2.5-meti-guideline-family/">
+  <link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/cg-code/2.5-meti-guideline-family/">
+  <link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/cg-code/2.5-meti-guideline-family/">
+  <link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/cg-code/2.5-meti-guideline-family/">
+  <meta property="og:title" content="コードと指針――役割の違いと読み分け方｜JII ガバナンス改革講座">
+  <meta property="og:description" content="コーポレートガバナンス・コードと経済産業省の実務指針は、同じガバナンス課題を扱いながら、役割が異なる。コードは上場会社に求める原則と開示を示し、コンプライ・オア・エクスプレインで運用される。一方、CGSガイドライン、グループガイドライン、公正M&amp;A指針、企業買収における行動指針は、取締役会や特別委員会が実際にどのような手続を踏むべきかを具体化する。本稿では、両者の違いと、論点に応じた使い分けを整理する。">
+  <meta property="og:url" content="https://jpinv.com/governance/cg-code/2.5-meti-guideline-family/">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://jpinv.com/og/jii-default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://jpinv.com/og/jii-default.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&amp;family=Noto+Sans+JP:wght@300;400;500;600&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/governance.css?v=b6280834c3">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","name":"コードと指針――役割の違いと読み分け方｜JII ガバナンス改革講座","description":"コーポレートガバナンス・コードと経済産業省の実務指針は、同じガバナンス課題を扱いながら、役割が異なる。コードは上場会社に求める原則と開示を示し、コンプライ・オア・エクスプレインで運用される。一方、CGSガイドライン、グループガイドライン、公正M&A指針、企業買収における行動指針は、取締役会や特別委員会が実際にどのような手続を踏むべきかを具体化する。本稿では、両者の違いと、論点に応じた使い分けを整理する。","url":"https://jpinv.com/governance/cg-code/2.5-meti-guideline-family/","inLanguage":"ja","isPartOf":{"@type":"WebSite","name":"Japan Investor Interface","url":"https://jpinv.com/"},"headline":"コードと指針――役割の違いと読み分け方","dateModified":"2026-08-30","author":{"@type":"Organization","name":"Japan Investor Interface Co., Ltd."},"publisher":{"@type":"Organization","name":"Japan Investor Interface Co., Ltd.","url":"https://jpinv.com/"}}</script>
+</head>
 <body>
-<main id="main-content" class="curriculum" tabindex="-1">
-<div class="wrap crumbs">
-  <a href="/">JII</a> <span class="sep">/</span>
-  <a href="/governance/">IR研修</a> <span class="sep">/</span>
-  <a href="/governance/cg-code/">コードの時代</a> <span class="sep">/</span>
-  記事 2.5
-</div>
-<header class="post-header">
-  <div class="wrap">
-    <div class="post-header-inner">
-      <div class="post-eyebrow">テーマ 2 · 記事 2.5</div>
-      <h1 class="post-title">コード vs 指針 ― 経済産業省の体系</h1>
-      <p class="post-summary">経済産業省のCGS、GGS、公正M&amp;A、そして2023年の企業買収行動指針 ― これら4つの指針群は、金融庁・東証のコーポレートガバナンス・コードと並行する運用解釈レイヤーである。Comply-or-Explainの対象ではないが、議決権行使助言会社、対話投資家、D&amp;O保険会社は権威ある参照基準として扱う。</p>
-      <div class="post-meta">
-        <span>テーマ: <strong>コードの時代</strong></span>
-        <span>読了目安: <strong>11 分</strong></span>
-        <span>更新: <strong>2026-05-18</strong></span>
-      </div>
-    </div>
-  </div>
-</header>
-<section class="post-body">
-  <div class="wrap">
-    <article class="post-content">
-<blockquote>
-<p><strong>要点</strong>
-- <strong>コーポレートガバナンス・コード</strong>は金融庁・東証のルールブック。<strong>CGS、GGS、公正M&amp;A、企業買収行動指針</strong>は経産省の並行的・非拘束的な解釈レイヤーである。
-- 経産省指針は<strong>Comply-or-Explainの一部ではない</strong>。ただし日本のD&amp;O保険会社、議決権行使助言会社、スチュワードシップ責任を負う投資家は、これらを取締役の善管注意義務に関する基準解釈として扱う。
-- コードと指針が同じ論点を扱う場合、コードが開示の床を、指針が手続上の詳細を定める。一部の論点 ― 上場子会社ガバナンス、MBO、敵対的買収 ― では、経産省指針こそが運用上の主役である。</p>
+  <a class="gov-skip" href="#main-content">本文へ移動</a>
+  <main id="main-content" class="governance-page" tabindex="-1">
+    <nav class="gov-wrap gov-crumbs" aria-label="パンくず"><a href="/">ホーム</a><span class="sep">/</span><a href="/governance/">ガバナンス改革講座</a><span class="sep">/</span><a href="/governance/cg-code/">コードの時代</a><span class="sep">/</span><span aria-current="page">記事 2.5</span></nav>
+    <header class="post-header"><div class="gov-wrap"><div class="post-header-inner"><span class="post-eyebrow">テーマ 2 · 記事 2.5</span><h1 class="post-title">コードと指針――役割の違いと読み分け方</h1><p class="post-summary">コーポレートガバナンス・コードと経済産業省の実務指針は、同じガバナンス課題を扱いながら、役割が異なる。コードは上場会社に求める原則と開示を示し、コンプライ・オア・エクスプレインで運用される。一方、CGSガイドライン、グループガイドライン、公正M&amp;A指針、企業買収における行動指針は、取締役会や特別委員会が実際にどのような手続を踏むべきかを具体化する。本稿では、両者の違いと、論点に応じた使い分けを整理する。</p><div class="post-meta"><span>テーマ: <strong>コードの時代</strong></span><span>読了目安: <strong>13分</strong></span><span>更新: <strong>2026-08-30</strong></span></div></div></div></header>
+    <section class="post-body"><div class="gov-wrap"><article class="post-content"><blockquote>
+<p><strong>要点</strong></p>
+<ul>
+<li><strong>コーポレートガバナンス・コード</strong>は、上場会社に求める原則と開示の枠組みを示す。これに対し、経済産業省の各種指針は、取締役会や委員会が実務で検討すべき手順と着眼点を詳しく示す。</li>
+<li>経済産業省の指針は、原則として<strong>コンプライ・オア・エクスプレインの対象ではなく、法的拘束力も持たない</strong>。それでも、会社、投資家、議決権行使助言会社、法律・財務アドバイザーが共通の参照資料として用いるため、実務上の影響は大きい。</li>
+<li>後継者計画ではCGSガイドライン、上場子会社ではグループガイドライン、MBOや支配株主による買収では公正M&amp;A指針、未承諾買収では企業買収における行動指針が、コードを補う中心資料となる。</li>
+</ul>
 </blockquote>
-<h2>二つの規制官庁、一つのガバナンス体系</h2>
-<p>日本のガバナンス領域には規制官庁が2つあり、それぞれ異なるレジスターで語る。</p>
-<p><strong>金融庁(FSA)</strong>は<strong>東京証券取引所</strong>と協力して<strong>コーポレートガバナンス・コード</strong>と<strong>スチュワードシップ・コード</strong>を所管する。両コードは、項目ごとのComply-or-Explainを通じて運用されるソフトロー2点セットで、対象は上場会社と機関投資家である。開示の媒体は、東証の上場契約に基づき提出される<strong>コーポレートガバナンス報告書</strong>である。</p>
-<p>これに対し<strong>経済産業省(METI)</strong>は、<strong>実務指針</strong>(Practical Guidelines)群を所管する。経産省の対象はより広く、上場・非上場を問わず日本の事業会社全般である。これらは研究会の報告書として公表され、Comply-or-Explainの義務を負わない。しかし経産省指針は、コードがやらないことをやる ― すなわち、<strong>原則を手続上の詳細に翻訳する</strong>。CEO後継者計画の進め方、MBOの特別委員会の構成方法、親会社取締役会が子会社の上場維持の是非をどう審議すべきか ― これらを指針が教える。</p>
+<h2 id="section-1">コード、会社法、実務指針は何が違うのか</h2>
+<p>日本のガバナンス制度は、一つの文書だけで完結していない。少なくとも、次の三つを分けて読む必要がある。</p>
+<p><strong>第一は会社法である。</strong> 取締役の義務、会社の機関設計、株主総会、組織再編など、会社運営の法的な土台を定める。所管は法務省であり、違反には法的な責任が伴い得る。</p>
+<p><strong>第二は金融庁・東京証券取引所のコードである。</strong> コーポレートガバナンス・コードは上場会社に、スチュワードシップ・コードは機関投資家に、それぞれ期待される行動原則を示す。上場会社は、適用される原則について、実施しているか、実施していない場合はその理由を説明する。会社側の主な開示媒体は<strong>コーポレート・ガバナンスに関する報告書</strong>である。</p>
+<p><strong>第三が経済産業省の実務指針である。</strong> 指針は、コードの原則を機械的に言い換えるものではない。取締役会の構成やCEOの後継者計画、上場子会社の利益相反、MBO、未承諾買収といった場面で、どのような論点を、どのような順序で検討すべきかを掘り下げる。法令でも上場規則でもないが、手続の公正性や取締役会の判断過程を説明する際の共通言語として定着している。</p>
 <blockquote>
-<p><strong>コラム ― なぜ規制官庁が2つあるのか</strong>
-この機能分担は、法的アーキテクチャを反映している。コードは<strong>上場会社の開示</strong>を規律するものであり、これは金融商品取引法と東証上場契約のもとで金融庁の所管領域である。経産省指針は<strong>取締役会の行動とガバナンス設計</strong>を扱い、これは会社法に近く(管轄上は法務省)、伝統的に政策形成のリードは経産省が担ってきた。結果として、開示は金融庁・東証、経営プロセスは経産省、という二系統が意図的に並走する形になっている。</p>
+<p><strong>コラム――「所管官庁が二つある」と単純化しない</strong>
+ガバナンスを「金融庁対経済産業省」とだけ捉えると、全体像を誤る。会社法を所管する法務省、上場規則を運用する東京証券取引所、投資家側の規律を担う金融庁、企業経営やM&amp;Aの実務指針を策定する経済産業省が、それぞれ異なる役割を担っている。実務では、法的な最低線を会社法で確認し、開示上の期待をコードで押さえ、具体的な進め方を実務指針で補う、という読み方が基本になる。</p>
 </blockquote>
-<h2>4つの経産省指針群</h2>
-<div class="mermaid-wrap"><pre class="mermaid">flowchart LR
-    METI[&quot;経産省 実務指針&lt;br/&gt;(非拘束、Comply-or-Explain対象外)&quot;]
-    CGS[&quot;&lt;b&gt;CGS指針&lt;/b&gt;&lt;br/&gt;2017 / 2018 / 2022&lt;br/&gt;取締役会設計、&lt;br/&gt;指名、報酬、&lt;br/&gt;CEO後継者計画&quot;]
-    GGS[&quot;&lt;b&gt;GGS指針&lt;/b&gt;&lt;br/&gt;2019&lt;br/&gt;グループガバナンス、&lt;br/&gt;上場子会社、&lt;br/&gt;親会社取締役会の責務&quot;]
-    FairM[&quot;&lt;b&gt;公正M&amp;A指針&lt;/b&gt;&lt;br/&gt;2019&lt;br/&gt;MBOおよび&lt;br/&gt;支配株主による&lt;br/&gt;買収&quot;]
-    Take[&quot;&lt;b&gt;企業買収における&lt;br/&gt;行動指針&lt;/b&gt;&lt;br/&gt;2023&lt;br/&gt;(2005/2008年の&lt;br/&gt;買収防衛指針を承継)&quot;]
+<h2 id="section-2">経済産業省が公表する四つの主要指針</h2>
+<pre class="mermaid" role="img" aria-label="本文内の制度図">flowchart LR
+    METI[&quot;経済産業省の実務指針&lt;br/&gt;法的拘束力なし&lt;br/&gt;コンプライ・オア・エクスプレイン対象外&quot;]
+    CGS[&quot;&lt;b&gt;CGSガイドライン&lt;/b&gt;&lt;br/&gt;2017 / 2018 / 2022&lt;br/&gt;取締役会、指名、報酬、&lt;br/&gt;CEO後継者計画&quot;]
+    GGS[&quot;&lt;b&gt;グループガイドライン&lt;/b&gt;&lt;br/&gt;2019&lt;br/&gt;グループ経営、上場子会社、&lt;br/&gt;利益相反管理&quot;]
+    FairM[&quot;&lt;b&gt;公正M&amp;A指針&lt;/b&gt;&lt;br/&gt;2019&lt;br/&gt;MBO、支配株主による買収、&lt;br/&gt;公正性担保措置&quot;]
+    Take[&quot;&lt;b&gt;企業買収における行動指針&lt;/b&gt;&lt;br/&gt;2023&lt;br/&gt;経営支配権を取得する買収、&lt;br/&gt;取締役会の対応&quot;]
     METI --&gt; CGS
     METI --&gt; GGS
     METI --&gt; FairM
-    METI --&gt; Take</pre></div>
+    METI --&gt; Take</pre>
 
-<h3>1. CGS指針(コーポレート・ガバナンス・システムに関する実務指針)</h3>
-<p><strong>2017年3月</strong>に経産省の<strong>コーポレート・ガバナンス・システム(CGS)研究会</strong>が初版を公表。2018年9月に改訂され、<strong>2022年7月</strong>に再度改訂された。CGS指針は、取締役会の構成、指名、報酬、社外取締役の役割を、チェックリストとしてではなく<strong>ガバナンス・システム</strong>としてとらえる枠組みである。2018年改訂は同年のコード改訂を統合し、CEO後継者計画への言及を充実させた。2022年改訂では、指名・報酬・後継者計画に関する付属書類が独立した文書 ― <strong>『指名委員会・報酬委員会・後継者計画(指針)』</strong> ― として切り出され、CGS指針本体は<strong>業務執行機能と監督機能の相乗的強化</strong>を軸に再構成された(従来の「監督機能のみ」に偏らない構成)。</p>
-<h3>2. GGS指針(グループ・ガバナンス・システムに関する実務指針)</h3>
-<p><strong>2019年6月28日</strong>公表。子会社を傘下に置く上場会社向けである。グループ設計(集権型対分権型)、子会社全般への内部統制の展開、<strong>上場子会社</strong>のガバナンス(特別委員会、利益相反管理)、そして親会社取締役会が<strong>「子会社の上場維持の最適性を継続的に検討する」</strong>義務について、詳細に踏み込む。最後の点が、日本の伝統的な親子上場構造に対する規制上の主たる「ナッジ」であり、2020年以降のほぼすべての主要な上場子会社の非公開化案件で引用されてきた。</p>
-<h3>3. 公正M&amp;A指針</h3>
-<p><strong>2019年6月28日</strong>公表(英文版は同年9月20日)。経産省の<strong>2007年MBO指針</strong>を全面改訂し、適用範囲を上場会社のMBOから、<strong>支配株主</strong>による被支配上場子会社の買収にまで拡張した。核となるのは ― 独立性のある者で構成される<strong>特別委員会</strong>の設置、<strong>マーケットチェック</strong>、<strong>マジョリティ・オブ・マイノリティ</strong>による承認(推奨)、フェアネス・オピニオンの完全開示。文書は非拘束だが、特別委員会の枠組みは実質的に市場慣行として定着しており、D&amp;O保険会社や議決権行使助言会社は、その不在をMBOや関連当事者取引案件の赤旗として扱う。</p>
-<h3>4. 企業買収における行動指針</h3>
-<p><strong>2023年8月</strong>公表。<strong>2005年の買収防衛指針</strong>(経産省・法務省共同発出)と<strong>2008年6月の企業価値研究会報告書</strong>を承継するものである。2023年版は、過去20年で最も重要な買収政策の再構成であり、<strong>真摯な敵対的買収</strong>と買収対象会社取締役会の責務を扱う。「敵対的買収は推定として有害である」という前提を明示的に取り除いた。2005/2008年の旧指針は事前の買収防衛策(ポイズンピル)に焦点を当てていたが、2023年版は、未承諾の買収提案に直面した<strong>買収対象会社取締役会の責務</strong>に焦点を当てる。Theme 5.4で詳述する。</p>
-<h2>コード対指針の比較表</h2>
-<p>主要な4つのガバナンス論点について、コードが何を言っているか、対応する経産省指針が何を加えているかを、下表で比べる。</p>
+<h3 id="section-3">1. CGSガイドライン</h3>
+<p>正式名称は<strong>『コーポレート・ガバナンス・システムに関する実務指針』</strong>である。初版は2017年3月に公表され、2018年9月と2022年7月に改訂された。</p>
+<p>この指針が扱うのは、取締役会の役割、業務執行と監督の分担、社外取締役の活用、指名・報酬の仕組み、CEOの選解任と後継者計画などである。コードが「取締役会は後継者計画を適切に監督すべきである」と原則を示すのに対し、CGSガイドラインは、候補者像の設定、候補者育成、指名委員会の関与、現CEOとの役割分担といった実務上の論点まで踏み込む。</p>
+<p>2022年改訂では、指名・報酬・後継者計画に関する部分が、<strong>『指名委員会・報酬委員会及び後継者計画活用に関する指針―コーポレート・ガバナンス・システムに関する実務指針（CGSガイドライン）別冊―』</strong>として整理された。取締役会の監督機能だけでなく、経営陣による適切なリスクテイクと執行力を同時に高める視点が、改訂版の軸になっている。</p>
+<h3 id="section-4">2. グループガイドライン</h3>
+<p>正式名称は<strong>『グループ・ガバナンス・システムに関する実務指針』</strong>で、2019年6月28日に公表された。企業グループ全体の設計、親会社と子会社の権限配分、内部統制、事業ポートフォリオ管理、上場子会社における利益相反などを扱う。</p>
+<p>とりわけ重要なのが、上場子会社を持つ親会社に対し、<strong>子会社を上場したままにすることがグループ全体と子会社の少数株主の双方にとって妥当かを、継続的に検討するよう促している点</strong>である。上場子会社側についても、独立社外取締役や特別委員会を活用し、親会社との取引や組織再編に伴う利益相反を管理することを求めている。</p>
+<p>これは「親子上場を一律に解消せよ」という指針ではない。上場を維持するなら、その理由と便益を説明し、少数株主保護の仕組みを整える必要がある、という考え方である。</p>
+<h3 id="section-5">3. 公正M&amp;A指針</h3>
+<p>正式名称は<strong>『公正なM&amp;Aの在り方に関する指針―企業価値の向上と株主利益の確保に向けて―』</strong>で、2019年6月28日に公表された。2007年のMBO指針を全面的に見直し、MBOに加えて、支配株主が上場子会社を買収する取引も主な対象とした。</p>
+<p>こうした取引では、買い手と対象会社の経営陣、または支配株主と一般株主の間に構造的な利益相反が生じる。指針は、その影響を抑えるための公正性担保措置として、次のような手段を示している。</p>
+<ul>
+<li>独立性のある特別委員会の設置</li>
+<li>外部専門家からの助言や価値算定書、必要に応じたフェアネス・オピニオンの取得</li>
+<li>買収者以外の提案機会を確保するマーケット・チェック</li>
+<li>取引条件や交渉過程に関する充実した情報開示</li>
+<li>取引の性質に応じたマジョリティ・オブ・マイノリティ条件の検討</li>
+</ul>
+<p>これらは、すべての案件で同じように採用すべき一律のチェックリストではない。取引の利益相反の程度や市場環境に応じて、どの措置を組み合わせれば公正な手続を確保できるかを判断するための枠組みである。</p>
+<h3 id="section-6">4. 企業買収における行動指針</h3>
+<p><strong>『企業買収における行動指針』</strong>は2023年8月31日に公表された。対象は、上場会社の経営支配権を取得する買収である。2005年の買収防衛策に関する指針や2008年の企業価値研究会報告書を踏まえつつ、議論の中心を事前の防衛策から、買収提案を受けた取締役会の判断過程へ移した。</p>
+<p>指針が重視するのは、<strong>企業価値・株主共同の利益の確保または向上</strong>、<strong>株主意思の尊重</strong>、<strong>透明性の確保</strong>という三つの原則である。対象会社の取締役会には、企業価値を高める可能性のある真摯な買収提案を恣意的に退けず、必要な情報を集め、他の選択肢と比較しながら真摯に検討することが求められる。</p>
+<p>したがって、指針の転換点は「敵対的買収を歓迎した」ことではない。未承諾であるというだけで提案を不適切と決めつけず、提案内容、買収後の経営方針、価格、実現可能性などを具体的に評価するよう求めた点にある。</p>
+<p>2026年7月には、経済産業省が同指針の<strong>ポイント、Q&amp;A、解釈文書</strong>を公表し、買収提案の受領から検討、競合提案の扱い、情報開示までの実務上の考え方を補足した。</p>
+<h2 id="section-7">コードと指針を論点別に比較する</h2>
 <table>
 <thead>
 <tr>
 <th>論点</th>
-<th>コードが言うこと</th>
-<th>経産省指針が言うこと</th>
+<th>コーポレートガバナンス・コード</th>
+<th>経済産業省の指針が補う内容</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><strong>CEO後継者計画</strong></td>
-<td>補充原則4.1.3(2018年版)― 取締役会はCEOおよびその他経営陣幹部の後継者計画を監督し、候補者が育成されることを担保し、CEOの望ましいプロファイルを経営戦略と整合させるべきである。Comply-or-Explainの1段落分。</td>
-<td><strong>CGS指針(2018年・2022年)</strong>および独立した<strong>『指名委員会・報酬委員会・後継者計画(指針)』</strong>(2022年):複数ページにわたる運用テンプレート ― 5〜10年スパンの後継者計画、取締役会レベルの検討頻度、指名委員会の役割、外部サーチ会社の活用、内部候補と外部候補の扱い、現CEOと委員会の間の透明性。</td>
+<td>補充原則4.1.3は、取締役会がCEOなどの後継者計画を適切に監督し、候補者の育成に十分な時間と資源が充てられるよう関与することを求める。</td>
+<td><strong>CGSガイドライン</strong>と2022年の別冊が、候補者像の設定、候補者群の形成、育成、評価、指名委員会の役割、現CEOとの分担などを具体化する。</td>
 </tr>
 <tr>
-<td><strong>上場子会社ガバナンス</strong></td>
-<td>原則4.8+補充原則4.8.3(2021年版)― 支配株主のいる会社は、独立社外取締役を3分の1以上選任し、少数株主保護のための措置を講じるべき。コードはすべての上場会社に対称的に適用するため、論点への取り扱いは間接的。</td>
-<td><strong>GGS指針(2019年)</strong>:親会社取締役会に対し、<strong>子会社の上場維持の最適性を検討する</strong>義務を明示。あわせて、上場子会社自身の特別委員会の構成、関連当事者取引に関する利益相反管理プロセス、親会社の保有目的の開示について詳細な期待を定める。</td>
+<td><strong>上場子会社のガバナンス</strong></td>
+<td>2021年版の補充原則4.8.3は、支配株主を有する会社に、独立社外取締役の割合を高めるか、独立した特別委員会を設置することを求める。</td>
+<td><strong>グループガイドライン</strong>が、親会社による上場維持の合理性の検討、親子間取引の管理、子会社取締役会・特別委員会の役割、少数株主保護を詳しく示す。</td>
 </tr>
 <tr>
-<td><strong>MBOおよび支配株主による買収</strong></td>
-<td>コードはトランザクショナルなM&amp;Aには触れない。政策保有株式と関連当事者取引は対象(原則1.4、1.7)だが、MBOや支配株主買収のプロセスは対象外。</td>
-<td><strong>公正M&amp;A指針(2019年)</strong>:詳細な手続テンプレート ― 独立の<strong>特別委員会</strong>、<strong>マーケットチェック</strong>(通常はゴーショップまたは契約締結前打診)、<strong>マジョリティ・オブ・マイノリティ</strong>による承認(推奨)、フェアネス・オピニオンの開示、経営陣の利益相反の扱い。非拘束ながら、事実上の手続標準。</td>
+<td><strong>MBO・支配株主による買収</strong></td>
+<td>原則1.7は関連当事者間取引の管理を扱うが、MBOや支配株主による買収の手続を網羅的には定めていない。</td>
+<td><strong>公正M&amp;A指針</strong>が、特別委員会、外部助言、価値算定、マーケット・チェック、情報開示など、公正性を確保するための措置を整理する。</td>
 </tr>
 <tr>
-<td><strong>敵対的・未承諾の買収</strong></td>
-<td>原則1.5(買収防衛策)― ポイズンピル等の防衛策は明確な開示と取締役会の判断、株主利益の考慮に服するべき。手続上の詳細は薄い。</td>
-<td><strong>企業買収における行動指針(2023年)</strong>:未承諾かつ真摯な買収提案を受けた買収対象会社取締役会の責務 ― 提案を検討する義務、合理的条件のもとで買収者に情報を提供する義務、買収対象会社取締役会に助言するための<strong>独立の特別委員会</strong>の設置への期待、「真の拒絶」は企業価値の観点から正当化される場合に限る。「敵対的=有害」という推定を明示的に取り除いている。</td>
+<td><strong>未承諾買収・買収防衛策</strong></td>
+<td>原則1.5は、買収防衛策の導入・運用について、必要性・合理性の説明と株主の権利への配慮を求める。</td>
+<td><strong>企業買収における行動指針</strong>が、真摯な買収提案を受けた取締役会の検討、株主への情報提供、対抗提案、防衛策の在り方を、三原則に沿って整理する。</td>
 </tr>
-</tbody>
-</table>
-<h2>二層がどう噛み合うか</h2>
-<p>実務では4つのパターンが繰り返し現れる。</p>
+</tbody></table>
+<h2 id="section-8">実務ではどう読み合わせるか</h2>
+<p>実務では、次の順序で読むと整理しやすい。</p>
 <ol>
-<li><strong>コードが床を、指針が手続を定める。</strong> CEO後継者計画について、コードは「やれ」と言い、CGS指針は「こう進めろ」と教える。</li>
-<li><strong>コードが沈黙している場面では、指針が主役。</strong> MBOや上場子会社の非公開化について、コードは触れない。公正M&amp;A指針が実質的にプロセスを支配する。</li>
-<li><strong>スチュワードシップ投資家は両者を併引する。</strong> 対話レターでは、コードの原則と経産省指針の該当箇所を併記するのが通例である。ISSとGlass Lewisの方針ベンチマークも、両者を参照している。</li>
-<li><strong>D&amp;O保険会社は両者を善管注意義務の基準として扱う。</strong> MBOプロセスや上場子会社買収を巡って取締役会が訴えられた場合、裁判所(および保険会社)が当てはめる手続テストは公正M&amp;A指針および指針の枠組みである ― 文書は非拘束であっても、である。</li>
+<li><strong>まず法令を確認する。</strong> 取締役の権限、株主総会決議、組織再編、公開買付けなど、法的に必要な手続を押さえる。</li>
+<li><strong>次にコードを確認する。</strong> 自社に適用される原則と、コーポレート・ガバナンス報告書で説明すべき事項を確認する。</li>
+<li><strong>そのうえで該当する実務指針を読む。</strong> 取締役会や特別委員会がどの論点を検討し、判断過程をどう記録・開示すべきかを具体化する。</li>
+<li><strong>案件固有の事情に合わせて組み合わせる。</strong> 指針を形式的にすべて採用するのではなく、利益相反の大きさ、株主構成、取引の緊急性、代替提案の可能性などに応じて必要な措置を選ぶ。</li>
 </ol>
 <blockquote>
-<p><strong>コラム ― 「非拘束」は誤解を招く</strong>
-経産省指針に法的制裁は伴わない。しかし、制裁がないことは結果がないことを意味しない。(i)議決権行使助言会社の方針が指針を引用すること、(ii)D&amp;O保険会社のリスクプライシングがそれを参照すること、(iii)コーポレート世論の法廷(court of corporate opinion)がそれを手続ベンチマークとして扱うこと ― この3つが合わさると、現実世界の効力としては、コードのComply-or-Explainの仕組みでは届かない領域まで指針が届く。コードは説明すれば済む。公正M&amp;A指針からの逸脱は容易に「説明」できない ― それは手続的失敗と読まれる。</p>
+<p><strong>コラム――「法的拘束力がない」は「無視してよい」という意味ではない</strong>
+実務指針への不適合だけで直ちに法令違反や上場規則違反になるわけではない。一方、指針が示す公正性担保措置を採らなかった場合には、なぜ別の手続で十分な公正性を確保できると判断したのかを、取締役会や特別委員会が説明する必要が生じる。指針の効力は制裁ではなく、判断過程を比較・評価するための共通基準から生まれる。</p>
 </blockquote>
-<h2>引用に値する指針の文言</h2>
-<p>GGS指針の上場子会社に関する一節。</p>
-<blockquote>
-<p><em>「親会社は、グループ戦略および上場子会社の少数株主の保護という観点から、上場子会社を維持することが最適であるか否かを定期的に検討すべきである。」</em>
-― 経済産業省『グループ・ガバナンス・システムに関する実務指針』(2019年6月)</p>
-</blockquote>
-<p>公正M&amp;A指針の特別委員会に関する一節。</p>
-<blockquote>
-<p><em>「対象会社の経営陣と一般株主との間に構造的な利益相反が存在するM&amp;A取引においては、独立社外取締役および社外有識者で構成される特別委員会を設置することが、手続的公正性を確保するための基本的な措置である。」</em>
-― 経済産業省『公正なM&amp;Aの在り方に関する指針』(2019年6月)</p>
-</blockquote>
-<h2>2023年以降の新文書群</h2>
-<p>これら4本の中核指針に加え、最近では2つの経産省文書が並んで存在感を増している。<strong>企業買収における行動指針(2023年8月)</strong>については先に述べたとおり。経産省はまた、政策保有株式、<strong>PEファンド等によるMBO</strong>、そして金融庁の『アクション・プログラム』(Theme 4.5で扱う)と歩調を合わせた<strong>取締役会主導の資本効率</strong>に関する研究会報告書を出している。IR担当の実務上の読書リストは、4つの中核指針群を超えて、<strong>企業価値研究会</strong>および<strong>CGS研究会</strong>の報告書シリーズへと広がる。両者とも経産省コーポレートガバナンスのページで公開されている。</p>
-<h2>IR実務への含意</h2>
+<h2 id="section-9">一次資料を読む際の着眼点</h2>
+<p>グループガイドラインを読むときは、「上場子会社を残すか、非公開化するか」という結論だけを探すのではなく、親会社が上場を維持する合理性をどの頻度で検討し、子会社の独立した意思決定をどう確保するよう求めているかを見る。</p>
+<p>公正M&amp;A指針では、特別委員会の有無だけでなく、<strong>いつ設置されたか、委員が独立しているか、交渉に実質的に関与したか、必要な情報と助言を得たか</strong>が重要である。形式的に委員会を置くだけでは、手続の公正性は確保できない。</p>
+<p>企業買収における行動指針では、提案が「友好的」か「敵対的」かより、取締役会が株主に代わって結論を先取りしていないか、必要な比較材料を株主に示しているかを読む。2026年のポイント・Q&amp;Aは、抽象的な三原則を案件実務に落とし込む際の補助資料として有用である。</p>
+<h2 id="section-10">IR実務への含意</h2>
 <ol>
-<li><strong>コードと指針、両方の読書リストを持つ。</strong> コードだけでは足りない。経産省指針は、対話と訴訟が最も集まる論点 ― CEO後継者計画、上場子会社、MBO、敵対的買収 ― について、手続の実際の床がどこにあるかを教える。</li>
-<li><strong>関連当事者取引の場面では、まず公正M&amp;A指針を読む。</strong> 自社がMBO、支配株主による買収、または変容的な関連当事者取引の対象となり得る場合、議決権行使助言会社、アクティビスト、コーポレート世論があなたをベンチマークするのは公正M&amp;A指針の手続テンプレートである。</li>
-<li><strong>親会社・上場子会社の関係があるなら、GGS指針は必読。</strong> 「上場維持の最適性を検討する」義務は、2023年から2026年にかけての上場子会社の非公開化の波で、規制側として最も頻繁に引用される一行である。</li>
-<li><strong>経産省研究会の報告書を、金融庁のアクション・プログラムと並行して追う。</strong> 金融庁フォローアップ会議と経産省研究会は連動して動いている。両者を並行して読めば、次のコード改訂が何を扱うかを1年先取りで把握できる。</li>
-<li><strong>投資家との対話では、コードの条項を先に、指針の該当箇所を後に引用する。</strong> 投資家はこのパターンを期待している。コードは開示の錨であり、指針はプロセスの錨である。両方を引用することは、日本のガバナンス体系における手続的流暢さのシグナルになる。</li>
+<li><strong>コードだけでなく、案件ごとの指針を読める状態にする。</strong> 後継者計画、上場子会社、MBO、未承諾買収では、コードだけでは取締役会が必要とする手続情報が足りない。</li>
+<li><strong>MBOや支配株主による買収では、公正M&amp;A指針を案件初期から参照する。</strong> 特別委員会を後付けで設置しても、交渉過程の独立性は取り戻せない。IRも、開示の直前ではなく、手続設計の段階から関与する必要がある。</li>
+<li><strong>親子上場を維持する会社は、上場の便益を具体的に説明する。</strong> 「知名度」や「採用力」といった一般論だけでなく、親会社・子会社・少数株主それぞれにどのような便益があるかを示す。</li>
+<li><strong>指針から外れる場合は、代替手続を説明する。</strong> 非拘束であることを理由に説明を省くのではなく、案件固有の事情と、別の手段で公正性を確保した理由を開示する。</li>
+<li><strong>研究会資料まで追う。</strong> 指針の改訂前には、経済産業省の研究会で論点が整理される。議事要旨、事務局資料、委員意見を読むと、次の制度変更と市場の関心を早めに把握できる。</li>
 </ol>
-<h2>出典・参考資料</h2>
+<h2 id="section-11">出典・参考資料</h2>
 <ul>
-<li>経済産業省 ― コーポレート・ガバナンス・システム: https://www.meti.go.jp/policy/economy/keiei_innovation/keizaihousei/corporategovernance.html</li>
-<li>経済産業省 ― CGS指針の改訂について(2022年7月): https://www.meti.go.jp/press/2022/07/20220719003/20220719003.html</li>
-<li>経済産業省 ― CGS研究会報告書(2018年): https://www.meti.go.jp/press/2018/05/20180518002/20180518002.html</li>
-<li>経済産業省 ― 公正M&amp;A指針(2019年): https://www.meti.go.jp/policy/economy/keiei_innovation/keizaihousei/pdf/fairma-guidelines.pdf</li>
-<li>経済産業省 ― 企業買収における行動指針(2023年8月): https://www.meti.go.jp/press/2023/08/20230831004/20230831004.html</li>
-<li>経済産業省 ― 企業価値・株主共同の利益の確保又は向上のための買収防衛策に関する指針(2005年): https://www.meti.go.jp/policy/economy/keiei_innovation/keizaihousei/pdf/shishin_hontai.pdf</li>
-<li>経済産業省 ― 近時の諸環境の変化を踏まえた買収防衛策の在り方(2008年6月): https://www.meti.go.jp/policy/economy/keiei_innovation/keizaihousei/pdf/080630TakeoverDefenseMeasures.pdf</li>
+<li>経済産業省「コーポレートガバナンスに関する各種ガイドラインについて」: <a href="https://www.meti.go.jp/policy/economy/keiei_innovation/keizaihousei/corporategovernance/guideline.html">https://www.meti.go.jp/policy/economy/keiei_innovation/keizaihousei/corporategovernance/guideline.html</a></li>
+<li>経済産業省「コーポレート・ガバナンス・システムに関する実務指針（CGSガイドライン）の改訂について」(2022年7月): <a href="https://www.meti.go.jp/press/2022/07/20220719003/20220719003.html">https://www.meti.go.jp/press/2022/07/20220719003/20220719003.html</a></li>
+<li>経済産業省「CGS研究会（第2期）報告書」の公表について(2018年5月): <a href="https://www.meti.go.jp/press/2018/05/20180518002/20180518002.html">https://www.meti.go.jp/press/2018/05/20180518002/20180518002.html</a></li>
+<li>経済産業省「M&amp;Aに関する各種ガイドライン及び出版物」: <a href="https://www.meti.go.jp/policy/economy/keiei_innovation/keizaihousei/fair-ma-rule/ma-guideline-publications.html">https://www.meti.go.jp/policy/economy/keiei_innovation/keizaihousei/fair-ma-rule/ma-guideline-publications.html</a></li>
+<li>経済産業省『公正なM&amp;Aの在り方に関する指針―企業価値の向上と株主利益の確保に向けて―』(2019年): <a href="https://www.meti.go.jp/policy/economy/keiei_innovation/keizaihousei/pdf/fairma-guidelines.pdf">https://www.meti.go.jp/policy/economy/keiei_innovation/keizaihousei/pdf/fairma-guidelines.pdf</a></li>
+<li>経済産業省「『企業買収における行動指針』を策定しました」(2023年8月31日): <a href="https://www.meti.go.jp/press/2023/08/20230831003/20230831003.html">https://www.meti.go.jp/press/2023/08/20230831003/20230831003.html</a></li>
+<li>経済産業省「『企業買収における行動指針』のポイント・Q&amp;A等を策定しました」(2026年7月30日): <a href="https://www.meti.go.jp/press/2026/07/20260730002.html">https://www.meti.go.jp/press/2026/07/20260730002.html</a></li>
+<li>経済産業省・法務省『企業価値・株主共同の利益の確保又は向上のための買収防衛策に関する指針』(2005年): <a href="https://www.meti.go.jp/policy/economy/keiei_innovation/keizaihousei/pdf/shishin_hontai.pdf">https://www.meti.go.jp/policy/economy/keiei_innovation/keizaihousei/pdf/shishin_hontai.pdf</a></li>
+<li>経済産業省『近時の諸環境の変化を踏まえた買収防衛策の在り方』(2008年6月): <a href="https://www.meti.go.jp/policy/economy/keiei_innovation/keizaihousei/pdf/080630TakeoverDefenseMeasures.pdf">https://www.meti.go.jp/policy/economy/keiei_innovation/keizaihousei/pdf/080630TakeoverDefenseMeasures.pdf</a></li>
 </ul>
-<h2>関連記事</h2>
-<p><strong>本テーマの次の記事:</strong> Theme 2は完結。Theme 3 ― 『市場区分再編 ― 舞台が整う』へ。</p>
-<p><strong>他テーマの関連記事:</strong>
-- 1.4 ― <a href="/governance/">車の両輪 ― スチュワードシップ・コード(2014/2017/2020/2025)</a>(コードの金融庁側カウンターパート)
-- 5.3 ― <a href="/governance/">豊田自動織機案件は、ケイレツの終わりを一案件で象徴する</a>(GGS指針のテンプレートが最も結果論的に適用された案件)
-- 5.4 ― <a href="/governance/">『敵対的』はもはや侮蔑語ではない ― 経産省2023年企業買収行動指針</a>(2023年買収行動指針の詳説)
-</p>
-    </article>
-    <div class="post-nav"><a href="/governance/cg-code/2.4-reading-a-cg-report/" class="post-nav-link prev"><div class="post-nav-dir">← 前の記事</div><div class="post-nav-title">コーポレートガバナンス報告書を15分で読む方法</div></a><a href="/governance/" class="post-nav-link next"><div class="post-nav-dir">カリキュラム一覧 →</div><div class="post-nav-title">全27記事に戻る</div></a></div>
-    <div style="max-width: var(--measure); margin: 32px auto 0; padding-top: 24px; border-top: 1px solid var(--rule); font-size: 0.82rem; color: var(--text-dim); text-align:right;">
-      <a href="/en/governance/cg-code/2.5-meti-guideline-family/" style="color: var(--ink-soft);">English version →</a>
-    </div>
-  </div>
-</section>
-</main>
-<style>footer{background:var(--ink,#1a2a4a);color:#cfd6e2;padding:48px 0 30px;font-size:0.8rem;line-height:1.8;border-top:none}footer a{color:#cfd6e2;text-decoration:none}footer .footer-row{list-style:none;display:flex;flex-wrap:wrap;gap:8px 26px;margin:0 0 26px;padding:0}footer .footer-row li{padding:0}footer .footer-row a{color:#cfd6e2;text-decoration:none;font-size:0.8rem}footer .footer-bottom{padding-top:24px;border-top:1px solid rgba(255,255,255,0.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-family:var(--mono),monospace;font-size:0.68rem;letter-spacing:0.06em;color:rgba(255,255,255,0.55)}</style><script>
-const nav = document.getElementById('main-nav');
-if (nav) window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
-const hamburgerBtn = document.querySelector('.hamburger');
-function setMenuOpen(isOpen) { const menu = document.getElementById('mobileMenu'); if (!menu || !hamburgerBtn) return; menu.classList.toggle('open', isOpen); menu.hidden = !isOpen; hamburgerBtn.setAttribute('aria-expanded', String(isOpen)); }
-function toggleMenu() { const menu = document.getElementById('mobileMenu'); setMenuOpen(!(menu && menu.classList.contains('open'))); }
-document.addEventListener('click', (e) => { const menu = document.getElementById('mobileMenu'); if (menu && menu.classList.contains('open') && !menu.contains(e.target) && hamburgerBtn && !hamburgerBtn.contains(e.target)) setMenuOpen(false); });
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenuOpen(false); });
-</script>
-<script type="module">
-import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs';
-mermaid.initialize({ startOnLoad: true, theme: 'neutral', fontFamily: 'Noto Sans JP, Hiragino Kaku Gothic ProN, sans-serif', themeVariables: { primaryColor: '#f4eee4', primaryTextColor: '#1a2a4a', primaryBorderColor: '#9a7838', lineColor: '#304466', secondaryColor: '#f5f7fa', tertiaryColor: '#fafbfc' } });
-</script>
-<script src="/assets/nav.js?v=348fa48c4e" defer></script>
+<h2 id="section-12">関連記事</h2>
+<p><strong>本テーマの次の記事:</strong> テーマ2はここまでです。続いて<a href="/governance/market-restructuring/">テーマ3：市場区分の見直し</a>へ進みます。</p>
+<p><strong>他テーマの関連記事:</strong></p>
+<ul>
+<li><a href="/governance/foundations/1.4-stewardship-code-2014/">1.4 投資家側を変えたスチュワードシップ・コード（2014／2017／2020／2025年）</a></li>
+<li><a href="/governance/frontier/5.3-listed-subsidiaries/">5.3 豊田自動織機の非公開化が示したもの――上場会社のグループ再編と少数株主保護</a></li>
+<li><a href="/governance/frontier/5.4-mbo-takeover-guidelines/">5.4 未承諾買収をどう扱うか――2023年「企業買収における行動指針」</a></li>
+</ul></article><nav class="post-nav" aria-label="前後の記事"><a class="post-nav-link prev" href="/governance/cg-code/2.4-reading-a-cg-report/"><div class="post-nav-dir">← 前の記事</div><div class="post-nav-title">コーポレート・ガバナンス報告書を15分で読む方法</div></a><a class="post-nav-link next" href="/governance/market-restructuring/3.1-four-segments-to-three/"><div class="post-nav-dir">次の記事 →</div><div class="post-nav-title">4区分から3区分へ――2022年4月の市場再編</div></a></nav><div class="post-language"><a href="/en/governance/cg-code/2.5-meti-guideline-family/">English version →</a></div></div></section>
+  </main>
+  <script src="/assets/governance.js?v=cc6033456e" defer></script>
+  <script src="/assets/nav.js?v=348fa48c4e" defer></script>
 </body>
 </html>

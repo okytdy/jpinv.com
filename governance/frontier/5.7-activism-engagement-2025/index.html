@@ -1,439 +1,137 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-
-<title>スチュワードシップ・コード3.0以後の協働対話 | JII ガバナンス改革カリキュラム</title>
-<meta name="description" content="株主提案は2024年に過去最高(453件)を記録し、2025年に再び更新(114社で399件)した。資本配分がアクティビスト・キャンペーンの半分を駆動する。2025年6月のスチュワードシップ・コードv3.0は協働対話を明示的に奨励し、5%ルールの期待を再定義した。2024年金商法改正は萎縮効果を狭めた。海外と国内のアクティビズムは、日本市場の協調的・制度的・標準化された特徴として運用されている。">
-<meta property="og:title" content="スチュワードシップ・コード3.0以後の協働対話 | JII ガバナンス改革カリキュラム">
-<meta property="og:description" content="株主提案は2024年に過去最高(453件)を記録し、2025年に再び更新(114社で399件)した。資本配分がアクティビスト・キャンペーンの半分を駆動する。2025年6月のスチュワードシップ・コードv3.0は協働対話を明示的に奨励し、5%ルールの期待を再定義した。2024年金商法改正は萎縮効果を狭めた。海外と国内のアクティビズムは、日本市場の協調的・制度的・標準化された特徴として運用されている。">
-<meta property="og:url" content="https://jpinv.com/governance/frontier/5.7-activism-engagement-2025/">
-<link rel="canonical" href="https://jpinv.com/governance/frontier/5.7-activism-engagement-2025/">
-<link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/frontier/5.7-activism-engagement-2025/">
-<link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/frontier/5.7-activism-engagement-2025/">
-<link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/frontier/5.7-activism-engagement-2025/">
-
-<style>
-:root {
-  --ink:        #1a2a4a;
-  --ink-mid:    #172641;
-  --ink-soft:   #304466;
-  --rule:       #d6dee8;
-  --rule-soft:  #e8edf3;
-  --bg:         #ffffff;
-  --bg-mid:     #f5f7fa;
-  --bg-soft:    #fafbfc;
-  --text:       #1f2937;
-  --text-mid:   #4a5566;
-  --text-dim:   #5f6875;
-  --accent:     #9a7838;
-  --accent-deep:#9a7838;
-  --accent-soft:#f4eee4;
-  --bad:        #b91c1c;
-  --warn:       #8a682b;
-  --ok:         #2f6f4f;
-  --serif: 'Noto Serif JP', 'Yu Mincho', serif;
-  --sans:  'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
-  --mono:  'DM Mono', monospace;
-  --max: 1100px;
-  --pad: 88px;
-  --gutter: 48px;
-  --nav-h: 64px;
-  --measure: 720px;
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 400; line-height: 1.7; overflow-x: hidden; }
-img { max-width: 100%; display: block; }
-a { color: var(--ink-soft); text-decoration: none; }
-a:hover { color: var(--ink); }
-.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
-@media (max-width: 768px) { :root { --gutter: 22px; --pad: 56px; } }
-strong { font-weight: 600; color: var(--ink); }
-em { font-style: normal; color: var(--ink); font-weight: 600; }
-.label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); }
-
-/* Nav (copied from jpinv.com base) */
-nav#main-nav { position: fixed; top:0; left:0; right:0; z-index:100; height: var(--nav-h); background: rgba(255,255,255,0.96); backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule); display: flex; align-items: center; transition: box-shadow 0.3s; }
-nav#main-nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
-.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; }
-.nav-logo { text-decoration: none; display: inline-flex; align-items: center; flex: 0 0 auto; min-width: max-content; white-space: nowrap; }
-.nav-logo-img { display: block; width: auto; height: 40px; max-width: none; object-fit: contain; object-position: left center; }
-.nav-logo-img--mobile { display: none; width: 32px; height: 32px; object-fit: contain; }
-.nav-center { flex: 1; display: flex; justify-content: center; }
-.nav-links { display: flex; gap: 18px; list-style: none; flex-wrap: nowrap; white-space: nowrap; }
-.nav-links a { font-family: var(--sans); font-size: 0.74rem; font-weight: 400; letter-spacing: 0.02em; color: var(--text); text-decoration: none; transition: color 0.2s; }
-.nav-links a:hover { color: var(--ink-soft); }
-.nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; margin-left: auto; }
-.nav-cta { padding: 7px 11px; font-size: 0.66rem; letter-spacing: 0.05em; }
-.locale-switcher { display: inline-flex; align-items: center; gap: 0; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; }
-.locale-switcher a { color: var(--text-dim); border: 1px solid var(--rule); padding: 6px 9px; text-decoration: none; transition: all 0.2s; }
-.locale-switcher a + a { margin-left: -1px; }
-.locale-switcher a:hover, .locale-switcher a.current { color: var(--ink); border-color: var(--ink-mid); background: var(--bg-soft); position: relative; z-index: 1; }
-.hamburger { display: none; flex-shrink:0; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
-.hamburger span { display:block; width:22px; height:1px; background:var(--ink); transition: all 0.25s; }
-@media (max-width: 900px) { .nav-center, .nav-right .nav-cta { display:none; } .hamburger { display:flex; } }
-@media (max-width: 768px) { .nav-logo-img--desktop { display:none; } .nav-logo-img--mobile { display:block; } }
-.mobile-menu { display:none; position:fixed; top:var(--nav-h); left:0; right:0; background:var(--bg); border-bottom:1px solid var(--rule); z-index:99; padding:8px var(--gutter) 20px; flex-direction:column; gap:0; }
-.mobile-menu.open { display:flex; }
-.mobile-menu a { font-size:0.88rem; color:var(--text); text-decoration:none; padding:14px 0; border-bottom:1px solid var(--rule); letter-spacing:0.04em; }
-.mobile-menu a:last-child { border-bottom:none; }
-.mobile-menu .mobile-menu-cta { margin-top:12px; padding:13px 18px; text-align:center; color:#fff; border-bottom:none; }
-
-.btn { display: inline-block; text-decoration: none; font-family: var(--sans); font-size: 0.84rem; font-weight: 400; letter-spacing: 0.06em; padding: 13px 28px; transition: all 0.2s; cursor: pointer; border: none; }
-.btn-primary { background: var(--ink); color: #fff; }
-.btn-primary:hover { background: var(--ink-mid); color: #fff; }
-.btn-outline { border: 1px solid var(--ink-mid); color: var(--ink); background: transparent; }
-.btn-outline:hover { border-color: var(--ink); color: var(--ink); }
-.rule-accent { width: 32px; height: 2px; background: var(--accent); margin: 14px 0 22px; }
-
-/* Footer (mirror) */
-footer { border-top: 1px solid var(--rule); padding: 52px 0 28px; background: var(--bg-soft); font-size: 0.82rem; color: var(--text-dim); }
-footer .footer-grid { display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 32px; align-items: start; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
-footer h2 { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.2em; color: var(--ink-soft); text-transform: uppercase; margin-bottom: 12px; font-weight: 500; }
-footer h3 { font-family: var(--serif); font-size: 1rem; font-weight: 400; color: var(--ink); margin-bottom: 8px; }
-footer ul { list-style: none; }
-footer ul li { padding: 4px 0; }
-footer ul li a { color: var(--text-mid); }
-footer ul li a:hover { color: var(--ink); }
-footer .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 18px; flex-wrap: wrap; gap: 12px; }
-footer .footer-locale-switcher a.current { font-weight: 600; color: var(--ink); }
-@media (max-width: 900px) { footer .footer-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 580px) { footer .footer-grid { grid-template-columns: 1fr; } }
-
-/* === Curriculum-specific === */
-main.curriculum { padding-top: var(--nav-h); }
-.curr-hero { padding: 96px 0 64px; border-bottom: 1px solid var(--rule); position: relative; overflow: hidden; }
-.curr-hero::before { content:''; position:absolute; inset:0;
-  background-image: linear-gradient(rgba(15,31,58,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(15,31,58,0.04) 1px, transparent 1px);
-  background-size: 64px 64px;
-  -webkit-mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent);
-          mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent); }
-.curr-hero-inner { position:relative; z-index:2; max-width: 880px; }
-.curr-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.32em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 18px; }
-.curr-hero h1 { font-family: var(--serif); font-size: clamp(1.9rem, 4.4vw, 3.1rem); font-weight: 300; color: var(--ink-mid); line-height: 1.3; letter-spacing: 0.02em; margin: 0 0 22px; }
-.curr-hero h1 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-.curr-hero .lede { font-size: 1.05rem; line-height: 1.85; color: var(--text); margin: 0 0 24px; max-width: 700px; }
-.curr-hero-meta { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
-.curr-hero-meta strong { color: var(--ink); font-family: var(--mono); }
-
-.crumbs { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; padding: 22px 0 0; }
-.crumbs a { color: var(--text-mid); }
-.crumbs a:hover { color: var(--ink); }
-.crumbs .sep { color: var(--rule); margin: 0 8px; }
-
-.theme-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; padding: 56px 0; }
-.theme-card { display: block; background: #fff; border: 1px solid var(--rule); padding: 30px 28px; position: relative; transition: all 0.2s; }
-.theme-card:hover { border-color: var(--ink-soft); box-shadow: 0 12px 32px rgba(15,31,58,0.08); transform: translateY(-2px); }
-.theme-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background: var(--accent); opacity: 0.85; }
-.theme-card-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; }
-.theme-card-name { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--ink-mid); margin: 10px 0 8px; line-height: 1.35; }
-.theme-card-period { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 14px; }
-.theme-card-desc { font-size: 0.92rem; line-height: 1.7; color: var(--text); margin-bottom: 18px; }
-.theme-card-list { font-size: 0.84rem; color: var(--text-mid); list-style: none; padding-top: 14px; border-top: 1px solid var(--rule-soft); }
-.theme-card-list li { padding: 5px 0; }
-.theme-card-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; }
-.theme-card-foot .arrow { color: var(--accent-deep); }
-
-.post-list { padding: 28px 0 56px; }
-.post-list-row { display: grid; grid-template-columns: 60px 1fr auto; gap: 22px; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--rule-soft); transition: all 0.18s; }
-.post-list-row:hover { background: var(--bg-mid); padding-left: 12px; padding-right: 12px; }
-.post-list-num { font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em; color: var(--accent-deep); font-weight: 500; }
-.post-list-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--ink-mid); line-height: 1.45; }
-.post-list-meta { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; white-space: nowrap; }
-@media (max-width: 600px) { .post-list-row { grid-template-columns: 50px 1fr; } .post-list-meta { grid-column: 1 / -1; padding-left: 72px; } }
-
-/* Post body */
-.post-body { padding: 48px 0 80px; }
-.post-content { max-width: var(--measure); margin: 0 auto; }
-.post-content > p, .post-content > ul, .post-content > ol, .post-content > blockquote, .post-content > pre, .post-content > table, .post-content > hr, .post-content > h2, .post-content > h3, .post-content > h4 { max-width: var(--measure); margin-left: auto; margin-right: auto; }
-.post-content h2 { font-family: var(--serif); font-size: 1.55rem; font-weight: 400; color: var(--ink-mid); line-height: 1.35; margin: 56px 0 14px; padding-top: 22px; border-top: 1px solid var(--rule-soft); }
-.post-content h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 500; color: var(--ink); margin: 36px 0 10px; line-height: 1.4; }
-.post-content h4 { font-family: var(--sans); font-size: 1rem; font-weight: 600; color: var(--ink); margin: 26px 0 8px; letter-spacing: 0.02em; }
-.post-content p { margin: 0 0 18px; font-size: 1rem; line-height: 1.85; color: var(--text); }
-.post-content p:first-of-type { font-size: 1.05rem; }
-.post-content ul, .post-content ol { margin: 0 0 22px; padding-left: 28px; }
-.post-content ul li, .post-content ol li { font-size: 0.97rem; line-height: 1.8; margin-bottom: 8px; color: var(--text); }
-.post-content ul li::marker { color: var(--accent-deep); }
-.post-content blockquote { margin: 30px 0; padding: 20px 24px; border-left: 3px solid var(--accent); background: var(--accent-soft); color: var(--ink-mid); font-style: normal; }
-.post-content blockquote p { margin-bottom: 8px; font-size: 0.97rem; }
-.post-content blockquote p:last-child { margin-bottom: 0; }
-.post-content blockquote strong { color: var(--ink); }
-.post-content code { background: #f0f0f0; color: var(--ink-mid); font-family: var(--mono); font-size: 0.88rem; padding: 2px 6px; border-radius: 3px; }
-.post-content pre { background: #f9f9fb; border: 1px solid var(--rule); padding: 18px 22px; overflow-x: auto; font-family: var(--mono); font-size: 0.85rem; line-height: 1.55; margin: 24px 0; }
-.post-content pre code { background: transparent; padding: 0; font-size: inherit; }
-.post-content a { color: var(--accent-deep); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; transition: text-decoration-color 0.18s; overflow-wrap: anywhere; word-break: break-word; }
-.post-content a:hover { text-decoration-color: var(--accent-deep); }
-.post-content hr { border: none; border-top: 1px solid var(--rule); margin: 40px auto; max-width: 120px; }
-.post-content table { width: 100%; max-width: var(--measure); margin: 28px auto; border-collapse: collapse; font-size: 0.9rem; }
-.post-content th { background: var(--bg-mid); color: var(--ink-mid); font-family: var(--sans); font-weight: 600; text-align: left; padding: 12px 14px; border-bottom: 2px solid var(--rule); }
-.post-content td { padding: 10px 14px; border-bottom: 1px solid var(--rule-soft); vertical-align: top; color: var(--text); }
-.post-content tr:nth-child(even) td { background: #fafbfc; }
-
-/* Mermaid container */
-.mermaid-wrap { background: #fdfdfe; border: 1px solid var(--rule); padding: 22px 18px; margin: 28px 0; overflow-x: auto; }
-.mermaid { font-family: var(--sans); text-align: center; }
-
-/* Post header */
-.post-header { padding: 48px 0 28px; border-bottom: 1px solid var(--rule); }
-.post-header-inner { max-width: var(--measure); margin: 0 auto; }
-.post-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.28em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 14px; }
-.post-title { font-family: var(--serif); font-size: clamp(1.7rem, 3.6vw, 2.4rem); font-weight: 400; color: var(--ink-mid); line-height: 1.3; margin: 0 0 16px; letter-spacing: 0.005em; }
-.post-summary { font-size: 1.02rem; line-height: 1.8; color: var(--text); margin: 0 0 22px; max-width: 660px; }
-.post-meta { display: flex; gap: 26px; flex-wrap: wrap; padding-top: 18px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
-.post-meta span strong { color: var(--ink); font-family: var(--mono); }
-
-/* Post nav (prev/next) */
-.post-nav { max-width: var(--measure); margin: 56px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding-top: 36px; border-top: 1px solid var(--rule); }
-.post-nav-link { display: block; padding: 18px 20px; background: var(--bg-mid); border: 1px solid var(--rule); transition: all 0.18s; }
-.post-nav-link:hover { border-color: var(--ink-soft); background: #fff; transform: translateY(-1px); }
-.post-nav-dir { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px; }
-.post-nav-title { font-family: var(--serif); font-size: 0.94rem; color: var(--ink-mid); line-height: 1.4; }
-.post-nav-link.next { text-align: right; }
-@media (max-width: 640px) { .post-nav { grid-template-columns: 1fr; } .post-nav-link.next { text-align: left; } }
-
-/* Knowledge check */
-.kcheck { background: var(--bg-mid); padding: 72px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
-.kcheck-head { max-width: 720px; margin: 0 auto 36px; text-align: center; }
-.kcheck h2 { font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 300; color: var(--ink-mid); margin: 0 0 14px; line-height: 1.3; }
-.kcheck h2 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-.kcheck p.lede { font-size: 0.98rem; line-height: 1.75; color: var(--text); }
-.kcheck-q { background: #fff; border: 1px solid var(--rule); padding: 28px 30px; margin-bottom: 18px; max-width: 760px; margin-left: auto; margin-right: auto; }
-.kcheck-q-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; margin-bottom: 12px; }
-.kcheck-q-text { font-family: var(--serif); font-size: 1.1rem; line-height: 1.5; color: var(--ink-mid); margin-bottom: 18px; }
-.kcheck-opts { display: grid; gap: 8px; }
-.kcheck-opt { display: block; padding: 12px 16px; background: var(--bg-soft); border: 1px solid var(--rule); text-align: left; font-family: var(--sans); font-size: 0.92rem; color: var(--text); cursor: pointer; transition: all 0.15s; }
-.kcheck-opt:hover { background: #fff; border-color: var(--ink-soft); }
-.kcheck-opt.correct { background: #e8f3ec; border-color: var(--ok); color: var(--ok); }
-.kcheck-opt.incorrect { background: #fbe9e9; border-color: var(--bad); color: var(--bad); }
-.kcheck-explain { margin-top: 16px; padding: 14px 18px; background: var(--accent-soft); border-left: 3px solid var(--accent); font-size: 0.9rem; line-height: 1.7; color: var(--ink-mid); display: none; }
-.kcheck-q.answered .kcheck-explain { display: block; }
-.kcheck-score { text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--text-dim); margin-top: 28px; text-transform: uppercase; }
-.kcheck-score strong { color: var(--ink-mid); font-family: var(--mono); }
-
-/* Stats / hero stats */
-.stat-band { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; padding: 56px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); background: var(--bg-soft); }
-.stat-item { padding: 0 18px; }
-.stat-num { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 300; color: var(--ink-mid); line-height: 1; margin-bottom: 8px; }
-.stat-num em { color: var(--accent-deep); font-weight: 400; font-style: normal; }
-.stat-label { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; }
-</style>
-
-<meta property="og:image" content="https://jpinv.com/og/jii-default.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://jpinv.com/og/jii-default.png">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "url": "https://jpinv.com/governance/frontier/5.7-activism-engagement-2025/",
-  "name": "スチュワードシップ・コード3.0以後の協働対話 | JII ガバナンス改革カリキュラム",
-  "description": "株主提案は2024年に過去最高(453件)を記録し、2025年に再び更新(114社で399件)した。資本配分がアクティビスト・キャンペーンの半分を駆動する。2025年6月のスチュワードシップ・コードv3.0は協働対話を明示的に奨励し、5%ルールの期待を再定義した。2024年金商法改正は萎縮効果を狭めた。海外と国内のアクティビズムは、日本市場の協調的・制度的・標準化された特徴として運用されている。",
-  "inLanguage": "ja"
-}
-</script></head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>スチュワードシップ・コード第三次改訂後の協働対話｜JII ガバナンス改革講座</title>
+  <meta name="description" content="金融庁は2025年6月、日本版スチュワードシップ・コードの第三次改訂版を確定した。改訂の中心は、実質株主の透明性を高めることと、複数の機関投資家による協働対話を建設的な対話の手段として位置付けることにある。さらに、2024年の金融商品取引法改正を受け、共同保有者や重要提案行為等の解釈が整理され、2026年5月から適用された。本稿では、発行会社が協働対話をどう受け止め、どのような社内手順を整えるべきかを解説する。">
+  <link rel="canonical" href="https://jpinv.com/governance/frontier/5.7-activism-engagement-2025/">
+  <link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/frontier/5.7-activism-engagement-2025/">
+  <link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/frontier/5.7-activism-engagement-2025/">
+  <link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/frontier/5.7-activism-engagement-2025/">
+  <meta property="og:title" content="スチュワードシップ・コード第三次改訂後の協働対話｜JII ガバナンス改革講座">
+  <meta property="og:description" content="金融庁は2025年6月、日本版スチュワードシップ・コードの第三次改訂版を確定した。改訂の中心は、実質株主の透明性を高めることと、複数の機関投資家による協働対話を建設的な対話の手段として位置付けることにある。さらに、2024年の金融商品取引法改正を受け、共同保有者や重要提案行為等の解釈が整理され、2026年5月から適用された。本稿では、発行会社が協働対話をどう受け止め、どのような社内手順を整えるべきかを解説する。">
+  <meta property="og:url" content="https://jpinv.com/governance/frontier/5.7-activism-engagement-2025/">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://jpinv.com/og/jii-default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://jpinv.com/og/jii-default.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&amp;family=Noto+Sans+JP:wght@300;400;500;600&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/governance.css?v=b6280834c3">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","name":"スチュワードシップ・コード第三次改訂後の協働対話｜JII ガバナンス改革講座","description":"金融庁は2025年6月、日本版スチュワードシップ・コードの第三次改訂版を確定した。改訂の中心は、実質株主の透明性を高めることと、複数の機関投資家による協働対話を建設的な対話の手段として位置付けることにある。さらに、2024年の金融商品取引法改正を受け、共同保有者や重要提案行為等の解釈が整理され、2026年5月から適用された。本稿では、発行会社が協働対話をどう受け止め、どのような社内手順を整えるべきかを解説する。","url":"https://jpinv.com/governance/frontier/5.7-activism-engagement-2025/","inLanguage":"ja","isPartOf":{"@type":"WebSite","name":"Japan Investor Interface","url":"https://jpinv.com/"},"headline":"スチュワードシップ・コード第三次改訂後の協働対話","dateModified":"2026-08-30","author":{"@type":"Organization","name":"Japan Investor Interface Co., Ltd."},"publisher":{"@type":"Organization","name":"Japan Investor Interface Co., Ltd.","url":"https://jpinv.com/"}}</script>
+</head>
 <body>
-<main id="main-content" class="curriculum" tabindex="-1">
-<div class="wrap crumbs">
-  <a href="/">JII</a> <span class="sep">/</span>
-  <a href="/governance/">IR研修</a> <span class="sep">/</span>
-  <a href="/governance/frontier/">最前線 ― 現在の論点</a> <span class="sep">/</span>
-  記事 5.7
-</div>
-<header class="post-header">
-  <div class="wrap">
-    <div class="post-header-inner">
-      <div class="post-eyebrow">テーマ 5 · 記事 5.7</div>
-      <h1 class="post-title">スチュワードシップ・コード3.0以後の協働対話</h1>
-      <p class="post-summary">株主提案は2024年に過去最高(453件)を記録し、2025年に再び更新(114社で399件)した。資本配分がアクティビスト・キャンペーンの半分を駆動する。2025年6月のスチュワードシップ・コードv3.0は協働対話を明示的に奨励し、5%ルールの期待を再定義した。2024年金商法改正は萎縮効果を狭めた。海外と国内のアクティビズムは、日本市場の協調的・制度的・標準化された特徴として運用されている。</p>
-      <div class="post-meta">
-        <span>テーマ: <strong>最前線 ― 現在の論点</strong></span>
-        <span>読了目安: <strong>16 分</strong></span>
-        <span>更新: <strong>2026-05-18</strong></span>
-      </div>
-    </div>
-  </div>
-</header>
-<section class="post-body">
-  <div class="wrap">
-    <article class="post-content">
-<blockquote>
-<p><strong>要点</strong>
-- 2024年6月総会シーズンは<strong>453件の株主提案</strong>(109社)で当時の記録を更新した。2025年6月は会社数指標で新記録 ― <strong>399件、114社</strong> ― 過去最高活動の4年連続更新となった。
-- 資本配分(自社株買い、増配)が2025年アクティビスト要求の約50%を駆動。業務・戦略要求は約30%に上昇。ISSは報酬関連提案に約80%の賛成推奨、PBR&lt;1の発行体ではあらゆるアクティビスト提案に約80%の賛成推奨を行った。
-- <strong>2025年6月26日改訂のスチュワードシップ・コードv3.0</strong>は、<strong>協働・集団対話</strong>を「より積極的に検討すべき」と明示的に格上げし、実質株主情報の照会への対応方針に関する<strong>ガイダンス4-2</strong>を追加した。2024年金商法改正による「共同保有者」「重要提案行為」の明確化と相まって、協働への5%ルールの萎縮効果は大きく狭まった。</p>
+  <a class="gov-skip" href="#main-content">本文へ移動</a>
+  <main id="main-content" class="governance-page" tabindex="-1">
+    <nav class="gov-wrap gov-crumbs" aria-label="パンくず"><a href="/">ホーム</a><span class="sep">/</span><a href="/governance/">ガバナンス改革講座</a><span class="sep">/</span><a href="/governance/frontier/">現在進行中の論点</a><span class="sep">/</span><span aria-current="page">記事 5.7</span></nav>
+    <header class="post-header"><div class="gov-wrap"><div class="post-header-inner"><span class="post-eyebrow">テーマ 5 · 記事 5.7</span><h1 class="post-title">スチュワードシップ・コード第三次改訂後の協働対話</h1><p class="post-summary">金融庁は2025年6月、日本版スチュワードシップ・コードの第三次改訂版を確定した。改訂の中心は、実質株主の透明性を高めることと、複数の機関投資家による協働対話を建設的な対話の手段として位置付けることにある。さらに、2024年の金融商品取引法改正を受け、共同保有者や重要提案行為等の解釈が整理され、2026年5月から適用された。本稿では、発行会社が協働対話をどう受け止め、どのような社内手順を整えるべきかを解説する。</p><div class="post-meta"><span>テーマ: <strong>現在進行中の論点</strong></span><span>読了目安: <strong>7分</strong></span><span>更新: <strong>2026-08-30</strong></span></div></div></div></header>
+    <section class="post-body"><div class="gov-wrap"><article class="post-content"><blockquote>
+<p><strong>要点</strong></p>
+<ul>
+<li>2025年6月の第三次改訂は、<strong>実質株主の透明性</strong>と<strong>協働対話</strong>を主要論点とした。既存の署名機関には、2025年末までに改訂版への対応方針を更新することが求められた。</li>
+<li>複数投資家が同じ会社と対話することが、直ちに金融商品取引法上の共同保有者になることを意味するわけではない。合意の継続性、共同して重要提案行為等を行う目的など、具体的な関係で判断される。</li>
+<li>発行会社は、協働対話を一律に拒むのではなく、参加者、目的、議題、権限、情報管理を確認したうえで、通常の株主対話として受け止める体制を整える必要がある。</li>
+</ul>
 </blockquote>
-<h2>株主提案 ― 常態化した特徴</h2>
-<p>統計表が規模シフトを最もクリアに固定する。</p>
+<h2 id="section-1">第三次改訂で何が変わったか</h2>
+<p>日本版スチュワードシップ・コードは2014年の策定後、2017年、2020年、2025年に改訂された。第三次改訂では、対話の実効性を高めるため、二つの論点が前面に出た。</p>
+<h3 id="section-2">1. 実質株主の透明性</h3>
+<p>株主名簿に記載される名義株主と、投資判断・議決権行使を行う実質株主が異なる場合、発行会社は誰と対話すべきか分からないことがある。改訂版は、投資先企業から保有状況の説明を求められた場合にどう対応するかについて、機関投資家が方針を公表することを促した。</p>
+<p>これは、会社がすべての投資家の詳細を無条件で把握できる制度ではない。カストディ、信託、運用委託などの構造を踏まえ、建設的な対話に必要な範囲で、誰が投資判断を担い、誰が議決権行使方針を決めるのかを明らかにする方向である。</p>
+<h3 id="section-3">2. 協働対話</h3>
+<p>一社の投資家だけでは企業に十分な問題意識を伝えにくい場合、複数の機関投資家が共通の論点について共同で対話することがある。第三次改訂は、協働対話を、状況に応じて有効なスチュワードシップ活動になり得るものとして明確に位置付けた。</p>
+<p>協働対話は、アクティビストだけの手法ではない。長期運用会社、年金、ESG投資家などが、気候変動、取締役会の実効性、政策保有株式、資本配分といった共通課題について意見を伝える場合にも使われる。</p>
+<h2 id="section-4">大量保有報告制度との関係</h2>
+<p>機関投資家が協働対話をためらってきた理由の一つに、複数投資家が「共同保有者」とみなされ、大量保有報告制度上の合算や報告義務が生じるのではないかという懸念があった。</p>
+<p>2024年の金融商品取引法改正と、その後の政令・内閣府令・Q&amp;Aの整理により、協働対話と共同保有者の関係が明確化された。制度は2026年5月1日から適用されている。</p>
 <table>
 <thead>
 <tr>
-<th>総会シーズン</th>
-<th>提案件数</th>
-<th>会社数</th>
-<th>上位提案カテゴリー</th>
-<th>注目点</th>
+<th>論点</th>
+<th>実務上の考え方</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td>2018年6月</td>
-<td>約50</td>
-<td>約30</td>
-<td>ガバナンス改革、政策保有</td>
-<td>村上ファンド主導時代</td>
+<tbody><tr>
+<td>同じ会議に出席した</td>
+<td>それだけで直ちに共同保有者になるわけではない</td>
 </tr>
 <tr>
-<td>2019年6月</td>
-<td>約60</td>
-<td>約40</td>
-<td>ガバナンス、取締役独立性</td>
-<td>海外アクティビスト初波(Elliott対アルプス、ValueAct対オリンパス)</td>
+<td>共通の問題意識を伝えた</td>
+<td>継続的な合意や共同で重要提案行為等を行う目的がなければ、直ちに共同保有とは限らない</td>
 </tr>
 <tr>
-<td>2020年6月</td>
-<td>約80</td>
-<td>約50</td>
-<td>資本配分、ESG</td>
-<td>コロナ禍、村上系活発化</td>
+<td>議決権行使を共同で約束した</td>
+<td>合意内容と継続性によっては共同保有者に該当し得る</td>
 </tr>
 <tr>
-<td>2021年6月</td>
-<td>約120</td>
-<td>約60</td>
-<td>資本配分、ESG、取締役会</td>
-<td>CGC改訂後、100件超の初年</td>
+<td>経営支配に重要な変更を共同で求める</td>
+<td>「重要提案行為等」に該当するかを個別に確認する必要がある</td>
 </tr>
-<tr>
-<td>2022年6月</td>
-<td>約180</td>
-<td>約80</td>
-<td>資本配分、ガバナンス</td>
-<td>市場再編後の加速</td>
-</tr>
-<tr>
-<td>2023年6月</td>
-<td>約270</td>
-<td>約90</td>
-<td>資本配分、ESG、スピンオフ</td>
-<td>東証2023年3月PBR要請後</td>
-</tr>
-<tr>
-<td>2024年6月</td>
-<td><strong>453</strong></td>
-<td><strong>109</strong></td>
-<td>資本配分、取締役会、ESG</td>
-<td><strong>400件超の初年、提案数で記録</strong></td>
-</tr>
-<tr>
-<td>2025年6月</td>
-<td><strong>399</strong></td>
-<td><strong>114</strong></td>
-<td>資本配分、業務、ESG</td>
-<td><strong>会社数で記録、14件可決</strong></td>
-</tr>
-</tbody>
-</table>
-<p>2025年シーズンで最も作動的な数字は、7社で<strong>14件の株主提案が可決</strong>されたことだ ― 絶対数は小さいが、1990年以降最高である。情報開示関連以外の提案の約30~50%が20%超の支持を得た。20%超は、可決していなくても、セルサイド・アナリストと対話・チームが近い将来の議題として扱い始める閾値である。</p>
-<p>背後のキャンペーン構成における3つのシフトが最も重要だ。</p>
-<p><strong>シフト一 ― 資本配分が支配的要求である。</strong> 2025年アクティビスト要求の約50%が配当、自社株買い、債務構造、または特定の資本配分政策に関係する。これは東証2023年3月資本コスト要請の直接の下流効果だ。会社がPBR&lt;1で取引され、アクティビストがエクイティ・スプレッドを引き上げる資本還元プログラムを信用しうる形でモデル化できる場合、提案は自ずと書かれる。PBR&lt;1の発行体での報酬関連提案に対する2025年ISS約80%支持率は、同じ物語を語る。議決権行使助言会社が診断フレームに整合した。</p>
-<p><strong>シフト二 ― 業務・戦略要求の上昇。</strong> 2025年要求の約30%が業務戦略 ― セグメント売却、CEO交代、M&amp;A対応、合弁事業再編 ― に関するものだ。複数の2024-25年の高プロファイル・キャンペーンがCEO交代を生んだ。富士ソフト(Oasis)、セブン&amp;アイ(ValueAct/クシュタール関心)、リクルート(対話主導)など。業務要求カテゴリーは、日本のアクティビズムがいまや米国アクティビスト・キャンペーンとスタイル上区別不能となった領域だ。</p>
-<p><strong>シフト三 ― ESGとガバナンス提案の主流化。</strong> 気候目標開示、男女賃金格差行動計画、取締役会独立性数の提案がますます上程される。資本配分提案より低い支持率にとどまることが典型だが、次サイクルのアクション・プログラム優先順位とCGC改訂に反映される対話を生む。</p>
-<h2>2025年のアクティビスト・ユニバース</h2>
-<p>2025年に日本で活動する海外アクティビスト・ユニバースはいまや安定し認識可能だ。日本のアクティビズム・レビューにほぼ確実に登場する6名は次のとおり。</p>
-<ul>
-<li><strong>Elliott Investment Management</strong> ― 豊田自動織機(2025年の主要介入)、大和ハウス、住友商事、過去には東芝、ソフトバンク。スタイル:ポジション開示主導、価格規律重視、訴訟も辞さない。</li>
-<li><strong>ValueAct Capital</strong> ― JSR、オリンパス、セブン&amp;アイ。スタイル:長期対話、取締役会席獲得、建設的パートナー・フレーミング。</li>
-<li><strong>Oasis Management</strong> ― 富士ソフト(2024年最大の成功キャンペーン)、兼松、過去の東芝プラントシステム案件。スタイル:高い可視性、特定ターゲット・キャンペーン、プロキシー・ファイトも辞さない。</li>
-<li><strong>Palliser Capital</strong> ― 2023-25年に複数の日本ミッドキャップ・ポジションを開示。スタイル:長期保有、まずは静かな対話。</li>
-<li><strong>Silchester International Investors</strong> ― 英国拠点の日本ミッドキャップ株式の数十年保有者。スタイル:控えめ、常設対話、公的アクションは稀。</li>
-<li><strong>Dalton Investments</strong> ― 日本フォーカスの長い歴史。特定の政策保有・上場子会社キャンペーン。</li>
-</ul>
-<p>国内対話・ファンド・ユニバースは、AUMで見ればいまや海外ユニバースより制度的に重要かもしれない。</p>
-<ul>
-<li><strong>村上系ファンド</strong>(シティインデックスイレブンス、レノ、ストラテジック・キャピタル) ― 最長の国内アクティビスト・ファミリー。2024年に8つの個別キャンペーンを展開し、グループとして世界第3位のキャンペーン数のアクティビストとなった。</li>
-<li><strong>ストラテジック・キャピタル</strong> ― 丸木強氏のビークル。中型製造業に対する資本還元要求に特化。</li>
-<li><strong>シンフォニー・フィナンシャル・パートナーズ</strong> ― デビッド・バラン氏のビークル。長期対話・スタイル。</li>
-<li><strong>エフィッシモ・キャピタル・マネジメント</strong> ― シンガポール拠点の国内系。東芝MBO前介入、オリンパス、豊田自動織機ポジションで最も有名。</li>
-</ul>
-<p>2025年の注目すべき構造的特徴は、<strong>海外と国内アクティビストがますます非公式に協調する</strong>ことだ。5%ルールの圧力により、正式な共同保有者宣言が歴史的に萎縮させられてきた状況においてもである。2024年金商法改正と2025年スチュワードシップ・コードv3.0は、その萎縮効果を大きく狭めた。</p>
-<h2>スチュワードシップ・コードv3.0 ― 2025年6月26日に何が変わったか</h2>
-<p>金融庁のスチュワードシップ・コードに関する有識者検討会は、<strong>2025年6月26日</strong>にコードの第3版を公表した。ドラフトは2025年3月21日公表、その後協議期間を経た。改訂は実務上5つだ。</p>
-<p><strong>一 ― 協働対話の再定義。</strong> 2020年コード(v2.0)は協働対話を「必要に応じて有益でありうる」とした。2025年コード(v3.0)は協働対話を「<strong>より積極的に</strong>検討すべき」とする。<em>積極的に</em>が作動的変更だ。機関投資家はいまや、重要課題について、集団対話を最後の手段ではなく既定のオプションとして扱うことが期待される。</p>
-<p><strong>二 ― 実質株主に関するガイダンス4-2。</strong> 新ガイダンス4-2は、機関投資家に対し、企業からの実質株主情報の照会への対応方針を公表するよう求める。これは、対話・レターが多層名義人構造から届き、背後の意思決定者が不透明であるというIRチームの長年の不満への応答だ。ガイダンスは強制開示を課さない。各投資家が応対する方法に関する公表された<em>方針</em>を求めるものである。</p>
-<p><strong>三 ― ESGとサステナビリティの主流化。</strong> 2025年コードはサステナビリティへの言及を拡大し、SSBJ開示枠組みを対話期待に統合する。機関投資家は、財務マテリアリティ枠組みを参照しつつ、SSBJ整合トピックについて企業とエンゲージすることが期待される。</p>
-<p><strong>四 ― アクティブ投資家のスチュワードシップ明確化。</strong> 2025年コードはパッシブとインデックス投資家(大規模持分を保有するが自然な対話帯域幅が小さい)とアクティブ運用者への適用を明確化する。明確化は、パッシブ所有がスチュワードシップ義務から機関を免除しないという期待を硬化させる。</p>
-<p><strong>五 ― 移行/移行に関する対話。</strong> コードは、信用しうる移行 ― 企業再構築、世代交代、気候関連移行 ― の支援におけるスチュワードシップの役割に明示的に言及する。文言は、年次の課題のみならず複数年の移行計画に関する対話へ制度的扉を開く。</p>
-<p>v3.0改訂の合わせた効果は、強制的アクションを課すことなく、機関投資家にエンゲージドな所有者として振る舞うことを<strong>期待する</strong>ソフトロー・アーキテクチャだ。機構は公共政策の宣言であり、執行はレピュテーション上と規制点検上のものである。</p>
-<h2>サイドバー ― 5%ルールと協働対話の萎縮効果</h2>
-<p>20年間、日本の機関投資家は対話・キャンペーンで同業との正式な協働を回避してきた。構造的な恐怖があったからだ。金商法上の5%ルール開示義務が「共同保有者」ステータスにより発動されうる。閾値は各投資家5%から共同保有者グループ全体で5%に下がる。プライム発行体の約3%を保有するパッシブ・インデックス投資家にとって、別の3%保有者との正式な協働は、ポジションを6%の開示グループ・ポジションに機械的に変換する ― 開示タイミング、ポジション開示、取引制限のすべての義務を伴って。</p>
-<p>萎縮効果は構造的であって理論的ではなかった。日本の機関投資家は、対話・キャンペーンで共同レターに署名すること、共同提案を提出すること、議決権行使ポジションを協調することを一貫して拒んだ。ACGA、ICGNほか複数の国際スチュワードシップ団体が明確化を求めて運動した。</p>
-<p>2024年金商法改正は2つの定義を明確化した。</p>
-<p><strong>「共同保有者」</strong> ― 特定論点での対話共有ではなく、投資または議決の決定の実質的協調を要求するように狭められた。</p>
-<p><strong>「重要提案行為」</strong> ― 通常の対話活動を除外し、発行体の事業または資本構造を重要な形で変更する協調的提案を構成する行為に焦点を当てるように明確化された。</p>
-<p>金商法明確化とスチュワードシップ・コードv3.0文言の組み合わせは、対話の制度インフラを集合的に再配線する。3%を保有するパッシブ投資家は、特定のガバナンス課題について同業3%保有者と協調対話・レターに署名できる ― 共同保有者ステータスを自動的に発動させずに ― 協調が特定の対話に限定され、通常事項の協調的議決権行使または協調投資決定に拡大しない限り。</p>
-<p>初期の証左 ― 2025年の対話・レター署名パターンと、Japan Stewardship InitiativeおよびICGN協調活動を通じた複数投資家協調の台頭に可視化される ― は、萎縮効果が大きく狭まったことを示す。完全に除去されたかは、金融庁が実務で明確化された定義をどう執行するかに依存する。2026年の執行サイクルが最初の実務テストとなる。</p>
-<h2>IRチームの視点</h2>
-<p>IRチームにとっての実務的問いは、2025年の対話環境が2020年環境とどう異なるかである。最も重要な作動的変化は3つだ。</p>
-<p><strong>レターはより分析的に根拠付けられている。</strong> 2020年のアクティビスト・レターは、典型的にはガバナンス上の要求の短いリスト(取締役会独立性、ジェンダー多様性、配当政策)を含んでいた。2025年のアクティビスト・レターは、提案される資本アクションを正当化する詳細な財務モデル、同業ベンチマーク、複数シナリオのバリュエーション分析、具体的な業務提案を含むのが典型だ。対話・コミュニティの分析的洗練度は大きく上昇した。</p>
-<p><strong>レターは早期かつ頻繁に届く。</strong> 2020年以前、アクティビスト・レターはしばしばAGM 60~90日前に特定の株主提案とともに到着した。2025年では、対話・レターは年間を通じて到着し、AGMシーズン提案は継続的対話の一つの具体的顕在化として機能する。AGMシーズン・レターを対話の開始として扱うIRチームは、いまや構造的に後手である。</p>
-<p><strong>アクティビストはより公然と協調する。</strong> 金商法改正後の環境は、対話・ファンドと機関投資家間の非公式協調を大きく容易にする。一つのアクティビストからレターを受領したIRチームは、当該レターの診断フレームが他の機関保有者と事前共有されており、会社の応答が対話・コミュニティ全体でベンチマーキングされていることを想定すべきだ。</p>
-<h2>IRにとっての含意</h2>
+</tbody></table>
+<p>したがって、協働対話が自由になったと単純化するのも、すべて共同保有になると恐れるのも正しくない。投資家側は、対話の目的、合意の有無、議決権行使の独立性を記録する必要がある。発行会社側も、法的な分類を自ら決めつけるのではなく、対話の実態を確認すべきである。</p>
+<h2 id="section-5">発行会社はどう受け止めるか</h2>
+<p>協働対話の申し入れを受けたら、次の五点を確認する。</p>
 <ol>
-<li><strong>対話を常設プログラムとして扱い、AGMシーズン対応として扱わない。</strong> 2025年環境は通年の対話・インフラを要求する ― AGM周りの3か月のスパイクではない。保有規模上位20株主との四半期対話・コール、重要な対話・レターへの常時開放の扉が、いまや作動的最低水準だ。</li>
-<li><strong>すべてのアクティビスト・レターをマーケット・テスト文書として読む。</strong> レターが小口保有者からのものでも、レターの診断フレームは事前共有されている可能性が高い。会社の応答はレター送付者だけでなく、より広い対話・コミュニティによって評価されている。</li>
-<li><strong>自社のスチュワードシップ応答方針を公表する。</strong> ガイダンス4-2の義務は双方向に流れる。投資家は実質株主情報照会への応対方法を開示する。発行体側も対話・レターへの応対方法を公表すべきだ。対話応答に関する常設IR方針開示はいまや作動的規範である。</li>
-<li><strong>取締役会にアクティビスト診断を説明する。</strong> 2025年のアクティビスト・ユニバースは、CEOやCFOだけでなく、取締役会議長、筆頭独立取締役、指名・報酬委員会委員長との対話を期待する。取締役会レベルの対話準備はいまや、IR機能の常設レミットの一部だ。</li>
-<li><strong>求められなくとも資本コスト言語を用いる。</strong> 資本配分提案は、公表された資本コスト、エクイティ・スプレッド、同業比較に対してベンチマーキングされる。自社資料でこのフレーミングを公表することにより、アクティビストの診断を先回りする。</li>
+<li><strong>参加者。</strong> どの運用会社、アセットオーナー、助言者が参加するのか。</li>
+<li><strong>目的。</strong> 情報収集、意見交換、特定の改善要請、株主提案の検討など、何を目的としているか。</li>
+<li><strong>議題。</strong> 資本配分、取締役会、気候、政策保有株式など、具体的な論点は何か。</li>
+<li><strong>権限。</strong> 参加者は各機関を代表して発言するのか。議決権行使判断は各社が独立して行うのか。</li>
+<li><strong>情報管理。</strong> 未公表の重要事実を扱わないこと、会議記録の扱い、参加者間の共有範囲をどうするか。</li>
 </ol>
-<h2>出典と参考資料</h2>
+<p>これらを確認したうえで、通常の投資家対話と同じように、会社側の出席者と回答方針を決める。議題が取締役会の構成やCEO後継者計画であれば、IRと経営陣だけでなく、取締役会議長や筆頭独立社外取締役の参加を検討する。資本配分や事業ポートフォリオであれば、CFOや経営企画が中心になる。</p>
+<h2 id="section-6">実質株主からの照会に備える</h2>
+<p>第三次改訂は投資家側の方針開示を促すものだが、発行会社側にも準備が必要である。株主判明調査を外部業者に任せるだけでなく、次の情報を社内で一元管理する。</p>
 <ul>
-<li>ソダリ&amp;カンパニー「2024年日本AGMレビュー ― 株主提案の焦点」(PDF): https://sodali.com/media/insights/3705/2024-japan-agm-review.pdf</li>
-<li>ホワイト&amp;ケース「2025年6月株主総会シーズン株主提案サマリー」: https://www.whitecase.com/insight-alert/summary-june-2025-annual-general-shareholder-meeting-season-shareholder-proposals</li>
-<li>EYストラテジー「株主提案:2025年トレンド」: https://www.ey.com/content/dam/ey-unified-site/ey-com/en-jp/services/strategy-transactions/documents/shareholder-proposals-2025-trends.pdf</li>
-<li>金融庁「スチュワードシップ・コード改訂案」(2025年3月21日): https://www.fsa.go.jp/en/news/2025/20250321-2.html</li>
-<li>金融庁「スチュワードシップ・コードの改訂について」(2025年6月26日 PDF): https://www.fsa.go.jp/en/refer/councils/stewardship/20250626/03.pdf</li>
-<li>グラス・ルイス 2025年日本ベンチマーク・ポリシー・指針: https://resources.glasslewis.com/hubfs/2025%20Guidelines/2025%20Japan%20Benchmark%20Policy%20Guidelines.pdf</li>
-<li>ISS 日本ポリシー: https://www.issgovernance.com/policy-gateway/voting-policies/</li>
+<li>株主名簿上の名義</li>
+<li>判明している実質株主と運用担当者</li>
+<li>保有方針、投資期間、議決権行使方針</li>
+<li>過去の面談、質問、要望、会社の回答</li>
+<li>協働対話への参加履歴</li>
+<li>大量保有報告書、変更報告書、議決権行使結果との整合</li>
+</ul>
+<p>投資家が保有状況の説明に応じない場合でも、直ちに対話を拒絶するべきではない。法令、契約、顧客守秘義務などの制約があり得る。会社が本当に必要とする情報――対話主体、投資判断者、議決権行使者――を絞って尋ねる方がよい。</p>
+<h2 id="section-7">対話の質を落とさないための原則</h2>
+<p>協働対話では、参加者が増えるほど会話が一般論に流れやすい。発行会社は、次の三つを意識する。</p>
+<h3 id="section-8">同じ資料を読み上げない</h3>
+<p>決算説明資料の再説明だけでは、協働対話の意味がない。投資家がなぜ共同でその論点を選んだのかを聞き、会社の判断と投資家の懸念がどこでずれているかを特定する。</p>
+<h3 id="section-9">未公表情報を個別に渡さない</h3>
+<p>複数投資家が参加しても、選択的開示のリスクは変わらない。未公表の業績、M&amp;A、資本政策、取締役人事などは共有しない。必要な情報は適時開示や公表資料で市場全体に出す。</p>
+<h3 id="section-10">回答を取締役会につなぐ</h3>
+<p>重要な指摘は、面談記録に留めず、取締役会または所管委員会へ報告する。会社が採用しなかった意見についても、理由を説明できるようにする。対話は投資家の要望に従う場ではなく、取締役会の判断材料を増やす場である。</p>
+<h2 id="section-11">IR担当者が押さえるべき含意</h2>
+<ol>
+<li><strong>協働対話の窓口を一本化する。</strong> 申し入れの受付、参加者確認、社内配布、記録、回答の責任者を決める。</li>
+<li><strong>一律拒否もしなければ、無条件受入れもしない。</strong> 目的、議題、参加者、情報管理を確認したうえで、適切な出席者を選ぶ。</li>
+<li><strong>共同保有者かどうかを、会議形式だけで判断しない。</strong> 合意内容、継続性、議決権行使、重要提案行為等の目的で決まる。</li>
+<li><strong>実質株主情報を対話履歴と結び付ける。</strong> 名寄せした株主名簿を作るだけでなく、誰がどの論点に関心を持つかを記録する。</li>
+<li><strong>対話結果を取締役会へ戻す。</strong> どの意見を採用し、どの意見を採用しなかったか、その理由を次回の開示や面談で説明する。</li>
+</ol>
+<h2 id="section-12">出典・参考資料</h2>
+<ul>
+<li>金融庁「スチュワードシップ・コード（第三次改訂版）の確定について」（2025年6月26日）: <a href="https://www.fsa.go.jp/news/r6/singi/20250626.html">https://www.fsa.go.jp/news/r6/singi/20250626.html</a></li>
+<li>金融庁「スチュワードシップ・コードに関する有識者検討会」: <a href="https://www.fsa.go.jp/singi/stewardship/index.html">https://www.fsa.go.jp/singi/stewardship/index.html</a></li>
+<li>金融庁「スチュワードシップ・コード改訂案の公表」（2025年3月21日）: <a href="https://www.fsa.go.jp/news/r6/singi/20250321-3.html">https://www.fsa.go.jp/news/r6/singi/20250321-3.html</a></li>
+<li>金融庁「大量保有報告制度における『重要提案行為等』『共同保有者』に関する法令・Q&amp;A等の整理」: <a href="https://www.fsa.go.jp/news/r7/shouken/20250826.html">https://www.fsa.go.jp/news/r7/shouken/20250826.html</a></li>
+<li>金融庁「スチュワードシップ活動の実質化に向けた取組」: <a href="https://www.fsa.go.jp/policy/pjlamc/20260724/01.pdf">https://www.fsa.go.jp/policy/pjlamc/20260724/01.pdf</a></li>
+<li>金融庁「機関投資家の協働対話をめぐる法的論点」: <a href="https://www.fsa.go.jp/access/r5/246.html">https://www.fsa.go.jp/access/r5/246.html</a></li>
 </ul>
 <hr>
-<p><strong>本テーマの次回:</strong> <a href="/governance/">5.8 次のガバナンス・ルールを書いているワーキング・グループ群</a></p>
-<p><strong>他テーマの関連記事:</strong>
-- <a href="/governance/">1.4 車の両輪 ― スチュワードシップ・コード(2014/2017/2020/2025)</a>
-- <a href="/governance/">2.3 2021年改訂 ― プライム市場・サステナビリティ・多様性</a>
-- <a href="/governance/">4.1 PBR&lt;1は目標ではなく、市場の評決</a>
-- <a href="/governance/">5.2 政策保有株のエンドゲーム</a>
-- <a href="/governance/">5.4 「敵対的」はもう蔑称ではない</a></p>
-    </article>
-    <div class="post-nav"><a href="/governance/frontier/5.6-board-diversity-30-by-30/" class="post-nav-link prev"><div class="post-nav-dir">← 前の記事</div><div class="post-nav-title">「30 by 30」はパイプライン問題である</div></a><a href="/governance/frontier/5.8-working-groups-landscape/" class="post-nav-link next"><div class="post-nav-dir">次の記事 →</div><div class="post-nav-title">次のガバナンス・ルールを書いているワーキング・グループ群</div></a></div>
-    <div style="max-width: var(--measure); margin: 32px auto 0; padding-top: 24px; border-top: 1px solid var(--rule); font-size: 0.82rem; color: var(--text-dim); text-align:right;">
-      <a href="/en/governance/frontier/5.7-activism-engagement-2025/" style="color: var(--ink-soft);">English version →</a>
-    </div>
-  </div>
-</section>
-</main>
-<style>footer{background:var(--ink,#1a2a4a);color:#cfd6e2;padding:48px 0 30px;font-size:0.8rem;line-height:1.8;border-top:none}footer a{color:#cfd6e2;text-decoration:none}footer .footer-row{list-style:none;display:flex;flex-wrap:wrap;gap:8px 26px;margin:0 0 26px;padding:0}footer .footer-row li{padding:0}footer .footer-row a{color:#cfd6e2;text-decoration:none;font-size:0.8rem}footer .footer-bottom{padding-top:24px;border-top:1px solid rgba(255,255,255,0.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-family:var(--mono),monospace;font-size:0.68rem;letter-spacing:0.06em;color:rgba(255,255,255,0.55)}</style><script>
-const nav = document.getElementById('main-nav');
-if (nav) window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
-const hamburgerBtn = document.querySelector('.hamburger');
-function setMenuOpen(isOpen) { const menu = document.getElementById('mobileMenu'); if (!menu || !hamburgerBtn) return; menu.classList.toggle('open', isOpen); menu.hidden = !isOpen; hamburgerBtn.setAttribute('aria-expanded', String(isOpen)); }
-function toggleMenu() { const menu = document.getElementById('mobileMenu'); setMenuOpen(!(menu && menu.classList.contains('open'))); }
-document.addEventListener('click', (e) => { const menu = document.getElementById('mobileMenu'); if (menu && menu.classList.contains('open') && !menu.contains(e.target) && hamburgerBtn && !hamburgerBtn.contains(e.target)) setMenuOpen(false); });
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenuOpen(false); });
-</script>
-<script type="module">
-import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs';
-mermaid.initialize({ startOnLoad: true, theme: 'neutral', fontFamily: 'Noto Sans JP, Hiragino Kaku Gothic ProN, sans-serif', themeVariables: { primaryColor: '#f4eee4', primaryTextColor: '#1a2a4a', primaryBorderColor: '#9a7838', lineColor: '#304466', secondaryColor: '#f5f7fa', tertiaryColor: '#fafbfc' } });
-</script>
-<script src="/assets/nav.js?v=348fa48c4e" defer></script>
+<p><strong>本テーマの前の記事:</strong> <a href="/governance/frontier/5.6-board-diversity-30-by-30/">5.6 「2030年30%」を実現するには――女性役員候補をどう育てるか</a></p>
+<p><strong>本テーマの次の記事:</strong> <a href="/governance/frontier/5.8-working-groups-landscape/">5.8 次の制度改正を読む――ガバナンス関連会議・研究会の全体像</a></p>
+<p><strong>他テーマの関連記事:</strong></p>
+<ul>
+<li><a href="/governance/foundations/1.4-stewardship-code-2014/">1.4 投資家側を変えたスチュワードシップ・コード</a></li>
+<li><a href="/governance/cg-code/2.4-reading-a-cg-report/">2.4 コーポレート・ガバナンス報告書を15分で読む方法</a></li>
+<li><a href="/governance/capital-efficiency/4.5-action-plan-2-update/">4.5 開示から実行へ――2026年4月の要請更新</a></li>
+<li><a href="/governance/frontier/5.4-mbo-takeover-guidelines/">5.4 未承諾買収をどう扱うか</a></li>
+</ul></article><nav class="post-nav" aria-label="前後の記事"><a class="post-nav-link prev" href="/governance/frontier/5.6-board-diversity-30-by-30/"><div class="post-nav-dir">← 前の記事</div><div class="post-nav-title">「2030年30%」を実現するには――女性役員候補をどう育てるか</div></a><a class="post-nav-link next" href="/governance/frontier/5.8-working-groups-landscape/"><div class="post-nav-dir">次の記事 →</div><div class="post-nav-title">次の制度改正を読む――ガバナンス関連会議・研究会の全体像</div></a></nav><div class="post-language"><a href="/en/governance/frontier/5.7-activism-engagement-2025/">English version →</a></div></div></section>
+  </main>
+  <script src="/assets/governance.js?v=cc6033456e" defer></script>
+  <script src="/assets/nav.js?v=348fa48c4e" defer></script>
 </body>
 </html>

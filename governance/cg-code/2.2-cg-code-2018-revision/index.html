@@ -1,383 +1,139 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-
-<title>2018年改訂 ― 資本効率がコードに入った瞬間 | JII ガバナンス改革カリキュラム</title>
-<meta name="description" content="2018年6月の改訂は、『資本コスト』がComply-or-Explainの期待事項となり、政策保有株式が「許容された慣行」から「説明を要する例外」へと位置づけを変え、CEO後継者計画が取締役会の責務となり、企業年金がスチュワードシップの輪に組み込まれた節目である。">
-<meta property="og:title" content="2018年改訂 ― 資本効率がコードに入った瞬間 | JII ガバナンス改革カリキュラム">
-<meta property="og:description" content="2018年6月の改訂は、『資本コスト』がComply-or-Explainの期待事項となり、政策保有株式が「許容された慣行」から「説明を要する例外」へと位置づけを変え、CEO後継者計画が取締役会の責務となり、企業年金がスチュワードシップの輪に組み込まれた節目である。">
-<meta property="og:url" content="https://jpinv.com/governance/cg-code/2.2-cg-code-2018-revision/">
-<link rel="canonical" href="https://jpinv.com/governance/cg-code/2.2-cg-code-2018-revision/">
-<link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/cg-code/2.2-cg-code-2018-revision/">
-<link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/cg-code/2.2-cg-code-2018-revision/">
-<link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/cg-code/2.2-cg-code-2018-revision/">
-
-<style>
-:root {
-  --ink:        #1a2a4a;
-  --ink-mid:    #172641;
-  --ink-soft:   #304466;
-  --rule:       #d6dee8;
-  --rule-soft:  #e8edf3;
-  --bg:         #ffffff;
-  --bg-mid:     #f5f7fa;
-  --bg-soft:    #fafbfc;
-  --text:       #1f2937;
-  --text-mid:   #4a5566;
-  --text-dim:   #5f6875;
-  --accent:     #9a7838;
-  --accent-deep:#9a7838;
-  --accent-soft:#f4eee4;
-  --bad:        #b91c1c;
-  --warn:       #8a682b;
-  --ok:         #2f6f4f;
-  --serif: 'Noto Serif JP', 'Yu Mincho', serif;
-  --sans:  'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
-  --mono:  'DM Mono', monospace;
-  --max: 1100px;
-  --pad: 88px;
-  --gutter: 48px;
-  --nav-h: 64px;
-  --measure: 720px;
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 400; line-height: 1.7; overflow-x: hidden; }
-img { max-width: 100%; display: block; }
-a { color: var(--ink-soft); text-decoration: none; }
-a:hover { color: var(--ink); }
-.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
-@media (max-width: 768px) { :root { --gutter: 22px; --pad: 56px; } }
-strong { font-weight: 600; color: var(--ink); }
-em { font-style: normal; color: var(--ink); font-weight: 600; }
-.label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); }
-
-/* Nav (copied from jpinv.com base) */
-nav#main-nav { position: fixed; top:0; left:0; right:0; z-index:100; height: var(--nav-h); background: rgba(255,255,255,0.96); backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule); display: flex; align-items: center; transition: box-shadow 0.3s; }
-nav#main-nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
-.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; }
-.nav-logo { text-decoration: none; display: inline-flex; align-items: center; flex: 0 0 auto; min-width: max-content; white-space: nowrap; }
-.nav-logo-img { display: block; width: auto; height: 40px; max-width: none; object-fit: contain; object-position: left center; }
-.nav-logo-img--mobile { display: none; width: 32px; height: 32px; object-fit: contain; }
-.nav-center { flex: 1; display: flex; justify-content: center; }
-.nav-links { display: flex; gap: 18px; list-style: none; flex-wrap: nowrap; white-space: nowrap; }
-.nav-links a { font-family: var(--sans); font-size: 0.74rem; font-weight: 400; letter-spacing: 0.02em; color: var(--text); text-decoration: none; transition: color 0.2s; }
-.nav-links a:hover { color: var(--ink-soft); }
-.nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; margin-left: auto; }
-.nav-cta { padding: 7px 11px; font-size: 0.66rem; letter-spacing: 0.05em; }
-.locale-switcher { display: inline-flex; align-items: center; gap: 0; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; }
-.locale-switcher a { color: var(--text-dim); border: 1px solid var(--rule); padding: 6px 9px; text-decoration: none; transition: all 0.2s; }
-.locale-switcher a + a { margin-left: -1px; }
-.locale-switcher a:hover, .locale-switcher a.current { color: var(--ink); border-color: var(--ink-mid); background: var(--bg-soft); position: relative; z-index: 1; }
-.hamburger { display: none; flex-shrink:0; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
-.hamburger span { display:block; width:22px; height:1px; background:var(--ink); transition: all 0.25s; }
-@media (max-width: 900px) { .nav-center, .nav-right .nav-cta { display:none; } .hamburger { display:flex; } }
-@media (max-width: 768px) { .nav-logo-img--desktop { display:none; } .nav-logo-img--mobile { display:block; } }
-.mobile-menu { display:none; position:fixed; top:var(--nav-h); left:0; right:0; background:var(--bg); border-bottom:1px solid var(--rule); z-index:99; padding:8px var(--gutter) 20px; flex-direction:column; gap:0; }
-.mobile-menu.open { display:flex; }
-.mobile-menu a { font-size:0.88rem; color:var(--text); text-decoration:none; padding:14px 0; border-bottom:1px solid var(--rule); letter-spacing:0.04em; }
-.mobile-menu a:last-child { border-bottom:none; }
-.mobile-menu .mobile-menu-cta { margin-top:12px; padding:13px 18px; text-align:center; color:#fff; border-bottom:none; }
-
-.btn { display: inline-block; text-decoration: none; font-family: var(--sans); font-size: 0.84rem; font-weight: 400; letter-spacing: 0.06em; padding: 13px 28px; transition: all 0.2s; cursor: pointer; border: none; }
-.btn-primary { background: var(--ink); color: #fff; }
-.btn-primary:hover { background: var(--ink-mid); color: #fff; }
-.btn-outline { border: 1px solid var(--ink-mid); color: var(--ink); background: transparent; }
-.btn-outline:hover { border-color: var(--ink); color: var(--ink); }
-.rule-accent { width: 32px; height: 2px; background: var(--accent); margin: 14px 0 22px; }
-
-/* Footer (mirror) */
-footer { border-top: 1px solid var(--rule); padding: 52px 0 28px; background: var(--bg-soft); font-size: 0.82rem; color: var(--text-dim); }
-footer .footer-grid { display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 32px; align-items: start; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
-footer h2 { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.2em; color: var(--ink-soft); text-transform: uppercase; margin-bottom: 12px; font-weight: 500; }
-footer h3 { font-family: var(--serif); font-size: 1rem; font-weight: 400; color: var(--ink); margin-bottom: 8px; }
-footer ul { list-style: none; }
-footer ul li { padding: 4px 0; }
-footer ul li a { color: var(--text-mid); }
-footer ul li a:hover { color: var(--ink); }
-footer .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 18px; flex-wrap: wrap; gap: 12px; }
-footer .footer-locale-switcher a.current { font-weight: 600; color: var(--ink); }
-@media (max-width: 900px) { footer .footer-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 580px) { footer .footer-grid { grid-template-columns: 1fr; } }
-
-/* === Curriculum-specific === */
-main.curriculum { padding-top: var(--nav-h); }
-.curr-hero { padding: 96px 0 64px; border-bottom: 1px solid var(--rule); position: relative; overflow: hidden; }
-.curr-hero::before { content:''; position:absolute; inset:0;
-  background-image: linear-gradient(rgba(15,31,58,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(15,31,58,0.04) 1px, transparent 1px);
-  background-size: 64px 64px;
-  -webkit-mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent);
-          mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent); }
-.curr-hero-inner { position:relative; z-index:2; max-width: 880px; }
-.curr-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.32em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 18px; }
-.curr-hero h1 { font-family: var(--serif); font-size: clamp(1.9rem, 4.4vw, 3.1rem); font-weight: 300; color: var(--ink-mid); line-height: 1.3; letter-spacing: 0.02em; margin: 0 0 22px; }
-.curr-hero h1 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-.curr-hero .lede { font-size: 1.05rem; line-height: 1.85; color: var(--text); margin: 0 0 24px; max-width: 700px; }
-.curr-hero-meta { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
-.curr-hero-meta strong { color: var(--ink); font-family: var(--mono); }
-
-.crumbs { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; padding: 22px 0 0; }
-.crumbs a { color: var(--text-mid); }
-.crumbs a:hover { color: var(--ink); }
-.crumbs .sep { color: var(--rule); margin: 0 8px; }
-
-.theme-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; padding: 56px 0; }
-.theme-card { display: block; background: #fff; border: 1px solid var(--rule); padding: 30px 28px; position: relative; transition: all 0.2s; }
-.theme-card:hover { border-color: var(--ink-soft); box-shadow: 0 12px 32px rgba(15,31,58,0.08); transform: translateY(-2px); }
-.theme-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background: var(--accent); opacity: 0.85; }
-.theme-card-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; }
-.theme-card-name { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--ink-mid); margin: 10px 0 8px; line-height: 1.35; }
-.theme-card-period { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 14px; }
-.theme-card-desc { font-size: 0.92rem; line-height: 1.7; color: var(--text); margin-bottom: 18px; }
-.theme-card-list { font-size: 0.84rem; color: var(--text-mid); list-style: none; padding-top: 14px; border-top: 1px solid var(--rule-soft); }
-.theme-card-list li { padding: 5px 0; }
-.theme-card-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; }
-.theme-card-foot .arrow { color: var(--accent-deep); }
-
-.post-list { padding: 28px 0 56px; }
-.post-list-row { display: grid; grid-template-columns: 60px 1fr auto; gap: 22px; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--rule-soft); transition: all 0.18s; }
-.post-list-row:hover { background: var(--bg-mid); padding-left: 12px; padding-right: 12px; }
-.post-list-num { font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em; color: var(--accent-deep); font-weight: 500; }
-.post-list-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--ink-mid); line-height: 1.45; }
-.post-list-meta { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; white-space: nowrap; }
-@media (max-width: 600px) { .post-list-row { grid-template-columns: 50px 1fr; } .post-list-meta { grid-column: 1 / -1; padding-left: 72px; } }
-
-/* Post body */
-.post-body { padding: 48px 0 80px; }
-.post-content { max-width: var(--measure); margin: 0 auto; }
-.post-content > p, .post-content > ul, .post-content > ol, .post-content > blockquote, .post-content > pre, .post-content > table, .post-content > hr, .post-content > h2, .post-content > h3, .post-content > h4 { max-width: var(--measure); margin-left: auto; margin-right: auto; }
-.post-content h2 { font-family: var(--serif); font-size: 1.55rem; font-weight: 400; color: var(--ink-mid); line-height: 1.35; margin: 56px 0 14px; padding-top: 22px; border-top: 1px solid var(--rule-soft); }
-.post-content h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 500; color: var(--ink); margin: 36px 0 10px; line-height: 1.4; }
-.post-content h4 { font-family: var(--sans); font-size: 1rem; font-weight: 600; color: var(--ink); margin: 26px 0 8px; letter-spacing: 0.02em; }
-.post-content p { margin: 0 0 18px; font-size: 1rem; line-height: 1.85; color: var(--text); }
-.post-content p:first-of-type { font-size: 1.05rem; }
-.post-content ul, .post-content ol { margin: 0 0 22px; padding-left: 28px; }
-.post-content ul li, .post-content ol li { font-size: 0.97rem; line-height: 1.8; margin-bottom: 8px; color: var(--text); }
-.post-content ul li::marker { color: var(--accent-deep); }
-.post-content blockquote { margin: 30px 0; padding: 20px 24px; border-left: 3px solid var(--accent); background: var(--accent-soft); color: var(--ink-mid); font-style: normal; }
-.post-content blockquote p { margin-bottom: 8px; font-size: 0.97rem; }
-.post-content blockquote p:last-child { margin-bottom: 0; }
-.post-content blockquote strong { color: var(--ink); }
-.post-content code { background: #f0f0f0; color: var(--ink-mid); font-family: var(--mono); font-size: 0.88rem; padding: 2px 6px; border-radius: 3px; }
-.post-content pre { background: #f9f9fb; border: 1px solid var(--rule); padding: 18px 22px; overflow-x: auto; font-family: var(--mono); font-size: 0.85rem; line-height: 1.55; margin: 24px 0; }
-.post-content pre code { background: transparent; padding: 0; font-size: inherit; }
-.post-content a { color: var(--accent-deep); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; transition: text-decoration-color 0.18s; overflow-wrap: anywhere; word-break: break-word; }
-.post-content a:hover { text-decoration-color: var(--accent-deep); }
-.post-content hr { border: none; border-top: 1px solid var(--rule); margin: 40px auto; max-width: 120px; }
-.post-content table { width: 100%; max-width: var(--measure); margin: 28px auto; border-collapse: collapse; font-size: 0.9rem; }
-.post-content th { background: var(--bg-mid); color: var(--ink-mid); font-family: var(--sans); font-weight: 600; text-align: left; padding: 12px 14px; border-bottom: 2px solid var(--rule); }
-.post-content td { padding: 10px 14px; border-bottom: 1px solid var(--rule-soft); vertical-align: top; color: var(--text); }
-.post-content tr:nth-child(even) td { background: #fafbfc; }
-
-/* Mermaid container */
-.mermaid-wrap { background: #fdfdfe; border: 1px solid var(--rule); padding: 22px 18px; margin: 28px 0; overflow-x: auto; }
-.mermaid { font-family: var(--sans); text-align: center; }
-
-/* Post header */
-.post-header { padding: 48px 0 28px; border-bottom: 1px solid var(--rule); }
-.post-header-inner { max-width: var(--measure); margin: 0 auto; }
-.post-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.28em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 14px; }
-.post-title { font-family: var(--serif); font-size: clamp(1.7rem, 3.6vw, 2.4rem); font-weight: 400; color: var(--ink-mid); line-height: 1.3; margin: 0 0 16px; letter-spacing: 0.005em; }
-.post-summary { font-size: 1.02rem; line-height: 1.8; color: var(--text); margin: 0 0 22px; max-width: 660px; }
-.post-meta { display: flex; gap: 26px; flex-wrap: wrap; padding-top: 18px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
-.post-meta span strong { color: var(--ink); font-family: var(--mono); }
-
-/* Post nav (prev/next) */
-.post-nav { max-width: var(--measure); margin: 56px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding-top: 36px; border-top: 1px solid var(--rule); }
-.post-nav-link { display: block; padding: 18px 20px; background: var(--bg-mid); border: 1px solid var(--rule); transition: all 0.18s; }
-.post-nav-link:hover { border-color: var(--ink-soft); background: #fff; transform: translateY(-1px); }
-.post-nav-dir { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px; }
-.post-nav-title { font-family: var(--serif); font-size: 0.94rem; color: var(--ink-mid); line-height: 1.4; }
-.post-nav-link.next { text-align: right; }
-@media (max-width: 640px) { .post-nav { grid-template-columns: 1fr; } .post-nav-link.next { text-align: left; } }
-
-/* Knowledge check */
-.kcheck { background: var(--bg-mid); padding: 72px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
-.kcheck-head { max-width: 720px; margin: 0 auto 36px; text-align: center; }
-.kcheck h2 { font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 300; color: var(--ink-mid); margin: 0 0 14px; line-height: 1.3; }
-.kcheck h2 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-.kcheck p.lede { font-size: 0.98rem; line-height: 1.75; color: var(--text); }
-.kcheck-q { background: #fff; border: 1px solid var(--rule); padding: 28px 30px; margin-bottom: 18px; max-width: 760px; margin-left: auto; margin-right: auto; }
-.kcheck-q-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; margin-bottom: 12px; }
-.kcheck-q-text { font-family: var(--serif); font-size: 1.1rem; line-height: 1.5; color: var(--ink-mid); margin-bottom: 18px; }
-.kcheck-opts { display: grid; gap: 8px; }
-.kcheck-opt { display: block; padding: 12px 16px; background: var(--bg-soft); border: 1px solid var(--rule); text-align: left; font-family: var(--sans); font-size: 0.92rem; color: var(--text); cursor: pointer; transition: all 0.15s; }
-.kcheck-opt:hover { background: #fff; border-color: var(--ink-soft); }
-.kcheck-opt.correct { background: #e8f3ec; border-color: var(--ok); color: var(--ok); }
-.kcheck-opt.incorrect { background: #fbe9e9; border-color: var(--bad); color: var(--bad); }
-.kcheck-explain { margin-top: 16px; padding: 14px 18px; background: var(--accent-soft); border-left: 3px solid var(--accent); font-size: 0.9rem; line-height: 1.7; color: var(--ink-mid); display: none; }
-.kcheck-q.answered .kcheck-explain { display: block; }
-.kcheck-score { text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--text-dim); margin-top: 28px; text-transform: uppercase; }
-.kcheck-score strong { color: var(--ink-mid); font-family: var(--mono); }
-
-/* Stats / hero stats */
-.stat-band { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; padding: 56px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); background: var(--bg-soft); }
-.stat-item { padding: 0 18px; }
-.stat-num { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 300; color: var(--ink-mid); line-height: 1; margin-bottom: 8px; }
-.stat-num em { color: var(--accent-deep); font-weight: 400; font-style: normal; }
-.stat-label { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; }
-</style>
-
-<meta property="og:image" content="https://jpinv.com/og/jii-default.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://jpinv.com/og/jii-default.png">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "url": "https://jpinv.com/governance/cg-code/2.2-cg-code-2018-revision/",
-  "name": "2018年改訂 ― 資本効率がコードに入った瞬間 | JII ガバナンス改革カリキュラム",
-  "description": "2018年6月の改訂は、『資本コスト』がComply-or-Explainの期待事項となり、政策保有株式が「許容された慣行」から「説明を要する例外」へと位置づけを変え、CEO後継者計画が取締役会の責務となり、企業年金がスチュワードシップの輪に組み込まれた節目である。",
-  "inLanguage": "ja"
-}
-</script></head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2018年改訂――資本コストがコードに明記された転機｜JII ガバナンス改革講座</title>
+  <meta name="description" content="2018年6月の改訂は、コーポレートガバナンス・コードが「形を整える段階」から「経営の中身を問う段階」へ進んだ節目である。原則5.2に資本コストが明記され、政策保有株式には縮減方針と銘柄ごとの検証が求められた。CEOの後継者計画は取締役会が監督すべき事項となり、企業年金もアセットオーナーとしての役割を問われるようになった。同時に公表された『投資家と企業の対話ガイドライン』は、企業と投資家が何を話し合うべきかを具体化した。">
+  <link rel="canonical" href="https://jpinv.com/governance/cg-code/2.2-cg-code-2018-revision/">
+  <link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/cg-code/2.2-cg-code-2018-revision/">
+  <link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/cg-code/2.2-cg-code-2018-revision/">
+  <link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/cg-code/2.2-cg-code-2018-revision/">
+  <meta property="og:title" content="2018年改訂――資本コストがコードに明記された転機｜JII ガバナンス改革講座">
+  <meta property="og:description" content="2018年6月の改訂は、コーポレートガバナンス・コードが「形を整える段階」から「経営の中身を問う段階」へ進んだ節目である。原則5.2に資本コストが明記され、政策保有株式には縮減方針と銘柄ごとの検証が求められた。CEOの後継者計画は取締役会が監督すべき事項となり、企業年金もアセットオーナーとしての役割を問われるようになった。同時に公表された『投資家と企業の対話ガイドライン』は、企業と投資家が何を話し合うべきかを具体化した。">
+  <meta property="og:url" content="https://jpinv.com/governance/cg-code/2.2-cg-code-2018-revision/">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://jpinv.com/og/jii-default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://jpinv.com/og/jii-default.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&amp;family=Noto+Sans+JP:wght@300;400;500;600&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/governance.css?v=b6280834c3">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","name":"2018年改訂――資本コストがコードに明記された転機｜JII ガバナンス改革講座","description":"2018年6月の改訂は、コーポレートガバナンス・コードが「形を整える段階」から「経営の中身を問う段階」へ進んだ節目である。原則5.2に資本コストが明記され、政策保有株式には縮減方針と銘柄ごとの検証が求められた。CEOの後継者計画は取締役会が監督すべき事項となり、企業年金もアセットオーナーとしての役割を問われるようになった。同時に公表された『投資家と企業の対話ガイドライン』は、企業と投資家が何を話し合うべきかを具体化した。","url":"https://jpinv.com/governance/cg-code/2.2-cg-code-2018-revision/","inLanguage":"ja","isPartOf":{"@type":"WebSite","name":"Japan Investor Interface","url":"https://jpinv.com/"},"headline":"2018年改訂――資本コストがコードに明記された転機","dateModified":"2026-08-30","author":{"@type":"Organization","name":"Japan Investor Interface Co., Ltd."},"publisher":{"@type":"Organization","name":"Japan Investor Interface Co., Ltd.","url":"https://jpinv.com/"}}</script>
+</head>
 <body>
-<main id="main-content" class="curriculum" tabindex="-1">
-<div class="wrap crumbs">
-  <a href="/">JII</a> <span class="sep">/</span>
-  <a href="/governance/">IR研修</a> <span class="sep">/</span>
-  <a href="/governance/cg-code/">コードの時代</a> <span class="sep">/</span>
-  記事 2.2
-</div>
-<header class="post-header">
-  <div class="wrap">
-    <div class="post-header-inner">
-      <div class="post-eyebrow">テーマ 2 · 記事 2.2</div>
-      <h1 class="post-title">2018年改訂 ― 資本効率がコードに入った瞬間</h1>
-      <p class="post-summary">2018年6月の改訂は、『資本コスト』がComply-or-Explainの期待事項となり、政策保有株式が「許容された慣行」から「説明を要する例外」へと位置づけを変え、CEO後継者計画が取締役会の責務となり、企業年金がスチュワードシップの輪に組み込まれた節目である。</p>
-      <div class="post-meta">
-        <span>テーマ: <strong>コードの時代</strong></span>
-        <span>読了目安: <strong>10 分</strong></span>
-        <span>更新: <strong>2026-05-18</strong></span>
-      </div>
-    </div>
-  </div>
-</header>
-<section class="post-body">
-  <div class="wrap">
-    <article class="post-content">
-<blockquote>
-<p><strong>要点</strong>
-- 2018年改訂は<strong>2018年6月1日</strong>に確定し、<strong>「資本コスト」</strong>という語が日本の上場ソフトローに初めて登場した瞬間である(原則5.2)。
-- 政策保有株式(原則1.4)、CEO後継者計画(補充原則4.1.3)、企業年金のスチュワードシップ(原則2.6)が新規導入または書き換えられた ― 形式から実質への転換である。
-- 改訂と同時に、まったく新しい補完文書として<strong>『投資家と企業の対話指針』</strong>が公表され、スチュワードシップ・コードとCGコードに共通の対話アジェンダが与えられた。</p>
+  <a class="gov-skip" href="#main-content">本文へ移動</a>
+  <main id="main-content" class="governance-page" tabindex="-1">
+    <nav class="gov-wrap gov-crumbs" aria-label="パンくず"><a href="/">ホーム</a><span class="sep">/</span><a href="/governance/">ガバナンス改革講座</a><span class="sep">/</span><a href="/governance/cg-code/">コードの時代</a><span class="sep">/</span><span aria-current="page">記事 2.2</span></nav>
+    <header class="post-header"><div class="gov-wrap"><div class="post-header-inner"><span class="post-eyebrow">テーマ 2 · 記事 2.2</span><h1 class="post-title">2018年改訂――資本コストがコードに明記された転機</h1><p class="post-summary">2018年6月の改訂は、コーポレートガバナンス・コードが「形を整える段階」から「経営の中身を問う段階」へ進んだ節目である。原則5.2に資本コストが明記され、政策保有株式には縮減方針と銘柄ごとの検証が求められた。CEOの後継者計画は取締役会が監督すべき事項となり、企業年金もアセットオーナーとしての役割を問われるようになった。同時に公表された『投資家と企業の対話ガイドライン』は、企業と投資家が何を話し合うべきかを具体化した。</p><div class="post-meta"><span>テーマ: <strong>コードの時代</strong></span><span>読了目安: <strong>10分</strong></span><span>更新: <strong>2026-08-30</strong></span></div></div></div></header>
+    <section class="post-body"><div class="gov-wrap"><article class="post-content"><blockquote>
+<p><strong>要点</strong></p>
+<ul>
+<li>2018年改訂は<strong>2018年6月1日</strong>に確定した。原則5.2に<strong>「自社の資本コストを的確に把握した上で」</strong>という文言が加わり、資本コストが上場会社の経営計画と説明責任に正式に組み込まれた。</li>
+<li>政策保有株式（原則1.4）、CEOの後継者計画（補充原則4.1.3）、企業年金（原則2.6）についても、取締役会が担うべき役割と開示の水準が引き上げられた。</li>
+<li>同時に公表された<strong>『投資家と企業の対話ガイドライン』</strong>は、両コードの附属文書として、企業と機関投資家が重点的に議論すべき事項を示した。</li>
+</ul>
 </blockquote>
-<h2>フォローアップ会議への移行</h2>
-<p>2018年までに、コードの策定主体は入れ替わっていた。2015年版を作った有識者会議は、その常設後継体である<strong>スチュワードシップ・コード及びコーポレートガバナンス・コードのフォローアップ会議</strong>(通称「フォローアップ会議」)に引き継がれた。金融庁と東証の共同の場であり、その制度設計上のポイントは2015年以降の日本のガバナンス改革を理解する鍵そのものである ― すなわち、<strong>両コードを同じ主体が所管し、両者を連動させて改訂する</strong>という枠組みである。</p>
-<p>2015年の『日本再興戦略』改訂で<strong>「車の両輪」</strong>と表現されたこの設計のもとでは、2018年のCGコード改訂を単独で見ることはできない。改訂と並行して新規に公表された<strong>『投資家と企業の対話指針』</strong>(通称「対話指針」)が、スチュワードシップ責任を負う投資家と上場会社の双方に共通する対話アジェンダを示した。CGコード改訂は発行体側の床を、対話指針は投資家側の床をそれぞれ押し上げる。両輪が同時に回る構造である。</p>
+<h2 id="section-1">「形式」から「実質」へ</h2>
+<p>2015年版コードの策定を担った有識者会議は、その後、金融庁と東京証券取引所が共同事務局を務める<strong>スチュワードシップ・コード及びコーポレートガバナンス・コードのフォローアップ会議</strong>に引き継がれた。ここで重要なのは、企業側のコーポレートガバナンス・コードと、投資家側のスチュワードシップ・コードが、別々の制度としてではなく、相互に作用する一組の仕組みとして点検されるようになったことである。</p>
+<p>2015年版の導入後、独立社外取締役の選任やコーポレート・ガバナンス報告書の提出は広く定着した。一方で、取締役会の議論や資本配分、CEOの選解任といった経営の実質まで変わったかについては、なお課題が残った。金融庁が当時掲げたのが、コーポレートガバナンス改革を<strong>「形式から実質へ」</strong>と深めるという考え方である。</p>
+<p>2018年改訂は、この問題意識をコード本文に反映した。新たな項目を数多く増やすよりも、資本コスト、政策保有株式、CEO後継者計画、企業年金といった、企業価値に直結する論点の要求水準を引き上げたのである。</p>
 <blockquote>
-<p><strong>コラム ― なぜ2018年だったのか</strong>
-2015年版コードを書いた有識者会議は、実質的な内容についてあえて踏み込みを抑えていた。「まず発行体に形を整えさせる」という政治的合意があったからである。2018年時点で金融庁は、形式は定着した(独立社外取締役比率は上昇し、CG報告書も提出されている)ものの、実質が追いついていないと判断した。そこで2018年改訂は、コードを<strong>「拡大ではなく深化」</strong>させるものと位置づけられ、資本効率、政策保有株式、後継者計画、アセットオーナーをComply-or-Explainの網に初めて取り込んだ。</p>
+<p><strong>コラム――2018年に対話ガイドラインが必要になった理由</strong>
+コードの各原則だけでは、企業と投資家が実際の面談で何を議論すべきかまでは分からない。そこで金融庁は、経営戦略、資本政策、CEOの選解任、取締役会の機能、政策保有株式、企業年金などを、対話で重点的に確認する事項として整理した。コードが企業と投資家それぞれの行動原則を示し、対話ガイドラインが両者の議論をつなぐ役割を担う。</p>
 </blockquote>
-<h2>4つの実質的な変化</h2>
-<p>2018年改訂は5+30+38の構造そのものを大きく動かしたわけではない(補充原則がいくつか追加・書き換えられた程度)。動いたのは特定の4項目の<strong>実質</strong>である。下表に主要な4つの変化を並べる。</p>
+<h2 id="section-2">改訂の中心となった4つの論点</h2>
+<p>2018年改訂で実務上の影響が特に大きかったのは、次の4点である。</p>
 <table>
 <thead>
 <tr>
 <th>論点</th>
-<th>2015年版(既存の文言)</th>
-<th>2018年版(追加・書き換え)</th>
+<th>2015年版</th>
+<th>2018年版で変わったこと</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><strong>資本コスト</strong></td>
-<td>コード本文のどこにも「資本コスト」の言及なし。原則5.2は「経営戦略・経営計画」を一般的に述べるにとどまる。</td>
-<td><strong>原則5.2を全面改訂。</strong>「経営戦略や経営計画の策定・公表に当たっては……自社の資本コストを的確に把握した上で、収益計画や資本政策の基本的な方針を示すとともに、収益力・資本効率等に関する目標を提示」する旨を明記。日本のComply-or-Explainソフトローに「資本コスト」の語が登場したのはこれが初めて。</td>
+<td>原則5.2は経営戦略・経営計画の説明を求めていたが、「資本コスト」という語はなかった。</td>
+<td><strong>原則5.2を改訂。</strong> 自社の資本コストを的確に把握したうえで、収益計画、資本政策、収益力・資本効率の目標、事業ポートフォリオや経営資源配分の具体策を説明するよう求めた。</td>
 </tr>
 <tr>
 <td><strong>政策保有株式</strong></td>
-<td>原則1.4は政策保有に関する「方針」の開示と、保有の合理性についての取締役会の<strong>年次検証</strong>を求めていた。縮減方針の要求も、取引行動に関する規律もなかった。</td>
-<td><strong>原則1.4を拡張。</strong>政策保有株式の方針(<strong>縮減方針を含む</strong>)を開示し、取締役会は個別銘柄ごとに、中長期的な経済合理性と便益・リスクが資本コストに見合うかを毎年検証することが求められる。<strong>補充原則1.4.1を新設</strong>し、保有先(政策保有株主)が売却の意向を示した際に、発行体がそれを妨げる行為(取引縮減の示唆など)を明示的に禁止した。</td>
+<td>原則1.4は保有方針の開示と、取締役会による合理性の検証を求めていた。</td>
+<td><strong>原則1.4を強化。</strong> 縮減方針を含む保有方針を開示し、個別銘柄ごとに便益・リスクが資本コストに見合うかを毎年検証することを求めた。<strong>補充原則1.4.1</strong>では、政策保有株主が売却を申し出た際に、取引縮減を示唆するなどして売却を妨げてはならないとした。</td>
 </tr>
 <tr>
 <td><strong>CEO後継者計画</strong></td>
-<td>補充原則4.1.3は存在したが、後継者育成について短く触れる程度。実務上は現経営トップの専権事項であった。</td>
-<td><strong>補充原則4.1.3を全面改訂。</strong>「取締役会は……会社の経営戦略に照らして、ふさわしい人物がCEOに就任できるよう、CEOの後継者の計画について適切に監督を行うべきである……後継者候補の育成が、十分な時間と資源をかけて計画的に行われていくよう、しっかりと監督を行うべき」と明記。後継者計画は明示的に取締役会の責務となった。</td>
+<td>補充原則4.1.3は後継者育成に触れていたが、取締役会の関与は簡潔な記述にとどまった。</td>
+<td><strong>補充原則4.1.3を改訂。</strong> 経営戦略に照らして望ましいCEO像を定め、後継者計画と候補者育成を取締役会が主体的に監督することを明確にした。</td>
 </tr>
 <tr>
-<td><strong>アセットオーナー(企業年金)</strong></td>
-<td>企業年金に関する言及なし。</td>
-<td><strong>原則2.6を新設。</strong>「上場会社は、自社の企業年金が運用機関に対して実効的なスチュワードシップ活動を行うこと等を含め、企業年金の積立金の運用が、従業員の安定的な資産形成や自社の財政状態に影響を与えることを踏まえ、企業年金の運用が専門性を持って行われるよう、運用に当たる適切な資質を持った人材の計画的な登用・配置などの母体企業として行うべき人事面や運営面における取組み……を実施するとともに、そうした取組みの内容を開示すべき」とした。スチュワードシップの輪がアセットオーナーレベルで初めて閉じた瞬間である。</td>
+<td><strong>企業年金</strong></td>
+<td>企業年金への言及はなかった。</td>
+<td><strong>原則2.6を新設。</strong> 母体企業に対し、企業年金がアセットオーナーとして機能できるよう、専門性のある人材の登用・配置など人事・運営面で支援し、その取組を開示するよう求めた。</td>
 </tr>
-</tbody>
-</table>
-<p>このうち歴史に残るのは資本コストの変更である。2018年以前、「資本コスト」はCFOの経営計画室で交わされる言葉ではあっても、Comply-or-Explainの開示文書に登場する語ではなかった。2018年以降、東証1部・2部のすべての発行体は、資本コストを把握し、それに照らした資本効率目標を設定したと記載するか、なぜそれをしていないかを説明するか、いずれかを公の場で明らかにすることになった。2018年原則5.2から、<strong>2023年3月の東証の要請</strong>(「資本コストや株価を意識した経営の実現に向けた対応」、Theme 4で扱う)に至る一本の線は、まさに直線である。</p>
-<h2>コードが資本コストについて述べたこと</h2>
+</tbody></table>
+<p>このうち、後の制度展開に最も大きくつながったのが資本コストである。2018年以降、対象となる上場会社は、資本コストを把握したうえで経営計画を策定していると示すか、そうしていない理由を説明する必要が生じた。2023年3月に東京証券取引所が公表した「資本コストや株価を意識した経営の実現に向けた対応」は、突然始まった政策ではない。原則5.2で示された期待を、より具体的な経営課題として改めて企業に問い直したものと位置づけられる。</p>
+<h2 id="section-3">原則5.2が求めた説明</h2>
+<p>2018年版の原則5.2は、資本コストを把握するだけでなく、それを経営判断につなげ、株主に分かる形で説明することまで求めた。</p>
 <blockquote>
-<p><em>「経営戦略や経営計画の策定・公表に当たっては、収益計画や資本政策の基本的な方針を示すとともに、収益力・資本効率等に関する目標を提示し、その実現のために、経営資源の配分等に関し具体的に何を実行するのかについて、株主に分かりやすい言葉・論理で明確に説明を行うべきである。」</em>
-― コーポレートガバナンス・コード(2018年版)原則5.2</p>
+<p><em>「経営戦略や経営計画の策定・公表に当たっては、自社の資本コストを的確に把握した上で、収益計画や資本政策の基本的な方針を示すとともに、収益力・資本効率等に関する目標を提示し、その実現のために、事業ポートフォリオの見直しや、設備投資・研究開発投資・人材投資等を含む経営資源の配分等に関し具体的に何を実行するのかについて、株主に分かりやすい言葉・論理で明確に説明を行うべきである。」</em>
+― コーポレートガバナンス・コード（2018年版）原則5.2</p>
 </blockquote>
-<p>政策保有株式については、次のように言う。</p>
+<p>ここで問われているのは、資本コストの数値を一つ示すことだけではない。収益目標や資本政策をどのように定め、事業ポートフォリオや設備投資、研究開発、人材投資にどう反映するのかまで、一つの論理として説明することが求められている。</p>
+<p>政策保有株式についても、同じ資本コストの考え方が判断基準に据えられた。</p>
 <blockquote>
 <p><em>「取締役会は、毎年、個別の政策保有株式について、保有目的が適切か、保有に伴う便益やリスクが資本コストに見合っているか等を具体的に精査し、保有の適否を検証するとともに、そうした検証の内容について開示すべきである。」</em>
-― コーポレートガバナンス・コード(2018年版)原則1.4</p>
+― コーポレートガバナンス・コード（2018年版）原則1.4</p>
 </blockquote>
-<p>ここで2015年版にはない仕事が起きている ― 政策保有の検証を<strong>資本コスト</strong>に明示的に結びつけたことである。原則5.2で会社がたった今特定するよう求められたばかりの割引率と同じ数値が、個々の政策保有株式を毎年取締役会で測るハードルとなる。</p>
-<h2>対話指針</h2>
-<p>2018年改訂と同時に公表された対話指針は、コード本体には含まれないが、実務上は不可分の文書である。約5ページの短いもので、金融庁がスチュワードシップ責任を負う投資家と発行体の対話で扱うべきとする論点を列挙している。テーマは5つ ― 経営戦略・資本政策、取締役会の独立性と構成、指名・後継者計画、報酬、株主との対話。</p>
-<blockquote>
-<p><strong>コラム ― なぜ「コード」でなく「指針」なのか</strong>
-対話指針は、Comply-or-Explainの仕組みを伴わない形で、あえてコードの外側に置かれた。これは、対象が発行体と投資家の双方に及ぶためである。Comply-or-Explainレジームは買い手側を直接拘束することができない。これに対し指針は、双方の共通基準として機能できる。</p>
-</blockquote>
-<h2>取締役会構成への期待強化</h2>
-<p>これに加えて重要な変更が2点ある。<strong>原則4.8</strong>が強化され、会社は「業種・規模・事業特性・機関設計・会社をとりまく環境等を総合的に勘案して、自主的な判断により、少なくとも3分の1以上の独立社外取締役を選任することが必要と考える上場会社」については、その旨を踏まえた取組みを行うことが期待されるようになった。2015年の「2名以上」という下限はそのままに、「3分の1以上」というソフトターゲットがComply-or-Explainの対象として初めて入った。</p>
-<p><strong>補充原則4.10.1</strong>は、取締役会自体が独立社外取締役を過半数としていない場合、独立性のある<strong>指名委員会・報酬委員会</strong>等(その委員会は独立社外取締役を主要な構成員とする)を任意で設置することを求めた。これは、日本の上場企業群を任意の指名・報酬委員会の設置へと押し動かす、最も強力な政策レバーとなった。</p>
-<h2>市場の反応</h2>
-<p>東証の遵守状況データ ― 『コーポレートガバナンス白書』および2019年2月の中間ブリーフ ― は摩擦をリアルタイムで映し出した。2018年12月31日時点で、<strong>東証1部上場会社の18.1%</strong>が全原則の完全コンプライアンスを表明し、<strong>85.3%</strong>が全原則の90%以上について順守していると表明した。しかし<strong>新規・改訂された原則については遵守率が10ポイント以上低下</strong>した。すなわち、1部上場会社の10社に1社以上が、新たに厳格化された原則の少なくとも1つで「順守」から「説明」へと姿勢を切り替えたことになる。これは設計どおりの摩擦である。</p>
-<h2>IR実務への含意</h2>
-<ol>
-<li><strong>資本コストに関する記述はすべて原則5.2に紐づける。</strong> WACC、ROIC、エクイティ・スプレッドを投資家と議論する際は、Comply-or-Explainの根拠を明示する。マーケティング上の付け足しではなく、コードに構造的につながった開示であることが伝わる。</li>
-<li><strong>政策保有株式の記述はCG報告書の最も精査される一頁と心得る。</strong> 原則1.4と補充原則1.4.1は国内のスチュワードシップ責任を負う投資家から最も集中的に対話を受ける項目である。縮減方針、取締役会の年次検証、当期の売却実績 ― この順で開示する。</li>
-<li><strong>後継者計画は、目下交代の予定がなくとも文書化する。</strong> 補充原則4.1.3は、計画の所有者は取締役会だと明示している。CG報告書第II部に、取締役会の検討頻度、選定基準、指名委員会等の役割を短く記すことが、強い実務の最低限のベースラインである。</li>
-<li><strong>自社の企業年金が何をしているかを把握する。</strong> 原則2.6はIRデスクから見れば縁遠く感じられるかもしれないが、機関投資家から最も試されやすい論点である。「御社の企業年金はスチュワードシップ・コードに署名しているか。資格を持った運用責任者は誰か」 ― この問いに答えられるIR担当は、そうでない担当より評価が上である。</li>
-<li><strong>対話指針をコードと一緒に読む。</strong> これは金融庁が対話に期待する共通アジェンダであり、机上の参照カードに収まるほど短い。</li>
-</ol>
-<h2>出典・参考資料</h2>
+<p>これにより、政策保有株式は「取引関係の維持に必要だから保有する」という一般論だけでは説明しにくくなった。取締役会には、保有によって得られる便益とリスクを銘柄ごとに確認し、その資本を他に振り向けた場合との比較まで意識した判断が求められる。</p>
+<h2 id="section-4">『投資家と企業の対話ガイドライン』</h2>
+<p>2018年6月に公表された『投資家と企業の対話ガイドライン』は、コーポレートガバナンス・コードとスチュワードシップ・コードの附属文書に位置づけられている。ガイドライン自体はコンプライ・オア・エクスプレインの対象ではないが、両コードを実効的に運用するため、企業と投資家が重点的に議論すべき事項を示している。</p>
+<p>主な論点は、次のとおりである。</p>
 <ul>
-<li>金融庁 ― コーポレートガバナンス・コードの改訂と投資家と企業の対話指針の策定について(2018年3月): https://www.fsa.go.jp/news/30/singi/20180326.html</li>
-<li>金融庁 ― 改訂コーポレートガバナンス・コード(2018年6月、PDF): https://www.fsa.go.jp/news/30/singi/20180326/01.pdf</li>
-<li>金融庁 ― 投資家と企業の対話指針: https://www.fsa.go.jp/news/30/singi/20180601/01.pdf</li>
-<li>金融庁 ― スチュワードシップ・コード及びコーポレートガバナンス・コードのフォローアップ会議: https://www.fsa.go.jp/singi/follow-up/index.html</li>
-<li>日本取引所グループ ― コーポレートガバナンス・コードへの上場会社の対応状況(2018年12月31日時点): https://www.jpx.co.jp/news/1020/20190221-01.html</li>
+<li>経営環境の変化に対応した経営判断</li>
+<li>投資戦略と財務管理</li>
+<li>CEOの選解任・育成と取締役会の機能</li>
+<li>政策保有株式</li>
+<li>アセットオーナーとしての企業年金</li>
 </ul>
-<h2>関連記事</h2>
-<p><strong>本テーマの次の記事:</strong> 2.3 ― 2021年改訂 ― プライム市場・サステナビリティ・多様性</p>
-<p><strong>他テーマの関連記事:</strong>
-- 4.1 ― <a href="/governance/">PBR&lt;1は目標ではなく、市場の評決</a>(2018年に播かれた資本コストの種が2023年の東証政策の中核に育つ流れ)
-- 4.2 ― <a href="/governance/">WACC・ROIC・エクイティ・スプレッド ― IR担当が押さえるべき新語</a>(原則5.2が要求する語彙)
-- 5.2 ― <a href="/governance/">政策保有株式の終局戦</a>(2018年原則1.4から銘柄別検証へと続く長い弧)</p>
-    </article>
-    <div class="post-nav"><a href="/governance/cg-code/2.1-cg-code-2015-primer/" class="post-nav-link prev"><div class="post-nav-dir">← 前の記事</div><div class="post-nav-title">2015年コーポレートガバナンス・コード ― Comply-or-Explainの基礎</div></a><a href="/governance/cg-code/2.3-cg-code-2021-revision/" class="post-nav-link next"><div class="post-nav-dir">次の記事 →</div><div class="post-nav-title">2021年改訂 ― プライム市場・サステナビリティ・多様性</div></a></div>
-    <div style="max-width: var(--measure); margin: 32px auto 0; padding-top: 24px; border-top: 1px solid var(--rule); font-size: 0.82rem; color: var(--text-dim); text-align:right;">
-      <a href="/en/governance/cg-code/2.2-cg-code-2018-revision/" style="color: var(--ink-soft);">English version →</a>
-    </div>
-  </div>
-</section>
-</main>
-<style>footer{background:var(--ink,#1a2a4a);color:#cfd6e2;padding:48px 0 30px;font-size:0.8rem;line-height:1.8;border-top:none}footer a{color:#cfd6e2;text-decoration:none}footer .footer-row{list-style:none;display:flex;flex-wrap:wrap;gap:8px 26px;margin:0 0 26px;padding:0}footer .footer-row li{padding:0}footer .footer-row a{color:#cfd6e2;text-decoration:none;font-size:0.8rem}footer .footer-bottom{padding-top:24px;border-top:1px solid rgba(255,255,255,0.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-family:var(--mono),monospace;font-size:0.68rem;letter-spacing:0.06em;color:rgba(255,255,255,0.55)}</style><script>
-const nav = document.getElementById('main-nav');
-if (nav) window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
-const hamburgerBtn = document.querySelector('.hamburger');
-function setMenuOpen(isOpen) { const menu = document.getElementById('mobileMenu'); if (!menu || !hamburgerBtn) return; menu.classList.toggle('open', isOpen); menu.hidden = !isOpen; hamburgerBtn.setAttribute('aria-expanded', String(isOpen)); }
-function toggleMenu() { const menu = document.getElementById('mobileMenu'); setMenuOpen(!(menu && menu.classList.contains('open'))); }
-document.addEventListener('click', (e) => { const menu = document.getElementById('mobileMenu'); if (menu && menu.classList.contains('open') && !menu.contains(e.target) && hamburgerBtn && !hamburgerBtn.contains(e.target)) setMenuOpen(false); });
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenuOpen(false); });
-</script>
-<script type="module">
-import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs';
-mermaid.initialize({ startOnLoad: true, theme: 'neutral', fontFamily: 'Noto Sans JP, Hiragino Kaku Gothic ProN, sans-serif', themeVariables: { primaryColor: '#f4eee4', primaryTextColor: '#1a2a4a', primaryBorderColor: '#9a7838', lineColor: '#304466', secondaryColor: '#f5f7fa', tertiaryColor: '#fafbfc' } });
-</script>
-<script src="/assets/nav.js?v=348fa48c4e" defer></script>
+<p>ガイドラインがあることで、「原則を遵守しているか」という確認だけでなく、その原則が経営の中でどのように機能しているかを対話で掘り下げられるようになった。たとえば資本コストであれば、算定値の有無だけでなく、その水準を投資判断や事業撤退にどう使っているかまでが議題となる。</p>
+<h2 id="section-5">取締役会の独立性と指名・報酬委員会</h2>
+<p>2018年改訂では、取締役会の構成に関する期待も引き上げられた。原則4.8は、独立社外取締役を少なくとも2名選任するという従来の基準を維持しつつ、業種、規模、事業特性、機関設計などを踏まえ、必要と考える会社には<strong>3分の1以上</strong>の独立社外取締役を選任する方針の開示を求めた。</p>
+<p>補充原則4.10.1は、独立社外取締役が取締役会の過半数に達していない会社に対し、独立社外取締役を主要な構成員とする任意の指名委員会・報酬委員会などを設け、指名・報酬の重要事項について適切な関与と助言を得ることを求めた。法定の機関設計を変更しなくても、CEOの選解任や役員報酬の客観性を高める仕組みを整えられるようにしたのである。</p>
+<h2 id="section-6">上場会社の対応状況</h2>
+<p>東京証券取引所が2018年12月末時点のコーポレート・ガバナンス報告書を集計したところ、市場第一部では、全原則を遵守している会社が<strong>18.1%</strong>、全原則の9割以上を遵守している会社が<strong>85.3%</strong>だった。2017年7月の集計と比べると、それぞれ13.4ポイント、7.7ポイント低下している。</p>
+<p>これは、企業の取組が後退したというより、改訂によって要求水準が上がり、新たに説明を要する項目が増えた結果と読むべきである。なかでも、独立社外取締役を主要な構成員とする任意の指名・報酬委員会に関する補充原則4.10.1の遵守率は52.1%にとどまった。2018年改訂が、形式的な対応では済みにくい論点を企業に突きつけたことが分かる。</p>
+<h2 id="section-7">IR担当者が押さえるべき実務</h2>
+<ol>
+<li><strong>資本コストの説明を原則5.2と結びつける。</strong> WACC、ROIC、エクイティ・スプレッドを示す際は、単なる財務指標の紹介ではなく、経営戦略、資本政策、経営資源配分を一つの説明につなげる。</li>
+<li><strong>政策保有株式は銘柄ごとの判断過程まで整える。</strong> 縮減方針、取締役会による年次検証、当期の売却実績を相互に整合させる。「取引関係の維持」という定型句だけでは、原則1.4が求める説明にならない。</li>
+<li><strong>後継者計画は交代直前に作るものではない。</strong> CEOに求める資質、候補者の育成方法、指名委員会と取締役会の検討頻度を平時から文書化する。</li>
+<li><strong>企業年金の運営をIRの説明範囲に入れる。</strong> 自社年金の運用体制、専門人材、運用機関への働きかけ、利益相反管理について、社内の担当部署と確認しておく。</li>
+<li><strong>対話ガイドラインを面談準備に使う。</strong> ガイドラインの各項目を、投資家から問われ得る質問に置き換えて、CEO・CFO向けの事前説明資料に反映する。</li>
+</ol>
+<h2 id="section-8">出典・参考資料</h2>
+<ul>
+<li>金融庁――コーポレートガバナンス・コードの改訂と投資家と企業の対話ガイドラインの策定について（2018年3月）: <a href="https://www.fsa.go.jp/news/30/singi/20180326.html">https://www.fsa.go.jp/news/30/singi/20180326.html</a></li>
+<li>金融庁――改訂コーポレートガバナンス・コード（2018年6月、PDF）: <a href="https://www.fsa.go.jp/news/30/singi/20180326/01.pdf">https://www.fsa.go.jp/news/30/singi/20180326/01.pdf</a></li>
+<li>金融庁――投資家と企業の対話ガイドライン: <a href="https://www.fsa.go.jp/news/30/singi/20180601/01.pdf">https://www.fsa.go.jp/news/30/singi/20180601/01.pdf</a></li>
+<li>金融庁――スチュワードシップ・コード及びコーポレートガバナンス・コードのフォローアップ会議: <a href="https://www.fsa.go.jp/singi/follow-up/index.html">https://www.fsa.go.jp/singi/follow-up/index.html</a></li>
+<li>日本取引所グループ――コーポレートガバナンス・コードへの上場会社の対応状況（2018年12月31日時点）: <a href="https://www.jpx.co.jp/news/1020/20190221-01.html">https://www.jpx.co.jp/news/1020/20190221-01.html</a></li>
+</ul>
+<h2 id="section-9">関連記事</h2>
+<p><strong>本テーマの次の記事:</strong> 2.3――2021年改訂――プライム市場・サステナビリティ・多様性</p>
+<p><strong>他テーマの関連記事:</strong></p>
+<ul>
+<li>4.1――<a href="/governance/capital-efficiency/4.1-march-2023-request-anatomy/">PBR1倍割れをどう読むか――東証要請の本当の狙い</a>（2018年に明記された資本コストが、2023年の東証要請へつながる過程）</li>
+<li>4.2――<a href="/governance/capital-efficiency/4.2-cost-of-capital-vocabulary/">WACC・ROIC・エクイティ・スプレッド――資本コスト経営の基本用語</a>（原則5.2を実務に落とし込むための用語）</li>
+<li>5.2――<a href="/governance/frontier/5.2-cross-shareholdings-end-game/">政策保有株式の最終局面――銘柄ごとの検証と開示</a>（2018年の原則1.4強化後に進んだ縮減と開示の変化）</li>
+</ul></article><nav class="post-nav" aria-label="前後の記事"><a class="post-nav-link prev" href="/governance/cg-code/2.1-cg-code-2015-primer/"><div class="post-nav-dir">← 前の記事</div><div class="post-nav-title">2015年コーポレートガバナンス・コード――「遵守か、説明か」の基本</div></a><a class="post-nav-link next" href="/governance/cg-code/2.3-cg-code-2021-revision/"><div class="post-nav-dir">次の記事 →</div><div class="post-nav-title">2021年改訂――プライム市場・サステナビリティ・多様性</div></a></nav><div class="post-language"><a href="/en/governance/cg-code/2.2-cg-code-2018-revision/">English version →</a></div></div></section>
+  </main>
+  <script src="/assets/governance.js?v=cc6033456e" defer></script>
+  <script src="/assets/nav.js?v=348fa48c4e" defer></script>
 </body>
 </html>

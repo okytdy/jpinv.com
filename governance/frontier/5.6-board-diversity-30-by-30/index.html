@@ -1,424 +1,173 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-
-<title>「30 by 30」はパイプライン問題である | JII ガバナンス改革カリキュラム</title>
-<meta name="description" content="日本政府の「2030年までにプライム上場会社の女性役員30%」目標は、執行役員パイプラインのより深い問題の上に乗った取締役会構成の数字である。CGC補充原則2-4①は2021年に3つの多様性軸 ― 女性、外国人、中途採用 ― を名指しした。2023年6月16日のKPI公表は見出し数字に期限を打った。実際の制約は背後の人材プールである。">
-<meta property="og:title" content="「30 by 30」はパイプライン問題である | JII ガバナンス改革カリキュラム">
-<meta property="og:description" content="日本政府の「2030年までにプライム上場会社の女性役員30%」目標は、執行役員パイプラインのより深い問題の上に乗った取締役会構成の数字である。CGC補充原則2-4①は2021年に3つの多様性軸 ― 女性、外国人、中途採用 ― を名指しした。2023年6月16日のKPI公表は見出し数字に期限を打った。実際の制約は背後の人材プールである。">
-<meta property="og:url" content="https://jpinv.com/governance/frontier/5.6-board-diversity-30-by-30/">
-<link rel="canonical" href="https://jpinv.com/governance/frontier/5.6-board-diversity-30-by-30/">
-<link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/frontier/5.6-board-diversity-30-by-30/">
-<link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/frontier/5.6-board-diversity-30-by-30/">
-<link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/frontier/5.6-board-diversity-30-by-30/">
-
-<style>
-:root {
-  --ink:        #1a2a4a;
-  --ink-mid:    #172641;
-  --ink-soft:   #304466;
-  --rule:       #d6dee8;
-  --rule-soft:  #e8edf3;
-  --bg:         #ffffff;
-  --bg-mid:     #f5f7fa;
-  --bg-soft:    #fafbfc;
-  --text:       #1f2937;
-  --text-mid:   #4a5566;
-  --text-dim:   #5f6875;
-  --accent:     #9a7838;
-  --accent-deep:#9a7838;
-  --accent-soft:#f4eee4;
-  --bad:        #b91c1c;
-  --warn:       #8a682b;
-  --ok:         #2f6f4f;
-  --serif: 'Noto Serif JP', 'Yu Mincho', serif;
-  --sans:  'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
-  --mono:  'DM Mono', monospace;
-  --max: 1100px;
-  --pad: 88px;
-  --gutter: 48px;
-  --nav-h: 64px;
-  --measure: 720px;
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 400; line-height: 1.7; overflow-x: hidden; }
-img { max-width: 100%; display: block; }
-a { color: var(--ink-soft); text-decoration: none; }
-a:hover { color: var(--ink); }
-.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
-@media (max-width: 768px) { :root { --gutter: 22px; --pad: 56px; } }
-strong { font-weight: 600; color: var(--ink); }
-em { font-style: normal; color: var(--ink); font-weight: 600; }
-.label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); }
-
-/* Nav (copied from jpinv.com base) */
-nav#main-nav { position: fixed; top:0; left:0; right:0; z-index:100; height: var(--nav-h); background: rgba(255,255,255,0.96); backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule); display: flex; align-items: center; transition: box-shadow 0.3s; }
-nav#main-nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
-.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; }
-.nav-logo { text-decoration: none; display: inline-flex; align-items: center; flex: 0 0 auto; min-width: max-content; white-space: nowrap; }
-.nav-logo-img { display: block; width: auto; height: 40px; max-width: none; object-fit: contain; object-position: left center; }
-.nav-logo-img--mobile { display: none; width: 32px; height: 32px; object-fit: contain; }
-.nav-center { flex: 1; display: flex; justify-content: center; }
-.nav-links { display: flex; gap: 18px; list-style: none; flex-wrap: nowrap; white-space: nowrap; }
-.nav-links a { font-family: var(--sans); font-size: 0.74rem; font-weight: 400; letter-spacing: 0.02em; color: var(--text); text-decoration: none; transition: color 0.2s; }
-.nav-links a:hover { color: var(--ink-soft); }
-.nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; margin-left: auto; }
-.nav-cta { padding: 7px 11px; font-size: 0.66rem; letter-spacing: 0.05em; }
-.locale-switcher { display: inline-flex; align-items: center; gap: 0; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; }
-.locale-switcher a { color: var(--text-dim); border: 1px solid var(--rule); padding: 6px 9px; text-decoration: none; transition: all 0.2s; }
-.locale-switcher a + a { margin-left: -1px; }
-.locale-switcher a:hover, .locale-switcher a.current { color: var(--ink); border-color: var(--ink-mid); background: var(--bg-soft); position: relative; z-index: 1; }
-.hamburger { display: none; flex-shrink:0; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
-.hamburger span { display:block; width:22px; height:1px; background:var(--ink); transition: all 0.25s; }
-@media (max-width: 900px) { .nav-center, .nav-right .nav-cta { display:none; } .hamburger { display:flex; } }
-@media (max-width: 768px) { .nav-logo-img--desktop { display:none; } .nav-logo-img--mobile { display:block; } }
-.mobile-menu { display:none; position:fixed; top:var(--nav-h); left:0; right:0; background:var(--bg); border-bottom:1px solid var(--rule); z-index:99; padding:8px var(--gutter) 20px; flex-direction:column; gap:0; }
-.mobile-menu.open { display:flex; }
-.mobile-menu a { font-size:0.88rem; color:var(--text); text-decoration:none; padding:14px 0; border-bottom:1px solid var(--rule); letter-spacing:0.04em; }
-.mobile-menu a:last-child { border-bottom:none; }
-.mobile-menu .mobile-menu-cta { margin-top:12px; padding:13px 18px; text-align:center; color:#fff; border-bottom:none; }
-
-.btn { display: inline-block; text-decoration: none; font-family: var(--sans); font-size: 0.84rem; font-weight: 400; letter-spacing: 0.06em; padding: 13px 28px; transition: all 0.2s; cursor: pointer; border: none; }
-.btn-primary { background: var(--ink); color: #fff; }
-.btn-primary:hover { background: var(--ink-mid); color: #fff; }
-.btn-outline { border: 1px solid var(--ink-mid); color: var(--ink); background: transparent; }
-.btn-outline:hover { border-color: var(--ink); color: var(--ink); }
-.rule-accent { width: 32px; height: 2px; background: var(--accent); margin: 14px 0 22px; }
-
-/* Footer (mirror) */
-footer { border-top: 1px solid var(--rule); padding: 52px 0 28px; background: var(--bg-soft); font-size: 0.82rem; color: var(--text-dim); }
-footer .footer-grid { display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 32px; align-items: start; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
-footer h2 { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.2em; color: var(--ink-soft); text-transform: uppercase; margin-bottom: 12px; font-weight: 500; }
-footer h3 { font-family: var(--serif); font-size: 1rem; font-weight: 400; color: var(--ink); margin-bottom: 8px; }
-footer ul { list-style: none; }
-footer ul li { padding: 4px 0; }
-footer ul li a { color: var(--text-mid); }
-footer ul li a:hover { color: var(--ink); }
-footer .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 18px; flex-wrap: wrap; gap: 12px; }
-footer .footer-locale-switcher a.current { font-weight: 600; color: var(--ink); }
-@media (max-width: 900px) { footer .footer-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 580px) { footer .footer-grid { grid-template-columns: 1fr; } }
-
-/* === Curriculum-specific === */
-main.curriculum { padding-top: var(--nav-h); }
-.curr-hero { padding: 96px 0 64px; border-bottom: 1px solid var(--rule); position: relative; overflow: hidden; }
-.curr-hero::before { content:''; position:absolute; inset:0;
-  background-image: linear-gradient(rgba(15,31,58,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(15,31,58,0.04) 1px, transparent 1px);
-  background-size: 64px 64px;
-  -webkit-mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent);
-          mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent); }
-.curr-hero-inner { position:relative; z-index:2; max-width: 880px; }
-.curr-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.32em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 18px; }
-.curr-hero h1 { font-family: var(--serif); font-size: clamp(1.9rem, 4.4vw, 3.1rem); font-weight: 300; color: var(--ink-mid); line-height: 1.3; letter-spacing: 0.02em; margin: 0 0 22px; }
-.curr-hero h1 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-.curr-hero .lede { font-size: 1.05rem; line-height: 1.85; color: var(--text); margin: 0 0 24px; max-width: 700px; }
-.curr-hero-meta { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
-.curr-hero-meta strong { color: var(--ink); font-family: var(--mono); }
-
-.crumbs { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; padding: 22px 0 0; }
-.crumbs a { color: var(--text-mid); }
-.crumbs a:hover { color: var(--ink); }
-.crumbs .sep { color: var(--rule); margin: 0 8px; }
-
-.theme-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; padding: 56px 0; }
-.theme-card { display: block; background: #fff; border: 1px solid var(--rule); padding: 30px 28px; position: relative; transition: all 0.2s; }
-.theme-card:hover { border-color: var(--ink-soft); box-shadow: 0 12px 32px rgba(15,31,58,0.08); transform: translateY(-2px); }
-.theme-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background: var(--accent); opacity: 0.85; }
-.theme-card-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; }
-.theme-card-name { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--ink-mid); margin: 10px 0 8px; line-height: 1.35; }
-.theme-card-period { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 14px; }
-.theme-card-desc { font-size: 0.92rem; line-height: 1.7; color: var(--text); margin-bottom: 18px; }
-.theme-card-list { font-size: 0.84rem; color: var(--text-mid); list-style: none; padding-top: 14px; border-top: 1px solid var(--rule-soft); }
-.theme-card-list li { padding: 5px 0; }
-.theme-card-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; }
-.theme-card-foot .arrow { color: var(--accent-deep); }
-
-.post-list { padding: 28px 0 56px; }
-.post-list-row { display: grid; grid-template-columns: 60px 1fr auto; gap: 22px; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--rule-soft); transition: all 0.18s; }
-.post-list-row:hover { background: var(--bg-mid); padding-left: 12px; padding-right: 12px; }
-.post-list-num { font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em; color: var(--accent-deep); font-weight: 500; }
-.post-list-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--ink-mid); line-height: 1.45; }
-.post-list-meta { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; white-space: nowrap; }
-@media (max-width: 600px) { .post-list-row { grid-template-columns: 50px 1fr; } .post-list-meta { grid-column: 1 / -1; padding-left: 72px; } }
-
-/* Post body */
-.post-body { padding: 48px 0 80px; }
-.post-content { max-width: var(--measure); margin: 0 auto; }
-.post-content > p, .post-content > ul, .post-content > ol, .post-content > blockquote, .post-content > pre, .post-content > table, .post-content > hr, .post-content > h2, .post-content > h3, .post-content > h4 { max-width: var(--measure); margin-left: auto; margin-right: auto; }
-.post-content h2 { font-family: var(--serif); font-size: 1.55rem; font-weight: 400; color: var(--ink-mid); line-height: 1.35; margin: 56px 0 14px; padding-top: 22px; border-top: 1px solid var(--rule-soft); }
-.post-content h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 500; color: var(--ink); margin: 36px 0 10px; line-height: 1.4; }
-.post-content h4 { font-family: var(--sans); font-size: 1rem; font-weight: 600; color: var(--ink); margin: 26px 0 8px; letter-spacing: 0.02em; }
-.post-content p { margin: 0 0 18px; font-size: 1rem; line-height: 1.85; color: var(--text); }
-.post-content p:first-of-type { font-size: 1.05rem; }
-.post-content ul, .post-content ol { margin: 0 0 22px; padding-left: 28px; }
-.post-content ul li, .post-content ol li { font-size: 0.97rem; line-height: 1.8; margin-bottom: 8px; color: var(--text); }
-.post-content ul li::marker { color: var(--accent-deep); }
-.post-content blockquote { margin: 30px 0; padding: 20px 24px; border-left: 3px solid var(--accent); background: var(--accent-soft); color: var(--ink-mid); font-style: normal; }
-.post-content blockquote p { margin-bottom: 8px; font-size: 0.97rem; }
-.post-content blockquote p:last-child { margin-bottom: 0; }
-.post-content blockquote strong { color: var(--ink); }
-.post-content code { background: #f0f0f0; color: var(--ink-mid); font-family: var(--mono); font-size: 0.88rem; padding: 2px 6px; border-radius: 3px; }
-.post-content pre { background: #f9f9fb; border: 1px solid var(--rule); padding: 18px 22px; overflow-x: auto; font-family: var(--mono); font-size: 0.85rem; line-height: 1.55; margin: 24px 0; }
-.post-content pre code { background: transparent; padding: 0; font-size: inherit; }
-.post-content a { color: var(--accent-deep); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; transition: text-decoration-color 0.18s; overflow-wrap: anywhere; word-break: break-word; }
-.post-content a:hover { text-decoration-color: var(--accent-deep); }
-.post-content hr { border: none; border-top: 1px solid var(--rule); margin: 40px auto; max-width: 120px; }
-.post-content table { width: 100%; max-width: var(--measure); margin: 28px auto; border-collapse: collapse; font-size: 0.9rem; }
-.post-content th { background: var(--bg-mid); color: var(--ink-mid); font-family: var(--sans); font-weight: 600; text-align: left; padding: 12px 14px; border-bottom: 2px solid var(--rule); }
-.post-content td { padding: 10px 14px; border-bottom: 1px solid var(--rule-soft); vertical-align: top; color: var(--text); }
-.post-content tr:nth-child(even) td { background: #fafbfc; }
-
-/* Mermaid container */
-.mermaid-wrap { background: #fdfdfe; border: 1px solid var(--rule); padding: 22px 18px; margin: 28px 0; overflow-x: auto; }
-.mermaid { font-family: var(--sans); text-align: center; }
-
-/* Post header */
-.post-header { padding: 48px 0 28px; border-bottom: 1px solid var(--rule); }
-.post-header-inner { max-width: var(--measure); margin: 0 auto; }
-.post-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.28em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 14px; }
-.post-title { font-family: var(--serif); font-size: clamp(1.7rem, 3.6vw, 2.4rem); font-weight: 400; color: var(--ink-mid); line-height: 1.3; margin: 0 0 16px; letter-spacing: 0.005em; }
-.post-summary { font-size: 1.02rem; line-height: 1.8; color: var(--text); margin: 0 0 22px; max-width: 660px; }
-.post-meta { display: flex; gap: 26px; flex-wrap: wrap; padding-top: 18px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
-.post-meta span strong { color: var(--ink); font-family: var(--mono); }
-
-/* Post nav (prev/next) */
-.post-nav { max-width: var(--measure); margin: 56px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding-top: 36px; border-top: 1px solid var(--rule); }
-.post-nav-link { display: block; padding: 18px 20px; background: var(--bg-mid); border: 1px solid var(--rule); transition: all 0.18s; }
-.post-nav-link:hover { border-color: var(--ink-soft); background: #fff; transform: translateY(-1px); }
-.post-nav-dir { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px; }
-.post-nav-title { font-family: var(--serif); font-size: 0.94rem; color: var(--ink-mid); line-height: 1.4; }
-.post-nav-link.next { text-align: right; }
-@media (max-width: 640px) { .post-nav { grid-template-columns: 1fr; } .post-nav-link.next { text-align: left; } }
-
-/* Knowledge check */
-.kcheck { background: var(--bg-mid); padding: 72px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
-.kcheck-head { max-width: 720px; margin: 0 auto 36px; text-align: center; }
-.kcheck h2 { font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 300; color: var(--ink-mid); margin: 0 0 14px; line-height: 1.3; }
-.kcheck h2 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-.kcheck p.lede { font-size: 0.98rem; line-height: 1.75; color: var(--text); }
-.kcheck-q { background: #fff; border: 1px solid var(--rule); padding: 28px 30px; margin-bottom: 18px; max-width: 760px; margin-left: auto; margin-right: auto; }
-.kcheck-q-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; margin-bottom: 12px; }
-.kcheck-q-text { font-family: var(--serif); font-size: 1.1rem; line-height: 1.5; color: var(--ink-mid); margin-bottom: 18px; }
-.kcheck-opts { display: grid; gap: 8px; }
-.kcheck-opt { display: block; padding: 12px 16px; background: var(--bg-soft); border: 1px solid var(--rule); text-align: left; font-family: var(--sans); font-size: 0.92rem; color: var(--text); cursor: pointer; transition: all 0.15s; }
-.kcheck-opt:hover { background: #fff; border-color: var(--ink-soft); }
-.kcheck-opt.correct { background: #e8f3ec; border-color: var(--ok); color: var(--ok); }
-.kcheck-opt.incorrect { background: #fbe9e9; border-color: var(--bad); color: var(--bad); }
-.kcheck-explain { margin-top: 16px; padding: 14px 18px; background: var(--accent-soft); border-left: 3px solid var(--accent); font-size: 0.9rem; line-height: 1.7; color: var(--ink-mid); display: none; }
-.kcheck-q.answered .kcheck-explain { display: block; }
-.kcheck-score { text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--text-dim); margin-top: 28px; text-transform: uppercase; }
-.kcheck-score strong { color: var(--ink-mid); font-family: var(--mono); }
-
-/* Stats / hero stats */
-.stat-band { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; padding: 56px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); background: var(--bg-soft); }
-.stat-item { padding: 0 18px; }
-.stat-num { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 300; color: var(--ink-mid); line-height: 1; margin-bottom: 8px; }
-.stat-num em { color: var(--accent-deep); font-weight: 400; font-style: normal; }
-.stat-label { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; }
-</style>
-
-<meta property="og:image" content="https://jpinv.com/og/jii-default.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://jpinv.com/og/jii-default.png">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "url": "https://jpinv.com/governance/frontier/5.6-board-diversity-30-by-30/",
-  "name": "「30 by 30」はパイプライン問題である | JII ガバナンス改革カリキュラム",
-  "description": "日本政府の「2030年までにプライム上場会社の女性役員30%」目標は、執行役員パイプラインのより深い問題の上に乗った取締役会構成の数字である。CGC補充原則2-4①は2021年に3つの多様性軸 ― 女性、外国人、中途採用 ― を名指しした。2023年6月16日のKPI公表は見出し数字に期限を打った。実際の制約は背後の人材プールである。",
-  "inLanguage": "ja"
-}
-</script></head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>「2030年30%」を実現するには――女性役員候補をどう育てるか｜JII ガバナンス改革講座</title>
+  <meta name="description" content="東証プライム市場上場会社には、2030年までに女性役員比率30%以上を目指すことが「望まれる事項」として示されている。2025年の女性役員比率は17.7%まで上昇し、女性役員が一人もいない会社は2.5%まで減った。一方、係長相当職24.4%、課長相当職15.9%、部長相当職9.8%という管理職層の構成をみると、社内から将来の役員候補を継続的に生み出す基盤はなお細い。本稿では、目標の法的位置付け、数字の読み方、候補者層を育てる実務を整理する。">
+  <link rel="canonical" href="https://jpinv.com/governance/frontier/5.6-board-diversity-30-by-30/">
+  <link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/frontier/5.6-board-diversity-30-by-30/">
+  <link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/frontier/5.6-board-diversity-30-by-30/">
+  <link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/frontier/5.6-board-diversity-30-by-30/">
+  <meta property="og:title" content="「2030年30%」を実現するには――女性役員候補をどう育てるか｜JII ガバナンス改革講座">
+  <meta property="og:description" content="東証プライム市場上場会社には、2030年までに女性役員比率30%以上を目指すことが「望まれる事項」として示されている。2025年の女性役員比率は17.7%まで上昇し、女性役員が一人もいない会社は2.5%まで減った。一方、係長相当職24.4%、課長相当職15.9%、部長相当職9.8%という管理職層の構成をみると、社内から将来の役員候補を継続的に生み出す基盤はなお細い。本稿では、目標の法的位置付け、数字の読み方、候補者層を育てる実務を整理する。">
+  <meta property="og:url" content="https://jpinv.com/governance/frontier/5.6-board-diversity-30-by-30/">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://jpinv.com/og/jii-default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://jpinv.com/og/jii-default.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&amp;family=Noto+Sans+JP:wght@300;400;500;600&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/governance.css?v=b6280834c3">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","name":"「2030年30%」を実現するには――女性役員候補をどう育てるか｜JII ガバナンス改革講座","description":"東証プライム市場上場会社には、2030年までに女性役員比率30%以上を目指すことが「望まれる事項」として示されている。2025年の女性役員比率は17.7%まで上昇し、女性役員が一人もいない会社は2.5%まで減った。一方、係長相当職24.4%、課長相当職15.9%、部長相当職9.8%という管理職層の構成をみると、社内から将来の役員候補を継続的に生み出す基盤はなお細い。本稿では、目標の法的位置付け、数字の読み方、候補者層を育てる実務を整理する。","url":"https://jpinv.com/governance/frontier/5.6-board-diversity-30-by-30/","inLanguage":"ja","isPartOf":{"@type":"WebSite","name":"Japan Investor Interface","url":"https://jpinv.com/"},"headline":"「2030年30%」を実現するには――女性役員候補をどう育てるか","dateModified":"2026-08-30","author":{"@type":"Organization","name":"Japan Investor Interface Co., Ltd."},"publisher":{"@type":"Organization","name":"Japan Investor Interface Co., Ltd.","url":"https://jpinv.com/"}}</script>
+</head>
 <body>
-<main id="main-content" class="curriculum" tabindex="-1">
-<div class="wrap crumbs">
-  <a href="/">JII</a> <span class="sep">/</span>
-  <a href="/governance/">IR研修</a> <span class="sep">/</span>
-  <a href="/governance/frontier/">最前線 ― 現在の論点</a> <span class="sep">/</span>
-  記事 5.6
-</div>
-<header class="post-header">
-  <div class="wrap">
-    <div class="post-header-inner">
-      <div class="post-eyebrow">テーマ 5 · 記事 5.6</div>
-      <h1 class="post-title">「30 by 30」はパイプライン問題である</h1>
-      <p class="post-summary">日本政府の「2030年までにプライム上場会社の女性役員30%」目標は、執行役員パイプラインのより深い問題の上に乗った取締役会構成の数字である。CGC補充原則2-4①は2021年に3つの多様性軸 ― 女性、外国人、中途採用 ― を名指しした。2023年6月16日のKPI公表は見出し数字に期限を打った。実際の制約は背後の人材プールである。</p>
-      <div class="post-meta">
-        <span>テーマ: <strong>最前線 ― 現在の論点</strong></span>
-        <span>読了目安: <strong>13 分</strong></span>
-        <span>更新: <strong>2026-05-18</strong></span>
-      </div>
-    </div>
-  </div>
-</header>
-<section class="post-body">
-  <div class="wrap">
-    <article class="post-content">
-<blockquote>
-<p><strong>要点</strong>
-- <strong>2023年6月16日</strong>、日本政府の「女性版骨太の方針」が<strong>プライム市場上場会社における女性役員比率を2030年までに30%</strong>とする目標を発表した。中間節目は「2025年までに女性役員を1名以上選任」。
-- 2021年CGC<strong>補充原則2-4①</strong>が作動的なコンプライ・オア・エクスプレイン本文である。すべての上場会社は女性、外国人、中途採用者の管理職への登用について自主的・測定可能な目標を設定し、人材育成方針とともに開示しなければならない。
-- 指標は改善している ― 2022年の主要企業女性役員比率11.4%から、2025年10月時点で<strong>18.4%</strong>へ。だが軌道は明らかに30%目標を下回る。構造的制約は指名委員会ではなく執行役員<strong>パイプライン</strong>にある。</p>
+  <a class="gov-skip" href="#main-content">本文へ移動</a>
+  <main id="main-content" class="governance-page" tabindex="-1">
+    <nav class="gov-wrap gov-crumbs" aria-label="パンくず"><a href="/">ホーム</a><span class="sep">/</span><a href="/governance/">ガバナンス改革講座</a><span class="sep">/</span><a href="/governance/frontier/">現在進行中の論点</a><span class="sep">/</span><span aria-current="page">記事 5.6</span></nav>
+    <header class="post-header"><div class="gov-wrap"><div class="post-header-inner"><span class="post-eyebrow">テーマ 5 · 記事 5.6</span><h1 class="post-title">「2030年30%」を実現するには――女性役員候補をどう育てるか</h1><p class="post-summary">東証プライム市場上場会社には、2030年までに女性役員比率30%以上を目指すことが「望まれる事項」として示されている。2025年の女性役員比率は17.7%まで上昇し、女性役員が一人もいない会社は2.5%まで減った。一方、係長相当職24.4%、課長相当職15.9%、部長相当職9.8%という管理職層の構成をみると、社内から将来の役員候補を継続的に生み出す基盤はなお細い。本稿では、目標の法的位置付け、数字の読み方、候補者層を育てる実務を整理する。</p><div class="post-meta"><span>テーマ: <strong>現在進行中の論点</strong></span><span>読了目安: <strong>7分</strong></span><span>更新: <strong>2026-08-30</strong></span></div></div></div></header>
+    <section class="post-body"><div class="gov-wrap"><article class="post-content"><blockquote>
+<p><strong>要点</strong></p>
+<ul>
+<li>「2030年までに女性役員比率30%以上」は、法定クオータではない。2023年10月から、東証の企業行動規範における<strong>望まれる事項</strong>として位置付けられている。</li>
+<li>2025年、プライム市場上場会社の女性役員比率は17.7%、女性役員が一人もいない会社は2.5%となった。</li>
+<li>問題は取締役候補の最終選考だけではない。女性比率は係長相当職24.4%、課長相当職15.9%、部長相当職9.8%と上位職ほど低く、役員候補となる層を中長期で厚くする必要がある。</li>
+</ul>
 </blockquote>
-<h2>見出しの数字 ― 時系列</h2>
+<h2 id="section-1">30%目標の位置付け</h2>
+<p>政府は「女性版骨太の方針2023」で、プライム市場上場会社について次の目標を掲げた。</p>
+<ul>
+<li>2025年を目途に、女性役員を一人以上選任する。</li>
+<li>2030年までに、女性役員比率30%以上を目指す。</li>
+<li>目標達成に向けた行動計画の策定を推奨する。</li>
+</ul>
+<p>東証は2023年10月10日、これらを有価証券上場規程の企業行動規範にある「望まれる事項」として取り込んだ。したがって、30%は法律上の強制割当でも、未達なら直ちに上場廃止となる数値でもない。しかし、プライム市場に期待される行動として公表されており、投資家は取締役会構成と候補者育成を評価する際の基準として使う。</p>
+<p>「役員」の定義にも注意が必要である。政府の集計には、取締役、監査役、執行役に加え、各社が目標の対象に含めた一定の執行役員等が含まれる場合がある。自社の目標を開示するときは、分子と分母に誰を含めるのかを明記しなければ、他社比較ができない。</p>
+<h2 id="section-2">2025年の現在地</h2>
 <table>
 <thead>
 <tr>
-<th>年</th>
-<th>プライム発行体女性取締役比率(概算)</th>
-<th>主要企業女性役員比率</th>
-<th>政策・規制節目</th>
+<th>指標</th>
+<th>現状</th>
+<th>2030年の目標</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td>2014</td>
-<td>約2%</td>
-<td>約3%</td>
-<td>伊藤レポート公表。コーポレートガバナンス改革開始</td>
+<tbody><tr>
+<td>プライム市場上場会社の女性役員比率</td>
+<td><strong>17.7%</strong>（2025年）</td>
+<td><strong>30%以上</strong></td>
 </tr>
 <tr>
-<td>2018</td>
-<td>約5%</td>
-<td>約5%</td>
-<td>CGC 2018年改訂。「ダイバーシティ」への一般言及が初登場</td>
+<td>女性役員が一人もいないプライム会社</td>
+<td><strong>2.5%</strong>（2025年）</td>
+<td>一人以上の選任を定着させる</td>
 </tr>
 <tr>
-<td>2021</td>
-<td>約8%</td>
-<td>約9%</td>
-<td><strong>CGC 2021年改訂:補充原則2-4①が3軸を名指し</strong></td>
+<td>全上場会社の女性役員比率</td>
+<td><strong>14.0%</strong>（2025年）</td>
+<td>20%</td>
 </tr>
 <tr>
-<td>2022</td>
-<td>約11%</td>
-<td><strong>11.4%</strong></td>
-<td>東証市場再編。プライム/スタンダード/グロース分離</td>
+<td>女性役員目標と行動計画をともに策定する上場会社</td>
+<td><strong>5.9%</strong>（2025年）</td>
+<td>30%</td>
 </tr>
-<tr>
-<td>2023</td>
-<td>約13%</td>
-<td>約14%</td>
-<td><strong>2023年6月16日:政府の「2030年30%」目標</strong></td>
-</tr>
-<tr>
-<td>2024</td>
-<td>約15%</td>
-<td>約16%</td>
-<td>金融庁、女性管理職比率・男女賃金格差のYUHO開示義務化</td>
-</tr>
-<tr>
-<td>2025(10月)</td>
-<td>約17%</td>
-<td><strong>18.4%</strong></td>
-<td>継続する対話・レターの圧力</td>
-</tr>
-<tr>
-<td><strong>2030年目標</strong></td>
-<td><strong>30%</strong></td>
-<td>n/a</td>
-<td>政府KPI</td>
-</tr>
-</tbody>
-</table>
-<p>見出しの軌道は実体を伴う ― 日本の役員ランクへの女性参加は過去10年で3倍になった ― が、2025年実績と2030年目標の差がいま作動的課題である。2025年の約17%ベースラインから2030年30%に到達するには、プライム発行体の女性取締役数を年率約12~13%の複利で増やす必要がある。2022-25年の実現成長率は約8~10%だった。算術が引き締まりつつある。</p>
-<h2>3つの多様性軸 ― 政策がすべてに言及する理由</h2>
-<p>日本の多様性政策に対するよくある誤読は、これを女性代表政策として扱うことだ。2021年CGC<strong>補充原則2-4①</strong>は明示的に<strong>3つの</strong>軸を名指しする。</p>
-<blockquote>
-<p>「上場会社は、女性・外国人・中途採用者の管理職への登用等、中核人材における多様性の確保についての考え方と自主的かつ測定可能な目標を示すとともに、その状況を開示すべきである。」</p>
-</blockquote>
-<p>3軸フレーミングは、構造的に重要だ。理由は2つある。</p>
-<p>第一に、<strong>日本の多様性は西洋の多くのガバナンス文脈と異なる範囲を持つ</strong>。米国で多様性の中心軸である人種・民族は、民族的により均質な社会では作動的変数ではない。性的指向の多様性はますます可視化されているが、2-4①のフレーミングには含まれない。日本の政策フレーミングは、日本の文脈で測定可能な執行役員パイプラインの多様化を生む3軸を強調する。<strong>女性</strong>(ジェンダー)、<strong>外国人</strong>(国籍/クロスボーダー人材)、<strong>中途採用者</strong>(キャリア経路の出自、終身雇用に基づく社内昇進との対比)。</p>
-<p>第二に、<strong>3軸は終身雇用システムを通じて深く相互連結している</strong>。日本の執行役員パイプラインは歴史的に単線だった。一流大学を卒業し、大手企業に入社し、複数の配置をローテーションし、25~30年かけてシニア・マネジメントへ昇進する。3軸はいずれも、単線パターンを破る道筋を表す。女性登用はキャリア初期パイプライン(女性が歴史的に過小昇進されてきた箇所)の改革を必要とする。外国人採用は執行役員リクルートメント・システム(社外からの中途採用が歴史的に稀だった箇所)の改革を必要とする。中途採用は社内昇進期待(社外からの登用が文化的に高コストだった箇所)の改革を必要とする。</p>
-<p>社外女性役員を狭いプールから2名招聘することで女性比率問題を「解決」した取締役会は ― 背後の執行役員パイプラインに取り組まずに ― 形式的には2-4①に遵守したが、構造的進歩はしていない。これがACGAとJACDが2024-25年のガバナンス報告書で批判してきたパターンだ。</p>
-<h2>2023年6月16日公表とその変化</h2>
-<p>政府の「女性活躍に関する重点方針」(女性版骨太の方針) ― 2023年6月16日に内閣府男女共同参画局が発表 ― は、2-4①のソフトロー上の義務を測定可能な国家目標に変換した。発表の2つの数字が重要だ。</p>
-<p><strong>「2025年までに女性役員を1名以上選任」</strong> ― プライム発行体が2030年30%目標の最終5年枠に、女性取締役ゼロで入らないことを確保するための中間節目。2024年3月期ガバナンス報告書サイクル時点で、プライム発行体の約95%が少なくとも1名の女性取締役を擁する。残る5%は国内外投資家からの明示的な対話圧力下にあり、ISSとグラス・ルイスはいずれも、女性取締役不在の発行体について議長・指名委員会委員長候補に反対投票を検討するシグナルを発した。</p>
-<p><strong>「2030年までにプライム市場上場会社の女性役員比率30%」</strong> ― 見出しKPI。文言は作動的だ ― プライム市場上場会社の<strong>集合平均</strong>に適用され、各発行体の最低値ではない。女性取締役0%のプライム発行体と60%のプライム発行体は、平均にともに寄与する。複数の日本の発行体(特に一部の金融サービス発行体、外国人支配の発行体の小コホート)は既に30%超の水準にあり、上方への統計的牽引を提供する。</p>
-<p>公表はまた、<strong>30%がすべての取締役</strong>(業務執行・社外、社内・独立)に適用され、社外取締役のみではないことを明確化した。これは意味あるデザイン上の決定だ。社外取締役のみに限定された30%目標は外部指名で比較的容易に達成しうるが、すべての取締役にまたがる30%目標は内部執行役員パイプラインの改革を要求する。</p>
-<p>KPIは非拘束 ― 政府方針であって東証上場規則ではない。だがその執行メカニズムは作動的だ。ISS、グラス・ルイス、GPIF、主要な日本の機関投資家はいずれも、議決権行使方針をこれに整合させた。2025年のISS日本ポリシーは、軌道を下回るプライム発行体の取締役会議長に対する反対投票を明示的に検討する。グラス・ルイスの2025年日本ポリシーは類似だが、女性取締役目標についてはより積極的だ。</p>
-<h2>なぜこれは取締役会構成問題ではなくパイプライン問題なのか</h2>
-<p>女性取締役候補を特定する必要のある日本の指名委員会は、2026年時点で扱える問題を抱えている。日本の主要プライム発行体の取締役を信用しうる形で務めるに十分な役員レベルの経験を持つ日本人女性は、約<strong>2,000~2,500名</strong>いる。複数の取締役会で勤めた者(いわゆる「プロフェッショナル・ディレクター」のキャリア経路)、同業他社の現職役員、元政府・学界・法曹界の役員などだ。人材プールは小さいが、取締役会あたり1~2名の社外取締役を指名する目的では業務上機能する。</p>
-<p>30%目標は別の問題を課す。プライム・ユニバースを2030年までに30%にするには、約<strong>2,500~3,000の増加分の女性取締役職</strong>を埋める必要があり、新規任命は現在の「プロフェッショナル・ディレクター」コアより広いプールから引かなければならない。背後パイプラインの拡大なしには、目標は機械的に実現不能となるか、同じ少数の知名度の高い候補者を複数の取締役会で再利用することで達成される。</p>
-<p>パイプライン問題は3つの作動的層を持つ。</p>
-<p><strong>中堅管理職層(部長/ゼネラル・マネジャー層)。</strong> 執行役員層の直下である。従業員5,000人の日本企業では、この層は100~200ポストだ。2024-25年の平均的な日本の主要企業におけるこの層の女性比率は約<strong>8~12%</strong> ― 取締役会レベル代表比率を大きく下回る。ここの構造的制約は社内昇進トラックだ。日本の女性は歴史的に支援・事務トラックに過剰代表され、ライン管理トラックに過小代表されてきた。ライン管理トラックがゼネラル・マネジャー以上への経路だ。</p>
-<p><strong>執行役員層。</strong> 正式な執行役員の層(取締役会レベル以下だが、相当の業務上権限を持つ役員)。2024-25年の平均的な主要日本企業のこの層における女性比率は約<strong>10~12%</strong> ― 中堅役員層より高いが、取締役会レベルより低い。構造的制約は二重だ。パイプライン(この層は中堅役員層から供給される)に、キャリア経路の断絶(育児休業を経た女性は、年齢で上の男性同輩より若いキャリア・ポジション・パリティにあることがある)が加わる。</p>
-<p><strong>取締役会層。</strong> 取締役会層の女性比率は最も活発に改革され、公的開示で最も可視化されている層だ。プライム発行体では現在約17%、軌道が維持されれば2030年に30%へ向かう。</p>
-<p>パイプライン問題は短く言えば、<strong>取締役会層の30%目標は、中堅役員層と執行役員層も2020年代後半までに25~30%の女性比率に到達しない限り、持続的に達成できない</strong>ということだ。さもなくば30%目標は、複数取締役兼任と社外取締役任命の狭いプールへの持続不能な集中で満たされる。</p>
-<h2>金融庁のYUHO開示義務化の実際</h2>
-<p>2-4①のソフトロー義務に加え、金融庁は法定YUHO要件を通じて多様性開示制度を硬化させた。2022年度報告サイクル(2023年央提出)から、すべてのYUHO提出者(約4,000社)は次の3つの特定指標を開示しなければならない。</p>
+</tbody></table>
+<p>女性役員が一人もいない会社を減らす段階は、かなり進んだ。次の課題は、一人を選任して終わるのではなく、取締役会全体の構成を変え、30%へ近づけることだ。</p>
+<p>例えば、取締役会が10人なら女性3人、12人なら4人が30%以上となる。任期が1年で毎年改選する会社でも、候補者探索、本人の準備、社内外の調整には時間がかかる。2030年の定時株主総会から逆算すれば、2026年から2028年にかけて、複数年の選任計画を具体化する必要がある。</p>
+<h2 id="section-3">本当の課題は、候補者層の厚み</h2>
+<p>役員候補は、突然生まれない。内部昇進を重視する会社では、部長、執行役員、事業責任者、海外拠点責任者、CFO候補など、経営経験を積む機会が役員候補の母集団をつくる。</p>
+<p>2024年の民間企業における女性比率は、係長相当職24.4%、課長相当職15.9%、部長相当職9.8%だった。職位が上がるほど比率が下がっており、社内候補だけで短期間に30%を達成しようとすると、特定の少数者に社外取締役や委員会の役割が集中する可能性がある。</p>
+<p>この課題は、採用人数だけでは解決しない。誰に収益責任を持たせるか、海外経験を与えるか、M&amp;Aや事業再編を任せるか、経営会議に参加させるかという<strong>経験の配分</strong>が重要である。</p>
+<h2 id="section-4">取締役会の多様性と社内の人材戦略をつなぐ</h2>
+<p>2026年改訂版コーポレートガバナンス・コードは、多様性をジェンダーだけでなく、国際性、経歴（中途採用を含む）、年齢、文化的背景などを含むものとして捉えている。また、2026年2月の開示府令改正により、有価証券報告書では、連結ベースの企業戦略と関連付けた人材戦略、従業員給与等の決定方針、平均給与の増減など、人的資本開示も拡充された。</p>
+<p>このため、女性役員比率を独立した数値目標として扱うより、次の一本の流れで示す方が説得力がある。</p>
 <ol>
-<li><strong>女性管理職比率</strong>(管理職の自社定義に基づく管理職に占める女性比率)。</li>
-<li><strong>男性育児休業取得率</strong>(育児休業を取得する男性従業員比率。政府方針下で2025年度までに30%目標)。</li>
-<li><strong>男女賃金格差</strong>(標準化された方法論で算出される男女賃金差)。</li>
+<li>会社の戦略に必要な取締役会の知識・経験を定義する。</li>
+<li>現在の取締役会で不足する経験をスキルマトリックスで特定する。</li>
+<li>社内の女性管理職・執行役員候補に、必要な経験を与える。</li>
+<li>社内だけで不足する場合は、社外候補を計画的に探索する。</li>
+<li>毎年、取締役会構成と候補者育成の進捗を開示する。</li>
 </ol>
-<p>3指標は法定開示であり、ソフトローではない。方法論は内閣府令で定義され、開示場所はYUHOで、正確性についての監査責任が付随する。</p>
-<p>金融庁のこの3指標の選択は構造的に重要だ。公的議論の大半が集中する<strong>取締役会構成</strong>の数字から、構造的制約が実際に存在する<strong>執行役員パイプライン</strong>指標へと注意を移す。日本の発行体のYUHOを読む海外投資家は、女性管理職比率、男女賃金格差、男性育児休業取得率を並べて確認でき、IRチームに対し、取締役会構成の数字が動いてもパイプライン指標が動かないのはなぜかを問える。</p>
-<p>OECDは日本を、37加盟国中で<strong>3番目に大きい男女賃金格差</strong>を持つと一貫してランクしてきた。義務化されたYUHO開示は、その文脈への金融庁の制度的応答である。</p>
-<h2>CGS指針、サクセッション、スキル・マトリックス</h2>
-<p>補完的な政策手段が、最近では<strong>2022年7月</strong>改訂のMETIの<strong>CGS(コーポレート・ガバナンス・システム)指針</strong>であり、「指名委員会・報酬委員会及び後継者計画に関する別冊」と題する60ページの専用補足を伴う。日本のCEOサクセッションと執行役員パイプライン管理に関する最も明示的なソフトロー文書である。</p>
-<p>多様性に関する2つの作動的推奨が重要だ。</p>
-<p><strong>一 ― サクセッション計画は明示的に多様であるべし。</strong> CEOおよびシニア執行役員ポジションのサクセッション計画は、3つの多様性軸にまたがる候補者を考慮すべきであり、指名委員会は候補プールを早期に絞り込むべきでない。これは指名委員会のプロセスへの規律であって、最終結果への規律ではない。</p>
-<p><strong>二 ― スキル・マトリックスはパイプライン・ギャップを明らかにすべし。</strong> CGC補充原則4-11①が求めるスキル・マトリックスは、取締役会の集団的能力のギャップを ― 多様性関連経験のギャップを含め ― 特定することを意図している。スキル・マトリックスが単線終身雇用キャリアに集中した取締役会を示す場合、ギャップ分析が補填のための採用を駆動するはずだ。</p>
-<p>JPXインフォメーションサービス(JPXI)は2025年8月に取締役・監査役のスキルに関する機械可読データの提供を開始し、発行体横断のスキル・マトリックス・ベンチマーキングを可能にした。データはいまや、主要機関投資家がスキル・マトリックス・ギャップ次元で外れ値の取締役会を特定するために用いられている。</p>
-<h2>IRにとっての含意</h2>
+<p>女性であることだけを理由に候補者を選ぶのではない。会社の戦略に必要な能力を持つ候補者を広く探し、その探索と育成の過程で、従来見落とされていた女性人材へのアクセスを広げるのである。</p>
+<h2 id="section-5">行動計画に入れるべき項目</h2>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>開示・運用の例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>現在地</td>
+<td>女性役員比率、女性管理職比率、各職位の人数、定義</td>
+</tr>
+<tr>
+<td>目標</td>
+<td>2030年の役員比率だけでなく、2027年・2028年の中間目標</td>
+</tr>
+<tr>
+<td>取締役会の改選計画</td>
+<td>任期満了、退任予定、取締役会の適正規模との関係</td>
+</tr>
+<tr>
+<td>社内候補の育成</td>
+<td>事業責任、海外、財務、デジタル、M&amp;Aなどの経験付与</td>
+</tr>
+<tr>
+<td>社外候補の探索</td>
+<td>候補者データベース、サーチ会社、他業界人材の活用</td>
+</tr>
+<tr>
+<td>環境整備</td>
+<td>長時間労働、転勤、育児・介護、再登用、柔軟な勤務制度</td>
+</tr>
+<tr>
+<td>監督</td>
+<td>指名委員会と取締役会が、年何回、どの指標を確認するか</td>
+</tr>
+</tbody></table>
+<p>とくに重要なのは、中間目標である。「2030年に30%」だけでは、2029年まで先送りできてしまう。2027年、2028年の取締役候補者名簿と、各候補が不足する経験をどう補うかまで落とし込む必要がある。</p>
+<h2 id="section-6">よくある三つの誤り</h2>
+<h3 id="section-7">1. 社外取締役だけで数字を作る</h3>
+<p>社外取締役の登用は重要だが、社内の執行側が変わらなければ、経営人材の多様化は進まない。社内取締役、執行役員、事業責任者の構成も同時に見る。</p>
+<h3 id="section-8">2. 管理職比率と役員比率を同じものとして扱う</h3>
+<p>役員比率は取締役会構成の指標、管理職比率は人材育成の指標である。時間軸も母集団も違う。両方を開示し、どうつながるかを説明する。</p>
+<h3 id="section-9">3. 「適任者がいない」で終える</h3>
+<p>適任者がいないなら、なぜいないのかを分析する。採用、配属、評価、転勤、育児との両立、重要ポストへの登用のどこで候補者が減っているかを示し、是正策を設ける。</p>
+<h2 id="section-10">IR担当者が押さえるべき含意</h2>
 <ol>
-<li><strong>取締役会の数字だけでなく、パイプライン指標を報告する。</strong> 30%・2030年進捗を開示するとき、取締役会の数字と並行して執行役員層比率と中堅管理職層比率を開示する。誠実さのシグナルこそが海外投資家がエンゲージするものだ。</li>
-<li><strong>2-4①を3軸義務として扱い、女性のみの義務として扱わない。</strong> 女性、外国人、中途採用者の目標と進捗を別々に開示する。CGC本文は3軸すべての開示が必要であることを明確にしている。</li>
-<li><strong>スキル・マトリックスに物語を語らせる。</strong> すべての取締役を「ゼネラル・マネジメント経験」と列記したスキル・マトリックスは投資家に何も語らない。パイプライン・ギャップを特定し、最近の任命がそれを埋めていることを示すスキル・マトリックスは、指名委員会が機能していることを投資家に語る。</li>
-<li><strong>2025年議決権行使方針の整合を予期する。</strong> ISS、グラス・ルイス、主要日本機関投資家は30%・2030年目標を中心に議決権行使方針を整合させた。軌道が曲線を大きく下回るなら、AGMで議長または指名委員会委員長候補への反対票を予期せよ。</li>
-<li><strong>多様性開示をYUHO法定指標と協調させる。</strong> 女性管理職比率、男性育児休業取得率、男女賃金格差はいま法定だ。任意ナラティブ開示(統合報告書、ガバナンス報告書、IRデック)がYUHOの数字と整合することを確保する ― 投資家は両者を比較する。</li>
+<li><strong>30%目標の分母と対象役職を明記する。</strong> 政府統計と自社開示で定義が違う場合、その差を説明する。</li>
+<li><strong>2030年から逆算した改選表を作る。</strong> 取締役の任期、退任、増減員を反映し、各年の必要候補者数を示す。</li>
+<li><strong>女性管理職比率を、役員候補の先行指標として扱う。</strong> とくに部長、執行役員、事業責任者の数と経験を追う。</li>
+<li><strong>指名委員会の役割を開示する。</strong> 候補者探索、育成計画、外部サーチ、進捗確認にどう関与するかを具体化する。</li>
+<li><strong>数値だけでなく、経験の配分を説明する。</strong> 重要事業、海外、財務、デジタル、M&amp;Aを誰に任せているかが、候補者層の実態を示す。</li>
 </ol>
-<h2>出典と参考資料</h2>
+<h2 id="section-11">出典・参考資料</h2>
 <ul>
-<li>金融庁「『コーポレートガバナンス・コード』及び『投資家と企業の対話指針』の改訂について」(2021年4月): https://www.fsa.go.jp/en/news/2021/20210406.html</li>
-<li>JPX「コーポレートガバナンス・コードの改訂について」(2021年6月11日): https://www.jpx.co.jp/english/news/1020/20210611-01.html</li>
-<li>METIプレスリリース「『コーポレート・ガバナンス・システムに関する実務指針』(CGS指針)を改訂しました」(2022年7月19日): https://www.meti.go.jp/english/press/2022/0719_002.html</li>
-<li>Lexology「日本、2030年までに女性役員比率30%を義務化」: https://www.lexology.com/library/detail.aspx?g=71abd0c9-a133-45ae-a9dd-e2bb98fb79a9</li>
-<li>JPX「JPXI Customized Data 取締役・監査役のスキル等についてのサンプルデータ提供開始」(2025年8月19日): https://www.jpx.co.jp/english/corporate/news/news-releases/6020/20250819-01.html</li>
-<li>内閣府男女共同参画局「女性活躍に関する重点方針(女性版骨太の方針)」(2023年6月16日): https://www.gender.go.jp/english_contents/index.html</li>
-<li>OECD ジェンダー平等レポート ― 日本国別プロフィール: https://www.oecd.org/gender/</li>
+<li>内閣府男女共同参画局「女性役員情報サイト」: <a href="https://www.gender.go.jp/policy/mieruka/company/yakuin.html">https://www.gender.go.jp/policy/mieruka/company/yakuin.html</a></li>
+<li>内閣府「女性活躍・男女共同参画の重点方針2023」関連解説: <a href="https://www.gender.go.jp/public/kyodosankaku/2023/202402/202402_02.html">https://www.gender.go.jp/public/kyodosankaku/2023/202402/202402_02.html</a></li>
+<li>内閣府「共同参画 2026年5月号」: <a href="https://www.gender.go.jp/public/kyodosankaku/2026/202605/202605_02.html">https://www.gender.go.jp/public/kyodosankaku/2026/202605/202605_02.html</a></li>
+<li>内閣府「令和8年版男女共同参画白書」: <a href="https://www.gender.go.jp/about_danjo/whitepaper/r08/zentai/html/honpen/b1_s01_04.html">https://www.gender.go.jp/about_danjo/whitepaper/r08/zentai/html/honpen/b1_s01_04.html</a></li>
+<li>金融庁・東証「コーポレートガバナンス・コード（2026年改訂版）」: <a href="https://www.fsa.go.jp/singi/follow-up/index.html">https://www.fsa.go.jp/singi/follow-up/index.html</a></li>
+<li>金融庁「人的資本開示を含む開示府令等の改正」（2026年2月20日）: <a href="https://www.fsa.go.jp/news/r7/shouken/20260220/20260220.html">https://www.fsa.go.jp/news/r7/shouken/20260220/20260220.html</a></li>
 </ul>
 <hr>
-<p><strong>本テーマの次回:</strong> <a href="/governance/">5.7 スチュワードシップ・コード3.0以後の協働対話</a></p>
-<p><strong>他テーマの関連記事:</strong>
-- <a href="/governance/">2.3 2021年改訂 ― プライム市場・サステナビリティ・多様性</a>
-- <a href="/governance/">2.5 コード vs 指針 ― 経済産業省の体系</a>
-- <a href="/governance/">5.8 次のガバナンス・ルールを書いているワーキング・グループ群</a>
-</p>
-    </article>
-    <div class="post-nav"><a href="/governance/frontier/5.5-ssbj-sustainability/" class="post-nav-link prev"><div class="post-nav-dir">← 前の記事</div><div class="post-nav-title">SSBJ実務 ― 3段階のサステナビリティ開示見通し</div></a><a href="/governance/frontier/5.7-activism-engagement-2025/" class="post-nav-link next"><div class="post-nav-dir">次の記事 →</div><div class="post-nav-title">スチュワードシップ・コード3.0以後の協働対話</div></a></div>
-    <div style="max-width: var(--measure); margin: 32px auto 0; padding-top: 24px; border-top: 1px solid var(--rule); font-size: 0.82rem; color: var(--text-dim); text-align:right;">
-      <a href="/en/governance/frontier/5.6-board-diversity-30-by-30/" style="color: var(--ink-soft);">English version →</a>
-    </div>
-  </div>
-</section>
-</main>
-<style>footer{background:var(--ink,#1a2a4a);color:#cfd6e2;padding:48px 0 30px;font-size:0.8rem;line-height:1.8;border-top:none}footer a{color:#cfd6e2;text-decoration:none}footer .footer-row{list-style:none;display:flex;flex-wrap:wrap;gap:8px 26px;margin:0 0 26px;padding:0}footer .footer-row li{padding:0}footer .footer-row a{color:#cfd6e2;text-decoration:none;font-size:0.8rem}footer .footer-bottom{padding-top:24px;border-top:1px solid rgba(255,255,255,0.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-family:var(--mono),monospace;font-size:0.68rem;letter-spacing:0.06em;color:rgba(255,255,255,0.55)}</style><script>
-const nav = document.getElementById('main-nav');
-if (nav) window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
-const hamburgerBtn = document.querySelector('.hamburger');
-function setMenuOpen(isOpen) { const menu = document.getElementById('mobileMenu'); if (!menu || !hamburgerBtn) return; menu.classList.toggle('open', isOpen); menu.hidden = !isOpen; hamburgerBtn.setAttribute('aria-expanded', String(isOpen)); }
-function toggleMenu() { const menu = document.getElementById('mobileMenu'); setMenuOpen(!(menu && menu.classList.contains('open'))); }
-document.addEventListener('click', (e) => { const menu = document.getElementById('mobileMenu'); if (menu && menu.classList.contains('open') && !menu.contains(e.target) && hamburgerBtn && !hamburgerBtn.contains(e.target)) setMenuOpen(false); });
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenuOpen(false); });
-</script>
-<script type="module">
-import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs';
-mermaid.initialize({ startOnLoad: true, theme: 'neutral', fontFamily: 'Noto Sans JP, Hiragino Kaku Gothic ProN, sans-serif', themeVariables: { primaryColor: '#f4eee4', primaryTextColor: '#1a2a4a', primaryBorderColor: '#9a7838', lineColor: '#304466', secondaryColor: '#f5f7fa', tertiaryColor: '#fafbfc' } });
-</script>
-<script src="/assets/nav.js?v=348fa48c4e" defer></script>
+<p><strong>本テーマの前の記事:</strong> <a href="/governance/frontier/5.5-ssbj-sustainability/">5.5 SSBJ基準の実務――段階適用と準備の要点</a></p>
+<p><strong>本テーマの次の記事:</strong> <a href="/governance/frontier/5.7-activism-engagement-2025/">5.7 スチュワードシップ・コード第三次改訂後の協働対話</a></p>
+<p><strong>他テーマの関連記事:</strong></p>
+<ul>
+<li><a href="/governance/cg-code/2.3-cg-code-2021-revision/">2.3 2021年改訂――プライム市場・サステナビリティ・多様性</a></li>
+<li><a href="/governance/cg-code/2.4-reading-a-cg-report/">2.4 コーポレート・ガバナンス報告書を15分で読む方法</a></li>
+<li><a href="/governance/frontier/5.5-ssbj-sustainability/">5.5 SSBJ基準の実務――段階適用と準備の要点</a></li>
+<li><a href="/governance/frontier/5.8-working-groups-landscape/">5.8 次の制度改正を読む――ガバナンス関連会議・研究会の全体像</a></li>
+</ul></article><nav class="post-nav" aria-label="前後の記事"><a class="post-nav-link prev" href="/governance/frontier/5.5-ssbj-sustainability/"><div class="post-nav-dir">← 前の記事</div><div class="post-nav-title">SSBJ基準の実務――段階適用と準備の要点</div></a><a class="post-nav-link next" href="/governance/frontier/5.7-activism-engagement-2025/"><div class="post-nav-dir">次の記事 →</div><div class="post-nav-title">スチュワードシップ・コード第三次改訂後の協働対話</div></a></nav><div class="post-language"><a href="/en/governance/frontier/5.6-board-diversity-30-by-30/">English version →</a></div></div></section>
+  </main>
+  <script src="/assets/governance.js?v=cc6033456e" defer></script>
+  <script src="/assets/nav.js?v=348fa48c4e" defer></script>
 </body>
 </html>

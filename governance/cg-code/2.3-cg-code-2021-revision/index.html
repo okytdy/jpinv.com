@@ -1,434 +1,140 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-
-<title>2021年改訂 ― プライム市場・サステナビリティ・多様性 | JII ガバナンス改革カリキュラム</title>
-<meta name="description" content="2021年6月の改訂は、2022年4月の市場区分再編(プライム/スタンダード/グロース)と歩調を合わせ、プライム上場会社にのみ課される独立性、スキルマトリックス、TCFD整合の気候関連開示、英文開示、電子議決権行使プラットフォームに関する義務を導入した。サステナビリティ・多様性・人的資本もComply-or-Explainの網に組み込まれた。">
-<meta property="og:title" content="2021年改訂 ― プライム市場・サステナビリティ・多様性 | JII ガバナンス改革カリキュラム">
-<meta property="og:description" content="2021年6月の改訂は、2022年4月の市場区分再編(プライム/スタンダード/グロース)と歩調を合わせ、プライム上場会社にのみ課される独立性、スキルマトリックス、TCFD整合の気候関連開示、英文開示、電子議決権行使プラットフォームに関する義務を導入した。サステナビリティ・多様性・人的資本もComply-or-Explainの網に組み込まれた。">
-<meta property="og:url" content="https://jpinv.com/governance/cg-code/2.3-cg-code-2021-revision/">
-<link rel="canonical" href="https://jpinv.com/governance/cg-code/2.3-cg-code-2021-revision/">
-<link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/cg-code/2.3-cg-code-2021-revision/">
-<link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/cg-code/2.3-cg-code-2021-revision/">
-<link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/cg-code/2.3-cg-code-2021-revision/">
-
-<style>
-:root {
-  --ink:        #1a2a4a;
-  --ink-mid:    #172641;
-  --ink-soft:   #304466;
-  --rule:       #d6dee8;
-  --rule-soft:  #e8edf3;
-  --bg:         #ffffff;
-  --bg-mid:     #f5f7fa;
-  --bg-soft:    #fafbfc;
-  --text:       #1f2937;
-  --text-mid:   #4a5566;
-  --text-dim:   #5f6875;
-  --accent:     #9a7838;
-  --accent-deep:#9a7838;
-  --accent-soft:#f4eee4;
-  --bad:        #b91c1c;
-  --warn:       #8a682b;
-  --ok:         #2f6f4f;
-  --serif: 'Noto Serif JP', 'Yu Mincho', serif;
-  --sans:  'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
-  --mono:  'DM Mono', monospace;
-  --max: 1100px;
-  --pad: 88px;
-  --gutter: 48px;
-  --nav-h: 64px;
-  --measure: 720px;
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 400; line-height: 1.7; overflow-x: hidden; }
-img { max-width: 100%; display: block; }
-a { color: var(--ink-soft); text-decoration: none; }
-a:hover { color: var(--ink); }
-.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
-@media (max-width: 768px) { :root { --gutter: 22px; --pad: 56px; } }
-strong { font-weight: 600; color: var(--ink); }
-em { font-style: normal; color: var(--ink); font-weight: 600; }
-.label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); }
-
-/* Nav (copied from jpinv.com base) */
-nav#main-nav { position: fixed; top:0; left:0; right:0; z-index:100; height: var(--nav-h); background: rgba(255,255,255,0.96); backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule); display: flex; align-items: center; transition: box-shadow 0.3s; }
-nav#main-nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
-.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; }
-.nav-logo { text-decoration: none; display: inline-flex; align-items: center; flex: 0 0 auto; min-width: max-content; white-space: nowrap; }
-.nav-logo-img { display: block; width: auto; height: 40px; max-width: none; object-fit: contain; object-position: left center; }
-.nav-logo-img--mobile { display: none; width: 32px; height: 32px; object-fit: contain; }
-.nav-center { flex: 1; display: flex; justify-content: center; }
-.nav-links { display: flex; gap: 18px; list-style: none; flex-wrap: nowrap; white-space: nowrap; }
-.nav-links a { font-family: var(--sans); font-size: 0.74rem; font-weight: 400; letter-spacing: 0.02em; color: var(--text); text-decoration: none; transition: color 0.2s; }
-.nav-links a:hover { color: var(--ink-soft); }
-.nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; margin-left: auto; }
-.nav-cta { padding: 7px 11px; font-size: 0.66rem; letter-spacing: 0.05em; }
-.locale-switcher { display: inline-flex; align-items: center; gap: 0; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; }
-.locale-switcher a { color: var(--text-dim); border: 1px solid var(--rule); padding: 6px 9px; text-decoration: none; transition: all 0.2s; }
-.locale-switcher a + a { margin-left: -1px; }
-.locale-switcher a:hover, .locale-switcher a.current { color: var(--ink); border-color: var(--ink-mid); background: var(--bg-soft); position: relative; z-index: 1; }
-.hamburger { display: none; flex-shrink:0; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
-.hamburger span { display:block; width:22px; height:1px; background:var(--ink); transition: all 0.25s; }
-@media (max-width: 900px) { .nav-center, .nav-right .nav-cta { display:none; } .hamburger { display:flex; } }
-@media (max-width: 768px) { .nav-logo-img--desktop { display:none; } .nav-logo-img--mobile { display:block; } }
-.mobile-menu { display:none; position:fixed; top:var(--nav-h); left:0; right:0; background:var(--bg); border-bottom:1px solid var(--rule); z-index:99; padding:8px var(--gutter) 20px; flex-direction:column; gap:0; }
-.mobile-menu.open { display:flex; }
-.mobile-menu a { font-size:0.88rem; color:var(--text); text-decoration:none; padding:14px 0; border-bottom:1px solid var(--rule); letter-spacing:0.04em; }
-.mobile-menu a:last-child { border-bottom:none; }
-.mobile-menu .mobile-menu-cta { margin-top:12px; padding:13px 18px; text-align:center; color:#fff; border-bottom:none; }
-
-.btn { display: inline-block; text-decoration: none; font-family: var(--sans); font-size: 0.84rem; font-weight: 400; letter-spacing: 0.06em; padding: 13px 28px; transition: all 0.2s; cursor: pointer; border: none; }
-.btn-primary { background: var(--ink); color: #fff; }
-.btn-primary:hover { background: var(--ink-mid); color: #fff; }
-.btn-outline { border: 1px solid var(--ink-mid); color: var(--ink); background: transparent; }
-.btn-outline:hover { border-color: var(--ink); color: var(--ink); }
-.rule-accent { width: 32px; height: 2px; background: var(--accent); margin: 14px 0 22px; }
-
-/* Footer (mirror) */
-footer { border-top: 1px solid var(--rule); padding: 52px 0 28px; background: var(--bg-soft); font-size: 0.82rem; color: var(--text-dim); }
-footer .footer-grid { display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 32px; align-items: start; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
-footer h2 { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.2em; color: var(--ink-soft); text-transform: uppercase; margin-bottom: 12px; font-weight: 500; }
-footer h3 { font-family: var(--serif); font-size: 1rem; font-weight: 400; color: var(--ink); margin-bottom: 8px; }
-footer ul { list-style: none; }
-footer ul li { padding: 4px 0; }
-footer ul li a { color: var(--text-mid); }
-footer ul li a:hover { color: var(--ink); }
-footer .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 18px; flex-wrap: wrap; gap: 12px; }
-footer .footer-locale-switcher a.current { font-weight: 600; color: var(--ink); }
-@media (max-width: 900px) { footer .footer-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 580px) { footer .footer-grid { grid-template-columns: 1fr; } }
-
-/* === Curriculum-specific === */
-main.curriculum { padding-top: var(--nav-h); }
-.curr-hero { padding: 96px 0 64px; border-bottom: 1px solid var(--rule); position: relative; overflow: hidden; }
-.curr-hero::before { content:''; position:absolute; inset:0;
-  background-image: linear-gradient(rgba(15,31,58,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(15,31,58,0.04) 1px, transparent 1px);
-  background-size: 64px 64px;
-  -webkit-mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent);
-          mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent); }
-.curr-hero-inner { position:relative; z-index:2; max-width: 880px; }
-.curr-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.32em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 18px; }
-.curr-hero h1 { font-family: var(--serif); font-size: clamp(1.9rem, 4.4vw, 3.1rem); font-weight: 300; color: var(--ink-mid); line-height: 1.3; letter-spacing: 0.02em; margin: 0 0 22px; }
-.curr-hero h1 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-.curr-hero .lede { font-size: 1.05rem; line-height: 1.85; color: var(--text); margin: 0 0 24px; max-width: 700px; }
-.curr-hero-meta { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
-.curr-hero-meta strong { color: var(--ink); font-family: var(--mono); }
-
-.crumbs { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; padding: 22px 0 0; }
-.crumbs a { color: var(--text-mid); }
-.crumbs a:hover { color: var(--ink); }
-.crumbs .sep { color: var(--rule); margin: 0 8px; }
-
-.theme-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; padding: 56px 0; }
-.theme-card { display: block; background: #fff; border: 1px solid var(--rule); padding: 30px 28px; position: relative; transition: all 0.2s; }
-.theme-card:hover { border-color: var(--ink-soft); box-shadow: 0 12px 32px rgba(15,31,58,0.08); transform: translateY(-2px); }
-.theme-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background: var(--accent); opacity: 0.85; }
-.theme-card-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; }
-.theme-card-name { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--ink-mid); margin: 10px 0 8px; line-height: 1.35; }
-.theme-card-period { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 14px; }
-.theme-card-desc { font-size: 0.92rem; line-height: 1.7; color: var(--text); margin-bottom: 18px; }
-.theme-card-list { font-size: 0.84rem; color: var(--text-mid); list-style: none; padding-top: 14px; border-top: 1px solid var(--rule-soft); }
-.theme-card-list li { padding: 5px 0; }
-.theme-card-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; }
-.theme-card-foot .arrow { color: var(--accent-deep); }
-
-.post-list { padding: 28px 0 56px; }
-.post-list-row { display: grid; grid-template-columns: 60px 1fr auto; gap: 22px; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--rule-soft); transition: all 0.18s; }
-.post-list-row:hover { background: var(--bg-mid); padding-left: 12px; padding-right: 12px; }
-.post-list-num { font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em; color: var(--accent-deep); font-weight: 500; }
-.post-list-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--ink-mid); line-height: 1.45; }
-.post-list-meta { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; white-space: nowrap; }
-@media (max-width: 600px) { .post-list-row { grid-template-columns: 50px 1fr; } .post-list-meta { grid-column: 1 / -1; padding-left: 72px; } }
-
-/* Post body */
-.post-body { padding: 48px 0 80px; }
-.post-content { max-width: var(--measure); margin: 0 auto; }
-.post-content > p, .post-content > ul, .post-content > ol, .post-content > blockquote, .post-content > pre, .post-content > table, .post-content > hr, .post-content > h2, .post-content > h3, .post-content > h4 { max-width: var(--measure); margin-left: auto; margin-right: auto; }
-.post-content h2 { font-family: var(--serif); font-size: 1.55rem; font-weight: 400; color: var(--ink-mid); line-height: 1.35; margin: 56px 0 14px; padding-top: 22px; border-top: 1px solid var(--rule-soft); }
-.post-content h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 500; color: var(--ink); margin: 36px 0 10px; line-height: 1.4; }
-.post-content h4 { font-family: var(--sans); font-size: 1rem; font-weight: 600; color: var(--ink); margin: 26px 0 8px; letter-spacing: 0.02em; }
-.post-content p { margin: 0 0 18px; font-size: 1rem; line-height: 1.85; color: var(--text); }
-.post-content p:first-of-type { font-size: 1.05rem; }
-.post-content ul, .post-content ol { margin: 0 0 22px; padding-left: 28px; }
-.post-content ul li, .post-content ol li { font-size: 0.97rem; line-height: 1.8; margin-bottom: 8px; color: var(--text); }
-.post-content ul li::marker { color: var(--accent-deep); }
-.post-content blockquote { margin: 30px 0; padding: 20px 24px; border-left: 3px solid var(--accent); background: var(--accent-soft); color: var(--ink-mid); font-style: normal; }
-.post-content blockquote p { margin-bottom: 8px; font-size: 0.97rem; }
-.post-content blockquote p:last-child { margin-bottom: 0; }
-.post-content blockquote strong { color: var(--ink); }
-.post-content code { background: #f0f0f0; color: var(--ink-mid); font-family: var(--mono); font-size: 0.88rem; padding: 2px 6px; border-radius: 3px; }
-.post-content pre { background: #f9f9fb; border: 1px solid var(--rule); padding: 18px 22px; overflow-x: auto; font-family: var(--mono); font-size: 0.85rem; line-height: 1.55; margin: 24px 0; }
-.post-content pre code { background: transparent; padding: 0; font-size: inherit; }
-.post-content a { color: var(--accent-deep); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; transition: text-decoration-color 0.18s; overflow-wrap: anywhere; word-break: break-word; }
-.post-content a:hover { text-decoration-color: var(--accent-deep); }
-.post-content hr { border: none; border-top: 1px solid var(--rule); margin: 40px auto; max-width: 120px; }
-.post-content table { width: 100%; max-width: var(--measure); margin: 28px auto; border-collapse: collapse; font-size: 0.9rem; }
-.post-content th { background: var(--bg-mid); color: var(--ink-mid); font-family: var(--sans); font-weight: 600; text-align: left; padding: 12px 14px; border-bottom: 2px solid var(--rule); }
-.post-content td { padding: 10px 14px; border-bottom: 1px solid var(--rule-soft); vertical-align: top; color: var(--text); }
-.post-content tr:nth-child(even) td { background: #fafbfc; }
-
-/* Mermaid container */
-.mermaid-wrap { background: #fdfdfe; border: 1px solid var(--rule); padding: 22px 18px; margin: 28px 0; overflow-x: auto; }
-.mermaid { font-family: var(--sans); text-align: center; }
-
-/* Post header */
-.post-header { padding: 48px 0 28px; border-bottom: 1px solid var(--rule); }
-.post-header-inner { max-width: var(--measure); margin: 0 auto; }
-.post-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.28em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 14px; }
-.post-title { font-family: var(--serif); font-size: clamp(1.7rem, 3.6vw, 2.4rem); font-weight: 400; color: var(--ink-mid); line-height: 1.3; margin: 0 0 16px; letter-spacing: 0.005em; }
-.post-summary { font-size: 1.02rem; line-height: 1.8; color: var(--text); margin: 0 0 22px; max-width: 660px; }
-.post-meta { display: flex; gap: 26px; flex-wrap: wrap; padding-top: 18px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
-.post-meta span strong { color: var(--ink); font-family: var(--mono); }
-
-/* Post nav (prev/next) */
-.post-nav { max-width: var(--measure); margin: 56px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding-top: 36px; border-top: 1px solid var(--rule); }
-.post-nav-link { display: block; padding: 18px 20px; background: var(--bg-mid); border: 1px solid var(--rule); transition: all 0.18s; }
-.post-nav-link:hover { border-color: var(--ink-soft); background: #fff; transform: translateY(-1px); }
-.post-nav-dir { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px; }
-.post-nav-title { font-family: var(--serif); font-size: 0.94rem; color: var(--ink-mid); line-height: 1.4; }
-.post-nav-link.next { text-align: right; }
-@media (max-width: 640px) { .post-nav { grid-template-columns: 1fr; } .post-nav-link.next { text-align: left; } }
-
-/* Knowledge check */
-.kcheck { background: var(--bg-mid); padding: 72px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
-.kcheck-head { max-width: 720px; margin: 0 auto 36px; text-align: center; }
-.kcheck h2 { font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 300; color: var(--ink-mid); margin: 0 0 14px; line-height: 1.3; }
-.kcheck h2 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-.kcheck p.lede { font-size: 0.98rem; line-height: 1.75; color: var(--text); }
-.kcheck-q { background: #fff; border: 1px solid var(--rule); padding: 28px 30px; margin-bottom: 18px; max-width: 760px; margin-left: auto; margin-right: auto; }
-.kcheck-q-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; margin-bottom: 12px; }
-.kcheck-q-text { font-family: var(--serif); font-size: 1.1rem; line-height: 1.5; color: var(--ink-mid); margin-bottom: 18px; }
-.kcheck-opts { display: grid; gap: 8px; }
-.kcheck-opt { display: block; padding: 12px 16px; background: var(--bg-soft); border: 1px solid var(--rule); text-align: left; font-family: var(--sans); font-size: 0.92rem; color: var(--text); cursor: pointer; transition: all 0.15s; }
-.kcheck-opt:hover { background: #fff; border-color: var(--ink-soft); }
-.kcheck-opt.correct { background: #e8f3ec; border-color: var(--ok); color: var(--ok); }
-.kcheck-opt.incorrect { background: #fbe9e9; border-color: var(--bad); color: var(--bad); }
-.kcheck-explain { margin-top: 16px; padding: 14px 18px; background: var(--accent-soft); border-left: 3px solid var(--accent); font-size: 0.9rem; line-height: 1.7; color: var(--ink-mid); display: none; }
-.kcheck-q.answered .kcheck-explain { display: block; }
-.kcheck-score { text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--text-dim); margin-top: 28px; text-transform: uppercase; }
-.kcheck-score strong { color: var(--ink-mid); font-family: var(--mono); }
-
-/* Stats / hero stats */
-.stat-band { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; padding: 56px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); background: var(--bg-soft); }
-.stat-item { padding: 0 18px; }
-.stat-num { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 300; color: var(--ink-mid); line-height: 1; margin-bottom: 8px; }
-.stat-num em { color: var(--accent-deep); font-weight: 400; font-style: normal; }
-.stat-label { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; }
-</style>
-
-<meta property="og:image" content="https://jpinv.com/og/jii-default.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://jpinv.com/og/jii-default.png">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "url": "https://jpinv.com/governance/cg-code/2.3-cg-code-2021-revision/",
-  "name": "2021年改訂 ― プライム市場・サステナビリティ・多様性 | JII ガバナンス改革カリキュラム",
-  "description": "2021年6月の改訂は、2022年4月の市場区分再編(プライム/スタンダード/グロース)と歩調を合わせ、プライム上場会社にのみ課される独立性、スキルマトリックス、TCFD整合の気候関連開示、英文開示、電子議決権行使プラットフォームに関する義務を導入した。サステナビリティ・多様性・人的資本もComply-or-Explainの網に組み込まれた。",
-  "inLanguage": "ja"
-}
-</script></head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2021年改訂――プライム市場・サステナビリティ・多様性｜JII ガバナンス改革講座</title>
+  <meta name="description" content="2021年6月の改訂は、翌年に控えた東証の市場区分再編と一体で進められた。プライム市場には、独立社外取締役を3分の1以上とすること、重要情報を英語でも開示すること、機関投資家向けの電子議決権行使基盤を利用すること、TCFDまたは同等の枠組みに沿って気候関連開示を充実させることなど、一段高い原則が設けられた。あわせて、全原則の適用を受ける上場会社には、取締役会のスキル構成、サステナビリティ、人的資本・知的財産への投資、管理職の多様性について、より具体的な開示が求められるようになった。">
+  <link rel="canonical" href="https://jpinv.com/governance/cg-code/2.3-cg-code-2021-revision/">
+  <link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/cg-code/2.3-cg-code-2021-revision/">
+  <link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/cg-code/2.3-cg-code-2021-revision/">
+  <link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/cg-code/2.3-cg-code-2021-revision/">
+  <meta property="og:title" content="2021年改訂――プライム市場・サステナビリティ・多様性｜JII ガバナンス改革講座">
+  <meta property="og:description" content="2021年6月の改訂は、翌年に控えた東証の市場区分再編と一体で進められた。プライム市場には、独立社外取締役を3分の1以上とすること、重要情報を英語でも開示すること、機関投資家向けの電子議決権行使基盤を利用すること、TCFDまたは同等の枠組みに沿って気候関連開示を充実させることなど、一段高い原則が設けられた。あわせて、全原則の適用を受ける上場会社には、取締役会のスキル構成、サステナビリティ、人的資本・知的財産への投資、管理職の多様性について、より具体的な開示が求められるようになった。">
+  <meta property="og:url" content="https://jpinv.com/governance/cg-code/2.3-cg-code-2021-revision/">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://jpinv.com/og/jii-default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://jpinv.com/og/jii-default.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&amp;family=Noto+Sans+JP:wght@300;400;500;600&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/governance.css?v=b6280834c3">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","name":"2021年改訂――プライム市場・サステナビリティ・多様性｜JII ガバナンス改革講座","description":"2021年6月の改訂は、翌年に控えた東証の市場区分再編と一体で進められた。プライム市場には、独立社外取締役を3分の1以上とすること、重要情報を英語でも開示すること、機関投資家向けの電子議決権行使基盤を利用すること、TCFDまたは同等の枠組みに沿って気候関連開示を充実させることなど、一段高い原則が設けられた。あわせて、全原則の適用を受ける上場会社には、取締役会のスキル構成、サステナビリティ、人的資本・知的財産への投資、管理職の多様性について、より具体的な開示が求められるようになった。","url":"https://jpinv.com/governance/cg-code/2.3-cg-code-2021-revision/","inLanguage":"ja","isPartOf":{"@type":"WebSite","name":"Japan Investor Interface","url":"https://jpinv.com/"},"headline":"2021年改訂――プライム市場・サステナビリティ・多様性","dateModified":"2026-08-30","author":{"@type":"Organization","name":"Japan Investor Interface Co., Ltd."},"publisher":{"@type":"Organization","name":"Japan Investor Interface Co., Ltd.","url":"https://jpinv.com/"}}</script>
+</head>
 <body>
-<main id="main-content" class="curriculum" tabindex="-1">
-<div class="wrap crumbs">
-  <a href="/">JII</a> <span class="sep">/</span>
-  <a href="/governance/">IR研修</a> <span class="sep">/</span>
-  <a href="/governance/cg-code/">コードの時代</a> <span class="sep">/</span>
-  記事 2.3
-</div>
-<header class="post-header">
-  <div class="wrap">
-    <div class="post-header-inner">
-      <div class="post-eyebrow">テーマ 2 · 記事 2.3</div>
-      <h1 class="post-title">2021年改訂 ― プライム市場・サステナビリティ・多様性</h1>
-      <p class="post-summary">2021年6月の改訂は、2022年4月の市場区分再編(プライム/スタンダード/グロース)と歩調を合わせ、プライム上場会社にのみ課される独立性、スキルマトリックス、TCFD整合の気候関連開示、英文開示、電子議決権行使プラットフォームに関する義務を導入した。サステナビリティ・多様性・人的資本もComply-or-Explainの網に組み込まれた。</p>
-      <div class="post-meta">
-        <span>テーマ: <strong>コードの時代</strong></span>
-        <span>読了目安: <strong>12 分</strong></span>
-        <span>更新: <strong>2026-05-18</strong></span>
-      </div>
-    </div>
-  </div>
-</header>
-<section class="post-body">
-  <div class="wrap">
-    <article class="post-content">
-<blockquote>
-<p><strong>要点</strong>
-- 2021年改訂は<strong>2021年6月11日</strong>に確定し、翌2022年4月の市場区分再編(プライム・スタンダード・グロース)に合わせて施行された。
-- <strong>プライム市場上場会社のみに課される義務</strong>として、独立社外取締役3分の1以上、TCFD(または同等の枠組み)に基づく気候関連開示、スキルマトリックス開示、重要書類の英文開示、電子議決権行使プラットフォームの利用が導入された。
-- 規定の総数は2015年版の73項目から<strong>83項目(基本原則5+原則31+補充原則47)</strong>に拡大し、サステナビリティ、多様性、人的資本がComply-or-Explainの対象に組み込まれた。</p>
+  <a class="gov-skip" href="#main-content">本文へ移動</a>
+  <main id="main-content" class="governance-page" tabindex="-1">
+    <nav class="gov-wrap gov-crumbs" aria-label="パンくず"><a href="/">ホーム</a><span class="sep">/</span><a href="/governance/">ガバナンス改革講座</a><span class="sep">/</span><a href="/governance/cg-code/">コードの時代</a><span class="sep">/</span><span aria-current="page">記事 2.3</span></nav>
+    <header class="post-header"><div class="gov-wrap"><div class="post-header-inner"><span class="post-eyebrow">テーマ 2 · 記事 2.3</span><h1 class="post-title">2021年改訂――プライム市場・サステナビリティ・多様性</h1><p class="post-summary">2021年6月の改訂は、翌年に控えた東証の市場区分再編と一体で進められた。プライム市場には、独立社外取締役を3分の1以上とすること、重要情報を英語でも開示すること、機関投資家向けの電子議決権行使基盤を利用すること、TCFDまたは同等の枠組みに沿って気候関連開示を充実させることなど、一段高い原則が設けられた。あわせて、全原則の適用を受ける上場会社には、取締役会のスキル構成、サステナビリティ、人的資本・知的財産への投資、管理職の多様性について、より具体的な開示が求められるようになった。</p><div class="post-meta"><span>テーマ: <strong>コードの時代</strong></span><span>読了目安: <strong>11分</strong></span><span>更新: <strong>2026-08-30</strong></span></div></div></div></header>
+    <section class="post-body"><div class="gov-wrap"><article class="post-content"><blockquote>
+<p><strong>要点</strong></p>
+<ul>
+<li>2021年改訂は<strong>2021年6月11日</strong>に施行された。プライム市場向けの原則は、新市場区分が始まった<strong>2022年4月4日</strong>から適用された。</li>
+<li>プライム市場には、独立社外取締役3分の1以上、指名・報酬委員会の独立性、英文開示、電子議決権行使プラットフォーム、TCFD等に基づく気候関連開示など、追加の要求が設けられた。</li>
+<li>スキル・マトリックス、管理職の多様性、サステナビリティ、人的資本・知的財産への投資は、プライム市場だけでなく、コードの全原則の適用を受ける上場会社に広く関わる改訂である。</li>
+</ul>
 </blockquote>
-<h2>背景にある2022年市場再編</h2>
-<p>2021年改訂は、<strong>2022年4月の市場区分再編</strong>を視野に入れなければ読み解けない。東証は従来の4区分 ― 1部、2部、マザーズ、JASDAQ ― を、<strong>プライム</strong>、<strong>スタンダード</strong>、<strong>グロース</strong>の3区分に置き換えた。プライムは、機関投資家とグローバルに対峙する最上位市場として位置づけられた。スタンダードは既存の中堅企業群を主に収容し、グロースはマザーズ・JASDAQの後継として新興企業の場となった。</p>
-<p>コード改訂は、新区分に実質的な内容を与えるための政策レバーであった。プライム市場が単なるラベルではなく、スタンダード・グロースよりも明確に高いガバナンス水準を要求するComply-or-Explainレジームであることを、コード本文に直接書き込んだのが2021年改訂である。</p>
-<h2>5つの主要な変化</h2>
+<h2 id="section-1">市場区分再編と一体で行われた改訂</h2>
+<p>2021年改訂は、2022年4月の市場区分再編を抜きにしては理解できない。東京証券取引所は、従来の市場第一部、市場第二部、マザーズ、JASDAQを、<strong>プライム、スタンダード、グロース</strong>の3市場に再編した。なかでもプライム市場は、「グローバルな投資家との建設的な対話を中心に据えた企業向け」と位置づけられた。</p>
+<p>この位置づけに実質を持たせたのが、コーポレートガバナンス・コードの改訂である。市場区分を変えるだけでは、プライムとスタンダードの違いは時価総額や流動性の基準にとどまる。そこで東証は、プライム市場にだけ適用する原則をコードに設け、取締役会の独立性、英文開示、気候関連開示、株主総会の利用環境について、より高い水準を求めた。</p>
+<p>一方、コードの適用範囲そのものも市場ごとに整理された。プライム市場とスタンダード市場の上場会社は、基本原則、原則、補充原則のすべてについてコンプライ・オア・エクスプレインを行う。グロース市場の上場会社が対象とするのは基本原則である。</p>
+<h2 id="section-2">改訂で変わった5つの分野</h2>
 <table>
 <thead>
 <tr>
 <th>論点</th>
 <th>2018年版</th>
-<th>2021年版</th>
+<th>2021年版で変わったこと</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><strong>取締役会の独立性</strong></td>
-<td>「必要と考える場合に」3分の1以上の独立社外取締役を選任。下限は2名。</td>
-<td><strong>プライム市場</strong>上場会社は<strong>独立社外取締役を3分の1以上</strong>(必要と考える場合は過半数)選任すべき。<strong>スタンダード/グロース</strong>の下限は引き続き2名。さらに、他社での<strong>経営経験</strong>を有する独立社外取締役の選任が期待される。</td>
+<td>独立社外取締役は少なくとも2名。3分の1以上が必要と考える会社には、その方針の開示を求めた。</td>
+<td><strong>プライム市場</strong>では、独立社外取締役を<strong>3分の1以上</strong>選任すべきとした。必要と考える会社には過半数の選任を促した。指名・報酬委員会についても、プライム市場では構成員の過半数を独立社外取締役とすることを基本とした。</td>
 </tr>
 <tr>
-<td><strong>取締役会のスキルマトリックス</strong></td>
-<td>補充原則4.11.1は取締役会の多様性方針の開示を求めるにとどまり、スキルマトリックスへの言及はなかった。</td>
-<td><strong>補充原則4.11.1を全面改訂。</strong>「事業環境や事業特性に応じて、適切な形で(いわゆるスキルマトリックス等の形で)、各取締役の有するスキル等の組み合わせ」を、経営戦略に照らして開示することが求められた。</td>
+<td><strong>取締役会のスキル構成</strong></td>
+<td>取締役会全体の知識・経験・能力、多様性、規模について考え方を示すことを求めていた。</td>
+<td><strong>補充原則4.11.1を改訂。</strong> 経営戦略に照らして取締役会に必要なスキルを特定し、各取締役のスキルとの対応関係を、スキル・マトリックスなど適切な形で開示するよう求めた。他社での経営経験を持つ人材を独立社外取締役に含めることも明記した。</td>
 </tr>
 <tr>
-<td><strong>サステナビリティ・気候</strong></td>
-<td>サステナビリティへの言及は原則2.3で簡潔に触れる程度。気候関連開示の具体的期待事項はなかった。</td>
-<td><strong>補充原則3.1.3を新設。</strong>全社に対し、サステナビリティ、人的資本、知的財産投資に関する取組みの開示を求める。<strong>プライム市場</strong>上場会社は、<strong>TCFD提言または同等の国際的枠組み</strong>に基づく気候関連開示を充実させることが求められる。<strong>補充原則4.2.2</strong>は、取締役会自体が基本的なサステナビリティ方針を策定すべきことを定めた。</td>
+<td><strong>サステナビリティ・気候変動</strong></td>
+<td>原則2.3でサステナビリティ課題への対応に触れていたが、人的資本・知的財産や具体的な気候開示の枠組みまでは示していなかった。</td>
+<td><strong>補充原則3.1.3を新設。</strong> サステナビリティの取組と、人的資本・知的財産への投資を経営戦略との関係が分かる形で開示するよう求めた。<strong>プライム市場</strong>には、TCFDまたは同等の枠組みに基づく気候関連開示の充実を求めた。<strong>補充原則4.2.2</strong>では、取締役会による基本方針の策定と監督を明記した。</td>
 </tr>
 <tr>
-<td><strong>管理職層の多様性</strong></td>
-<td>原則2.4は「女性の活躍促進を含む多様性の確保」に触れていたが、測定可能な目標の要求はなかった。</td>
-<td><strong>原則2.4を強化</strong> + <strong>補充原則2.4.1を新設。</strong>会社は、女性・外国人・中途採用者の<strong>管理職への登用について、自主的かつ測定可能な目標</strong>を設定・開示することが求められる。あわせて人材育成方針・社内環境整備方針の開示も求められる。</td>
+<td><strong>中核人材の多様性</strong></td>
+<td>女性の活躍促進を含む多様性の確保を求めていたが、数値目標までは求めていなかった。</td>
+<td><strong>補充原則2.4.1を新設。</strong> 女性、外国人、中途採用者の管理職登用について、考え方と自主的かつ測定可能な目標、その進捗を公表するよう求めた。人材育成方針と社内環境整備方針も開示対象となった。</td>
 </tr>
 <tr>
-<td><strong>デジタル、グループ、プライム特則</strong></td>
-<td>電子議決権行使や英文開示への言及は限定的で、「ベストプラクティス」扱いだった。</td>
-<td><strong>プライム市場</strong>特則として、(i) 重要書類の<strong>英文開示</strong>、(ii) ICJが運営する<strong>電子議決権行使プラットフォーム</strong>の利用、(iii) デジタル・グループガバナンスに関する取締役会の監督強化が求められた。</td>
+<td><strong>海外投資家・株主総会への対応</strong></td>
+<td>英文開示や電子議決権行使の環境整備を、株主構成に応じて進めるよう求めていた。</td>
+<td><strong>プライム市場</strong>には、必要な情報を英語でも開示・提供すること、少なくとも機関投資家向けに議決権電子行使プラットフォームを利用できるようにすることを明記した。</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
+<p>ここで区別しておきたいのは、<strong>プライム市場だけに適用される原則</strong>と、<strong>全原則の適用を受ける会社に共通する原則</strong>である。独立社外取締役3分の1以上、指名・報酬委員会の独立性に関する上乗せ、英文開示、電子議決権行使プラットフォーム、TCFD等に基づく気候関連開示は、プライム市場に固有の要求である。これに対し、スキル・マトリックス、管理職の多様性、サステナビリティ方針、人的資本・知的財産への投資の開示は、スタンダード市場を含め、コードの全原則の適用を受ける会社にも関わる。</p>
+<h2 id="section-3">独立社外取締役3分の1以上</h2>
+<p>2021年改訂を象徴するのが、原則4.8のプライム市場向け部分である。</p>
 <blockquote>
-<p><strong>コラム ― プライム市場限定義務の一覧</strong></p>
-<p>下表はプライム上場会社のみを拘束するコード条項である ― 「プライム」というラベルを正当化する規制上の取引である。</p>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>プライム限定義務</th>
-<th>コードの根拠</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>独立社外取締役を<strong>3分の1以上</strong>(必要な場合は過半数)</td>
-<td>原則4.8</td>
-</tr>
-<tr>
-<td>2</td>
-<td>経営戦略に紐づいたスキルマトリックスの開示</td>
-<td>補充原則4.11.1</td>
-</tr>
-<tr>
-<td>3</td>
-<td><strong>TCFD整合</strong>(または同等の枠組み)に基づく気候関連開示</td>
-<td>補充原則3.1.3</td>
-</tr>
-<tr>
-<td>4</td>
-<td>重要書類の<strong>英文開示</strong></td>
-<td>補充原則3.1.2</td>
-</tr>
-<tr>
-<td>5</td>
-<td><strong>電子議決権行使プラットフォーム</strong>の利用</td>
-<td>補充原則1.2.4</td>
-</tr>
-<tr>
-<td>6</td>
-<td>他社での<strong>経営経験</strong>を有する独立社外取締役の選任が期待される</td>
-<td>原則4.8(解説部分)</td>
-</tr>
-<tr>
-<td>7</td>
-<td><strong>グループガバナンス</strong>の監督強化</td>
-<td>原則4.8+補充原則4.8.3</td>
-</tr>
-</tbody>
-</table>
+<p><em>「プライム市場上場会社は、独立社外取締役を少なくとも3分の1以上選任すべきである（機関設計に応じて、本原則が求める取締役会の機能を実現する観点から、独立社外取締役を過半数選任することが必要と考えるプライム市場上場会社は、十分な人数の独立社外取締役を選任すべきである）。」</em>
+― コーポレートガバナンス・コード（2021年版）原則4.8</p>
 </blockquote>
-<h2>プライム独立性の一節</h2>
+<p>2015年版と2018年版では、「少なくとも2名」が共通の基準だった。2021年改訂は、プライム市場について人数ではなく<strong>取締役会に占める比率</strong>を明確にした。取締役会の規模が大きくなっても、独立社外取締役の影響力が薄まらないようにするためである。</p>
+<p>さらに補充原則4.10.1は、プライム市場の指名委員会・報酬委員会について、構成員の過半数を独立社外取締役とすることを基本とした。独立社外取締役を取締役会に置くだけでなく、CEOの後継者選定や役員報酬といった重要な判断に、実際に関与させることを求めた改訂である。</p>
+<h2 id="section-4">サステナビリティを経営戦略の開示に組み込む</h2>
+<p>補充原則3.1.3は、サステナビリティを独立した社会貢献活動としてではなく、経営戦略と経営資源配分の問題として扱った。</p>
 <blockquote>
-<p><em>「プライム市場上場会社は、独立社外取締役を少なくとも3分の1以上選任すべきである(機関設計に応じて、本則に従い、過半数の独立社外取締役を選任することが必要と考えるプライム市場上場会社は、十分な人数の独立社外取締役を選任すべきである)。」</em>
-― コーポレートガバナンス・コード(2021年版)原則4.8</p>
+<p><em>「上場会社は、経営戦略の開示に当たって、自社のサステナビリティについての取組みを適切に開示すべきである。また、人的資本や知的財産への投資等についても、自社の経営戦略・経営課題との整合性を意識しつつ分かりやすく具体的に情報を開示・提供すべきである。特に、プライム市場上場会社は、気候変動に係るリスク及び収益機会が自社の事業活動や収益等に与える影響について、必要なデータの収集と分析を行い、国際的に確立された開示の枠組みであるTCFDまたはそれと同等の枠組みに基づく開示の質と量の充実を進めるべきである。」</em>
+― コーポレートガバナンス・コード（2021年版）補充原則3.1.3</p>
 </blockquote>
-<p>TCFD気候開示については、次のとおり。</p>
+<p>この原則には三つの段階がある。第一に、全対象会社がサステナビリティへの取組を開示する。第二に、人的資本と知的財産への投資を、経営戦略との関係が分かる形で説明する。第三に、プライム市場は、気候変動によるリスクと収益機会を分析し、TCFD等の枠組みに沿って開示を充実させる。</p>
+<p>その後、有価証券報告書にはサステナビリティ情報の記載欄が設けられ、SSBJ基準の整備も進んだ。2021年改訂は、そうした法定開示に先立って、取締役会とIR部門に実務を始めさせる役割を果たした。</p>
+<h2 id="section-5">多様性は「方針」から「測定可能な目標」へ</h2>
+<p>補充原則2.4.1は、女性、外国人、中途採用者の管理職登用について、理念だけでなく、<strong>自主的かつ測定可能な目標</strong>を示すよう求めた。コードが一律の数値を指定したわけではない。各社が自社の状況に応じて目標を決め、その考え方、進捗、人材育成方針、社内環境整備方針を公表する仕組みである。</p>
+<p>改訂時点で、3月期決算の上場会社約2,220社における女性役員比率は約7.4%だった。政府が2023年に掲げた「2030年までに女性役員比率30%以上」という目標との間には大きな差がある。補充原則2.4.1が直接対象とするのは管理職層だが、そこで候補者を継続的に育てることが、将来の執行役員や取締役の人材基盤につながる。</p>
+<h2 id="section-6">コードは73項目から83項目へ</h2>
+<p>2021年改訂後のコードは、<strong>基本原則5、原則31、補充原則47の計83項目</strong>となった。2015年版の73項目から10項目増え、サステナビリティ、人的資本、知的財産、多様性、グループガバナンス、プライム市場向けの追加原則が組み込まれた。</p>
+<p>項目数以上に重要なのは、開示どうしをつなげる必要が高まったことである。たとえば、スキル・マトリックスは経営戦略と結びつき、人的資本投資はサステナビリティ方針と資本配分につながる。英文開示は日本語版の要約ではなく、海外投資家との対話を支える情報基盤として扱う必要がある。個々の原則に別々に回答するだけでは、全体として説得力のある説明になりにくくなった。</p>
+<h2 id="section-7">2022年4月の適用開始</h2>
+<p>プライム市場向けの原則は、2022年4月4日の市場区分再編と同時に適用された。企業はその前から、取締役候補者の追加、指名・報酬委員会の構成変更、気候データの収集、英文開示体制の整備、議決権電子行使プラットフォームの導入を進めた。</p>
+<p>東証が2022年7月14日時点のコーポレート・ガバナンス報告書を集計した資料は、改訂後の各原則への対応状況を市場別に示している。ここでの「説明」は、移行が遅れていることを意味するとは限らない。コードは、原則を実施しない場合でも、会社の事情と今後の方針を具体的に説明することを認めている。</p>
 <blockquote>
-<p><em>「上場会社は、自社のサステナビリティについての取組みを適切に開示すべきである。また……気候変動に係るリスク及び収益機会が自社の事業活動や収益等に与える影響について、必要なデータの収集と分析を行い、国際的に確立された開示の枠組みであるTCFDまたはそれと同等の枠組みに基づく開示の質と量の充実を進めるべきである。特に、プライム市場上場会社は、こうした開示を行うべきである。」</em>
-― コーポレートガバナンス・コード(2021年版)補充原則3.1.3</p>
+<p><strong>コラム――コンプライ・オア・エクスプレインは「いずれ遵守すればよい」という制度ではない</strong>
+原則を実施していない会社でも、その理由が自社の事情に即しており、代替策や今後の方針が明確であれば、コード上の説明は成立する。反対に、「今後検討する」とだけ記し、判断理由も時期も示さなければ、形式上は説明でも、投資家からは実質のない回答と受け取られる。問われるのは、遵守か説明かの選択そのものより、取締役会がどう判断したかである。</p>
 </blockquote>
-<p>TCFDへの言及は、2021年版コードで最も結果論的に重要な一文の一つである。これによりTCFD整合の気候関連開示はプライム市場上場会社の事実上のComply-or-Explain基準となり、有価証券報告書へのサステナビリティ開示の義務化(FY2023〜)、さらにはSSBJ(サステナビリティ基準委員会)基準のFY2027以降の段階的適用へと続く土台が築かれた。</p>
-<h2>多様性の方程式</h2>
-<p>補充原則2.4.1は、日本の取締役会に今までになかった作業を求めた ― すなわち、女性、外国人、中途採用者の「管理職への登用」に関する<strong>測定可能な自主目標</strong>の公表である。目標の水準はコードが指定するわけではない。「測定可能で開示される」ことだけが要件である。</p>
-<p>数字の背景を見ると、この原則の効き目が分かる。改訂時点(2021年3月期決算)で、3月決算の上場会社約2,220社における<strong>女性役員比率は約7.4%</strong>にすぎなかった。2023年6月の『女性活躍・男女共同参画の重点方針(女性版骨太の方針)』で示された政府目標「<strong>2030年までに30%</strong>」とのギャップ ― それを埋める作業を補充原則2.4.1が担う。</p>
-<h2>ルールブックの拡大</h2>
-<p>2021年改訂で、原則が1本(原則3.1関連の小区分再編)、補充原則が9本追加された。コードは<strong>2015年の73項目から2021年の83項目</strong>(基本原則5+原則31+補充原則47)へと拡大した。IR担当の実務上のポイントは、CG報告書第II部のComply-or-Explain対応表もそれに応じて拡大し、一部の原則番号がずれた点である。最も注目すべき新設項目の一つは補充原則4.10.1(指名・報酬委員会の構成)で、独立性に関する具体的な期待が明示された。</p>
-<h2>2022年4月のプライム市場発足時に起きたこと</h2>
-<p>市場区分切替後の最初の計測 ― 2022年7月14日までに提出されたCG報告書を集計した東証の2022年8月フォローアップ・ブリーフ ― は、Comply-or-Explainの仕組みが動いている様子を示した。プライム上場1,839社のうち<strong>約13%(239社)</strong>は、発足時点で新たな上場維持基準のすべてを満たしておらず、<strong>「経過措置適用」</strong>の対象として2025年3月までの猶予を受けた(Theme 3.3で扱う)。プライム特則への遵守率は再編直前に急上昇したが、独立社外取締役の登用、気候関連開示の体制構築、英文IR機能の立ち上げに時間を要する企業群には、明示的に「説明」する余地が与えられた。</p>
-<blockquote>
-<p><strong>コラム ― 「Comply-or-Explain」は「Comply-or-後で-Comply」ではない</strong>
-2021年改訂は、発行体側から「2022年4月までに整える期限が事実上設定された」と読まれることがあったが、それは誤読である。3分の1の独立性要件を満たしていないプライム上場会社が、その理由と具体的な見通しを示して説明していれば、コードへの対応としては完結している。議決権行使助言会社やスチュワードシップ責任を負う投資家との摩擦は、市場規律としては別途存在する現実の論点だが、上場契約上の地位は、不順守という事実そのものではなく、説明の質によって決まる。</p>
-</blockquote>
-<h2>IR実務への含意</h2>
+<h2 id="section-8">IR担当者が押さえるべき実務</h2>
 <ol>
-<li><strong>プライム限定リストに照らしてCG報告書を点検する。</strong> プライム上場であれば、上の7項目は海外投資家と議決権行使助言会社が最初に読む7行である。それぞれに具体的で日付の入った、取締役会が所有する遵守ナラティブを書く。</li>
-<li><strong>スキルマトリックスはチェックリストではなく戦略的開示である。</strong> 補充原則4.11.1は、スキルマトリックスを<strong>会社の経営戦略</strong>に紐づけることを期待している。「財務、法務、ガバナンス」を全取締役に並べただけで、戦略との紐づけ欄を欠くマトリックスは、フォローアップ会議が2023年の意見書『<strong>形式から実質へ</strong>』で批判した型そのものである。</li>
-<li><strong>TCFDのパイプラインを今のうちに整える ― SSBJで法的拘束が来る前に。</strong> コード、有価証券報告書、将来のSSBJ基準と、気候関連開示の責任は重層的に積み上がる。最も早期にスタートを切る補充原則3.1.3は、法的拘束力のある開示が始まる前に数年分の実務経験を蓄積できる入り口である。</li>
-<li><strong>多様性は「目標」を開示する。「努力する」ではない。</strong> 補充原則2.4.1は「自主的かつ測定可能な目標」を要求する。IR資料で「多様性の促進に努める」とだけ記すのは、実質的に不順守である。「FY2024時点9%の女性管理職比率を、FY2030までに20%に引き上げる」と書くのが順守である。</li>
-<li><strong>英文IRはコードレベルの期待事項。礼儀ではない。</strong> 2021年以降、プライム上場会社による重要書類の英文開示はComply-or-Explainの対象である。2025年4月の英文開示義務化(Theme 5.1で扱う)はこれをさらに強化するものだが、Comply-or-Explainの錨はそれ以前から打たれていた。</li>
+<li><strong>プライム市場向けの原則を独立して管理する。</strong> 独立社外取締役、指名・報酬委員会、英文開示、電子議決権行使、TCFD等の各項目について、責任部署、取締役会での確認時期、開示媒体を一覧化する。</li>
+<li><strong>スキル・マトリックスを経営戦略から作る。</strong> 取締役の経歴に当てはまりそうな項目を並べるのではなく、中期経営計画の実行に必要な能力を先に定め、その能力を誰が担うかを示す。</li>
+<li><strong>サステナビリティ開示を財務計画とつなげる。</strong> 気候、人的資本、知的財産への投資額や成果指標を、事業戦略、資本配分、リスク管理の説明と整合させる。</li>
+<li><strong>多様性は目標、実績、育成策を一組で示す。</strong> 「多様性を重視する」という方針だけでなく、現状値、目標値、期限、候補者を育てる仕組みまで開示する。</li>
+<li><strong>英文開示を翻訳作業だけにしない。</strong> 日本語資料と同じ時点で、同じ重要情報を海外投資家が利用できる体制を整える。2025年4月の英文開示義務化は、2021年改訂で始まった流れを制度として強めたものである。</li>
 </ol>
-<h2>出典・参考資料</h2>
+<h2 id="section-9">出典・参考資料</h2>
 <ul>
-<li>金融庁 ― コーポレートガバナンス・コードと投資家と企業の対話指針の改訂について(2021年4月公表+6月11日確定): https://www.fsa.go.jp/news/r2/singi/20210406.html</li>
-<li>日本取引所グループ ― 「改訂コーポレートガバナンス・コード」の公表について(2021年6月11日): https://www.jpx.co.jp/news/1020/20210611-01.html</li>
-<li>日本取引所グループ ― 改訂コーポレートガバナンス・コード(2021年6月、PDF): https://www.jpx.co.jp/equities/listing/cg/tvdivq0000008jdy-att/b7gje6000005ob1l.pdf</li>
-<li>金融庁 ― 2021年6月11日確定版の解説(PDF): https://www.fsa.go.jp/news/r2/singi/20210611/04.pdf</li>
-<li>日本取引所グループ ― コーポレートガバナンス・コードへの上場会社の対応状況(2022年6月総会後): https://www.jpx.co.jp/news/1020/20220803-01.html</li>
+<li>金融庁――コーポレートガバナンス・コードと投資家と企業の対話ガイドラインの改訂について（2021年4月公表、6月11日確定）: <a href="https://www.fsa.go.jp/news/r2/singi/20210406.html">https://www.fsa.go.jp/news/r2/singi/20210406.html</a></li>
+<li>日本取引所グループ――「改訂コーポレートガバナンス・コード」の公表について（2021年6月11日）: <a href="https://www.jpx.co.jp/news/1020/20210611-01.html">https://www.jpx.co.jp/news/1020/20210611-01.html</a></li>
+<li>日本取引所グループ――改訂コーポレートガバナンス・コード（2021年6月、PDF）: <a href="https://www.jpx.co.jp/equities/listing/cg/tvdivq0000008jdy-att/b7gje6000005ob1l.pdf">https://www.jpx.co.jp/equities/listing/cg/tvdivq0000008jdy-att/b7gje6000005ob1l.pdf</a></li>
+<li>金融庁――2021年6月11日確定版の解説（PDF）: <a href="https://www.fsa.go.jp/news/r2/singi/20210611/04.pdf">https://www.fsa.go.jp/news/r2/singi/20210611/04.pdf</a></li>
+<li>日本取引所グループ――コーポレートガバナンス・コードへの上場会社の対応状況（2022年6月定時総会後）: <a href="https://www.jpx.co.jp/news/1020/20220803-01.html">https://www.jpx.co.jp/news/1020/20220803-01.html</a></li>
 </ul>
-<h2>関連記事</h2>
-<p><strong>本テーマの次の記事:</strong> 2.4 ― コーポレートガバナンス報告書を15分で読む方法</p>
-<p><strong>他テーマの関連記事:</strong>
-- 3.1 ― <a href="/governance/">4区分から3区分へ ― 2022年4月の市場再編</a>(2021年コードが支える市場区分再編そのもの)
-- 3.3 ― <a href="/governance/">2025年3月の崖</a>(プライム経過措置適用会社のその後)
-- 5.1 ― <a href="/governance/">2025年4月は通過点、終着点ではない ― 英文開示義務化</a>(補充原則3.1.2の続編)
-- 5.5 ― <a href="/governance/">SSBJの実装</a>(補充原則3.1.3の種が義務基準に育つ過程)
-- 5.6 ― <a href="/governance/">『2030年30%』はパイプライン問題である</a>(補充原則2.4.1から始まる多様性の軌跡)</p>
-    </article>
-    <div class="post-nav"><a href="/governance/cg-code/2.2-cg-code-2018-revision/" class="post-nav-link prev"><div class="post-nav-dir">← 前の記事</div><div class="post-nav-title">2018年改訂 ― 資本効率がコードに入った瞬間</div></a><a href="/governance/cg-code/2.4-reading-a-cg-report/" class="post-nav-link next"><div class="post-nav-dir">次の記事 →</div><div class="post-nav-title">コーポレートガバナンス報告書を15分で読む方法</div></a></div>
-    <div style="max-width: var(--measure); margin: 32px auto 0; padding-top: 24px; border-top: 1px solid var(--rule); font-size: 0.82rem; color: var(--text-dim); text-align:right;">
-      <a href="/en/governance/cg-code/2.3-cg-code-2021-revision/" style="color: var(--ink-soft);">English version →</a>
-    </div>
-  </div>
-</section>
-</main>
-<style>footer{background:var(--ink,#1a2a4a);color:#cfd6e2;padding:48px 0 30px;font-size:0.8rem;line-height:1.8;border-top:none}footer a{color:#cfd6e2;text-decoration:none}footer .footer-row{list-style:none;display:flex;flex-wrap:wrap;gap:8px 26px;margin:0 0 26px;padding:0}footer .footer-row li{padding:0}footer .footer-row a{color:#cfd6e2;text-decoration:none;font-size:0.8rem}footer .footer-bottom{padding-top:24px;border-top:1px solid rgba(255,255,255,0.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-family:var(--mono),monospace;font-size:0.68rem;letter-spacing:0.06em;color:rgba(255,255,255,0.55)}</style><script>
-const nav = document.getElementById('main-nav');
-if (nav) window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
-const hamburgerBtn = document.querySelector('.hamburger');
-function setMenuOpen(isOpen) { const menu = document.getElementById('mobileMenu'); if (!menu || !hamburgerBtn) return; menu.classList.toggle('open', isOpen); menu.hidden = !isOpen; hamburgerBtn.setAttribute('aria-expanded', String(isOpen)); }
-function toggleMenu() { const menu = document.getElementById('mobileMenu'); setMenuOpen(!(menu && menu.classList.contains('open'))); }
-document.addEventListener('click', (e) => { const menu = document.getElementById('mobileMenu'); if (menu && menu.classList.contains('open') && !menu.contains(e.target) && hamburgerBtn && !hamburgerBtn.contains(e.target)) setMenuOpen(false); });
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenuOpen(false); });
-</script>
-<script type="module">
-import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs';
-mermaid.initialize({ startOnLoad: true, theme: 'neutral', fontFamily: 'Noto Sans JP, Hiragino Kaku Gothic ProN, sans-serif', themeVariables: { primaryColor: '#f4eee4', primaryTextColor: '#1a2a4a', primaryBorderColor: '#9a7838', lineColor: '#304466', secondaryColor: '#f5f7fa', tertiaryColor: '#fafbfc' } });
-</script>
-<script src="/assets/nav.js?v=348fa48c4e" defer></script>
+<h2 id="section-10">関連記事</h2>
+<p><strong>本テーマの次の記事:</strong> 2.4――コーポレートガバナンス報告書を15分で読む方法</p>
+<p><strong>他テーマの関連記事:</strong></p>
+<ul>
+<li>3.1――<a href="/governance/market-restructuring/3.1-four-segments-to-three/">4区分から3区分へ――2022年4月の市場再編</a>（2021年改訂と一体で設計された新市場区分）</li>
+<li>3.3――<a href="/governance/market-restructuring/3.3-transitional-measures-cliff/">経過措置終了後の上場維持ルール</a>（市場区分の定量基準とコードの原則を切り分けて理解する）</li>
+<li>5.1――<a href="/governance/frontier/5.1-english-disclosure-mandate/">日英同時開示は始まりにすぎない――2025年4月の義務化</a>（補充原則3.1.2から適時開示ルールへの発展）</li>
+<li>5.5――<a href="/governance/frontier/5.5-ssbj-sustainability/">SSBJ基準の実務――段階適用と準備の要点</a>（補充原則3.1.3から法定開示へ続く流れ）</li>
+<li>5.6――<a href="/governance/frontier/5.6-board-diversity-30-by-30/">「2030年30%」を実現するには――女性役員候補をどう育てるか</a>（補充原則2.4.1と人材パイプライン）</li>
+</ul></article><nav class="post-nav" aria-label="前後の記事"><a class="post-nav-link prev" href="/governance/cg-code/2.2-cg-code-2018-revision/"><div class="post-nav-dir">← 前の記事</div><div class="post-nav-title">2018年改訂――資本コストがコードに明記された転機</div></a><a class="post-nav-link next" href="/governance/cg-code/2.4-reading-a-cg-report/"><div class="post-nav-dir">次の記事 →</div><div class="post-nav-title">コーポレート・ガバナンス報告書を15分で読む方法</div></a></nav><div class="post-language"><a href="/en/governance/cg-code/2.3-cg-code-2021-revision/">English version →</a></div></div></section>
+  </main>
+  <script src="/assets/governance.js?v=cc6033456e" defer></script>
+  <script src="/assets/nav.js?v=348fa48c4e" defer></script>
 </body>
 </html>
