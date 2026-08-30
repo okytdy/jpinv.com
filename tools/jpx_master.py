@@ -21,6 +21,8 @@ import sys
 from pathlib import Path
 from typing import Optional
 
+from company_names import normalize_company_name_en
+
 LOG = logging.getLogger(__name__)
 _CACHE_PATH = Path(__file__).resolve().parent / "jpx_cache.json"
 _cache: Optional[dict] = None
@@ -44,7 +46,13 @@ def lookup(ticker: str) -> Optional[dict]:
     if not ticker:
         return None
     tickers = _load_cache().get("tickers", {})
-    return tickers.get(str(ticker).strip())
+    code = str(ticker).strip()
+    row = tickers.get(code)
+    if not row:
+        return None
+    normalized = dict(row)
+    normalized["name_en"] = normalize_company_name_en(row.get("name_en", ""), code)
+    return normalized
 
 
 def name_en(ticker: str, fallback: str = "") -> str:

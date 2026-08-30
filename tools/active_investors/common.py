@@ -23,9 +23,16 @@ import hashlib
 import json
 import os
 import re
+import sys
 import unicodedata
 from pathlib import Path
 from typing import Optional
+
+TOOLS_DIR = Path(__file__).resolve().parent.parent
+if str(TOOLS_DIR) not in sys.path:
+    sys.path.insert(0, str(TOOLS_DIR))
+
+from company_names import normalize_company_name_en
 
 CONFIG_DIR = Path(__file__).resolve().parent / "config"
 INVESTORS_CONFIG = CONFIG_DIR / "investors.json"
@@ -363,7 +370,7 @@ def jpx_name_en(code: str) -> str:
         d = read_json(_JPX_PATH, {}) or {}
         _JPX_TICKERS = d.get("tickers") or {}
     r = _JPX_TICKERS.get(str(code or "").strip())
-    return (r or {}).get("name_en", "") if r else ""
+    return normalize_company_name_en((r or {}).get("name_en", ""), code) if r else ""
 
 
 def nikkei_edinet_url(doc_id: str, filing_date: str) -> str:
