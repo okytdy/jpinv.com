@@ -1,457 +1,171 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-
-<title>2025年4月は通過点、終着点ではない ― 英文開示義務化 | JII ガバナンス改革カリキュラム</title>
-<meta name="description" content="プライム市場上場会社に対する日英同時開示義務が2025年4月1日に拘束力を持つに至った経緯、TSE FAQが定める適用除外、そして次の二段階の拡張対象として有価証券報告書と招集通知が待ち受ける構図を整理する。">
-<meta property="og:title" content="2025年4月は通過点、終着点ではない ― 英文開示義務化 | JII ガバナンス改革カリキュラム">
-<meta property="og:description" content="プライム市場上場会社に対する日英同時開示義務が2025年4月1日に拘束力を持つに至った経緯、TSE FAQが定める適用除外、そして次の二段階の拡張対象として有価証券報告書と招集通知が待ち受ける構図を整理する。">
-<meta property="og:url" content="https://jpinv.com/governance/frontier/5.1-english-disclosure-mandate/">
-<link rel="canonical" href="https://jpinv.com/governance/frontier/5.1-english-disclosure-mandate/">
-<link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/frontier/5.1-english-disclosure-mandate/">
-<link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/frontier/5.1-english-disclosure-mandate/">
-<link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/frontier/5.1-english-disclosure-mandate/">
-
-<style>
-:root {
-  --ink:        #1a2a4a;
-  --ink-mid:    #172641;
-  --ink-soft:   #304466;
-  --rule:       #d6dee8;
-  --rule-soft:  #e8edf3;
-  --bg:         #ffffff;
-  --bg-mid:     #f5f7fa;
-  --bg-soft:    #fafbfc;
-  --text:       #1f2937;
-  --text-mid:   #4a5566;
-  --text-dim:   #5f6875;
-  --accent:     #9a7838;
-  --accent-deep:#9a7838;
-  --accent-soft:#f4eee4;
-  --bad:        #b91c1c;
-  --warn:       #8a682b;
-  --ok:         #2f6f4f;
-  --serif: 'Noto Serif JP', 'Yu Mincho', serif;
-  --sans:  'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
-  --mono:  'DM Mono', monospace;
-  --max: 1100px;
-  --pad: 88px;
-  --gutter: 48px;
-  --nav-h: 64px;
-  --measure: 720px;
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 400; line-height: 1.7; overflow-x: hidden; }
-img { max-width: 100%; display: block; }
-a { color: var(--ink-soft); text-decoration: none; }
-a:hover { color: var(--ink); }
-.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
-@media (max-width: 768px) { :root { --gutter: 22px; --pad: 56px; } }
-strong { font-weight: 600; color: var(--ink); }
-em { font-style: normal; color: var(--ink); font-weight: 600; }
-.label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); }
-
-/* Nav (copied from jpinv.com base) */
-nav#main-nav { position: fixed; top:0; left:0; right:0; z-index:100; height: var(--nav-h); background: rgba(255,255,255,0.96); backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule); display: flex; align-items: center; transition: box-shadow 0.3s; }
-nav#main-nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
-.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; }
-.nav-logo { text-decoration: none; display: inline-flex; align-items: center; flex: 0 0 auto; min-width: max-content; white-space: nowrap; }
-.nav-logo-img { display: block; width: auto; height: 40px; max-width: none; object-fit: contain; object-position: left center; }
-.nav-logo-img--mobile { display: none; width: 32px; height: 32px; object-fit: contain; }
-.nav-center { flex: 1; display: flex; justify-content: center; }
-.nav-links { display: flex; gap: 18px; list-style: none; flex-wrap: nowrap; white-space: nowrap; }
-.nav-links a { font-family: var(--sans); font-size: 0.74rem; font-weight: 400; letter-spacing: 0.02em; color: var(--text); text-decoration: none; transition: color 0.2s; }
-.nav-links a:hover { color: var(--ink-soft); }
-.nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; margin-left: auto; }
-.nav-cta { padding: 7px 11px; font-size: 0.66rem; letter-spacing: 0.05em; }
-.locale-switcher { display: inline-flex; align-items: center; gap: 0; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; }
-.locale-switcher a { color: var(--text-dim); border: 1px solid var(--rule); padding: 6px 9px; text-decoration: none; transition: all 0.2s; }
-.locale-switcher a + a { margin-left: -1px; }
-.locale-switcher a:hover, .locale-switcher a.current { color: var(--ink); border-color: var(--ink-mid); background: var(--bg-soft); position: relative; z-index: 1; }
-.hamburger { display: none; flex-shrink:0; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
-.hamburger span { display:block; width:22px; height:1px; background:var(--ink); transition: all 0.25s; }
-@media (max-width: 900px) { .nav-center, .nav-right .nav-cta { display:none; } .hamburger { display:flex; } }
-@media (max-width: 768px) { .nav-logo-img--desktop { display:none; } .nav-logo-img--mobile { display:block; } }
-.mobile-menu { display:none; position:fixed; top:var(--nav-h); left:0; right:0; background:var(--bg); border-bottom:1px solid var(--rule); z-index:99; padding:8px var(--gutter) 20px; flex-direction:column; gap:0; }
-.mobile-menu.open { display:flex; }
-.mobile-menu a { font-size:0.88rem; color:var(--text); text-decoration:none; padding:14px 0; border-bottom:1px solid var(--rule); letter-spacing:0.04em; }
-.mobile-menu a:last-child { border-bottom:none; }
-.mobile-menu .mobile-menu-cta { margin-top:12px; padding:13px 18px; text-align:center; color:#fff; border-bottom:none; }
-
-.btn { display: inline-block; text-decoration: none; font-family: var(--sans); font-size: 0.84rem; font-weight: 400; letter-spacing: 0.06em; padding: 13px 28px; transition: all 0.2s; cursor: pointer; border: none; }
-.btn-primary { background: var(--ink); color: #fff; }
-.btn-primary:hover { background: var(--ink-mid); color: #fff; }
-.btn-outline { border: 1px solid var(--ink-mid); color: var(--ink); background: transparent; }
-.btn-outline:hover { border-color: var(--ink); color: var(--ink); }
-.rule-accent { width: 32px; height: 2px; background: var(--accent); margin: 14px 0 22px; }
-
-/* Footer (mirror) */
-footer { border-top: 1px solid var(--rule); padding: 52px 0 28px; background: var(--bg-soft); font-size: 0.82rem; color: var(--text-dim); }
-footer .footer-grid { display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 32px; align-items: start; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
-footer h2 { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.2em; color: var(--ink-soft); text-transform: uppercase; margin-bottom: 12px; font-weight: 500; }
-footer h3 { font-family: var(--serif); font-size: 1rem; font-weight: 400; color: var(--ink); margin-bottom: 8px; }
-footer ul { list-style: none; }
-footer ul li { padding: 4px 0; }
-footer ul li a { color: var(--text-mid); }
-footer ul li a:hover { color: var(--ink); }
-footer .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 18px; flex-wrap: wrap; gap: 12px; }
-footer .footer-locale-switcher a.current { font-weight: 600; color: var(--ink); }
-@media (max-width: 900px) { footer .footer-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 580px) { footer .footer-grid { grid-template-columns: 1fr; } }
-
-/* === Curriculum-specific === */
-main.curriculum { padding-top: var(--nav-h); }
-.curr-hero { padding: 96px 0 64px; border-bottom: 1px solid var(--rule); position: relative; overflow: hidden; }
-.curr-hero::before { content:''; position:absolute; inset:0;
-  background-image: linear-gradient(rgba(15,31,58,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(15,31,58,0.04) 1px, transparent 1px);
-  background-size: 64px 64px;
-  -webkit-mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent);
-          mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent); }
-.curr-hero-inner { position:relative; z-index:2; max-width: 880px; }
-.curr-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.32em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 18px; }
-.curr-hero h1 { font-family: var(--serif); font-size: clamp(1.9rem, 4.4vw, 3.1rem); font-weight: 300; color: var(--ink-mid); line-height: 1.3; letter-spacing: 0.02em; margin: 0 0 22px; }
-.curr-hero h1 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-.curr-hero .lede { font-size: 1.05rem; line-height: 1.85; color: var(--text); margin: 0 0 24px; max-width: 700px; }
-.curr-hero-meta { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
-.curr-hero-meta strong { color: var(--ink); font-family: var(--mono); }
-
-.crumbs { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; padding: 22px 0 0; }
-.crumbs a { color: var(--text-mid); }
-.crumbs a:hover { color: var(--ink); }
-.crumbs .sep { color: var(--rule); margin: 0 8px; }
-
-.theme-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; padding: 56px 0; }
-.theme-card { display: block; background: #fff; border: 1px solid var(--rule); padding: 30px 28px; position: relative; transition: all 0.2s; }
-.theme-card:hover { border-color: var(--ink-soft); box-shadow: 0 12px 32px rgba(15,31,58,0.08); transform: translateY(-2px); }
-.theme-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background: var(--accent); opacity: 0.85; }
-.theme-card-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; }
-.theme-card-name { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--ink-mid); margin: 10px 0 8px; line-height: 1.35; }
-.theme-card-period { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 14px; }
-.theme-card-desc { font-size: 0.92rem; line-height: 1.7; color: var(--text); margin-bottom: 18px; }
-.theme-card-list { font-size: 0.84rem; color: var(--text-mid); list-style: none; padding-top: 14px; border-top: 1px solid var(--rule-soft); }
-.theme-card-list li { padding: 5px 0; }
-.theme-card-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; }
-.theme-card-foot .arrow { color: var(--accent-deep); }
-
-.post-list { padding: 28px 0 56px; }
-.post-list-row { display: grid; grid-template-columns: 60px 1fr auto; gap: 22px; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--rule-soft); transition: all 0.18s; }
-.post-list-row:hover { background: var(--bg-mid); padding-left: 12px; padding-right: 12px; }
-.post-list-num { font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em; color: var(--accent-deep); font-weight: 500; }
-.post-list-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--ink-mid); line-height: 1.45; }
-.post-list-meta { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; white-space: nowrap; }
-@media (max-width: 600px) { .post-list-row { grid-template-columns: 50px 1fr; } .post-list-meta { grid-column: 1 / -1; padding-left: 72px; } }
-
-/* Post body */
-.post-body { padding: 48px 0 80px; }
-.post-content { max-width: var(--measure); margin: 0 auto; }
-.post-content > p, .post-content > ul, .post-content > ol, .post-content > blockquote, .post-content > pre, .post-content > table, .post-content > hr, .post-content > h2, .post-content > h3, .post-content > h4 { max-width: var(--measure); margin-left: auto; margin-right: auto; }
-.post-content h2 { font-family: var(--serif); font-size: 1.55rem; font-weight: 400; color: var(--ink-mid); line-height: 1.35; margin: 56px 0 14px; padding-top: 22px; border-top: 1px solid var(--rule-soft); }
-.post-content h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 500; color: var(--ink); margin: 36px 0 10px; line-height: 1.4; }
-.post-content h4 { font-family: var(--sans); font-size: 1rem; font-weight: 600; color: var(--ink); margin: 26px 0 8px; letter-spacing: 0.02em; }
-.post-content p { margin: 0 0 18px; font-size: 1rem; line-height: 1.85; color: var(--text); }
-.post-content p:first-of-type { font-size: 1.05rem; }
-.post-content ul, .post-content ol { margin: 0 0 22px; padding-left: 28px; }
-.post-content ul li, .post-content ol li { font-size: 0.97rem; line-height: 1.8; margin-bottom: 8px; color: var(--text); }
-.post-content ul li::marker { color: var(--accent-deep); }
-.post-content blockquote { margin: 30px 0; padding: 20px 24px; border-left: 3px solid var(--accent); background: var(--accent-soft); color: var(--ink-mid); font-style: normal; }
-.post-content blockquote p { margin-bottom: 8px; font-size: 0.97rem; }
-.post-content blockquote p:last-child { margin-bottom: 0; }
-.post-content blockquote strong { color: var(--ink); }
-.post-content code { background: #f0f0f0; color: var(--ink-mid); font-family: var(--mono); font-size: 0.88rem; padding: 2px 6px; border-radius: 3px; }
-.post-content pre { background: #f9f9fb; border: 1px solid var(--rule); padding: 18px 22px; overflow-x: auto; font-family: var(--mono); font-size: 0.85rem; line-height: 1.55; margin: 24px 0; }
-.post-content pre code { background: transparent; padding: 0; font-size: inherit; }
-.post-content a { color: var(--accent-deep); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; transition: text-decoration-color 0.18s; overflow-wrap: anywhere; word-break: break-word; }
-.post-content a:hover { text-decoration-color: var(--accent-deep); }
-.post-content hr { border: none; border-top: 1px solid var(--rule); margin: 40px auto; max-width: 120px; }
-.post-content table { width: 100%; max-width: var(--measure); margin: 28px auto; border-collapse: collapse; font-size: 0.9rem; }
-.post-content th { background: var(--bg-mid); color: var(--ink-mid); font-family: var(--sans); font-weight: 600; text-align: left; padding: 12px 14px; border-bottom: 2px solid var(--rule); }
-.post-content td { padding: 10px 14px; border-bottom: 1px solid var(--rule-soft); vertical-align: top; color: var(--text); }
-.post-content tr:nth-child(even) td { background: #fafbfc; }
-
-/* Mermaid container */
-.mermaid-wrap { background: #fdfdfe; border: 1px solid var(--rule); padding: 22px 18px; margin: 28px 0; overflow-x: auto; }
-.mermaid { font-family: var(--sans); text-align: center; }
-
-/* Post header */
-.post-header { padding: 48px 0 28px; border-bottom: 1px solid var(--rule); }
-.post-header-inner { max-width: var(--measure); margin: 0 auto; }
-.post-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.28em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 14px; }
-.post-title { font-family: var(--serif); font-size: clamp(1.7rem, 3.6vw, 2.4rem); font-weight: 400; color: var(--ink-mid); line-height: 1.3; margin: 0 0 16px; letter-spacing: 0.005em; }
-.post-summary { font-size: 1.02rem; line-height: 1.8; color: var(--text); margin: 0 0 22px; max-width: 660px; }
-.post-meta { display: flex; gap: 26px; flex-wrap: wrap; padding-top: 18px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
-.post-meta span strong { color: var(--ink); font-family: var(--mono); }
-
-/* Post nav (prev/next) */
-.post-nav { max-width: var(--measure); margin: 56px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding-top: 36px; border-top: 1px solid var(--rule); }
-.post-nav-link { display: block; padding: 18px 20px; background: var(--bg-mid); border: 1px solid var(--rule); transition: all 0.18s; }
-.post-nav-link:hover { border-color: var(--ink-soft); background: #fff; transform: translateY(-1px); }
-.post-nav-dir { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px; }
-.post-nav-title { font-family: var(--serif); font-size: 0.94rem; color: var(--ink-mid); line-height: 1.4; }
-.post-nav-link.next { text-align: right; }
-@media (max-width: 640px) { .post-nav { grid-template-columns: 1fr; } .post-nav-link.next { text-align: left; } }
-
-/* Knowledge check */
-.kcheck { background: var(--bg-mid); padding: 72px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
-.kcheck-head { max-width: 720px; margin: 0 auto 36px; text-align: center; }
-.kcheck h2 { font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 300; color: var(--ink-mid); margin: 0 0 14px; line-height: 1.3; }
-.kcheck h2 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-.kcheck p.lede { font-size: 0.98rem; line-height: 1.75; color: var(--text); }
-.kcheck-q { background: #fff; border: 1px solid var(--rule); padding: 28px 30px; margin-bottom: 18px; max-width: 760px; margin-left: auto; margin-right: auto; }
-.kcheck-q-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; margin-bottom: 12px; }
-.kcheck-q-text { font-family: var(--serif); font-size: 1.1rem; line-height: 1.5; color: var(--ink-mid); margin-bottom: 18px; }
-.kcheck-opts { display: grid; gap: 8px; }
-.kcheck-opt { display: block; padding: 12px 16px; background: var(--bg-soft); border: 1px solid var(--rule); text-align: left; font-family: var(--sans); font-size: 0.92rem; color: var(--text); cursor: pointer; transition: all 0.15s; }
-.kcheck-opt:hover { background: #fff; border-color: var(--ink-soft); }
-.kcheck-opt.correct { background: #e8f3ec; border-color: var(--ok); color: var(--ok); }
-.kcheck-opt.incorrect { background: #fbe9e9; border-color: var(--bad); color: var(--bad); }
-.kcheck-explain { margin-top: 16px; padding: 14px 18px; background: var(--accent-soft); border-left: 3px solid var(--accent); font-size: 0.9rem; line-height: 1.7; color: var(--ink-mid); display: none; }
-.kcheck-q.answered .kcheck-explain { display: block; }
-.kcheck-score { text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--text-dim); margin-top: 28px; text-transform: uppercase; }
-.kcheck-score strong { color: var(--ink-mid); font-family: var(--mono); }
-
-/* Stats / hero stats */
-.stat-band { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; padding: 56px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); background: var(--bg-soft); }
-.stat-item { padding: 0 18px; }
-.stat-num { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 300; color: var(--ink-mid); line-height: 1; margin-bottom: 8px; }
-.stat-num em { color: var(--accent-deep); font-weight: 400; font-style: normal; }
-.stat-label { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; }
-</style>
-
-<meta property="og:image" content="https://jpinv.com/og/jii-default.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://jpinv.com/og/jii-default.png">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "url": "https://jpinv.com/governance/frontier/5.1-english-disclosure-mandate/",
-  "name": "2025年4月は通過点、終着点ではない ― 英文開示義務化 | JII ガバナンス改革カリキュラム",
-  "description": "プライム市場上場会社に対する日英同時開示義務が2025年4月1日に拘束力を持つに至った経緯、TSE FAQが定める適用除外、そして次の二段階の拡張対象として有価証券報告書と招集通知が待ち受ける構図を整理する。",
-  "inLanguage": "ja"
-}
-</script></head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日英同時開示は始まりにすぎない――2025年4月の義務化｜JII ガバナンス改革講座</title>
+  <meta name="description" content="2025年4月1日、プライム市場上場会社には、決算情報と適時開示情報を原則として日本語と同時に英語でも開示することが義務付けられた。ただし、すべての資料を全文対訳する制度ではない。東証は一部または概要による英文開示を認める一方、日本語資料に複数の開示事項を含めた場合は、その重要事項を英語でも漏れなく伝えることを求めている。本稿では、対象資料、同時開示の考え方、例外的な取扱い、実務体制の整え方を整理する。">
+  <link rel="canonical" href="https://jpinv.com/governance/frontier/5.1-english-disclosure-mandate/">
+  <link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/frontier/5.1-english-disclosure-mandate/">
+  <link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/frontier/5.1-english-disclosure-mandate/">
+  <link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/frontier/5.1-english-disclosure-mandate/">
+  <meta property="og:title" content="日英同時開示は始まりにすぎない――2025年4月の義務化｜JII ガバナンス改革講座">
+  <meta property="og:description" content="2025年4月1日、プライム市場上場会社には、決算情報と適時開示情報を原則として日本語と同時に英語でも開示することが義務付けられた。ただし、すべての資料を全文対訳する制度ではない。東証は一部または概要による英文開示を認める一方、日本語資料に複数の開示事項を含めた場合は、その重要事項を英語でも漏れなく伝えることを求めている。本稿では、対象資料、同時開示の考え方、例外的な取扱い、実務体制の整え方を整理する。">
+  <meta property="og:url" content="https://jpinv.com/governance/frontier/5.1-english-disclosure-mandate/">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://jpinv.com/og/jii-default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://jpinv.com/og/jii-default.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&amp;family=Noto+Sans+JP:wght@300;400;500;600&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/governance.css?v=b6280834c3">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","name":"日英同時開示は始まりにすぎない――2025年4月の義務化｜JII ガバナンス改革講座","description":"2025年4月1日、プライム市場上場会社には、決算情報と適時開示情報を原則として日本語と同時に英語でも開示することが義務付けられた。ただし、すべての資料を全文対訳する制度ではない。東証は一部または概要による英文開示を認める一方、日本語資料に複数の開示事項を含めた場合は、その重要事項を英語でも漏れなく伝えることを求めている。本稿では、対象資料、同時開示の考え方、例外的な取扱い、実務体制の整え方を整理する。","url":"https://jpinv.com/governance/frontier/5.1-english-disclosure-mandate/","inLanguage":"ja","isPartOf":{"@type":"WebSite","name":"Japan Investor Interface","url":"https://jpinv.com/"},"headline":"日英同時開示は始まりにすぎない――2025年4月の義務化","dateModified":"2026-08-30","author":{"@type":"Organization","name":"Japan Investor Interface Co., Ltd."},"publisher":{"@type":"Organization","name":"Japan Investor Interface Co., Ltd.","url":"https://jpinv.com/"}}</script>
+</head>
 <body>
-<main id="main-content" class="curriculum" tabindex="-1">
-<div class="wrap crumbs">
-  <a href="/">JII</a> <span class="sep">/</span>
-  <a href="/governance/">IR研修</a> <span class="sep">/</span>
-  <a href="/governance/frontier/">最前線 ― 現在の論点</a> <span class="sep">/</span>
-  記事 5.1
-</div>
-<header class="post-header">
-  <div class="wrap">
-    <div class="post-header-inner">
-      <div class="post-eyebrow">テーマ 5 · 記事 5.1</div>
-      <h1 class="post-title">2025年4月は通過点、終着点ではない ― 英文開示義務化</h1>
-      <p class="post-summary">プライム市場上場会社に対する日英同時開示義務が2025年4月1日に拘束力を持つに至った経緯、TSE FAQが定める適用除外、そして次の二段階の拡張対象として有価証券報告書と招集通知が待ち受ける構図を整理する。</p>
-      <div class="post-meta">
-        <span>テーマ: <strong>最前線 ― 現在の論点</strong></span>
-        <span>読了目安: <strong>14 分</strong></span>
-        <span>更新: <strong>2026-05-18</strong></span>
-      </div>
-    </div>
-  </div>
-</header>
-<section class="post-body">
-  <div class="wrap">
-    <article class="post-content">
-<blockquote>
-<p><strong>要点</strong>
-- 2025年4月1日以降、国内プライム市場上場会社約1,640社は、決算短信と適時開示資料を日本語と英語で<strong>同時公表</strong>する義務を負う。推奨ではなく上場規則の改正である。
-- 東証FAQは完全な対訳ではなく<strong>抄訳・要約</strong>を許容し、日本語開示の即時性が損なわれる場合(M&amp;A、サイバー事案、漏えい防止等)についても適用除外を設けている。
-- 有価証券報告書(YUHO)、招集通知、コーポレート・ガバナンス報告書は<strong>現時点では対象外</strong>だが、金融庁の2025年6月「コーポレートガバナンス改革に向けた行動計画」は、いずれも2026-27年の拡張対象としてすでに名指ししている。2025年4月は、対応が容易な前半戦を終えただけにすぎない。</p>
-</blockquote>
-<h2>制度上の義務であり、単なるお願いではない</h2>
-<p>日本の英文開示をめぐる議論は、ある一点で他に類を見ない。10年間、ほぼ完全にソフトロー上の取り組みにとどまっていたのである。海外投資家は不満を訴え、東証は調査を重ね、コーポレートガバナンス・コードは補充原則3-1②でプライム会社に「法令により開示が要求される情報のうち重要なものについて、英語での開示・提供を進めるべき」と求めた。各社は思い思いに対応した。2024年末時点で、プライム会社のほぼすべてが何らかの英文を出していたものの、日本語と<strong>同時</strong>に開示していたのは<strong>約30%</strong>にすぎなかった。米国東海岸時間で動く海外アナリストにとって、6時間の遅れは、取引可能なインサイトと一日遅れのニュース・クリップとの差を意味した。</p>
-<p>スイッチが入ったのは<strong>2025年4月1日</strong>である。東京証券取引所の上場規則改正 ― 2024年1月に決定され、2023年3月27日公表の有識者会議「プライム市場における英文開示の更なる拡充に向けた基本方針」で予告されていた ― は、二つの特定文書について、国内プライム上場会社すべてに対し日英同時開示を義務化した。</p>
-<ol>
-<li><strong>決算短信</strong> ― 四半期および通期。</li>
-<li><strong>適時開示情報</strong> ― TDnetを経由する重要事象の包括カテゴリー。M&amp;A、配当変更、資本政策、業績修正、重大な法的・業務上の事象。</li>
-</ol>
-<p>ルール設計上、注目すべき点が二つある。</p>
-<p>第一に、<strong>実質的な義務の核は「同時性」にある</strong>。各社は全文を翻訳することを求められているわけではない。各文書ごとに、日本語版と同じタイミングで英語版を公表することが求められている。決算短信をこれまでT+3で英訳していたプライム会社は、従前のソフトロー上の期待には「形式的に応じていた」ものの、2025年4月のルールには明白に違反している。</p>
-<p>第二に、<strong>東証FAQは「抄訳・要約」を許容している</strong>。完全な対訳文書は必要ない。主要な内容を忠実に伝える要約で足りる。これはルールの実務的譲歩である。決算短信の大半は日本語で30ページを超える詳細を含み、金曜夜の決算発表後5時間以内に完全な翻訳を要求すれば、品質を損なう義務付けとなる。求められているのは、英語による<strong>実質</strong>を、同じタイミングで提供することである。</p>
-<h2>「同時」とは実際何を意味するか</h2>
-<p>東証の2024年12月実施状況調査は、明確なベースラインを示した。プライム上場会社(当時1,654社、上場廃止を経て現在1,634社)のうち:</p>
-<table>
-<thead>
-<tr>
-<th>指標</th>
-<th>2023年12月</th>
-<th>2024年12月</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>過去1年に何らかの英文開示を実施した会社</td>
-<td>98.2%</td>
-<td><strong>99.0%</strong></td>
-</tr>
-<tr>
-<td>日本語と同時に開示した会社</td>
-<td>約27%</td>
-<td>約30%</td>
-</tr>
-<tr>
-<td>1営業日以内に開示した会社</td>
-<td>約55%</td>
-<td>約62%</td>
-</tr>
-<tr>
-<td>四半期決算のみ英文開示している会社</td>
-<td>約15%</td>
-<td>約12%</td>
-</tr>
-</tbody>
-</table>
-<p>見出しの数値 ― 99.0%が何らかを開示 ― はもはや意味を持たない。東証が公表した狙いは、同時開示率を30%台から「ほぼ全社水準」に引き上げることであった。2025年度の実施状況点検では、公表値は<strong>90%超の同時実施</strong>に跳ね上がり、ほぼ一夜にしてのシフトが、規制当局の見立てを裏付けた ― 制約は能力ではなく、努力意欲だったのである。</p>
-<p>データには副次効果も現れている。英文開示を遅延翻訳契約で外注していた会社は、少なくとも要約作業をIR機能内に取り込むか、リアルタイム対応を可能とする条件再交渉を余儀なくされた。対訳開示のベンダー料金は2024年第1四半期から2025年第1四半期にかけて約25~40%上昇し、ルール施行後、各社が持続可能なワークフローを構築するに伴って安定化した。</p>
-<h2>対象拡大の見通し</h2>
-<p>下表は、IR担当者が壁に貼っておくべき実務ビューである。</p>
-<table>
-<thead>
-<tr>
-<th>文書区分</th>
-<th>2025年4月1日以前</th>
-<th>2025年4月1日以降</th>
-<th>2026-27年の拡張見通し</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>決算短信(四半期)</td>
-<td>英訳は任意、多くがT+1</td>
-<td><strong>日英同時開示、抄訳可</strong></td>
-<td>変更なし(既に対象内)</td>
-</tr>
-<tr>
-<td>決算短信(通期)</td>
-<td>英訳は任意</td>
-<td><strong>日英同時開示、抄訳可</strong></td>
-<td>変更なし</td>
-</tr>
-<tr>
-<td>適時開示(TDnet経由)</td>
-<td>英訳は任意、多くがT+1~T+3</td>
-<td><strong>日英同時開示、抄訳可、適用除外あり</strong></td>
-<td>翻訳<strong>品質</strong>基準の厳格化</td>
-</tr>
-<tr>
-<td>有価証券報告書(YUHO)</td>
-<td>任意</td>
-<td>任意(対象外)</td>
-<td><strong>金融庁情報開示WGの段階的義務化、第1段階発行体について2026年度提出分から見込み</strong></td>
-</tr>
-<tr>
-<td>招集通知</td>
-<td>任意</td>
-<td>任意(対象外)</td>
-<td><strong>金融庁検討中 ― 最大手発行体について2027年6月総会シーズンが目処</strong></td>
-</tr>
-<tr>
-<td>コーポレート・ガバナンス報告書</td>
-<td>任意</td>
-<td>任意(対象外)</td>
-<td><strong>金融庁検討中 ― SSBJ開示の段階導入と整合させる見通し</strong></td>
-</tr>
-<tr>
-<td>有価証券届出書</td>
-<td>任意</td>
-<td>任意</td>
-<td>WG議論中</td>
-</tr>
-</tbody>
-</table>
-<p>構造パターンは、2022年市場再編以降あらゆる開示義務化で用いられてきたものと同じである ― <strong>頻度が高く詳細が浅い文書から始め、頻度が低く詳細が深い文書へと積み上げ、最大手の発行体を先行させる</strong>。次のドミノが有価証券報告書であることは明らかだ。金融庁の2025年6月行動計画が明示的に挙げており、SSBJ第1段階発行体は2027年3月期からどのみち対訳の法定報告チャネルを必要とする。招集通知は政治的に難度が高い ― 金商法ではなく会社法の規律下にあり、法務省の承認が必要だ ― が、ワーキング・グループでの議論はすでに動いている。</p>
-<h2>FAQで示された4つの例外</h2>
-<p>東証の英文開示FAQは、IR担当者がブックマークすべき実務文書である。厳格な同時開示の4つの例外が重要だ。</p>
-<p><strong>1. 迅速性に係る例外(M&amp;A、資本政策、突発的な経営陣交代)。</strong> 英文版の準備が日本語開示を法定スケジュールから<em>遅らせる</em>場合、日本語版を優先し、英文版は「可能な限り速やかに」後追いできる。FAQは適時開示制度の市場の公正性確保という目的に照らしてこれを位置付ける。英訳のための30分の遅延は許容されるが、対訳の磨きをかけたプレスリリースのために4時間遅らせることは許容されない。</p>
-<p><strong>2. サイバー事案例外。</strong> サイバー事案は、業務影響に関する東証適時開示ルールに基づき、発行体が重要性を判断した時点で速やかに開示しなければならない。FAQは、英文起案が日本語市場への通知義務よりも時間を要しうることを明示し、これを許容する。事案対応と開示起案が初動24時間で同じ社内リソースを奪い合うことを認めた措置である。</p>
-<p><strong>3. 漏えい防止例外。</strong> 一部の重要開示は、選択的漏えいを避けるため複数の場所での協調公表が必要となる ― 例えば、他国の取引所届出と分単位で揃える必要があるTOBの公告だ。対訳生産サイクルが漏えい窓を生じさせる場合、日本語公表が英文に先行することができ、英文は「不当な遅滞なく」追従する。</p>
-<p><strong>4. 法的厳密性に係る例外。</strong> 日本語届出書が、時間的制約の下で安全に翻訳しえない契約上または規制上の文言を含む場合 ― 例えば裁判所決定書や和解契約書の正確な文言 ― FAQは、日本語本文が正本である旨を明記した英文要約を許容する。これは、日本の英文開示が法的には<strong>国際的資本市場への礼譲</strong>であって、対等な正本届出ではないことを、東証が認めた最も明確な箇所である。</p>
-<p>4つの適用除外を総合すると、ルールの重心が見える。<strong>同時性が原則であり、例外は限定的に列挙され、いずれも「日本語開示の即時性」という原則から正当化される必要がある</strong>。</p>
-<h2>2025年9月の海外投資家調査</h2>
-<p>東証の2025年9月「海外投資家を対象とする英文開示に関する調査」は、施行後の通信簿である。次の3つの所見が、今後の政策に重要となる。</p>
+  <a class="gov-skip" href="#main-content">本文へ移動</a>
+  <main id="main-content" class="governance-page" tabindex="-1">
+    <nav class="gov-wrap gov-crumbs" aria-label="パンくず"><a href="/">ホーム</a><span class="sep">/</span><a href="/governance/">ガバナンス改革講座</a><span class="sep">/</span><a href="/governance/frontier/">現在進行中の論点</a><span class="sep">/</span><span aria-current="page">記事 5.1</span></nav>
+    <header class="post-header"><div class="gov-wrap"><div class="post-header-inner"><span class="post-eyebrow">テーマ 5 · 記事 5.1</span><h1 class="post-title">日英同時開示は始まりにすぎない――2025年4月の義務化</h1><p class="post-summary">2025年4月1日、プライム市場上場会社には、決算情報と適時開示情報を原則として日本語と同時に英語でも開示することが義務付けられた。ただし、すべての資料を全文対訳する制度ではない。東証は一部または概要による英文開示を認める一方、日本語資料に複数の開示事項を含めた場合は、その重要事項を英語でも漏れなく伝えることを求めている。本稿では、対象資料、同時開示の考え方、例外的な取扱い、実務体制の整え方を整理する。</p><div class="post-meta"><span>テーマ: <strong>現在進行中の論点</strong></span><span>読了目安: <strong>9分</strong></span><span>更新: <strong>2026-08-30</strong></span></div></div></div></header>
+    <section class="post-body"><div class="gov-wrap"><article class="post-content"><blockquote>
+<p><strong>要点</strong></p>
 <ul>
-<li><strong>翻訳品質が新たな不満となった。</strong> 同時性が実質解決された結果、海外投資家の最大の不満は翻訳品質に移った。具体的には、原文の意味よりも形式をなぞる機械翻訳の常套句、語順の倒置、誤訳されたKPI、未訳の表ヘッダーなどである。調査は複数のプライム会社を名指しで列挙した。</li>
-<li><strong>YUHOが最も指摘されたギャップである。</strong> 調査対象海外投資家の67%は、日本語提出から1四半期以内の完全英文YUHOを高く評価すると回答した。これが金融庁にとって拡張義務化への政治的根拠となる。</li>
-<li><strong>招集通知は構造的問題のまま。</strong> 海外投資家は、英文招集通知の到着が遅く、議決権行使期間が圧縮される ― 時に総会1週間前にしか届かず、ISSの締切に間に合わない ― と訴える。2027年6月総会シーズンが暗黙の解決期限となる。</li>
+<li>2025年4月1日から、プライム市場上場会社には、<strong>決算情報と適時開示情報の英文開示</strong>が義務付けられた。制度の中心は、英語版を日本語版と原則同時に公表することにある。</li>
+<li>決算短信だけでなく、決算内容を投資家に分かりやすく伝えるための決算補足説明資料も対象になり得る。ただし、すべての資料を全文翻訳する必要はなく、<strong>一部または概要の開示</strong>でもよい。</li>
+<li>緊急の発生事実など、英語版を待つことで日本語の適時開示が遅れる場合は、日本語を優先する。そのうえで、原則として同日中、遅くとも翌営業日の立会開始までに英語版を出す。</li>
 </ul>
-<p>調査の静かな結論は、本ルールの<strong>執行モデルが点検+公表であって罰則ではない</strong>ということだ。東証は施行1年目において、非同時開示に対する上場規則上の罰則を一度も適用していない。代わりに、TDnetの月次公表と東証の実施状況報告で、コードで遅行発行体を名指ししている。2024年に展開した資本コスト開示リスト方式と同様、<strong>公表こそが規律である</strong>。</p>
-<h2>なぜルールは見かけより深いか</h2>
-<p>翻訳サービス義務に見えるルールが、実はフロンティア・テーマで最重要のひとつである理由は3つある。</p>
-<p>第一に、<strong>ルールはIR機能と広報機能の関係を組み替える</strong>。2025年4月以前、英文開示は広報チームが翻訳ベンダーとT+1で進めるアウトプットだった。2025年4月以降、英文開示は日本語ドラフトと同じレビュー・パイプラインに組み込まれた事前公表ワークフローとなる。これは社内レビュー・サイクル、法務承認、開示統制ドキュメンテーションに波及する。本稿が調査した複数のプライム会社は、同時性は実質を承認するチームが所有すべきであるとの理由で、英文開示デスクを広報機能ではなくIR機能に移管している。</p>
-<p>第二に、<strong>ルールはSSBJ提出チャネルへの入口である</strong>。SSBJ整合のサステナビリティ開示は、第1段階発行体について2027年3月期からYUHOに記載される。YUHOは金融庁の法定開示文書であり、金融庁は第1段階発行体が日英両言語でSSBJ整合の本文を提出することを明確に示唆している。プライム会社が2024-25年に適時開示向けに構築した対訳パイプラインは、2026-27年にSSBJ開示を運ぶ同じパイプラインとなる。2025年4月のルールに投資を怠った発行体は、SSBJ対応で目に見えて遅れている ― この点は第5.5回で再度取り上げる。</p>
-<p>第三に、<strong>ルールは日本語文書の読者層を変える</strong>。英語版が並走するや、限界的な海外投資家は英文を読み、日本語は法的厳密性のためにのみ参照する。微妙な効果として、日本語本文が<strong>英語版を念頭に書かれ始める</strong>。経営陣のコメンタリーは、より直線的に、より仮説駆動的に、より修辞性を抑えて書かれるようになる。翻訳者がそれを再現しなければならないからだ。これは、本稿の見立てでは構造的影響のうち最も深いものであり、ルールを最も真剣に受け止めた発行体の2025年度経営コメンタリーに目に見えて現れている。</p>
-<h2>翻訳品質に関する実務メモ</h2>
-<p>2025年4月以降、IRが直面する最も実務的な問いは「英語の品質はどこまで必要か」である。市場には3つの品質バーが見えている。</p>
-<p><strong>バー1 ― 忠実な要約。</strong> 主要トピック、主要数値、経営陣の見解1段落を捉える。FAQ上許容される、コンプライアンスの最低水準。プライム会社の約40%が、適時開示についてこの水準で運用している。</p>
-<p><strong>バー2 ― 実質的等価性。</strong> すべての重要内容を慣用的な英語で再現し、表と数値の詳細を保持し、海外読者に意思決定上等価の情報を提供する。大型プライム会社の決算短信に期待される標準。</p>
-<p><strong>バー3 ― 投資家向け品質。</strong> 慣用的かつナラティブで、対訳の堪能なIR/財務プロフェッショナルが編集する。発行体の英文IRペルソナとしての編集トーンを帯びる。現在、プライム会社の50社未満のサブ集団のみが実践しているが、2025年9月の海外投資家調査が暗黙に求めている水準である。</p>
-<p>2025-26年に最速で動いたIRチームは、バー2を最低水準とし、対話を動かす文書(決算、中期経営計画、ガバナンス関連開示)についてバー3に予算を充てている。エクスポーズしているIRチームは、量こそが評価軸であって品質ではないとの前提で、軽い手直しを加えた機械翻訳ドラフトを納品する翻訳契約を温存している。東証は、その前提が誤りであることを明確に示している。</p>
-<h2>サイドバー ― GATEとツールボックス</h2>
-<p>JPXは<strong>英文開示GATE</strong>を運営している。発行体ごと、文書区分ごとに英文開示を集約するポータルである。日本の発行体の英文情報フローを追跡したい海外投資家にとっての実務的な入口だ。IRチームは:</p>
+</blockquote>
+<h2 id="section-1">何が義務になったのか</h2>
+<p>東証は2025年4月1日、プライム市場上場会社に対する英文開示のルールを改めた。従来から、コーポレートガバナンス・コードは重要情報の英文開示を求めていたが、これは原則主義の「遵守か、説明か」に基づく期待事項だった。2025年4月からは、決算情報と適時開示情報について、上場規則上の義務となった。</p>
+<p>対象を整理すると、次のようになる。</p>
+<table>
+<thead>
+<tr>
+<th>資料</th>
+<th>2025年4月以降の扱い</th>
+<th>実務上の注意</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>決算短信・四半期決算短信</td>
+<td>英文開示が必要</td>
+<td>日本語版の全文対訳でなくてもよい</td>
+</tr>
+<tr>
+<td>決算補足説明資料・四半期決算補足説明資料</td>
+<td>決算内容を伝えるために作成する場合は対象</td>
+<td>決算短信のサマリーと補足資料を組み合わせる方法も可</td>
+</tr>
+<tr>
+<td>適時開示情報</td>
+<td>英文開示が必要</td>
+<td>一部・概要でもよいが、日本語版に含まれる開示事項を英語版で落としてはならない</td>
+</tr>
+<tr>
+<td>PR情報</td>
+<td>任意</td>
+<td>適時開示に該当しないため義務の対象外</td>
+</tr>
+<tr>
+<td>株主総会招集通知、コーポレート・ガバナンス報告書などの縦覧書類</td>
+<td>任意</td>
+<td>英文開示を進めることは望ましいが、2025年4月の義務の対象ではない</td>
+</tr>
+<tr>
+<td>有価証券報告書</td>
+<td>2025年4月の東証ルールの対象外</td>
+<td>法定開示として別制度で扱われる</td>
+</tr>
+</tbody></table>
+<p>ここで大切なのは、対象資料の名前だけで判断しないことだ。例えば、会社が決算短信とは別に決算補足説明資料を作り、そちらで重要な業績要因を説明しているなら、その資料も決算情報を投資家に伝える一部となる。日本語の短信だけを英語にして、重要な説明を補足資料に残したままにすれば、海外投資家には肝心な情報が届かない。</p>
+<h2 id="section-2">「同時」の意味</h2>
+<p>制度は、英語版を日本語版と<strong>原則として同時</strong>に開示することを求めている。英訳を翌日や数日後に掲載する従来型の運用では足りない。</p>
+<p>もっとも、適時開示では迅速性が最優先される。事故、災害、サイバー事案、訴訟、急な業績修正など、日本語の開示内容が直前まで固まらないこともある。英語版の完成を待つことで日本語の開示が遅れる場合、東証は日本語を先に出すことを認めている。その場合は、日本語版の開示後、原則として同日中に英語版を公表する。平日夜間に日本語版を開示し、19時までの英文開示が難しいときは、翌営業日の立会開始である午前9時までが目安になる。</p>
+<p>したがって、「同時開示」とは、どのような事情があっても二つのファイルを秒単位で同時に送信するという意味ではない。通常時には同時公表を基本とし、緊急時には日本語の迅速な開示を優先したうえで、英語版を最短で追いかける制度である。</p>
+<h2 id="section-3">全文対訳でなくてもよい――ただし、情報は落とさない</h2>
+<p>東証は、決算情報について、すべての資料や各資料の全文を英語にする必要はないとしている。決算短信だけを英語で出す方法も、短信のサマリー情報と決算補足説明資料を組み合わせる方法も認められる。</p>
+<p>適時開示についても、一部または概要でよい。どの程度の詳しさが必要かは一律に定められていない。最低限、<strong>いつ、何が決定または発生したのか</strong>を海外投資家が把握できる内容が必要であり、詳細について日本語版を参照させることもできる。</p>
+<p>ただし、要約できることと、重要事項を省略できることは別である。日本語の一つの資料に複数の開示項目が含まれている場合、英語版でもすべての開示項目を扱わなければならない。例えば、決算短信の中で減損損失の発生も開示しているなら、英語の短信または別の英文資料で、その減損損失についても伝える必要がある。</p>
+<p>実務では、英文開示を次の三層に分けると運用しやすい。</p>
 <ol>
-<li>自社が公表する英文リリースがすべてGATEに反映されているか確認する。TDnet経由の開示は自動反映されるが、社内ウェブサイトのみに掲載した任意資料は反映されない。</li>
-<li>GATEに掲載される自社の同時開示比率を追う。東証が調査で用いる指標のひとつである。</li>
-<li>GATEの検索機能を活用して同業他社とベンチマークする。とりわけ、自社の英文公表ケイデンスがセグメント・リーダーと一致しているかを評価したいIRチームに有用である。</li>
+<li><strong>事実の把握に必要な情報</strong>――決定日、発生日、取引相手、金額、業績への影響、今後の予定。</li>
+<li><strong>投資判断に必要な説明</strong>――背景、戦略上の意味、主要な前提、リスク、資本政策への影響。</li>
+<li><strong>日本語版にしかない補足情報</strong>――細かな法令引用、国内固有の手続説明、定型的な注意書き。</li>
 </ol>
-<h2>IRにとっての含意</h2>
+<p>義務対応として最低限必要なのは第1層だが、決算や大型M&amp;Aのように投資家との対話を左右する資料では、第2層まで英語で用意した方がよい。第3層をどこまで訳すかは、資料の性質と海外株主の構成に応じて判断する。</p>
+<h2 id="section-4">義務化後も、対象外資料の英文開示は進んでいる</h2>
+<p>2024年12月末時点の東証調査では、プライム市場上場会社の99.0%が何らかの英文開示を行っていた。資料別では、決算短信93.8%、IR説明会資料76.4%、適時開示資料59.2%だった。義務化後の2025年12月末調査では、対象外であるIR説明会資料の英文開示率も87.1%、株主総会招集通知も94.9%まで上昇した。</p>
+<p>この数字が示すのは、2025年4月のルールが「義務化された二種類の資料だけを訳せばよい」という制度ではないことだ。プライム市場は海外投資家との対話を前提にする市場であり、決算情報と適時開示情報は入口にすぎない。中期経営計画、資本配分方針、取締役会構成、サステナビリティ情報など、企業価値の判断に直結する資料をどこまで英語で提供するかは、引き続き各社のIR戦略に委ねられている。</p>
+<h2 id="section-5">実務フローをどう組み直すか</h2>
+<p>日英同時開示を安定して回すには、英訳を日本語版完成後の作業にしないことが重要である。次の流れで、日英を同じ開示工程に組み込む。</p>
+<table>
+<thead>
+<tr>
+<th>段階</th>
+<th>日本語・英語を一体で進めるための実務</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>起案</td>
+<td>開示項目、数値、固有名詞、重要メッセージを日英共通の構成表に置く</td>
+</tr>
+<tr>
+<td>翻訳</td>
+<td>定型表現、勘定科目、役職名、M&amp;A用語を社内用語集で統一する</td>
+</tr>
+<tr>
+<td>確認</td>
+<td>数値、日付、単位、否定表現、将来見通しの条件を日英横断で照合する</td>
+</tr>
+<tr>
+<td>承認</td>
+<td>日本語版と英語版を同じ承認者・同じ締切で回す</td>
+</tr>
+<tr>
+<td>公表</td>
+<td>TDnetへの登録時刻と、自社サイトへの掲載時刻をそろえる</td>
+</tr>
+<tr>
+<td>事後点検</td>
+<td>JPX English Disclosure GATEや東証上場会社情報サービスで掲載状況を確認する</td>
+</tr>
+</tbody></table>
+<p>緊急開示用には、平時の決算フローとは別の簡易手順を用意しておく。誰が英文の要点を起案するか、どの範囲なら社内承認だけで出せるか、外部翻訳会社が対応できない時間帯にどうするかを決めておけば、日本語の開示を遅らせずに済む。</p>
+<h2 id="section-6">IR担当者が押さえるべき含意</h2>
 <ol>
-<li><strong>対訳開示パイプラインを「並列」ではなく「単一」のものとして構築する。</strong> 英文版を日本語起案サイクルの非交渉的アウトプットとして扱う。下流の翻訳ステップではない。法務レビュー、開示統制チェックリスト、経営陣の承認は、いずれの版もリリース前にすべてを通すべきである。</li>
-<li><strong>すべての文書でバー2品質を、対話を動かす4~5本でバー3品質を狙う。</strong> 4~5本は通常、通期決算、中期経営計画、資本コスト/PBRアクションプラン、取締役会構成/ガバナンス報告書更新、重要M&amp;Aプレスリリースである。</li>
-<li><strong>自社の適用除外運用を監査する。</strong> 2025年度に迅速性に係る例外を3回以上使ったとすれば、それはルールの問題ではなくプロセスの問題である。例外は安全弁であって、定常運用ではない。</li>
-<li><strong>YUHO拡張に今から備える。</strong> 金融庁は2025年6月行動計画とSSBJ段階導入スケジュールにより、最大手発行体向けの対訳YUHOが2026年度提出分から見込まれることを示唆している。SSBJ第1段階発行体(時価総額3兆円超)であれば、来る3月期YUHOの対訳生産サイクルをすでに設計しているはずである。</li>
-<li><strong>「英文で開示しています」を遵守ラインとして報告するのをやめる。</strong> 99.0%という数字が二値指標を無意味化した。海外投資家がCG報告書で読みたいのは、<em>何を</em>、<em>いつ</em>、<em>どの品質で</em>開示しているかである。同時開示率、対象文書区分、目標品質ティアを明示すること。</li>
+<li><strong>同時開示を、翻訳業務ではなく開示統制として設計する。</strong> 日本語版が固まってから英訳を始める工程では、通常時でも遅れが生じる。起案、数値確認、法務確認、承認を日英共通にする。</li>
+<li><strong>「一部・概要でよい」を、情報省略の免許にしない。</strong> 日本語版の重要な開示項目を英語版で落とすことは認められない。要約するなら、何を残し、何を日本語参照とするかを明文化する。</li>
+<li><strong>緊急時の日本語優先ルールをあらかじめ決める。</strong> 例外は使ってよい。ただし、誰が例外適用を判断し、英語版をいつまでに出すかを記録する。</li>
+<li><strong>義務対象外の資料も、投資家の重要度で優先順位を付ける。</strong> 通期決算説明資料、中期経営計画、資本コスト開示、重要なガバナンス変更は、任意でも英語化の優先度が高い。</li>
+<li><strong>JPXの様式例、日英対訳集、実践ハンドブックを標準資料にする。</strong> 独自訳を毎回作るより、公式の用語と様式を基礎にした方が、速さと一貫性を両立できる。</li>
 </ol>
-<h2>出典と参考資料</h2>
+<h2 id="section-7">出典・参考資料</h2>
 <ul>
-<li>東証有識者会議「プライム市場における英文開示の更なる拡充に向けた基本方針」(2023年3月27日): https://www.jpx.co.jp/english/equities/follow-up/b5b4pj000004yqcc-att/u5j7e50000000l3i.pdf</li>
-<li>東証「プライム市場における英文開示の義務化に関する状況」(2025年9月): https://www.jpx.co.jp/english/equities/follow-up/b5b4pj000004yqcc-att/sjcobq0000024jy9.pdf</li>
-<li>東証プレスリリース「2024年12月末時点の英文開示の実施状況調査結果」(2025年1月22日): https://www.jpx.co.jp/english/corporate/news/news-releases/0060/20250122-01.html</li>
-<li>東証「2025年海外投資家を対象とする英文開示に関する調査結果」(2025年9月): https://www.jpx.co.jp/english/corporate/news/news-releases/0060/20250902-01.html</li>
-<li>JPX 英文開示GATE: https://www.jpx.co.jp/english/equities/listed-co/disclosure-gate/service/index.html</li>
-<li>金融庁「コーポレートガバナンス改革に向けた行動計画2025」(2025年6月30日): https://www.fsa.go.jp/en/news/2025/20250630-1.html</li>
+<li>東証「プライム市場における英文開示の拡充に向けた上場制度の整備の概要」: <a href="https://faq.jpx.co.jp/disclo/tse/web/knowledge8540.html">https://faq.jpx.co.jp/disclo/tse/web/knowledge8540.html</a></li>
+<li>東証FAQ「決算情報については、どのような書類が英文開示の義務化の対象となりますか」: <a href="https://faq.jpx.co.jp/disclo/tse/web/knowledge8598.html">https://faq.jpx.co.jp/disclo/tse/web/knowledge8598.html</a></li>
+<li>東証FAQ「適時開示情報の一部・概要は、どの程度の水準まで認められますか」: <a href="https://faq.jpx.co.jp/disclo/tse/web/knowledge8615.html">https://faq.jpx.co.jp/disclo/tse/web/knowledge8615.html</a></li>
+<li>東証FAQ「すべての適時開示について、必ず日英同時開示が求められますか」: <a href="https://faq.jpx.co.jp/disclo/tse/web/knowledge8617.html">https://faq.jpx.co.jp/disclo/tse/web/knowledge8617.html</a></li>
+<li>東証FAQ「PR情報や縦覧書類も英文開示が必要ですか」: <a href="https://faq.jpx.co.jp/disclo/tse/web/knowledge8614.html">https://faq.jpx.co.jp/disclo/tse/web/knowledge8614.html</a></li>
+<li>東証「英文開示実施状況調査結果（2024年12月末時点）」: <a href="https://www.jpx.co.jp/corporate/news/news-releases/0060/20250122-01.html">https://www.jpx.co.jp/corporate/news/news-releases/0060/20250122-01.html</a></li>
+<li>東証「英文開示実施状況調査集計レポート（2025年12月末時点）」: <a href="https://www.jpx.co.jp/corporate/news/news-releases/0060/20260126-04.html">https://www.jpx.co.jp/corporate/news/news-releases/0060/20260126-04.html</a></li>
+<li>JPX English Disclosure GATE: <a href="https://www.jpx.co.jp/equities/listed-co/disclosure-gate/">https://www.jpx.co.jp/equities/listed-co/disclosure-gate/</a></li>
+<li>JPX 英文開示様式例: <a href="https://www.jpx.co.jp/equities/listed-co/disclosure-gate/form/">https://www.jpx.co.jp/equities/listed-co/disclosure-gate/form/</a></li>
+<li>JPX 日英対訳集: <a href="https://www.jpx.co.jp/equities/listed-co/disclosure-gate/term/index.html">https://www.jpx.co.jp/equities/listed-co/disclosure-gate/term/index.html</a></li>
 </ul>
 <hr>
-<p><strong>本テーマの次回:</strong> <a href="/governance/">5.2 政策保有株のエンドゲーム ― 「個別検証」開示の時代</a></p>
-<p><strong>他テーマの関連記事:</strong>
-- <a href="/governance/">2.3 2021年改訂 ― プライム市場・サステナビリティ・多様性</a>
-- <a href="/governance/">3.1 4区分から3区分へ ― 2022年4月の市場再編</a>
-- <a href="/governance/">4.3 公表で動かす ― 東証「賞罰」リストの仕組み</a>
-- [5.5 SSBJ実</p>
-    </article>
-    <div class="post-nav"><a href="/governance/frontier/" class="post-nav-link prev"><div class="post-nav-dir">← テーマ概要</div><div class="post-nav-title">最前線 ― 現在の論点</div></a><a href="/governance/frontier/5.2-cross-shareholdings-end-game/" class="post-nav-link next"><div class="post-nav-dir">次の記事 →</div><div class="post-nav-title">政策保有株のエンドゲーム ― 「個別検証」開示の時代</div></a></div>
-    <div style="max-width: var(--measure); margin: 32px auto 0; padding-top: 24px; border-top: 1px solid var(--rule); font-size: 0.82rem; color: var(--text-dim); text-align:right;">
-      <a href="/en/governance/frontier/5.1-english-disclosure-mandate/" style="color: var(--ink-soft);">English version →</a>
-    </div>
-  </div>
-</section>
-</main>
-<style>footer{background:var(--ink,#1a2a4a);color:#cfd6e2;padding:48px 0 30px;font-size:0.8rem;line-height:1.8;border-top:none}footer a{color:#cfd6e2;text-decoration:none}footer .footer-row{list-style:none;display:flex;flex-wrap:wrap;gap:8px 26px;margin:0 0 26px;padding:0}footer .footer-row li{padding:0}footer .footer-row a{color:#cfd6e2;text-decoration:none;font-size:0.8rem}footer .footer-bottom{padding-top:24px;border-top:1px solid rgba(255,255,255,0.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-family:var(--mono),monospace;font-size:0.68rem;letter-spacing:0.06em;color:rgba(255,255,255,0.55)}</style><script>
-const nav = document.getElementById('main-nav');
-if (nav) window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
-const hamburgerBtn = document.querySelector('.hamburger');
-function setMenuOpen(isOpen) { const menu = document.getElementById('mobileMenu'); if (!menu || !hamburgerBtn) return; menu.classList.toggle('open', isOpen); menu.hidden = !isOpen; hamburgerBtn.setAttribute('aria-expanded', String(isOpen)); }
-function toggleMenu() { const menu = document.getElementById('mobileMenu'); setMenuOpen(!(menu && menu.classList.contains('open'))); }
-document.addEventListener('click', (e) => { const menu = document.getElementById('mobileMenu'); if (menu && menu.classList.contains('open') && !menu.contains(e.target) && hamburgerBtn && !hamburgerBtn.contains(e.target)) setMenuOpen(false); });
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenuOpen(false); });
-</script>
-<script type="module">
-import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs';
-mermaid.initialize({ startOnLoad: true, theme: 'neutral', fontFamily: 'Noto Sans JP, Hiragino Kaku Gothic ProN, sans-serif', themeVariables: { primaryColor: '#f4eee4', primaryTextColor: '#1a2a4a', primaryBorderColor: '#9a7838', lineColor: '#304466', secondaryColor: '#f5f7fa', tertiaryColor: '#fafbfc' } });
-</script>
-<script src="/assets/nav.js?v=348fa48c4e" defer></script>
+<p><strong>本テーマの次の記事:</strong> <a href="/governance/frontier/5.2-cross-shareholdings-end-game/">5.2 政策保有株式の最終局面――銘柄ごとの検証と開示</a></p>
+<p><strong>他テーマの関連記事:</strong></p>
+<ul>
+<li><a href="/governance/cg-code/2.3-cg-code-2021-revision/">2.3 2021年改訂――プライム市場・サステナビリティ・多様性</a></li>
+<li><a href="/governance/market-restructuring/3.1-four-segments-to-three/">3.1 4区分から3区分へ――2022年4月の市場再編</a></li>
+<li><a href="/governance/capital-efficiency/4.3-the-disclosure-list/">4.3 東証の開示企業一覧――公表が生む規律</a></li>
+<li><a href="/governance/frontier/5.5-ssbj-sustainability/">5.5 SSBJ基準の実務――段階適用と準備の要点</a></li>
+</ul></article><nav class="post-nav" aria-label="前後の記事"><a class="post-nav-link prev" href="/governance/capital-efficiency/4.5-action-plan-2-update/"><div class="post-nav-dir">← 前の記事</div><div class="post-nav-title">開示から実行へ――2026年4月の要請更新</div></a><a class="post-nav-link next" href="/governance/frontier/5.2-cross-shareholdings-end-game/"><div class="post-nav-dir">次の記事 →</div><div class="post-nav-title">政策保有株式の最終局面――銘柄ごとの検証と開示</div></a></nav><div class="post-language"><a href="/en/governance/frontier/5.1-english-disclosure-mandate/">English version →</a></div></div></section>
+  </main>
+  <script src="/assets/governance.js?v=cc6033456e" defer></script>
+  <script src="/assets/nav.js?v=348fa48c4e" defer></script>
 </body>
 </html>

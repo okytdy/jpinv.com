@@ -1,449 +1,205 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-
-<title>政策保有株のエンドゲーム ― 「個別検証」開示の時代 | JII ガバナンス改革カリキュラム</title>
-<meta name="description" content="1988年の「持ち合い」ピーク(東証時価総額の50%超)から、現在の有価証券報告書における銘柄別保有目的開示まで。政策保有株式改革はソフトロー指針から取締役会レベルの年次検証体制へと進化した。豊田自動織機ディールは、その象徴的解体を体現する。">
-<meta property="og:title" content="政策保有株のエンドゲーム ― 「個別検証」開示の時代 | JII ガバナンス改革カリキュラム">
-<meta property="og:description" content="1988年の「持ち合い」ピーク(東証時価総額の50%超)から、現在の有価証券報告書における銘柄別保有目的開示まで。政策保有株式改革はソフトロー指針から取締役会レベルの年次検証体制へと進化した。豊田自動織機ディールは、その象徴的解体を体現する。">
-<meta property="og:url" content="https://jpinv.com/governance/frontier/5.2-cross-shareholdings-end-game/">
-<link rel="canonical" href="https://jpinv.com/governance/frontier/5.2-cross-shareholdings-end-game/">
-<link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/frontier/5.2-cross-shareholdings-end-game/">
-<link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/frontier/5.2-cross-shareholdings-end-game/">
-<link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/frontier/5.2-cross-shareholdings-end-game/">
-
-<style>
-:root {
-  --ink:        #1a2a4a;
-  --ink-mid:    #172641;
-  --ink-soft:   #304466;
-  --rule:       #d6dee8;
-  --rule-soft:  #e8edf3;
-  --bg:         #ffffff;
-  --bg-mid:     #f5f7fa;
-  --bg-soft:    #fafbfc;
-  --text:       #1f2937;
-  --text-mid:   #4a5566;
-  --text-dim:   #5f6875;
-  --accent:     #9a7838;
-  --accent-deep:#9a7838;
-  --accent-soft:#f4eee4;
-  --bad:        #b91c1c;
-  --warn:       #8a682b;
-  --ok:         #2f6f4f;
-  --serif: 'Noto Serif JP', 'Yu Mincho', serif;
-  --sans:  'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
-  --mono:  'DM Mono', monospace;
-  --max: 1100px;
-  --pad: 88px;
-  --gutter: 48px;
-  --nav-h: 64px;
-  --measure: 720px;
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 400; line-height: 1.7; overflow-x: hidden; }
-img { max-width: 100%; display: block; }
-a { color: var(--ink-soft); text-decoration: none; }
-a:hover { color: var(--ink); }
-.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
-@media (max-width: 768px) { :root { --gutter: 22px; --pad: 56px; } }
-strong { font-weight: 600; color: var(--ink); }
-em { font-style: normal; color: var(--ink); font-weight: 600; }
-.label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); }
-
-/* Nav (copied from jpinv.com base) */
-nav#main-nav { position: fixed; top:0; left:0; right:0; z-index:100; height: var(--nav-h); background: rgba(255,255,255,0.96); backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule); display: flex; align-items: center; transition: box-shadow 0.3s; }
-nav#main-nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
-.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; }
-.nav-logo { text-decoration: none; display: inline-flex; align-items: center; flex: 0 0 auto; min-width: max-content; white-space: nowrap; }
-.nav-logo-img { display: block; width: auto; height: 40px; max-width: none; object-fit: contain; object-position: left center; }
-.nav-logo-img--mobile { display: none; width: 32px; height: 32px; object-fit: contain; }
-.nav-center { flex: 1; display: flex; justify-content: center; }
-.nav-links { display: flex; gap: 18px; list-style: none; flex-wrap: nowrap; white-space: nowrap; }
-.nav-links a { font-family: var(--sans); font-size: 0.74rem; font-weight: 400; letter-spacing: 0.02em; color: var(--text); text-decoration: none; transition: color 0.2s; }
-.nav-links a:hover { color: var(--ink-soft); }
-.nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; margin-left: auto; }
-.nav-cta { padding: 7px 11px; font-size: 0.66rem; letter-spacing: 0.05em; }
-.locale-switcher { display: inline-flex; align-items: center; gap: 0; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; }
-.locale-switcher a { color: var(--text-dim); border: 1px solid var(--rule); padding: 6px 9px; text-decoration: none; transition: all 0.2s; }
-.locale-switcher a + a { margin-left: -1px; }
-.locale-switcher a:hover, .locale-switcher a.current { color: var(--ink); border-color: var(--ink-mid); background: var(--bg-soft); position: relative; z-index: 1; }
-.hamburger { display: none; flex-shrink:0; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
-.hamburger span { display:block; width:22px; height:1px; background:var(--ink); transition: all 0.25s; }
-@media (max-width: 900px) { .nav-center, .nav-right .nav-cta { display:none; } .hamburger { display:flex; } }
-@media (max-width: 768px) { .nav-logo-img--desktop { display:none; } .nav-logo-img--mobile { display:block; } }
-.mobile-menu { display:none; position:fixed; top:var(--nav-h); left:0; right:0; background:var(--bg); border-bottom:1px solid var(--rule); z-index:99; padding:8px var(--gutter) 20px; flex-direction:column; gap:0; }
-.mobile-menu.open { display:flex; }
-.mobile-menu a { font-size:0.88rem; color:var(--text); text-decoration:none; padding:14px 0; border-bottom:1px solid var(--rule); letter-spacing:0.04em; }
-.mobile-menu a:last-child { border-bottom:none; }
-.mobile-menu .mobile-menu-cta { margin-top:12px; padding:13px 18px; text-align:center; color:#fff; border-bottom:none; }
-
-.btn { display: inline-block; text-decoration: none; font-family: var(--sans); font-size: 0.84rem; font-weight: 400; letter-spacing: 0.06em; padding: 13px 28px; transition: all 0.2s; cursor: pointer; border: none; }
-.btn-primary { background: var(--ink); color: #fff; }
-.btn-primary:hover { background: var(--ink-mid); color: #fff; }
-.btn-outline { border: 1px solid var(--ink-mid); color: var(--ink); background: transparent; }
-.btn-outline:hover { border-color: var(--ink); color: var(--ink); }
-.rule-accent { width: 32px; height: 2px; background: var(--accent); margin: 14px 0 22px; }
-
-/* Footer (mirror) */
-footer { border-top: 1px solid var(--rule); padding: 52px 0 28px; background: var(--bg-soft); font-size: 0.82rem; color: var(--text-dim); }
-footer .footer-grid { display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 32px; align-items: start; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
-footer h2 { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.2em; color: var(--ink-soft); text-transform: uppercase; margin-bottom: 12px; font-weight: 500; }
-footer h3 { font-family: var(--serif); font-size: 1rem; font-weight: 400; color: var(--ink); margin-bottom: 8px; }
-footer ul { list-style: none; }
-footer ul li { padding: 4px 0; }
-footer ul li a { color: var(--text-mid); }
-footer ul li a:hover { color: var(--ink); }
-footer .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 18px; flex-wrap: wrap; gap: 12px; }
-footer .footer-locale-switcher a.current { font-weight: 600; color: var(--ink); }
-@media (max-width: 900px) { footer .footer-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 580px) { footer .footer-grid { grid-template-columns: 1fr; } }
-
-/* === Curriculum-specific === */
-main.curriculum { padding-top: var(--nav-h); }
-.curr-hero { padding: 96px 0 64px; border-bottom: 1px solid var(--rule); position: relative; overflow: hidden; }
-.curr-hero::before { content:''; position:absolute; inset:0;
-  background-image: linear-gradient(rgba(15,31,58,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(15,31,58,0.04) 1px, transparent 1px);
-  background-size: 64px 64px;
-  -webkit-mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent);
-          mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent); }
-.curr-hero-inner { position:relative; z-index:2; max-width: 880px; }
-.curr-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.32em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 18px; }
-.curr-hero h1 { font-family: var(--serif); font-size: clamp(1.9rem, 4.4vw, 3.1rem); font-weight: 300; color: var(--ink-mid); line-height: 1.3; letter-spacing: 0.02em; margin: 0 0 22px; }
-.curr-hero h1 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-.curr-hero .lede { font-size: 1.05rem; line-height: 1.85; color: var(--text); margin: 0 0 24px; max-width: 700px; }
-.curr-hero-meta { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
-.curr-hero-meta strong { color: var(--ink); font-family: var(--mono); }
-
-.crumbs { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; padding: 22px 0 0; }
-.crumbs a { color: var(--text-mid); }
-.crumbs a:hover { color: var(--ink); }
-.crumbs .sep { color: var(--rule); margin: 0 8px; }
-
-.theme-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; padding: 56px 0; }
-.theme-card { display: block; background: #fff; border: 1px solid var(--rule); padding: 30px 28px; position: relative; transition: all 0.2s; }
-.theme-card:hover { border-color: var(--ink-soft); box-shadow: 0 12px 32px rgba(15,31,58,0.08); transform: translateY(-2px); }
-.theme-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background: var(--accent); opacity: 0.85; }
-.theme-card-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; }
-.theme-card-name { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--ink-mid); margin: 10px 0 8px; line-height: 1.35; }
-.theme-card-period { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 14px; }
-.theme-card-desc { font-size: 0.92rem; line-height: 1.7; color: var(--text); margin-bottom: 18px; }
-.theme-card-list { font-size: 0.84rem; color: var(--text-mid); list-style: none; padding-top: 14px; border-top: 1px solid var(--rule-soft); }
-.theme-card-list li { padding: 5px 0; }
-.theme-card-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; }
-.theme-card-foot .arrow { color: var(--accent-deep); }
-
-.post-list { padding: 28px 0 56px; }
-.post-list-row { display: grid; grid-template-columns: 60px 1fr auto; gap: 22px; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--rule-soft); transition: all 0.18s; }
-.post-list-row:hover { background: var(--bg-mid); padding-left: 12px; padding-right: 12px; }
-.post-list-num { font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em; color: var(--accent-deep); font-weight: 500; }
-.post-list-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--ink-mid); line-height: 1.45; }
-.post-list-meta { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; white-space: nowrap; }
-@media (max-width: 600px) { .post-list-row { grid-template-columns: 50px 1fr; } .post-list-meta { grid-column: 1 / -1; padding-left: 72px; } }
-
-/* Post body */
-.post-body { padding: 48px 0 80px; }
-.post-content { max-width: var(--measure); margin: 0 auto; }
-.post-content > p, .post-content > ul, .post-content > ol, .post-content > blockquote, .post-content > pre, .post-content > table, .post-content > hr, .post-content > h2, .post-content > h3, .post-content > h4 { max-width: var(--measure); margin-left: auto; margin-right: auto; }
-.post-content h2 { font-family: var(--serif); font-size: 1.55rem; font-weight: 400; color: var(--ink-mid); line-height: 1.35; margin: 56px 0 14px; padding-top: 22px; border-top: 1px solid var(--rule-soft); }
-.post-content h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 500; color: var(--ink); margin: 36px 0 10px; line-height: 1.4; }
-.post-content h4 { font-family: var(--sans); font-size: 1rem; font-weight: 600; color: var(--ink); margin: 26px 0 8px; letter-spacing: 0.02em; }
-.post-content p { margin: 0 0 18px; font-size: 1rem; line-height: 1.85; color: var(--text); }
-.post-content p:first-of-type { font-size: 1.05rem; }
-.post-content ul, .post-content ol { margin: 0 0 22px; padding-left: 28px; }
-.post-content ul li, .post-content ol li { font-size: 0.97rem; line-height: 1.8; margin-bottom: 8px; color: var(--text); }
-.post-content ul li::marker { color: var(--accent-deep); }
-.post-content blockquote { margin: 30px 0; padding: 20px 24px; border-left: 3px solid var(--accent); background: var(--accent-soft); color: var(--ink-mid); font-style: normal; }
-.post-content blockquote p { margin-bottom: 8px; font-size: 0.97rem; }
-.post-content blockquote p:last-child { margin-bottom: 0; }
-.post-content blockquote strong { color: var(--ink); }
-.post-content code { background: #f0f0f0; color: var(--ink-mid); font-family: var(--mono); font-size: 0.88rem; padding: 2px 6px; border-radius: 3px; }
-.post-content pre { background: #f9f9fb; border: 1px solid var(--rule); padding: 18px 22px; overflow-x: auto; font-family: var(--mono); font-size: 0.85rem; line-height: 1.55; margin: 24px 0; }
-.post-content pre code { background: transparent; padding: 0; font-size: inherit; }
-.post-content a { color: var(--accent-deep); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; transition: text-decoration-color 0.18s; overflow-wrap: anywhere; word-break: break-word; }
-.post-content a:hover { text-decoration-color: var(--accent-deep); }
-.post-content hr { border: none; border-top: 1px solid var(--rule); margin: 40px auto; max-width: 120px; }
-.post-content table { width: 100%; max-width: var(--measure); margin: 28px auto; border-collapse: collapse; font-size: 0.9rem; }
-.post-content th { background: var(--bg-mid); color: var(--ink-mid); font-family: var(--sans); font-weight: 600; text-align: left; padding: 12px 14px; border-bottom: 2px solid var(--rule); }
-.post-content td { padding: 10px 14px; border-bottom: 1px solid var(--rule-soft); vertical-align: top; color: var(--text); }
-.post-content tr:nth-child(even) td { background: #fafbfc; }
-
-/* Mermaid container */
-.mermaid-wrap { background: #fdfdfe; border: 1px solid var(--rule); padding: 22px 18px; margin: 28px 0; overflow-x: auto; }
-.mermaid { font-family: var(--sans); text-align: center; }
-
-/* Post header */
-.post-header { padding: 48px 0 28px; border-bottom: 1px solid var(--rule); }
-.post-header-inner { max-width: var(--measure); margin: 0 auto; }
-.post-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.28em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 14px; }
-.post-title { font-family: var(--serif); font-size: clamp(1.7rem, 3.6vw, 2.4rem); font-weight: 400; color: var(--ink-mid); line-height: 1.3; margin: 0 0 16px; letter-spacing: 0.005em; }
-.post-summary { font-size: 1.02rem; line-height: 1.8; color: var(--text); margin: 0 0 22px; max-width: 660px; }
-.post-meta { display: flex; gap: 26px; flex-wrap: wrap; padding-top: 18px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
-.post-meta span strong { color: var(--ink); font-family: var(--mono); }
-
-/* Post nav (prev/next) */
-.post-nav { max-width: var(--measure); margin: 56px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding-top: 36px; border-top: 1px solid var(--rule); }
-.post-nav-link { display: block; padding: 18px 20px; background: var(--bg-mid); border: 1px solid var(--rule); transition: all 0.18s; }
-.post-nav-link:hover { border-color: var(--ink-soft); background: #fff; transform: translateY(-1px); }
-.post-nav-dir { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px; }
-.post-nav-title { font-family: var(--serif); font-size: 0.94rem; color: var(--ink-mid); line-height: 1.4; }
-.post-nav-link.next { text-align: right; }
-@media (max-width: 640px) { .post-nav { grid-template-columns: 1fr; } .post-nav-link.next { text-align: left; } }
-
-/* Knowledge check */
-.kcheck { background: var(--bg-mid); padding: 72px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
-.kcheck-head { max-width: 720px; margin: 0 auto 36px; text-align: center; }
-.kcheck h2 { font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 300; color: var(--ink-mid); margin: 0 0 14px; line-height: 1.3; }
-.kcheck h2 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-.kcheck p.lede { font-size: 0.98rem; line-height: 1.75; color: var(--text); }
-.kcheck-q { background: #fff; border: 1px solid var(--rule); padding: 28px 30px; margin-bottom: 18px; max-width: 760px; margin-left: auto; margin-right: auto; }
-.kcheck-q-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; margin-bottom: 12px; }
-.kcheck-q-text { font-family: var(--serif); font-size: 1.1rem; line-height: 1.5; color: var(--ink-mid); margin-bottom: 18px; }
-.kcheck-opts { display: grid; gap: 8px; }
-.kcheck-opt { display: block; padding: 12px 16px; background: var(--bg-soft); border: 1px solid var(--rule); text-align: left; font-family: var(--sans); font-size: 0.92rem; color: var(--text); cursor: pointer; transition: all 0.15s; }
-.kcheck-opt:hover { background: #fff; border-color: var(--ink-soft); }
-.kcheck-opt.correct { background: #e8f3ec; border-color: var(--ok); color: var(--ok); }
-.kcheck-opt.incorrect { background: #fbe9e9; border-color: var(--bad); color: var(--bad); }
-.kcheck-explain { margin-top: 16px; padding: 14px 18px; background: var(--accent-soft); border-left: 3px solid var(--accent); font-size: 0.9rem; line-height: 1.7; color: var(--ink-mid); display: none; }
-.kcheck-q.answered .kcheck-explain { display: block; }
-.kcheck-score { text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--text-dim); margin-top: 28px; text-transform: uppercase; }
-.kcheck-score strong { color: var(--ink-mid); font-family: var(--mono); }
-
-/* Stats / hero stats */
-.stat-band { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; padding: 56px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); background: var(--bg-soft); }
-.stat-item { padding: 0 18px; }
-.stat-num { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 300; color: var(--ink-mid); line-height: 1; margin-bottom: 8px; }
-.stat-num em { color: var(--accent-deep); font-weight: 400; font-style: normal; }
-.stat-label { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; }
-</style>
-
-<meta property="og:image" content="https://jpinv.com/og/jii-default.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://jpinv.com/og/jii-default.png">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "url": "https://jpinv.com/governance/frontier/5.2-cross-shareholdings-end-game/",
-  "name": "政策保有株のエンドゲーム ― 「個別検証」開示の時代 | JII ガバナンス改革カリキュラム",
-  "description": "1988年の「持ち合い」ピーク(東証時価総額の50%超)から、現在の有価証券報告書における銘柄別保有目的開示まで。政策保有株式改革はソフトロー指針から取締役会レベルの年次検証体制へと進化した。豊田自動織機ディールは、その象徴的解体を体現する。",
-  "inLanguage": "ja"
-}
-</script></head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>政策保有株式の最終局面――銘柄ごとの検証と開示｜JII ガバナンス改革講座</title>
+  <meta name="description" content="政策保有株式をめぐる制度は、「保有方針を説明する」段階から、銘柄ごとの経済合理性、議決権行使、売却を妨げない取引慣行まで検証する段階へ進んだ。2025年には、政策保有目的から純投資目的へ変更した後も保有を続ける株式について、過去5事業年度の変更内容と今後の保有・売却方針を有価証券報告書で開示する制度も始まった。本稿では、コーポレートガバナンス・コード、法定開示、上場維持基準という三つの制度をつなげて読む。">
+  <link rel="canonical" href="https://jpinv.com/governance/frontier/5.2-cross-shareholdings-end-game/">
+  <link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/frontier/5.2-cross-shareholdings-end-game/">
+  <link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/frontier/5.2-cross-shareholdings-end-game/">
+  <link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/frontier/5.2-cross-shareholdings-end-game/">
+  <meta property="og:title" content="政策保有株式の最終局面――銘柄ごとの検証と開示｜JII ガバナンス改革講座">
+  <meta property="og:description" content="政策保有株式をめぐる制度は、「保有方針を説明する」段階から、銘柄ごとの経済合理性、議決権行使、売却を妨げない取引慣行まで検証する段階へ進んだ。2025年には、政策保有目的から純投資目的へ変更した後も保有を続ける株式について、過去5事業年度の変更内容と今後の保有・売却方針を有価証券報告書で開示する制度も始まった。本稿では、コーポレートガバナンス・コード、法定開示、上場維持基準という三つの制度をつなげて読む。">
+  <meta property="og:url" content="https://jpinv.com/governance/frontier/5.2-cross-shareholdings-end-game/">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://jpinv.com/og/jii-default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://jpinv.com/og/jii-default.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&amp;family=Noto+Sans+JP:wght@300;400;500;600&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/governance.css?v=b6280834c3">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","name":"政策保有株式の最終局面――銘柄ごとの検証と開示｜JII ガバナンス改革講座","description":"政策保有株式をめぐる制度は、「保有方針を説明する」段階から、銘柄ごとの経済合理性、議決権行使、売却を妨げない取引慣行まで検証する段階へ進んだ。2025年には、政策保有目的から純投資目的へ変更した後も保有を続ける株式について、過去5事業年度の変更内容と今後の保有・売却方針を有価証券報告書で開示する制度も始まった。本稿では、コーポレートガバナンス・コード、法定開示、上場維持基準という三つの制度をつなげて読む。","url":"https://jpinv.com/governance/frontier/5.2-cross-shareholdings-end-game/","inLanguage":"ja","isPartOf":{"@type":"WebSite","name":"Japan Investor Interface","url":"https://jpinv.com/"},"headline":"政策保有株式の最終局面――銘柄ごとの検証と開示","dateModified":"2026-08-30","author":{"@type":"Organization","name":"Japan Investor Interface Co., Ltd."},"publisher":{"@type":"Organization","name":"Japan Investor Interface Co., Ltd.","url":"https://jpinv.com/"}}</script>
+</head>
 <body>
-<main id="main-content" class="curriculum" tabindex="-1">
-<div class="wrap crumbs">
-  <a href="/">JII</a> <span class="sep">/</span>
-  <a href="/governance/">IR研修</a> <span class="sep">/</span>
-  <a href="/governance/frontier/">最前線 ― 現在の論点</a> <span class="sep">/</span>
-  記事 5.2
-</div>
-<header class="post-header">
-  <div class="wrap">
-    <div class="post-header-inner">
-      <div class="post-eyebrow">テーマ 5 · 記事 5.2</div>
-      <h1 class="post-title">政策保有株のエンドゲーム ― 「個別検証」開示の時代</h1>
-      <p class="post-summary">1988年の「持ち合い」ピーク(東証時価総額の50%超)から、現在の有価証券報告書における銘柄別保有目的開示まで。政策保有株式改革はソフトロー指針から取締役会レベルの年次検証体制へと進化した。豊田自動織機ディールは、その象徴的解体を体現する。</p>
-      <div class="post-meta">
-        <span>テーマ: <strong>最前線 ― 現在の論点</strong></span>
-        <span>読了目安: <strong>16 分</strong></span>
-        <span>更新: <strong>2026-05-18</strong></span>
-      </div>
-    </div>
-  </div>
-</header>
-<section class="post-body">
-  <div class="wrap">
-    <article class="post-content">
-<blockquote>
-<p><strong>要点</strong>
-- 政策保有株式は1990年に東証時価総額の約60%でピークを打ち、2024年には約25%まで縮小した。一世代をかけたアンワインドが、ようやく加速段階に入った。
-- 制度は今や<strong>銘柄別検証</strong>である。2022年度有価証券報告書から、各保有銘柄について経済合理性、取締役会の検証、議決権行使・売却の基準を開示することが義務付けられた。「コンプライ・オア・エクスプレイン」は、「個別保有について検証と開示」に置き換わった。
-- <strong>豊田自動織機の非公開化</strong>(2025年6月公表、2025年末に1株18,800円へ価格改定)は、76年間続いた上場子会社構造の解消と、トヨタ自動車・デンソー・アイシン・豊田通商との政策保有株の解消を同時に実現する。日本株式会社の最後にして最強の系列構造の、象徴的解体である。</p>
+  <a class="gov-skip" href="#main-content">本文へ移動</a>
+  <main id="main-content" class="governance-page" tabindex="-1">
+    <nav class="gov-wrap gov-crumbs" aria-label="パンくず"><a href="/">ホーム</a><span class="sep">/</span><a href="/governance/">ガバナンス改革講座</a><span class="sep">/</span><a href="/governance/frontier/">現在進行中の論点</a><span class="sep">/</span><span aria-current="page">記事 5.2</span></nav>
+    <header class="post-header"><div class="gov-wrap"><div class="post-header-inner"><span class="post-eyebrow">テーマ 5 · 記事 5.2</span><h1 class="post-title">政策保有株式の最終局面――銘柄ごとの検証と開示</h1><p class="post-summary">政策保有株式をめぐる制度は、「保有方針を説明する」段階から、銘柄ごとの経済合理性、議決権行使、売却を妨げない取引慣行まで検証する段階へ進んだ。2025年には、政策保有目的から純投資目的へ変更した後も保有を続ける株式について、過去5事業年度の変更内容と今後の保有・売却方針を有価証券報告書で開示する制度も始まった。本稿では、コーポレートガバナンス・コード、法定開示、上場維持基準という三つの制度をつなげて読む。</p><div class="post-meta"><span>テーマ: <strong>現在進行中の論点</strong></span><span>読了目安: <strong>8分</strong></span><span>更新: <strong>2026-08-30</strong></span></div></div></div></header>
+    <section class="post-body"><div class="gov-wrap"><article class="post-content"><blockquote>
+<p><strong>要点</strong></p>
+<ul>
+<li>政策保有株式の規律は、<strong>コーポレートガバナンス・コード、有価証券報告書、東証の流通株式ルール</strong>という三つの層から成る。</li>
+<li>2026年改訂版コードの原則1-4は、縮減を含む保有方針、銘柄ごとの検証、議決権行使基準に加え、政策保有株主による売却を妨げないこと、経済合理性のない取引を続けないことを求めている。</li>
+<li>2025年3月期以降の有価証券報告書では、政策保有目的から純投資目的へ変更した株式についても、変更年度、理由、変更後の保有・売却方針を追跡して開示する。</li>
+</ul>
 </blockquote>
-<h2>35年のアンワインドを一表に</h2>
-<p>政策保有株式 ― 関係日本企業間の相互株式保有 ― は、海外投資家が日本のコーポレートガバナンスの構造的特徴を語るときに必ず指し示してきた建築上の中核である。戦後の系列ネットワークはこれを基礎に組み立てられ、メインバンク制度がこれを補強し、30年間にわたって<strong>安定株主</strong>の運用上の定義 ― アクティビストの側に回らず、敵対的買収に売却されない議決権 ― として機能した。同時に、機械的に、日本の慢性的なROEギャップの最大の単一要因でもあった。取引相手の株式に固定された資本は、営業上のリターンを生まない資本である。</p>
-<p>アンワインドは長期化したため、出発点を忘れがちだ。野村-RIETIシリーズは次の軌跡を示す。</p>
+<h2 id="section-1">現在の制度は三層でできている</h2>
+<p>政策保有株式の開示を読むときは、一つの文書だけを見てはいけない。会社の方針と取締役会の検証はコーポレートガバナンス・コード、銘柄別の保有状況は有価証券報告書、上場維持への影響は東証の流通株式ルールに現れる。</p>
 <table>
 <thead>
 <tr>
-<th>年</th>
-<th>狭義政策保有比率(東証時価総額対比)</th>
-<th>補記</th>
+<th>制度</th>
+<th>主な文書</th>
+<th>何を問うか</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td>1988</td>
-<td><strong>50%超</strong>(持ち合いのピーク)</td>
-<td>系列・メインバンク制度の最盛期</td>
+<tbody><tr>
+<td>原則主義のガバナンス規律</td>
+<td>コーポレート・ガバナンス報告書</td>
+<td>なぜ保有するのか。縮減方針はあるか。取締役会はどう検証し、どう議決権を行使するか</td>
 </tr>
 <tr>
-<td>1990</td>
-<td>約60%(銀行保有込)</td>
-<td>バブル崩壊直後のピーク。銀行の株式簿価が圧縮を始める</td>
+<td>法定開示</td>
+<td>有価証券報告書</td>
+<td>どの銘柄を何株、いくらで保有しているか。保有目的、定量的効果、増減理由は何か</td>
 </tr>
 <tr>
-<td>1995</td>
-<td>約50%</td>
-<td>銀行危機で貸し手側の株式選好が後退</td>
+<td>上場維持基準</td>
+<td>流通株式比率・流通株式時価総額</td>
+<td>銀行、保険会社、事業法人などの保有が流通株式から除かれた結果、必要な流動性を確保できるか</td>
 </tr>
-<tr>
-<td>2000</td>
-<td>約30%</td>
-<td>時価会計+金融ビッグバン</td>
-</tr>
-<tr>
-<td>2005</td>
-<td>約22%</td>
-<td>持ち合い株式の継続的な吐き出し</td>
-</tr>
-<tr>
-<td>2010</td>
-<td>約16%(狭義)/約28%(広義)</td>
-<td>「失われた10年」の残滓。金融庁が注力を始める</td>
-</tr>
-<tr>
-<td>2015</td>
-<td>約13%(狭義)/約24%(広義)</td>
-<td>2015年CGCが原則1-4を導入</td>
-</tr>
-<tr>
-<td>2018</td>
-<td>約11%(狭義)/約22%(広義)</td>
-<td>2018年CGC改訂で取締役会の年次検証を追加</td>
-</tr>
-<tr>
-<td>2021</td>
-<td>約10%(狭義)/約21%(広義)</td>
-<td>2021年CGCで保有目的が絞り込まれる</td>
-</tr>
-<tr>
-<td>2023</td>
-<td>約9%(狭義)/約20%(広義)</td>
-<td>金融庁の銘柄別開示規則が有価証券報告書で拘束力を持つ</td>
-</tr>
-<tr>
-<td>2024</td>
-<td>約8%(狭義)/約19%(広義)</td>
-<td>上場非金融発行体による売却額は過去最高の3.6兆円</td>
-</tr>
-<tr>
-<td>2025</td>
-<td>約7~8%(狭義)</td>
-<td>豊田自動織機ディール公表。グループ解体が加速</td>
-</tr>
-</tbody>
-</table>
-<p>同じデータに対し、政策論議では2つの解釈が並存する。楽観論は軌跡を強調する。30年間日本の株式リターンを縛った制度はいま解体されつつあり、解体は政策改革、会計改革、テーマ4の資本コスト革命から持続的な勢いを得ている。悲観論 ― ACGAの論立てに近い ― は、狭義7~8%という比率はなお異常に高く、広義比率の動きは鈍く、残存する保有は解体の政治コストが最も高い関係(完成車-サプライヤー、商社-関連会社、銀行-借入先のレガシー)に集中している、と指摘する。</p>
-<p>現在の金融庁・東証のスタンスはACGAに近い。2025年のコーポレートガバナンス改革行動計画は、政策保有株式を「フォローアップ会議の点検・開示期待を強化する」未完課題として明示的に名指しした。2025-26年のWG課題はその優先順位を反映する。</p>
-<h2>4段階の政策タイムライン</h2>
-<p>政策の沿革を辿ると、規制の積層が明確になる。</p>
-<h3>第1段階 ― 2015年:原則1-4のコード導入</h3>
-<p>2015年のコーポレートガバナンス・コード策定時の原則1-4は次のように述べる。「上場会社が政策保有株式として上場株式を保有する場合には、その政策保有に関する方針を開示すべきである。また、毎年、取締役会で、主要な政策保有についてそのリターンとリスクなどを踏まえた中長期的な経済合理性や将来の見通しを検証し、これを反映した保有のねらい・合理性について具体的な説明を行うべきである。」</p>
-<p>これはコンプライ・オア・エクスプレイン原則であり、集計開示であった。コーポレート・ガバナンス報告書での1段落である。原則への遵守は広く達成されたが、説明の中身は薄かった。多くの発行体は「取引関係と安定性の維持」といった文言のバリエーションを書き、銘柄を特定したり経済合理性を定量化したりすることはなかった。</p>
-<h3>第2段階 ― 2018年:取締役会レベルの検証</h3>
-<p>2018年改訂は、<strong>取締役会レベルの年次検証</strong>を追加することで原則1-4を鋭利化した。取締役会自身が(経営陣でもIR機能でもなく)、「保有目的が適切か、保有に伴う便益・リスクが資本コストに見合っているかを<em>個別</em>に検証」する必要が生じた。この追加文言の2つの語が決定的である ― <em>個別</em>(分析単位が集計から個別保有に移る)、<em>資本コスト</em>(検証は経済的であって関係的ではない)。</p>
-<p>これは、日本のソフトローが政策保有株式の合理性を資本コストと結びつけた最初の瞬間である。2023年の東証要請を5年先取りしており、2023年要請が制度的に成熟した地盤に着地した理由のひとつでもある。</p>
-<h3>第3段階 ― 2021年:許容される保有目的の絞り込み</h3>
-<p>2021年改訂は原則番号を変更しなかったが、金融庁の「投資家と企業の対話指針」を通じて補充指針を厳格化した。許容される保有目的は次のような狭い集合に限定された。明確で定量化可能な事業上の便益、開示された経済条件を伴う長期戦略的提携、または明示的なタイムテーブルで縮減予定の保有。<strong>「安定性」や「長年の取引関係」は十分な説明として明示的に否定された</strong>。</p>
-<h3>第4段階 ― 2022年以降:有価証券報告書における銘柄別開示</h3>
-<p>決定的変化はコードではなく、「企業内容等の開示に関する内閣府令」の2022年度提出分向け改正で起きた。2023年央に提出される有価証券報告書から、各銘柄について次を開示することが義務付けられた。</p>
-<ul>
-<li>会社名と保有株式数。</li>
-<li>取得価額および時価。</li>
-<li>保有の<strong>具体的</strong>目的(定型文ではなく)。</li>
-<li>当該保有目的が引き続き妥当であるかについての<strong>取締役会の検証</strong>。</li>
-<li>株式の<strong>議決権行使</strong>に関する基準。</li>
-<li>「政策保有」から「純投資」に区分変更した場合、その基準と想定保有期間。</li>
-</ul>
-<p>これが個別検証制度である。開示単位は「方針として政策保有を行っている」から「各保有について、経済的に何をしているか、引き続き保有すべきかについての取締役会の見解はこうである」へと移行した。集計比率は引き続き低下するが、いまや集計比率は個別の取締役会判断の<em>結果</em>である。そして、いずれの判断も可視化されている。</p>
-<h2>2024年4月金融庁フォローアップ会議資料のメッセージ</h2>
-<p>2024年4月18日のフォローアップ会議資料は、金融庁が政策保有株式について発した最も明確な声明である。3つの作動的論点が、IRチームにとって重要となる。</p>
-<p><strong>一 ― 「いわゆる」事業上の理由を主張するなら、立証せよ。</strong> 発行体が顧客・取引先関係を保有理由として挙げる場合、金融庁は、保有を売却した場合に<em>関係の何が変わるか</em>の開示を期待する。何も変わらないなら、その保有は経済的には戦略の衣をまとった純投資であり、区分変更すべきである。</p>
-<p><strong>二 ― 相手方がいるなら、その相手方に向き合え。</strong> 政策保有は定義上相互的である。金融庁は、発行体が相手方に対し<em>相手方側の</em>相互保有の売却を要請したか、相手方の回答はどうだったかを開示するよう期待する。これは、二者間アンワインドを長らく止めてきた「あなたが売れば私も売る」のデッドロックに、規制が向き合った構図である。</p>
-<p><strong>三 ― 「純資産の10%超」コホートが名指しされる。</strong> 金融庁の2024年4月資料は、政策保有額が純資産の10%を超えるTOPIX500構成銘柄の28%を、「特に注視」を要するコホートと位置付けた。これはソフトな公表名指しであり、後続の点検ではこのコホートが金融庁の明示的対話対象となることが期待される。</p>
-<p>ACGAの2024年5月「政策保有株式に関する公開書簡」はこれらを補強し、4つ目のより鋭い批判を加えた ― <strong>発行体は被保有先業績が不振でも、政策保有株式を経営陣案に賛成投票し続けている</strong>。ACGAの提言は、純投資と同じテストを適用する公表議決権行使方針に従って政策保有株式を行使するか、当該銘柄を売却するか、いずれかへのコミットメントである。これは金融庁フォローアップ会議で目下議論中であり、次回CGC改訂の候補項目となっている。</p>
-<h2>サイドバー ― 豊田自動織機の解体</h2>
-<p>2025年に政策保有改革を現実化した取引が、<strong>豊田自動織機株式会社(6201)の非公開化</strong>である。3つのガバナンス問題を同時に解決する構造ゆえに、この取引は研究に値する。</p>
-<p><strong>ストラクチャー。</strong> トヨタ自動車主導のTOB(後に豊田家関連事業体および特別目的会社が参加)が豊田自動織機の公開フロート部分を取得する。当初提案は2025年6月に1株16,300円でスタート。Elliott Investment Managementが内在NAVが26,000円/株を超えるとして当初価格に公然と反対した後、買付価格は2025年末に<strong>1株18,800円、不影響日(2025年4月25日)株価対比42.2%プレミアム</strong>に引き上げられた。</p>
-<p><strong>政策保有株式への効果。</strong> 豊田自動織機は歴史的にトヨタ自動車(豊田自動織機純資産の約9%)、デンソー、アイシン、豊田通商に対する相互持分を保有していた。非公開化ストラクチャーは、これらの政策保有株式の<strong>同時消却</strong>を組み込む。豊田自動織機の3つのトヨタグループ関連会社株式は取引のファイナンスの一部として解消され、売却代金は非公開化ビークルに流れる。例外は、連結関係を維持するために変形して保持されるトヨタ自動車の残余優先株経済持分のみである。</p>
-<p><strong>上場子会社問題への効果。</strong> 豊田自動織機は分類上、<strong>76年間</strong>にわたるトヨタグループの上場子会社であった ― トヨタ自動車の会計上は「持分法適用関連会社」だが、海外投資家からは一貫して、ジャパン・ディスカウントに親子上場ディスカウントが上乗せされた二重ディスカウント対象の被支配企業として扱われてきた。非公開化は、公開上場を取り除くことで、この緊張を解消する。</p>
-<p><strong>政策保有政策にとっての意味。</strong> 豊田自動織機の取引は、上場子会社のアンワインドと政策保有株式のアンワインドを単一のファイナンシャル・エンジニアリングに編み込んだ、日本初の主要ディールである。テーマ5.2と5.3の2つの政策スレッドが別物でないことを示す。経済的に最も重要な残存政策保有株式は上場子会社を含むグループ構造の<em>内部</em>に位置し、一方を解体せずもう一方を解体することは中途半端なのだ。ACGAは本ディールを<strong>「日本株式会社の最後にして最強の系列構造の象徴的解体」</strong>と評した。</p>
-<p><strong>それでも終わりではない。</strong> 豊田自動織機ディールは、系列解消を狙ったディールでさえ少数株主保護アクティビズムを呼び込むことを示した。Elliottの介入は当初買付価格に対し15%の価格引き上げを実現した。この結果は、2026-27年に<strong>日立</strong>、<strong>住友</strong>、<strong>三菱</strong>、<strong>ソニー</strong>、<strong>伊藤忠</strong>のグループ構造を見るすべてのアクティビストに引用され、グループ関連会社のアンワインドはスポンサー側都合ではなくフェアネスを反映した価格設定が必要であるというメッセージを補強する。</p>
-<h2>残存する政策保有はどこにあるか</h2>
-<p>見出し比率にもかかわらず、残存する政策保有株式は均等に分布していない。2024年度有価証券報告書サイクルでは、集中度は次のとおりである。</p>
-<ul>
-<li><strong>完成車-サプライヤー。</strong> トヨタグループ、ホンダ、日産・ルノー、第2階層完成車メーカーは、いずれも最大手サプライヤーとの相互保有を維持する。豊田自動織機ディールが最初の主要解体であり、デンソーの2024年度4,385億円の過去最高売却額は、完成車-サプライヤー網全体が動き始めていることを示唆する。</li>
-<li><strong>商社-関連会社。</strong> 伊藤忠、三井、三菱商事、住友商事、丸紅は、関連製造業・サービス企業との政策保有を、歴史的に「提携の担保」として正当化しつつ維持してきた。縮減は着実だが、広義比率は依然高水準。</li>
-<li><strong>銀行-借入先のレガシー。</strong> メガバンクによる事業会社株式保有は1990年のピークから低下したが、なお無視できない水準。事業会社による銀行株保有(旧来のメインバンク・トークン)は、現在ではこの関係の小さい側であり、最速で縮減されている。</li>
-<li><strong>生損保-取引先。</strong> 日本生命、第一生命、明治安田など生保は、安定株主部分と運用部分の双方を含む大規模な株式ポートフォリオを保有する。その開示制度は上場発行体と別だが、行動はますます機関投資家スチュワードシップに近づいている。</li>
-<li><strong>同族系企業グループ。</strong> 豊田自動織機の解体後、同族支配下のグループ構造(スズキ、マツダ・トヨタ提携、地域工業グループ)はより小規模で、政策保有が安定株主防衛として機能し続ける場として残る。</li>
-</ul>
-<p>IRチームへの含意は、政策保有株式に関する公的議論はもはや集計水準についてではないということだ。論点は、<strong>各発行体が今なお保有する特定の銘柄</strong>、各保有が拠って立つ特定の合理性、検証の特定のタイムテーブルである。銘柄別開示制度は、この移行の構造的理由である。</p>
-<h2>2023年度の3.6兆円が意味するもの</h2>
-<p>2022年以降の最も顕著な統計は、上場非金融発行体による政策保有株式の<strong>売却額</strong> ― <strong>3.6兆円、前年比+86%</strong> ― である。この数字には2つの読み方が共存する。</p>
-<p>第一の読み方は、金融庁の銘柄別開示規則と東証の2023年3月資本コスト要請が積み重なり、ようやく取締役会にとって防衛より売却の方が安価になったというものだ。銘柄別合理性開示は取締役会に「この株式は当社のために何をしているか」という問いを迫る。多くの取締役会は、率直な答えが「資本コストに満たないことしか」であると結論付けた。</p>
-<p>第二の読み方は、前年比+86%の伸びは部分的に循環的(日本株は2024年初頭にピーク)であり、部分的には少数の大口発行体(デンソー、メガバンク、商社)が既存の縮減プログラムを加速した結果である、というものだ。2024年度と2025年度の数字がこのペースを維持できるかが、構造的シフトが持続するかを決める。</p>
-<p>初期データは励みになる。デンソー1社で、2025年度のアンワインド継続から3,800億円超を見込む。メガバンクは合計すれば2030年度までさらに5兆円の売却を含意する5年縮減目標を公表した。商社は非開示から比率目標開示へと移行した。アンワインドは、最大の簿価を抱える発行体の業務計画に組み込まれており、これは持続的な構造シフトの典型である。</p>
-<h2>IRにとっての含意</h2>
+</tbody></table>
+<p>三つの制度は、同じ方向を向いている。政策保有を直ちに禁止するのではなく、保有の合理性を毎年説明させ、経済合理性のない関係を縮減し、残った保有についても市場流動性の面からコストを負わせる仕組みである。</p>
+<h2 id="section-2">2026年改訂版コードの原則1-4</h2>
+<p>2026年7月に確定したコーポレートガバナンス・コードは、政策保有株式について、実務上の確認点を四つに整理した。</p>
 <ol>
-<li><strong>集計比率の報告をやめ、名指しの銘柄、取締役会レビュー、タイムテーブルを報告する。</strong> 金融庁の銘柄別制度の下、集計比率は必要だが十分でない。海外アナリストは、集計のみの開示は痛みを伴う項目を隠していると見なす。</li>
-<li><strong>各保有について資本コスト・テストを述べる。会社単体だけではない。</strong> 当該保有が一定期間内にWACCを稼げないなら、その旨と取締役会の対応計画を述べる。「安定性のため維持」はもはや弁護できる答えではない。</li>
-<li><strong>政策保有株式の議決権行使方針を開示する。</strong> ACGAの議決権行使方針批判は、次回CGC改訂に最も入り込みやすい項目だ。被保有先に対し純投資と同じガバナンス基準を適用する議決権行使方針をいま公表する発行体は、批判を先回りできる。</li>
-<li><strong>開示前に相手方とエンゲージする。</strong> 銘柄別開示は二者間政策保有の双方に同じ規制期待を同時に課す。名指しの相手方との協調縮減プログラムは、2024年度有価証券報告書ですでに複数開示されており、この実務は急速に標準になりつつある。</li>
-<li><strong>豊田自動織機をテンプレートとして扱う。</strong> グループ関連会社のIRチームは、今後、TICOディールを先例として引用する対話・レターを想定すべきである。正しい答えは「当社は違う」ではなく、一定期間内に集中度をどう縮減するかの具体的見通し、および何がタイムラインを加速させるか(資本コスト未達、アクティビストの対話、相手方の発議)を示すことだ。</li>
+<li><strong>縮減を含む保有方針と、銘柄ごとの検証。</strong> 取締役会は毎年、個別銘柄について、保有目的、便益、リスクが資本コストに見合うかを検証し、その内容を開示する。</li>
+<li><strong>議決権行使基準。</strong> 取引関係があるから自動的に会社提案へ賛成するのではなく、企業価値と株主共同の利益に照らした具体的な基準を持つ。</li>
+<li><strong>売却を妨げない。</strong> 自社株を政策保有している取引先が売却を申し入れた際、取引縮減を示唆するなどして売却を妨げてはならない。</li>
+<li><strong>不合理な取引を続けない。</strong> 政策保有株主との間で、経済合理性を十分に検証しないまま、会社や株主共同の利益を損なう取引を継続してはならない。</li>
 </ol>
-<h2>出典と参考資料</h2>
+<p>この構成により、政策保有の論点は「保有してよいか」だけではなくなった。保有させている側の会社が売却を妨げていないか、株式保有と商取引が不適切に結び付いていないかまでが、ガバナンスの問題となる。</p>
+<h2 id="section-3">有価証券報告書では銘柄ごとに説明する</h2>
+<p>法定開示では、政策保有株式を一定数以上持つ会社に対し、銘柄別の株式数、貸借対照表計上額、保有目的、定量的な保有効果、当期の増減理由などを記載することが求められる。制度改正により、個別開示の対象銘柄数は拡大してきた。</p>
+<p>実務上、最も弱い記載は「取引関係の維持・強化のため」という一文で終わるものだ。取引関係があることは事実の説明であって、資本を拘束する理由の説明ではない。少なくとも、次の項目を一つの流れで示す必要がある。</p>
+<table>
+<thead>
+<tr>
+<th>確認項目</th>
+<th>開示で示す内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>保有目的</td>
+<td>具体的にどの事業、取引、共同開発、供給関係に結び付くのか</td>
+</tr>
+<tr>
+<td>経済的便益</td>
+<td>便益をどう測定したか。売上や調達だけでなく、資本コストとの比較をどう行ったか</td>
+</tr>
+<tr>
+<td>リスク</td>
+<td>株価変動、集中、取引先依存、レピュテーション、流動性への影響</td>
+</tr>
+<tr>
+<td>取締役会の判断</td>
+<td>継続、縮減、売却のどれを選び、いつ再検討するか</td>
+</tr>
+<tr>
+<td>議決権行使</td>
+<td>会社提案に自動賛成せず、どの基準で判断するか</td>
+</tr>
+</tbody></table>
+<p>「便益を数値化することが困難」と書く場合でも、そこで説明を終えてはいけない。どのような資料を取締役会に示し、どの代替指標で検証し、何をもって保有継続を判断したのかを記す必要がある。</p>
+<h2 id="section-4">「純投資目的への変更」で終わらせない</h2>
+<p>政策保有株式を純投資目的へ区分変更し、そのまま長期間保有し続ける会社が増えたことで、新たな問題が生じた。名称だけを「純投資」に変えても、実質が取引関係の維持であれば、政策保有から外れたとは言えない。</p>
+<p>このため、2025年1月の内閣府令改正により、当期を含む最近5事業年度以内に政策保有目的から純投資目的へ変更し、期末時点でも保有している株式について、次の事項を開示することになった。</p>
 <ul>
-<li>金融庁フォローアップ会議資料「東証の最近の取組」(2024年4月18日): https://www.fsa.go.jp/en/refer/councils/follow-up/material/20240418-04.pdf</li>
-<li>金融庁 政策保有株式開示資料(2024年4月18日): https://www.fsa.go.jp/en/refer/councils/follow-up/material/20240418-03.pdf</li>
-<li>ACGA「政策保有株式に関する公開書簡」2024年5月: https://corpgov.law.harvard.edu/2024/05/16/acga-open-letter-strategic-shareholdings-in-corporate-japan/</li>
-<li>トヨタ自動車プレスリリース「豊田自動織機の非公開化について」: https://global.toyota/en/newsroom/corporate/42882940.html</li>
-<li>ACGAブログ「豊田自動織機:価格改定後も残るガバナンス上の懸念」: https://www.acga-asia.org/blog-detail.php?id=114</li>
-<li>ノムラ・コネクツ「日本の政策保有株式は新たなダイナミックな時代へ」: https://www.nomuraconnects.com/focused-thinking-posts/japan-cross-shareholdings-enter-a-dynamic-new-era/</li>
-<li>金融庁「コーポレートガバナンス改革に向けた行動計画2025」: https://www.fsa.go.jp/en/news/2025/20250630-1.html</li>
+<li>銘柄</li>
+<li>株式数</li>
+<li>貸借対照表計上額</li>
+<li>保有目的を変更した年度</li>
+<li>変更理由</li>
+<li>変更後の保有または売却に関する方針</li>
+</ul>
+<p>改正後の規定は、2025年3月31日以後に終了する事業年度の有価証券報告書等から適用されている。純投資目的に移した後も、いつまで保有するのか、どの価格・条件で売却を検討するのか、なぜ現在も保有しているのかが問われる。</p>
+<h2 id="section-5">2026年度レビューが示した弱点</h2>
+<p>金融庁の有価証券報告書レビューでは、政策保有株式について、次のような記載が重点的に確認されている。</p>
+<ul>
+<li>銘柄ごとの保有目的が抽象的で、会社固有の関係が分からない。</li>
+<li>「安定株主の確保」といった実質的な目的を記載していない。</li>
+<li>取締役会での検証内容と、実際の保有継続・増加との関係が説明されていない。</li>
+<li>純投資目的へ変更した理由や、変更後の売却方針が明確でない。</li>
+</ul>
+<p>ここから分かるのは、制度が書式の充足から、記載内容と実際の行動の整合性を見る段階へ移ったということだ。縮減方針を掲げながら保有額が増えているなら、株価上昇によるものか、追加取得によるものかを分けて説明しなければならない。売却方針を掲げながら何年も保有を続けるなら、売却条件と進捗を示す必要がある。</p>
+<h2 id="section-6">取締役会で使える銘柄別検証表</h2>
+<p>実務では、政策保有株式を一括して審議するのではなく、少なくとも重要銘柄について、次のような表を取締役会に提出するとよい。</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>銘柄・保有額</td>
+<td>株式数、時価、簿価、自己資本に占める割合</td>
+</tr>
+<tr>
+<td>保有の経緯</td>
+<td>取得時期、当初の目的、相手先との関係</td>
+</tr>
+<tr>
+<td>現在の便益</td>
+<td>具体的な事業上の便益と、その測定方法</td>
+</tr>
+<tr>
+<td>資本コストとの比較</td>
+<td>受取配当、含み損益、取引便益を含む評価と前提</td>
+</tr>
+<tr>
+<td>リスク</td>
+<td>株価下落、集中、売却可能性、取引関係への影響</td>
+</tr>
+<tr>
+<td>議決権行使</td>
+<td>前年度の重要議案と判断理由</td>
+</tr>
+<tr>
+<td>結論</td>
+<td>継続、段階縮減、売却のいずれか</td>
+</tr>
+<tr>
+<td>実行時期</td>
+<td>次回見直し日、売却の目安、相手方との協議状況</td>
+</tr>
+</tbody></table>
+<p>この表の目的は、精緻な一点の数字を作ることではない。取締役会が「関係が長いから持つ」という判断から離れ、同じ基準で各銘柄を比較できるようにすることである。</p>
+<h2 id="section-7">IR担当者が押さえるべき含意</h2>
+<ol>
+<li><strong>コーポレート・ガバナンス報告書と有価証券報告書を同じデータから作る。</strong> 方針と実績が別部署で作られると、縮減方針と銘柄別記載が食い違う。</li>
+<li><strong>保有先ではなく、保有させている側としての行動も点検する。</strong> 取引先が自社株の売却を希望したとき、取引条件や発注を材料に圧力をかけてはならない。</li>
+<li><strong>純投資目的への変更後も追跡する。</strong> 区分変更は出口ではない。売却方針、保有期間、実際の売却実績まで開示できるようにする。</li>
+<li><strong>流通株式比率と一体で管理する。</strong> 政策保有株式の縮減は、保有会社側の資本効率だけでなく、発行会社側の流動性と上場維持にも影響する。</li>
+<li><strong>売却実績だけでなく、残る銘柄の理由を説明する。</strong> 縮減が進むほど、最後に残る銘柄には高い説明責任が生じる。</li>
+</ol>
+<h2 id="section-8">出典・参考資料</h2>
+<ul>
+<li>金融庁・東証「コーポレートガバナンス・コード（2026年改訂版）の確定について」: <a href="https://www.fsa.go.jp/singi/follow-up/index.html">https://www.fsa.go.jp/singi/follow-up/index.html</a></li>
+<li>金融庁「政策保有株式の開示に関する内閣府令等の改正」（2025年1月31日）: <a href="https://www.fsa.go.jp/news/r6/sonota/20250131-2/20250131-2.html">https://www.fsa.go.jp/news/r6/sonota/20250131-2/20250131-2.html</a></li>
+<li>金融庁「有価証券報告書レビュー及び大量保有報告書等のレビューについて（令和8年度）」: <a href="https://www.fsa.go.jp/news/r7/sonota/20260327.html">https://www.fsa.go.jp/news/r7/sonota/20260327.html</a></li>
+<li>金融庁「記述情報の開示の好事例集2025」: <a href="https://www.fsa.go.jp/news/r6/singi/20250203.html">https://www.fsa.go.jp/news/r6/singi/20250203.html</a></li>
+<li>金融庁「企業内容等の開示に関する内閣府令の改正について」（政策保有株式の個別開示拡充）: <a href="https://www.fsa.go.jp/access/30/187.pdf">https://www.fsa.go.jp/access/30/187.pdf</a></li>
+<li>JPX「コーポレート・ガバナンス」: <a href="https://www.jpx.co.jp/equities/listing/cg/index.html">https://www.jpx.co.jp/equities/listing/cg/index.html</a></li>
+<li>JPX「流通株式――上場維持基準の詳細」: <a href="https://www.jpx.co.jp/equities/listing/continue/details/02.html">https://www.jpx.co.jp/equities/listing/continue/details/02.html</a></li>
 </ul>
 <hr>
-<p><strong>本テーマの次回:</strong> <a href="/governance/">5.3 豊田自動織機ディールが終わらせた系列構造</a></p>
-<p><strong>他テーマの関連記事:</strong>
-- <a href="/governance/">1.2 メインバンクから水野氏まで ― 改革前の日本のガバナンス構造</a>
-- <a href="/governance/">2.3 2021年改訂 ― プライム市場・サステナビリティ・多様性</a>
-- <a href="/governance/">4.1 PBR&lt;1は目標ではなく、市場の評決</a>
-- <a href="/governance/">5.7 スチュワードシップ・コード3.0以後の協働対話</a>
-</p>
-    </article>
-    <div class="post-nav"><a href="/governance/frontier/5.1-english-disclosure-mandate/" class="post-nav-link prev"><div class="post-nav-dir">← 前の記事</div><div class="post-nav-title">2025年4月は通過点、終着点ではない ― 英文開示義務化</div></a><a href="/governance/frontier/5.3-listed-subsidiaries/" class="post-nav-link next"><div class="post-nav-dir">次の記事 →</div><div class="post-nav-title">豊田自動織機ディールが終わらせた系列構造</div></a></div>
-    <div style="max-width: var(--measure); margin: 32px auto 0; padding-top: 24px; border-top: 1px solid var(--rule); font-size: 0.82rem; color: var(--text-dim); text-align:right;">
-      <a href="/en/governance/frontier/5.2-cross-shareholdings-end-game/" style="color: var(--ink-soft);">English version →</a>
-    </div>
-  </div>
-</section>
-</main>
-<style>footer{background:var(--ink,#1a2a4a);color:#cfd6e2;padding:48px 0 30px;font-size:0.8rem;line-height:1.8;border-top:none}footer a{color:#cfd6e2;text-decoration:none}footer .footer-row{list-style:none;display:flex;flex-wrap:wrap;gap:8px 26px;margin:0 0 26px;padding:0}footer .footer-row li{padding:0}footer .footer-row a{color:#cfd6e2;text-decoration:none;font-size:0.8rem}footer .footer-bottom{padding-top:24px;border-top:1px solid rgba(255,255,255,0.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-family:var(--mono),monospace;font-size:0.68rem;letter-spacing:0.06em;color:rgba(255,255,255,0.55)}</style><script>
-const nav = document.getElementById('main-nav');
-if (nav) window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
-const hamburgerBtn = document.querySelector('.hamburger');
-function setMenuOpen(isOpen) { const menu = document.getElementById('mobileMenu'); if (!menu || !hamburgerBtn) return; menu.classList.toggle('open', isOpen); menu.hidden = !isOpen; hamburgerBtn.setAttribute('aria-expanded', String(isOpen)); }
-function toggleMenu() { const menu = document.getElementById('mobileMenu'); setMenuOpen(!(menu && menu.classList.contains('open'))); }
-document.addEventListener('click', (e) => { const menu = document.getElementById('mobileMenu'); if (menu && menu.classList.contains('open') && !menu.contains(e.target) && hamburgerBtn && !hamburgerBtn.contains(e.target)) setMenuOpen(false); });
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenuOpen(false); });
-</script>
-<script type="module">
-import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs';
-mermaid.initialize({ startOnLoad: true, theme: 'neutral', fontFamily: 'Noto Sans JP, Hiragino Kaku Gothic ProN, sans-serif', themeVariables: { primaryColor: '#f4eee4', primaryTextColor: '#1a2a4a', primaryBorderColor: '#9a7838', lineColor: '#304466', secondaryColor: '#f5f7fa', tertiaryColor: '#fafbfc' } });
-</script>
-<script src="/assets/nav.js?v=348fa48c4e" defer></script>
+<p><strong>本テーマの前の記事:</strong> <a href="/governance/frontier/5.1-english-disclosure-mandate/">5.1 日英同時開示は始まりにすぎない――2025年4月の義務化</a></p>
+<p><strong>本テーマの次の記事:</strong> <a href="/governance/frontier/5.3-listed-subsidiaries/">5.3 豊田自動織機の非公開化が示したもの――上場会社のグループ再編と少数株主保護</a></p>
+<p><strong>他テーマの関連記事:</strong></p>
+<ul>
+<li><a href="/governance/foundations/1.2-pre-reform-architecture/">1.2 メインバンク後の空白を、誰が埋めたのか</a></li>
+<li><a href="/governance/cg-code/2.2-cg-code-2018-revision/">2.2 2018年改訂――資本コストがコードに明記された転機</a></li>
+<li><a href="/governance/market-restructuring/3.2-tradable-share-ratio/">3.2 流通株式比率――政策保有株式の縮減を促した仕組み</a></li>
+<li><a href="/governance/capital-efficiency/4.5-action-plan-2-update/">4.5 開示から実行へ――2026年4月の要請更新</a></li>
+</ul></article><nav class="post-nav" aria-label="前後の記事"><a class="post-nav-link prev" href="/governance/frontier/5.1-english-disclosure-mandate/"><div class="post-nav-dir">← 前の記事</div><div class="post-nav-title">日英同時開示は始まりにすぎない――2025年4月の義務化</div></a><a class="post-nav-link next" href="/governance/frontier/5.3-listed-subsidiaries/"><div class="post-nav-dir">次の記事 →</div><div class="post-nav-title">豊田自動織機の非公開化が示したもの――上場会社のグループ再編と少数株主保護</div></a></nav><div class="post-language"><a href="/en/governance/frontier/5.2-cross-shareholdings-end-game/">English version →</a></div></div></section>
+  </main>
+  <script src="/assets/governance.js?v=cc6033456e" defer></script>
+  <script src="/assets/nav.js?v=348fa48c4e" defer></script>
 </body>
 </html>

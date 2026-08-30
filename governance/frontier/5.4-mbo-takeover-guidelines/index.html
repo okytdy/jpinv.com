@@ -1,394 +1,138 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-
-<title>「敵対的」はもう蔑称ではない ― 2023年企業買収における行動指針 | JII ガバナンス改革カリキュラム</title>
-<meta name="description" content="METIの2023年8月「企業買収における行動指針」が、「真摯な買収提案」概念の導入、支配下取引における特別委員会/MoM構造の成文化により、日本のM&amp;A市場を再定義した経緯。東芝、ベネッセ、大正製薬、アウトソーシング、インフォコムへと連なる大型MBOの波を生んだ。">
-<meta property="og:title" content="「敵対的」はもう蔑称ではない ― 2023年企業買収における行動指針 | JII ガバナンス改革カリキュラム">
-<meta property="og:description" content="METIの2023年8月「企業買収における行動指針」が、「真摯な買収提案」概念の導入、支配下取引における特別委員会/MoM構造の成文化により、日本のM&amp;A市場を再定義した経緯。東芝、ベネッセ、大正製薬、アウトソーシング、インフォコムへと連なる大型MBOの波を生んだ。">
-<meta property="og:url" content="https://jpinv.com/governance/frontier/5.4-mbo-takeover-guidelines/">
-<link rel="canonical" href="https://jpinv.com/governance/frontier/5.4-mbo-takeover-guidelines/">
-<link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/frontier/5.4-mbo-takeover-guidelines/">
-<link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/frontier/5.4-mbo-takeover-guidelines/">
-<link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/frontier/5.4-mbo-takeover-guidelines/">
-
-<style>
-:root {
-  --ink:        #1a2a4a;
-  --ink-mid:    #172641;
-  --ink-soft:   #304466;
-  --rule:       #d6dee8;
-  --rule-soft:  #e8edf3;
-  --bg:         #ffffff;
-  --bg-mid:     #f5f7fa;
-  --bg-soft:    #fafbfc;
-  --text:       #1f2937;
-  --text-mid:   #4a5566;
-  --text-dim:   #5f6875;
-  --accent:     #9a7838;
-  --accent-deep:#9a7838;
-  --accent-soft:#f4eee4;
-  --bad:        #b91c1c;
-  --warn:       #8a682b;
-  --ok:         #2f6f4f;
-  --serif: 'Noto Serif JP', 'Yu Mincho', serif;
-  --sans:  'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
-  --mono:  'DM Mono', monospace;
-  --max: 1100px;
-  --pad: 88px;
-  --gutter: 48px;
-  --nav-h: 64px;
-  --measure: 720px;
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 400; line-height: 1.7; overflow-x: hidden; }
-img { max-width: 100%; display: block; }
-a { color: var(--ink-soft); text-decoration: none; }
-a:hover { color: var(--ink); }
-.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
-@media (max-width: 768px) { :root { --gutter: 22px; --pad: 56px; } }
-strong { font-weight: 600; color: var(--ink); }
-em { font-style: normal; color: var(--ink); font-weight: 600; }
-.label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); }
-
-/* Nav (copied from jpinv.com base) */
-nav#main-nav { position: fixed; top:0; left:0; right:0; z-index:100; height: var(--nav-h); background: rgba(255,255,255,0.96); backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule); display: flex; align-items: center; transition: box-shadow 0.3s; }
-nav#main-nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
-.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; }
-.nav-logo { text-decoration: none; display: inline-flex; align-items: center; flex: 0 0 auto; min-width: max-content; white-space: nowrap; }
-.nav-logo-img { display: block; width: auto; height: 40px; max-width: none; object-fit: contain; object-position: left center; }
-.nav-logo-img--mobile { display: none; width: 32px; height: 32px; object-fit: contain; }
-.nav-center { flex: 1; display: flex; justify-content: center; }
-.nav-links { display: flex; gap: 18px; list-style: none; flex-wrap: nowrap; white-space: nowrap; }
-.nav-links a { font-family: var(--sans); font-size: 0.74rem; font-weight: 400; letter-spacing: 0.02em; color: var(--text); text-decoration: none; transition: color 0.2s; }
-.nav-links a:hover { color: var(--ink-soft); }
-.nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; margin-left: auto; }
-.nav-cta { padding: 7px 11px; font-size: 0.66rem; letter-spacing: 0.05em; }
-.locale-switcher { display: inline-flex; align-items: center; gap: 0; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; }
-.locale-switcher a { color: var(--text-dim); border: 1px solid var(--rule); padding: 6px 9px; text-decoration: none; transition: all 0.2s; }
-.locale-switcher a + a { margin-left: -1px; }
-.locale-switcher a:hover, .locale-switcher a.current { color: var(--ink); border-color: var(--ink-mid); background: var(--bg-soft); position: relative; z-index: 1; }
-.hamburger { display: none; flex-shrink:0; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
-.hamburger span { display:block; width:22px; height:1px; background:var(--ink); transition: all 0.25s; }
-@media (max-width: 900px) { .nav-center, .nav-right .nav-cta { display:none; } .hamburger { display:flex; } }
-@media (max-width: 768px) { .nav-logo-img--desktop { display:none; } .nav-logo-img--mobile { display:block; } }
-.mobile-menu { display:none; position:fixed; top:var(--nav-h); left:0; right:0; background:var(--bg); border-bottom:1px solid var(--rule); z-index:99; padding:8px var(--gutter) 20px; flex-direction:column; gap:0; }
-.mobile-menu.open { display:flex; }
-.mobile-menu a { font-size:0.88rem; color:var(--text); text-decoration:none; padding:14px 0; border-bottom:1px solid var(--rule); letter-spacing:0.04em; }
-.mobile-menu a:last-child { border-bottom:none; }
-.mobile-menu .mobile-menu-cta { margin-top:12px; padding:13px 18px; text-align:center; color:#fff; border-bottom:none; }
-
-.btn { display: inline-block; text-decoration: none; font-family: var(--sans); font-size: 0.84rem; font-weight: 400; letter-spacing: 0.06em; padding: 13px 28px; transition: all 0.2s; cursor: pointer; border: none; }
-.btn-primary { background: var(--ink); color: #fff; }
-.btn-primary:hover { background: var(--ink-mid); color: #fff; }
-.btn-outline { border: 1px solid var(--ink-mid); color: var(--ink); background: transparent; }
-.btn-outline:hover { border-color: var(--ink); color: var(--ink); }
-.rule-accent { width: 32px; height: 2px; background: var(--accent); margin: 14px 0 22px; }
-
-/* Footer (mirror) */
-footer { border-top: 1px solid var(--rule); padding: 52px 0 28px; background: var(--bg-soft); font-size: 0.82rem; color: var(--text-dim); }
-footer .footer-grid { display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 32px; align-items: start; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
-footer h2 { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.2em; color: var(--ink-soft); text-transform: uppercase; margin-bottom: 12px; font-weight: 500; }
-footer h3 { font-family: var(--serif); font-size: 1rem; font-weight: 400; color: var(--ink); margin-bottom: 8px; }
-footer ul { list-style: none; }
-footer ul li { padding: 4px 0; }
-footer ul li a { color: var(--text-mid); }
-footer ul li a:hover { color: var(--ink); }
-footer .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 18px; flex-wrap: wrap; gap: 12px; }
-footer .footer-locale-switcher a.current { font-weight: 600; color: var(--ink); }
-@media (max-width: 900px) { footer .footer-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 580px) { footer .footer-grid { grid-template-columns: 1fr; } }
-
-/* === Curriculum-specific === */
-main.curriculum { padding-top: var(--nav-h); }
-.curr-hero { padding: 96px 0 64px; border-bottom: 1px solid var(--rule); position: relative; overflow: hidden; }
-.curr-hero::before { content:''; position:absolute; inset:0;
-  background-image: linear-gradient(rgba(15,31,58,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(15,31,58,0.04) 1px, transparent 1px);
-  background-size: 64px 64px;
-  -webkit-mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent);
-          mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent); }
-.curr-hero-inner { position:relative; z-index:2; max-width: 880px; }
-.curr-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.32em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 18px; }
-.curr-hero h1 { font-family: var(--serif); font-size: clamp(1.9rem, 4.4vw, 3.1rem); font-weight: 300; color: var(--ink-mid); line-height: 1.3; letter-spacing: 0.02em; margin: 0 0 22px; }
-.curr-hero h1 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-.curr-hero .lede { font-size: 1.05rem; line-height: 1.85; color: var(--text); margin: 0 0 24px; max-width: 700px; }
-.curr-hero-meta { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
-.curr-hero-meta strong { color: var(--ink); font-family: var(--mono); }
-
-.crumbs { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; padding: 22px 0 0; }
-.crumbs a { color: var(--text-mid); }
-.crumbs a:hover { color: var(--ink); }
-.crumbs .sep { color: var(--rule); margin: 0 8px; }
-
-.theme-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; padding: 56px 0; }
-.theme-card { display: block; background: #fff; border: 1px solid var(--rule); padding: 30px 28px; position: relative; transition: all 0.2s; }
-.theme-card:hover { border-color: var(--ink-soft); box-shadow: 0 12px 32px rgba(15,31,58,0.08); transform: translateY(-2px); }
-.theme-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background: var(--accent); opacity: 0.85; }
-.theme-card-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; }
-.theme-card-name { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--ink-mid); margin: 10px 0 8px; line-height: 1.35; }
-.theme-card-period { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 14px; }
-.theme-card-desc { font-size: 0.92rem; line-height: 1.7; color: var(--text); margin-bottom: 18px; }
-.theme-card-list { font-size: 0.84rem; color: var(--text-mid); list-style: none; padding-top: 14px; border-top: 1px solid var(--rule-soft); }
-.theme-card-list li { padding: 5px 0; }
-.theme-card-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; }
-.theme-card-foot .arrow { color: var(--accent-deep); }
-
-.post-list { padding: 28px 0 56px; }
-.post-list-row { display: grid; grid-template-columns: 60px 1fr auto; gap: 22px; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--rule-soft); transition: all 0.18s; }
-.post-list-row:hover { background: var(--bg-mid); padding-left: 12px; padding-right: 12px; }
-.post-list-num { font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em; color: var(--accent-deep); font-weight: 500; }
-.post-list-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--ink-mid); line-height: 1.45; }
-.post-list-meta { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; white-space: nowrap; }
-@media (max-width: 600px) { .post-list-row { grid-template-columns: 50px 1fr; } .post-list-meta { grid-column: 1 / -1; padding-left: 72px; } }
-
-/* Post body */
-.post-body { padding: 48px 0 80px; }
-.post-content { max-width: var(--measure); margin: 0 auto; }
-.post-content > p, .post-content > ul, .post-content > ol, .post-content > blockquote, .post-content > pre, .post-content > table, .post-content > hr, .post-content > h2, .post-content > h3, .post-content > h4 { max-width: var(--measure); margin-left: auto; margin-right: auto; }
-.post-content h2 { font-family: var(--serif); font-size: 1.55rem; font-weight: 400; color: var(--ink-mid); line-height: 1.35; margin: 56px 0 14px; padding-top: 22px; border-top: 1px solid var(--rule-soft); }
-.post-content h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 500; color: var(--ink); margin: 36px 0 10px; line-height: 1.4; }
-.post-content h4 { font-family: var(--sans); font-size: 1rem; font-weight: 600; color: var(--ink); margin: 26px 0 8px; letter-spacing: 0.02em; }
-.post-content p { margin: 0 0 18px; font-size: 1rem; line-height: 1.85; color: var(--text); }
-.post-content p:first-of-type { font-size: 1.05rem; }
-.post-content ul, .post-content ol { margin: 0 0 22px; padding-left: 28px; }
-.post-content ul li, .post-content ol li { font-size: 0.97rem; line-height: 1.8; margin-bottom: 8px; color: var(--text); }
-.post-content ul li::marker { color: var(--accent-deep); }
-.post-content blockquote { margin: 30px 0; padding: 20px 24px; border-left: 3px solid var(--accent); background: var(--accent-soft); color: var(--ink-mid); font-style: normal; }
-.post-content blockquote p { margin-bottom: 8px; font-size: 0.97rem; }
-.post-content blockquote p:last-child { margin-bottom: 0; }
-.post-content blockquote strong { color: var(--ink); }
-.post-content code { background: #f0f0f0; color: var(--ink-mid); font-family: var(--mono); font-size: 0.88rem; padding: 2px 6px; border-radius: 3px; }
-.post-content pre { background: #f9f9fb; border: 1px solid var(--rule); padding: 18px 22px; overflow-x: auto; font-family: var(--mono); font-size: 0.85rem; line-height: 1.55; margin: 24px 0; }
-.post-content pre code { background: transparent; padding: 0; font-size: inherit; }
-.post-content a { color: var(--accent-deep); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; transition: text-decoration-color 0.18s; overflow-wrap: anywhere; word-break: break-word; }
-.post-content a:hover { text-decoration-color: var(--accent-deep); }
-.post-content hr { border: none; border-top: 1px solid var(--rule); margin: 40px auto; max-width: 120px; }
-.post-content table { width: 100%; max-width: var(--measure); margin: 28px auto; border-collapse: collapse; font-size: 0.9rem; }
-.post-content th { background: var(--bg-mid); color: var(--ink-mid); font-family: var(--sans); font-weight: 600; text-align: left; padding: 12px 14px; border-bottom: 2px solid var(--rule); }
-.post-content td { padding: 10px 14px; border-bottom: 1px solid var(--rule-soft); vertical-align: top; color: var(--text); }
-.post-content tr:nth-child(even) td { background: #fafbfc; }
-
-/* Mermaid container */
-.mermaid-wrap { background: #fdfdfe; border: 1px solid var(--rule); padding: 22px 18px; margin: 28px 0; overflow-x: auto; }
-.mermaid { font-family: var(--sans); text-align: center; }
-
-/* Post header */
-.post-header { padding: 48px 0 28px; border-bottom: 1px solid var(--rule); }
-.post-header-inner { max-width: var(--measure); margin: 0 auto; }
-.post-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.28em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 14px; }
-.post-title { font-family: var(--serif); font-size: clamp(1.7rem, 3.6vw, 2.4rem); font-weight: 400; color: var(--ink-mid); line-height: 1.3; margin: 0 0 16px; letter-spacing: 0.005em; }
-.post-summary { font-size: 1.02rem; line-height: 1.8; color: var(--text); margin: 0 0 22px; max-width: 660px; }
-.post-meta { display: flex; gap: 26px; flex-wrap: wrap; padding-top: 18px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
-.post-meta span strong { color: var(--ink); font-family: var(--mono); }
-
-/* Post nav (prev/next) */
-.post-nav { max-width: var(--measure); margin: 56px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding-top: 36px; border-top: 1px solid var(--rule); }
-.post-nav-link { display: block; padding: 18px 20px; background: var(--bg-mid); border: 1px solid var(--rule); transition: all 0.18s; }
-.post-nav-link:hover { border-color: var(--ink-soft); background: #fff; transform: translateY(-1px); }
-.post-nav-dir { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px; }
-.post-nav-title { font-family: var(--serif); font-size: 0.94rem; color: var(--ink-mid); line-height: 1.4; }
-.post-nav-link.next { text-align: right; }
-@media (max-width: 640px) { .post-nav { grid-template-columns: 1fr; } .post-nav-link.next { text-align: left; } }
-
-/* Knowledge check */
-.kcheck { background: var(--bg-mid); padding: 72px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
-.kcheck-head { max-width: 720px; margin: 0 auto 36px; text-align: center; }
-.kcheck h2 { font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 300; color: var(--ink-mid); margin: 0 0 14px; line-height: 1.3; }
-.kcheck h2 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-.kcheck p.lede { font-size: 0.98rem; line-height: 1.75; color: var(--text); }
-.kcheck-q { background: #fff; border: 1px solid var(--rule); padding: 28px 30px; margin-bottom: 18px; max-width: 760px; margin-left: auto; margin-right: auto; }
-.kcheck-q-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; margin-bottom: 12px; }
-.kcheck-q-text { font-family: var(--serif); font-size: 1.1rem; line-height: 1.5; color: var(--ink-mid); margin-bottom: 18px; }
-.kcheck-opts { display: grid; gap: 8px; }
-.kcheck-opt { display: block; padding: 12px 16px; background: var(--bg-soft); border: 1px solid var(--rule); text-align: left; font-family: var(--sans); font-size: 0.92rem; color: var(--text); cursor: pointer; transition: all 0.15s; }
-.kcheck-opt:hover { background: #fff; border-color: var(--ink-soft); }
-.kcheck-opt.correct { background: #e8f3ec; border-color: var(--ok); color: var(--ok); }
-.kcheck-opt.incorrect { background: #fbe9e9; border-color: var(--bad); color: var(--bad); }
-.kcheck-explain { margin-top: 16px; padding: 14px 18px; background: var(--accent-soft); border-left: 3px solid var(--accent); font-size: 0.9rem; line-height: 1.7; color: var(--ink-mid); display: none; }
-.kcheck-q.answered .kcheck-explain { display: block; }
-.kcheck-score { text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--text-dim); margin-top: 28px; text-transform: uppercase; }
-.kcheck-score strong { color: var(--ink-mid); font-family: var(--mono); }
-
-/* Stats / hero stats */
-.stat-band { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; padding: 56px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); background: var(--bg-soft); }
-.stat-item { padding: 0 18px; }
-.stat-num { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 300; color: var(--ink-mid); line-height: 1; margin-bottom: 8px; }
-.stat-num em { color: var(--accent-deep); font-weight: 400; font-style: normal; }
-.stat-label { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; }
-</style>
-
-<meta property="og:image" content="https://jpinv.com/og/jii-default.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://jpinv.com/og/jii-default.png">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "url": "https://jpinv.com/governance/frontier/5.4-mbo-takeover-guidelines/",
-  "name": "「敵対的」はもう蔑称ではない ― 2023年企業買収における行動指針 | JII ガバナンス改革カリキュラム",
-  "description": "METIの2023年8月「企業買収における行動指針」が、「真摯な買収提案」概念の導入、支配下取引における特別委員会/MoM構造の成文化により、日本のM&amp;A市場を再定義した経緯。東芝、ベネッセ、大正製薬、アウトソーシング、インフォコムへと連なる大型MBOの波を生んだ。",
-  "inLanguage": "ja"
-}
-</script></head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>未承諾買収をどう扱うか――2023年「企業買収における行動指針」｜JII ガバナンス改革講座</title>
+  <meta name="description" content="経済産業省が2023年に公表した「企業買収における行動指針」は、経営陣の同意を得ていない買収提案も、提案内容と手続に即して検討するという考え方を明確にした。指針は、企業価値・株主共同の利益、株主意思、透明性という三原則を掲げ、取締役会に対して、真摯な提案を経営陣の好みだけで退けず、独立した検討と十分な情報提供を行うよう求める。2026年には、研究会が実務上の論点を「ポイント・Q&amp;A」として整理した。">
+  <link rel="canonical" href="https://jpinv.com/governance/frontier/5.4-mbo-takeover-guidelines/">
+  <link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/frontier/5.4-mbo-takeover-guidelines/">
+  <link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/frontier/5.4-mbo-takeover-guidelines/">
+  <link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/frontier/5.4-mbo-takeover-guidelines/">
+  <meta property="og:title" content="未承諾買収をどう扱うか――2023年「企業買収における行動指針」｜JII ガバナンス改革講座">
+  <meta property="og:description" content="経済産業省が2023年に公表した「企業買収における行動指針」は、経営陣の同意を得ていない買収提案も、提案内容と手続に即して検討するという考え方を明確にした。指針は、企業価値・株主共同の利益、株主意思、透明性という三原則を掲げ、取締役会に対して、真摯な提案を経営陣の好みだけで退けず、独立した検討と十分な情報提供を行うよう求める。2026年には、研究会が実務上の論点を「ポイント・Q&amp;A」として整理した。">
+  <meta property="og:url" content="https://jpinv.com/governance/frontier/5.4-mbo-takeover-guidelines/">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://jpinv.com/og/jii-default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://jpinv.com/og/jii-default.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&amp;family=Noto+Sans+JP:wght@300;400;500;600&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/governance.css?v=b6280834c3">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","name":"未承諾買収をどう扱うか――2023年「企業買収における行動指針」｜JII ガバナンス改革講座","description":"経済産業省が2023年に公表した「企業買収における行動指針」は、経営陣の同意を得ていない買収提案も、提案内容と手続に即して検討するという考え方を明確にした。指針は、企業価値・株主共同の利益、株主意思、透明性という三原則を掲げ、取締役会に対して、真摯な提案を経営陣の好みだけで退けず、独立した検討と十分な情報提供を行うよう求める。2026年には、研究会が実務上の論点を「ポイント・Q&A」として整理した。","url":"https://jpinv.com/governance/frontier/5.4-mbo-takeover-guidelines/","inLanguage":"ja","isPartOf":{"@type":"WebSite","name":"Japan Investor Interface","url":"https://jpinv.com/"},"headline":"未承諾買収をどう扱うか――2023年「企業買収における行動指針」","dateModified":"2026-08-30","author":{"@type":"Organization","name":"Japan Investor Interface Co., Ltd."},"publisher":{"@type":"Organization","name":"Japan Investor Interface Co., Ltd.","url":"https://jpinv.com/"}}</script>
+</head>
 <body>
-<main id="main-content" class="curriculum" tabindex="-1">
-<div class="wrap crumbs">
-  <a href="/">JII</a> <span class="sep">/</span>
-  <a href="/governance/">IR研修</a> <span class="sep">/</span>
-  <a href="/governance/frontier/">最前線 ― 現在の論点</a> <span class="sep">/</span>
-  記事 5.4
-</div>
-<header class="post-header">
-  <div class="wrap">
-    <div class="post-header-inner">
-      <div class="post-eyebrow">テーマ 5 · 記事 5.4</div>
-      <h1 class="post-title">「敵対的」はもう蔑称ではない ― 2023年企業買収における行動指針</h1>
-      <p class="post-summary">METIの2023年8月「企業買収における行動指針」が、「真摯な買収提案」概念の導入、支配下取引における特別委員会/MoM構造の成文化により、日本のM&amp;A市場を再定義した経緯。東芝、ベネッセ、大正製薬、アウトソーシング、インフォコムへと連なる大型MBOの波を生んだ。</p>
-      <div class="post-meta">
-        <span>テーマ: <strong>最前線 ― 現在の論点</strong></span>
-        <span>読了目安: <strong>16 分</strong></span>
-        <span>更新: <strong>2026-05-18</strong></span>
-      </div>
-    </div>
-  </div>
-</header>
-<section class="post-body">
-  <div class="wrap">
-    <article class="post-content">
-<blockquote>
-<p><strong>要点</strong>
-- METIの<strong>2023年8月31日</strong>「企業買収における行動指針」は、2005年の防衛友好的フレームワークを、企業価値・株主の意思・透明性の3原則に置き換え、<strong>「真摯な買収提案」</strong>の概念を導入した。取締役会は提案を反射的に拒絶せず、真摯に対応する義務を負う。
-- 指針は大型MBOの波と同時並行で、これを触発した。<strong>東芝(約2兆円、JIP、2023年9月)</strong>、<strong>ベネッセ(2,080億円、EQT/福武家、2024年2月)</strong>、<strong>大正製薬(7,100億円、上原家MBO、2023年11月)</strong>、<strong>アウトソーシング(ベイン、2023年12月)</strong>、ブラックストーンの<strong>インフォコム</strong>カーブアウト(2024年11月)。
-- 2024年金商法改正は2024年5月に国会成立、<strong>2026年5月1日施行</strong>で、強制公開買付閾値を3分の1超から<strong>30%超</strong>に引き下げ、市場内買付をTOB対象に取り込んだ。METIの公正な買収の在り方に関する研究会は<strong>2026年2月3日に再開</strong>され、敵対的買収防衛策と前提条件付TOBに関する指針を更新する。</p>
-</blockquote>
-<h2>2005年ドクトリンの反転</h2>
-<p>15年ほどの間、日本における敵対的買収の議論は、METIの<strong>2005年「企業価値・株主共同の利益の確保又は向上のための買収防衛策に関する指針」</strong>(いわゆる<em>買収防衛策指針</em>)に静かに埋め込まれたドクトリンの上で展開してきた。2005年指針はスティール・パートナーズ対ブルドックソース、村上ファンド対阪神電鉄の事案を受けて発出された。指針の文言は紙面上は注意深く中立だったが、実務的には日本の取締役会に買収防衛策を発動する相当な裁量を与え、敵対的買収を本質的に疑わしいものとして特徴付けた。「敵対的」が侮蔑語であるという既定の文化的フレーミングは、同じ期間にわたり生き延びた。</p>
-<p>2023年の反転は単に言語的なものではなく、教義的なものである。METIの「企業買収における行動指針」(2023年8月31日公表、2022年11月発足の公正な買収の在り方に関する研究会の結果)は、2005年のフレーミングを次の3原則 ― その順序が重要 ― に置き換える。</p>
-<ol>
-<li><strong>企業価値と株主共同の利益の原則。</strong> 買収提案は、企業価値の向上と株主共同の利益への期待される寄与を基準に評価されるべきである。</li>
-<li><strong>株主の意思の原則。</strong> 株主は提案を評価し意思を表明する十分な情報と時間を持つべきである。</li>
-<li><strong>透明性の原則。</strong> 対象会社取締役会のプロセスと理由は透明に開示されるべきである。</li>
-</ol>
-<p>構造的革新は、第1原則において<em>株主共同の利益</em>が<em>取締役会の企業価値判断</em>に対し優位に置かれたことだ。2005年のフレームワークは事実上、「取締役会はこの提案を会社にとって良いと考えるか」を問うていた。2023年フレームワークは、「この提案は、株主に公正な発言権を与えるプロセスで判断したとき、株主にとって良いか」を問う。差異は政策反転そのものである。</p>
-<p>再定義の帰結は、<strong>「真摯な買収提案」の概念</strong>の導入である。信用しうる第三者が真摯な提案 ― 友好性ではなく実質的な真剣さで定義される ― を行った場合、対象会社取締役会は<em>真摯に対応する義務</em>を負う。反射的な拒絶、引き延ばし、防衛策を用いて株主が提案を検討する機会を奪うことは、取締役会の株主共同利益への義務違反として特徴付けられる。</p>
-<h2>「真摯」の中身</h2>
-<p>指針は提案が「真摯」と認められるための数値的・手続き的閾値を定めていない。代わりに3つの指標を示す。</p>
+  <a class="gov-skip" href="#main-content">本文へ移動</a>
+  <main id="main-content" class="governance-page" tabindex="-1">
+    <nav class="gov-wrap gov-crumbs" aria-label="パンくず"><a href="/">ホーム</a><span class="sep">/</span><a href="/governance/">ガバナンス改革講座</a><span class="sep">/</span><a href="/governance/frontier/">現在進行中の論点</a><span class="sep">/</span><span aria-current="page">記事 5.4</span></nav>
+    <header class="post-header"><div class="gov-wrap"><div class="post-header-inner"><span class="post-eyebrow">テーマ 5 · 記事 5.4</span><h1 class="post-title">未承諾買収をどう扱うか――2023年「企業買収における行動指針」</h1><p class="post-summary">経済産業省が2023年に公表した「企業買収における行動指針」は、経営陣の同意を得ていない買収提案も、提案内容と手続に即して検討するという考え方を明確にした。指針は、企業価値・株主共同の利益、株主意思、透明性という三原則を掲げ、取締役会に対して、真摯な提案を経営陣の好みだけで退けず、独立した検討と十分な情報提供を行うよう求める。2026年には、研究会が実務上の論点を「ポイント・Q&amp;A」として整理した。</p><div class="post-meta"><span>テーマ: <strong>現在進行中の論点</strong></span><span>読了目安: <strong>8分</strong></span><span>更新: <strong>2026-08-30</strong></span></div></div></div></header>
+    <section class="post-body"><div class="gov-wrap"><article class="post-content"><blockquote>
+<p><strong>要点</strong></p>
 <ul>
-<li><strong>提案者の信用度。</strong> 認知された金融的または戦略的買い手であり、執行する財務能力を有する。</li>
-<li><strong>実質的な真剣さ。</strong> 価格、ストラクチャー、ファイナンス、もっともらしい運営上のテーゼを含む提案 ― 単なる非拘束的な「関心表明」ではない。</li>
-<li><strong>建設的意図。</strong> 提案者が対話に応じ、追加情報を提供し、取締役会の懸念に回答する用意がある。</li>
+<li>2023年指針は、未承諾買収を一律に有害とみなしていない。取締役会は、具体的な提案が企業価値と株主共同の利益に資するかを、正面から検討する必要がある。</li>
+<li>指針の三原則は、<strong>企業価値・株主共同の利益の原則、株主意思の原則、透明性の原則</strong>である。</li>
+<li>最終的に買収提案を受け入れるかどうかは株主の判断に委ねられる場面が多い。取締役会の役割は、比較可能な情報を整え、必要な交渉を行い、判断理由を説明することにある。</li>
 </ul>
-<p>閾値は意図的に質的である。実務上、日本の取締役会はこれを5段階のプレイブックで運用してきた。提案の受領、特定期間内(多くの場合10営業日以内)に特別委員会を招集、補足情報の要求、マーケット・チェックの実施、対話のプロセスを説明する透明な取締役会回答の作成、である。</p>
-<h2>買収プロセスのタイムライン</h2>
-<div class="mermaid-wrap"><pre class="mermaid">timeline
-    title 2023年指針下の日本の買収プロセス
-    真摯な買収提案の受領 : レター/NDA/予備的条件
-                       : 取締役会は5~10営業日以内に受領を確認
-    特別委員会の設置 : 独立社外取締役+外部アドバイザー
-                  : 付託事項、範囲、運営規則の開示
-    対話・フェーズ : NDAの下での情報交換
-                         : 特別委員会によるデュー・デリジェンス
-                         : 独立バリュエーション
-    マーケット・チェック : 任意のデュアル・トラック/ゴーショップ
-                     : 代替買い手への打診
-    取締役会の回答 : 推奨または拒絶
-                : 理由の開示
-                : 特別委員会意見の開示
-    TOB開始 : 金商法に基づく法定TOB
-           : TOB期間(20~60営業日)
-           : スクイーズアウトの完了</pre></div>
+</blockquote>
+<h2 id="section-1">「敵対的」という言葉から離れる</h2>
+<p>従来、日本では、経営陣の同意を得ていない買収を「敵対的買収」と呼び、それだけで望ましくない取引であるかのように扱う傾向があった。しかし、経営陣にとって敵対的であることと、株主や会社にとって不利益であることは同じではない。</p>
+<p>そこで2023年指針は、感情を伴う「敵対的」という表現よりも、対象会社の取締役会の同意を得ていない<strong>未承諾買収</strong>という事実に即した捉え方を採る。未承諾であっても、価格、資金の確実性、事業計画、従業員や取引先への影響、買収後の経営方針を検討した結果、企業価値を高める提案である可能性はある。反対に、友好的に始まった提案でも、条件が不公正なら株主にとって望ましくない。</p>
+<h2 id="section-2">三つの原則</h2>
+<table>
+<thead>
+<tr>
+<th>原則</th>
+<th>意味</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>企業価値・株主共同の利益の原則</strong></td>
+<td>買収の是非は、会社の持続的な企業価値と株主全体の利益に資するかで判断する</td>
+</tr>
+<tr>
+<td><strong>株主意思の原則</strong></td>
+<td>会社の支配権に関わる判断では、合理的な情報と時間を与えられた株主の意思を尊重する</td>
+</tr>
+<tr>
+<td><strong>透明性の原則</strong></td>
+<td>買収者と対象会社の双方が、株主の判断に必要な情報を適切に開示する</td>
+</tr>
+</tbody></table>
+<p>三つの原則は、買収を促進するためのものでも、防衛策を否定するためのものでもない。買収者、対象会社取締役会、株主の役割を整理し、公正な判断過程をつくるための基準である。</p>
+<h2 id="section-3">取締役会は何をすべきか</h2>
+<p>未承諾の買収提案を受けた取締役会の実務は、次の流れで考えると分かりやすい。</p>
+<pre class="mermaid" role="img" aria-label="本文内の制度図">flowchart TD
+    A[&quot;買収提案を受領&quot;] --&gt; B{&quot;具体性・資金裏付け・実現可能性があるか&quot;}
+    B --&gt;|&quot;不十分&quot;| C[&quot;追加情報を求める&lt;br/&gt;検討を続けるか判断&quot;]
+    B --&gt;|&quot;真摯な提案&quot;| D[&quot;独立した検討体制を整える&quot;]
+    D --&gt; E[&quot;単独継続案・他の提案・買収案を比較&quot;]
+    E --&gt; F[&quot;価格・条件・契約を交渉&quot;]
+    F --&gt; G[&quot;株主に必要な情報と取締役会の意見を開示&quot;]
+    G --&gt; H[&quot;株主が応募・議決等で判断&quot;]</pre>
 
-<p>各ステップは、いまや指針の第3原則に基づき開示されることが期待される。開示義務は、2024-25年の日本の買収関連文書において、認識可能なハウス・スタイルを生み出した。提案、特別委員会構成、対話・タイムライン、マーケット・チェック・プロセス、バリュエーション作業、推奨を株主に通読させる、長文で散文中心の取締役会意見書である。東芝、ベネッセ、大正製薬、アウトソーシングの開示文書がよい実例である。</p>
-<h2>指針を現実化した5つのケース</h2>
-<h3>東芝(JIP主導、2023年9月、約2兆円)</h3>
-<p><strong>東芝の非公開化</strong>は、記録に残る最大の日本の非公開化であり、新ドクトリン下の最初の主要テストだ。日本産業パートナーズ(JIP)主導のコンソーシアム(オリックス、中部電力が支援)は1株4,620円でTOBを完了。取引は東芝の74年に及ぶ上場を終わらせ、長年のアクティビスト・サーガ(エフィッシモ、Elliott、3D Investment、ファラロン)を解消した。</p>
-<p>東芝を指針案件とした理由は、長年の社内混乱の後に取締役会が課した<strong>プロセス規律</strong>である。独立社外取締役の特別委員会が買い手選定を運営し、JIP、KKR、ベイン、CVCの競合提案をレビューし、明示的なマーケット・チェック作業を実施し、最終的なJIP選定の根拠を開示した。東芝プロセスはいまや、5,000億円超の非公開化におけるデファクトの参照基準であり、その後のあらゆる日本の大型MBOが引用する先例となった。</p>
-<h3>ベネッセホールディングス(EQT/福武家、2024年2月、2,080億円)</h3>
-<p><strong>ベネッセホールディングス</strong>のMBOは、2019年公正なM&amp;A指針/2023年指針のアーキテクチャを支配下案件で完全適用した最もクリアなケースである。福武家(創業家、約50%保有)がEQTと組んで、<strong>1株2,600円 ― 不影響日株価対比45.13%プレミアム</strong>で非公開化。総ディール価値2,080億円(2023年11月公表、2024年2月クロージング)。</p>
-<p>ベネッセが教育的な理由は、<strong>MBOの利益相反アーキテクチャ</strong>だ。創業家経営陣が買い手側に立つ場合、特別委員会+マジョリティ・オブ・マイノリティ+マーケット・チェックの三本柱がフェアネスの中心となる。ベネッセの特別委員会は独立社外取締役2名と外部アドバイザー2名を含み、MoM条件は非福武家フロート保有者の50%超の応募を要求し、マーケット・チェックはEQT選定前に2つの代替先を特定した。45%プレミアムは日本のMBOの中央値とはいえ、特別委員会が公表意見書で擁護した。</p>
-<h3>大正製薬ホールディングス(上原家MBO、2023年11月、7,100億円)</h3>
-<p><strong>大正製薬</strong>のMBOは<strong>1株8,620円、6か月平均対比50%プレミアム</strong>、総ディール価値7,100億円で価格設定された。公表時点で日本史上最大の同族MBOであり、2023年の支配下案件としては東芝に次ぐ第2位の規模だった。</p>
-<p>本ケースが重要なのは、価格フェアネスの議論を生んだからだ。複数の少数株主は、大正製薬のブランドとフランチャイズ(リポビタン、OTC支配力)が相当の未開示の収益力を備えているため、50%プレミアムは内在価値を過小評価していると主張した。上原家の応答 ― プレミアムは長期事業リスクに照らし少数株主に公正な対価である ― は特別委員会に受容されたが、海外投資家代表からの押し戻しを受けた。大正製薬はいまや、<strong>同族MBOプレミアムには特別に明示的なバリュエーション論証</strong>が指針下で必要であることを示すケースとして引用される。</p>
-<h3>アウトソーシング株式会社(ベインキャピタル、2023年12月)</h3>
-<p><strong>アウトソーシング</strong>のベインキャピタルによる非公開化は2点で注目された。第一に、TOB期間中に価格が2度引き上げられた(1,755円から2,094円へ) ― ベイン自身が対抗するいわゆる「ホワイトナイト」シーケンスへの対応であり、新指針の枠組みの中で競合的緊張を組成できることを示したプロセスである。第二に、特別委員会のプロセスはACGAから、独立主導のプロセスが少数株主にとって改善された価格を実現しうるとの早期のデモンストレーションとして肯定的に評価された。</p>
-<h3>インフォコム(ブラックストーン、2024年11月、2,870億円)</h3>
-<p><strong>インフォコム</strong>のブラックストーンによるカーブアウトは、新指針下の最初の主要な<strong>親会社主導の売却</strong>であった。帝人がインフォコム株式55%を1株6,060円でブラックストーンに売却。取引は複数の入札者による競合プロセスとして組成され、支配親会社(帝人)による売却と少数株主フロート向けのTOBが並走した。ストラクチャーは上場子会社問題を解消し(取引後インフォコムは帝人子会社ではなくなる)、少数株主に定められたプレミアムでの退出を提供する。</p>
-<p>インフォコムは、上場子会社の親会社主導売却のテンプレートとしていま引用されている。2026-27年に商社、電機、ITサービスの各セクターで再発しうるパターンだ。</p>
-<h2>2024年金商法改正</h2>
-<p>IRチームがしばしば混同するのは、2023年指針(ソフトロー、METI、ドクトリン)と2024年金商法改正(ハードロー、金融庁、機構)である。両者は別物だが、相互補完的だ。</p>
-<p><strong>2024年金商法改正</strong>は2024年5月に国会成立、対応する内閣府令は2025年7月4日に確定し、作動的変更は<strong>2026年5月1日</strong>から施行される。最も重要な変更は2つだ。</p>
-<p><strong>強制TOB閾値が3分の1超から30%超に低下する。</strong> 単独または共同保有者と合算して上場会社の議決権の30%超を取得する買付者は、強制TOB義務を負うようになる。従前の3分の1閾値は、平等取扱原則を発動させずに実効的支配を捕獲する「閾値未満」買付を組成することで悪用されうると批判されていた。</p>
-<p><strong>市場内買付がTOB範囲に取り込まれる。</strong> 従前、市場内立会場買付はTOB制度の適用除外であり、平等取扱原則の外で取得を進めるルートを提供していた。改正により、30%閾値超の市場内買付は範囲内となる。</p>
-<p>合わせた効果は<strong>平等取扱原則の厳格化</strong>だ。議決権を30%超に押し上げる取得経路は、構造のいかんを問わずTOBとして実施される必要がある。これはM&amp;A規制制度の構造的シフトであり、レイダー、アクティビスト、戦略的買い手が日本のターゲットにアプローチする方法を再設計する。</p>
-<p>関連する改正 ― 「共同保有者」と「重要提案行為」の明確化 ― は5%ルール発動を狭めることで、協働対話への萎縮効果を緩和する(第5.7回参照)。2つの改正は、金商法の開示・TOB枠組みの協調的な配線変更を表している。</p>
-<h2>2026年2月の再開</h2>
-<p>METIの<strong>公正な買収の在り方に関する研究会は2026年2月3日に再開</strong>され、2023年指針を以下2項目で更新する。</p>
-<ol>
-<li><strong>敵対的買収防衛策。</strong> 2023年指針は、ポイズン・ピル、ホワイトナイト防衛その他の構造的防衛策に関し具体的スタンスを規定しなかった。再開された研究会は、防衛策がどのような場合に「真摯な買収提案」概念に整合し、どのような場合に不当な防衛領域に踏み込むかについて、より詳細な指針を提供するとみられる。</li>
-<li><strong>前提条件付TOB。</strong> 近時の取引には、規制認可、ファイナンスの確実性、デュー・デリジェンス完了などTOB開始の前提条件を設けるものが複数あり、結果として応募を停止させる。研究会は、株主の意思原則と前提条件の整合性に関する指針を提供するとみられる。</li>
-</ol>
-<p>両項目は、2023年指針がいま要請する運用上の精緻化を反映する。ドクトリンは確立したが、実施上の問いは未確立だ。</p>
-<h2>新ドクトリンの実務 ― 3つの観察</h2>
-<p><strong>一 ― ボリューム効果。</strong> 公開M&amp;Aディール件数は2023年に前年比約15%増、2024年に再度約15%増となり、非公開化が記録的水準を示した。東芝、ベネッセ、大正製薬、アウトソーシング、インフォコムの取引群は孤立した事象ではなく、日本の取締役会が買収提案に対し示す対話の構造的シフトの顕在化したピークである。指針がディール需要を作ったのではない ― それは主にテーマ4の資本コスト革命と金融スポンサー資本の利用可能性が駆動した。指針は、需要を取引に転換することを従前抑制していた制度的摩擦を取り除いた。</p>
-<p><strong>二 ― プレミアム基準。</strong> 2024-25年の日本の非公開化ユニバースは比較的狭いプレミアム・レンジを示す ― 大半のディールが不影響日株価対比40~50%。これは2010年代の規範(約25~30%)より明確に高い中心傾向である。指針の「株主の意思」原則は、プレミアム・フェアネスの議論を実効的に40%目線に再アンカーした。</p>
-<p><strong>三 ― アクティビスト効果。</strong> 指針は、アクティビストが支配下および同族支配下のターゲットとの対話を信用しうる形で脅迫 ― そして信用しうる形で実行 ― できる制度的経路を作った。Elliottの豊田自動織機介入、ValueActのセブン&amp;アイとJSRへのポジション、東芝の非公開化前夜に見えた複数のアクティビスト・ポジションがすべて該当する。ドクトリンは双方向に機能する。アクティビストはこれを使って価格引き上げを要求でき、経営陣はこれを使って少数株主が検討を求める提案にエンゲージする論拠とできる。</p>
-<h2>IRにとっての含意</h2>
-<ol>
-<li><strong>常設の買収対応プレイブックを構築する。</strong> 当面具体的な買収エクスポージャーがなくとも、取締役会は真摯な買収提案を受領し評価する文書化されたプロセスを持つべきだ。最低3要素 ― 特別委員会構成、アドバイザー起用プロトコル、開示テンプレート。</li>
-<li><strong>「反射的拒絶」を範囲外として扱う。</strong> 指針は真摯な買収提案の反射的拒絶を取締役会義務違反となりうると明示的に特徴付ける。経営陣とIRチームに、迅速な受領確認、特別委員会機構の発動、早期の防御的公表を回避することを訓練する。</li>
-<li><strong>独立社外取締役の独立性を ― 支配株主からの独立性を含め ― 文書化する。</strong> 支配下会社の文脈で、特別委員会の実効性は支配者から実証的に独立した取締役にかかる。これは選任の規律であると同時に文書化の規律だ。</li>
-<li><strong>主要株主に「真摯な買収提案」概念を予め説明する。</strong> 多くの国内機関投資家と事業会社の政策保有者は依然として2005年のメンタル・モデルで運用している。取締役会が真摯な買収提案にどう応答し、そのプロセスにおける株主の役割を予め説明するIRチームは、提案が到着した際の混乱を先回りできる。</li>
-<li><strong>2026年2月の再開のアウトプットをモニターする。</strong> 再開された研究会は2026年中に防衛策と前提条件付TOBに関する指針を公表する。両項目はIRチームへ含意を持ち、公表時にレビューし買収プレイブックに反映すべきだ。</li>
-</ol>
-<h2>出典と参考資料</h2>
+<h3 id="section-4">1. 真摯な提案かを見極める</h3>
+<p>提案価格だけでなく、資金調達の裏付け、買収後の事業計画、必要な許認可、取引完了の条件、買収者の実績を確認する。具体性の乏しい打診に、直ちに全社的な対応をする必要はない。一方、実現可能性のある提案を、経営陣の意向だけで無視することも適切ではない。</p>
+<h3 id="section-5">2. 独立した検討体制を整える</h3>
+<p>経営陣が買収によって地位を失う可能性がある場合、判断には利益相反が生じる。独立社外取締役を中心に検討し、必要に応じて特別委員会を設置する。特別委員会の要否は取引の性質によって異なるが、経営陣の利害が強いほど、独立した主体が価格交渉と判断に関与する必要性は高い。</p>
+<h3 id="section-6">3. 代替案と比較する</h3>
+<p>買収案は、現状維持との二択ではない。単独での中期計画、資本政策の変更、事業売却、他の買収者からの提案などと比較する。対象会社が「自社の計画の方が優れている」と主張するなら、計画の前提、実行可能性、時間軸を株主が比較できる形で示さなければならない。</p>
+<h3 id="section-7">4. 条件を交渉する</h3>
+<p>取締役会は、賛成か反対かを表明するだけではない。価格、買付期間、前提条件、従業員・取引先への対応、情報提供、契約上の拘束などについて、会社と株主にとってよりよい条件を求めて交渉する。</p>
+<h3 id="section-8">5. 株主に判断材料を出す</h3>
+<p>株主が判断するには、買収者の提案だけでなく、対象会社取締役会の分析、独立委員会の意見、価値算定の考え方、代替案が必要である。取締役会が反対する場合は、「企業文化に合わない」「長期志向ではない」といった抽象論では足りない。どの条件が企業価値を損なうのかを説明する。</p>
+<h2 id="section-9">2026年の「ポイント・Q&amp;A」</h2>
+<p>経済産業省は2026年、公正な買収の在り方に関する研究会を再開し、2023年指針の考え方を実務に当てはめるための「ポイント・Q&amp;A」を取りまとめた。新しい指針に置き換えたのではなく、2023年指針が引き続き妥当であることを確認しつつ、提案の検討、株主意思の確認、複数提案の比較などについて解釈を補ったものである。</p>
+<p>実務上は、次の点が重要になる。</p>
 <ul>
-<li>METIプレスリリース「企業買収における行動指針を策定しました」(2023年8月31日): https://www.meti.go.jp/english/press/2023/0831_001.html</li>
-<li>METI「企業買収における行動指針」(PDF): https://www.meti.go.jp/english/press/2023/pdf/0831_001b.pdf</li>
-<li>METI「公正な買収の在り方に関する研究会の再開について」(2026年2月): https://www.meti.go.jp/english/press/2026/0203_001.html</li>
-<li>METI「公正なM&amp;Aの在り方に関する指針」(2019年): https://www.meti.go.jp/policy/economy/keiei_innovation/keizaihousei/pdf/fairmaguidelines_english.pdf</li>
-<li>DLA Piper「日本におけるTOB規則と株式保有透明性に関する最近の動向」(2026年1月): https://www.dlapiper.com/en/insights/publications/2026/01/recent-developments-on-tob-rules-and-shareholding-transparency-in-japan</li>
-<li>金融庁「コーポレートガバナンス改革に向けた行動計画2025」: https://www.fsa.go.jp/en/news/2025/20250630-1.html</li>
+<li>取締役会は、提案を受けた事実だけで直ちに公表するとは限らないが、株主判断に重要な段階に至れば適時・適切な開示が必要になる。</li>
+<li>複数の提案がある場合、価格だけでなく、条件、実現可能性、時間、事業への影響を同じ基準で比較する。</li>
+<li>買収者から情報を求められた場合、機密保持や競争上の懸念を考慮しつつ、提案を評価するための合理的な情報提供を検討する。</li>
+<li>株主意思を確認する方法は一つではない。TOBへの応募、株主総会の議決、買収防衛策の発動に関する意思確認など、取引の形に応じて判断する。</li>
+</ul>
+<h2 id="section-10">買収防衛策はどう位置付けられるか</h2>
+<p>2023年指針は、買収防衛策を全面的に否定していない。ただし、防衛策は経営陣の保身のためではなく、株主が判断するための情報と時間を確保し、企業価値・株主共同の利益を守るために用いられるべきだとする。</p>
+<p>防衛策を導入・発動する場合には、次の点が問われる。</p>
+<ol>
+<li>対象となる買収者や行為が明確か。</li>
+<li>必要性と相当性があるか。</li>
+<li>独立社外取締役が実質的に関与したか。</li>
+<li>株主意思を確認する仕組みがあるか。</li>
+<li>買収者に過度な不利益を与えず、競争提案を不当に排除していないか。</li>
+</ol>
+<p>時間を稼ぐために無期限の情報要求を続けたり、買収者だけに達成困難な条件を課したりすれば、透明性と相当性を欠く。防衛策は「買収を止める仕組み」ではなく、「株主が十分な情報で判断できる場を整える仕組み」として設計する必要がある。</p>
+<h2 id="section-11">IR担当者が押さえるべき含意</h2>
+<ol>
+<li><strong>未承諾提案を受けたときの連絡網を平時に作る。</strong> CEO、取締役会議長、独立社外取締役、法務、IR、外部弁護士、FAの役割を決めておく。</li>
+<li><strong>単独継続案を常に説明できる状態にする。</strong> 買収提案が来てから急いで作った中期計画は説得力を欠く。資本コスト、事業ポートフォリオ、資本配分を日頃から明確にする。</li>
+<li><strong>「友好的か、敵対的か」ではなく、条件と手続で評価する。</strong> 経営陣との関係性を、株主への説明の中心にしない。</li>
+<li><strong>独立社外取締役への情報提供を早める。</strong> 利益相反が強い案件では、社外取締役が後から承認するだけでは足りない。提案評価と条件交渉の初期から関与させる。</li>
+<li><strong>株主向け説明を二つの比較で組み立てる。</strong> 買収案と単独継続案、そして必要に応じて他の提案を、同じ前提と時間軸で比較する。</li>
+</ol>
+<h2 id="section-12">出典・参考資料</h2>
+<ul>
+<li>経済産業省「企業買収における行動指針」（2023年8月31日）: <a href="https://www.meti.go.jp/press/2023/08/20230831003/20230831003.html">https://www.meti.go.jp/press/2023/08/20230831003/20230831003.html</a></li>
+<li>経済産業省「企業買収における行動指針」関連資料一覧: <a href="https://www.meti.go.jp/policy/economy/keiei_innovation/keizaihousei/fair-ma-rule/ma-guideline-publications.html">https://www.meti.go.jp/policy/economy/keiei_innovation/keizaihousei/fair-ma-rule/ma-guideline-publications.html</a></li>
+<li>経済産業省「公正な買収の在り方に関する研究会」: <a href="https://www.meti.go.jp/shingikai/economy/kosei_baishu/index.html">https://www.meti.go.jp/shingikai/economy/kosei_baishu/index.html</a></li>
+<li>経済産業省「公正な買収の在り方に関する研究会の再開について」（2026年2月3日）: <a href="https://www.meti.go.jp/press/2025/02/20260203001/20260203001.html">https://www.meti.go.jp/press/2025/02/20260203001/20260203001.html</a></li>
+<li>経済産業省「『企業買収における行動指針』のポイント・Q&amp;A」（2026年7月30日）: <a href="https://www.meti.go.jp/press/2026/07/20260730002.html">https://www.meti.go.jp/press/2026/07/20260730002.html</a></li>
+<li>経済産業省「公正なM&amp;Aの在り方に関する指針」: <a href="https://www.meti.go.jp/policy/economy/keiei_innovation/keizaihousei/pdf/fairma-guidelines.pdf">https://www.meti.go.jp/policy/economy/keiei_innovation/keizaihousei/pdf/fairma-guidelines.pdf</a></li>
 </ul>
 <hr>
-<p><strong>本テーマの次回:</strong> <a href="/governance/">5.5 SSBJ実務 ― 3段階のサステナビリティ開示見通し</a></p>
-<p><strong>他テーマの関連記事:</strong>
-- <a href="/governance/">2.5 コード vs 指針 ― 経済産業省の体系</a>
-- <a href="/governance/">5.3 豊田自動織機ディールが終わらせた系列構造</a>
-- <a href="/governance/">5.7 スチュワードシップ・コード3.0以後の協働対話</a>
-- <a href="/governance/">5.8 次のガバナンス・ルールを書いているワーキング・グループ群</a>
-</p>
-    </article>
-    <div class="post-nav"><a href="/governance/frontier/5.3-listed-subsidiaries/" class="post-nav-link prev"><div class="post-nav-dir">← 前の記事</div><div class="post-nav-title">豊田自動織機ディールが終わらせた系列構造</div></a><a href="/governance/frontier/5.5-ssbj-sustainability/" class="post-nav-link next"><div class="post-nav-dir">次の記事 →</div><div class="post-nav-title">SSBJ実務 ― 3段階のサステナビリティ開示見通し</div></a></div>
-    <div style="max-width: var(--measure); margin: 32px auto 0; padding-top: 24px; border-top: 1px solid var(--rule); font-size: 0.82rem; color: var(--text-dim); text-align:right;">
-      <a href="/en/governance/frontier/5.4-mbo-takeover-guidelines/" style="color: var(--ink-soft);">English version →</a>
-    </div>
-  </div>
-</section>
-</main>
-<style>footer{background:var(--ink,#1a2a4a);color:#cfd6e2;padding:48px 0 30px;font-size:0.8rem;line-height:1.8;border-top:none}footer a{color:#cfd6e2;text-decoration:none}footer .footer-row{list-style:none;display:flex;flex-wrap:wrap;gap:8px 26px;margin:0 0 26px;padding:0}footer .footer-row li{padding:0}footer .footer-row a{color:#cfd6e2;text-decoration:none;font-size:0.8rem}footer .footer-bottom{padding-top:24px;border-top:1px solid rgba(255,255,255,0.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-family:var(--mono),monospace;font-size:0.68rem;letter-spacing:0.06em;color:rgba(255,255,255,0.55)}</style><script>
-const nav = document.getElementById('main-nav');
-if (nav) window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
-const hamburgerBtn = document.querySelector('.hamburger');
-function setMenuOpen(isOpen) { const menu = document.getElementById('mobileMenu'); if (!menu || !hamburgerBtn) return; menu.classList.toggle('open', isOpen); menu.hidden = !isOpen; hamburgerBtn.setAttribute('aria-expanded', String(isOpen)); }
-function toggleMenu() { const menu = document.getElementById('mobileMenu'); setMenuOpen(!(menu && menu.classList.contains('open'))); }
-document.addEventListener('click', (e) => { const menu = document.getElementById('mobileMenu'); if (menu && menu.classList.contains('open') && !menu.contains(e.target) && hamburgerBtn && !hamburgerBtn.contains(e.target)) setMenuOpen(false); });
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenuOpen(false); });
-</script>
-<script type="module">
-import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs';
-mermaid.initialize({ startOnLoad: true, theme: 'neutral', fontFamily: 'Noto Sans JP, Hiragino Kaku Gothic ProN, sans-serif', themeVariables: { primaryColor: '#f4eee4', primaryTextColor: '#1a2a4a', primaryBorderColor: '#9a7838', lineColor: '#304466', secondaryColor: '#f5f7fa', tertiaryColor: '#fafbfc' } });
-</script>
-<script src="/assets/nav.js?v=348fa48c4e" defer></script>
+<p><strong>本テーマの前の記事:</strong> <a href="/governance/frontier/5.3-listed-subsidiaries/">5.3 豊田自動織機の非公開化が示したもの――上場会社のグループ再編と少数株主保護</a></p>
+<p><strong>本テーマの次の記事:</strong> <a href="/governance/frontier/5.5-ssbj-sustainability/">5.5 SSBJ基準の実務――段階適用と準備の要点</a></p>
+<p><strong>他テーマの関連記事:</strong></p>
+<ul>
+<li><a href="/governance/cg-code/2.5-meti-guideline-family/">2.5 コードと指針――役割の違いと読み分け方</a></li>
+<li><a href="/governance/capital-efficiency/4.5-action-plan-2-update/">4.5 開示から実行へ――2026年4月の要請更新</a></li>
+<li><a href="/governance/frontier/5.3-listed-subsidiaries/">5.3 豊田自動織機の非公開化が示したもの</a></li>
+<li><a href="/governance/frontier/5.7-activism-engagement-2025/">5.7 スチュワードシップ・コード第三次改訂後の協働対話</a></li>
+</ul></article><nav class="post-nav" aria-label="前後の記事"><a class="post-nav-link prev" href="/governance/frontier/5.3-listed-subsidiaries/"><div class="post-nav-dir">← 前の記事</div><div class="post-nav-title">豊田自動織機の非公開化が示したもの――上場会社のグループ再編と少数株主保護</div></a><a class="post-nav-link next" href="/governance/frontier/5.5-ssbj-sustainability/"><div class="post-nav-dir">次の記事 →</div><div class="post-nav-title">SSBJ基準の実務――段階適用と準備の要点</div></a></nav><div class="post-language"><a href="/en/governance/frontier/5.4-mbo-takeover-guidelines/">English version →</a></div></div></section>
+  </main>
+  <script src="/assets/governance.js?v=cc6033456e" defer></script>
+  <script src="/assets/nav.js?v=348fa48c4e" defer></script>
 </body>
 </html>

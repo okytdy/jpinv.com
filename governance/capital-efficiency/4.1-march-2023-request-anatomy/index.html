@@ -1,405 +1,124 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-
-<title>PBR&lt;1は目標ではなく、市場の評決 | JII ガバナンス改革カリキュラム</title>
-<meta name="description" content="2023年3月31日に東京証券取引所が発出した「資本コストや株価を意識した経営の実現に向けた対応」要請の全体像。PBR&lt;1は経営目標ではなく、エクイティ・スプレッドに対する市場の評決である――その含意と、5段階PDCAが日本資本市場に課した新たな規範を読み解く。">
-<meta property="og:title" content="PBR&lt;1は目標ではなく、市場の評決 | JII ガバナンス改革カリキュラム">
-<meta property="og:description" content="2023年3月31日に東京証券取引所が発出した「資本コストや株価を意識した経営の実現に向けた対応」要請の全体像。PBR&lt;1は経営目標ではなく、エクイティ・スプレッドに対する市場の評決である――その含意と、5段階PDCAが日本資本市場に課した新たな規範を読み解く。">
-<meta property="og:url" content="https://jpinv.com/governance/capital-efficiency/4.1-march-2023-request-anatomy/">
-<link rel="canonical" href="https://jpinv.com/governance/capital-efficiency/4.1-march-2023-request-anatomy/">
-<link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/capital-efficiency/4.1-march-2023-request-anatomy/">
-<link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/capital-efficiency/4.1-march-2023-request-anatomy/">
-<link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/capital-efficiency/4.1-march-2023-request-anatomy/">
-
-<style>
-:root {
-  --ink:        #1a2a4a;
-  --ink-mid:    #172641;
-  --ink-soft:   #304466;
-  --rule:       #d6dee8;
-  --rule-soft:  #e8edf3;
-  --bg:         #ffffff;
-  --bg-mid:     #f5f7fa;
-  --bg-soft:    #fafbfc;
-  --text:       #1f2937;
-  --text-mid:   #4a5566;
-  --text-dim:   #5f6875;
-  --accent:     #9a7838;
-  --accent-deep:#9a7838;
-  --accent-soft:#f4eee4;
-  --bad:        #b91c1c;
-  --warn:       #8a682b;
-  --ok:         #2f6f4f;
-  --serif: 'Noto Serif JP', 'Yu Mincho', serif;
-  --sans:  'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
-  --mono:  'DM Mono', monospace;
-  --max: 1100px;
-  --pad: 88px;
-  --gutter: 48px;
-  --nav-h: 64px;
-  --measure: 720px;
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 400; line-height: 1.7; overflow-x: hidden; }
-img { max-width: 100%; display: block; }
-a { color: var(--ink-soft); text-decoration: none; }
-a:hover { color: var(--ink); }
-.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
-@media (max-width: 768px) { :root { --gutter: 22px; --pad: 56px; } }
-strong { font-weight: 600; color: var(--ink); }
-em { font-style: normal; color: var(--ink); font-weight: 600; }
-.label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); }
-
-/* Nav (copied from jpinv.com base) */
-nav#main-nav { position: fixed; top:0; left:0; right:0; z-index:100; height: var(--nav-h); background: rgba(255,255,255,0.96); backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule); display: flex; align-items: center; transition: box-shadow 0.3s; }
-nav#main-nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
-.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; }
-.nav-logo { text-decoration: none; display: inline-flex; align-items: center; flex: 0 0 auto; min-width: max-content; white-space: nowrap; }
-.nav-logo-img { display: block; width: auto; height: 40px; max-width: none; object-fit: contain; object-position: left center; }
-.nav-logo-img--mobile { display: none; width: 32px; height: 32px; object-fit: contain; }
-.nav-center { flex: 1; display: flex; justify-content: center; }
-.nav-links { display: flex; gap: 18px; list-style: none; flex-wrap: nowrap; white-space: nowrap; }
-.nav-links a { font-family: var(--sans); font-size: 0.74rem; font-weight: 400; letter-spacing: 0.02em; color: var(--text); text-decoration: none; transition: color 0.2s; }
-.nav-links a:hover { color: var(--ink-soft); }
-.nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; margin-left: auto; }
-.nav-cta { padding: 7px 11px; font-size: 0.66rem; letter-spacing: 0.05em; }
-.locale-switcher { display: inline-flex; align-items: center; gap: 0; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; }
-.locale-switcher a { color: var(--text-dim); border: 1px solid var(--rule); padding: 6px 9px; text-decoration: none; transition: all 0.2s; }
-.locale-switcher a + a { margin-left: -1px; }
-.locale-switcher a:hover, .locale-switcher a.current { color: var(--ink); border-color: var(--ink-mid); background: var(--bg-soft); position: relative; z-index: 1; }
-.hamburger { display: none; flex-shrink:0; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
-.hamburger span { display:block; width:22px; height:1px; background:var(--ink); transition: all 0.25s; }
-@media (max-width: 900px) { .nav-center, .nav-right .nav-cta { display:none; } .hamburger { display:flex; } }
-@media (max-width: 768px) { .nav-logo-img--desktop { display:none; } .nav-logo-img--mobile { display:block; } }
-.mobile-menu { display:none; position:fixed; top:var(--nav-h); left:0; right:0; background:var(--bg); border-bottom:1px solid var(--rule); z-index:99; padding:8px var(--gutter) 20px; flex-direction:column; gap:0; }
-.mobile-menu.open { display:flex; }
-.mobile-menu a { font-size:0.88rem; color:var(--text); text-decoration:none; padding:14px 0; border-bottom:1px solid var(--rule); letter-spacing:0.04em; }
-.mobile-menu a:last-child { border-bottom:none; }
-.mobile-menu .mobile-menu-cta { margin-top:12px; padding:13px 18px; text-align:center; color:#fff; border-bottom:none; }
-
-.btn { display: inline-block; text-decoration: none; font-family: var(--sans); font-size: 0.84rem; font-weight: 400; letter-spacing: 0.06em; padding: 13px 28px; transition: all 0.2s; cursor: pointer; border: none; }
-.btn-primary { background: var(--ink); color: #fff; }
-.btn-primary:hover { background: var(--ink-mid); color: #fff; }
-.btn-outline { border: 1px solid var(--ink-mid); color: var(--ink); background: transparent; }
-.btn-outline:hover { border-color: var(--ink); color: var(--ink); }
-.rule-accent { width: 32px; height: 2px; background: var(--accent); margin: 14px 0 22px; }
-
-/* Footer (mirror) */
-footer { border-top: 1px solid var(--rule); padding: 52px 0 28px; background: var(--bg-soft); font-size: 0.82rem; color: var(--text-dim); }
-footer .footer-grid { display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 32px; align-items: start; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
-footer h2 { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.2em; color: var(--ink-soft); text-transform: uppercase; margin-bottom: 12px; font-weight: 500; }
-footer h3 { font-family: var(--serif); font-size: 1rem; font-weight: 400; color: var(--ink); margin-bottom: 8px; }
-footer ul { list-style: none; }
-footer ul li { padding: 4px 0; }
-footer ul li a { color: var(--text-mid); }
-footer ul li a:hover { color: var(--ink); }
-footer .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 18px; flex-wrap: wrap; gap: 12px; }
-footer .footer-locale-switcher a.current { font-weight: 600; color: var(--ink); }
-@media (max-width: 900px) { footer .footer-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 580px) { footer .footer-grid { grid-template-columns: 1fr; } }
-
-/* === Curriculum-specific === */
-main.curriculum { padding-top: var(--nav-h); }
-.curr-hero { padding: 96px 0 64px; border-bottom: 1px solid var(--rule); position: relative; overflow: hidden; }
-.curr-hero::before { content:''; position:absolute; inset:0;
-  background-image: linear-gradient(rgba(15,31,58,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(15,31,58,0.04) 1px, transparent 1px);
-  background-size: 64px 64px;
-  -webkit-mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent);
-          mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent); }
-.curr-hero-inner { position:relative; z-index:2; max-width: 880px; }
-.curr-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.32em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 18px; }
-.curr-hero h1 { font-family: var(--serif); font-size: clamp(1.9rem, 4.4vw, 3.1rem); font-weight: 300; color: var(--ink-mid); line-height: 1.3; letter-spacing: 0.02em; margin: 0 0 22px; }
-.curr-hero h1 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-.curr-hero .lede { font-size: 1.05rem; line-height: 1.85; color: var(--text); margin: 0 0 24px; max-width: 700px; }
-.curr-hero-meta { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
-.curr-hero-meta strong { color: var(--ink); font-family: var(--mono); }
-
-.crumbs { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; padding: 22px 0 0; }
-.crumbs a { color: var(--text-mid); }
-.crumbs a:hover { color: var(--ink); }
-.crumbs .sep { color: var(--rule); margin: 0 8px; }
-
-.theme-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; padding: 56px 0; }
-.theme-card { display: block; background: #fff; border: 1px solid var(--rule); padding: 30px 28px; position: relative; transition: all 0.2s; }
-.theme-card:hover { border-color: var(--ink-soft); box-shadow: 0 12px 32px rgba(15,31,58,0.08); transform: translateY(-2px); }
-.theme-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background: var(--accent); opacity: 0.85; }
-.theme-card-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; }
-.theme-card-name { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--ink-mid); margin: 10px 0 8px; line-height: 1.35; }
-.theme-card-period { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 14px; }
-.theme-card-desc { font-size: 0.92rem; line-height: 1.7; color: var(--text); margin-bottom: 18px; }
-.theme-card-list { font-size: 0.84rem; color: var(--text-mid); list-style: none; padding-top: 14px; border-top: 1px solid var(--rule-soft); }
-.theme-card-list li { padding: 5px 0; }
-.theme-card-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; }
-.theme-card-foot .arrow { color: var(--accent-deep); }
-
-.post-list { padding: 28px 0 56px; }
-.post-list-row { display: grid; grid-template-columns: 60px 1fr auto; gap: 22px; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--rule-soft); transition: all 0.18s; }
-.post-list-row:hover { background: var(--bg-mid); padding-left: 12px; padding-right: 12px; }
-.post-list-num { font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em; color: var(--accent-deep); font-weight: 500; }
-.post-list-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--ink-mid); line-height: 1.45; }
-.post-list-meta { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; white-space: nowrap; }
-@media (max-width: 600px) { .post-list-row { grid-template-columns: 50px 1fr; } .post-list-meta { grid-column: 1 / -1; padding-left: 72px; } }
-
-/* Post body */
-.post-body { padding: 48px 0 80px; }
-.post-content { max-width: var(--measure); margin: 0 auto; }
-.post-content > p, .post-content > ul, .post-content > ol, .post-content > blockquote, .post-content > pre, .post-content > table, .post-content > hr, .post-content > h2, .post-content > h3, .post-content > h4 { max-width: var(--measure); margin-left: auto; margin-right: auto; }
-.post-content h2 { font-family: var(--serif); font-size: 1.55rem; font-weight: 400; color: var(--ink-mid); line-height: 1.35; margin: 56px 0 14px; padding-top: 22px; border-top: 1px solid var(--rule-soft); }
-.post-content h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 500; color: var(--ink); margin: 36px 0 10px; line-height: 1.4; }
-.post-content h4 { font-family: var(--sans); font-size: 1rem; font-weight: 600; color: var(--ink); margin: 26px 0 8px; letter-spacing: 0.02em; }
-.post-content p { margin: 0 0 18px; font-size: 1rem; line-height: 1.85; color: var(--text); }
-.post-content p:first-of-type { font-size: 1.05rem; }
-.post-content ul, .post-content ol { margin: 0 0 22px; padding-left: 28px; }
-.post-content ul li, .post-content ol li { font-size: 0.97rem; line-height: 1.8; margin-bottom: 8px; color: var(--text); }
-.post-content ul li::marker { color: var(--accent-deep); }
-.post-content blockquote { margin: 30px 0; padding: 20px 24px; border-left: 3px solid var(--accent); background: var(--accent-soft); color: var(--ink-mid); font-style: normal; }
-.post-content blockquote p { margin-bottom: 8px; font-size: 0.97rem; }
-.post-content blockquote p:last-child { margin-bottom: 0; }
-.post-content blockquote strong { color: var(--ink); }
-.post-content code { background: #f0f0f0; color: var(--ink-mid); font-family: var(--mono); font-size: 0.88rem; padding: 2px 6px; border-radius: 3px; }
-.post-content pre { background: #f9f9fb; border: 1px solid var(--rule); padding: 18px 22px; overflow-x: auto; font-family: var(--mono); font-size: 0.85rem; line-height: 1.55; margin: 24px 0; }
-.post-content pre code { background: transparent; padding: 0; font-size: inherit; }
-.post-content a { color: var(--accent-deep); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; transition: text-decoration-color 0.18s; overflow-wrap: anywhere; word-break: break-word; }
-.post-content a:hover { text-decoration-color: var(--accent-deep); }
-.post-content hr { border: none; border-top: 1px solid var(--rule); margin: 40px auto; max-width: 120px; }
-.post-content table { width: 100%; max-width: var(--measure); margin: 28px auto; border-collapse: collapse; font-size: 0.9rem; }
-.post-content th { background: var(--bg-mid); color: var(--ink-mid); font-family: var(--sans); font-weight: 600; text-align: left; padding: 12px 14px; border-bottom: 2px solid var(--rule); }
-.post-content td { padding: 10px 14px; border-bottom: 1px solid var(--rule-soft); vertical-align: top; color: var(--text); }
-.post-content tr:nth-child(even) td { background: #fafbfc; }
-
-/* Mermaid container */
-.mermaid-wrap { background: #fdfdfe; border: 1px solid var(--rule); padding: 22px 18px; margin: 28px 0; overflow-x: auto; }
-.mermaid { font-family: var(--sans); text-align: center; }
-
-/* Post header */
-.post-header { padding: 48px 0 28px; border-bottom: 1px solid var(--rule); }
-.post-header-inner { max-width: var(--measure); margin: 0 auto; }
-.post-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.28em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 14px; }
-.post-title { font-family: var(--serif); font-size: clamp(1.7rem, 3.6vw, 2.4rem); font-weight: 400; color: var(--ink-mid); line-height: 1.3; margin: 0 0 16px; letter-spacing: 0.005em; }
-.post-summary { font-size: 1.02rem; line-height: 1.8; color: var(--text); margin: 0 0 22px; max-width: 660px; }
-.post-meta { display: flex; gap: 26px; flex-wrap: wrap; padding-top: 18px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
-.post-meta span strong { color: var(--ink); font-family: var(--mono); }
-
-/* Post nav (prev/next) */
-.post-nav { max-width: var(--measure); margin: 56px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding-top: 36px; border-top: 1px solid var(--rule); }
-.post-nav-link { display: block; padding: 18px 20px; background: var(--bg-mid); border: 1px solid var(--rule); transition: all 0.18s; }
-.post-nav-link:hover { border-color: var(--ink-soft); background: #fff; transform: translateY(-1px); }
-.post-nav-dir { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px; }
-.post-nav-title { font-family: var(--serif); font-size: 0.94rem; color: var(--ink-mid); line-height: 1.4; }
-.post-nav-link.next { text-align: right; }
-@media (max-width: 640px) { .post-nav { grid-template-columns: 1fr; } .post-nav-link.next { text-align: left; } }
-
-/* Knowledge check */
-.kcheck { background: var(--bg-mid); padding: 72px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
-.kcheck-head { max-width: 720px; margin: 0 auto 36px; text-align: center; }
-.kcheck h2 { font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 300; color: var(--ink-mid); margin: 0 0 14px; line-height: 1.3; }
-.kcheck h2 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-.kcheck p.lede { font-size: 0.98rem; line-height: 1.75; color: var(--text); }
-.kcheck-q { background: #fff; border: 1px solid var(--rule); padding: 28px 30px; margin-bottom: 18px; max-width: 760px; margin-left: auto; margin-right: auto; }
-.kcheck-q-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; margin-bottom: 12px; }
-.kcheck-q-text { font-family: var(--serif); font-size: 1.1rem; line-height: 1.5; color: var(--ink-mid); margin-bottom: 18px; }
-.kcheck-opts { display: grid; gap: 8px; }
-.kcheck-opt { display: block; padding: 12px 16px; background: var(--bg-soft); border: 1px solid var(--rule); text-align: left; font-family: var(--sans); font-size: 0.92rem; color: var(--text); cursor: pointer; transition: all 0.15s; }
-.kcheck-opt:hover { background: #fff; border-color: var(--ink-soft); }
-.kcheck-opt.correct { background: #e8f3ec; border-color: var(--ok); color: var(--ok); }
-.kcheck-opt.incorrect { background: #fbe9e9; border-color: var(--bad); color: var(--bad); }
-.kcheck-explain { margin-top: 16px; padding: 14px 18px; background: var(--accent-soft); border-left: 3px solid var(--accent); font-size: 0.9rem; line-height: 1.7; color: var(--ink-mid); display: none; }
-.kcheck-q.answered .kcheck-explain { display: block; }
-.kcheck-score { text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--text-dim); margin-top: 28px; text-transform: uppercase; }
-.kcheck-score strong { color: var(--ink-mid); font-family: var(--mono); }
-
-/* Stats / hero stats */
-.stat-band { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; padding: 56px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); background: var(--bg-soft); }
-.stat-item { padding: 0 18px; }
-.stat-num { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 300; color: var(--ink-mid); line-height: 1; margin-bottom: 8px; }
-.stat-num em { color: var(--accent-deep); font-weight: 400; font-style: normal; }
-.stat-label { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; }
-</style>
-
-<meta property="og:image" content="https://jpinv.com/og/jii-default.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://jpinv.com/og/jii-default.png">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "url": "https://jpinv.com/governance/capital-efficiency/4.1-march-2023-request-anatomy/",
-  "name": "PBR&lt;1は目標ではなく、市場の評決 | JII ガバナンス改革カリキュラム",
-  "description": "2023年3月31日に東京証券取引所が発出した「資本コストや株価を意識した経営の実現に向けた対応」要請の全体像。PBR&lt;1は経営目標ではなく、エクイティ・スプレッドに対する市場の評決である――その含意と、5段階PDCAが日本資本市場に課した新たな規範を読み解く。",
-  "inLanguage": "ja"
-}
-</script></head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PBR1倍割れをどう読むか――東証要請の本当の狙い｜JII ガバナンス改革講座</title>
+  <meta name="description" content="2023年3月31日、東京証券取引所はプライム市場・スタンダード市場の全上場会社に対し、「資本コストや株価を意識した経営」の実現に向けた継続的な対応を要請した。PBR1倍の達成を義務づけた制度ではない。自社の資本コストと資本収益性を把握し、市場評価を取締役会で分析し、改善計画を開示・実行し、投資家との対話を踏まえて更新することを求めたものである。PBRは目標そのものではなく、収益性、成長期待、リスクに対する市場評価を映す指標として読む必要がある。">
+  <link rel="canonical" href="https://jpinv.com/governance/capital-efficiency/4.1-march-2023-request-anatomy/">
+  <link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/capital-efficiency/4.1-march-2023-request-anatomy/">
+  <link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/capital-efficiency/4.1-march-2023-request-anatomy/">
+  <link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/capital-efficiency/4.1-march-2023-request-anatomy/">
+  <meta property="og:title" content="PBR1倍割れをどう読むか――東証要請の本当の狙い｜JII ガバナンス改革講座">
+  <meta property="og:description" content="2023年3月31日、東京証券取引所はプライム市場・スタンダード市場の全上場会社に対し、「資本コストや株価を意識した経営」の実現に向けた継続的な対応を要請した。PBR1倍の達成を義務づけた制度ではない。自社の資本コストと資本収益性を把握し、市場評価を取締役会で分析し、改善計画を開示・実行し、投資家との対話を踏まえて更新することを求めたものである。PBRは目標そのものではなく、収益性、成長期待、リスクに対する市場評価を映す指標として読む必要がある。">
+  <meta property="og:url" content="https://jpinv.com/governance/capital-efficiency/4.1-march-2023-request-anatomy/">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://jpinv.com/og/jii-default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://jpinv.com/og/jii-default.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&amp;family=Noto+Sans+JP:wght@300;400;500;600&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/governance.css?v=b6280834c3">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","name":"PBR1倍割れをどう読むか――東証要請の本当の狙い｜JII ガバナンス改革講座","description":"2023年3月31日、東京証券取引所はプライム市場・スタンダード市場の全上場会社に対し、「資本コストや株価を意識した経営」の実現に向けた継続的な対応を要請した。PBR1倍の達成を義務づけた制度ではない。自社の資本コストと資本収益性を把握し、市場評価を取締役会で分析し、改善計画を開示・実行し、投資家との対話を踏まえて更新することを求めたものである。PBRは目標そのものではなく、収益性、成長期待、リスクに対する市場評価を映す指標として読む必要がある。","url":"https://jpinv.com/governance/capital-efficiency/4.1-march-2023-request-anatomy/","inLanguage":"ja","isPartOf":{"@type":"WebSite","name":"Japan Investor Interface","url":"https://jpinv.com/"},"headline":"PBR1倍割れをどう読むか――東証要請の本当の狙い","dateModified":"2026-08-30","author":{"@type":"Organization","name":"Japan Investor Interface Co., Ltd."},"publisher":{"@type":"Organization","name":"Japan Investor Interface Co., Ltd.","url":"https://jpinv.com/"}}</script>
+</head>
 <body>
-<main id="main-content" class="curriculum" tabindex="-1">
-<div class="wrap crumbs">
-  <a href="/">JII</a> <span class="sep">/</span>
-  <a href="/governance/">IR研修</a> <span class="sep">/</span>
-  <a href="/governance/capital-efficiency/">資本効率革命</a> <span class="sep">/</span>
-  記事 4.1
-</div>
-<header class="post-header">
-  <div class="wrap">
-    <div class="post-header-inner">
-      <div class="post-eyebrow">テーマ 4 · 記事 4.1</div>
-      <h1 class="post-title">PBR&lt;1は目標ではなく、市場の評決</h1>
-      <p class="post-summary">2023年3月31日に東京証券取引所が発出した「資本コストや株価を意識した経営の実現に向けた対応」要請の全体像。PBR&lt;1は経営目標ではなく、エクイティ・スプレッドに対する市場の評決である――その含意と、5段階PDCAが日本資本市場に課した新たな規範を読み解く。</p>
-      <div class="post-meta">
-        <span>テーマ: <strong>資本効率革命</strong></span>
-        <span>読了目安: <strong>13 分</strong></span>
-        <span>更新: <strong>2026-05-18</strong></span>
-      </div>
-    </div>
-  </div>
-</header>
-<section class="post-body">
-  <div class="wrap">
-    <article class="post-content">
-<h2>要点</h2>
+  <a class="gov-skip" href="#main-content">本文へ移動</a>
+  <main id="main-content" class="governance-page" tabindex="-1">
+    <nav class="gov-wrap gov-crumbs" aria-label="パンくず"><a href="/">ホーム</a><span class="sep">/</span><a href="/governance/">ガバナンス改革講座</a><span class="sep">/</span><a href="/governance/capital-efficiency/">資本効率をめぐる改革</a><span class="sep">/</span><span aria-current="page">記事 4.1</span></nav>
+    <header class="post-header"><div class="gov-wrap"><div class="post-header-inner"><span class="post-eyebrow">テーマ 4 · 記事 4.1</span><h1 class="post-title">PBR1倍割れをどう読むか――東証要請の本当の狙い</h1><p class="post-summary">2023年3月31日、東京証券取引所はプライム市場・スタンダード市場の全上場会社に対し、「資本コストや株価を意識した経営」の実現に向けた継続的な対応を要請した。PBR1倍の達成を義務づけた制度ではない。自社の資本コストと資本収益性を把握し、市場評価を取締役会で分析し、改善計画を開示・実行し、投資家との対話を踏まえて更新することを求めたものである。PBRは目標そのものではなく、収益性、成長期待、リスクに対する市場評価を映す指標として読む必要がある。</p><div class="post-meta"><span>テーマ: <strong>資本効率をめぐる改革</strong></span><span>読了目安: <strong>8分</strong></span><span>更新: <strong>2026-08-30</strong></span></div></div></div></header>
+    <section class="post-body"><div class="gov-wrap"><article class="post-content"><blockquote>
+<p><strong>要点</strong></p>
 <ul>
-<li><strong>2023年3月31日</strong>、東京証券取引所はプライム・スタンダード両市場の全上場会社に対し、「資本コストや株価を意識した経営」の実現を<strong>「お願い」</strong>する文書を発出した。発出時点でプライム市場の<strong>約半数がPBR1倍割れ</strong>――これが直接の引き金となった統計である。</li>
-<li>日本語の核は「お願い」――命令でも指令でもなく、要請である。実効性は法的制裁ではなく、<strong>月次の開示企業リストや好事例・不十分事例の公表という「見える化」</strong>によって担保されている。</li>
-<li><strong>PBRは経営目標ではない</strong>。それは将来のエクイティ・スプレッド(ROE − 株主資本コスト)に対する市場の評決である。要請が求めるのは「現状分析→課題特定→方針・KPI策定と開示→実行→投資家との対話を踏まえた見直し」という<strong>継続的な5段階PDCA</strong>であり、PBRはその結果として動くものとされる。</li>
+<li>東証の要請は<strong>規則上の義務ではない</strong>。一方で、プライム市場・スタンダード市場の全上場会社を対象とし、取締役会と経営陣による継続的な対応を求めている。</li>
+<li>東証はPBR1倍超を一律の目標としていない。求めているのは、資本コスト、資本収益性、市場評価を分析し、企業価値向上のための具体策を実行・更新することである。</li>
+<li>自社株買いや増配も選択肢だが、それだけで対応を終えることは想定されていない。研究開発、人的資本、設備投資、事業ポートフォリオ、バランスシートを一体で見直す必要がある。</li>
 </ul>
-<hr>
-<h2>静かに日本の資本主義を変えた一片の文書</h2>
-<p>2023年3月31日、東京証券取引所が出した1ページの「お願い」が、その後の日本上場企業の資本に関する語り方を一変させた。正式名称は<strong>「資本コストや株価を意識した経営の実現に向けた対応等に関するお願いについて」</strong>。短い文書だが、タイトルに込められた三つの語の重みを、まず確認しておく必要がある。</p>
-<p><strong>「資本コスト」</strong>――2022年までは大半の日本企業でCFOや財務部の専門語にとどまっていた。2023年以降、これは取締役会の用語となる。要請は取締役会自身が資本コストを「正確に把握する」ことを明示的に求めた。</p>
-<p><strong>「株価を意識した」</strong>――市場の声を黙殺するな、ということを日本流に丁寧に言い換えた表現である。要請は経営陣に対し、PBRをシグナルとして読み、応答することを期待する。それは「数字を操作する目標」ではなく、将来期待されるROEが株主資本コストを上回るか否かに関する<strong>証拠</strong>としての位置づけである。</p>
-<p><strong>「お願い」</strong>――規制でも命令でも義務でもない。要請である。この文書全体で最も誤訳されやすい単語であり、英語圏の論評はしばしば「directive」「mandate」と訳すが、いずれも法的拘束力を過大に表現している。東証には収益を強制する権限はないし、それを創設しようともしなかった。代わりに東証が発明したのは、<strong>「公表」を梃子とする規模の経済を伴う評判メカニズム</strong>であり、本テーマ全体を通じて繰り返し言及することになる。</p>
-<p>対象は<strong>プライム・スタンダード市場の上場会社</strong>である。グロース市場には同日、別途調整された文書が出ているが、本稿では影響範囲のはるかに大きいプライム・スタンダード版を扱う。</p>
-<hr>
-<h2>引き金となった統計 ― プライムの半数がPBR1倍割れ</h2>
-<p>東証が2023年3月という時点で動いた理由は、たった一つの数字に集約される。2023年3月末時点で:</p>
-<ul>
-<li><strong>東証プライム市場の約50%がPBR1倍割れ</strong>。</li>
-<li>米国の比較値は<strong>約5%</strong>にとどまる。</li>
-<li>全上場会社で見れば<strong>約40%</strong>がPBR1倍を下回っていた。</li>
-<li><strong>プライムの約50%、スタンダードの約60%がROE8%未満</strong>――多くの日本の機関投資家が認識する株主資本コスト水準を下回っていた。</li>
-</ul>
-<p>PBR1倍割れは、株価の冴えなさを嘆く美学的な不満ではない。市場が、入手しうる最も直接的な数学言語で、<strong>「当該企業が追加的に投下する自己資本の期待リターンが、株主が要求するリターンを下回っている」</strong>――すなわち期待ベースで内部留保1円ごとに価値を毀損していると評定していることを意味する。市場の見立てでは、プライムの半分は価値破壊側に属していた。これこそが、東証がついに公表することを決めた「評決」である。</p>
-<p>なお本カリキュラムでは、<strong>PBR</strong>(株価純資産倍率)と<strong>P/B</strong>(英語圏の標準表現)を同義で用いる。</p>
-<hr>
-<h2>数式 ― PBR=ROE×PERと、エクイティ・スプレッド恒等式</h2>
-<p>要請の知的核心は二つの単純な恒等式である。IR担当者はホワイトボードに迷わず書けなければならない。</p>
-<blockquote>
-<p><strong>恒等式1 ― PBR分解:</strong>
-<strong>PBR = ROE × PER</strong></p>
-<p>(株価/簿価 =(利益/簿価)×(株価/利益))</p>
-<p>したがってPBR&lt;1は、ROEが低すぎるか、PER(市場の成長期待)が抑え込まれているか、あるいはその両方であることを意味する。</p>
-<p><strong>恒等式2 ― エクイティ・スプレッド/残余利益関係:</strong>
-将来期待される<strong>エクイティ・スプレッド = ROE − 株主資本コスト(rE)</strong>が<strong>プラス</strong>なら、<strong>PBR&gt;1</strong>。
-マイナスなら、<strong>PBR&lt;1</strong>。</p>
-<p>残余利益モデルで書けば:
-<strong>株式時価総額 = 自己資本簿価 + (ROE − rE) × 自己資本 の現在価値合計</strong></p>
-<p>したがって<strong>PBR&gt;1 ⇔ 期待ROE &gt; rE</strong>。</p>
 </blockquote>
-<p>これこそが要請の暗黙の前提である。東証はどこにも「PBR目標を達成せよ」とは書いていない――それは因果を逆にする話だからである。動かすべきレバーはエクイティ・スプレッドであり、PBRはその読み取り値にすぎない。</p>
-<p>JPX社長の山道裕己はこの点を複数の公開講演で明言してきた。<strong>PBRは目標ではない。目標は株主資本コストとの相対ROEである</strong>。「2026年度までにPBR1倍を達成する」と中計に書きながら、自社の株主資本コストがいくらで、それを上回るROE水準はどこで、何をすればギャップが埋まるのかを開示しない企業は、要請を理解していないと宣言しているに等しい。</p>
 <hr>
-<h2>5段階PDCA ― 東証が実際に求めたもの</h2>
-<p>要請本文は約2ページ。骨格を取り出せば、東証はプライム・スタンダードの全取締役会に対し、<strong>継続的に</strong>次の5段階を回すことを求めている。</p>
-<div class="mermaid-wrap"><pre class="mermaid">flowchart LR
-    A[&quot;1. 分析・把握&lt;br/&gt;資本コストと&lt;br/&gt;現状の資本効率&quot;] --&gt; B[&quot;2. 課題特定&lt;br/&gt;PBR・ROEの水準について&lt;br/&gt;取締役会で議論&quot;]
-    B --&gt; C[&quot;3. 方針・開示&lt;br/&gt;方針・KPI・&lt;br/&gt;時間軸の開示&quot;]
-    C --&gt; D[&quot;4. 実行&lt;br/&gt;資本配分と&lt;br/&gt;事業運営の変革&quot;]
-    D --&gt; E[&quot;5. 見直し&lt;br/&gt;投資家との対話を経て&lt;br/&gt;翌サイクルへ反映&quot;]
-    E -.継続PDCA.-&gt; A
-    classDef step fill:#f5f8ff,stroke:#3858b9,stroke-width:1.5px,color:#1a2747;
-    class A,B,C,D,E step;</pre></div>
-
-<p>このサイクルには、運用上重要な特徴が二つある。</p>
-<p><strong>第一に、明示的に継続的である</strong>。東証の文言は、これが一度きりのコンプライアンス書類提出ではないことを強調する。2024年11月の「不十分事例」冊子(<strong>Post 4.4</strong>で詳述)は、「一度開示しただけで止まっている」企業を典型的な失敗類型として挙げている。フォローアップ会議が2024年に「開示の量ではなく質」を監督基準として採用したのは、まさに初回コンプライアンスを越えて企業を押し出すためだ。</p>
-<p><strong>第二に、外部から見えるステップは「開示(3)」だけである</strong>。ステップ1・2は取締役会の中で、ステップ4は事業現場で、ステップ5はIRミーティングの中で起こる。ステップ3の開示は、他の4ステップが実際に行われているかどうかを判断するための<strong>代理変数</strong>として機能する。東証が月次の開示企業リスト(<strong>Post 4.3</strong>)を設計したのは、ステップ3に隠れ場所を与えないためである。</p>
-<hr>
-<h2>要請が言っていないこと</h2>
-<p>要請を精読する作業は、書かれていることを読むのと同じくらい、書かれていないことに注目する作業でもある。</p>
-<p><strong>要請はPBRの数値目標を定めていない</strong>。「1倍を超えよ」とはどこにも書かれていない。中期経営計画に「2026年度までにPBR≧1」と書き込む企業は、引き金統計から類推しているにすぎず、文書の指示によるものではない。東証自身、この種のフレーミングを抑制するよう繰り返し述べている。</p>
-<p><strong>要請はROE水準を定めていない</strong>。「ROE≧8%を達成せよ」とも書かれていない。8%という数字は2014年の伊藤レポート(<strong>テーマ1.1</strong>参照)で普及した投資家コンセンサスであって、東証の命令ではない。要請が求めるのは、各社が自社の株主資本コストを自分で特定し、プラスのスプレッドを管理することだ――その水準が何%であろうと。</p>
-<p><strong>要請は配当性向を定めていない</strong>。これは決定的に重要である。2024年11月の不十分事例冊子は<strong>「株主還元を以て対応の全てとすること」</strong>を典型的な落とし穴として明示的に指摘する。自社株買いと配当は道具箱の一つの引き出しにすぎず、これらを実質的な資本コスト経営の代替にすることは、それ自体が「乖離」である。</p>
-<p><strong>要請は期限を設けていない</strong>。継続的なPDCAを求めるのみで、暗黙のリズムはコーポレートガバナンス報告書サイクルに合わせた年次更新だが、公式の終了日はない。2026年4月の「更新」(<strong>Post 4.5</strong>)は、要請を打ち切ったのではなく、期待水準を延長し鋭利化させたものである。</p>
-<hr>
-<h2>要請が広範な政策アーキテクチャに占める位置</h2>
-<p>2023年3月の要請は突然降って湧いたものではない。それは2010年代初頭から積み上げられてきた五層構造の政策スタックの、運用上の頂点に位置する。</p>
+<h2 id="section-1">2023年3月31日の東証要請</h2>
+<p>東証は2023年3月31日、プライム市場・スタンダード市場の全上場会社に「資本コストや株価を意識した経営の実現に向けた対応」を要請した。正式な規則改正ではなく、違反に対する罰則もない。東証自身も「規則上の義務付けを行うものではない」と明記している。</p>
+<p>それでも、この要請は企業実務に大きな影響を与えた。理由は、対象をPBR1倍割れ企業に限定せず、両市場の全社としたことにある。株価水準が高い会社であっても、資本コストと資本収益性を把握し、市場評価を取締役会で検討し、改善に向けた取組みを継続することが求められた。</p>
+<p>東証が示した流れは、次の三つに集約できる。</p>
 <ol>
-<li><strong>伊藤レポート(2014年)</strong> ― ROE8%を実務ベンチマークとして確立し、資本コストを政策アジェンダに乗せた(テーマ1.3)</li>
-<li><strong>コーポレートガバナンス・コード(2015年制定、2018年・2021年改訂)</strong> ― 取締役会レベルのガバナンス期待を整備。2018年改訂で資本効率の文言が正式に導入された(テーマ2.2)</li>
-<li><strong>2022年4月の市場再編</strong> ― プライム・スタンダード・グロースの3区分を創設し、最も注目される投資家ユニバースが集まる場で開示ルールを効かせた(テーマ3.1)</li>
-<li><strong>2023年3月の東証要請</strong> ― 資本コスト経営の期待を企業レベルで運用化した(<strong>本稿</strong>)</li>
-<li><strong>フォローアップ会議と月次開示企業リスト</strong> ― 執行レイヤー(Post 4.3、4.4)</li>
+<li><strong>現状を分析する。</strong> 自社の資本コスト、資本収益性、PBRなどの市場評価を把握し、取締役会で分析・評価する。</li>
+<li><strong>改善策を策定し、開示・実行する。</strong> 資本収益性の改善や成長期待の向上につながる計画を具体化し、投資家に示す。</li>
+<li><strong>対話を踏まえて更新する。</strong> 一度公表して終わりにせず、進捗と投資家の意見を踏まえて取組みを見直す。</li>
 </ol>
-<p>この階層構造こそが、日本において「ソフトロー」が他の法域とは異なる仕方で機能する理由である。要請だけなら丁寧な手紙にとどまる。要請+開示企業リスト+フォローアップ会議の公表評価+アクティビスト反応(Post 4.5)の総体は、強制的な言葉を一切用いない強制システムである。</p>
-<hr>
-<h2>なぜ「お願い」に歯があるのか</h2>
-<p>日本の資本市場政策の新参者は、要請が法的拘束力を持たないことを理由に過小評価しがちである。これは誤りだ。仕組みには互いに補強し合う三つの歯がある。</p>
-<p><strong>歯1 ― 上場ライセンスの近接性</strong>。東証は上場を認可・維持する主体である。東証の要請を黙殺する会社は、法的責任は問われないが、自社のライセンサーが優先事項を表明したのに対して「拘束的でない」と回答したことになる。正式な制裁がなくとも、CFOは誰もそのような会話を望まない。</p>
-<p><strong>歯2 ― 投資家スクリーニング</strong>。月次の開示企業リストは日本の機関投資家、そして翻訳データベースを介して海外投資家にも直接消費される。掲載は一つのスクリーン、非掲載は一つのフラグである。野村、SMBC日興、アセットマネジメントOne等の主要日系運用会社は、PBR1倍割れ・未開示の発行体に対して議決権行使指針を公に厳格化している。</p>
-<p><strong>歯3 ― アクティビストへの招待状</strong>。Post 4.5で詳述するように、2024年の日本では<strong>108件のアクティビストキャンペーン</strong>――2018年比+74%の過去最多――が記録された。東証の要請は、アクティビストに対し「取引所自身がこれを企業に求めている。我々はその履行を加速させているにすぎない」という規制承認済みのプレイブックを提供した。開示を拒む、あるいは紋切り型の開示しか出さない企業は、アクティビストの標的となる。</p>
-<p>総体としての効果は、要請が法的には要請でありながら、運用面では規制期待にきわめて近いというものだ。<strong>2026年3月13日</strong>時点で、<strong>プライム市場の約93%(1,472社)、スタンダード市場の約51%(807社)</strong>の取締役会が、対応を正式に議論・開示済みである。これは丁寧な手紙への応答率ではない。拘束的規範への応答率である。</p>
-<hr>
-<h2>IRにとっての含意</h2>
-<ol>
-<li><strong>数式をまず内部化せよ</strong>。<strong>PBR=ROE×PER</strong>と<strong>PBR&gt;1 ⇔ 期待ROE&gt;rE</strong>をホワイトボードに書けないなら、信頼に足る資本コスト経営IRは運用できない。社内研修の最初の2枚のスライドにせよ。</li>
-<li><strong>PBRを目標として引用するのを止めよ</strong>。CEOや中計に具体的なPBR目標が書かれていたら、社内で押し返すこと。正しい目標はエクイティ・スプレッドであり、PBRは後からついてくる。PBR目標化はそれ自体が東証の「乖離」類型である(Post 4.4)。</li>
-<li><strong>自社の開示を5段階PDCAに照らして点検せよ</strong>。5段階それぞれについて、最新のCG報告書あるいは中計の具体的な段落を投資家に指し示せるか。とりわけステップ1(資本コストの数値)とステップ5(対話に基づく見直し)は欠落しやすい。</li>
-<li><strong>年次提出ではなく、継続的サイクルを構築せよ</strong>。2025年1月の「検討中」企業を6ヶ月後に「未開示」へ再分類するルールは、一度きりのコンプライアンスは認めないという明確なシグナルである。開示は年次レポート間でも目に見えて進化していなければならない。</li>
-<li><strong>「要請」という枠組みについてCEOにブリーフィングせよ</strong>。多くの日本のCEOは法的には任意であることを理由に要請を「任意」と読み続けている。要請を運用たらしめているのは、評判・投資家スクリーニング・アクティビスト機構の三層である。取締役会はこの三本の歯すべてを理解する必要がある。</li>
-</ol>
-<hr>
-<h2>出典・参考資料</h2>
-<p><strong>一次資料</strong>
-- JPXニュースリリース(2023年3月31日):<a href="https://www.jpx.co.jp/news/1020/20230331-01.html">https://www.jpx.co.jp/news/1020/20230331-01.html</a>
-- 要請文PDF(日本語):<a href="https://www.jpx.co.jp/news/1020/cg27su0000005nq6-att/cg27su0000005nqj.pdf">https://www.jpx.co.jp/news/1020/cg27su0000005nq6-att/cg27su0000005nqj.pdf</a>
-- 「資本コストや株価を意識した経営の実現に向けた対応」ハブ:<a href="https://www.jpx.co.jp/equities/follow-up/02.html">https://www.jpx.co.jp/equities/follow-up/02.html</a>
-- JPXニュースリリース(2023年4月14日)発出後Q&amp;A:<a href="https://www.jpx.co.jp/news/1020/e20230414-01.html">https://www.jpx.co.jp/news/1020/e20230414-01.html</a>
-- 山道裕己、Japan Securities Summit講演資料(2024年3月6日):<a href="https://www.icmagroup.org/assets/Slides_Mr.-Hiromi-Yamaji_JPX_Japan-Securities-Summit-6-March-2024.pdf">https://www.icmagroup.org/assets/Slides_Mr.-Hiromi-Yamaji_JPX_Japan-Securities-Summit-6-March-2024.pdf</a></p>
-<p><strong>補足資料</strong>
-- 東証フォローアップ会議「市場区分の見直しに関する状況」:<a href="https://www.jpx.co.jp/equities/follow-up/b5b4pj000004yqcc-att/dh3otn0000006vlf.pdf">https://www.jpx.co.jp/equities/follow-up/b5b4pj000004yqcc-att/dh3otn0000006vlf.pdf</a>
-- 東証「開示の状況」(2026年3月13日):<a href="https://www.jpx.co.jp/equities/follow-up/uorii50000004sse-att/dh3otn0000006l3i.pdf">https://www.jpx.co.jp/equities/follow-up/uorii50000004sse-att/dh3otn0000006l3i.pdf</a>
-- エクイティ・スプレッドと価値創造に関するSpringer書籍章:<a href="https://link.springer.com/chapter/10.1007/978-981-10-8503-1_4">https://link.springer.com/chapter/10.1007/978-981-10-8503-1_4</a></p>
-<hr>
-<h2>関連記事</h2>
+<h2 id="section-2">なぜPBR1倍割れが注目されたのか</h2>
+<p>要請の背景には、日本企業のPBRとROEの低さがあった。東証の資料では、プライム市場でもPBR1倍割れ企業が約半数を占め、ROE8%未満の会社も多いことが示されていた。</p>
+<p>PBRは、株式時価総額を自己資本簿価で割った指標である。1倍を下回る状態は、単純に「会社を解散した方が価値が高い」と断定できるものではない。簿価には含まれない無形資産や、資産売却時の税・費用もあるからだ。それでも、将来の収益力や資本配分に対して市場が慎重な評価をしている可能性を示す重要な手掛かりにはなる。</p>
+<p>PBR1倍割れを見たとき、取締役会が問うべきなのは「どうすれば株価を1倍まで上げられるか」ではない。より具体的には、次の問いである。</p>
 <ul>
-<li><strong>テーマ1.3</strong> ― アベノミクス「第三の矢」 ― ガバナンスが成長政策になった瞬間</li>
-<li><strong>テーマ2.2</strong> ― <a href="/governance/">2018年改訂 ― 資本効率がコードに入った瞬間</a></li>
-<li><strong>テーマ3.1</strong> ― <a href="/governance/">4区分から3区分へ ― 2022年4月の市場再編</a></li>
-<li><strong>テーマ4.2</strong> ― <a href="/governance/">WACC・ROIC・エクイティ・スプレッド ― IR担当が押さえるべき新語</a></li>
-<li><strong>テーマ4.3</strong> ― <a href="/governance/">公表というシェイムとショーケース ― TSEの開示企業リスト</a></li>
-<li><strong>テーマ4.4</strong> ― <a href="/governance/">資本コスト開示の7つの落とし穴 ― 「投資家視点との乖離」事例集</a></li>
-<li><strong>テーマ4.5</strong> ― <a href="/governance/">開示から実行へ ― 2026年4月「更新」が変えたもの</a></li>
+<li>現在のROEは株主資本コストを上回っているか。</li>
+<li>その水準は一時的か、持続可能か。</li>
+<li>収益性が低い事業や遊休資産はどこにあるか。</li>
+<li>成長投資が将来のキャッシュフローにつながると市場に伝わっているか。</li>
+<li>株主還元と成長投資の配分は、企業価値の観点から妥当か。</li>
 </ul>
-    </article>
-    <div class="post-nav"><a href="/governance/capital-efficiency/" class="post-nav-link prev"><div class="post-nav-dir">← テーマ概要</div><div class="post-nav-title">資本効率革命</div></a><a href="/governance/capital-efficiency/4.2-cost-of-capital-vocabulary/" class="post-nav-link next"><div class="post-nav-dir">次の記事 →</div><div class="post-nav-title">WACC・ROIC・エクイティ・スプレッド ― IR担当が押さえるべき新語</div></a></div>
-    <div style="max-width: var(--measure); margin: 32px auto 0; padding-top: 24px; border-top: 1px solid var(--rule); font-size: 0.82rem; color: var(--text-dim); text-align:right;">
-      <a href="/en/governance/capital-efficiency/4.1-march-2023-request-anatomy/" style="color: var(--ink-soft);">English version →</a>
-    </div>
-  </div>
-</section>
-</main>
-<style>footer{background:var(--ink,#1a2a4a);color:#cfd6e2;padding:48px 0 30px;font-size:0.8rem;line-height:1.8;border-top:none}footer a{color:#cfd6e2;text-decoration:none}footer .footer-row{list-style:none;display:flex;flex-wrap:wrap;gap:8px 26px;margin:0 0 26px;padding:0}footer .footer-row li{padding:0}footer .footer-row a{color:#cfd6e2;text-decoration:none;font-size:0.8rem}footer .footer-bottom{padding-top:24px;border-top:1px solid rgba(255,255,255,0.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-family:var(--mono),monospace;font-size:0.68rem;letter-spacing:0.06em;color:rgba(255,255,255,0.55)}</style><script>
-const nav = document.getElementById('main-nav');
-if (nav) window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
-const hamburgerBtn = document.querySelector('.hamburger');
-function setMenuOpen(isOpen) { const menu = document.getElementById('mobileMenu'); if (!menu || !hamburgerBtn) return; menu.classList.toggle('open', isOpen); menu.hidden = !isOpen; hamburgerBtn.setAttribute('aria-expanded', String(isOpen)); }
-function toggleMenu() { const menu = document.getElementById('mobileMenu'); setMenuOpen(!(menu && menu.classList.contains('open'))); }
-document.addEventListener('click', (e) => { const menu = document.getElementById('mobileMenu'); if (menu && menu.classList.contains('open') && !menu.contains(e.target) && hamburgerBtn && !hamburgerBtn.contains(e.target)) setMenuOpen(false); });
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenuOpen(false); });
-</script>
-<script type="module">
-import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs';
-mermaid.initialize({ startOnLoad: true, theme: 'neutral', fontFamily: 'Noto Sans JP, Hiragino Kaku Gothic ProN, sans-serif', themeVariables: { primaryColor: '#f4eee4', primaryTextColor: '#1a2a4a', primaryBorderColor: '#9a7838', lineColor: '#304466', secondaryColor: '#f5f7fa', tertiaryColor: '#fafbfc' } });
-</script>
-<script src="/assets/nav.js?v=348fa48c4e" defer></script>
+<h2 id="section-3">PBRを分解して考える</h2>
+<p>PBRを考える際によく使われるのが、次の恒等式である。</p>
+<blockquote>
+<p><strong>PBR = ROE × PER</strong></p>
+<p>株価／1株当たり純資産 ＝（1株当たり利益／1株当たり純資産）×（株価／1株当たり利益）</p>
+</blockquote>
+<p>この式から、PBRが低い理由は大きく二つに分けられる。現在の収益性を表すROEが低いか、将来の利益成長や持続性に対する市場評価を表すPERが低いか、またはその両方である。</p>
+<p>ただし、<strong>PBR1倍超とROEが株主資本コストを上回ることは、無条件に成り立つ恒等式ではない</strong>。残余利益モデルでは、将来にわたってROEが株主資本コストを上回ると市場が期待すればPBRは1倍を上回りやすく、下回ると期待すれば1倍を割りやすい。実際の株価には成長率、事業リスク、会計上の簿価、非事業資産なども影響する。</p>
+<p>したがって、エクイティ・スプレッド（ROE－株主資本コスト）は有力な診断指標ではあるが、PBRを機械的に決める唯一の変数ではない。開示では、式を単純化しすぎず、自社の事業構造と将来計画に結びつける必要がある。</p>
+<h2 id="section-4">東証が求める継続的な取組み</h2>
+<pre class="mermaid" role="img" aria-label="本文内の制度図">flowchart LR
+    A[&quot;1. 現状分析&lt;br/&gt;資本コスト・資本収益性・市場評価&quot;] --&gt; B[&quot;2. 取締役会で評価&lt;br/&gt;課題と原因を特定&quot;]
+    B --&gt; C[&quot;3. 計画を策定・開示&lt;br/&gt;目標・施策・期間&quot;]
+    C --&gt; D[&quot;4. 実行&lt;br/&gt;投資・事業・資本配分&quot;]
+    D --&gt; E[&quot;5. 対話と更新&lt;br/&gt;進捗・投資家意見を反映&quot;]
+    E --&gt; A</pre>
+
+<p>この一連の取組みで重要なのは、開示が目的ではないことである。開示は、取締役会での分析、事業現場での実行、投資家との対話を外部から確認できるようにする手段である。</p>
+<p>東証は、研究開発、人的資本、設備投資、事業ポートフォリオの見直しを具体例として挙げている。バランスシートを分析した結果、自社株買いや増配が有効と判断されることもあるが、株主還元だけの一過性の対応ではなく、資本コストを上回る資本収益性を継続して実現する抜本的な取組みを期待している。</p>
+<h2 id="section-5">要請が定めていないもの</h2>
+<h3 id="section-6">PBR1倍の達成期限</h3>
+<p>要請は「何年までにPBR1倍を超えること」とは定めていない。PBRは市場が決めるため、会社が直接管理できる目標ではない。会社が管理すべきなのは、収益性、成長投資、事業ポートフォリオ、資本構成、開示と対話である。</p>
+<h3 id="section-7">一律のROE目標</h3>
+<p>ROE8%は伊藤レポートで示された重要な目安だが、東証要請が全社に義務づけた水準ではない。事業リスクや資本構成が異なれば、株主資本コストも異なる。各社が自社の資本コストを合理的に見積もり、それを上回る収益性を目指すことが基本となる。</p>
+<h3 id="section-8">一律の配当性向や自己株式取得額</h3>
+<p>東証は配当性向や自己株式取得額の数値基準を設けていない。還元は、成長投資や財務健全性と比較したうえで決める資本配分の一項目である。</p>
+<h3 id="section-9">開示の一律期限</h3>
+<p>開始時期について具体的な期限はなく、「できる限り速やかな対応」が求められた。その後、開示企業一覧表が月次公表され、「検討中」の掲載期間も6か月に限られるようになったため、実務上は継続的な更新が必要になっている。</p>
+<h2 id="section-10">要請が実務に定着した理由</h2>
+<p>東証は2024年1月から、要請に基づく開示を行った会社の一覧表を毎月公表している。2025年からは「検討中」の掲載期間を6か月に限定し、2026年からはコーポレート・ガバナンス報告書の開示内容も一覧上で確認できるようにした。</p>
+<p>さらに、好事例だけでなく、「投資者の目線とギャップのある事例」や、課題解決に向けた企業の取組み事例も公表している。これにより、会社は「開示したか」だけでなく、「投資家が読んで理解できる内容か」「公表した計画を実行・更新しているか」で比較されるようになった。</p>
+<p>2026年4月には要請が更新され、経営資源の適切な配分が改めて中心課題に据えられた。2026年8月には、投資家が「取組みの進展が見られる」と評価した企業の一覧も公表された。東証の役割は、数値目標を強制することではなく、企業と投資家が比較・対話できる共通の土台を整える方向へ発展している。</p>
+<h2 id="section-11">IR担当者への示唆</h2>
+<ol>
+<li><strong>PBRを単独の目標にしない。</strong> PBRの変化を、ROE、成長期待、リスク、資本構成に分けて説明する。</li>
+<li><strong>資本コストの見積りを取締役会の議論につなげる。</strong> 計算だけを財務部門に置かず、投資判断、撤退判断、還元方針にどう使ったかを示す。</li>
+<li><strong>開示は進捗報告として更新する。</strong> 初回資料を毎年転載せず、目標との差、実行した施策、投資家との対話を踏まえた変更点を明記する。</li>
+<li><strong>株主還元を成長投資と同じ表で示す。</strong> 配当、自社株買い、研究開発、設備投資、M&amp;A、人的資本を一つの資本配分方針として説明する。</li>
+<li><strong>東証の最新資料を基準に点検する。</strong> 2023年の要請だけでなく、2025年の事例集、2026年の要請更新と投資家アンケートまで確認する。</li>
+</ol>
+<h2 id="section-12">出典・参考資料</h2>
+<ul>
+<li>JPX「資本コストや株価を意識した経営の実現に向けた対応等に関するお願いについて」（2023年3月31日） <a href="https://www.jpx.co.jp/news/1020/20230331-01.html">https://www.jpx.co.jp/news/1020/20230331-01.html</a></li>
+<li>JPX「資本コストや株価を意識した経営の実現に向けた対応（プライム・スタンダード市場）」 <a href="https://www.jpx.co.jp/equities/follow-up/02.html">https://www.jpx.co.jp/equities/follow-up/02.html</a></li>
+<li>JPX「『資本コストや株価を意識した経営』に関する『投資者の目線とギャップのある事例』等の公表について」（2024年11月21日） <a href="https://www.jpx.co.jp/news/1020/20241121-01.html">https://www.jpx.co.jp/news/1020/20241121-01.html</a></li>
+<li>JPX「『資本コストや株価を意識した経営』に関する要請のアップデートについて」（2026年4月28日） <a href="https://www.jpx.co.jp/news/1020/20260428-01.html">https://www.jpx.co.jp/news/1020/20260428-01.html</a></li>
+<li>経済産業省「伊藤レポート」 <a href="https://www.meti.go.jp/policy/economy/keiei_innovation/kigyoukaikei/itoreport.html">https://www.meti.go.jp/policy/economy/keiei_innovation/kigyoukaikei/itoreport.html</a></li>
+</ul>
+<h2 id="section-13">関連記事</h2>
+<ul>
+<li><strong>1.1――「ROE8%」が改革の基準になった理由</strong></li>
+<li><strong>2.2――2018年改訂――資本コストがコードに明記された転機</strong></li>
+<li><strong>3.1――4区分から3区分へ――2022年4月の市場再編</strong></li>
+<li><strong>4.2――WACC・ROIC・エクイティ・スプレッド――資本コスト経営の基本用語</strong></li>
+<li><strong>4.3――東証の開示企業一覧――公表が生む規律</strong></li>
+<li><strong>4.4――資本コスト開示で避けたい7つの落とし穴</strong></li>
+<li><strong>4.5――開示から実行へ――2026年4月の要請更新</strong></li>
+</ul></article><nav class="post-nav" aria-label="前後の記事"><a class="post-nav-link prev" href="/governance/market-restructuring/3.5-growth-market-2030/"><div class="post-nav-dir">← 前の記事</div><div class="post-nav-title">グロース市場の2030年基準――「上場5年で時価総額100億円」が意味すること</div></a><a class="post-nav-link next" href="/governance/capital-efficiency/4.2-cost-of-capital-vocabulary/"><div class="post-nav-dir">次の記事 →</div><div class="post-nav-title">WACC・ROIC・エクイティ・スプレッド――資本コスト経営の基本用語</div></a></nav><div class="post-language"><a href="/en/governance/capital-efficiency/4.1-march-2023-request-anatomy/">English version →</a></div></div></section>
+  </main>
+  <script src="/assets/governance.js?v=cc6033456e" defer></script>
+  <script src="/assets/nav.js?v=348fa48c4e" defer></script>
 </body>
 </html>

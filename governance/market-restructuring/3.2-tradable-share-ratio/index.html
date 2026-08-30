@@ -1,515 +1,284 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-
-<title>流通株式比率 ― 政策保有株を動かした一つの数値 | JII ガバナンス改革カリキュラム</title>
-<meta name="description" content="2022年4月、東証は「流通株式」の定義を静かに書き換えた。新ルールでは、国内の銀行・保険会社・事業法人が保有する株式は持株比率にかかわらず流通株式から除外される。プライム市場の流通株式比率35%基準と組み合わさることで、この一つの定義変更が、禁止という言葉を一切使わずに日本の政策保有株式システムを解体する最強の単一ツールとなった。">
-<meta property="og:title" content="流通株式比率 ― 政策保有株を動かした一つの数値 | JII ガバナンス改革カリキュラム">
-<meta property="og:description" content="2022年4月、東証は「流通株式」の定義を静かに書き換えた。新ルールでは、国内の銀行・保険会社・事業法人が保有する株式は持株比率にかかわらず流通株式から除外される。プライム市場の流通株式比率35%基準と組み合わさることで、この一つの定義変更が、禁止という言葉を一切使わずに日本の政策保有株式システムを解体する最強の単一ツールとなった。">
-<meta property="og:url" content="https://jpinv.com/governance/market-restructuring/3.2-tradable-share-ratio/">
-<link rel="canonical" href="https://jpinv.com/governance/market-restructuring/3.2-tradable-share-ratio/">
-<link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/market-restructuring/3.2-tradable-share-ratio/">
-<link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/market-restructuring/3.2-tradable-share-ratio/">
-<link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/market-restructuring/3.2-tradable-share-ratio/">
-
-<style>
-:root {
-  --ink:        #1a2a4a;
-  --ink-mid:    #172641;
-  --ink-soft:   #304466;
-  --rule:       #d6dee8;
-  --rule-soft:  #e8edf3;
-  --bg:         #ffffff;
-  --bg-mid:     #f5f7fa;
-  --bg-soft:    #fafbfc;
-  --text:       #1f2937;
-  --text-mid:   #4a5566;
-  --text-dim:   #5f6875;
-  --accent:     #9a7838;
-  --accent-deep:#9a7838;
-  --accent-soft:#f4eee4;
-  --bad:        #b91c1c;
-  --warn:       #8a682b;
-  --ok:         #2f6f4f;
-  --serif: 'Noto Serif JP', 'Yu Mincho', serif;
-  --sans:  'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
-  --mono:  'DM Mono', monospace;
-  --max: 1100px;
-  --pad: 88px;
-  --gutter: 48px;
-  --nav-h: 64px;
-  --measure: 720px;
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 400; line-height: 1.7; overflow-x: hidden; }
-img { max-width: 100%; display: block; }
-a { color: var(--ink-soft); text-decoration: none; }
-a:hover { color: var(--ink); }
-.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
-@media (max-width: 768px) { :root { --gutter: 22px; --pad: 56px; } }
-strong { font-weight: 600; color: var(--ink); }
-em { font-style: normal; color: var(--ink); font-weight: 600; }
-.label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); }
-
-/* Nav (copied from jpinv.com base) */
-nav#main-nav { position: fixed; top:0; left:0; right:0; z-index:100; height: var(--nav-h); background: rgba(255,255,255,0.96); backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule); display: flex; align-items: center; transition: box-shadow 0.3s; }
-nav#main-nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
-.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; }
-.nav-logo { text-decoration: none; display: inline-flex; align-items: center; flex: 0 0 auto; min-width: max-content; white-space: nowrap; }
-.nav-logo-img { display: block; width: auto; height: 40px; max-width: none; object-fit: contain; object-position: left center; }
-.nav-logo-img--mobile { display: none; width: 32px; height: 32px; object-fit: contain; }
-.nav-center { flex: 1; display: flex; justify-content: center; }
-.nav-links { display: flex; gap: 18px; list-style: none; flex-wrap: nowrap; white-space: nowrap; }
-.nav-links a { font-family: var(--sans); font-size: 0.74rem; font-weight: 400; letter-spacing: 0.02em; color: var(--text); text-decoration: none; transition: color 0.2s; }
-.nav-links a:hover { color: var(--ink-soft); }
-.nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; margin-left: auto; }
-.nav-cta { padding: 7px 11px; font-size: 0.66rem; letter-spacing: 0.05em; }
-.locale-switcher { display: inline-flex; align-items: center; gap: 0; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; }
-.locale-switcher a { color: var(--text-dim); border: 1px solid var(--rule); padding: 6px 9px; text-decoration: none; transition: all 0.2s; }
-.locale-switcher a + a { margin-left: -1px; }
-.locale-switcher a:hover, .locale-switcher a.current { color: var(--ink); border-color: var(--ink-mid); background: var(--bg-soft); position: relative; z-index: 1; }
-.hamburger { display: none; flex-shrink:0; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
-.hamburger span { display:block; width:22px; height:1px; background:var(--ink); transition: all 0.25s; }
-@media (max-width: 900px) { .nav-center, .nav-right .nav-cta { display:none; } .hamburger { display:flex; } }
-@media (max-width: 768px) { .nav-logo-img--desktop { display:none; } .nav-logo-img--mobile { display:block; } }
-.mobile-menu { display:none; position:fixed; top:var(--nav-h); left:0; right:0; background:var(--bg); border-bottom:1px solid var(--rule); z-index:99; padding:8px var(--gutter) 20px; flex-direction:column; gap:0; }
-.mobile-menu.open { display:flex; }
-.mobile-menu a { font-size:0.88rem; color:var(--text); text-decoration:none; padding:14px 0; border-bottom:1px solid var(--rule); letter-spacing:0.04em; }
-.mobile-menu a:last-child { border-bottom:none; }
-.mobile-menu .mobile-menu-cta { margin-top:12px; padding:13px 18px; text-align:center; color:#fff; border-bottom:none; }
-
-.btn { display: inline-block; text-decoration: none; font-family: var(--sans); font-size: 0.84rem; font-weight: 400; letter-spacing: 0.06em; padding: 13px 28px; transition: all 0.2s; cursor: pointer; border: none; }
-.btn-primary { background: var(--ink); color: #fff; }
-.btn-primary:hover { background: var(--ink-mid); color: #fff; }
-.btn-outline { border: 1px solid var(--ink-mid); color: var(--ink); background: transparent; }
-.btn-outline:hover { border-color: var(--ink); color: var(--ink); }
-.rule-accent { width: 32px; height: 2px; background: var(--accent); margin: 14px 0 22px; }
-
-/* Footer (mirror) */
-footer { border-top: 1px solid var(--rule); padding: 52px 0 28px; background: var(--bg-soft); font-size: 0.82rem; color: var(--text-dim); }
-footer .footer-grid { display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 32px; align-items: start; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
-footer h2 { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.2em; color: var(--ink-soft); text-transform: uppercase; margin-bottom: 12px; font-weight: 500; }
-footer h3 { font-family: var(--serif); font-size: 1rem; font-weight: 400; color: var(--ink); margin-bottom: 8px; }
-footer ul { list-style: none; }
-footer ul li { padding: 4px 0; }
-footer ul li a { color: var(--text-mid); }
-footer ul li a:hover { color: var(--ink); }
-footer .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 18px; flex-wrap: wrap; gap: 12px; }
-footer .footer-locale-switcher a.current { font-weight: 600; color: var(--ink); }
-@media (max-width: 900px) { footer .footer-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 580px) { footer .footer-grid { grid-template-columns: 1fr; } }
-
-/* === Curriculum-specific === */
-main.curriculum { padding-top: var(--nav-h); }
-.curr-hero { padding: 96px 0 64px; border-bottom: 1px solid var(--rule); position: relative; overflow: hidden; }
-.curr-hero::before { content:''; position:absolute; inset:0;
-  background-image: linear-gradient(rgba(15,31,58,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(15,31,58,0.04) 1px, transparent 1px);
-  background-size: 64px 64px;
-  -webkit-mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent);
-          mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent); }
-.curr-hero-inner { position:relative; z-index:2; max-width: 880px; }
-.curr-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.32em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 18px; }
-.curr-hero h1 { font-family: var(--serif); font-size: clamp(1.9rem, 4.4vw, 3.1rem); font-weight: 300; color: var(--ink-mid); line-height: 1.3; letter-spacing: 0.02em; margin: 0 0 22px; }
-.curr-hero h1 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-.curr-hero .lede { font-size: 1.05rem; line-height: 1.85; color: var(--text); margin: 0 0 24px; max-width: 700px; }
-.curr-hero-meta { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
-.curr-hero-meta strong { color: var(--ink); font-family: var(--mono); }
-
-.crumbs { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; padding: 22px 0 0; }
-.crumbs a { color: var(--text-mid); }
-.crumbs a:hover { color: var(--ink); }
-.crumbs .sep { color: var(--rule); margin: 0 8px; }
-
-.theme-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; padding: 56px 0; }
-.theme-card { display: block; background: #fff; border: 1px solid var(--rule); padding: 30px 28px; position: relative; transition: all 0.2s; }
-.theme-card:hover { border-color: var(--ink-soft); box-shadow: 0 12px 32px rgba(15,31,58,0.08); transform: translateY(-2px); }
-.theme-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background: var(--accent); opacity: 0.85; }
-.theme-card-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; }
-.theme-card-name { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--ink-mid); margin: 10px 0 8px; line-height: 1.35; }
-.theme-card-period { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 14px; }
-.theme-card-desc { font-size: 0.92rem; line-height: 1.7; color: var(--text); margin-bottom: 18px; }
-.theme-card-list { font-size: 0.84rem; color: var(--text-mid); list-style: none; padding-top: 14px; border-top: 1px solid var(--rule-soft); }
-.theme-card-list li { padding: 5px 0; }
-.theme-card-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; }
-.theme-card-foot .arrow { color: var(--accent-deep); }
-
-.post-list { padding: 28px 0 56px; }
-.post-list-row { display: grid; grid-template-columns: 60px 1fr auto; gap: 22px; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--rule-soft); transition: all 0.18s; }
-.post-list-row:hover { background: var(--bg-mid); padding-left: 12px; padding-right: 12px; }
-.post-list-num { font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em; color: var(--accent-deep); font-weight: 500; }
-.post-list-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--ink-mid); line-height: 1.45; }
-.post-list-meta { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; white-space: nowrap; }
-@media (max-width: 600px) { .post-list-row { grid-template-columns: 50px 1fr; } .post-list-meta { grid-column: 1 / -1; padding-left: 72px; } }
-
-/* Post body */
-.post-body { padding: 48px 0 80px; }
-.post-content { max-width: var(--measure); margin: 0 auto; }
-.post-content > p, .post-content > ul, .post-content > ol, .post-content > blockquote, .post-content > pre, .post-content > table, .post-content > hr, .post-content > h2, .post-content > h3, .post-content > h4 { max-width: var(--measure); margin-left: auto; margin-right: auto; }
-.post-content h2 { font-family: var(--serif); font-size: 1.55rem; font-weight: 400; color: var(--ink-mid); line-height: 1.35; margin: 56px 0 14px; padding-top: 22px; border-top: 1px solid var(--rule-soft); }
-.post-content h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 500; color: var(--ink); margin: 36px 0 10px; line-height: 1.4; }
-.post-content h4 { font-family: var(--sans); font-size: 1rem; font-weight: 600; color: var(--ink); margin: 26px 0 8px; letter-spacing: 0.02em; }
-.post-content p { margin: 0 0 18px; font-size: 1rem; line-height: 1.85; color: var(--text); }
-.post-content p:first-of-type { font-size: 1.05rem; }
-.post-content ul, .post-content ol { margin: 0 0 22px; padding-left: 28px; }
-.post-content ul li, .post-content ol li { font-size: 0.97rem; line-height: 1.8; margin-bottom: 8px; color: var(--text); }
-.post-content ul li::marker { color: var(--accent-deep); }
-.post-content blockquote { margin: 30px 0; padding: 20px 24px; border-left: 3px solid var(--accent); background: var(--accent-soft); color: var(--ink-mid); font-style: normal; }
-.post-content blockquote p { margin-bottom: 8px; font-size: 0.97rem; }
-.post-content blockquote p:last-child { margin-bottom: 0; }
-.post-content blockquote strong { color: var(--ink); }
-.post-content code { background: #f0f0f0; color: var(--ink-mid); font-family: var(--mono); font-size: 0.88rem; padding: 2px 6px; border-radius: 3px; }
-.post-content pre { background: #f9f9fb; border: 1px solid var(--rule); padding: 18px 22px; overflow-x: auto; font-family: var(--mono); font-size: 0.85rem; line-height: 1.55; margin: 24px 0; }
-.post-content pre code { background: transparent; padding: 0; font-size: inherit; }
-.post-content a { color: var(--accent-deep); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; transition: text-decoration-color 0.18s; overflow-wrap: anywhere; word-break: break-word; }
-.post-content a:hover { text-decoration-color: var(--accent-deep); }
-.post-content hr { border: none; border-top: 1px solid var(--rule); margin: 40px auto; max-width: 120px; }
-.post-content table { width: 100%; max-width: var(--measure); margin: 28px auto; border-collapse: collapse; font-size: 0.9rem; }
-.post-content th { background: var(--bg-mid); color: var(--ink-mid); font-family: var(--sans); font-weight: 600; text-align: left; padding: 12px 14px; border-bottom: 2px solid var(--rule); }
-.post-content td { padding: 10px 14px; border-bottom: 1px solid var(--rule-soft); vertical-align: top; color: var(--text); }
-.post-content tr:nth-child(even) td { background: #fafbfc; }
-
-/* Mermaid container */
-.mermaid-wrap { background: #fdfdfe; border: 1px solid var(--rule); padding: 22px 18px; margin: 28px 0; overflow-x: auto; }
-.mermaid { font-family: var(--sans); text-align: center; }
-
-/* Post header */
-.post-header { padding: 48px 0 28px; border-bottom: 1px solid var(--rule); }
-.post-header-inner { max-width: var(--measure); margin: 0 auto; }
-.post-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.28em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 14px; }
-.post-title { font-family: var(--serif); font-size: clamp(1.7rem, 3.6vw, 2.4rem); font-weight: 400; color: var(--ink-mid); line-height: 1.3; margin: 0 0 16px; letter-spacing: 0.005em; }
-.post-summary { font-size: 1.02rem; line-height: 1.8; color: var(--text); margin: 0 0 22px; max-width: 660px; }
-.post-meta { display: flex; gap: 26px; flex-wrap: wrap; padding-top: 18px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
-.post-meta span strong { color: var(--ink); font-family: var(--mono); }
-
-/* Post nav (prev/next) */
-.post-nav { max-width: var(--measure); margin: 56px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding-top: 36px; border-top: 1px solid var(--rule); }
-.post-nav-link { display: block; padding: 18px 20px; background: var(--bg-mid); border: 1px solid var(--rule); transition: all 0.18s; }
-.post-nav-link:hover { border-color: var(--ink-soft); background: #fff; transform: translateY(-1px); }
-.post-nav-dir { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px; }
-.post-nav-title { font-family: var(--serif); font-size: 0.94rem; color: var(--ink-mid); line-height: 1.4; }
-.post-nav-link.next { text-align: right; }
-@media (max-width: 640px) { .post-nav { grid-template-columns: 1fr; } .post-nav-link.next { text-align: left; } }
-
-/* Knowledge check */
-.kcheck { background: var(--bg-mid); padding: 72px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
-.kcheck-head { max-width: 720px; margin: 0 auto 36px; text-align: center; }
-.kcheck h2 { font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 300; color: var(--ink-mid); margin: 0 0 14px; line-height: 1.3; }
-.kcheck h2 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-.kcheck p.lede { font-size: 0.98rem; line-height: 1.75; color: var(--text); }
-.kcheck-q { background: #fff; border: 1px solid var(--rule); padding: 28px 30px; margin-bottom: 18px; max-width: 760px; margin-left: auto; margin-right: auto; }
-.kcheck-q-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; margin-bottom: 12px; }
-.kcheck-q-text { font-family: var(--serif); font-size: 1.1rem; line-height: 1.5; color: var(--ink-mid); margin-bottom: 18px; }
-.kcheck-opts { display: grid; gap: 8px; }
-.kcheck-opt { display: block; padding: 12px 16px; background: var(--bg-soft); border: 1px solid var(--rule); text-align: left; font-family: var(--sans); font-size: 0.92rem; color: var(--text); cursor: pointer; transition: all 0.15s; }
-.kcheck-opt:hover { background: #fff; border-color: var(--ink-soft); }
-.kcheck-opt.correct { background: #e8f3ec; border-color: var(--ok); color: var(--ok); }
-.kcheck-opt.incorrect { background: #fbe9e9; border-color: var(--bad); color: var(--bad); }
-.kcheck-explain { margin-top: 16px; padding: 14px 18px; background: var(--accent-soft); border-left: 3px solid var(--accent); font-size: 0.9rem; line-height: 1.7; color: var(--ink-mid); display: none; }
-.kcheck-q.answered .kcheck-explain { display: block; }
-.kcheck-score { text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--text-dim); margin-top: 28px; text-transform: uppercase; }
-.kcheck-score strong { color: var(--ink-mid); font-family: var(--mono); }
-
-/* Stats / hero stats */
-.stat-band { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; padding: 56px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); background: var(--bg-soft); }
-.stat-item { padding: 0 18px; }
-.stat-num { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 300; color: var(--ink-mid); line-height: 1; margin-bottom: 8px; }
-.stat-num em { color: var(--accent-deep); font-weight: 400; font-style: normal; }
-.stat-label { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; }
-</style>
-
-<meta property="og:image" content="https://jpinv.com/og/jii-default.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://jpinv.com/og/jii-default.png">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "url": "https://jpinv.com/governance/market-restructuring/3.2-tradable-share-ratio/",
-  "name": "流通株式比率 ― 政策保有株を動かした一つの数値 | JII ガバナンス改革カリキュラム",
-  "description": "2022年4月、東証は「流通株式」の定義を静かに書き換えた。新ルールでは、国内の銀行・保険会社・事業法人が保有する株式は持株比率にかかわらず流通株式から除外される。プライム市場の流通株式比率35%基準と組み合わさることで、この一つの定義変更が、禁止という言葉を一切使わずに日本の政策保有株式システムを解体する最強の単一ツールとなった。",
-  "inLanguage": "ja"
-}
-</script></head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>流通株式比率――政策保有株式の縮減を促した仕組み｜JII ガバナンス改革講座</title>
+  <meta name="description" content="2022年4月の市場再編では、上場維持基準に使う「流通株式」の定義も見直された。大口株主、役員、自己株式に加え、国内の銀行、保険会社、事業法人などが保有する株式は、純投資として市場に流通することが確認できる場合を除き、原則として流通株式に含まれない。プライム市場の流通株式比率35%以上という基準と組み合わさることで、政策保有株式や安定株主の多い会社には、株主構成そのものを見直す圧力が生じた。本稿では、定義、計算方法、改善策を実務の目線で整理する。">
+  <link rel="canonical" href="https://jpinv.com/governance/market-restructuring/3.2-tradable-share-ratio/">
+  <link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/market-restructuring/3.2-tradable-share-ratio/">
+  <link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/market-restructuring/3.2-tradable-share-ratio/">
+  <link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/market-restructuring/3.2-tradable-share-ratio/">
+  <meta property="og:title" content="流通株式比率――政策保有株式の縮減を促した仕組み｜JII ガバナンス改革講座">
+  <meta property="og:description" content="2022年4月の市場再編では、上場維持基準に使う「流通株式」の定義も見直された。大口株主、役員、自己株式に加え、国内の銀行、保険会社、事業法人などが保有する株式は、純投資として市場に流通することが確認できる場合を除き、原則として流通株式に含まれない。プライム市場の流通株式比率35%以上という基準と組み合わさることで、政策保有株式や安定株主の多い会社には、株主構成そのものを見直す圧力が生じた。本稿では、定義、計算方法、改善策を実務の目線で整理する。">
+  <meta property="og:url" content="https://jpinv.com/governance/market-restructuring/3.2-tradable-share-ratio/">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://jpinv.com/og/jii-default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://jpinv.com/og/jii-default.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&amp;family=Noto+Sans+JP:wght@300;400;500;600&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/governance.css?v=b6280834c3">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","name":"流通株式比率――政策保有株式の縮減を促した仕組み｜JII ガバナンス改革講座","description":"2022年4月の市場再編では、上場維持基準に使う「流通株式」の定義も見直された。大口株主、役員、自己株式に加え、国内の銀行、保険会社、事業法人などが保有する株式は、純投資として市場に流通することが確認できる場合を除き、原則として流通株式に含まれない。プライム市場の流通株式比率35%以上という基準と組み合わさることで、政策保有株式や安定株主の多い会社には、株主構成そのものを見直す圧力が生じた。本稿では、定義、計算方法、改善策を実務の目線で整理する。","url":"https://jpinv.com/governance/market-restructuring/3.2-tradable-share-ratio/","inLanguage":"ja","isPartOf":{"@type":"WebSite","name":"Japan Investor Interface","url":"https://jpinv.com/"},"headline":"流通株式比率――政策保有株式の縮減を促した仕組み","dateModified":"2026-08-30","author":{"@type":"Organization","name":"Japan Investor Interface Co., Ltd."},"publisher":{"@type":"Organization","name":"Japan Investor Interface Co., Ltd.","url":"https://jpinv.com/"}}</script>
+</head>
 <body>
-<main id="main-content" class="curriculum" tabindex="-1">
-<div class="wrap crumbs">
-  <a href="/">JII</a> <span class="sep">/</span>
-  <a href="/governance/">IR研修</a> <span class="sep">/</span>
-  <a href="/governance/market-restructuring/">市場区分の見直し</a> <span class="sep">/</span>
-  記事 3.2
-</div>
-<header class="post-header">
-  <div class="wrap">
-    <div class="post-header-inner">
-      <div class="post-eyebrow">テーマ 3 · 記事 3.2</div>
-      <h1 class="post-title">流通株式比率 ― 政策保有株を動かした一つの数値</h1>
-      <p class="post-summary">2022年4月、東証は「流通株式」の定義を静かに書き換えた。新ルールでは、国内の銀行・保険会社・事業法人が保有する株式は持株比率にかかわらず流通株式から除外される。プライム市場の流通株式比率35%基準と組み合わさることで、この一つの定義変更が、禁止という言葉を一切使わずに日本の政策保有株式システムを解体する最強の単一ツールとなった。</p>
-      <div class="post-meta">
-        <span>テーマ: <strong>市場区分の見直し</strong></span>
-        <span>読了目安: <strong>13 分</strong></span>
-        <span>更新: <strong>2026-05-18</strong></span>
-      </div>
-    </div>
-  </div>
-</header>
-<section class="post-body">
-  <div class="wrap">
-    <article class="post-content">
-<blockquote>
-<p><strong>要点</strong>
-- 2022年4月、東証は「流通株式」（<em>ryūdōkabu</em>）の定義を静かに書き換えた。新ルールでは、<strong>国内の銀行・保険会社・事業法人が保有する株式は、持株比率にかかわらず流通株式から除外される</strong>。0.1%の政策保有でも非流通として扱われる。
-- この再定義と、プライム市場の<strong>流通株式比率35%</strong>上場維持基準とが組み合わさることで、技術的な流動性指標が、「禁止」という言葉を一切使わずに日本の政策保有株式システムを解体する、最強の単一ツールへと姿を変えた。
-- 創業家支配・グループ支配のプライム上場会社にとって、流通株式比率は実務上もっとも拘束的な基準である。政策保有先からの自己株式取得、株式併合、売出し、創業家によるTOB ― これらはすべてこの一つの定義変更の下流効果である。</p>
+  <a class="gov-skip" href="#main-content">本文へ移動</a>
+  <main id="main-content" class="governance-page" tabindex="-1">
+    <nav class="gov-wrap gov-crumbs" aria-label="パンくず"><a href="/">ホーム</a><span class="sep">/</span><a href="/governance/">ガバナンス改革講座</a><span class="sep">/</span><a href="/governance/market-restructuring/">市場区分の見直し</a><span class="sep">/</span><span aria-current="page">記事 3.2</span></nav>
+    <header class="post-header"><div class="gov-wrap"><div class="post-header-inner"><span class="post-eyebrow">テーマ 3 · 記事 3.2</span><h1 class="post-title">流通株式比率――政策保有株式の縮減を促した仕組み</h1><p class="post-summary">2022年4月の市場再編では、上場維持基準に使う「流通株式」の定義も見直された。大口株主、役員、自己株式に加え、国内の銀行、保険会社、事業法人などが保有する株式は、純投資として市場に流通することが確認できる場合を除き、原則として流通株式に含まれない。プライム市場の流通株式比率35%以上という基準と組み合わさることで、政策保有株式や安定株主の多い会社には、株主構成そのものを見直す圧力が生じた。本稿では、定義、計算方法、改善策を実務の目線で整理する。</p><div class="post-meta"><span>テーマ: <strong>市場区分の見直し</strong></span><span>読了目安: <strong>11分</strong></span><span>更新: <strong>2026-08-30</strong></span></div></div></div></header>
+    <section class="post-body"><div class="gov-wrap"><article class="post-content"><blockquote>
+<p><strong>要点</strong></p>
+<ul>
+<li>流通株式比率は、<strong>市場で流通するとみなされる株式数を、上場株式数で割った比率</strong>である。プライムは35%以上、スタンダードとグロースは25%以上が上場維持基準となる。</li>
+<li>国内の普通銀行、保険会社、事業法人などの保有株式は原則として流通株式から除かれる。ただし、保有目的が純投資で、直近5年以内の売買実績が確認できるなど、東証の要件を満たす場合は流通株式に含められることがある。</li>
+<li>政策保有株主から自社株を買い取っただけでは、比率は直ちには上がらない。自己株式も上場株式数の分母に含まれるため、改善効果が出るのは、原則として<strong>消却した後</strong>である。</li>
+</ul>
 </blockquote>
-<hr>
-<h2>流通株式比率とは何か、そして従来は何だったのか</h2>
-<p>1990年代以降の東証の上場維持制度には、常に「流通株式」あるいは「浮動株」という概念があった。会社の株式のうち、インサイダーや長期戦略保有者が保有する塊とは異なり、市場で実際に流通している部分を測るための計算である。新3区分（プライム・スタンダード・グロース）の上場維持基準は、この指標を2か所で用いる。一つは絶対額の<em>時価総額</em>基準（プライム100億円以上、スタンダード10億円以上、グロース5億円以上）、もう一つは<em>比率</em>基準（プライム35%以上、スタンダード・グロースは25%以上）である。</p>
-<p>指標自体は2022年以前の東証一部時代から存在したが、<strong>2022年の再定義</strong>こそが、これに歯を与えた。変更は、「流通プール」からの除外項目を順に積み増していくと理解しやすい。新定義では、以下のものが流通株式から除外される。</p>
-<ol>
-<li><strong>上位10位までの大株主</strong>の保有分（限定的な例外あり）。</li>
-<li>役員、執行役員、およびその関係者が保有する株式。</li>
-<li>会社自身が保有する<strong>自己株式</strong>。</li>
-<li>その他の<strong>特別利害関係者</strong>が保有する株式（親会社株を保有する子会社・関連会社など）。</li>
-<li><strong>国内の銀行（預金取扱機関）および保険会社</strong>が保有する株式 ― 上位10位に入っているか否かを問わない。</li>
-<li>発行体株式を<strong>戦略的・取引関係</strong>として保有する<strong>事業法人</strong>の株式 ― <strong>持株比率にかかわらず</strong>。</li>
-</ol>
-<p>中でも重い意味を持つのが<strong>第5項と第6項</strong>の除外である。2022年以前であれば、地方銀行が上場会社の1.2%を保有しているケース ― 典型的な1990年代の取引関係の名残としての小さな「戦略」持株 ― は、その銀行が上位10位に入っていない限り流通株式に含まれていた。2022年以降は、即座に非流通となる。トヨタグループの会社が小規模なサプライヤーの0.8%を保有しているケース、保険会社が長年の保険契約先パートナーの2%を保有しているケースも同様である。</p>
-<h2>旧定義と新定義 ― 一枚の表で見る転換</h2>
+<h2 id="section-1">流通株式比率とは何か</h2>
+<p>流通株式とは、東証が上場基準の判定上、<strong>市場で売買される可能性が高いと認める株式</strong>である。日々実際に売買された株式だけを数える指標ではない。株主の属性、持株比率、保有目的などから、安定保有される可能性が高い株式を除外して算定する。</p>
+<p>計算式は次のとおりである。</p>
+<blockquote>
+<p><strong>流通株式比率 ＝ 流通株式数 ÷ 上場株式数 × 100</strong></p>
+</blockquote>
+<p>上場維持基準は、次の三つの形で流通株式を使う。</p>
 <table>
 <thead>
 <tr>
-<th>保有者カテゴリー</th>
-<th><strong>旧定義</strong>（2022年4月以前）</th>
-<th><strong>新定義</strong>（2022年4月以降）</th>
-<th>政策保有への含意</th>
+<th>市場</th>
+<th align="right">流通株式数</th>
+<th align="right">流通株式時価総額</th>
+<th align="right">流通株式比率</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td>上位10位の大株主</td>
-<td>非流通</td>
-<td>非流通</td>
-<td>変化なし</td>
+<tbody><tr>
+<td>プライム</td>
+<td align="right">2万単位以上</td>
+<td align="right">100億円以上</td>
+<td align="right">35%以上</td>
 </tr>
 <tr>
-<td>役員、執行役員、関係者</td>
-<td>非流通</td>
-<td>非流通</td>
-<td>変化なし</td>
+<td>スタンダード</td>
+<td align="right">2,000単位以上</td>
+<td align="right">10億円以上</td>
+<td align="right">25%以上</td>
 </tr>
 <tr>
-<td>自己株式</td>
-<td>非流通</td>
-<td>非流通</td>
-<td>変化なし</td>
+<td>グロース</td>
+<td align="right">1,000単位以上</td>
+<td align="right">5億円以上</td>
+<td align="right">25%以上</td>
+</tr>
+</tbody></table>
+<p>流通株式時価総額は、流通株式数に、事業年度末以前3か月間の東証市場における日々の最終価格の平均値を掛けて算出する。流通株式数と流通株式比率は株主構成に左右され、流通株式時価総額はそれに株価要因が加わる。</p>
+<h2 id="section-2">何が流通株式から除かれるのか</h2>
+<p>現行制度では、主に次の株式が流通株式から除かれる。</p>
+<ol>
+<li><strong>上場株式数の10%以上を保有する株主の株式</strong>。ただし、投資信託や年金信託に組み入れられている株式など、一定の例外がある。</li>
+<li><strong>役員と特別利害関係者の保有株式</strong>。取締役、監査役、執行役、役員持株会のほか、役員の近親者、関係会社などが含まれる。</li>
+<li><strong>自己株式</strong>。</li>
+<li><strong>国内の普通銀行、保険会社、事業法人などの保有株式</strong>。持株比率が10%未満でも、原則として除外される。</li>
+</ol>
+<p>最後の分類には例外がある。大量保有報告書や東証所定の保有状況報告書で、保有目的が<strong>純投資その他市場に流通する見込みが高い目的</strong>であることが明らかで、かつ直近5年以内の売買実績が確認できる場合には、東証が流通株式として認めることがある。ただし、10%以上を保有する株主や役員等に該当する場合は、この例外の対象にならない。</p>
+<p>したがって、「銀行・保険会社・事業法人の株式は例外なく非流通」と理解するのは正確ではない。重要なのは株主の名称だけでなく、<strong>保有目的と売買実績を東証に立証できるか</strong>である。</p>
+<h2 id="section-3">2022年の見直しが持った意味</h2>
+<p>市場再編前から流通株式の考え方は存在した。しかし、2022年の制度では、国内の銀行、保険会社、事業法人などによる保有をより厳格に扱い、各市場の上場維持基準に流通株式数・時価総額・比率を組み込んだ。</p>
+<p>制度上の直接の目的は、各市場にふさわしい流動性を確保し、投資家が売買しやすい市場をつくることである。一方、日本企業の株主構成に当てはめると、政策保有株式や取引関係に基づく安定保有が多い会社ほど、流通株式比率が低く算定される。このため、制度は結果として、政策保有株式の売却や創業家・親会社持分の市場放出を促す作用を持った。</p>
+<p>これは、政策保有株式を直接禁止する仕組みではない。会社が政策保有の合理性を説明できたとしても、その株式が流通株式として数えられるとは限らない。<strong>ガバナンス上の保有合理性と、上場基準上の流動性は別の判定</strong>だからである。</p>
+<h2 id="section-4">旧制度との違いをどう捉えるか</h2>
+<table>
+<thead>
+<tr>
+<th>観点</th>
+<th>市場再編前</th>
+<th>2022年4月以降</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>市場区分</td>
+<td>市場第一部など、区分ごとの役割と維持基準の差が不明確</td>
+<td>プライム・スタンダード・グロースごとに流通株式基準を明示</td>
 </tr>
 <tr>
-<td><strong>国内の銀行（預金取扱機関）</strong> ― 上位10位未満の少額保有</td>
-<td><em>流通株式に算入</em></td>
-<td><strong>持株比率にかかわらず非流通</strong></td>
-<td>地方銀行の0.5%保有も非流通化</td>
+<td>安定保有株式</td>
+<td>10%未満の銀行・保険・事業法人保有が流通株式に含まれる余地が比較的大きかった</td>
+<td>原則として除外し、純投資・売買実績を確認できる場合のみ例外的に算入</td>
 </tr>
 <tr>
-<td><strong>保険会社</strong> ― 上位10位未満の少額保有</td>
-<td><em>流通株式に算入</em></td>
-<td><strong>持株比率にかかわらず非流通</strong></td>
-<td>生損保の政策保有が非流通化</td>
+<td>プライム相当の比率</td>
+<td>市場第一部にも35%基準はあったが、定義と維持制度が異なる</td>
+<td>厳格化した定義の下で35%以上を継続的に維持</td>
 </tr>
 <tr>
-<td><strong>事業法人</strong>が戦略的・取引関係として保有</td>
-<td>上位10位外なら<em>流通株式に算入</em></td>
-<td><strong>持株比率にかかわらず非流通</strong>（保有者が関係性を確認した場合）</td>
-<td>系列型クロスホールディングはすべて非流通</td>
+<td>判定</td>
+<td>上場後の維持基準が新規上場基準より緩い</td>
+<td>事業年度末を基準に原則年1回判定し、未達なら改善期間へ</td>
 </tr>
-<tr>
-<td>信託銀行の資産運用部門、外国機関投資家、個人投資家</td>
-<td>流通</td>
-<td>流通</td>
-<td>変化なし ― これらが<em>カウントされる</em>保有者</td>
-</tr>
-<tr>
-<td><strong>上場維持の比率基準</strong></td>
-<td>旧東証一部：流通株式比率35%（はるかに緩い流通の定義のもと）</td>
-<td><strong>プライム35%／スタンダード25%／グロース25%</strong>（厳格化された定義のもと）</td>
-<td>見出しの数値は同じ、テストは大幅に厳しい</td>
-</tr>
-</tbody>
-</table>
-<p>「見出しの数値は同じ、テストは大幅に厳しい」というフレーミングが本質を突いている。2022年に多くの海外コメンテーターはプライムの35%基準を見て「東証一部の35%とあまり変わらない」と受け止めた。だがこの理解は要点を外している。比率の数字は同じでも、<em>分子と分母が書き換えられた</em>ため、旧ルールで「流通」とされた保有が新ルールでは「ロック」と扱われる。2022年3月時点で余裕をもって35%を上回っていた会社が、株主構成を1株も動かさずに、2022年4月初日に35%を割り込むことすらありえた。</p>
-<h2>なぜ実務上もっとも拘束的な基準なのか</h2>
-<p>プライムの定量的な上場維持基準 ― 流通株式時価総額100億円以上、流通株式比率35%以上、株主数800人以上、売買単位数2万単位以上、1日平均売買代金2,000万円以上 ― のなかで、<strong>創業家支配・グループ支配の発行体がもっともよく落とすのが流通株式比率</strong>である。理由は3つある。</p>
-<p><strong>第一に、時価総額・売買高基準は、価格と流通株式数の算術関数に近い</strong>。流通株式時価総額が不足している会社は、株価上昇（業績改善、自己株式取得、PBR引き上げ）または流通株式<em>数</em>の増加（売出し、政策保有株の併合）で対処できる。いずれも従来型の資本市場アクションである。</p>
-<p><strong>第二に、株主数・売買単位数の基準は、個人投資家向けの分散施策で対応できる</strong>。個人投資家向け売出し、株式分割などである。</p>
-<p><strong>第三に、流通株式比率は株主構成そのものに支配される</strong>。株価には依存しない。出来高にも依存しない。依存するのは<strong>誰が株を持っているか</strong>だけである。創業家、親会社、グループ関連会社のネットワーク、メインバンク、長期取引関係の保険会社、そして数社の取引関係先事業会社が上位を占めるような発行体にとって、この比率は新規発行や自己株式取得だけでは是正できない。<strong>株主の顔ぶれそのものを変える</strong>しかない。</p>
-<p>この構造的な事実こそが、2022年の再定義を過去10年間の日本資本市場における最も重大な単一の変更にした。</p>
-<h2>このルールが引き起こしたコーポレート・アクション</h2>
-<p>2025年までに、日本の上場会社が流通株式比率の未達への対応として取るコーポレート・アクションのメニューは、一つのカテゴリーとして追跡されるほど定着した。パターンは以下のとおり。</p>
+</tbody></table>
+<p>表面上は35%という数字が同じでも、何を流通株式に数えるかが変われば、会社にとっての難易度も変わる。株主構成を変えていなくても、新しい定義で計算し直した結果、比率が大きく下がる会社が生じた。</p>
+<h2 id="section-5">流通株式比率は何で動くのか</h2>
+<p>流通株式比率を改善する方法は、分子である流通株式数を増やすか、分母である上場株式数を減らすかの二つである。ただし、どの資本政策でも比率が動くわけではない。</p>
+<h3 id="section-6">比率を改善しやすい施策</h3>
 <ul>
-<li><strong>政策保有先からの自己株式取得</strong>。発行体が戦略保有先の事業会社や保険会社から自社株を買い戻す。買い戻した株式は自己株式となる（依然として非流通）が、<em>分母</em>が縮小するため比率は上昇する。多くの場合、消却と組み合わせて恒久的な引き上げ効果を確保する。</li>
-<li><strong>政策保有先による市場での売却</strong>。クロスホールディング先の銀行や保険会社が市場や公募売出しで売却する。株式は「非流通」から「流通」に移行し、比率が上昇する。2010年と2018年のCGコード改訂でこのパターンが徐々に一般化していたが、2022年の比率ルールがこれを加速した。</li>
-<li><strong>株式併合と売出しの組み合わせ</strong>。創業家・戦略保有の持分を内部再編または持株会社化で集約し、その固まりを公募売出しで市場に放出する。非流通株式を一回の取引で流通株式に転換する手法である。</li>
-<li><strong>プライムからスタンダードへの移行</strong>。構造的な株主基盤を経済合理的に動かせない企業にとっては、25%基準と流通株式時価総額10億円基準を持つスタンダードへの自主的な区分変更が最もシンプルな答えとなる。</li>
-<li><strong>創業家やPEによるMBO／TOB</strong>。プライム上場を維持するコストに見合わない場合、創業家主導のMBO（PEファイナンス付きの場合もある）で非公開化する選択肢がある。2024～2025年にかけて急増した（MBO・買収指針の文脈は5.4参照）。</li>
+<li><strong>政策保有株主や創業家による市場売却・売出し</strong>：非流通株式が一般投資家に移れば、流通株式数が増える。</li>
+<li><strong>親会社・主要株主による持分売却</strong>：売却先が流通株主であれば、同様に分子が増える。</li>
+<li><strong>公募増資や第三者への広い分散売却</strong>：新株が流通株主に保有されれば、分子と分母の双方が増えるが、流通株式の増加率が高ければ比率も上がる。</li>
+<li><strong>非流通株式の自己株式取得と消却</strong>：取得時点では自己株式も非流通であり、分母に残るため比率は原則変わらない。消却して上場株式数が減った時点で改善する。</li>
 </ul>
-<h2>算式の具体例</h2>
-<p>仮想のプライム上場中堅会社について、2022年以前のキャップ・テーブルを考えてみよう。</p>
+<h3 id="section-7">原則として比率を変えない施策</h3>
+<ul>
+<li><strong>株式分割・株式併合</strong>：流通株式と上場株式が同じ割合で増減するため、通常、比率は変わらない。</li>
+<li><strong>非流通株主からの自己株式取得だけを行い、消却しない</strong>：非流通株式が自己株式に置き換わるだけである。</li>
+<li><strong>株価上昇</strong>：流通株式時価総額は上がるが、流通株式比率そのものは変わらない。</li>
+</ul>
+<h2 id="section-8">数字で確認する</h2>
+<p>発行済み・上場株式数が1億株の会社を考える。</p>
 <table>
 <thead>
 <tr>
 <th>保有者</th>
-<th>持株比率</th>
-<th>旧（2022年以前）流通？</th>
-<th>新（2022年以降）流通？</th>
+<th align="right">株式数</th>
+<th>流通株式に算入するか</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td>創業家（合計）</td>
-<td>22%</td>
-<td>否（上位10位）</td>
-<td>否</td>
+<tbody><tr>
+<td>創業家</td>
+<td align="right">3,000万株</td>
+<td>しない（10%以上保有）</td>
 </tr>
 <tr>
-<td>メインバンク（預金取扱機関）</td>
-<td>4%</td>
-<td>はい（上位10位外）</td>
-<td><strong>否</strong></td>
+<td>取引銀行</td>
+<td align="right">500万株</td>
+<td>しない（政策保有）</td>
 </tr>
 <tr>
-<td>関連保険会社</td>
-<td>2%</td>
-<td>はい（上位10位外）</td>
-<td><strong>否</strong></td>
+<td>保険会社</td>
+<td align="right">400万株</td>
+<td>しない（政策保有）</td>
 </tr>
 <tr>
-<td>グループ事業会社3社（各1%）</td>
-<td>3%</td>
-<td>はい（上位10位外）</td>
-<td><strong>否</strong></td>
-</tr>
-<tr>
-<td>その他上位10位の保有者（資産運用会社）</td>
-<td>14%</td>
-<td>否（上位10位）</td>
-<td>否</td>
+<td>取引先事業法人</td>
+<td align="right">600万株</td>
+<td>しない（政策保有）</td>
 </tr>
 <tr>
 <td>自己株式</td>
-<td>1%</td>
-<td>否</td>
-<td>否</td>
+<td align="right">500万株</td>
+<td>しない</td>
 </tr>
 <tr>
-<td>その他流通株式（個人、外国人、上位10位外の国内資産運用）</td>
-<td>54%</td>
-<td>はい</td>
-<td>はい</td>
+<td>国内外の機関投資家・個人</td>
+<td align="right">5,000万株</td>
+<td>する</td>
 </tr>
 <tr>
 <td><strong>合計</strong></td>
-<td>100%</td>
-<td><strong>流通：63%</strong></td>
-<td><strong>流通：54%</strong></td>
+<td align="right"><strong>1億株</strong></td>
+<td><strong>流通株式5,000万株</strong></td>
 </tr>
-</tbody>
-</table>
-<p>旧定義では流通株式比率63%と、プライム35%基準を余裕で超えていた。新定義では同じ株主構成でも<strong>54%</strong>となり、依然35%は上回るものの、ヘッドルームは大幅に圧縮される。少々の不利な株主構成変化（新たな戦略保有の積み増し、資産運用会社の上位10位入り）で、業績の悪化なしに基準ぎりぎりまで押し下げられかねない。</p>
-<p>より集中度の高い発行体 ― 例えば創業家35%、メインバンク8%、保険会社6%、グループ事業会社8% ― では、同じ算式で新定義の流通株式比率は<strong>約38%</strong>、旧定義では約57%となる。株主構成のわずかな変化で上場維持を失う距離まで近づく。</p>
-<h2>政策の論理 ― 裏口からの政策保有解消</h2>
-<p>2022年の再定義を、技術的な整理と読むのではなく、意図的な政策設計として読むことが重要である。日本は20年間、より柔らかい仕組みでクロスホールディング解消を試みてきた。</p>
+</tbody></table>
+<p>この会社の流通株式比率は、<strong>5,000万株÷1億株＝50%</strong>である。</p>
+<p>その後の施策による変化を比べる。</p>
+<table>
+<thead>
+<tr>
+<th>施策</th>
+<th align="right">流通株式数</th>
+<th align="right">上場株式数</th>
+<th align="right">流通株式比率</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>何もしない</td>
+<td align="right">5,000万株</td>
+<td align="right">1億株</td>
+<td align="right">50.0%</td>
+</tr>
+<tr>
+<td>保険会社が400万株を市場売却</td>
+<td align="right">5,400万株</td>
+<td align="right">1億株</td>
+<td align="right">54.0%</td>
+</tr>
+<tr>
+<td>会社が銀行から500万株を自己株取得、未消却</td>
+<td align="right">5,000万株</td>
+<td align="right">1億株</td>
+<td align="right">50.0%</td>
+</tr>
+<tr>
+<td>上記500万株を消却</td>
+<td align="right">5,000万株</td>
+<td align="right">9,500万株</td>
+<td align="right">約52.6%</td>
+</tr>
+<tr>
+<td>一般投資家向けに1,000万株を新規発行</td>
+<td align="right">6,000万株</td>
+<td align="right">1億1,000万株</td>
+<td align="right">約54.5%</td>
+</tr>
+</tbody></table>
+<p>この表から分かるように、同じ「資本政策」でも流通株式比率への効果は大きく異なる。IR部門は、施策の名称ではなく、<strong>施策後に各株式が流通株式として数えられるか</strong>を確認しなければならない。</p>
+<h2 id="section-9">政策保有株式との関係</h2>
+<p>政策保有株式については、すでに複数の制度が働いている。</p>
 <ul>
-<li>2010年の内閣府令改正は、有価証券報告書での政策保有株式の<strong>保有目的および合理性</strong>の開示を求めた。</li>
-<li>2014年のスチュワードシップ・コードは、機関投資家に政策保有株への対話を要請した。</li>
-<li>2015年のコーポレートガバナンス・コード（原則1-4）は、上場会社に<strong>政策保有株式の方針</strong>の開示と毎年の経済合理性検証を求めた。</li>
-<li>2018年のコード改訂は、個別銘柄ごとの検証要件を強化した。</li>
+<li>有価証券報告書では、銘柄ごとの保有目的や定量的な保有効果などの開示が求められる。</li>
+<li>コーポレートガバナンス・コード原則1.4は、保有方針、縮減方針、取締役会による個別検証を求める。</li>
+<li>スチュワードシップ・コードは、投資家に政策保有株式を含む資本配分について対話することを促す。</li>
+<li>流通株式基準は、政策保有株式を上場維持上の流動性に反映する。</li>
 </ul>
-<p>これらはいずれも対話を動かしたが、算数は変えなかった。2020年までに金融庁の政策コミュニティは、開示・説明型のメカニズムだけでは政策保有株式システムを解消できないと結論づけた。2022年の再定義は、政策保有株式を <em>上場維持上の不利益として数えさせる</em> ことで算数を変えた。開示しているか、合理性を説明しているか、検証しているかは無関係である。</p>
-<div class="mermaid-wrap"><pre class="mermaid">flowchart TD
-    A[&quot;発行体の発行済株式総数&quot;] --&gt; B[&quot;控除：上位10位の大株主&lt;br/&gt;＋ 役員・関係者&lt;br/&gt;＋ 自己株式&quot;]
-    B --&gt; C[&quot;控除：銀行の保有株&lt;br/&gt;持株比率にかかわらず&quot;]
-    C --&gt; D[&quot;控除：保険会社の保有株&lt;br/&gt;持株比率にかかわらず&quot;]
-    D --&gt; E[&quot;控除：事業法人の&lt;br/&gt;戦略保有株&lt;br/&gt;持株比率にかかわらず&quot;]
-    E --&gt; F[&quot;＝ 流通株式&quot;]
-    F --&gt; G{&quot;流通株式比率&lt;br/&gt;（総株式に対する比率）&quot;}
-    G --&gt;|&quot;35%以上&quot;| H[&quot;プライム適格&quot;]
-    G --&gt;|&quot;25%～35%&quot;| I[&quot;スタンダード適格&lt;br/&gt;（プライム不適格）&quot;]
-    G --&gt;|&quot;25%未満&quot;| J[&quot;改善期間&lt;br/&gt;→ 格下げまたは&lt;br/&gt;上場廃止の可能性&quot;]
+<p>最初の三つは主として<strong>説明と対話</strong>を通じて働く。流通株式基準は、保有の説明内容とは別に、上場維持基準の計算へ直接反映される。この違いが、2022年の見直しを実務上強いものにした。</p>
+<p>ただし、「東証が政策保有株式を解消するために流通株式の定義を変更した」と政策目的まで断定するのは慎重であるべきだ。公式の制度趣旨は市場流動性の確保であり、政策保有株式の縮減は、その制度が日本の株主構成に働いた重要な効果と捉えるのが適切である。</p>
+<pre class="mermaid" role="img" aria-label="本文内の制度図">flowchart TD
+    A[&quot;上場株式数&quot;] --&gt; B[&quot;控除：10%以上保有株主&lt;br/&gt;（一定の例外あり）&quot;]
+    B --&gt; C[&quot;控除：役員・特別利害関係者&quot;]
+    C --&gt; D[&quot;控除：自己株式&quot;]
+    D --&gt; E[&quot;控除：国内銀行・保険・事業法人等&lt;br/&gt;（純投資等の例外あり）&quot;]
+    E --&gt; F[&quot;流通株式数&quot;]
+    F --&gt; G{&quot;流通株式比率&quot;}
+    G --&gt;|&quot;35%以上&quot;| H[&quot;プライムの比率基準に適合&quot;]
+    G --&gt;|&quot;25%以上35%未満&quot;| I[&quot;スタンダード・グロースの&lt;br/&gt;比率基準には適合可能&quot;]
+    G --&gt;|&quot;25%未満&quot;| J[&quot;各市場の基準に応じた対応が必要&quot;]
 
     classDef pass fill:#e6efe1,stroke:#3d6b3a,color:#1f3a1d
     classDef warn fill:#f9eecc,stroke:#a07e3a,color:#3a2d10
     classDef fail fill:#f4d5d0,stroke:#8a3f3a,color:#3a1614
     class H pass
     class I warn
-    class J fail</pre></div>
+    class J fail</pre>
 
-<h2>IR担当者への示唆</h2>
+<h2 id="section-10">IR担当者への示唆</h2>
 <ol>
-<li>
-<p><strong>流通株式比率は上場基準ではなく資本構成指標として扱うべき</strong>。これは<em>誰が株を持っているか</em>で決まり、株価や出来高では決まらない。流通株式比率は四半期ごとに計算を更新すべきだ。多くの企業は、株主構成の変化だけで数値が動くことに気づく。</p>
-</li>
-<li>
-<p><strong>株主構成を流通株式6カテゴリーに分解せよ</strong>。上位30名の保有者を、銀行、保険、事業法人、資産運用、個人、外国機関、その他のいずれかに明示的にタグ付けする内部の「流通株式分解」を構築する。政策保有解消の議論に必要な実務的データセットである。</p>
-</li>
-<li>
-<p><strong>政策保有先からの売却圧力を予期せよ</strong>。銀行と保険会社は、CGコードに基づき自社の政策保有株式縮小の圧力を受けている（5.2）。政策保有株主が売却の打診に来ることを想定し、自己株取得価格、市場インパクトへの懸念、タイミング、開示対応について、構造化された回答を準備しておく。</p>
-</li>
-<li>
-<p><strong>算数と戦わない</strong>。構造的な株主基盤がプライムの流通株式比率35%を経済合理的に支えられないのであれば、2025年3月の崖の後にスタンダードへの自発的移行を選ぶことは、十分にあり得る選択である。失敗ではなく戦略的判断として開示した会社は、市場から相応に受け入れられている。</p>
-</li>
-<li>
-<p><strong>政策保有方針の文書化を徹底せよ</strong>。有価証券報告書の政策保有株式の項、CGレポートの原則1-4の開示、社内の「経済合理性検証」議事録は、いまや上場維持基準と一体の開示パッケージである。三つを統合した一連の開示として運用すべきだ。</p>
-</li>
+<li><strong>東証の算式で自社の比率を再現する。</strong> 自社で使う「浮動株比率」や指数会社の浮動株比率と、東証の流通株式比率は同じとは限らない。</li>
+<li><strong>株主を属性だけでなく保有目的まで分類する。</strong> 銀行・保険・事業法人でも、純投資と売買実績を立証できれば流通株式に含まれる場合がある。必要書類を株主と早めに確認する。</li>
+<li><strong>自己株式取得と消却を分けて説明する。</strong> 取得だけでは比率が改善しない場合がある。取締役会資料と投資家向け開示では、消却の有無と実施時期まで示す。</li>
+<li><strong>事業年度末の判定を見越して管理する。</strong> 東証の審査は原則として各事業年度末の状況を対象に年1回行われる。社内では四半期ごとに試算し、基準日前に対応できるようにする。</li>
+<li><strong>上場維持と資本政策を一体で議論する。</strong> 政策保有株式の売却、主要株主の売出し、増資、自己株式の消却、市場区分変更は、IRだけでなく財務、法務、経営企画、取締役会が共同で判断すべき事項である。</li>
 </ol>
-<h2>出典・参考資料</h2>
+<h2 id="section-11">出典・参考資料</h2>
 <ul>
-<li>JPX「流通株式 ― 上場維持基準の詳細」 https://www.jpx.co.jp/equities/listing/continue/details/02.html</li>
-<li>JPX「上場維持基準（プライム市場）」 https://www.jpx.co.jp/equities/listing/continue/outline/01.html</li>
-<li>JPX「上場維持基準（スタンダード市場）」 https://www.jpx.co.jp/equities/listing/continue/outline/02.html</li>
-<li>JPX「上場維持基準（グロース市場）」 https://www.jpx.co.jp/equities/listing/continue/outline/03.html</li>
-<li>JPX「市場区分」 https://www.jpx.co.jp/equities/market-restructure/market-segments/index.html</li>
-<li>金融庁「コーポレートガバナンス・コード（2021年改訂）」原則1-4（政策保有株式） https://www.jpx.co.jp/equities/listing/cg/index.html</li>
-<li>経済産業省「グループ・ガバナンス・システムに関する実務指針」 https://www.meti.go.jp/press/2019/06/20190628003/20190628003.html</li>
+<li>日本取引所グループ「流通株式―上場維持基準の詳細」: <a href="https://www.jpx.co.jp/equities/listing/continue/details/02.html">https://www.jpx.co.jp/equities/listing/continue/details/02.html</a></li>
+<li>日本取引所グループ「上場維持基準（プライム市場）」: <a href="https://www.jpx.co.jp/equities/listing/continue/outline/01.html">https://www.jpx.co.jp/equities/listing/continue/outline/01.html</a></li>
+<li>日本取引所グループ「上場維持基準（スタンダード市場）」: <a href="https://www.jpx.co.jp/equities/listing/continue/outline/02.html">https://www.jpx.co.jp/equities/listing/continue/outline/02.html</a></li>
+<li>日本取引所グループ「上場維持基準（グロース市場）」: <a href="https://www.jpx.co.jp/equities/listing/continue/outline/03.html">https://www.jpx.co.jp/equities/listing/continue/outline/03.html</a></li>
+<li>日本取引所グループ「市場区分見直しの概要」: <a href="https://www.jpx.co.jp/equities/improvements/market-structure/01.html">https://www.jpx.co.jp/equities/improvements/market-structure/01.html</a></li>
+<li>日本取引所グループ「流通株式の定義―国内の普通銀行、保険会社及び事業法人等が所有する株式に関する例外的な取扱い」: <a href="https://faq.jpx.co.jp/disclo/tse/web/knowledge8628.html">https://faq.jpx.co.jp/disclo/tse/web/knowledge8628.html</a></li>
+<li>日本取引所グループ「コーポレートガバナンス・コード」: <a href="https://www.jpx.co.jp/equities/listing/cg/index.html">https://www.jpx.co.jp/equities/listing/cg/index.html</a></li>
 </ul>
-<h2>関連記事</h2>
+<h2 id="section-12">関連記事</h2>
 <ul>
-<li><strong>3.1 ― 4区分から3区分へ</strong>：流通株式比率ルールが機能する区分構造の前提。</li>
-<li><strong>3.3 ― 2025年3月の崖</strong>：流通株式ルールの経過措置が終了する時点。</li>
-<li><strong>5.2 ― 政策保有株のエンドゲーム</strong>：個別検証、銀行・保険への金融庁の売却圧力、2022年再定義のその後。</li>
-<li><strong>4.1 ― PBR&lt;1は目標ではなく、市場の評決</strong>：資本構成のクリーンアップと並走する資本コスト経営の戦略論。</li>
-<li><strong>1.2 ― メインバンクから水野氏へ</strong>：このルールが解体しようとしている系列構造の</li>
-</ul>
-    </article>
-    <div class="post-nav"><a href="/governance/market-restructuring/3.1-four-segments-to-three/" class="post-nav-link prev"><div class="post-nav-dir">← 前の記事</div><div class="post-nav-title">4区分から3区分へ ― 2022年4月の市場再編</div></a><a href="/governance/market-restructuring/3.3-transitional-measures-cliff/" class="post-nav-link next"><div class="post-nav-dir">次の記事 →</div><div class="post-nav-title">2025年3月の崖 ― 経過措置の終了と改善期間</div></a></div>
-    <div style="max-width: var(--measure); margin: 32px auto 0; padding-top: 24px; border-top: 1px solid var(--rule); font-size: 0.82rem; color: var(--text-dim); text-align:right;">
-      <a href="/en/governance/market-restructuring/3.2-tradable-share-ratio/" style="color: var(--ink-soft);">English version →</a>
-    </div>
-  </div>
-</section>
-</main>
-<style>footer{background:var(--ink,#1a2a4a);color:#cfd6e2;padding:48px 0 30px;font-size:0.8rem;line-height:1.8;border-top:none}footer a{color:#cfd6e2;text-decoration:none}footer .footer-row{list-style:none;display:flex;flex-wrap:wrap;gap:8px 26px;margin:0 0 26px;padding:0}footer .footer-row li{padding:0}footer .footer-row a{color:#cfd6e2;text-decoration:none;font-size:0.8rem}footer .footer-bottom{padding-top:24px;border-top:1px solid rgba(255,255,255,0.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-family:var(--mono),monospace;font-size:0.68rem;letter-spacing:0.06em;color:rgba(255,255,255,0.55)}</style><script>
-const nav = document.getElementById('main-nav');
-if (nav) window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
-const hamburgerBtn = document.querySelector('.hamburger');
-function setMenuOpen(isOpen) { const menu = document.getElementById('mobileMenu'); if (!menu || !hamburgerBtn) return; menu.classList.toggle('open', isOpen); menu.hidden = !isOpen; hamburgerBtn.setAttribute('aria-expanded', String(isOpen)); }
-function toggleMenu() { const menu = document.getElementById('mobileMenu'); setMenuOpen(!(menu && menu.classList.contains('open'))); }
-document.addEventListener('click', (e) => { const menu = document.getElementById('mobileMenu'); if (menu && menu.classList.contains('open') && !menu.contains(e.target) && hamburgerBtn && !hamburgerBtn.contains(e.target)) setMenuOpen(false); });
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenuOpen(false); });
-</script>
-<script type="module">
-import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs';
-mermaid.initialize({ startOnLoad: true, theme: 'neutral', fontFamily: 'Noto Sans JP, Hiragino Kaku Gothic ProN, sans-serif', themeVariables: { primaryColor: '#f4eee4', primaryTextColor: '#1a2a4a', primaryBorderColor: '#9a7838', lineColor: '#304466', secondaryColor: '#f5f7fa', tertiaryColor: '#fafbfc' } });
-</script>
-<script src="/assets/nav.js?v=348fa48c4e" defer></script>
+<li><strong>3.1――4区分から3区分へ</strong>：流通株式基準が組み込まれた市場再編。</li>
+<li><strong>3.3――経過措置終了後の上場維持ルール</strong>：基準未達時の改善期間と上場廃止までの手続。</li>
+<li><strong>5.2――政策保有株式の最終局面</strong>：開示、個別検証、縮減をめぐる制度の全体像。</li>
+<li><strong>4.1――PBR1倍割れをどう読むか</strong>：資本構成の見直しと並行する資本コスト経営。</li>
+<li><strong>1.2――メインバンク後の空白を、誰が埋めたのか</strong>：政策保有株式の歴史的背景。</li>
+</ul></article><nav class="post-nav" aria-label="前後の記事"><a class="post-nav-link prev" href="/governance/market-restructuring/3.1-four-segments-to-three/"><div class="post-nav-dir">← 前の記事</div><div class="post-nav-title">4区分から3区分へ――2022年4月の市場再編</div></a><a class="post-nav-link next" href="/governance/market-restructuring/3.3-transitional-measures-cliff/"><div class="post-nav-dir">次の記事 →</div><div class="post-nav-title">経過措置終了後の上場維持ルール</div></a></nav><div class="post-language"><a href="/en/governance/market-restructuring/3.2-tradable-share-ratio/">English version →</a></div></div></section>
+  </main>
+  <script src="/assets/governance.js?v=cc6033456e" defer></script>
+  <script src="/assets/nav.js?v=348fa48c4e" defer></script>
 </body>
 </html>

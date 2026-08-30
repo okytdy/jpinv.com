@@ -1,440 +1,220 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-
-<title>4区分から3区分へ ― 2022年4月の市場再編 | JII ガバナンス改革カリキュラム</title>
-<meta name="description" content="2022年4月4日、東京証券取引所は東証一部・二部・マザーズ・JASDAQの4区分を、プライム・スタンダード・グロースという3つのコンセプト型市場区分へ再編した。表面的なラベルの貼り替えにとどまらず、流通株式の定義変更とプライム限定のCGコード上乗せ規律によって、その後の改革すべての土台となった構造改革である。">
-<meta property="og:title" content="4区分から3区分へ ― 2022年4月の市場再編 | JII ガバナンス改革カリキュラム">
-<meta property="og:description" content="2022年4月4日、東京証券取引所は東証一部・二部・マザーズ・JASDAQの4区分を、プライム・スタンダード・グロースという3つのコンセプト型市場区分へ再編した。表面的なラベルの貼り替えにとどまらず、流通株式の定義変更とプライム限定のCGコード上乗せ規律によって、その後の改革すべての土台となった構造改革である。">
-<meta property="og:url" content="https://jpinv.com/governance/market-restructuring/3.1-four-segments-to-three/">
-<link rel="canonical" href="https://jpinv.com/governance/market-restructuring/3.1-four-segments-to-three/">
-<link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/market-restructuring/3.1-four-segments-to-three/">
-<link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/market-restructuring/3.1-four-segments-to-three/">
-<link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/market-restructuring/3.1-four-segments-to-three/">
-
-<style>
-:root {
-  --ink:        #1a2a4a;
-  --ink-mid:    #172641;
-  --ink-soft:   #304466;
-  --rule:       #d6dee8;
-  --rule-soft:  #e8edf3;
-  --bg:         #ffffff;
-  --bg-mid:     #f5f7fa;
-  --bg-soft:    #fafbfc;
-  --text:       #1f2937;
-  --text-mid:   #4a5566;
-  --text-dim:   #5f6875;
-  --accent:     #9a7838;
-  --accent-deep:#9a7838;
-  --accent-soft:#f4eee4;
-  --bad:        #b91c1c;
-  --warn:       #8a682b;
-  --ok:         #2f6f4f;
-  --serif: 'Noto Serif JP', 'Yu Mincho', serif;
-  --sans:  'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
-  --mono:  'DM Mono', monospace;
-  --max: 1100px;
-  --pad: 88px;
-  --gutter: 48px;
-  --nav-h: 64px;
-  --measure: 720px;
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 400; line-height: 1.7; overflow-x: hidden; }
-img { max-width: 100%; display: block; }
-a { color: var(--ink-soft); text-decoration: none; }
-a:hover { color: var(--ink); }
-.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
-@media (max-width: 768px) { :root { --gutter: 22px; --pad: 56px; } }
-strong { font-weight: 600; color: var(--ink); }
-em { font-style: normal; color: var(--ink); font-weight: 600; }
-.label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); }
-
-/* Nav (copied from jpinv.com base) */
-nav#main-nav { position: fixed; top:0; left:0; right:0; z-index:100; height: var(--nav-h); background: rgba(255,255,255,0.96); backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule); display: flex; align-items: center; transition: box-shadow 0.3s; }
-nav#main-nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
-.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; }
-.nav-logo { text-decoration: none; display: inline-flex; align-items: center; flex: 0 0 auto; min-width: max-content; white-space: nowrap; }
-.nav-logo-img { display: block; width: auto; height: 40px; max-width: none; object-fit: contain; object-position: left center; }
-.nav-logo-img--mobile { display: none; width: 32px; height: 32px; object-fit: contain; }
-.nav-center { flex: 1; display: flex; justify-content: center; }
-.nav-links { display: flex; gap: 18px; list-style: none; flex-wrap: nowrap; white-space: nowrap; }
-.nav-links a { font-family: var(--sans); font-size: 0.74rem; font-weight: 400; letter-spacing: 0.02em; color: var(--text); text-decoration: none; transition: color 0.2s; }
-.nav-links a:hover { color: var(--ink-soft); }
-.nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; margin-left: auto; }
-.nav-cta { padding: 7px 11px; font-size: 0.66rem; letter-spacing: 0.05em; }
-.locale-switcher { display: inline-flex; align-items: center; gap: 0; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; }
-.locale-switcher a { color: var(--text-dim); border: 1px solid var(--rule); padding: 6px 9px; text-decoration: none; transition: all 0.2s; }
-.locale-switcher a + a { margin-left: -1px; }
-.locale-switcher a:hover, .locale-switcher a.current { color: var(--ink); border-color: var(--ink-mid); background: var(--bg-soft); position: relative; z-index: 1; }
-.hamburger { display: none; flex-shrink:0; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
-.hamburger span { display:block; width:22px; height:1px; background:var(--ink); transition: all 0.25s; }
-@media (max-width: 900px) { .nav-center, .nav-right .nav-cta { display:none; } .hamburger { display:flex; } }
-@media (max-width: 768px) { .nav-logo-img--desktop { display:none; } .nav-logo-img--mobile { display:block; } }
-.mobile-menu { display:none; position:fixed; top:var(--nav-h); left:0; right:0; background:var(--bg); border-bottom:1px solid var(--rule); z-index:99; padding:8px var(--gutter) 20px; flex-direction:column; gap:0; }
-.mobile-menu.open { display:flex; }
-.mobile-menu a { font-size:0.88rem; color:var(--text); text-decoration:none; padding:14px 0; border-bottom:1px solid var(--rule); letter-spacing:0.04em; }
-.mobile-menu a:last-child { border-bottom:none; }
-.mobile-menu .mobile-menu-cta { margin-top:12px; padding:13px 18px; text-align:center; color:#fff; border-bottom:none; }
-
-.btn { display: inline-block; text-decoration: none; font-family: var(--sans); font-size: 0.84rem; font-weight: 400; letter-spacing: 0.06em; padding: 13px 28px; transition: all 0.2s; cursor: pointer; border: none; }
-.btn-primary { background: var(--ink); color: #fff; }
-.btn-primary:hover { background: var(--ink-mid); color: #fff; }
-.btn-outline { border: 1px solid var(--ink-mid); color: var(--ink); background: transparent; }
-.btn-outline:hover { border-color: var(--ink); color: var(--ink); }
-.rule-accent { width: 32px; height: 2px; background: var(--accent); margin: 14px 0 22px; }
-
-/* Footer (mirror) */
-footer { border-top: 1px solid var(--rule); padding: 52px 0 28px; background: var(--bg-soft); font-size: 0.82rem; color: var(--text-dim); }
-footer .footer-grid { display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 32px; align-items: start; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
-footer h2 { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.2em; color: var(--ink-soft); text-transform: uppercase; margin-bottom: 12px; font-weight: 500; }
-footer h3 { font-family: var(--serif); font-size: 1rem; font-weight: 400; color: var(--ink); margin-bottom: 8px; }
-footer ul { list-style: none; }
-footer ul li { padding: 4px 0; }
-footer ul li a { color: var(--text-mid); }
-footer ul li a:hover { color: var(--ink); }
-footer .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 18px; flex-wrap: wrap; gap: 12px; }
-footer .footer-locale-switcher a.current { font-weight: 600; color: var(--ink); }
-@media (max-width: 900px) { footer .footer-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 580px) { footer .footer-grid { grid-template-columns: 1fr; } }
-
-/* === Curriculum-specific === */
-main.curriculum { padding-top: var(--nav-h); }
-.curr-hero { padding: 96px 0 64px; border-bottom: 1px solid var(--rule); position: relative; overflow: hidden; }
-.curr-hero::before { content:''; position:absolute; inset:0;
-  background-image: linear-gradient(rgba(15,31,58,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(15,31,58,0.04) 1px, transparent 1px);
-  background-size: 64px 64px;
-  -webkit-mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent);
-          mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent); }
-.curr-hero-inner { position:relative; z-index:2; max-width: 880px; }
-.curr-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.32em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 18px; }
-.curr-hero h1 { font-family: var(--serif); font-size: clamp(1.9rem, 4.4vw, 3.1rem); font-weight: 300; color: var(--ink-mid); line-height: 1.3; letter-spacing: 0.02em; margin: 0 0 22px; }
-.curr-hero h1 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-.curr-hero .lede { font-size: 1.05rem; line-height: 1.85; color: var(--text); margin: 0 0 24px; max-width: 700px; }
-.curr-hero-meta { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
-.curr-hero-meta strong { color: var(--ink); font-family: var(--mono); }
-
-.crumbs { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; padding: 22px 0 0; }
-.crumbs a { color: var(--text-mid); }
-.crumbs a:hover { color: var(--ink); }
-.crumbs .sep { color: var(--rule); margin: 0 8px; }
-
-.theme-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; padding: 56px 0; }
-.theme-card { display: block; background: #fff; border: 1px solid var(--rule); padding: 30px 28px; position: relative; transition: all 0.2s; }
-.theme-card:hover { border-color: var(--ink-soft); box-shadow: 0 12px 32px rgba(15,31,58,0.08); transform: translateY(-2px); }
-.theme-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background: var(--accent); opacity: 0.85; }
-.theme-card-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; }
-.theme-card-name { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--ink-mid); margin: 10px 0 8px; line-height: 1.35; }
-.theme-card-period { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 14px; }
-.theme-card-desc { font-size: 0.92rem; line-height: 1.7; color: var(--text); margin-bottom: 18px; }
-.theme-card-list { font-size: 0.84rem; color: var(--text-mid); list-style: none; padding-top: 14px; border-top: 1px solid var(--rule-soft); }
-.theme-card-list li { padding: 5px 0; }
-.theme-card-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; }
-.theme-card-foot .arrow { color: var(--accent-deep); }
-
-.post-list { padding: 28px 0 56px; }
-.post-list-row { display: grid; grid-template-columns: 60px 1fr auto; gap: 22px; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--rule-soft); transition: all 0.18s; }
-.post-list-row:hover { background: var(--bg-mid); padding-left: 12px; padding-right: 12px; }
-.post-list-num { font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em; color: var(--accent-deep); font-weight: 500; }
-.post-list-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--ink-mid); line-height: 1.45; }
-.post-list-meta { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; white-space: nowrap; }
-@media (max-width: 600px) { .post-list-row { grid-template-columns: 50px 1fr; } .post-list-meta { grid-column: 1 / -1; padding-left: 72px; } }
-
-/* Post body */
-.post-body { padding: 48px 0 80px; }
-.post-content { max-width: var(--measure); margin: 0 auto; }
-.post-content > p, .post-content > ul, .post-content > ol, .post-content > blockquote, .post-content > pre, .post-content > table, .post-content > hr, .post-content > h2, .post-content > h3, .post-content > h4 { max-width: var(--measure); margin-left: auto; margin-right: auto; }
-.post-content h2 { font-family: var(--serif); font-size: 1.55rem; font-weight: 400; color: var(--ink-mid); line-height: 1.35; margin: 56px 0 14px; padding-top: 22px; border-top: 1px solid var(--rule-soft); }
-.post-content h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 500; color: var(--ink); margin: 36px 0 10px; line-height: 1.4; }
-.post-content h4 { font-family: var(--sans); font-size: 1rem; font-weight: 600; color: var(--ink); margin: 26px 0 8px; letter-spacing: 0.02em; }
-.post-content p { margin: 0 0 18px; font-size: 1rem; line-height: 1.85; color: var(--text); }
-.post-content p:first-of-type { font-size: 1.05rem; }
-.post-content ul, .post-content ol { margin: 0 0 22px; padding-left: 28px; }
-.post-content ul li, .post-content ol li { font-size: 0.97rem; line-height: 1.8; margin-bottom: 8px; color: var(--text); }
-.post-content ul li::marker { color: var(--accent-deep); }
-.post-content blockquote { margin: 30px 0; padding: 20px 24px; border-left: 3px solid var(--accent); background: var(--accent-soft); color: var(--ink-mid); font-style: normal; }
-.post-content blockquote p { margin-bottom: 8px; font-size: 0.97rem; }
-.post-content blockquote p:last-child { margin-bottom: 0; }
-.post-content blockquote strong { color: var(--ink); }
-.post-content code { background: #f0f0f0; color: var(--ink-mid); font-family: var(--mono); font-size: 0.88rem; padding: 2px 6px; border-radius: 3px; }
-.post-content pre { background: #f9f9fb; border: 1px solid var(--rule); padding: 18px 22px; overflow-x: auto; font-family: var(--mono); font-size: 0.85rem; line-height: 1.55; margin: 24px 0; }
-.post-content pre code { background: transparent; padding: 0; font-size: inherit; }
-.post-content a { color: var(--accent-deep); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; transition: text-decoration-color 0.18s; overflow-wrap: anywhere; word-break: break-word; }
-.post-content a:hover { text-decoration-color: var(--accent-deep); }
-.post-content hr { border: none; border-top: 1px solid var(--rule); margin: 40px auto; max-width: 120px; }
-.post-content table { width: 100%; max-width: var(--measure); margin: 28px auto; border-collapse: collapse; font-size: 0.9rem; }
-.post-content th { background: var(--bg-mid); color: var(--ink-mid); font-family: var(--sans); font-weight: 600; text-align: left; padding: 12px 14px; border-bottom: 2px solid var(--rule); }
-.post-content td { padding: 10px 14px; border-bottom: 1px solid var(--rule-soft); vertical-align: top; color: var(--text); }
-.post-content tr:nth-child(even) td { background: #fafbfc; }
-
-/* Mermaid container */
-.mermaid-wrap { background: #fdfdfe; border: 1px solid var(--rule); padding: 22px 18px; margin: 28px 0; overflow-x: auto; }
-.mermaid { font-family: var(--sans); text-align: center; }
-
-/* Post header */
-.post-header { padding: 48px 0 28px; border-bottom: 1px solid var(--rule); }
-.post-header-inner { max-width: var(--measure); margin: 0 auto; }
-.post-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.28em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 14px; }
-.post-title { font-family: var(--serif); font-size: clamp(1.7rem, 3.6vw, 2.4rem); font-weight: 400; color: var(--ink-mid); line-height: 1.3; margin: 0 0 16px; letter-spacing: 0.005em; }
-.post-summary { font-size: 1.02rem; line-height: 1.8; color: var(--text); margin: 0 0 22px; max-width: 660px; }
-.post-meta { display: flex; gap: 26px; flex-wrap: wrap; padding-top: 18px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
-.post-meta span strong { color: var(--ink); font-family: var(--mono); }
-
-/* Post nav (prev/next) */
-.post-nav { max-width: var(--measure); margin: 56px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding-top: 36px; border-top: 1px solid var(--rule); }
-.post-nav-link { display: block; padding: 18px 20px; background: var(--bg-mid); border: 1px solid var(--rule); transition: all 0.18s; }
-.post-nav-link:hover { border-color: var(--ink-soft); background: #fff; transform: translateY(-1px); }
-.post-nav-dir { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px; }
-.post-nav-title { font-family: var(--serif); font-size: 0.94rem; color: var(--ink-mid); line-height: 1.4; }
-.post-nav-link.next { text-align: right; }
-@media (max-width: 640px) { .post-nav { grid-template-columns: 1fr; } .post-nav-link.next { text-align: left; } }
-
-/* Knowledge check */
-.kcheck { background: var(--bg-mid); padding: 72px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
-.kcheck-head { max-width: 720px; margin: 0 auto 36px; text-align: center; }
-.kcheck h2 { font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 300; color: var(--ink-mid); margin: 0 0 14px; line-height: 1.3; }
-.kcheck h2 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-.kcheck p.lede { font-size: 0.98rem; line-height: 1.75; color: var(--text); }
-.kcheck-q { background: #fff; border: 1px solid var(--rule); padding: 28px 30px; margin-bottom: 18px; max-width: 760px; margin-left: auto; margin-right: auto; }
-.kcheck-q-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; margin-bottom: 12px; }
-.kcheck-q-text { font-family: var(--serif); font-size: 1.1rem; line-height: 1.5; color: var(--ink-mid); margin-bottom: 18px; }
-.kcheck-opts { display: grid; gap: 8px; }
-.kcheck-opt { display: block; padding: 12px 16px; background: var(--bg-soft); border: 1px solid var(--rule); text-align: left; font-family: var(--sans); font-size: 0.92rem; color: var(--text); cursor: pointer; transition: all 0.15s; }
-.kcheck-opt:hover { background: #fff; border-color: var(--ink-soft); }
-.kcheck-opt.correct { background: #e8f3ec; border-color: var(--ok); color: var(--ok); }
-.kcheck-opt.incorrect { background: #fbe9e9; border-color: var(--bad); color: var(--bad); }
-.kcheck-explain { margin-top: 16px; padding: 14px 18px; background: var(--accent-soft); border-left: 3px solid var(--accent); font-size: 0.9rem; line-height: 1.7; color: var(--ink-mid); display: none; }
-.kcheck-q.answered .kcheck-explain { display: block; }
-.kcheck-score { text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--text-dim); margin-top: 28px; text-transform: uppercase; }
-.kcheck-score strong { color: var(--ink-mid); font-family: var(--mono); }
-
-/* Stats / hero stats */
-.stat-band { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; padding: 56px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); background: var(--bg-soft); }
-.stat-item { padding: 0 18px; }
-.stat-num { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 300; color: var(--ink-mid); line-height: 1; margin-bottom: 8px; }
-.stat-num em { color: var(--accent-deep); font-weight: 400; font-style: normal; }
-.stat-label { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; }
-</style>
-
-<meta property="og:image" content="https://jpinv.com/og/jii-default.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://jpinv.com/og/jii-default.png">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "url": "https://jpinv.com/governance/market-restructuring/3.1-four-segments-to-three/",
-  "name": "4区分から3区分へ ― 2022年4月の市場再編 | JII ガバナンス改革カリキュラム",
-  "description": "2022年4月4日、東京証券取引所は東証一部・二部・マザーズ・JASDAQの4区分を、プライム・スタンダード・グロースという3つのコンセプト型市場区分へ再編した。表面的なラベルの貼り替えにとどまらず、流通株式の定義変更とプライム限定のCGコード上乗せ規律によって、その後の改革すべての土台となった構造改革である。",
-  "inLanguage": "ja"
-}
-</script></head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4区分から3区分へ――2022年4月の市場再編｜JII ガバナンス改革講座</title>
+  <meta name="description" content="2022年4月4日、東京証券取引所は市場第一部・市場第二部・マザーズ・JASDAQを、プライム・スタンダード・グロースの3市場に再編した。目的は名称を整理することではない。各市場の役割を明確にし、新規上場基準と上場維持基準の水準を近づけ、流通株式の定義を見直し、プライム市場には一段高いガバナンスを求めることで、上場後も企業価値向上を促す仕組みに改めることだった。本稿では、再編の背景、3市場の違い、その後の改革につながった論点を整理する。">
+  <link rel="canonical" href="https://jpinv.com/governance/market-restructuring/3.1-four-segments-to-three/">
+  <link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/market-restructuring/3.1-four-segments-to-three/">
+  <link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/market-restructuring/3.1-four-segments-to-three/">
+  <link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/market-restructuring/3.1-four-segments-to-three/">
+  <meta property="og:title" content="4区分から3区分へ――2022年4月の市場再編｜JII ガバナンス改革講座">
+  <meta property="og:description" content="2022年4月4日、東京証券取引所は市場第一部・市場第二部・マザーズ・JASDAQを、プライム・スタンダード・グロースの3市場に再編した。目的は名称を整理することではない。各市場の役割を明確にし、新規上場基準と上場維持基準の水準を近づけ、流通株式の定義を見直し、プライム市場には一段高いガバナンスを求めることで、上場後も企業価値向上を促す仕組みに改めることだった。本稿では、再編の背景、3市場の違い、その後の改革につながった論点を整理する。">
+  <meta property="og:url" content="https://jpinv.com/governance/market-restructuring/3.1-four-segments-to-three/">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://jpinv.com/og/jii-default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://jpinv.com/og/jii-default.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&amp;family=Noto+Sans+JP:wght@300;400;500;600&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/governance.css?v=b6280834c3">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","name":"4区分から3区分へ――2022年4月の市場再編｜JII ガバナンス改革講座","description":"2022年4月4日、東京証券取引所は市場第一部・市場第二部・マザーズ・JASDAQを、プライム・スタンダード・グロースの3市場に再編した。目的は名称を整理することではない。各市場の役割を明確にし、新規上場基準と上場維持基準の水準を近づけ、流通株式の定義を見直し、プライム市場には一段高いガバナンスを求めることで、上場後も企業価値向上を促す仕組みに改めることだった。本稿では、再編の背景、3市場の違い、その後の改革につながった論点を整理する。","url":"https://jpinv.com/governance/market-restructuring/3.1-four-segments-to-three/","inLanguage":"ja","isPartOf":{"@type":"WebSite","name":"Japan Investor Interface","url":"https://jpinv.com/"},"headline":"4区分から3区分へ――2022年4月の市場再編","dateModified":"2026-08-30","author":{"@type":"Organization","name":"Japan Investor Interface Co., Ltd."},"publisher":{"@type":"Organization","name":"Japan Investor Interface Co., Ltd.","url":"https://jpinv.com/"}}</script>
+</head>
 <body>
-<main id="main-content" class="curriculum" tabindex="-1">
-<div class="wrap crumbs">
-  <a href="/">JII</a> <span class="sep">/</span>
-  <a href="/governance/">IR研修</a> <span class="sep">/</span>
-  <a href="/governance/market-restructuring/">市場区分の見直し</a> <span class="sep">/</span>
-  記事 3.1
-</div>
-<header class="post-header">
-  <div class="wrap">
-    <div class="post-header-inner">
-      <div class="post-eyebrow">テーマ 3 · 記事 3.1</div>
-      <h1 class="post-title">4区分から3区分へ ― 2022年4月の市場再編</h1>
-      <p class="post-summary">2022年4月4日、東京証券取引所は東証一部・二部・マザーズ・JASDAQの4区分を、プライム・スタンダード・グロースという3つのコンセプト型市場区分へ再編した。表面的なラベルの貼り替えにとどまらず、流通株式の定義変更とプライム限定のCGコード上乗せ規律によって、その後の改革すべての土台となった構造改革である。</p>
-      <div class="post-meta">
-        <span>テーマ: <strong>市場区分の見直し</strong></span>
-        <span>読了目安: <strong>14 分</strong></span>
-        <span>更新: <strong>2026-05-18</strong></span>
-      </div>
-    </div>
-  </div>
-</header>
-<section class="post-body">
-  <div class="wrap">
-    <article class="post-content">
-<blockquote>
-<p><strong>要点</strong>
-- <strong>2022年4月4日</strong>、東京証券取引所は旧来の4市場区分（東証一部、二部、マザーズ、JASDAQ）を、コンセプトを明示した3区分 ― <strong>プライム、スタンダード、グロース</strong> ― に置き換えた。2018年10月の東証の懇談会設置に始まり、2019年に学習院大学の神田秀樹教授が座長を務めた金融審議会の専門グループに引き継がれた、14か月に及ぶ正式な政策レビューの集大成である。
-- 初日の振り分けは3,771社のうち<strong>プライム1,839社／スタンダード1,466社／グロース466社</strong>。プライム単独で全体の49%を占め、再編対象であったはずの肥大化した東証一部とほぼ同じ姿となった。
-- 同時に、「流通株式」の定義から政策保有株を除外する見直しを行い、プライムの流通株式時価総額基準を<strong>100億円</strong>に引き上げ、さらにプライム限定のコーポレートガバナンス・コード上乗せ義務（独立社外取締役3分の1以上、英文開示、TCFD整合の気候開示）を区分選択の上に重ねた。</p>
-</blockquote>
-<hr>
-<h2>なぜ4区分制度は廃止されなければならなかったのか</h2>
-<p>2013年の東証・大証の現物市場統合から9年間、東証は2つの取引所から受け継いだ4つの重複した市場区分のもとで運営されていた。東証一部は大型・優良企業、東証二部は中型企業、マザーズ（東証側の新興市場）は初期段階の成長企業、JASDAQ（スタンダードとグロースに分かれ、大証から引き継がれた）はその他全てを受け持つ建てつけだった。統合時には両取引所の構造をそのまま温存する選択がなされ ― JPXは当時「上場会社・投資家への影響を回避するため」と説明した ― 結果として日本は先進国で最も雑然とした市場区分メニューを抱えることになった。</p>
-<p>構造的な問題は3つあった。<strong>第一に</strong>、東証一部は選別機能を失っていた。2022年3月2日時点で<strong>東証2,653社のうち2,180社、約82%が「最上位」区分</strong>に滞留しており、品質シグナルとしてのラベルはほぼ意味を成さなくなっていた。これに対し東証二部は473社、社数で見れば一部の4分の1にも満たない。<strong>第二に</strong>、4市場のコンセプトは互いに溶け合っていた。東証二部、マザーズ、JASDAQはいずれも中堅・成長段階の発行体を異なる角度から重複的に受け持ち、明確な区別が存在しなかった。<strong>第三に、そして最も損害が大きかったのは</strong>、東証一部への<strong>指定替え基準が新規上場基準よりも緩かった</strong>点である。JPX自身がこの逆転を構造的欠陥として挙げた。マザーズや東証二部にIPOした企業が、より緩い基準で一部に「昇格」できる仕組みは、上場後の継続的改善圧力を骨抜きにしていた。</p>
-<p>この上に乗っていたのがTOPIXである。東証一部の構成銘柄をそのまま指数化していたため、機械的なリンクによってパッシブ資金は東証一部入りを果たした企業に流れ込んだ。2019年12月の金融審議会ワーキング・グループ最終報告書の表現を借りれば、指数は「広範な国勢調査に近いものとなっており、選別された指数の性格を失っていた」。ピーク時の構成銘柄は約2,200。<strong>TOPIX構成銘柄の推定60%が資本コストを上回るリターンを稼げていない</strong>との試算が、ちょうどアベノミクスのガバナンス改革が日本の取締役会に資本効率の意識を浸透させようとしていた時期に突きつけられた。</p>
-<h2>政策レビュー ― 諮問グループから「令和報告書」へ</h2>
-<p>改革は2段階で進んだ。東証側の第一段階は<strong>2018年10月</strong>、「東京証券取引所における現物市場の市場構造の在り方等に関する懇談会」の設置に始まる。同年12月にはコンサルテーション・ペーパーを公表し、2018年12月21日から2019年1月31日までパブリック・コメントを実施。約90通の書面意見と70件の個別ヒアリングを集約し、2019年3月の「現状の課題に関する整理」につなげた。</p>
-<p>続く正式レビューは金融庁側で行われた。金融審議会の<strong>「市場構造専門グループ」</strong>（座長：学習院大学法学部・神田秀樹教授）が2019年5月から12月にかけて6回の会合を重ね、<strong>2019年12月27日</strong>に最終報告書『令和時代における企業と投資家のための新たな市場構造の在り方』を公表した。タイトルは意図的なものである。報告書は市場区分の見直しを単なる取引所運営の技術論ではなく、令和という新時代の国家プロジェクトとして位置づけた。3区分でそれぞれ異なるコンセプトを持つ設計を支持し、TOPIXを区分から切り離す指数改革を求め、東証が2020年2月の「市場構造の見直しに向けた検討の概要」で具体化していく骨格を定めた。</p>
-<p>金融庁の関与は構造的に重要だった。レビューを単独の取引所ルール改正ではなく金融審議会に乗せたことで、新設計は政治的な後ろ盾を得て、実質的に厳格な上場維持基準と、区分選択の上に重ねるプライム限定のCGコード義務を導入できた。</p>
-<h2>2022年4月4日の発足 ― 3つのコンセプト、3つの基準</h2>
-<p>2022年4月4日の再編は、4区分を3つのコンセプト定義型区分に置き換えた。</p>
+  <a class="gov-skip" href="#main-content">本文へ移動</a>
+  <main id="main-content" class="governance-page" tabindex="-1">
+    <nav class="gov-wrap gov-crumbs" aria-label="パンくず"><a href="/">ホーム</a><span class="sep">/</span><a href="/governance/">ガバナンス改革講座</a><span class="sep">/</span><a href="/governance/market-restructuring/">市場区分の見直し</a><span class="sep">/</span><span aria-current="page">記事 3.1</span></nav>
+    <header class="post-header"><div class="gov-wrap"><div class="post-header-inner"><span class="post-eyebrow">テーマ 3 · 記事 3.1</span><h1 class="post-title">4区分から3区分へ――2022年4月の市場再編</h1><p class="post-summary">2022年4月4日、東京証券取引所は市場第一部・市場第二部・マザーズ・JASDAQを、プライム・スタンダード・グロースの3市場に再編した。目的は名称を整理することではない。各市場の役割を明確にし、新規上場基準と上場維持基準の水準を近づけ、流通株式の定義を見直し、プライム市場には一段高いガバナンスを求めることで、上場後も企業価値向上を促す仕組みに改めることだった。本稿では、再編の背景、3市場の違い、その後の改革につながった論点を整理する。</p><div class="post-meta"><span>テーマ: <strong>市場区分の見直し</strong></span><span>読了目安: <strong>10分</strong></span><span>更新: <strong>2026-08-30</strong></span></div></div></div></header>
+    <section class="post-body"><div class="gov-wrap"><article class="post-content"><blockquote>
+<p><strong>要点</strong></p>
 <ul>
-<li><strong>プライム市場</strong> ― 「グローバルな投資家との建設的な対話を中心に据えた経営を行う企業向け」。基準は流通株式時価総額<strong>100億円以上</strong>、流通株式比率<strong>35%以上</strong>、株主数800人以上、売買単位数2万単位以上、1日平均売買代金2,000万円以上、直近2年間の利益25億円以上（または時価総額100億円かつ売上高100億円）。これに加え、プライム上場会社は2021年6月導入のプライム限定CGコード補充原則のコンプライ・オア・エクスプレインを求められる。</li>
-<li><strong>スタンダード市場</strong> ― 「公開された市場における投資対象として一定の時価総額（流動性）を持ち、上場企業としての基本的なガバナンス水準を備えた企業向け」。流通株式時価総額<strong>10億円以上</strong>、流通株式比率<strong>25%以上</strong>、株主数400人以上。</li>
-<li><strong>グロース市場</strong> ― 高い成長可能性を有する企業向け。流通株式時価総額<strong>5億円以上</strong>、流通株式比率<strong>25%以上</strong>、株主数150人以上。</li>
+<li><strong>2022年4月4日</strong>、東証は市場第一部・市場第二部・マザーズ・JASDAQを、<strong>プライム、スタンダード、グロース</strong>の3市場に再編した。</li>
+<li>再編前の問題は、市場ごとの役割が重なっていたこと、上場後に高い基準を維持する動機が弱かったこと、そして市場第一部とTOPIXが事実上結び付いていたことである。</li>
+<li>再編は、<strong>上場維持基準の厳格化、流通株式の定義変更、プライム市場向けのガバナンス原則、TOPIX改革</strong>を一体で進めるための土台となった。</li>
 </ul>
-<p>初日の構成は、政策当局が打破したかったまさにその肥大した姿に近かった。<strong>東証上場3,771社のうち、プライム1,839社（49%）、スタンダード1,466社（39%）、グロース466社（12%）</strong>。プライム500社程度を期待していた海外投資家からは即座に批判が上がった。理由は明白で、プライム選択企業のうち約16%が、本来基準を満たさないまま「経過措置」によって受け入れられていたためである（この崖の詳細は3.3で扱う）。</p>
-<h2>旧4区分と新3区分のマッピング</h2>
-<p>移行は1対1のリネームではなかった。東証一部はプライムとスタンダードに分裂し、東証二部はスタンダードに集約され、マザーズとJASDAQグロースはグロースに、JASDAQスタンダードはスタンダードに合流した。主な流れは以下のとおり。</p>
-<div class="mermaid-wrap"><pre class="mermaid">flowchart LR
-    A[&quot;東証一部&lt;br/&gt;2,180社&lt;br/&gt;（2022年3月）&quot;]
-    B[&quot;東証二部&lt;br/&gt;473社&quot;]
-    C[&quot;マザーズ&lt;br/&gt;（東証側&lt;br/&gt;新興市場）&quot;]
-    D[&quot;JASDAQスタンダード&lt;br/&gt;（旧大証）&quot;]
-    E[&quot;JASDAQグロース&lt;br/&gt;（旧大証）&quot;]
+</blockquote>
+<h2 id="section-1">なぜ市場区分を見直したのか</h2>
+<p>東証と大阪証券取引所の現物市場が2013年に統合された際、既存の上場会社や投資家への影響を抑えるため、それぞれの市場構造はほぼそのまま残された。その結果、東証には市場第一部、市場第二部、マザーズ、JASDAQが並存した。JASDAQはスタンダードとグロースに分かれていたため、公式資料によっては「4市場」、細区分まで数えて「5区分」と表現される。</p>
+<p>時間がたつにつれ、二つの問題が明確になった。</p>
+<p><strong>一つ目は、各市場の役割が分かりにくいことだった。</strong> 市場第二部、マザーズ、JASDAQは対象企業の規模や成長段階が重なり、投資家から見て違いがつかみにくかった。市場第一部も、どのような企業を日本の代表市場として位置付けるのかが曖昧になっていた。</p>
+<p><strong>二つ目は、上場後の企業価値向上を促す仕組みが弱かったことである。</strong> 再編前は、新規上場時に求められる水準と、上場を維持するための水準に大きな差があった。また、他市場から市場第一部へ移る際の基準が、市場第一部への直接上場基準より緩い場合があった。いったん上場すれば、その後も高い流動性やガバナンス水準を保つよう企業を促す仕組みになっていなかった。</p>
+<p>さらに、<strong>市場第一部への所属とTOPIXへの組み入れが事実上連動していた</strong>。市場第一部に移れば、企業の投資適格性とは別に、TOPIX連動資金の買い需要を受ける構造だった。市場区分の役割を明確にするだけでなく、指数との関係も見直す必要があった。</p>
+<h2 id="section-2">検討から実施まで</h2>
+<p>東証は2018年10月に<strong>「東京証券取引所における現物市場の市場構造の在り方等に関する懇談会」</strong>を設置した。同年12月には論点ペーパーを公表し、2018年12月21日から2019年1月31日まで意見を募集した。寄せられた意見や市場関係者へのヒアリングを踏まえ、2019年3月に課題を整理した。</p>
+<p>その後、金融庁の金融審議会に設けられた<strong>市場構造専門グループ</strong>が制度全体を検討した。座長は神田秀樹・学習院大学大学院法務研究科教授。2019年12月27日に公表された報告書の正式名称は、<strong>『市場構造専門グループ報告書―令和時代における企業と投資家のための新たな市場に向けて―』</strong>である。</p>
+<p>報告書は、次の方向性を示した。</p>
+<ul>
+<li>市場区分を、それぞれ明確な役割を持つ3市場に再編する</li>
+<li>新規上場基準と上場維持基準を原則として共通化する</li>
+<li>市場第一部とTOPIXの範囲を切り離す</li>
+<li>市場区分に応じてガバナンス水準に差を設ける</li>
+</ul>
+<p>東証はこの方針を上場制度に落とし込み、2021年9月から12月にかけて既存上場会社に移行先の市場を選ばせた。選択結果は2022年1月11日に公表され、同年4月4日に一斉移行した。</p>
+<h2 id="section-3">3市場は何が違うのか</h2>
+<p>東証が示す各市場の考え方は、次のとおりである。</p>
+<ul>
+<li><strong>プライム市場</strong>：多くの機関投資家の投資対象となり得る規模と流動性を持ち、より高いガバナンス水準を備え、投資家との建設的な対話を通じて持続的成長と中長期的な企業価値向上を目指す企業向け。</li>
+<li><strong>スタンダード市場</strong>：公開市場の投資対象として一定の規模と流動性を持ち、上場会社として基本的なガバナンス水準を備え、持続的成長と中長期的な企業価値向上を目指す企業向け。</li>
+<li><strong>グロース市場</strong>：高い成長可能性を実現するための事業計画と進捗を適時・適切に開示し、市場から一定の評価を得る一方、事業実績の面では相対的にリスクが高い企業向け。</li>
+</ul>
+<p>主な<strong>上場維持基準</strong>を比べると、違いが分かりやすい。</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th align="right">プライム</th>
+<th align="right">スタンダード</th>
+<th align="right">グロース</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>株主数</td>
+<td align="right">800人以上</td>
+<td align="right">400人以上</td>
+<td align="right">150人以上</td>
+</tr>
+<tr>
+<td>流通株式数</td>
+<td align="right">2万単位以上</td>
+<td align="right">2,000単位以上</td>
+<td align="right">1,000単位以上</td>
+</tr>
+<tr>
+<td>流通株式時価総額</td>
+<td align="right">100億円以上</td>
+<td align="right">10億円以上</td>
+<td align="right">5億円以上</td>
+</tr>
+<tr>
+<td>流通株式比率</td>
+<td align="right">35%以上</td>
+<td align="right">25%以上</td>
+<td align="right">25%以上</td>
+</tr>
+<tr>
+<td>売買代金・売買高</td>
+<td align="right">1日平均売買代金0.2億円以上</td>
+<td align="right">月平均売買高10単位以上</td>
+<td align="right">月平均売買高10単位以上</td>
+</tr>
+<tr>
+<td>純資産</td>
+<td align="right">正であること</td>
+<td align="right">正であること</td>
+<td align="right">正であること</td>
+</tr>
+</tbody></table>
+<p>ここで重要なのは、<strong>上場審査基準と上場維持基準を混同しないこと</strong>である。利益額や売上高、事業継続年数など、新規上場時に審査される項目の一部は、上場維持基準とは別に定められている。再編の意義は、両者を完全に同一にしたことではなく、従来よりも水準を近づけ、上場後も市場の性格に見合う状態を維持するよう求めた点にある。</p>
+<h2 id="section-4">発足時の会社数</h2>
+<p>2022年4月4日時点の上場会社数は、次のとおりだった。</p>
+<table>
+<thead>
+<tr>
+<th>市場</th>
+<th align="right">上場会社数</th>
+<th align="right">全体に占める割合</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>プライム</td>
+<td align="right"><strong>1,839社</strong></td>
+<td align="right">約49%</td>
+</tr>
+<tr>
+<td>スタンダード</td>
+<td align="right"><strong>1,466社</strong></td>
+<td align="right">約39%</td>
+</tr>
+<tr>
+<td>グロース</td>
+<td align="right"><strong>466社</strong></td>
+<td align="right">約12%</td>
+</tr>
+<tr>
+<td><strong>合計</strong></td>
+<td align="right"><strong>3,771社</strong></td>
+<td align="right">100%</td>
+</tr>
+</tbody></table>
+<p>プライムだけで全体のほぼ半数を占めたため、発足直後から「市場第一部との違いが見えにくい」との批判が出た。その背景には、移行先を既存上場会社が主体的に選べたことに加え、選択した市場の通常基準を満たしていない会社にも、適合計画を提出すれば緩和基準を適用する<strong>経過措置</strong>が設けられたことがある。</p>
+<h2 id="section-5">旧市場から新市場への移行</h2>
+<p>移行は、単なる名称変更ではなかった。大まかな流れは次の図で示せる。</p>
+<pre class="mermaid" role="img" aria-label="本文内の制度図">flowchart LR
+    A[&quot;市場第一部&lt;br/&gt;約2,180社&quot;]
+    B[&quot;市場第二部&lt;br/&gt;約470社&quot;]
+    C[&quot;マザーズ&quot;]
+    D[&quot;JASDAQスタンダード&quot;]
+    E[&quot;JASDAQグロース&quot;]
 
-    P[&quot;プライム市場&lt;br/&gt;1,839社&lt;br/&gt;（全体の49%）&quot;]
-    S[&quot;スタンダード市場&lt;br/&gt;1,466社&lt;br/&gt;（全体の39%）&quot;]
-    G[&quot;グロース市場&lt;br/&gt;466社&lt;br/&gt;（全体の12%）&quot;]
+    P[&quot;プライム市場&lt;br/&gt;1,839社&quot;]
+    S[&quot;スタンダード市場&lt;br/&gt;1,466社&quot;]
+    G[&quot;グロース市場&lt;br/&gt;466社&quot;]
 
-    A --&gt;|&quot;約1,700社（プライム基準&lt;br/&gt;充足または経過措置）&quot;| P
-    A --&gt;|&quot;約480社（プライム&lt;br/&gt;基準を断念しスタンダード）&quot;| S
-    B --&gt;|&quot;約470社&quot;| S
-    D --&gt;|&quot;約700社&quot;| S
-    C --&gt;|&quot;約430社&quot;| G
-    E --&gt;|&quot;約36社&quot;| G
+    A --&gt; P
+    A --&gt; S
+    B --&gt; S
+    D --&gt; S
+    C --&gt; G
+    E --&gt; G
 
     classDef oldSeg fill:#f4f1ea,stroke:#7a6d4a,color:#3a3320
     classDef newSeg fill:#e6efe1,stroke:#3d6b3a,color:#1f3a1d
     class A,B,C,D,E oldSeg
-    class P,S,G newSeg</pre></div>
+    class P,S,G newSeg</pre>
 
-<p>整理表は次のとおり。</p>
-<table>
-<thead>
-<tr>
-<th>旧区分（2022年3月以前）</th>
-<th>新区分（2022年4月以降）</th>
-<th>概算移行数</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>東証一部（大型・優良）</td>
-<td><strong>プライム市場</strong></td>
-<td>約1,700社（基準充足または経過措置適用）</td>
-</tr>
-<tr>
-<td>東証一部（基準未充足層）</td>
-<td><strong>スタンダード市場</strong></td>
-<td>約480社 ― プライムの流通株式時価総額100億円基準を断念し、スタンダードを選択した企業群</td>
-</tr>
-<tr>
-<td>東証二部（中型）</td>
-<td><strong>スタンダード市場</strong></td>
-<td>約470社</td>
-</tr>
-<tr>
-<td>マザーズ（東証新興）</td>
-<td><strong>グロース市場</strong></td>
-<td>約430社</td>
-</tr>
-<tr>
-<td>JASDAQスタンダード（旧大証）</td>
-<td><strong>スタンダード市場</strong></td>
-<td>約700社</td>
-</tr>
-<tr>
-<td>JASDAQグロース（旧大証）</td>
-<td><strong>グロース市場</strong></td>
-<td>約36社</td>
-</tr>
-<tr>
-<td><strong>合計（2022年4月）</strong></td>
-<td></td>
-<td><strong>3,771社 → 1,839／1,466／466</strong></td>
-</tr>
-</tbody>
-</table>
-<p>このマップで注目すべき点は2つある。第一に、東証一部からスタンダードへの流れ（約480社）は静かではあるが重要なシグナルだった。東証一部企業の約22%が、プライム基準を守れない、あるいは守らないことを選び、コンプライアンスの明瞭さと引き換えに名目上の1段格下げを受け入れた。第二に、JASDAQスタンダードを新スタンダードに統合する一方、JASDAQグロースの行き先名を変えなかったことで、2013年統合以降残っていた旧大証由来の重複がようやく解消された。</p>
-<h2>すべてを変えた再定義 ― 「流通株式」</h2>
-<p>2022年の再編で、市場の姿そのものを区分名の変更以上に大きく変えたのは、<strong>流通株式</strong>の再定義であった。新定義のもとでは、<strong>国内の銀行、保険会社、事業法人</strong>が保有する株式は、<strong>持株比率の大小にかかわらず</strong>「流通株式」から除外される。地方銀行が保有する0.5%の戦略保有も、グループ会社が保有する30%のクロスホールディングも、扱いは同じ「非流通」となる。</p>
-<p>これは東証が日本の政策保有株式を解体するために用いた構造的メカニズムである。直接禁止ではなく、上場維持基準という裏口からアプローチしたのだ。広範な政策保有株式を抱えるプライム上場会社は、解消するかスタンダードへの格下げを受け入れない限り、流通株式比率35%基準を満たせない。詳細は3.2に譲るが、ここでの要点は、区分の付け替えと流通株式の再定義は一体の政策パッケージであったということだ。再定義がなければプライムは緩い「ブランディング」にすぎなかった。再定義があったからこそ、プライムは日本の大企業の資本構成に対する拘束力ある制約となった。</p>
-<h2>プライム限定のコーポレートガバナンス・コード義務</h2>
-<p>区分発足の半年前、2021年6月のコーポレートガバナンス・コード改訂は、プライム上場会社のみに適用される補充原則を導入した。IRにとって最も重要なのは以下の項目である。</p>
+<p>市場第一部の会社は、プライムとスタンダードに分かれた。市場第二部とJASDAQスタンダードは主にスタンダードへ、マザーズとJASDAQグロースはグロースへ移った。このため、旧市場と新市場は一対一には対応しない。</p>
+<h2 id="section-6">再編の実効性を高めた三つの仕組み</h2>
+<h3 id="section-7">1. 流通株式の定義変更</h3>
+<p>新制度では、上場維持基準を判定する際の<strong>流通株式</strong>の範囲が見直された。銀行、保険会社、事業法人による保有など、安定保有とみられる株式の一部が流通株式から除外されるようになり、政策保有株式の多い会社ほど基準を満たしにくくなった。詳しくは次の記事で扱う。</p>
+<h3 id="section-8">2. プライム市場向けのガバナンス原則</h3>
+<p>2021年のコーポレートガバナンス・コード改訂では、プライム上場会社に一段高い対応を求めた。主な項目は、次のとおりである。</p>
 <ul>
-<li><strong>独立社外取締役を3分の1以上</strong>（従来の「2名以上」という一般的期待から引き上げ。プライムは補充原則4-8により少なくとも3分の1を要求）。</li>
-<li><strong>必要な情報の英文開示</strong>（補充原則3-1②） ― 海外機関投資家の長年の要請が、ついにコンプライ・オア・エクスプレインの対象となった。</li>
-<li><strong>TCFD整合の気候関連開示</strong>（補充原則3-1③） ― プライム上場会社の「適切な」サステナビリティ開示の中身が絞り込まれた。</li>
-<li><strong>電子議決権行使プラットフォームの利用</strong>（補充原則1-2④） ― 株主総会向け。</li>
+<li>独立社外取締役を少なくとも3分の1以上選任する</li>
+<li>TCFDまたは同等の国際的枠組みに基づく気候関連開示を充実させる</li>
+<li>必要な情報を英語でも開示する</li>
+<li>機関投資家向け議決権電子行使プラットフォームを利用する</li>
 </ul>
-<p>これらの上乗せ規律により、区分選択は単なる時価総額の問題ではなく、<strong>ガバナンスの選択</strong>にもなった。プライムを選んだ企業は、流動性への野心を示すだけでなく、日本の上場企業に課された最も厳格なガバナンス体系に自発的にコミットしたことになる。</p>
-<h2>なぜ2022年の発足は「ラベルの貼り替え」と映ったのか</h2>
-<p>批判は即座に、そして辛辣に飛んできた。プライム1,839社という姿は、2022年1月の日経の表現を借りれば「ほぼ東証一部と変わらない」見え方だった。プライム500社程度を期待していた海外投資家からすれば、約16%もが基準未達のまま経過措置で滑り込んでおり、しかもその経過措置は当初<strong>「当分の間」</strong>適用するとされ、<strong>終期は定められていなかった</strong>。</p>
-<p>この批判が、東証が発足の3か月後の2022年7月に設置した<strong>「市場区分の見直しに関するフォローアップ会議」</strong>の原動力となった。そこから2025年3月の経過措置終了（3.3）、2023年3月の「PBR要請」（4.1）、そしてその後の日本のコーポレートガバナンス議論を規定してきた一連の改革が芋づる式に生まれた。換言すれば、2022年発足の<strong>欠陥のほうが、その成功よりも、その後の改革を強く駆動した</strong>のである。</p>
-<h2>IR担当者への示唆</h2>
+<p>これらは一律の法的義務ではなく、コード上のコンプライ・オア・エクスプレインとして運用された。ただし、2025年4月に始まった適時開示の日英同時開示のように、その後、上場規則上の義務へ進んだ分野もある。</p>
+<h3 id="section-9">3. TOPIXとの切り離し</h3>
+<p>再編前のTOPIXは市場第一部の全銘柄を原則として対象にしていた。再編後は、市場区分とは別に、流動性を重視して構成銘柄を選ぶ方向へ改められた。これにより、プライム上場だけでTOPIXへの組み入れが保証される仕組みではなくなった。詳しくは3.4で扱う。</p>
+<h2 id="section-10">なぜ再編後も見直しが続いたのか</h2>
+<p>新市場発足によって制度の土台は変わったが、プライムの会社数は依然として多く、経過措置の期限も当初は<strong>「当分の間」</strong>とされていた。市場区分の違いを実質的なものにするには、基準未達会社をいつまで、どのような手続で扱うかを明確にする必要があった。</p>
+<p>そこで東証は2022年7月、<strong>市場区分の見直しに関するフォローアップ会議</strong>を設置した。同会議の議論から、経過措置の終了、資本コストや株価を意識した経営の要請、グロース市場の機能発揮、TOPIXの追加改革などが具体化していく。</p>
+<p>2022年4月の再編は、改革の完成ではない。市場区分、上場維持基準、ガバナンス、指数を一つの仕組みとして見直す長い過程の出発点だった。</p>
+<h2 id="section-11">IR担当者への示唆</h2>
 <ol>
-<li>
-<p><strong>区分選択はマーケティング・バッジではなくガバナンスのコミットメント</strong>。プライム上場は3分の1以上の独立社外取締役、英文開示、TCFD気候開示、電子議決権行使といったプライム限定のCGコード義務を伴う。IRは各義務を担当役員と内部コンプライアンス状況に対応づけて把握しておく必要がある。</p>
-</li>
-<li>
-<p><strong>流通株式の再定義こそ最大の変更点</strong>。銀行、保険、戦略保有先事業会社が一定の政策保有株式を持つ企業にとって、プライムの流通株式比率35%基準は事実上の拘束条件となる。これは上場基準の問題ではなく、<strong>資本構成の問題</strong>として扱うべきだ。</p>
-</li>
-<li>
-<p><strong>プライムの意味は2022年と同じではない</strong>。当初のプライム1,839社のうち約16%は経過措置によって入った企業であり、その経過措置は2025年3月に終了する（3.3）。投資家はもはや「プライム上場」だけを品質シグナルとは見なさず、その裏側を見ている。</p>
-</li>
-<li>
-<p><strong>TOPIX組入れはもはや機械的ではない</strong>。TOPIX改革の第2段階（2026年10月～2028年7月、3.4）により、指数組入れは区分から切り離される。流動性の高いスタンダード上場会社はTOPIXに入りうるし、流動性の乏しいプライム上場会社はTOPIXから外れうる。IR戦略は区分適格性と指数適格性を別々に組み立てる必要がある。</p>
-</li>
-<li>
-<p><strong>2022年改革は現在の改革サイクルの終着点ではなく出発点</strong>。PBR要請、開示企業リスト、価値創造に向けた取り組みのギャップ整理、グロース市場2030年改革、英文開示義務化 ― これらすべては3区分という土台の上に積み上げられている。区分を理解せずに、これらのいずれかを語ることはできない。</p>
-</li>
+<li><strong>市場区分の説明は、会社の規模だけでなく、投資家層とガバナンスの選択として行う。</strong> プライム上場は、より高い流動性とガバナンス、国際投資家との対話を選んだことを意味する。</li>
+<li><strong>新規上場基準と上場維持基準を分けて把握する。</strong> 利益基準などを上場維持要件として説明すると、制度を誤って伝えることになる。</li>
+<li><strong>流通株式の内訳を継続的に確認する。</strong> 株価だけでなく、誰が株式を持っているかが市場区分の維持に直結する。</li>
+<li><strong>市場区分とTOPIXの組み入れを別々に管理する。</strong> プライム上場と指数採用は、もはや同じ判定ではない。</li>
+<li><strong>フォローアップ会議を制度変更の先行指標として読む。</strong> 2023年以降の主要施策は、同会議の資料と議論から具体化している。</li>
 </ol>
-<h2>出典・参考資料</h2>
+<h2 id="section-12">出典・参考資料</h2>
 <ul>
-<li>JPX「市場区分の見直しの概要」 https://www.jpx.co.jp/equities/improvements/market-structure/01.html</li>
-<li>JPX「現物市場の市場構造の在り方等について」 https://www.jpx.co.jp/equities/improvements/market-structure/index.html</li>
-<li>金融庁「金融審議会「市場構造専門グループ」報告書」（2019年12月27日） https://www.fsa.go.jp/singi/singi_kinyu/tosin/20191227.html</li>
-<li>JPX「最終報告書の公表に当たって」 https://www.jpx.co.jp/corporate/news/news-releases/1020/20191227-01.html</li>
-<li>JPX「市場区分」 https://www.jpx.co.jp/equities/market-restructure/market-segments/index.html</li>
-<li>JPX「市場区分の選択結果の公表」（2022年1月11日） https://www.jpx.co.jp/corporate/news/news-releases/0060/20220111-01.html</li>
-<li>JPX「上場維持基準（プライム市場）」 https://www.jpx.co.jp/equities/listing/continue/outline/01.html</li>
-<li>日本経済新聞「東証再編、東証一部とほぼ同じ姿に」（2022年1月）</li>
+<li>日本取引所グループ「市場区分見直しの概要」: <a href="https://www.jpx.co.jp/equities/improvements/market-structure/01.html">https://www.jpx.co.jp/equities/improvements/market-structure/01.html</a></li>
+<li>日本取引所グループ「市場構造の在り方等の検討」: <a href="https://www.jpx.co.jp/equities/improvements/market-structure/index.html">https://www.jpx.co.jp/equities/improvements/market-structure/index.html</a></li>
+<li>金融庁「金融審議会『市場構造専門グループ』報告書の公表について」(2019年12月27日): <a href="https://www.fsa.go.jp/singi/singi_kinyu/market-str/report/20191227.html">https://www.fsa.go.jp/singi/singi_kinyu/market-str/report/20191227.html</a></li>
+<li>日本取引所グループ「市場区分」: <a href="https://www.jpx.co.jp/equities/market-restructure/market-segments/index.html">https://www.jpx.co.jp/equities/market-restructure/market-segments/index.html</a></li>
+<li>日本取引所グループ「市場区分の選択結果の公表」(2022年1月11日): <a href="https://www.jpx.co.jp/corporate/news/news-releases/0060/20220111-01.html">https://www.jpx.co.jp/corporate/news/news-releases/0060/20220111-01.html</a></li>
+<li>日本取引所グループ「上場維持基準（プライム市場）」: <a href="https://www.jpx.co.jp/equities/listing/continue/outline/01.html">https://www.jpx.co.jp/equities/listing/continue/outline/01.html</a></li>
+<li>日本取引所グループ「上場維持基準に関する経過措置の終了」: <a href="https://www.jpx.co.jp/equities/follow-up/04.html">https://www.jpx.co.jp/equities/follow-up/04.html</a></li>
+<li>日本取引所グループ「改訂コーポレートガバナンス・コードの公表」(2021年6月11日): <a href="https://www.jpx.co.jp/news/1020/20210611-01.html">https://www.jpx.co.jp/news/1020/20210611-01.html</a></li>
 </ul>
-<h2>関連記事</h2>
+<h2 id="section-13">関連記事</h2>
 <ul>
-<li><strong>2.3 ― 2021年改訂 ― プライム市場・サステナビリティ・多様性</strong>：区分発足の半年前に導入されたプライム限定の補充原則。</li>
-<li><strong>3.2 ― 流通株式比率</strong>：区分基準を政策保有解消の装置に変えた再定義。</li>
-<li><strong>3.3 ― 2025年3月の崖</strong>：「当分の間」の経過措置が、ハードな期限と改善期間制度に転じた経緯。</li>
-<li><strong>3.4 ― TOPIX 2.0</strong>：TOPIX組入れを区分から切り離す指数改革。</li>
-<li><strong>4.1 ― PBR&lt;1は目標ではなく、市場の評決</strong>：2022年4月の区分構造の上に組み上げられた、2023年3</li>
-</ul>
-    </article>
-    <div class="post-nav"><a href="/governance/market-restructuring/" class="post-nav-link prev"><div class="post-nav-dir">← テーマ概要</div><div class="post-nav-title">市場区分の見直し</div></a><a href="/governance/market-restructuring/3.2-tradable-share-ratio/" class="post-nav-link next"><div class="post-nav-dir">次の記事 →</div><div class="post-nav-title">流通株式比率 ― 政策保有株を動かした一つの数値</div></a></div>
-    <div style="max-width: var(--measure); margin: 32px auto 0; padding-top: 24px; border-top: 1px solid var(--rule); font-size: 0.82rem; color: var(--text-dim); text-align:right;">
-      <a href="/en/governance/market-restructuring/3.1-four-segments-to-three/" style="color: var(--ink-soft);">English version →</a>
-    </div>
-  </div>
-</section>
-</main>
-<style>footer{background:var(--ink,#1a2a4a);color:#cfd6e2;padding:48px 0 30px;font-size:0.8rem;line-height:1.8;border-top:none}footer a{color:#cfd6e2;text-decoration:none}footer .footer-row{list-style:none;display:flex;flex-wrap:wrap;gap:8px 26px;margin:0 0 26px;padding:0}footer .footer-row li{padding:0}footer .footer-row a{color:#cfd6e2;text-decoration:none;font-size:0.8rem}footer .footer-bottom{padding-top:24px;border-top:1px solid rgba(255,255,255,0.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-family:var(--mono),monospace;font-size:0.68rem;letter-spacing:0.06em;color:rgba(255,255,255,0.55)}</style><script>
-const nav = document.getElementById('main-nav');
-if (nav) window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
-const hamburgerBtn = document.querySelector('.hamburger');
-function setMenuOpen(isOpen) { const menu = document.getElementById('mobileMenu'); if (!menu || !hamburgerBtn) return; menu.classList.toggle('open', isOpen); menu.hidden = !isOpen; hamburgerBtn.setAttribute('aria-expanded', String(isOpen)); }
-function toggleMenu() { const menu = document.getElementById('mobileMenu'); setMenuOpen(!(menu && menu.classList.contains('open'))); }
-document.addEventListener('click', (e) => { const menu = document.getElementById('mobileMenu'); if (menu && menu.classList.contains('open') && !menu.contains(e.target) && hamburgerBtn && !hamburgerBtn.contains(e.target)) setMenuOpen(false); });
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenuOpen(false); });
-</script>
-<script type="module">
-import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs';
-mermaid.initialize({ startOnLoad: true, theme: 'neutral', fontFamily: 'Noto Sans JP, Hiragino Kaku Gothic ProN, sans-serif', themeVariables: { primaryColor: '#f4eee4', primaryTextColor: '#1a2a4a', primaryBorderColor: '#9a7838', lineColor: '#304466', secondaryColor: '#f5f7fa', tertiaryColor: '#fafbfc' } });
-</script>
-<script src="/assets/nav.js?v=348fa48c4e" defer></script>
+<li><strong>2.3――2021年改訂</strong>：市場再編に先立って導入された、プライム市場向けのガバナンス原則。</li>
+<li><strong>3.2――流通株式比率</strong>：市場区分の基準を政策保有株式の縮減につなげた仕組み。</li>
+<li><strong>3.3――経過措置終了後の上場維持ルール</strong>：「当分の間」とされた特例が、期限付きの制度へ変わった経緯。</li>
+<li><strong>3.4――TOPIX改革</strong>：市場区分と指数採用を切り離す改革。</li>
+<li><strong>4.1――PBR1倍割れをどう読むか</strong>：市場再編後のフォローアップから生まれた、2023年3月の東証要請。</li>
+</ul></article><nav class="post-nav" aria-label="前後の記事"><a class="post-nav-link prev" href="/governance/cg-code/2.5-meti-guideline-family/"><div class="post-nav-dir">← 前の記事</div><div class="post-nav-title">コードと指針――役割の違いと読み分け方</div></a><a class="post-nav-link next" href="/governance/market-restructuring/3.2-tradable-share-ratio/"><div class="post-nav-dir">次の記事 →</div><div class="post-nav-title">流通株式比率――政策保有株式の縮減を促した仕組み</div></a></nav><div class="post-language"><a href="/en/governance/market-restructuring/3.1-four-segments-to-three/">English version →</a></div></div></section>
+  </main>
+  <script src="/assets/governance.js?v=cc6033456e" defer></script>
+  <script src="/assets/nav.js?v=348fa48c4e" defer></script>
 </body>
 </html>
