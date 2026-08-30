@@ -20,6 +20,8 @@ import os
 import re
 import sys  # read by the --no-bake check in main(); see the comment there
 
+from company_names import normalize_company_name_en
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FEED = os.path.join(ROOT, "compounders", "feed", "data", "feed.json")
 WATCH = os.path.join(ROOT, "compounders", "feed", "data", "watchlist_signals.json")
@@ -138,7 +140,7 @@ def bake(payload):
                 d=esc(r["date"][5:].replace("-", ".")),
                 t=esc(r["label_en"] if lang == "en" else r["label_jp"]),
                 k=esc(r["ticker"]),
-                n=esc(r["name_en"] if lang == "en" else r["name_jp"]),
+                n=esc(normalize_company_name_en(r["name_en"], r["ticker"]) if lang == "en" else r["name_jp"]),
             )
             for r in payload["rows"]
         )
@@ -184,7 +186,7 @@ def main():
             "date": r["ts"][:10],
             "ticker": r.get("ticker", ""),
             "name_jp": r.get("name_jp", ""),
-            "name_en": r.get("name_en", "") or r.get("name_jp", ""),
+            "name_en": normalize_company_name_en(r.get("name_en", "") or r.get("name_jp", ""), r.get("ticker", "")),
             "label_jp": ja,
             "label_en": en,
         })
@@ -213,7 +215,7 @@ def main():
             "date": r["ts"][:10],
             "ticker": ticker,
             "name_jp": r.get("name_jp", ""),
-            "name_en": r.get("name_en", "") or r.get("name_jp", ""),
+            "name_en": normalize_company_name_en(r.get("name_en", "") or r.get("name_jp", ""), ticker),
             "source_url": r.get("doc_url", ""),
             "source_title_jp": r.get("doc_title_jp", ""),
             "source_title_en": r.get("doc_title_en", ""),

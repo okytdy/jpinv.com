@@ -64,7 +64,7 @@ def normalize_filing(raw: dict) -> dict:
         "japanese_title": raw.get("japanese_title") or raw.get("reason_ja") or "",
         "filer_raw_name": raw.get("filer_raw_name", ""),
         "issuer_name": raw.get("issuer_name", ""),
-        "issuer_name_en": raw.get("issuer_name_en") or C.jpx_name_en(code),
+        "issuer_name_en": C.normalize_company_name_en(raw.get("issuer_name_en") or C.jpx_name_en(code), code),
         "issuer_code": code,
         "previous_holding_ratio": cls["previous_pct"],
         "current_holding_ratio": cur,

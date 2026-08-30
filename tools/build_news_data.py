@@ -24,6 +24,8 @@ import os
 import re
 import sys
 
+from company_names import normalize_company_name_en
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FEED = os.path.join(ROOT, "compounders", "feed", "data", "feed.json")
 NEW5 = os.path.join(ROOT, "compounders", "active-investors", "data", "new5_feed.json")
@@ -79,7 +81,7 @@ def capital():
         ja, en = CAP_LABELS.get(r.get("class"), ("資本政策", "Capital action"))
         out.append({"date": r["ts"][:10], "ticker": r.get("ticker", ""),
                     "name_jp": r.get("name_jp", ""),
-                    "name_en": r.get("name_en") or r.get("name_jp", ""),
+                    "name_en": normalize_company_name_en(r.get("name_en") or r.get("name_jp", ""), r.get("ticker", "")),
                     "label_jp": ja, "label_en": en})
         if len(out) >= ROWS:
             break
@@ -96,7 +98,7 @@ def holdings():
         pct = r.get("current_holding_ratio")
         out.append({"date": r["filing_date"], "ticker": r.get("issuer_code", ""),
                     "issuer_jp": r.get("issuer_name", ""),
-                    "issuer_en": r.get("issuer_name_en") or r.get("issuer_name", ""),
+                    "issuer_en": normalize_company_name_en(r.get("issuer_name_en") or r.get("issuer_name", ""), r.get("issuer_code", "")),
                     "filer_jp": r.get("filer_raw_name") or r.get("filer_name_en", ""),
                     "filer_en": r.get("filer_name_en") or r.get("filer_raw_name", ""),
                     "pct": round(pct, 2) if isinstance(pct, (int, float)) else None,

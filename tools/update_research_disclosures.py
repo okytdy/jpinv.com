@@ -14,15 +14,15 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 DISCLOSURE_JA = (
-    '<p><b>利益相反に関する開示。</b> JII、その役員および関係者は、本レポートで取り上げる有価証券を保有または売買する場合があります。'
-    '重要な保有ポジション、または対象企業との有償の取引関係がある場合は、該当するレポート内でその旨を開示します。'
-    'JIIが公表する情報は、情報提供を目的とするものであり、投資助言または特定の有価証券の売買を推奨するものではありません。</p>'
+    '<p><b>利益相反に関する開示。</b> JII、その役員および関係者は、JIIの調査レポートで取り上げる企業の有価証券を保有せず、売買も行いません。'
+    'JIIが対象企業から有償で業務を受託している場合は、その事実を該当するレポートで開示します。'
+    'JIIが公表する情報は情報提供を目的とするものであり、投資助言や特定の有価証券の売買を勧めるものではありません。</p>'
 )
 
 DISCLOSURE_EN = (
-    '<p><b>Conflicts of interest and positions.</b> JII, its officers, and related parties may hold or trade securities discussed in a report. '
-    'Any material position or paid relationship with a company covered will be disclosed in the relevant report. '
-    "JII's publications are provided for informational purposes only and do not constitute investment advice or a recommendation to buy or sell any security.</p>"
+    '<p><b>Conflicts of interest.</b> JII, its officers, and related parties do not hold or trade securities of companies covered in JII research. '
+    'If JII has a paid engagement with a company covered in a publication, that relationship is disclosed in the relevant publication. '
+    "JII's publications are for informational purposes only and do not constitute investment advice or a recommendation to buy or sell any security.</p>"
 )
 
 SECTION_RE = re.compile(r'<section class="disclaimer".*?</section>', re.DOTALL)
@@ -30,11 +30,13 @@ PUBLICATION_NOTE_RE = re.compile(r'<section class="publication-note".*?</section
 PARAGRAPH_RE = re.compile(r'<p(?:\s[^>]*)?>.*?</p>', re.DOTALL)
 OLD_CONFLICT_MARKERS = (
     '利益相反および保有状況',
+    '利益相反およびポジション',
     '利益相反・ポジション',
     '利益相反に関する開示。',
     'Conflicts &amp; positions.',
     'Conflicts & positions.',
     'Conflicts of interest and positions.',
+    'Conflicts of interest.',
 )
 FALSE_OPINION_RE = re.compile(
     r'\s*JII does not have an investment opinion on any security discussed\.',
