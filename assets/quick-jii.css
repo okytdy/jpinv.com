@@ -213,3 +213,39 @@ html[lang="en"] .qj-loop .hl-nt{font-size:11px}
   html[lang="en"] .qj-need{grid-template-columns:42px 1fr}
   html[lang="en"] .qj-shot-copy b{font-size:20px}
 }
+
+/* Content-first corporate hierarchy (2026-08-31) */
+.qj-page h1,.qj-page h2,.qj-page h3{text-wrap:pretty}
+.qj-hero-copy h1,
+html[lang="en"] .qj-hero-copy h1{font-size:clamp(30px,3vw,36px);font-weight:400;line-height:1.5}
+.qj-hero-copy p{max-width:700px;font-size:16px;line-height:1.95}
+.qj-purpose strong{font-size:22px;font-weight:400}
+.qj-purpose li{font-size:13px;line-height:1.65}
+.qj-intro{padding:72px 0!important}
+.qj-intro-grid{grid-template-columns:minmax(220px,.65fr) minmax(0,1.35fr);gap:58px}
+.qj-intro h2{font-size:clamp(24px,2.35vw,30px);font-weight:400;line-height:1.65;letter-spacing:.025em}
+.qj-intro-copy p{font-size:16px;line-height:2}
+.qj-strengths,.qj-needs,.qj-method,.qj-outputs,.qj-process{padding:72px 0!important}
+.qj-strength{min-height:250px}
+.qj-strength p{font-size:15px;line-height:1.9}
+.qj-strength a{font-size:13px}
+.qj-cycle{padding:72px 0!important}
+.qj-cycle-copy>p{font-size:17px;line-height:1.95}
+.qj-outcomes span{font-size:15px;line-height:1.7}
+.qj-need strong{font-size:17px;line-height:1.65}
+.qj-need-service{font-size:13px;line-height:1.6}
+.qj-figure-name{font-size:15px;line-height:1.65}
+.qj-figure-note,.qj-figures-foot{font-size:12px;line-height:1.7}
+.qj-method-panel p,.qj-output-desc,.qj-step p{font-size:14px;line-height:1.85}
+.qj-output-name{font-size:19px}
+.qj-related{padding:64px 0 72px!important}
+
+@media(max-width:760px){
+  .qj-hero-copy h1,html[lang="en"] .qj-hero-copy h1{font-size:clamp(25px,7vw,29px);line-height:1.5}
+  .qj-hero-copy p{font-size:15px;line-height:1.9}
+  .qj-intro,.qj-strengths,.qj-needs,.qj-method,.qj-outputs,.qj-process{padding:54px 0!important}
+  .qj-intro-grid{grid-template-columns:1fr;gap:16px}
+  .qj-intro h2{font-size:clamp(22px,6.3vw,26px);line-height:1.6}
+  .qj-intro-copy p{font-size:15px;line-height:1.9}
+  .qj-cycle{padding:54px 0!important}
+}

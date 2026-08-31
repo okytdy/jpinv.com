@@ -199,3 +199,44 @@ html[lang="en"] .sp-spec>div{grid-template-columns:110px 1fr}
   html[lang="en"] .sp-hero-copy h1{font-size:clamp(25px,7.2vw,31px);line-height:1.43}
   html[lang="en"] .sp-spec>div{grid-template-columns:90px 1fr}
 }
+
+/* Content-first corporate hierarchy (2026-08-31) */
+.sp-page h1,.sp-page h2,.sp-page h3{text-wrap:pretty}
+.sp-hero-copy h1,
+html[lang="en"] .sp-hero-copy h1{max-width:960px;font-size:clamp(30px,3vw,36px);font-weight:400;line-height:1.5}
+.sp-hero-copy p{max-width:720px;font-size:16px;line-height:1.95}
+.sp-intro{padding:72px 0!important}
+.sp-intro-grid{grid-template-columns:minmax(220px,.65fr) minmax(0,1.35fr);gap:58px}
+.sp-intro h2{font-size:clamp(24px,2.35vw,30px);font-weight:400;line-height:1.6;letter-spacing:.025em}
+.sp-intro-copy>p{font-size:16px;line-height:2}
+.sp-service{min-height:540px}
+.sp-service-copy{padding:60px clamp(40px,5.5vw,78px)}
+.sp-service-copy h2{font-size:clamp(24px,2.35vw,30px);font-weight:400;line-height:1.55;letter-spacing:.025em}
+.sp-service-lead{font-family:var(--sans);font-size:16px;line-height:1.95;color:var(--text-mid)}
+.sp-spec dt{font-size:13px;line-height:1.65}
+.sp-spec dd,.sp-subservices a{font-size:14px;line-height:1.8}
+.sp-text-link,.sp-policy-link,.sp-pricing-link{font-size:14px}
+.sp-ongoing{padding:72px 0!important}
+.sp-ongoing-copy h2{font-size:clamp(24px,2.35vw,30px);font-weight:400;line-height:1.6;letter-spacing:.025em}
+.sp-ongoing-copy p{font-size:15px;line-height:1.95}
+.sp-standards{padding:72px 0!important}
+.sp-heading{grid-template-columns:minmax(220px,.68fr) minmax(0,1.32fr);gap:56px}
+.sp-heading h2{font-size:clamp(24px,2.35vw,30px);font-weight:400;line-height:1.55;letter-spacing:.025em}
+.sp-heading>p,.sp-standard-list dd{font-size:15px;line-height:1.9}
+.sp-pricing{padding:64px 0!important}
+.sp-pricing h2{font-size:clamp(23px,2.2vw,28px);font-weight:400}
+.sp-pricing p{font-size:15px;line-height:1.9}
+.sp-final{padding:68px 0!important}
+.sp-final h2{font-size:clamp(24px,2.35vw,30px);font-weight:400;line-height:1.6;letter-spacing:.025em}
+.sp-final p{font-size:15px;line-height:1.9}
+
+@media(max-width:760px){
+  .sp-hero-copy h1,html[lang="en"] .sp-hero-copy h1{font-size:clamp(25px,7vw,29px);line-height:1.5}
+  .sp-hero-copy p{font-size:15px;line-height:1.9}
+  .sp-intro,.sp-ongoing,.sp-standards{padding:54px 0!important}
+  .sp-intro-grid,.sp-heading{grid-template-columns:1fr;gap:16px}
+  .sp-intro h2,.sp-service-copy h2,.sp-ongoing-copy h2,.sp-heading h2{font-size:clamp(22px,6.3vw,26px);line-height:1.55}
+  .sp-service-copy{padding:42px 22px 48px}
+  .sp-service-lead,.sp-intro-copy>p{font-size:15px;line-height:1.9}
+  .sp-final{padding:54px 0!important}
+}

@@ -151,3 +151,33 @@
   .ci-gov-stats,.ci-use-grid{grid-template-columns:1fr}.ci-gov-stat,.ci-use{border-right:0}.ci-theme{grid-template-columns:38px 1fr;gap:10px 14px}.ci-theme p,.ci-theme>span{grid-column:2}.ci-toolbox{grid-template-columns:1fr;gap:13px;padding:24px}.ci-toolbox a{grid-column:1}.ci-options{grid-template-columns:1fr}
 }
 @media(prefers-reduced-motion:reduce){.ci-feature,.ci-feature-image img,.ci-theme{transition:none}.ci-feature:hover img{transform:none}}
+
+/* Content-first corporate hierarchy (2026-08-31) */
+.ci-page h1,.ci-page h2,.ci-page h3{text-wrap:pretty}
+.ci-founder-copy h2,.ci-company-grid h2,
+.ci-profile-grid h2,.ci-history-heading h2,.ci-policy-heading h2,.ci-section-title{
+  font-size:clamp(24px,2.35vw,30px);font-weight:400;line-height:1.6;letter-spacing:.02em
+}
+.ci-founder-copy>p,.ci-longform p,.ci-longform--profile p{font-size:15px;line-height:2}
+.ci-proof b{font-size:27px;font-weight:400}
+.ci-proof span,.ci-experience .ci-proof span{font-size:13px;line-height:1.75}
+.ci-table th,.ci-table td{font-size:14px;line-height:1.8}
+.ci-table thead th{font-size:12px}
+.ci-timeline p,.ci-policy-blocks p,.ci-feature p,.ci-editorial-note p,.ci-policy p{font-size:15px;line-height:1.95}
+.ci-feature h2{font-size:clamp(23px,2.25vw,29px);font-weight:400;line-height:1.6}
+.ci-feature-more{font-size:13px}
+.ci-sitemap .sm-list li,.ci-policy-index a{font-size:13px;line-height:1.7}
+.ci-gov-stat span{font-size:13px;line-height:1.7}
+.ci-theme p,.ci-toolbox p,.ci-use p{font-size:14px;line-height:1.85}
+.ci-theme>span,.ci-toolbox a{font-size:12px}
+.ci-question-text{font-size:18px;line-height:1.75}
+.ci-option,.ci-explain{font-size:14px;line-height:1.8}
+
+@media(max-width:760px){
+  .ci-founder-copy h2,.ci-company-grid h2,
+  .ci-profile-grid h2,.ci-history-heading h2,.ci-policy-heading h2,.ci-section-title{
+    font-size:clamp(22px,6.3vw,26px);line-height:1.6
+  }
+  .ci-founder-copy>p,.ci-longform p,.ci-longform--profile p{font-size:15px;line-height:1.9}
+  .ci-table th,.ci-table td{font-size:13px}
+}
