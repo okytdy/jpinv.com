@@ -111,8 +111,8 @@ DISC_JP = """<section class="disclaimer"><div class="wrap">
   <h2 class="d-title">本資料は投資助言ではありません。</h2></div>
   <div class="disclaimer-body">
   <p><b>株式会社ジャパン・インベスター・インターフェース（以下「JII」）</b>はIRコンサルティング事業を行う会社であり、いかなる管轄においても投資助言業者、金融アドバイザー、証券会社、または証券業者として登録されていません。JIIは、日本の金融商品取引法に基づく<b>金融商品取引業者</b>ではなく、投資助言・代理業の登録も保有しておりません。JIIは、投資助言を行うものでも、特定の有価証券の取得・売却・保有を勧誘するものでもありません。</p>
-  <p><b>JII Compoundersは、教育・調査を目的とする編集コンテンツです。</b>各銘柄レポートおよび本シグナルログは、日本の上場企業が公表している情報をもとに、その情報が市場でどのように受け止められてきたかを考察するものです。<b>掲載内容は、いかなる有価証券の取得・売却・保有を推奨、提案、勧誘するものではありません。</b></p>
-  <p><b>ご利用にあたって。</b>記載情報は不完全であったり、古くなっていたり、誤りを含んでいたりする可能性があります。過去の株価推移は将来の成果を示すものではありません。投資判断にあたっては、資格を有する専門家にご相談ください。</p>
+  <p><b>JII Compoundersは、教育・調査を目的とする編集コンテンツです。</b>各銘柄レポートと本一覧では、日本の上場企業が公表した情報をもとに、その<b>内容を資本市場の視点から整理します。掲載内容は、特定の有価証券の取得・売却・保有を推奨、提案、勧誘するものではありません。</b></p>
+  <p><b>ご利用にあたって。</b>掲載情報には、不完全な内容、古くなった内容、誤りが含まれる可能性があります。過去の株価推移から将来の成果を判断することはできません。投資判断を行う際は、必要に応じて資格を持つ専門家にご相談ください。</p>
   <p><b>利益相反に関する開示。</b> JII、その役員および関係者は、JIIの調査レポートで取り上げる企業の有価証券を保有せず、売買も行いません。JIIが対象企業から有償で業務を受託している場合は、その事実を該当するレポートで開示します。JIIが公表する情報は情報提供を目的とするものであり、投資助言や特定の有価証券の売買を勧めるものではありません。</p>
   <p class="d-en-note" lang="en">Japan Investor Interface Co., Ltd. ("JII") is an investor-relations consultancy and is not registered as a Financial Instruments Business Operator under Japan's Financial Instruments and Exchange Act. JII does not provide investment advice. JII Compounders is an editorial publication for educational and research purposes. Nothing herein constitutes a recommendation. Consult qualified, licensed advisors before any investment decision.</p>
   </div></div></section>"""
@@ -144,8 +144,8 @@ def brand(lang):
 def footer(lang, ja_path, en_path):
     if lang == "ja":
         return ('<footer class="footer"><div class="wrap">'
-          '<span><a href="/compounders/methodology/#p6">このシグナルログについて</a> · '
-          '<a href="/compounders/signals/">すべてのシグナル</a> · <a href="/compounders/">銘柄レポート</a></span>'
+          '<span><a href="/compounders/methodology/#p6">この一覧について</a> · '
+          '<a href="/compounders/signals/">すべての資本政策開示</a> · <a href="/compounders/">銘柄レポート</a></span>'
           '<span>Japan Investor Interface Co., Ltd.</span>'
           f'<span class="footer-locale-switcher">言語: <a href="{ja_path}" class="current" aria-current="page" lang="ja">JP</a> · '
           f'<a href="{en_path}" data-locale-route lang="en">EN</a></span></div></footer>')
@@ -216,7 +216,7 @@ def sig_card(s, lang):
         if s.get("summary_en"): parts.append(f'<p class="sig-sum">{esc(s["summary_en"])}</p>')
         elif s.get("summary_jp"): parts.append(f'<p class="sig-sum sig-sum-jp" lang="ja">{esc(s["summary_jp"])}</p>')
     if s.get("doc_url"):
-        label = "原文開示を見る (TDnet) →" if lang == "ja" else "Source disclosure (TDnet) →"
+        label = "TDnetの原文を見る →" if lang == "ja" else "Source disclosure (TDnet) →"
         parts.append(f'<div class="sig-src"><a href="{esc(s["doc_url"])}" target="_blank" rel="noopener">{label}</a></div>')
     parts.append('</article>')
     return "".join(parts)
@@ -229,12 +229,12 @@ def name_page(n, lang):
     alt_en = f"https://jpinv.com/en/compounders/signals/{tk}/"
     cnt = n["signal_count"]; latest = n["latest"]["date"]
     if lang == "ja":
-        title = f"{nm_jp}（{tk}）資本政策シグナルログ｜JII Compounders"
-        desc = f"{nm_jp}（{tk}）の資本政策に関する開示（自社株買い・配当・消却・資本コスト経営等）の記録。直近{cnt}件、最新は{latest}。"
+        title = f"{nm_jp}（{tk}）資本政策開示履歴｜JII Compounders"
+        desc = f"{nm_jp}（{tk}）の資本政策に関する開示（自社株買い・配当・消却・資本コスト経営等）をまとめています。直近{cnt}件を掲載し、最新は{latest}です。"
         h1 = f"{esc(nm_jp)} <span class='tk'>{esc(tk)}</span>"
-        eyebrow = "JII COMPOUNDERS · 資本政策シグナルログ"
-        subline = f"{esc(n['industry'])}" + (f" · 標準ユニバース" if n["in_universe"] else "")
-        meta = f'<b>{cnt}</b> 件のシグナル · 最新 <b>{esc(latest)}</b>'
+        eyebrow = "JII COMPOUNDERS · 資本政策の動き"
+        subline = f"{esc(n['industry'])}" + (f" · 選定基準を満たす" if n["in_universe"] else "")
+        meta = f'開示<b>{cnt}</b>件 · 最新 <b>{esc(latest)}</b>'
     else:
         title = f"{nm_en} ({tk}) — Capital-Allocation Signal Log | JII Compounders"
         desc = f"Record of {nm_en} ({tk}) capital-allocation disclosures (buybacks, dividends, cancellations, cost-of-capital). {cnt} on file, latest {latest}."
@@ -246,10 +246,10 @@ def name_page(n, lang):
     acts = []
     if n["profile_exists"]:
         purl = f"/en/compounders/{tk}/initiation/" if lang == "en" else f"/compounders/{tk}/initiation/"
-        acts.append(f'<a href="{purl}">{"JII Compounderレポートを読む →" if lang=="ja" else "Read the JII Compounder profile →"}</a>')
+        acts.append(f'<a href="{purl}">{"JII Compounders銘柄レポートを読む →" if lang=="ja" else "Read the JII Compounder profile →"}</a>')
     feedurl = "/en/compounders/feed/" if lang == "en" else "/compounders/feed/"
     univurl = "/en/compounders/universe/" if lang == "en" else "/compounders/universe/"
-    acts.append(f'<a href="{feedurl}">{"全社フィードで見る →" if lang=="ja" else "Open in the full feed →"}</a>')
+    acts.append(f'<a href="{feedurl}">{"全銘柄の開示一覧で見る →" if lang=="ja" else "Open in the full feed →"}</a>')
     acts.append(f'<a href="{univurl}">{"← ユニバースに戻る" if lang=="ja" else "← Back to the universe"}</a>')
     # Per-ticker page: noindex,follow. See the comment on head() for the reasoning.
     body = [head(lang, title, desc, canon, alt_ja, alt_en, noindex=True)]
@@ -278,11 +278,11 @@ def index_page(names, lang):
     alt_ja = "https://jpinv.com/compounders/signals/"
     alt_en = "https://jpinv.com/en/compounders/signals/"
     if lang == "ja":
-        title = "資本政策シグナルログ｜JII Compounders"
-        desc = "JIIウォッチリスト銘柄が公表した資本政策シグナル（自社株買い・配当・消却・資本コスト経営等）の一覧。銘柄ごとの記録にリンク。"
-        eyebrow = "JII COMPOUNDERS · 資本政策シグナルログ"
-        h1 = "資本政策シグナルログ"
-        lede = "JIIが追う銘柄が公表した、マルチプル再評価につながりうる資本政策の開示を、銘柄ごとに記録しています。新しい順。銘柄名をクリックすると、その銘柄の全シグナル履歴に移動します。"
+        title = "資本政策の動き｜JII Compounders"
+        desc = "JIIが継続して追う銘柄について、自社株買い、配当、消却、資本コストを意識した経営など、資本政策に関する開示を銘柄別にまとめています。"
+        eyebrow = "JII COMPOUNDERS · 資本政策の動き"
+        h1 = "資本政策の動き"
+        lede = "JIIが追っている銘柄の資本政策開示のうち、企業評価の見直しにつながる可能性があるものを銘柄ごとに記録しています。新しい順に掲載し、銘柄名を選ぶと、その会社の履歴をまとめて確認できます。"
     else:
         title = "Capital-Allocation Signal Log | JII Compounders"
         desc = "Every capital-allocation signal disclosed by a JII watchlist name (buybacks, dividends, cancellations, cost-of-capital), linked to each name's record."
@@ -304,7 +304,7 @@ def index_page(names, lang):
             f'<span class="idx-tk">{esc(n["ticker"])}</span>'
             f'<span class="idx-name">{esc(nm)}</span>'
             f'<span class="idx-chip">{esc(chip)}</span>'
-            f'<span class="idx-flags">{esc("  ".join(flags))} · {cntlbl}</span>'
+            f'<span class="idx-flags">{esc("・".join(flags))} · {cntlbl}</span>'
             '</a>')
     body = [head(lang, title, desc, canon, alt_ja, alt_en), '<body>']
     body.append(f'<a class="skip-link" href="#main-content">{"本文へ移動" if lang=="ja" else "Skip to main content"}</a>')
@@ -312,7 +312,7 @@ def index_page(names, lang):
     body.append(brand(lang))
     body.append(f'<div class="hero-eyebrow">{eyebrow}</div><h1>{esc(h1)}</h1>')
     body.append(f'<p class="sub-line">{esc(lede)}</p>')
-    cnt_line = (f'<b>{len(names)}</b> 銘柄 · <b>{sum(n["signal_count"] for n in names)}</b> 件のシグナル'
+    cnt_line = (f'<b>{len(names)}</b> 銘柄 · <b>{sum(n["signal_count"] for n in names)}</b> 件'
                 if lang == "ja" else
                 f'<b>{len(names)}</b> names · <b>{sum(n["signal_count"] for n in names)}</b> signals on file')
     body.append(f'<p class="meta-line">{cnt_line}</p></header></div>')

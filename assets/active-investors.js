@@ -47,7 +47,7 @@
       feedSearch: "企業・コードで検索…",
       viewMore: "詳細", flipHint: "最近の動きを見る",
       recent: "件の提出", latest: "最新", noMoves: "選択期間に該当する提出はありません。",
-      feedTitle: "新規5%報告 — 東証全体", feedSub: "ライブ・新規の大量保有報告書をすべて・提出者を問わず",
+      feedTitle: "新規5%報告。東証全体", feedSub: "新規提出の大量保有報告書を、提出者を問わず随時掲載",
       viewAll: "ツール全体を見る", viewAllFilings: "すべての新規5%報告を見る",
       tracked: "追跡中", showing: "表示", of: "/", investors: "投資家",
       colDate: "提出日", colCo: "企業", colTk: "コード", colType: "種別", colMove: "動き",
@@ -56,8 +56,8 @@
       pp: "pt", loading: "読み込み中…", err: "フィードを読み込めませんでした。",
       latestFiling: "最新提出", staleFeed: "更新が止まっている可能性があります",
       feedLoadError: "EDINETフィードを読み込めませんでした。", ratioReview: "保有割合：原文確認が必要",
-      rosterTitle: "アクティブ・ファンド名鑑 — 直近12ヶ月",
-      rosterSub: "期間中に大量保有報告書を提出したアクティビスト・エンゲージメント・海外アクティブ運用ファンド",
+      rosterTitle: "アクティブ投資家名鑑 — 直近12ヶ月",
+      rosterSub: "期間中に大量保有報告書を提出した、国内外のアクティビストやアクティブ運用ファンド",
       rosterSearch: "ファンド名で検索…", colFund: "ファンド", colFilings: "提出", colNew5: "新規5%", colLast: "最新",
       funds: "社",
       crossed5: "大量保有報告書", country: {}
@@ -165,7 +165,7 @@
       var meta = state.feed.meta || {};
       var t = lang === "ja" ? "アクティブ投資家" : "Active Investors in Japan";
       var lede = lang === "ja"
-        ? "EDINETの大量保有報告書をもとに、日本株で存在感を高める国内外の投資家の動きを追います。"
+        ? "EDINETの大量保有報告書をもとに、日本株で保有を増やしている国内外の投資家の動きを追います。"
         : "A live view of foreign and active institutional investors making meaningful moves in Japanese equities, based on EDINET large-shareholding filings.";
       var upd = meta.as_of_date ? '<div class="ai-updated">' + (lang === "ja" ? "更新" : "Updated") +
         ' <b>' + esc(meta.as_of_date) + "</b></div>" : "";
@@ -268,7 +268,7 @@
 
     function catLabel(c) {
       var m = lang === "ja"
-        ? { activist: "アクティビスト", long_only: "ロングオンリー", institutional: "機関投資家", strategic: "事業会社" }
+        ? { activist: "アクティビスト", long_only: "長期保有型", institutional: "機関投資家", strategic: "事業会社" }
         : { activist: "Activist", long_only: "Long-only", institutional: "Institutional", strategic: "Strategic holder" };
       return m[c] || c || "";
     }

@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>資本政策開示｜JII Compounders</title>
-<meta name="description" content="日本の上場企業による資本コスト・自社株買い・配当・政策保有株式縮減・MBOなど、マルチプル再評価を示唆する開示だけを抽出したライブ・スクリーンです。">
+<meta name="description" content="日本の上場企業が公表する資本政策関連の開示から、資本コストを意識した経営、自社株買い、配当、政策保有株式の縮減、MBOなど、企業評価の見直しにつながり得るものを抽出して随時掲載します。">
 <meta property="og:title" content="資本政策開示｜JII Compounders">
-<meta property="og:description" content="日本の上場企業による資本コスト・自社株買い・配当・政策保有株式縮減・MBOなど、マルチプル再評価を示唆する開示だけを抽出したライブ・スクリーンです。">
+<meta property="og:description" content="日本の上場企業が公表する資本政策関連の開示から、資本コストを意識した経営、自社株買い、配当、政策保有株式の縮減、MBOなど、企業評価の見直しにつながり得るものを抽出して随時掲載します。">
 <meta property="og:url" content="https://jpinv.com/compounders/feed/">
 <link rel="canonical" href="https://jpinv.com/compounders/feed/">
 <link rel="alternate" hreflang="ja" href="https://jpinv.com/compounders/feed/">
@@ -132,7 +132,7 @@
   "@type": "WebPage",
   "url": "https://jpinv.com/compounders/feed/",
   "name": "資本政策開示｜JII Compounders",
-  "description": "日本の上場企業による資本コスト・自社株買い・配当・政策保有株式縮減・MBOなど、マルチプル再評価を示唆する開示だけを抽出したライブ・スクリーンです。",
+  "description": "日本の上場企業が公表する資本政策関連の開示から、資本コストを意識した経営、自社株買い、配当、政策保有株式の縮減、MBOなど、企業評価の見直しにつながり得るものを抽出して随時掲載します。",
   "inLanguage": "ja"
 }
 </script></head>
@@ -149,26 +149,26 @@
     </div>
     <div class="hero-eyebrow">JII COMPOUNDERS &middot; CAPITAL DISCLOSURE</div>
     <h1>資本政策開示</h1>
-    <p class="hero-tagline">評価を動かす資本政策だけ。</p>
-    <p class="lede">東証上場企業の資本政策に関する重要開示を追う、リアルタイムフィードです。自社株買い、増配、TOB・MBO、自己株式の消却などを自動で抽出。東証のTDnetから30分ごとに取得し、決算短信や月次売上などの定型開示は除外しています。</p>
+    <p class="hero-tagline">企業評価に関わる資本政策の動きを追う。</p>
+    <p class="lede">東証上場企業の資本政策に関する重要な開示を随時掲載します。自社株買い、増配、TOB・MBO、自己株式の消却などを自動で抽出し、TDnetから30分ごとに更新します。決算短信や月次売上などの定型的な開示は対象外です。</p>
   </header>
 
-  <div class="controls" role="region" aria-label="フィード絞り込み">
+  <div class="controls" role="region" aria-label="表示する開示を絞り込む">
     <div class="controls-row">
       <div class="search-wrap">
         <input type="text" class="search-input" id="search" placeholder="ティッカー検索 (例: 4776)" autocomplete="off" inputmode="numeric" aria-label="ティッカー検索">
         <div class="search-suggest" id="suggest" role="listbox"></div>
       </div>
-      <div class="chips" role="group" aria-label="開示クラス絞り込み">
-        <button class="chip active" data-cls="COC" title="資本コストや株価を意識した経営に関する開示。初回公表、または中期経営計画へのROIC/WACC/ROE目標導入、もしくは目標水準の10%以上の変更を対象とする。">資本コスト</button>
-        <button class="chip active" data-cls="BUYBACK" title="自己株式取得の決議・実施。発行済株式の1%以上、または時価総額1,000億円未満の銘柄で10億円以上を対象とする。">自社株買い</button>
-        <button class="chip active" data-cls="CANCEL" title="自己株式の消却。発行済株式の0.5%以上を対象とする。">自己株消却</button>
-        <button class="chip active" data-cls="DIV" title="配当予想の修正・剰余金の配当。配当性向の10pp以上の変更、年間恒常配当を上回る特別配当、初配、累進配当の導入などを対象とする。">配当</button>
-        <button class="chip active" data-cls="CROSS" title="政策保有株式の縮減方針、または5億円以上の具体的売却。方針／プログラムとして打ち出されたものを対象とし、単発の戦術的売却は除く。">政策保有</button>
-        <button class="chip active" data-cls="MBO" title="上場会社そのものの非公開化。第三者（親会社・PE・経営陣）による当社株式へのTOB・株式等売渡請求・MBOなど、上場廃止を伴う開示。">非公開化</button>
-        <button class="chip active" data-cls="M_AND_A" title="アウトバウンドM&amp;A。上場会社が「買い手」となるケース — 他社の買収、または子会社を100%（完全子会社化）まで取得する開示。当社自身の非公開化ではなく、当社による資本投下。">M&amp;A・買収</button>
-        <button class="chip active" data-cls="COMP" title="役員報酬制度の改定。ROIC／ROCE／TSR連動など、資本効率指標の組み込みを対象とする。">報酬KPI</button>
-        <button class="chip active" data-cls="GOV" title="コーポレートガバナンス・コード対応。資本政策原則（原則1-4、1-5、5-2）の「explain → comply」転換を対象とする。">ガバナンス</button>
+      <div class="chips" role="group" aria-label="開示区分で絞り込む">
+        <button class="chip active" data-cls="COC" title="資本コストや株価を意識した経営に関する開示を対象とします。初回の公表、中期経営計画へのROIC/WACC/ROE目標の導入、目標水準を10%以上変更した場合などを含みます。">資本コスト</button>
+        <button class="chip active" data-cls="BUYBACK" title="自己株式取得の決議・実施のうち、発行済株式の1%以上、または時価総額1,000億円未満の銘柄で10億円以上のものを対象とします。">自社株買い</button>
+        <button class="chip active" data-cls="CANCEL" title="自己株式の消却のうち、発行済株式の0.5%以上を対象とします。">自己株消却</button>
+        <button class="chip active" data-cls="DIV" title="配当予想の修正や剰余金の配当に関する開示を対象とします。配当性向の10pp以上の変更、年間の通常配当を上回る特別配当、初配、累進配当の導入などを含みます。">配当</button>
+        <button class="chip active" data-cls="CROSS" title="政策保有株式の縮減方針、または5億円以上の具体的な売却を対象とします。継続的な縮減方針・計画として公表されたものを扱い、単発の売却は除きます。">政策保有</button>
+        <button class="chip active" data-cls="MBO" title="上場会社そのものを非公開化する開示を対象とします。親会社、PE、経営陣など第三者による当社株式へのTOB、株式等売渡請求、MBOなど、上場廃止につながる案件が該当します。">非公開化</button>
+        <button class="chip active" data-cls="M_AND_A" title="上場会社が買い手となるM&amp;Aを対象とします。他社の買収や、子会社の株式を100%まで取得して完全子会社化する案件です。当社自身が非公開化されるケースではなく、当社が資本を投じる取引を扱います。">M&amp;A・買収</button>
+        <button class="chip active" data-cls="COMP" title="役員報酬制度の改定のうち、ROIC／ROCE／TSRなど資本効率に関する指標を報酬に組み込むものを対象とします。">報酬KPI</button>
+        <button class="chip active" data-cls="GOV" title="コーポレートガバナンス・コードへの対応のうち、資本政策に関する原則（原則1-4、1-5、5-2）について「explain → comply」へ変更したケースを対象とします。">ガバナンス</button>
       </div>
       <div class="refresh-meta">最終更新: <b id="last-refresh">—</b></div>
     </div>
@@ -176,7 +176,7 @@
   </div>
 
   <section class="feed" id="feed" aria-live="polite">
-    <div class="feed-loading" id="feed-status">フィードを読み込み中…</div>
+    <div class="feed-loading" id="feed-status">データを読み込んでいます…</div>
   </section>
   <div class="sentinel" id="sentinel"></div>
 </div>
@@ -185,22 +185,14 @@
   <div class="wrap">
     <div class="disclaimer-head">
       <span class="d-eyebrow">重要なご注意 · Important Disclaimer</span>
-      <h2 class="d-title">本資料は投資助言ではありません。</h2>
+      <h2 class="d-title">本資料は投資助言を目的とするものではありません。</h2>
     </div>
     <div class="disclaimer-body">
-      <p>
-        <b>株式会社ジャパン・インベスター・インターフェース（以下「JII」）</b>はIRコンサルティング事業を行う会社であり、いかなる管轄においても投資助言業者、金融アドバイザー、証券会社、または証券業者として登録されていません。JIIは、日本の金融商品取引法に基づく<b>金融商品取引業者</b>ではなく、投資助言・代理業の登録も保有しておりません。JIIは、投資助言を行うものでも、特定の有価証券の取得・売却・保有を勧誘するものでもありません。
-      </p>
-      <p>
-        <b>JII Compoundersは、教育・調査を目的とする編集コンテンツです。</b>各銘柄レポートおよび本フィードは、日本の上場企業が公表している情報をもとに、その情報が市場でどのように受け止められてきたかを考察するものです。想定読者は、IR実務者、金融を学ぶ方、報道関係者、企業開示に関心のある方です。<b>掲載内容は、いかなる有価証券、デリバティブその他の金融商品の取得・売却・保有を推奨、提案、勧誘するものではありません。</b>株価水準、シナリオ、倍率、類似企業比較は分析方法を示すための例であり、JIIの投資判断を示すものではありません。
-      </p>
-      <p>
-        <b>ご利用にあたって。</b>記載情報は不完全であったり、古くなっていたり、誤りを含んでいたりする可能性があります。過去の株価推移は将来の成果を示すものではありません。投資、税務、会計、法務その他の判断にあたっては、資格を有する専門家にご相談ください。
-      </p>
+      <p><b>株式会社ジャパン・インベスター・インターフェース（以下「JII」）</b>は、IRコンサルティングを行う会社です。JIIは、いずれの法域においても投資助言業者、金融アドバイザー、証券会社または証券業者として登録されていません。また、日本の金融商品取引法に基づく<b>金融商品取引業者</b>ではなく、投資助言・代理業の登録も受けていません。JIIは投資助言を行わず、特定の有価証券の取得・売却・保有を勧誘しません。</p>
+      <p><b>JII Compoundersは、教育・調査を目的とした編集コンテンツです。各銘柄レポートと本ページで</b>は、日本の上場企業が公表した情報をもとに、その内容を資本市場の視点から整理します。IR実務者、金融を学ぶ方、報道関係者、企業開示に関心のある方<b>を主な読者として想定しています。掲載内容は、特定の有価証券、デリバティブその他の金融商品の取得・売却・保有を推奨、提案、勧誘するものではありません。株価水準、シナリオ、倍率、類似企業比較は、分析の考え方</b>を示すための例であり、JIIの投資判断を示すものではありません。</p>
+      <p><b>ご利用にあたって。</b>掲載情報には、不完全な内容、古くなった内容、誤りが含まれる可能性があります。過去の株価推移から将来の成果を判断することはできません。投資、税務、会計、法務その他の判断を行う際は、必要に応じて資格を持つ専門家にご相談ください。</p>
 
-      <p>
-        <b>商標およびデータ。</b>本資料中で言及される企業名、ロゴ、ティッカー、製品名は、各々の所有者に帰属します。株価データは第三者プロバイダーからライセンスを受けています。TradingViewはTradingView, Inc.の商標です。
-      </p>
+      <p><b>商標・データについて。本資料に記載す</b>る企業名、ロゴ、ティッカー、製品名に関する権利は、それぞれの権利者に帰属します。株価データには、第三者プロバイダーからライセンスを受けたものが含まれます。TradingViewはTradingView, Inc.の商標です。</p>
 
 
 
@@ -219,7 +211,7 @@
 </main>
 <footer class="footer">
   <div class="wrap" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;max-width:var(--max);">
-    <span><a href="/compounders/methodology/#p6">このフィードについて</a> · <a href="/compounders/">すべての銘柄レポート</a></span>
+    <span><a href="/compounders/methodology/#p6">この一覧について</a> · <a href="/compounders/">すべての銘柄レポート</a></span>
     <span>Japan Investor Interface Co., Ltd.</span>
     <span class="footer-locale-switcher">言語: <a href="/compounders/feed/" class="current" aria-current="page" lang="ja">JP</a> · <a href="/en/compounders/feed/" data-locale-route lang="en">EN</a></span>
   </div>
@@ -306,7 +298,7 @@
       +   (row.summary_en ? '<p class="ex-summary" lang="en">' + escapeHTML(row.summary_en) + '</p>' : '')
       +   '<div class="ex-links">'
       +     (row.doc_url ? '<a href="' + escapeHTML(row.doc_url) + '" target="_blank" rel="noopener">原文を見る (' + escapeHTML(row.source || "TDnet") + ') →</a>' : '')
-      +     (row.profile_url ? '<a href="' + escapeHTML(row.profile_url) + '">JII Compounderレポートを読む →</a>' : '')
+      +     (row.profile_url ? '<a href="' + escapeHTML(row.profile_url) + '">JII Compoundersの銘柄レポートを読む →</a>' : '')
       +   '</div>'
       + '</div>';
     el.innerHTML = html;
@@ -344,8 +336,8 @@
 
   function renderEmpty(){
     var msg = state.mode === "ticker"
-      ? '過去24ヶ月、この銘柄からは資本配分に関する開示はありません。自社株買い、配当方針、政策保有株式縮減、MBO、資本コスト経営についての方針変更は出ていません — これらはマルチプル拡大の前段階としてしばしば現れる類の開示です。該当する開示が出れば自動的にこのページに表示されます。'
-      : '該当する開示はありません。チップで開示クラスを切り替えてください。';
+      ? '過去24ヶ月、この銘柄から資本配分に関する該当開示は出ていません。自社株買い、配当方針、政策保有株式の縮減、MBO、資本コストを意識した経営について、新たな方針変更は確認されていません。こうした開示は企業評価が見直される前に現れることがあります。該当する開示が出れば、このページに自動で追加されます。'
+      : '該当する開示はありません。上の項目から表示する開示区分を切り替えてください。';
     $feed.innerHTML = '<div class="feed-empty">' + escapeHTML(msg) + '</div>';
   }
 
@@ -354,7 +346,7 @@
   }
 
   function renderPlaceholder(){
-    var note = 'フィード初期化中 — 初回データ読み込み待機中です。';
+    var note = 'データを準備しています。初回の読み込みが終わるまでお待ちください。';
     $feed.innerHTML = ''
       + '<article class="row">'
       +   '<div class="row-line">'
@@ -464,7 +456,7 @@
   // ---- Initial load ----
   function loadAllFeed(){
     state.mode = "all";
-    $feed.innerHTML = '<div class="feed-loading">フィードを読み込み中…</div>';
+    $feed.innerHTML = '<div class="feed-loading">データを読み込んでいます…</div>';
     fetchJSON("data/feed.json")
       .then(function(rows){
         var arr = Array.isArray(rows) ? rows : (rows && rows.rows ? rows.rows : []);
