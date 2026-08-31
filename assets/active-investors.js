@@ -30,6 +30,8 @@
       colPrev: "Prev", colNew: "New", colChg: "Change", colSum: "Purpose / reason", colSrc: "Source",
       sourceNote: "Source disclosures (EDINET) are filed in Japanese. Summaries are automated; always refer to the original filing.",
       pp: "pts", loading: "Loading…", err: "Could not load the feed.",
+      latestFiling: "Latest filing", staleFeed: "Updates appear to be delayed",
+      feedLoadError: "The EDINET feed could not be loaded.", ratioReview: "Ratio: source review required",
       rosterTitle: "Active Fund Directory — last 12 months",
       rosterSub: "Every activist, engaged and foreign active fund with a large-shareholding filing in the window",
       rosterSearch: "Search fund name…", colFund: "Fund", colFilings: "Filings", colNew5: "New 5%", colLast: "Last filed",
@@ -52,6 +54,8 @@
       colPrev: "前", colNew: "現", colChg: "変化", colSum: "目的・事由", colSrc: "出所",
       sourceNote: "出所（EDINET）の開示は日本語です。要約は自動生成のため、必ず原文をご確認ください。",
       pp: "pt", loading: "読み込み中…", err: "フィードを読み込めませんでした。",
+      latestFiling: "最新提出", staleFeed: "更新が止まっている可能性があります",
+      feedLoadError: "EDINETフィードを読み込めませんでした。", ratioReview: "保有割合：原文確認が必要",
       rosterTitle: "アクティブ・ファンド名鑑 — 直近12ヶ月",
       rosterSub: "期間中に大量保有報告書を提出したアクティビスト・エンゲージメント・海外アクティブ運用ファンド",
       rosterSearch: "ファンド名で検索…", colFund: "ファンド", colFilings: "提出", colNew5: "新規5%", colLast: "最新",
@@ -66,6 +70,21 @@
     return String(String(n).indexOf(".") < 0 ? n : n.toFixed(2).replace(/0+$/, "").replace(/\.$/, "")); }
   function fmtChg(x) { if (x == null) return ""; var s = x > 0 ? "+" : (x < 0 ? "−" : ""); return s + fmtPct(Math.abs(x)); }
   function daysAgoISO(n) { var d = new Date(); d.setDate(d.getDate() - n); return d.toISOString().slice(0, 10); }
+  function businessDaysAfterISO(iso) {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(iso || "")) return null;
+    var parts = iso.split("-").map(Number);
+    var cur = new Date(Date.UTC(parts[0], parts[1] - 1, parts[2]));
+    var nowJst = new Date(Date.now() + 9 * 60 * 60 * 1000);
+    var end = new Date(Date.UTC(nowJst.getUTCFullYear(), nowJst.getUTCMonth(), nowJst.getUTCDate()));
+    var count = 0;
+    cur.setUTCDate(cur.getUTCDate() + 1);
+    while (cur <= end) {
+      var day = cur.getUTCDay();
+      if (day !== 0 && day !== 6) count += 1;
+      cur.setUTCDate(cur.getUTCDate() + 1);
+    }
+    return count;
+  }
 
   function moveBadge(L, mt) { return '<span class="ai-badge ai-m-' + mt + '">' + esc(L.moves[mt] || mt) + "</span>"; }
 
@@ -109,7 +128,10 @@
       mode === "feed"
         ? Promise.resolve({ investors: [] })
         : fetch(base + "/feed.json", { cache: "no-store" }).then(function (r) { return r.json(); }),
-      fetch(base + "/new5_feed.json", { cache: "no-store" }).then(function (r) { return r.ok ? r.json() : { rows: [] }; }).catch(function () { return { rows: [] }; })
+      fetch(base + "/new5_feed.json", { cache: "no-store" }).then(function (r) {
+        if (!r.ok) throw new Error("feed HTTP " + r.status);
+        return r.json();
+      }).catch(function () { return { rows: [], meta: { source_status: "error" }, load_error: true }; })
     ];
     if (mode === "full") {
       fetches.push(fetch(base + "/roster.json", { cache: "no-store" }).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; }));
@@ -265,13 +287,42 @@
         : "";
       return '<div class="ai-feed-wrap"><div class="ai-feed-head"><h3 class="ai-feed-title">' + esc(L.feedTitle) + "</h3>" +
         (viewall || namesNote) + "</div><p class=\"ai-feed-sub\">" + esc(L.feedSub) + "</p>" + search +
+        feedFreshness() +
         '<div class="ai-feed-list" id="ai-feed-list" aria-live="polite"></div>' +
         '<p class="ai-feed-foot">' + esc(L.sourceNote) + "</p></div>";
+    }
+
+    function feedFreshness() {
+      var data = state.new5 || {};
+      var meta = data.meta || {};
+      if (data.load_error || meta.source_status === "error") {
+        return '<div class="ai-feed-status ai-feed-status-error" role="status">' +
+          esc(L.feedLoadError) + "</div>";
+      }
+      var latest = meta.latest_filing_date || "";
+      if (!latest) {
+        (data.rows || []).forEach(function (r) {
+          if ((r.filing_date || "") > latest) latest = r.filing_date;
+        });
+      }
+      if (!latest) {
+        return '<div class="ai-feed-status ai-feed-status-stale" role="status">' +
+          esc(L.staleFeed) + "</div>";
+      }
+      var age = businessDaysAfterISO(latest);
+      var stale = meta.source_status === "stale" || (age != null && age > 3);
+      return '<div class="ai-feed-status ' + (stale ? "ai-feed-status-stale" : "ai-feed-status-ok") +
+        '" role="status"><span>' + esc(L.latestFiling) + "</span> <b>" + esc(latest) + "</b>" +
+        (stale ? '<span class="ai-feed-status-note">' + esc(L.staleFeed) + "</span>" : "") + "</div>";
     }
 
     function renderFeed() {
       var box = root.querySelector("#ai-feed-list");
       if (!box) return;
+      if (state.new5 && state.new5.load_error) {
+        box.innerHTML = '<div class="ai-err">' + esc(L.feedLoadError) + "</div>";
+        return;
+      }
       var rows = ((state.new5 && state.new5.rows) || []).slice();
       if (state.feedQ) {
         var q = state.feedQ.toLowerCase();
@@ -291,9 +342,12 @@
         var co = lang === "ja" ? r.issuer_name : (r.issuer_name_en || r.issuer_name);
         var tracked = r.is_tracked ? '<span class="ai-feed-tracked">' + esc(L.tracked) + "</span>" : "";
         var src = r.source_url ? '<a class="ai-src" href="' + esc(r.source_url) + '" target="_blank" rel="noopener">Source ↗</a>' : "";
+        var ratio = r.current_holding_ratio == null
+          ? '<span class="ai-feed-ratio ai-feed-ratio-missing">' + esc(L.ratioReview) + "</span>"
+          : '<span class="ai-feed-ratio">0% → ' + fmtPct(r.current_holding_ratio) + "%</span>";
         return '<div class="ai-feed-row" tabindex="0" role="button">' +
           '<span class="ai-feed-date">' + esc(r.filing_date) + "</span>" +
-          '<span class="ai-feed-ratio">0% → ' + fmtPct(r.current_holding_ratio) + "%</span>" +
+          ratio +
           '<span class="ai-feed-tk">' + esc(r.issuer_code || "") + "</span>" +
           '<span class="ai-feed-co">' + esc(co) + "</span>" +
           '<span class="ai-feed-filer">' + esc(lang === "ja" ? r.filer_raw_name : (r.filer_name_en || r.filer_raw_name)) + "</span>" + tracked +

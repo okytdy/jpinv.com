@@ -2,7 +2,7 @@
 """
 Active Investors in Japan — GLOBAL "new 5%" live feed.
 
-Separate from the 9 curated cards. This collects INITIAL large-shareholding
+Separate from the curated investor cards. This collects INITIAL large-shareholding
 reports (EDINET docTypeCode 350, 大量保有報告書) from ANY filer — i.e. every new
 5%+ shareholder crossing reported to EDINET — and writes a rolling, capped feed:
 
@@ -38,10 +38,9 @@ from summarize import template_summary
 
 NEW5_PATH = DATA_DIR / "new5_feed.json"
 NEW5_HOME_PATH = DATA_DIR / "new5_home.json"
-ROWS_CAP = 300
+ROWS_CAP = 500
 HOME_ROWS = 4
 KEEP_DAYS = 180
-LARGE_HOLDING_THRESHOLD = 5.0
 
 
 def _is_initial_new5(d: dict) -> bool:
@@ -66,8 +65,10 @@ def _summary_en(row: dict, filer_en: str, issuer_en: str) -> str:
     shares_str = "{:,}".format(shares) if shares else None
     curs = C.pct(row.get("current_holding_ratio"))
     intent_en = C.INTENT_LABEL.get(row.get("intent", ""), {}).get("en", "")
-    te = filer_en + " reported a new 5%+ position in " + issuer_en + " (" + code + ")"
-    te += (": " + shares_str + " shares" if shares_str else "") + ", " + curs + "% of voting rights."
+    te = filer_en + " filed an initial large-shareholding report for " + issuer_en + " (" + code + ")"
+    te += (": " + shares_str + " shares" if shares_str else "")
+    te += (", " + curs + "% of voting rights." if curs else
+           ". The holding ratio requires source review.")
     if intent_en:
         te += " Stated purpose: " + intent_en + "."
     return te
@@ -112,48 +113,52 @@ def build(days: int, single_date: str | None, max_downloads: int, force_llm: boo
     if single_date:
         dates = [single_date]
     else:
-        today = _dt.date.today()
+        today = _dt.date.fromisoformat(C.today_jst())
         dates = [(today - _dt.timedelta(days=i)).isoformat() for i in range(days + 1)]
 
     existing = C.read_json(NEW5_PATH, {}) or {}
     rows = {r["id"]: r for r in existing.get("rows", [])}
     downloads = 0
+    documents_seen = candidates_seen = accepted = already_present = 0
+    missing_csv = unparseable_ratio = 0
 
     for date in dates:
-        try:
-            docs = client.list_documents(date)
-        except Exception as e:
-            print(f"  list {date} failed: {e}")
-            continue
+        docs = client.list_documents(date)
+        documents_seen += len(docs)
         cands = [d for d in docs if _is_initial_new5(d)]
-        # Catch-up batches: when a filer files an INITIAL report alongside change
-        # reports (変更 / docType 360) on the same day, the position was already
-        # accumulated -> not a genuine fresh 5% crossing. Exclude those filers' initials.
-        change_filers = {dd.get("filerName", "") for dd in docs
-                         if str(dd.get("docTypeCode")) in ("350", "360")
-                         and ("変更" in (dd.get("docDescription") or "")
-                              or str(dd.get("docTypeCode")) == "360")}
+        candidates_seen += len(cands)
         for d in cands:
-            if downloads >= max_downloads:
-                break
-            if d.get("filerName", "") in change_filers:
-                continue
             doc_id = d.get("docID", "")
+            if not doc_id:
+                raise RuntimeError(f"EDINET returned an initial report without a docID on {date}")
             rid = f"edinet-{doc_id}"
             if rid in rows:
+                already_present += 1
                 continue
+            if downloads >= max_downloads:
+                raise RuntimeError(
+                    f"max-downloads={max_downloads} reached before the requested window completed")
             csv = client.fetch_document_csv(doc_id)
             downloads += 1
             parsed = parse_large_holding_csv(csv) if csv else {}
-            cur = parsed.get("current_pct")
-            if cur is None or cur < LARGE_HOLDING_THRESHOLD - 0.005:
-                continue  # not a >=5% report (or unparseable) -> skip from public feed
-            if parsed.get("previous_pct") is not None:
-                continue  # a prior reported ratio means this is a change, not a new crossing
+            member_cur = parsed.get("current_pct")
+            group_cur = parsed.get("group_current_pct")
+            effective_cur = group_cur if group_cur is not None else member_cur
+            # docType 350 + an initial-report description is the authoritative
+            # inclusion rule. Do not discard the report merely because its CSV
+            # is missing or a member-level ratio is below 5%; joint-holder
+            # filings often cross 5% only at the group level.
+            if not csv:
+                missing_csv += 1
+            if effective_cur is None:
+                unparseable_ratio += 1
+            cur = effective_cur
             filer = _clean_filer(d.get("filerName", ""))
             filer_code = (d.get("edinetCode") or "").strip()
             iid = C.attribute_investor(idx, filer_name=filer, edinet_code=filer_code)
-            issuer = parsed.get("issuer_name") or d.get("issuerName") or ""
+            meta_row = EdinetClient._raw_from_meta(d)
+            issuer = parsed.get("issuer_name") or meta_row.get("issuer_name") or ""
+            code = parsed.get("issuer_code") or meta_row.get("issuer_code") or ""
             filer_en = inv_by_id[iid]["display_name"] if iid else (
                 C.translate_fund_name(filer) or C.tentative_en(filer)[0] or filer)
             filer_ja = inv_by_id[iid].get("display_name_ja", filer) if iid else filer
@@ -164,12 +169,16 @@ def build(days: int, single_date: str | None, max_downloads: int, force_llm: boo
                 "filer_name_en": filer_en,
                 "issuer_name": issuer,
                 "issuer_name_en": "",
-                "issuer_code": parsed.get("issuer_code",""),
+                "issuer_code": code,
                 "current_holding_ratio": cur,
+                **({"member_current_holding_ratio": member_cur}
+                   if group_cur is not None and member_cur is not None else {}),
+                **({"group_current_holding_ratio": group_cur} if group_cur is not None else {}),
                 "change_percentage_points": None,
                 "move_type": "new_5pct",
-                "confidence": "high",
-                "caveats": [],
+                "confidence": "high" if effective_cur is not None else "low",
+                "caveats": ([] if effective_cur is not None else
+                            ["Holding ratio could not be parsed automatically; review the source filing."]),
             }
             row["purpose_ja"] = parsed.get("purpose_ja", "")
             row["reason_ja"] = ""
@@ -177,19 +186,20 @@ def build(days: int, single_date: str | None, max_downloads: int, force_llm: boo
             disp = inv_by_id[iid] if iid else {"display_name": filer, "display_name_ja": filer}
             s = template_summary(row, disp)
             # English company name (official JPX) + share count for the 2-line summary.
-            code = parsed.get("issuer_code", "")
             issuer_en = C.issuer_en(code, issuer)[0] or issuer
             shares = parsed.get("shares_held")
             shares_str = ("{:,}".format(shares)) if shares else None
             intent_en = C.INTENT_LABEL.get(row["intent"], {}).get("en", "")
             intent_ja = C.INTENT_LABEL.get(row["intent"], {}).get("ja", "")
             curs = C.pct(cur)
-            te = filer_en + " reported a new 5%+ position in " + issuer_en + " (" + code + ")"
-            te += (": " + shares_str + " shares" if shares_str else "") + ", " + curs + "% of voting rights."
+            te = filer_en + " filed an initial large-shareholding report for " + issuer_en + " (" + code + ")"
+            te += (": " + shares_str + " shares" if shares_str else "")
+            te += (", " + curs + "% of voting rights." if curs else ". The holding ratio requires source review.")
             if intent_en:
                 te += " Stated purpose: " + intent_en + "."
-            tj = filer_ja + "は" + issuer + "（" + code + "）について新規の大量保有を報告"
-            tj += ("。保有株式数 " + shares_str + " 株" if shares_str else "") + "、保有割合 " + curs + "%。"
+            tj = filer_ja + "は" + issuer + "（" + code + "）について新規の大量保有報告書を提出"
+            tj += ("。保有株式数 " + shares_str + " 株" if shares_str else "")
+            tj += ("、保有割合 " + curs + "%。" if curs else "。保有割合は原文確認が必要です。")
             if intent_ja:
                 tj += "保有目的：" + intent_ja + "。"
             rows[rid] = {
@@ -205,6 +215,9 @@ def build(days: int, single_date: str | None, max_downloads: int, force_llm: boo
                 "issuer_code": code,
                 "shares_held": shares,
                 "current_holding_ratio": cur,
+                **({"member_current_holding_ratio": member_cur}
+                   if group_cur is not None and member_cur is not None else {}),
+                **({"group_current_holding_ratio": group_cur} if group_cur is not None else {}),
                 "move_type": "new_5pct",
                 "japanese_title": d.get("docDescription") or "大量保有報告書",
                 "source_url": (C.edinet_filing_url(doc_id)
@@ -215,12 +228,14 @@ def build(days: int, single_date: str | None, max_downloads: int, force_llm: boo
                 "summary_ja": s["ja"],
                 "summary_text_en": te,
                 "summary_text_ja": tj,
-                "confidence": "high",
-                "caveats": [],
+                "confidence": row["confidence"],
+                "caveats": row["caveats"],
             }
-        if downloads >= max_downloads:
-            print(f"  hit max-downloads={max_downloads} at {date}; stopping (rerun to continue).")
-            break
+            accepted += 1
+
+    if documents_seen == 0 and any(_dt.date.fromisoformat(d).weekday() < 5 for d in dates):
+        raise RuntimeError(
+            "EDINET returned zero documents for the entire requested window; refusing to mark the feed fresh")
 
     # Self-heal: re-resolve English names on every cached row so previously
     # untranslated (Japanese) filer / issuer names get a real or tentative
@@ -236,18 +251,35 @@ def build(days: int, single_date: str | None, max_downloads: int, force_llm: boo
         print(f"[new5] re-resolved English names on {healed} existing row(s).")
 
     # Prune to KEEP_DAYS + cap, newest first.
-    cutoff = (_dt.date.today() - _dt.timedelta(days=KEEP_DAYS)).isoformat()
+    today_jst = _dt.date.fromisoformat(C.today_jst())
+    cutoff = (today_jst - _dt.timedelta(days=KEEP_DAYS)).isoformat()
     allrows = [r for r in rows.values() if r.get("filing_date", "") >= cutoff]
     allrows.sort(key=lambda r: (r.get("filing_date", ""), r["id"]), reverse=True)
     allrows = allrows[:ROWS_CAP]
 
+    completed_at = C.now_jst_iso()
     out = {
         "meta": {
-            "generated_at": C.now_jst_iso(),
+            "generated_at": completed_at,
             "as_of_date": C.today_jst(),
+            "source_status": "ok",
+            "last_successful_fetch_at": completed_at,
+            "latest_filing_date": allrows[0].get("filing_date", "") if allrows else "",
             "rows_count": len(allrows),
             "tracked_count": sum(1 for r in allrows if r.get("is_tracked")),
             "source": "EDINET API v2 (FSA) docTypeCode 350 initial large-shareholding reports",
+            "ingestion": {
+                "requested_start": min(dates),
+                "requested_end": max(dates),
+                "days_requested": len(dates),
+                "documents_seen": documents_seen,
+                "initial_reports_seen": candidates_seen,
+                "already_present": already_present,
+                "new_rows_added": accepted,
+                "csv_downloads": downloads,
+                "missing_csv": missing_csv,
+                "unparseable_ratio": unparseable_ratio,
+            },
         },
         "rows": allrows,
     }
@@ -267,11 +299,12 @@ def build(days: int, single_date: str | None, max_downloads: int, force_llm: boo
             "japanese_title": r.get("japanese_title", ""),
             "summary_en": r.get("summary_en", {}),
             "summary_ja": r.get("summary_ja", {}),
-        } for r in allrows if r.get("issuer_code") and float(r.get("current_holding_ratio") or 0) >= 5][:HOME_ROWS],
+        } for r in allrows if r.get("issuer_code")][:HOME_ROWS],
     }
     C.write_json(NEW5_HOME_PATH, home)
     print(f"[new5] {len(allrows)} rows ({out['meta']['tracked_count']} by tracked funds); "
-          f"{downloads} CSVs fetched this run -> {NEW5_PATH} + {NEW5_HOME_PATH}")
+          f"{accepted} added from {candidates_seen} initial reports, {downloads} CSVs fetched "
+          f"-> {NEW5_PATH} + {NEW5_HOME_PATH}")
     return 0
 
 
@@ -279,14 +312,10 @@ def scan(days: int):
     """Count candidates per day without downloading (fast sizing)."""
     key = os.environ.get("EDINET_API_KEY", "").strip()
     client = EdinetClient(key)
-    today = _dt.date.today()
+    today = _dt.date.fromisoformat(C.today_jst())
     for i in range(days + 1):
         date = (today - _dt.timedelta(days=i)).isoformat()
-        try:
-            docs = client.list_documents(date)
-        except Exception:
-            print(f"  {date}: (list failed)")
-            continue
+        docs = client.list_documents(date)
         n = sum(1 for d in docs if _is_initial_new5(d))
         print(f"  {date}: {n} initial new-5% candidates ({len(docs)} docs total)")
 

@@ -9,7 +9,8 @@ compounders/active-investors/data/:
     filings.json     — every filing (full audit set, incl. sub-1pp amendments)
     summaries.json   — filing_id -> {en, ja, move_type, confidence, caveats}
     feed.json        — denormalized view the page fetches
-    _meta.json       — generated_at, window, counts, error log
+    meta.json        — generated_at, newest filing, counts, ingest diagnostics
+    _meta.json       — legacy mirror retained for local tooling
 
 Seed and live both call build(); identical rules. Seed (date = reference date,
 no doc id) and live (date = submission date, real doc id) rows for the SAME
@@ -37,9 +38,18 @@ def _filing_type(is_change_report: bool, move_type: str) -> str:
 def normalize_filing(raw: dict) -> dict:
     """Attributed raw filing -> canonical record + classification. Ratios percent."""
     is_change = bool(raw.get("is_change_report"))
-    cur = raw.get("current_pct")
-    chg = raw.get("change_pp")
-    prev = raw.get("previous_pct")
+    member_cur = raw.get("current_pct")
+    member_prev = raw.get("previous_pct")
+    group_cur = raw.get("group_current_pct")
+    group_prev = raw.get("group_previous_pct")
+    # A root-context ratio is the economic holding bloc disclosed by a lead
+    # filer and its joint holders. Use it for public classification/display,
+    # while retaining the member figure for auditability.
+    cur = group_cur if group_cur is not None else member_cur
+    prev = group_prev if group_cur is not None else member_prev
+    chg = (round(group_cur - group_prev, 2)
+           if group_cur is not None and group_prev is not None
+           else (None if group_cur is not None else raw.get("change_pp")))
     cls = C.classify_move(is_change_report=is_change, current_pct=cur,
                           change_pp=chg, previous_pct=prev)
     date = raw.get("filing_date") or raw.get("base_date") or ""
@@ -68,6 +78,14 @@ def normalize_filing(raw: dict) -> dict:
         "issuer_code": code,
         "previous_holding_ratio": cls["previous_pct"],
         "current_holding_ratio": cur,
+        **({"member_previous_holding_ratio": member_prev}
+           if group_cur is not None and member_prev is not None else {}),
+        **({"member_current_holding_ratio": member_cur}
+           if group_cur is not None and member_cur is not None else {}),
+        **({"group_previous_holding_ratio": raw.get("group_previous_pct")}
+           if raw.get("group_previous_pct") is not None else {}),
+        **({"group_current_holding_ratio": raw.get("group_current_pct")}
+           if raw.get("group_current_pct") is not None else {}),
         "change_percentage_points": cls["change_pp"],
         "move_type": cls["move_type"],
         "qualifying": cls["qualifying"],
@@ -100,7 +118,8 @@ def _content_key(f):
 
 
 def build(raw_filings, cfg, *, editorial=None, summarize_method="template",
-          api_key="", budget=None, summary_cache=None, error_log=None):
+          api_key="", budget=None, summary_cache=None, error_log=None,
+          ingestion_meta=None):
     editorial = editorial or C.load_editorial()
     error_log = error_log or []
     investors_by_id = {inv["id"]: inv for inv in cfg["investors"]}
@@ -191,6 +210,14 @@ def build(raw_filings, cfg, *, editorial=None, summarize_method="template",
                 "issuer_name_en": f["issuer_name_en"], "issuer_code": f["issuer_code"],
                 "previous_holding_ratio": f["previous_holding_ratio"],
                 "current_holding_ratio": f["current_holding_ratio"],
+                **({"member_previous_holding_ratio": f.get("member_previous_holding_ratio")}
+                   if f.get("member_previous_holding_ratio") is not None else {}),
+                **({"member_current_holding_ratio": f.get("member_current_holding_ratio")}
+                   if f.get("member_current_holding_ratio") is not None else {}),
+                **({"group_previous_holding_ratio": f.get("group_previous_holding_ratio")}
+                   if f.get("group_previous_holding_ratio") is not None else {}),
+                **({"group_current_holding_ratio": f.get("group_current_holding_ratio")}
+                   if f.get("group_current_holding_ratio") is not None else {}),
                 "change_percentage_points": f["change_percentage_points"],
                 "edinet_doc_id": f["edinet_doc_id"], "source_url": f["source_url"],
                 "japanese_title": f["japanese_title"], "confidence": f["confidence"],
@@ -216,8 +243,10 @@ def build(raw_filings, cfg, *, editorial=None, summarize_method="template",
 
     generated_at = C.now_jst_iso()
     total_visible = sum(len(r["filings"]) for r in feed_investors)
+    latest_filing_date = max((f.get("filing_date", "") for f in filings), default="")
     meta = {
         "generated_at": generated_at, "as_of_date": C.today_jst(),
+        "latest_filing_date": latest_filing_date,
         "ranking_mode": mode, "homepage_size": cfg.get("homepage_size", 9),
         "summarize_method": summarize_method,
         "counts": {
@@ -232,6 +261,16 @@ def build(raw_filings, cfg, *, editorial=None, summarize_method="template",
                              else "Seed + live EDINET"),
         "error_log": error_log[-50:],
     }
+    if ingestion_meta is not None:
+        meta["source_status"] = "ok"
+        meta["last_successful_fetch_at"] = generated_at
+        meta["ingestion"] = dict(ingestion_meta)
+    else:
+        previous_meta = (C.read_json(DATA_DIR / "meta.json", {}) or
+                         C.read_json(DATA_DIR / "_meta.json", {}) or {})
+        for key in ("source_status", "last_successful_fetch_at", "ingestion"):
+            if key in previous_meta:
+                meta[key] = previous_meta[key]
 
     feed = {"meta": meta, "investors": feed_investors}
     DATA_DIR.mkdir(parents=True, exist_ok=True)
@@ -239,5 +278,6 @@ def build(raw_filings, cfg, *, editorial=None, summarize_method="template",
     C.write_json(DATA_DIR / "filings.json", filings)
     C.write_json(DATA_DIR / "summaries.json", summaries)
     C.write_json(DATA_DIR / "feed.json", feed)
+    C.write_json(DATA_DIR / "meta.json", meta)
     C.write_json(DATA_DIR / "_meta.json", meta)
     return meta

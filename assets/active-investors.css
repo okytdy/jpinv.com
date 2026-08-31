@@ -106,12 +106,21 @@
 .ai-feed-sub { font-family:var(--mono); font-size:10px; letter-spacing:0.18em; text-transform:uppercase;
   color:var(--ai-new); margin:0 0 14px; font-weight:500; }
 .ai-feed-search { margin-bottom:8px; }
+.ai-feed-status { display:flex; align-items:center; flex-wrap:wrap; gap:7px; width:fit-content;
+  margin:0 0 12px; padding:6px 9px; border:1px solid var(--rule); border-radius:2px;
+  font-family:var(--mono); font-size:10px; letter-spacing:0.04em; color:var(--text-mid); }
+.ai-feed-status b { color:var(--ink-mid); font-weight:500; }
+.ai-feed-status-ok { border-color:rgba(47,111,79,0.35); background:rgba(47,111,79,0.05); }
+.ai-feed-status-stale, .ai-feed-status-error { border-color:rgba(185,28,28,0.35);
+  background:rgba(185,28,28,0.05); color:var(--bad); }
+.ai-feed-status-note { padding-left:7px; border-left:1px solid currentColor; font-weight:500; }
 .ai-feed-list { border-top:1px solid var(--rule); }
 .ai-feed-row { display:flex; gap:14px; align-items:center; padding:11px 4px; border-bottom:1px solid var(--rule-soft);
   font-size:13px; flex-wrap:wrap; cursor:pointer; transition:background 0.1s; }
 .ai-feed-row:hover { background:var(--bg-soft); }
 .ai-feed-date { font-family:var(--mono); font-size:10.5px; color:var(--text-dim); min-width:84px; letter-spacing:0.03em; }
 .ai-feed-ratio { font-family:var(--mono); font-size:12px; color:var(--ai-new); font-weight:500; min-width:96px; }
+.ai-feed-ratio-missing { color:var(--warn); min-width:188px; font-size:10px; }
 .ai-feed-co { font-family:var(--serif); color:var(--ink-mid); }
 .ai-feed-tk { font-family:var(--mono); font-size:10px; color:var(--accent-deep); border-bottom:1px solid var(--accent);
   padding-bottom:1px; }

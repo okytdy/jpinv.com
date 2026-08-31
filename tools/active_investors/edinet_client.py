@@ -23,6 +23,7 @@ from __future__ import annotations
 
 import datetime as _dt
 import io
+import json
 import re
 import time
 import unicodedata
@@ -31,6 +32,7 @@ from typing import Iterator, Optional
 
 import urllib.request
 import urllib.parse
+import urllib.error
 
 API_BASE = "https://api.edinet-fsa.go.jp/api/v2"
 DOC_TYPES_LARGE_HOLDING = {"350", "360"}  # initial, change
@@ -39,6 +41,20 @@ DOC_TYPES_LARGE_HOLDING = {"350", "360"}  # initial, change
 # is a one-line change later.
 KABUTAN_HOLDER = "https://kabutan.jp/holder/lists/?edicode={code}"
 EDINET_VIEW = "https://disclosure2.edinet-fsa.go.jp/WEEK0010.aspx"  # portal (docID stored separately)
+
+
+class EdinetApiError(RuntimeError):
+    """A response from EDINET that must stop the refresh.
+
+    EDINET returns authentication, throttling and service failures as JSON in
+    an HTTP-200 response, so callers cannot rely on urllib raising HTTPError.
+    """
+
+    def __init__(self, status: str, message: str, *, operation: str):
+        self.status = str(status or "unknown")
+        self.operation = operation
+        self.api_message = (message or "EDINET returned an error").strip()
+        super().__init__(f"EDINET {operation} failed (status {self.status}): {self.api_message}")
 
 
 def _nikkei(doc_id, submit_date):
@@ -56,30 +72,66 @@ class EdinetClient:
 
     def _get(self, url: str) -> bytes:
         req = urllib.request.Request(url, headers={"User-Agent": "jpinv-active-investors/1.0"})
-        with urllib.request.urlopen(req, timeout=self.timeout) as resp:
-            return resp.read()
+        try:
+            with urllib.request.urlopen(req, timeout=self.timeout) as resp:
+                return resp.read()
+        except urllib.error.HTTPError as exc:
+            # Do not let urllib's exception string expose Subscription-Key from
+            # the query string in public CI logs.
+            raise EdinetApiError(str(exc.code), "HTTP request rejected",
+                                 operation="transport") from None
+        except urllib.error.URLError as exc:
+            raise EdinetApiError("transport_error", str(exc.reason),
+                                 operation="transport") from None
 
     def list_documents(self, date: str) -> list[dict]:
         """All documents submitted on `date` (YYYY-MM-DD) with metadata."""
         q = urllib.parse.urlencode({"date": date, "type": 2,
                                     "Subscription-Key": self.api_key})
         raw = self._get(f"{API_BASE}/documents.json?{q}")
-        import json
-        data = json.loads(raw.decode("utf-8"))
+        try:
+            data = json.loads(raw.decode("utf-8"))
+        except (UnicodeDecodeError, json.JSONDecodeError) as exc:
+            raise EdinetApiError("malformed_response", str(exc), operation=f"list {date}") from exc
+        if not isinstance(data, dict):
+            raise EdinetApiError("malformed_response", "top-level JSON is not an object",
+                                 operation=f"list {date}")
         status = str(((data or {}).get("metadata") or {}).get("status") or
                      (data or {}).get("StatusCode") or "")
-        if status and status not in ("200", ""):
-            # 404 = no documents that day; anything else worth surfacing.
-            return []
-        return (data or {}).get("results") or []
+        if status and status != "200":
+            message = (data.get("message") or
+                       ((data.get("metadata") or {}).get("message")) or
+                       "EDINET rejected the request")
+            raise EdinetApiError(status, message, operation=f"list {date}")
+        results = data.get("results")
+        if results is None:
+            # Successful no-document days are represented by an empty results
+            # array. Missing results on a nominally successful response is not
+            # safe to treat as a quiet filing day.
+            raise EdinetApiError(status or "malformed_response", "missing results array",
+                                 operation=f"list {date}")
+        if not isinstance(results, list):
+            raise EdinetApiError(status or "malformed_response", "results is not an array",
+                                 operation=f"list {date}")
+        return results
 
     def fetch_document_csv(self, doc_id: str) -> Optional[bytes]:
         """Download the CSV ZIP for a document; return the concatenated CSV bytes."""
         q = urllib.parse.urlencode({"type": 5, "Subscription-Key": self.api_key})
-        try:
-            blob = self._get(f"{API_BASE}/documents/{doc_id}?{q}")
-        except Exception:
-            return None
+        blob = self._get(f"{API_BASE}/documents/{doc_id}?{q}")
+        # Authentication and quota errors are JSON bodies with HTTP 200.
+        if blob.lstrip().startswith(b"{"):
+            try:
+                data = json.loads(blob.decode("utf-8"))
+            except (UnicodeDecodeError, json.JSONDecodeError):
+                data = None
+            if isinstance(data, dict):
+                status = str(((data.get("metadata") or {}).get("status")) or
+                             data.get("StatusCode") or "")
+                if status != "200":
+                    raise EdinetApiError(status or "malformed_response",
+                                         data.get("message") or "EDINET returned JSON instead of a CSV ZIP",
+                                         operation=f"download {doc_id}")
         try:
             zf = zipfile.ZipFile(io.BytesIO(blob))
         except zipfile.BadZipFile:
@@ -93,10 +145,7 @@ class EdinetClient:
     def iter_large_holding(self, start: str, end: str) -> Iterator[dict]:
         """Yield raw large-holding filing dicts for the inclusive date window."""
         for date in _daterange(start, end):
-            try:
-                docs = self.list_documents(date)
-            except Exception:
-                continue
+            docs = self.list_documents(date)
             for d in docs:
                 if str(d.get("docTypeCode")) not in DOC_TYPES_LARGE_HOLDING:
                     continue
@@ -160,8 +209,13 @@ _SHARES_ITEM = ("保有株券等の数（総数）",)
 
 def parse_large_holding_csv(csv_bytes: bytes) -> dict:
     """Parse an EDINET large-holding CSV (UTF-16 TSV) into percent ratios.
-    Returns {current_pct, previous_pct, issuer_name, issuer_code, reason_ja}
-    with None for anything not confidently found."""
+    ``current_pct`` is the reporting holder's own ratio. When a filing has
+    joint holders, EDINET also emits a root-context aggregate; that is returned
+    separately as ``group_current_pct`` so downstream screens can use the
+    economic voting bloc without overwriting the member-level figure.
+    """
+    if not csv_bytes:
+        return {}
     text = _decode_edinet_csv(csv_bytes)
     rows = [ln.split("\t") for ln in text.splitlines() if ln.strip()]
     if not rows:
@@ -176,9 +230,11 @@ def parse_large_holding_csv(csv_bytes: bytes) -> dict:
         return default
     c_elem = col("要素ID", "ElementId", default=0)
     c_item = col("項目名", "ItemName", default=1)
+    c_ctx = col("コンテキストID", "ContextId", "Context ID", default=2)
     c_val = col("値", "Value", default=len(header) - 1)
 
-    cur = prev = None
+    cur_member = prev_member = None
+    cur_group = prev_group = None
     issuer_name = reason = purpose = None
     shares = None
     code_strong = code_weak = None
@@ -187,12 +243,24 @@ def parse_large_holding_csv(csv_bytes: bytes) -> dict:
             continue
         elem = r[c_elem] if c_elem < len(r) else ""
         item = r[c_item] if c_item < len(r) else ""
+        ctx = r[c_ctx] if c_ctx < len(r) else ""
         val = (r[c_val] or "").strip().strip('"')
-        if cur is None and (_any_in(elem, _CUR_ELEM) or _any_in(item, _CUR_ITEM)) \
-                and not _any_in(item, _PREV_ITEM) and not _any_in(elem, _PREV_ELEM):
-            cur = _to_pct(val)
-        if prev is None and (_any_in(elem, _PREV_ELEM) or _any_in(item, _PREV_ITEM)):
-            prev = _to_pct(val)
+        is_member_ctx = "FilerLargeVolumeHolder" in ctx and "Member" in ctx
+        is_cur = ((_any_in(elem, _CUR_ELEM) or _any_in(item, _CUR_ITEM))
+                  and not _any_in(item, _PREV_ITEM) and not _any_in(elem, _PREV_ELEM))
+        is_prev = _any_in(elem, _PREV_ELEM) or _any_in(item, _PREV_ITEM)
+        if is_cur:
+            parsed = _to_pct(val)
+            if is_member_ctx and cur_member is None:
+                cur_member = parsed
+            elif not is_member_ctx and cur_group is None:
+                cur_group = parsed
+        if is_prev:
+            parsed = _to_pct(val)
+            if is_member_ctx and prev_member is None:
+                prev_member = parsed
+            elif not is_member_ctx and prev_group is None:
+                prev_group = parsed
         if issuer_name is None and (_any_in(elem, _ISSUER_ELEM) or _any_in(item, _ISSUER_ITEM)):
             if val and not val.replace(".", "").isdigit():
                 issuer_name = unicodedata.normalize("NFKC", val)
@@ -217,11 +285,17 @@ def parse_large_holding_csv(csv_bytes: bytes) -> dict:
             if cc and any(ch.isdigit() for ch in cc):
                 code_weak = cc        # generic 証券コード fallback, excluding filer DEI
     code = code_strong or code_weak
+    cur = cur_member if cur_member is not None else cur_group
+    prev = prev_member if prev_member is not None else prev_group
     out = {}
     if cur is not None:
         out["current_pct"] = cur
     if prev is not None:
         out["previous_pct"] = prev
+    if cur_group is not None:
+        out["group_current_pct"] = cur_group
+    if prev_group is not None:
+        out["group_previous_pct"] = prev_group
     if issuer_name:
         out["issuer_name"] = issuer_name
     if code:
@@ -317,14 +391,18 @@ def _selftest() -> None:
     sample = (
         "要素ID\t項目名\tコンテキストID\t相対年度\t連結・個別\t期間・時点\tユニットID\t単位\t値\n"
         "jplvh_cor:NameOfIssuer\t発行者の名称\tFilingDateInstant\t-\t-\t時点\t-\t-\t株式会社テスト\n"
-        "jplvh_cor:HoldingRatioOfShareCertificatesEtc\t保有割合\tFilingDateInstant\t-\t-\t時点\tPure\t純額\t0.0822\n"
-        "jplvh_cor:HoldingRatioOfShareCertificatesEtcOfLastReport\t直前の保有割合\tFilingDateInstant\t-\t-\t時点\tPure\t純額\t0.0715\n"
+        "jplvh_cor:HoldingRatioOfShareCertificatesEtc\t保有割合\tFilingDateInstant_FilerLargeVolumeHolder1Member\t-\t-\t時点\tPure\t純額\t0.0822\n"
+        "jplvh_cor:HoldingRatioOfShareCertificatesEtcOfLastReport\t直前の保有割合\tFilingDateInstant_FilerLargeVolumeHolder1Member\t-\t-\t時点\tPure\t純額\t0.0715\n"
+        "jplvh_cor:HoldingRatioOfShareCertificatesEtc\t保有割合\tFilingDateInstant\t-\t-\t時点\tPure\t純額\t0.2874\n"
+        "jplvh_cor:HoldingRatioOfShareCertificatesEtcOfLastReport\t直前の保有割合\tFilingDateInstant\t-\t-\t時点\tPure\t純額\t0.2843\n"
         "jplvh_cor:ReasonForChange\t変更の理由\tFilingDateInstant\t-\t-\t時点\t-\t-\t保有割合が1％以上増加\n"
     )
     b = ("﻿" + sample).encode("utf-16")
     out = parse_large_holding_csv(b)
     assert out.get("current_pct") == 8.22, out
     assert out.get("previous_pct") == 7.15, out
+    assert out.get("group_current_pct") == 28.74, out
+    assert out.get("group_previous_pct") == 28.43, out
     assert out.get("issuer_name") == "株式会社テスト", out
     assert "保有割合" in out.get("reason_ja", ""), out
     print("edinet_client parser self-test OK:", out)

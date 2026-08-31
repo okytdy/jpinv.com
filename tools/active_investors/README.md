@@ -2,7 +2,7 @@
 
 A bilingual, automated feature for `jpinv.com/[en/]compounders/`:
 
-- **9 flip cards** — curated active investors. Front = name; flip for their latest
+- **12 flip cards** — curated active investors. Front = name; flip for their latest
   5% filings and 1%+ position changes; **View more** opens the full filing table.
 - **A live, TSE-wide "new 5%" feed** below the cards — *every* new 5%
   large-shareholding report from *any* filer, summarized in plain EN/JA.
@@ -21,16 +21,17 @@ tools/active_investors/
   edinet_client.py     # FSA EDINET API v2 client + defensive large-holding CSV parser
   summarize.py         # EN+JA summaries: deterministic template tier + optional Claude tier
   build_data.py        # writes the public data model (shared by seed + live)
-  refresh.py           # UPDATE COMMAND for the 9 cards (seed / build-only / live)
+  refresh.py           # UPDATE COMMAND for the 12 cards (seed / build-only / live)
   new5_feed.py         # UPDATE COMMAND for the TSE-wide new-5% feed
   config/
-    investors.json     # <-- EDIT THIS to change the 9 cards, names, aliases, ranking
+    investors.json     # <-- EDIT THIS to change the 12 cards, names, aliases, ranking
     editorial.json     # <-- hide / pin / override summaries
     seed_filings.json  # genuine seed data (used before you run live)
   requirements.txt     # anthropic (optional Claude tier); core is stdlib-only
 
 compounders/active-investors/data/        # PUBLIC data the page fetches (committed)
-  investors.json  filings.json  summaries.json  feed.json  new5_feed.json  new5_home.json  _meta.json
+  investors.json  filings.json  summaries.json  feed.json  new5_feed.json
+  new5_home.json  roster.json  meta.json  _meta.json
 
 assets/active-investors.css   assets/active-investors.js   # the shared UI component
 
@@ -56,7 +57,7 @@ cd <repo root>
 # 1) Seed (no keys needed) — populate the page from the genuine seed file:
 python tools/active_investors/refresh.py --seed
 
-# 2) Live — pull recent EDINET filings for the 9 investors and merge (needs EDINET_API_KEY):
+# 2) Live — pull recent EDINET filings for the 12 investors and merge (needs EDINET_API_KEY):
 export EDINET_API_KEY=xxxxxxxx
 python tools/active_investors/refresh.py --days 7        # last 7 days
 python tools/active_investors/refresh.py --date 2026-05-22   # one specific day
@@ -67,6 +68,9 @@ python tools/active_investors/new5_feed.py --days 5 --max-downloads 150
 
 # 4) After editing investors.json or editorial.json (no network):
 python tools/active_investors/refresh.py --build-only
+
+# 5) Confirm that the public feed is genuinely recent:
+python tools/active_investors/validate_refresh.py --max-stale-business-days 3
 ```
 
 Live runs are **idempotent and additive**: they start from the existing
@@ -83,12 +87,24 @@ Actions): `EDINET_API_KEY` (required) and `ANTHROPIC_API_KEY` (optional). No
 server cron needed — GitHub Actions does it. Bump the `cron` line for more
 frequent updates.
 
-## Change the 9 cards
+EDINET application errors such as 401 (invalid key), 429 (throttled), malformed
+responses and transport failures are fatal. The workflow will not rewrite
+`as_of_date` or commit timestamp-only output after an upstream failure. The
+scheduled job scans a rolling 30-day window so restoring the key automatically
+backfills short outages; use workflow dispatch with a larger window for longer
+gaps.
+
+The roster tally is resumable. Its one-time `--repair-after 2026-08-12`
+recovery marker reopens the dates that the old client incorrectly recorded as
+scanned during this incident. The marker is persisted after the first repair,
+so later daily runs cannot count those dates twice.
+
+## Change the 12 cards
 
 Edit `config/investors.json`, then `python tools/active_investors/refresh.py --build-only`.
 
 - **Swap who appears:** set `"homepage": true` on exactly the investors you want
-  and give each a `"curated_rank"` (1 = first card). 9 is the default count
+  and give each a `"curated_rank"` (1 = first card). 12 is the current count
   (`homepage_size`).
 - **Add an investor:** copy a block; fill `aliases` with the *exact* EDINET filer
   strings and EDINET codes the fund files under (this is how filings get
@@ -122,9 +138,10 @@ Edit `config/editorial.json`, then `--build-only`:
 ## Known limitations
 
 - **Joint holders / group totals.** EDINET reports a lead filer plus co-holders.
-  The meaningful figure is usually the *group* total; per-entity slivers can sit
-  far below 5%. Seed rows note this; the live parser reads the figure each filing
-  states.
+  The parser keeps both the reporting member's figure and the root-context group
+  total when EDINET supplies both; the new-5% inclusion rule remains the filing's
+  official initial-report classification rather than a brittle member-only
+  percentage test.
 - **English company names** are only present for seed rows; live rows show the
   Japanese issuer name + ticker. (A ticker→EN-name map could be wired later.)
 - **Source links** point to the filer's public holdings list (kabutan), keyed by

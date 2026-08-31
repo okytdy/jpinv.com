@@ -29,12 +29,32 @@ def _load():
 def _is_new5(desc): return ("訂正" not in desc) and ("変更" not in desc)
 
 
-def scan(start, end, max_seconds):
+def _apply_repair_marker(d, repair_after):
+    """Reopen false-success dates exactly once without duplicating tally counts."""
+    if not repair_after or d.get("repair_after_applied") == repair_after:
+        return 0
+    filers = d["filers"]
+    newest_counted = max((r.get("last", "") for r in filers.values()), default="")
+    if newest_counted > repair_after:
+        raise RuntimeError(
+            f"refusing tally repair after {repair_after}: filer totals already include {newest_counted}")
+    scanned = set(d["scanned"])
+    removed = {day for day in scanned if day > repair_after}
+    d["scanned"] = sorted(scanned - removed)
+    d["repair_after_applied"] = repair_after
+    return len(removed)
+
+
+def scan(start, end, max_seconds, repair_after=None):
     key = os.environ.get("EDINET_API_KEY", "").strip()
     if not key:
         print("EDINET_API_KEY not set", file=sys.stderr); return 2
     client = EdinetClient(key)
     d = _load()
+    removed = _apply_repair_marker(d, repair_after)
+    if removed:
+        print(f"repairing silent-success tally gap after {repair_after}: "
+              f"{removed} false scan marker(s) removed")
     scanned = set(d["scanned"]); filers = d["filers"]
     s = _dt.date.fromisoformat(start); e = _dt.date.fromisoformat(end)
     deadline = time.monotonic() + max_seconds
@@ -48,10 +68,10 @@ def scan(start, end, max_seconds):
     for date in dates:
         if time.monotonic() >= deadline:
             break
-        try:
-            docs = client.list_documents(date)
-        except Exception:
-            continue
+        # Any EDINET status or transport error must fail the run. Marking the
+        # day scanned after an empty-on-error response permanently corrupts the
+        # resumable tally.
+        docs = client.list_documents(date)
         for doc in docs:
             dt = str(doc.get("docTypeCode"))
             if dt not in ("350", "360"):
@@ -97,12 +117,17 @@ def main():
     ap.add_argument("--start", default="2025-07-01")
     ap.add_argument("--end", default=_dt.date.today().isoformat())
     ap.add_argument("--max-seconds", type=int, default=38)
+    ap.add_argument(
+        "--repair-after",
+        help="one-time recovery: remove false scanned-day markers after YYYY-MM-DD; "
+             "the applied cutoff is persisted so counts cannot be duplicated",
+    )
     ap.add_argument("--report", action="store_true")
     ap.add_argument("--top", type=int, default=40)
     a = ap.parse_args()
     if a.report:
         return report(a.top)
-    return scan(a.start, a.end, a.max_seconds)
+    return scan(a.start, a.end, a.max_seconds, a.repair_after)
 
 
 if __name__ == "__main__":

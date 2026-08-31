@@ -1,7 +1,7 @@
 name: active-investors-refresh
 
 # Active Investors in Japan (JII Compounders).
-# Daily: pull recent EDINET large-shareholding filings, refresh the 9 curated
+# Daily: pull recent EDINET large-shareholding filings, refresh the 12 curated
 # investor cards AND the TSE-wide "new 5%" feed, commit the JSON under
 # compounders/active-investors/data/. Docs: tools/active_investors/README.md.
 
@@ -13,11 +13,11 @@ on:
       days:
         description: 'Live look-back window in days (cards).'
         required: false
-        default: '7'
+        default: '30'
       new5_days:
         description: 'Look-back window in days (new-5% feed).'
         required: false
-        default: '5'
+        default: '30'
 
 permissions:
   contents: write
@@ -30,7 +30,7 @@ jobs:
   refresh:
     name: Refresh active-investor cards + new-5% feed
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 35
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -48,20 +48,28 @@ jobs:
         timeout-minutes: 3
         run: pip install --disable-pip-version-check -r tools/active_investors/requirements.txt || true
 
-      - name: Refresh the 9 investor cards (live EDINET)
+      - name: Test the EDINET refresh pipeline
+        timeout-minutes: 2
+        run: python -m unittest discover -s tools/active_investors/tests -p 'test_*.py'
+
+      - name: Refresh the 12 investor cards (live EDINET)
         timeout-minutes: 12
         env:
           EDINET_API_KEY: ${{ secrets.EDINET_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           PYTHONUNBUFFERED: '1'
-        run: python tools/active_investors/refresh.py --days "${{ github.event.inputs.days || '7' }}"
+        run: python tools/active_investors/refresh.py --days "${{ github.event.inputs.days || '30' }}"
 
       - name: Refresh the TSE-wide new-5% feed
-        timeout-minutes: 8
+        timeout-minutes: 12
         env:
           EDINET_API_KEY: ${{ secrets.EDINET_API_KEY }}
           PYTHONUNBUFFERED: '1'
-        run: python tools/active_investors/new5_feed.py --days "${{ github.event.inputs.new5_days || '5' }}" --max-downloads 150
+        run: python tools/active_investors/new5_feed.py --days "${{ github.event.inputs.new5_days || '30' }}" --max-downloads 300
+
+      - name: Refuse false-fresh or stale output
+        timeout-minutes: 2
+        run: python tools/active_investors/validate_refresh.py --max-stale-business-days 3
 
       - name: Update 12-month filer tally + active-fund roster
         timeout-minutes: 6
@@ -69,7 +77,7 @@ jobs:
           EDINET_API_KEY: ${{ secrets.EDINET_API_KEY }}
           PYTHONUNBUFFERED: '1'
         run: |
-          python tools/active_investors/rank_filers.py --start "$(date -u -d '365 days ago' +%F)" --end "$(date -u +%F)" --max-seconds 240
+          python tools/active_investors/rank_filers.py --start "$(TZ=Asia/Tokyo date -d '365 days ago' +%F)" --end "$(TZ=Asia/Tokyo date +%F)" --repair-after 2026-08-12 --max-seconds 240
           python tools/active_investors/build_roster.py
 
       - name: Commit and push refreshed data

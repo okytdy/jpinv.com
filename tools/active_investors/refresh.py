@@ -87,6 +87,8 @@ def _raw_from_normalized(f: dict) -> dict:
         "is_change_report": f.get("filing_type") != "new_5pct_report",
         "current_pct": f.get("current_holding_ratio"),
         "previous_pct": f.get("previous_holding_ratio"),
+        "group_current_pct": f.get("group_current_holding_ratio"),
+        "group_previous_pct": f.get("group_previous_holding_ratio"),
         "change_pp": f.get("change_percentage_points"),
         "filer_raw_name": f.get("filer_raw_name", ""),
         "issuer_name": f.get("issuer_name", ""),
@@ -157,7 +159,7 @@ def run_live(days: int, single_date, force_llm: bool) -> int:
     if single_date:
         dates = [single_date]
     else:
-        today = _dt.date.today()
+        today = _dt.date.fromisoformat(C.today_jst())
         dates = [(today - _dt.timedelta(days=i)).isoformat() for i in range(days + 1)]
 
     # Start from the historical record so nothing is lost.
@@ -166,14 +168,14 @@ def run_live(days: int, single_date, force_llm: bool) -> int:
     seen_docs = {f.get("edinet_doc_id") for f in existing if f.get("edinet_doc_id")}
 
     unmatched, new_n, downloads = [], 0, 0
+    documents_seen = large_holding_seen = 0
     for date in dates:
-        try:
-            docs = client.list_documents(date)
-        except Exception as e:
-            print(f"  list {date} failed: {e}"); continue
+        docs = client.list_documents(date)
+        documents_seen += len(docs)
         for d in docs:
             if str(d.get("docTypeCode")) not in DOC_TYPES_LARGE_HOLDING:
                 continue
+            large_holding_seen += 1
             # Attribute from metadata BEFORE downloading — only matches cost a fetch.
             iid = C.attribute_investor(alias_index, filer_name=d.get("filerName", ""),
                                        edinet_code=(d.get("edinetCode") or ""))
@@ -183,7 +185,8 @@ def run_live(days: int, single_date, force_llm: bool) -> int:
             if d.get("docID") in seen_docs:
                 continue
             if downloads >= max_dl:
-                print(f"  reached FEED_MAX_DOWNLOADS={max_dl}; stopping (rerun to continue)."); break
+                raise RuntimeError(
+                    f"FEED_MAX_DOWNLOADS={max_dl} reached before the requested window completed")
             row = EdinetClient._raw_from_meta(d)
             row["investor_id"] = iid
             csv = client.fetch_document_csv(row["edinet_doc_id"]); downloads += 1
@@ -191,9 +194,10 @@ def run_live(days: int, single_date, force_llm: bool) -> int:
                 row.update({k: v for k, v in parse_large_holding_csv(csv).items() if v is not None})
             _finalize_row(row)
             raws.append(row); new_n += 1
-        else:
-            continue
-        break
+
+    if documents_seen == 0 and any(_dt.date.fromisoformat(d).weekday() < 5 for d in dates):
+        raise RuntimeError(
+            "EDINET returned zero documents for the entire requested window; refusing to mark the feed fresh")
 
     cache = C.read_json(CACHE_FILE, {}) or {}
     method, akey = _resolve_method(force_llm)
@@ -201,7 +205,17 @@ def run_live(days: int, single_date, force_llm: bool) -> int:
     err = [{"reason": "unmatched_filer", **u} for u in unmatched[:50]]
     meta = build_data.build(raws, cfg, editorial=C.load_editorial(),
                             summarize_method=method, api_key=akey, budget=budget,
-                            summary_cache=cache, error_log=err)
+                            summary_cache=cache, error_log=err,
+                            ingestion_meta={
+                                "requested_start": min(dates),
+                                "requested_end": max(dates),
+                                "days_requested": len(dates),
+                                "documents_seen": documents_seen,
+                                "large_holding_documents_seen": large_holding_seen,
+                                "new_attributed_filings": new_n,
+                                "csv_downloads": downloads,
+                                "unmatched_filings": len(unmatched),
+                            })
     C.write_json(CACHE_FILE, cache)
     C.write_json(DATA_DIR / "_unmatched.json", unmatched)
     budget.save()
