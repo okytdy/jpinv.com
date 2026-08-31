@@ -169,3 +169,48 @@ html[lang="en"] .sd-price-row{grid-template-columns:210px 1fr auto}
   html[lang="en"] .sd-hero h1.sd-hero-long{font-size:clamp(25px,7.2vw,31px);line-height:1.42}
   html[lang="en"] .sd-price-row{grid-template-columns:1fr}
 }
+
+/* Content-first corporate hierarchy (2026-08-31)
+   Explanations carry the page; headings identify sections without behaving
+   like advertising slogans. The same scale is shared by Japanese and English. */
+.sd-page h1,.sd-page h2,.sd-page h3{text-wrap:pretty}
+.sd-hero h1,
+html[lang="en"] .sd-hero h1{max-width:960px;font-size:clamp(30px,3vw,36px);font-weight:400;line-height:1.5}
+.sd-hero h1.sd-hero-long,
+html[lang="en"] .sd-hero h1.sd-hero-long{font-size:clamp(28px,2.75vw,34px)}
+.sd-hero-copy>p{max-width:720px;font-size:16px;line-height:1.95}
+.sd-section{padding:72px 0!important}
+.sd-head{grid-template-columns:minmax(210px,.62fr) minmax(0,1.38fr);gap:56px;margin-bottom:34px;align-items:start}
+.sd-head h2{max-width:520px;font-size:clamp(24px,2.35vw,30px);font-weight:400;line-height:1.55;letter-spacing:.025em}
+.sd-head-copy{max-width:700px;padding-top:3px;font-size:15px;line-height:2}
+.sd-photo-copy{padding:64px clamp(40px,6vw,84px)}
+.sd-photo-copy h2{font-size:clamp(24px,2.35vw,30px);font-weight:400;line-height:1.6;letter-spacing:.02em}
+.sd-photo-copy p{font-size:15px;line-height:2}
+.sd-row p,.sd-lines li{font-size:15px;line-height:1.9}
+.sd-doc p,.sd-paper-copy p{font-size:15px;line-height:1.95}
+.sd-doc li,.sd-score-item p,.sd-step p{font-size:14px;line-height:1.85}
+.sd-price-row p,.sd-table th,.sd-table td{font-size:14px;line-height:1.75}
+.sd-table td:first-child{font-size:15px}
+.sd-source{font-size:15px}
+.sd-faq summary{font-size:15px;line-height:1.75}
+.sd-answer{font-size:15px;line-height:1.95}
+.sd-related span{font-size:13px;line-height:1.6}
+.sd-final{padding:68px 0!important}
+.sd-final h2,.sd-form-intro h2{font-size:clamp(24px,2.4vw,30px);font-weight:400;line-height:1.6}
+.sd-final p,.sd-form-intro p{font-size:15px;line-height:1.95}
+.sd-field label,.sd-table-note,.sd-note,.sd-form-note{font-size:12px;line-height:1.75}
+
+@media(max-width:760px){
+  .sd-hero h1,.sd-hero h1.sd-hero-long,
+  html[lang="en"] .sd-hero h1,
+  html[lang="en"] .sd-hero h1.sd-hero-long{font-size:clamp(25px,7vw,29px);line-height:1.5}
+  .sd-hero-copy>p{font-size:15px;line-height:1.9}
+  .sd-section{padding:54px 0!important}
+  .sd-head{grid-template-columns:1fr;gap:14px;margin-bottom:28px}
+  .sd-head h2{font-size:clamp(22px,6.3vw,26px);line-height:1.55}
+  .sd-head-copy{font-size:15px;line-height:1.9}
+  .sd-photo-copy{padding:38px 22px 44px}
+  .sd-photo-copy h2{font-size:clamp(22px,6.3vw,26px);line-height:1.6}
+  .sd-photo-copy p{font-size:15px;line-height:1.9}
+  .sd-final{padding:54px 0!important}
+}

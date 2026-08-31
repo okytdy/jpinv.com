@@ -281,3 +281,28 @@
 @media (prefers-reduced-motion: reduce) {
   .pricing-page .reveal { transition: none; }
 }
+
+/* Content-first corporate hierarchy (2026-08-31) */
+.pricing-page h1,.pricing-page h2,.pricing-page h3{text-wrap:pretty}
+.price-title h1{font-size:clamp(1.8rem,2.8vw,2.15rem);font-weight:400;line-height:1.5}
+.price-title p{font-size:.94rem;line-height:1.8}
+.price-title p span{font-size:.82rem}
+.quote-card-head p,.quote-field label,.quote-unit{font-size:.86rem;line-height:1.65}
+.quote-summary{font-size:.84rem;line-height:1.75}
+.quote-disclaimer{font-size:.78rem;line-height:1.7}
+.price-index a{font-size:.88rem}
+.price-section{padding:68px 0}
+.price-section-head h2{font-size:clamp(1.4rem,2.2vw,1.75rem);font-weight:400;line-height:1.55}
+.price-section-head p{font-size:.94rem;line-height:1.85}
+.price-table th,.price-table td{font-size:.88rem;line-height:1.7}
+.price-table thead th{font-size:.82rem}
+.price-cell span{font-size:.78rem;line-height:1.6}
+.price-detail-list dt,.price-detail-list dd{font-size:.88rem;line-height:1.75}
+.price-text-link{font-size:.86rem}
+
+@media(max-width:700px){
+  .price-title h1{font-size:clamp(1.65rem,7vw,1.9rem)}
+  .price-title p{font-size:.9rem;line-height:1.8}
+  .price-section{padding:52px 0}
+  .price-section-head p{font-size:.9rem;line-height:1.8}
+}

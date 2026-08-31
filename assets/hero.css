@@ -489,3 +489,27 @@ html[lang="en"] .voices .voice-pull { letter-spacing: 0; line-height: 1.55; }
 @media (prefers-reduced-motion: reduce) {
   .voices .voice-card2 { transition: none; }
 }
+
+/* Content-first corporate hierarchy (2026-08-31) */
+.jh h1,.jh-h{font-size:clamp(30px,3vw,36px);font-weight:400;line-height:1.5;text-wrap:pretty}
+.jh-lead{max-width:650px;font-size:16px;line-height:1.95}
+.jb-d{font-size:15px;line-height:1.8}
+.nw{padding:64px 0 68px}
+.nw-head h2{font-size:clamp(23px,2.2vw,28px);font-weight:400;line-height:1.55}
+.nw-context{font-size:15px;line-height:1.9}
+.nw-list li{font-size:14px;line-height:1.75}
+.svr-head{padding:64px 0 34px}
+.svr-tx{padding:50px 56px}
+.svr-tx h3{font-size:clamp(22px,2.1vw,27px);font-weight:400;line-height:1.55;text-wrap:pretty}
+.svr-tx p{font-size:16px;line-height:1.9}
+.voices{padding:68px 0 72px}
+.voices .voice-card2 blockquote{font-size:14px;line-height:1.9}
+.voices .voice-card2 .voice-firm{font-size:12px;line-height:1.65}
+
+@media(max-width:760px){
+  .jh h1,.jh-h{font-size:clamp(25px,7vw,29px);line-height:1.5}
+  .jh-lead{font-size:15px;line-height:1.9}
+  .nw{padding:48px 0 52px}
+  .svr-head{padding:48px 0 26px}
+  .svr-tx{padding:34px 24px 40px}
+}
