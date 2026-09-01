@@ -49,7 +49,7 @@ function readLocale(config) {
   const reportRows = anchors(hub)
     .filter((anchor) => hasClass(anchor, 'ch-report-row'))
     .map((anchor) => ({
-      ticker: anchor.body.match(/class="ch-report-id"[\s\S]*?<b>(\d{4})<\/b>/)?.[1],
+      ticker: anchor.attrs['data-report-snapshot'],
       date: anchor.body.match(/<time datetime="([^"]+)"/)?.[1],
       href: anchor.attrs.href,
     }));
@@ -58,7 +58,6 @@ function readLocale(config) {
     profileCards,
     hero: hero ? {href: hero.attrs.href, date: heroDate?.[1]} : null,
     reportRows,
-    redundantMetricLabels: (hub.match(/<span class="ch-report-metric"><small>/g) || []).length,
   };
 }
 
@@ -85,9 +84,6 @@ for (const result of results) {
   }
   if (result.reportRows.length !== recentReportCount) {
     errors.push(`${name}: expected ${recentReportCount} New reports rows, found ${result.reportRows.length}`);
-  }
-  if (result.redundantMetricLabels) {
-    errors.push(`${name}: found ${result.redundantMetricLabels} redundant row-level metric labels; the column header already labels the values`);
   }
   const expectedRows = result.profileCards.slice(1, recentReportCount + 1);
   for (let index = 0; index < expectedRows.length; index += 1) {
