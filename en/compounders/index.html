@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css?v=20260831c">
-<link rel="stylesheet" href="/assets/compounders-hub.css?v=20260901a">
+<link rel="stylesheet" href="/assets/compounders-hub.css?v=20260901c">
 </head>
 <body class="compounders-hub">
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -205,17 +205,28 @@
 <section class="ch-investor-voices" aria-labelledby="ch-voices-title">
   <div class="wrap">
     <header class="ch-voices-head">
-      <span>Investor feedback</span>
-      <h2 id="ch-voices-title">What investors say</h2>
+      <div><span>Investor feedback</span><h2 id="ch-voices-title">What investors say</h2></div>
+      <div class="ch-voices-controls">
+        <button type="button" data-voices-prev aria-label="Previous"><span aria-hidden="true">←</span></button>
+        <button type="button" data-voices-next aria-label="Next"><span aria-hidden="true">→</span></button>
+      </div>
     </header>
-    <div class="ch-voices-grid">
-      <figure class="ch-voice-card">
+    <div class="ch-voices-grid" tabindex="0" aria-labelledby="ch-voices-title">
+      <figure class="ch-voice-card" data-investor-voice="mark-landecker">
         <blockquote>&ldquo;I&rsquo;ve been working with JII for several years &mdash; either in person when I am in Japan or via videoconference when abroad. Teddy always does a great job preparing for the calls and helping to work through the nuance of the discussion, which is easier said than done. I wholly endorse JII for any interpretation requirements you may have as an overseas investor.&rdquo;</blockquote>
         <figcaption>Mark Landecker<span>Partner · FPA</span></figcaption>
       </figure>
-      <figure class="ch-voice-card">
+      <figure class="ch-voice-card" data-investor-voice="evan-tindell">
         <blockquote>&ldquo;JII arranged a series of meetings with Japanese companies for us in 2023 and did a great job &mdash; thorough, punctual, and their interpretation is top-notch. On top of that, two of our largest positions in Japan are ideas I first discovered via JII&rsquo;s Twitter feed.&rdquo;</blockquote>
         <figcaption>Evan Tindell<span>Co-founder &amp; CIO · Bireme Capital</span></figcaption>
+      </figure>
+      <figure class="ch-voice-card" data-investor-voice="henry-r">
+        <blockquote>&ldquo;Teddy is a highly professional translator who consistently makes complex investment discussions clear and efficient. He is very good at ensuring both sides fully understand each other&rsquo;s intentions and questions, which helps meetings run smoothly and productively.&rdquo;</blockquote>
+        <figcaption>Henry R.<span>Portfolio Manager · Global Long/Short Equity Fund</span></figcaption>
+      </figure>
+      <figure class="ch-voice-card" data-investor-voice="toby-shute">
+        <blockquote>&ldquo;Anyone approaching Japanese small-cap companies from overseas could use a good sherpa, and as a professional translator Teddy has had a front-row seat to the shifting governance, capital allocation, and IR norms reshaping this market. Tap into his experience and insights to augment your process and flatten the learning curve.&rdquo;</blockquote>
+        <figcaption>Toby Shute</figcaption>
       </figure>
     </div>
   </div>
@@ -251,7 +262,7 @@
 </section>
 </main>
 
-<script src="/assets/compounders-hub.js?v=20260823d" defer></script>
+<script src="/assets/compounders-hub.js?v=20260901a" defer></script>
 <script src="/assets/nav.js?v=348fa48c4e" defer></script>
 <script src="/assets/motion.js" defer></script>
 </body>

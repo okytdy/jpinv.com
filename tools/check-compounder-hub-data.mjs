@@ -13,6 +13,7 @@ const metricOrder = {
   EN: ['Market cap', '60D ADTV', 'Forward EV / EBIT', 'ROCE'],
   JA: ['時価総額', '60日平均売買代金', '予想 EV / EBIT', 'ROCE'],
 };
+const voiceOrder = ['mark-landecker', 'evan-tindell', 'henry-r', 'toby-shute'];
 const errors = [];
 
 function attributes(raw) {
@@ -50,9 +51,16 @@ for (const [locale, relativePath] of pages) {
   const html = fs.readFileSync(path.join(root, relativePath), 'utf8');
   const records = snapshots(html);
   const sequence = records.map((record) => record.attrs['data-report-snapshot']);
+  const voices = [...html.matchAll(/data-investor-voice="([^"]+)"/g)].map((match) => match[1]);
   sequences.push(sequence);
   if (records.length !== expected.size) {
     errors.push(`${locale}: found ${records.length} snapshots; expected ${expected.size}`);
+  }
+  if (JSON.stringify(voices) !== JSON.stringify(voiceOrder)) {
+    errors.push(`${locale}: investor voices are ${voices.join(', ')}; expected ${voiceOrder.join(', ')}`);
+  }
+  if ((html.match(/data-voices-prev/g) || []).length !== 1 || (html.match(/data-voices-next/g) || []).length !== 1) {
+    errors.push(`${locale}: investor voice reel controls are missing or duplicated`);
   }
 
   for (const record of records) {
@@ -93,6 +101,19 @@ for (const [locale, relativePath] of pages) {
   }
 }
 
+for (const relativePath of ['compounders/index.html', 'compounders/profiles/index.html']) {
+  const html = fs.readFileSync(path.join(root, relativePath), 'utf8');
+  if (html.includes('ネット現金')) {
+    errors.push(`${relativePath}: found retired label ネット現金`);
+  }
+  if (!html.includes('ネットキャッシュ')) {
+    errors.push(`${relativePath}: expected label ネットキャッシュ`);
+  }
+  if (html.includes('card-stat-label">EV / 営業利益')) {
+    errors.push(`${relativePath}: found retired card label EV / 営業利益`);
+  }
+}
+
 if (JSON.stringify(sequences[0]) !== JSON.stringify(sequences[1])) {
   errors.push(`EN/JA snapshot order differs: ${sequences[0].join(', ')} vs ${sequences[1].join(', ')}`);
 }
@@ -103,4 +124,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`COMPOUNDER HUB DATA: PASS — ${source.reports.length} dated snapshots; EN/JA values and forward EV/EBIT labels agree`);
+console.log(`COMPOUNDER HUB DATA: PASS — ${source.reports.length} dated snapshots, 4 investor voices, and EN/JA labels agree`);

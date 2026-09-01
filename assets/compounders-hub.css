@@ -389,10 +389,15 @@
 /* Existing client voices lower the hurdle immediately after the access invitation. */
 .ch-investor-voices { padding: 40px 0 44px; border-bottom: 1px solid var(--ch-rule); background: var(--ch-paper); }
 .ch-voices-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 18px; }
-.ch-voices-head > span { display: block; font-family: var(--mono); font-size: 10px; letter-spacing: .09em; color: var(--ch-gold); text-transform: uppercase; }
+.ch-voices-head > div:first-child > span { display: block; font-family: var(--mono); font-size: 10px; letter-spacing: .09em; color: var(--ch-gold); text-transform: uppercase; }
 .ch-voices-head h2 { margin: 0; font-family: var(--sans); font-size: 24px; font-weight: 500; line-height: 1.4; color: var(--ch-ink); }
-.ch-voices-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
-.ch-voice-card { display: flex; flex-direction: column; margin: 0; padding: 24px 26px; border-top: 2px solid var(--ch-ink); background: #fff; }
+.ch-voices-controls { display: flex; gap: 8px; }
+.ch-voices-controls button { display: grid; width: 38px; height: 38px; padding: 0; border: 1px solid var(--ch-rule); background: #fff; color: var(--ch-ink); cursor: pointer; place-items: center; transition: border-color .15s ease, background .15s ease, color .15s ease; }
+.ch-voices-controls button:hover { border-color: var(--ch-ink); background: var(--ch-ink); color: #fff; }
+.ch-voices-controls button:disabled { opacity: .35; cursor: default; }
+.ch-voices-controls button:disabled:hover { border-color: var(--ch-rule); background: #fff; color: var(--ch-ink); }
+.ch-voices-grid { display: grid; grid-auto-columns: calc((100% - 18px) / 2); grid-auto-flow: column; gap: 18px; padding-bottom: 12px; overflow-x: auto; overscroll-behavior-inline: contain; scroll-behavior: smooth; scroll-snap-type: inline mandatory; scrollbar-color: var(--ch-gold) transparent; scrollbar-width: thin; }
+.ch-voice-card { display: flex; min-height: 276px; flex-direction: column; margin: 0; padding: 24px 26px; border-top: 2px solid var(--ch-ink); background: #fff; scroll-snap-align: start; }
 .ch-voice-card blockquote { flex: 1; margin: 0; font-size: 14px; line-height: 1.75; color: var(--ch-copy); }
 .ch-voice-card figcaption { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--ch-rule); font-size: 14px; font-weight: 500; color: var(--ch-ink); }
 .ch-voice-card figcaption span { display: block; margin-top: 3px; font-family: var(--mono); font-size: 10px; font-weight: 400; line-height: 1.5; letter-spacing: .03em; color: var(--ch-muted); }
@@ -425,7 +430,7 @@
   .ch-feed-card { padding-right: 20px; padding-left: 20px; }
   .ch-access-inner { grid-template-columns: 1fr 1fr; }
   .ch-access a { grid-column: 2; width: fit-content; }
-  .ch-voices-grid { grid-template-columns: 1fr; }
+  .ch-voices-grid { grid-auto-columns: min(76vw, 640px); }
 }
 
 @media (max-width: 760px) {
@@ -476,8 +481,10 @@
   .ch-access p { margin-top: 13px; }
   .ch-access a { width: 100%; margin-top: 20px; }
   .ch-investor-voices { padding: 34px 0 38px; }
-  .ch-voices-head { display: block; }
+  .ch-voices-head { align-items: flex-end; gap: 14px; }
   .ch-voices-head h2 { margin-top: 5px; font-size: 22px; }
+  .ch-voices-controls button { width: 36px; height: 36px; }
+  .ch-voices-grid { grid-auto-columns: 88%; }
   .ch-voice-card { padding: 21px 20px; }
   .ch-voice-card blockquote { font-size: 13px; }
   .disclaimer-details summary { grid-template-columns: 1fr auto; gap: 7px 18px; padding-right: 28px; }
