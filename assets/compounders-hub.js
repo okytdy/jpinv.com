@@ -165,4 +165,32 @@
       .catch(function () { /* Keep the dated HTML fallback. */ })
       .then(function () { ownershipList.setAttribute("aria-busy", "false"); });
   }
+
+  document.querySelectorAll(".ch-investor-voices").forEach(function (section) {
+    var track = section.querySelector(".ch-voices-grid");
+    var previous = section.querySelector("[data-voices-prev]");
+    var next = section.querySelector("[data-voices-next]");
+    if (!track || !previous || !next) return;
+
+    function step() {
+      var card = track.querySelector(".ch-voice-card");
+      var gap = Number.parseFloat(window.getComputedStyle(track).columnGap) || 0;
+      return card ? card.getBoundingClientRect().width + gap : track.clientWidth;
+    }
+
+    function updateControls() {
+      previous.disabled = track.scrollLeft <= 4;
+      next.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth - 4;
+    }
+
+    previous.addEventListener("click", function () {
+      track.scrollBy({ left: -step(), behavior: "smooth" });
+    });
+    next.addEventListener("click", function () {
+      track.scrollBy({ left: step(), behavior: "smooth" });
+    });
+    track.addEventListener("scroll", updateControls, { passive: true });
+    window.addEventListener("resize", updateControls, { passive: true });
+    updateControls();
+  });
 })();

@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css?v=20260831c">
-<link rel="stylesheet" href="/assets/compounders-hub.css?v=20260901a">
+<link rel="stylesheet" href="/assets/compounders-hub.css?v=20260901c">
 </head>
 <body class="compounders-hub">
 <a class="skip-link" href="#main-content">本文へ移動</a>
@@ -68,7 +68,7 @@
         <div><dt>60日平均売買代金</dt><dd>3.32億円</dd><dd class="ch-metric-context">2026年8月28日まで</dd></div>
         <div class="ch-valuation"><dt>予想 EV / EBIT</dt><dd>8.34倍</dd><dd class="ch-metric-context">FY3/27</dd></div>
         <div><dt>ROCE · 実績</dt><dd>16.4%</dd><dd class="ch-metric-context">FY3/26</dd></div>
-        <div class="ch-lead-secondary"><dt>ネット現金 / 時価総額</dt><dd>24.4%</dd></div>
+        <div class="ch-lead-secondary"><dt>ネットキャッシュ / 時価総額</dt><dd>24.4%</dd></div>
       </dl>
     </article>
   </div>
@@ -205,17 +205,28 @@
 <section class="ch-investor-voices" aria-labelledby="ch-voices-title">
   <div class="wrap">
     <header class="ch-voices-head">
-      <span>海外投資家の声</span>
-      <h2 id="ch-voices-title">ご利用いただいた投資家の声</h2>
+      <div><span>海外投資家の声</span><h2 id="ch-voices-title">ご利用いただいた投資家の声</h2></div>
+      <div class="ch-voices-controls">
+        <button type="button" data-voices-prev aria-label="前へ"><span aria-hidden="true">←</span></button>
+        <button type="button" data-voices-next aria-label="次へ"><span aria-hidden="true">→</span></button>
+      </div>
     </header>
-    <div class="ch-voices-grid">
-      <figure class="ch-voice-card">
+    <div class="ch-voices-grid" tabindex="0" aria-labelledby="ch-voices-title">
+      <figure class="ch-voice-card" data-investor-voice="mark-landecker">
         <blockquote>「JIIとはもう数年来の付き合いで、来日時には対面で、海外にいるときはビデオ会議で仕事をしてもらっています。テディさんはいつもコールに向けて入念に準備し、議論の機微を丁寧に汲み取ってくれます。これは口で言うほど簡単なことではありません。海外投資家として通訳が必要な場面なら、JIIを全面的に推薦します。」</blockquote>
         <figcaption>Mark Landecker<span>FPA パートナー</span></figcaption>
       </figure>
-      <figure class="ch-voice-card">
+      <figure class="ch-voice-card" data-investor-voice="evan-tindell">
         <blockquote>「2023年、JIIに日本企業との一連のミーティングをアレンジしてもらいましたが、その仕事ぶりは見事でした。準備も時間管理も的確で、通訳の質も一級品です。さらに、当ファンドが保有する日本株の最大級のポジション2銘柄は、いずれもJIIのTwitterで初めて知ったアイデアでした。」</blockquote>
         <figcaption>Evan Tindell<span>Bireme Capital 共同創業者 兼 CIO</span></figcaption>
+      </figure>
+      <figure class="ch-voice-card" data-investor-voice="henry-r">
+        <blockquote>「テディさんは非常にプロフェッショナルな通訳者で、複雑な投資の議論を常に明快に伝えてくれます。双方が互いの意図や質問をきちんと理解できるよう細やかに配慮してくれるため、ミーティングが円滑に進み、実りある話し合いになります。」</blockquote>
+        <figcaption>Henry R.<span>ポートフォリオ・マネージャー · グローバル・ロング/ショート株式ファンド</span></figcaption>
+      </figure>
+      <figure class="ch-voice-card" data-investor-voice="toby-shute">
+        <blockquote>「海外から日本の小型株にアプローチする投資家には、頼れる『シェルパ』が欠かせません。テディさんはプロの翻訳者として、この市場を作り変えつつあるガバナンス・資本配分・IR慣行の変化を、最前列で見てきた人物です。彼の経験と知見を取り入れれば、自らのプロセスを補強し、学習曲線を一気に縮められるはずです。」</blockquote>
+        <figcaption>Toby Shute</figcaption>
       </figure>
     </div>
   </div>
@@ -250,7 +261,7 @@
 </section>
 </main>
 
-<script src="/assets/compounders-hub.js?v=20260823d" defer></script>
+<script src="/assets/compounders-hub.js?v=20260901a" defer></script>
 <script src="/assets/nav.js?v=348fa48c4e" defer></script>
 <script src="/assets/motion.js" defer></script>
 </body>
