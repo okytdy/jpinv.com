@@ -91,7 +91,7 @@ for (const [locale, relativePath] of pages) {
       errors.push(`${locale} ${ticker}: visible valuation includes a reciprocal or OP label`);
     }
 
-    const labelTag = ticker === '4290' ? 'dt' : 'small';
+    const labelTag = ticker === '2325' ? 'dt' : 'small';
     const labels = [...record.body.matchAll(new RegExp(`<${labelTag}>([^<]+)</${labelTag}>`, 'g'))]
       .map((match) => match[1].replace(/\s*·.*$/, ''))
       .slice(0, 4);

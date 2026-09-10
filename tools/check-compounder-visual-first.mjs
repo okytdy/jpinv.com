@@ -34,18 +34,32 @@ const exactly = (html, needle, count, label, failures) => {
 let failed = false;
 for (const { page, html } of pages) {
   const failures = [];
+  const isSimpleProfile = html.includes('class="card research-profile simple-profile"');
   exactly(html, "/assets/compounder-research.css", 1, "research stylesheet", failures);
   exactly(html, "/assets/compounder-research.js", 1, "research script", failures);
   exactly(html, "/assets/share-bar.js", 1, "share-bar script", failures);
   exactly(html, "/assets/nav.js", 1, "shared navigation", failures);
-  exactly(html, 'class="investability-item"', 4, "investability cells", failures);
-  atLeast(html, 'class="research-section', 5, "research sections", failures);
-  atLeast(html, 'class="section-label"', 5, "section labels", failures);
-  exactly(html, 'class="underwriting-panel"', 1, "underwriting panel", failures);
-  exactly(html, 'class="chart-wrap"', 1, "price chart", failures);
-  exactly(html, 'class="loop-panel"', 1, "economic-mechanism visual", failures);
-  atLeast(html, 'class="question-card"', 2, "decisive-question cards", failures);
-  exactly(html, 'class="valuation-matrix"', 1, "valuation matrix", failures);
+  if (isSimpleProfile) {
+    exactly(html, 'class="profile-hero"', 1, "profile hero", failures);
+    exactly(html, 'class="profile-facts"', 1, "profile facts", failures);
+    exactly(html, 'class="research-section', 7, "research sections", failures);
+    exactly(html, 'class="section-label"', 7, "section labels", failures);
+    atLeast(html, 'class="report-figure', 6, "report figures", failures);
+    exactly(html, 'data-compounder-chart', 1, "price chart", failures);
+    exactly(html, 'class="watch-list"', 1, "watch list", failures);
+    for (const retired of ['class="investability-item"', 'class="underwriting-panel"', 'class="loop-panel"', 'class="question-card"', 'class="valuation-matrix"']) {
+      exactly(html, retired, 0, `retired profile block ${retired}`, failures);
+    }
+  } else {
+    exactly(html, 'class="investability-item"', 4, "investability cells", failures);
+    atLeast(html, 'class="research-section', 5, "research sections", failures);
+    atLeast(html, 'class="section-label"', 5, "section labels", failures);
+    exactly(html, 'class="underwriting-panel"', 1, "underwriting panel", failures);
+    exactly(html, 'class="chart-wrap"', 1, "price chart", failures);
+    exactly(html, 'class="loop-panel"', 1, "economic-mechanism visual", failures);
+    atLeast(html, 'class="question-card"', 2, "decisive-question cards", failures);
+    exactly(html, 'class="valuation-matrix"', 1, "valuation matrix", failures);
+  }
   exactly(html, 'class="source-shelf"', 1, "source shelf", failures);
   exactly(html, 'class="share-bar"', 1, "shared share bar", failures);
   exactly(html, 'class="publication-note"', 1, "publication note", failures);
