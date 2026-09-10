@@ -213,3 +213,75 @@
   .research-profile .underwriting-head h3{font-size:21px;}
   .research-profile .valuation-basis{grid-template-columns:1fr;}
 }
+
+/* Short company profile: a linear, Japanese-first research note. */
+.research-profile.simple-profile .profile-hero{padding:48px 56px 42px;border-bottom:1px solid var(--rule);background:linear-gradient(180deg,#fff,#fbfcf8);}
+.research-profile.simple-profile .profile-kicker{font:500 10px/1.4 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--gear-dark);margin-bottom:13px;}
+.research-profile.simple-profile .profile-title{max-width:900px;font:300 42px/1.2 var(--serif);color:var(--ink-mid);margin:0;text-wrap:balance;}
+.research-profile.simple-profile .profile-deck{max-width:850px;font:400 19px/1.75 var(--serif);color:var(--text-mid);margin:20px 0 0;}
+.research-profile.simple-profile .profile-dateline{display:flex;flex-wrap:wrap;gap:9px 22px;margin-top:22px;padding-top:15px;border-top:1px solid var(--rule);font:500 10px/1.5 var(--mono);letter-spacing:.05em;color:var(--text-dim);}
+.research-profile.simple-profile .profile-dateline strong{color:var(--ink-mid);font-weight:500;}
+.research-profile.simple-profile .profile-facts{padding:0 56px 38px;background:#fbfcf8;border-bottom:1px solid var(--rule);}
+.research-profile.simple-profile .profile-facts table{width:100%;border-collapse:collapse;table-layout:fixed;}
+.research-profile.simple-profile .profile-facts th,.research-profile.simple-profile .profile-facts td{padding:13px 14px;border-bottom:1px solid var(--rule);vertical-align:top;text-align:left;}
+.research-profile.simple-profile .profile-facts th{font:500 9px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);}
+.research-profile.simple-profile .profile-facts td{font:400 16px/1.4 var(--serif);color:var(--ink-mid);}
+.research-profile.simple-profile .profile-facts td small{display:block;margin-top:3px;font:400 10px/1.4 var(--sans);color:var(--text-dim);}
+.research-profile.simple-profile .research-section{padding-top:50px;padding-bottom:50px;background:#fff;}
+.research-profile.simple-profile .research-section:nth-of-type(even){background:#fbfcf8;}
+.research-profile.simple-profile .section-label{text-transform:none;letter-spacing:.14em;}
+.research-profile.simple-profile .research-title{max-width:900px;margin-bottom:22px;}
+.research-profile.simple-profile .prose{max-width:860px;margin-inline:auto;}
+.research-profile.simple-profile .report-figure{max-width:960px;margin:28px auto 6px;}
+.research-profile.simple-profile .figure-heading{display:flex;justify-content:space-between;gap:20px;align-items:baseline;padding-bottom:10px;border-bottom:2px solid var(--ink-mid);margin-bottom:0;}
+.research-profile.simple-profile .figure-heading h3{font:400 21px/1.35 var(--serif);color:var(--ink-mid);margin:0;}
+.research-profile.simple-profile .figure-heading span{font:500 9px/1.4 var(--mono);letter-spacing:.08em;color:var(--text-dim);text-align:right;}
+.research-profile.simple-profile .profile-table-wrap{overflow-x:auto;overscroll-behavior-inline:contain;}
+.research-profile.simple-profile .profile-table{width:100%;min-width:680px;border-collapse:collapse;}
+.research-profile.simple-profile .profile-table th,.research-profile.simple-profile .profile-table td{padding:11px 12px;border-bottom:1px solid var(--rule);text-align:right;vertical-align:top;}
+.research-profile.simple-profile .profile-table thead th{background:#f1f3f5;font:500 9px/1.4 var(--mono);letter-spacing:.06em;color:var(--text-dim);}
+.research-profile.simple-profile .profile-table thead th:first-child,.research-profile.simple-profile .profile-table tbody th{text-align:left;}
+.research-profile.simple-profile .profile-table tbody th{font:500 11px/1.45 var(--sans);color:var(--text-mid);background:#fafafa;}
+.research-profile.simple-profile .profile-table td{font:400 13px/1.45 var(--mono);color:var(--ink-mid);}
+.research-profile.simple-profile .profile-table td.text{font-family:var(--sans);text-align:left;}
+.research-profile.simple-profile .figure-note{font:400 10.5px/1.65 var(--sans);color:var(--text-dim);margin:10px 0 0;}
+.research-profile.simple-profile .progress-figure{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:22px 0;border-bottom:1px solid var(--rule);}
+.research-profile.simple-profile .progress-item span{display:block;font:500 9px/1.4 var(--mono);letter-spacing:.08em;color:var(--text-dim);margin-bottom:8px;}
+.research-profile.simple-profile .progress-track{height:7px;background:#e2e6ea;overflow:hidden;}
+.research-profile.simple-profile .progress-fill{height:100%;background:var(--gear);}
+.research-profile.simple-profile .progress-item b{display:block;margin-top:8px;font:400 17px/1.3 var(--serif);color:var(--ink-mid);}
+.research-profile.simple-profile .balance-bar{display:flex;min-height:72px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-top:18px;}
+.research-profile.simple-profile .balance-bar>div{display:flex;align-items:center;justify-content:center;padding:14px;text-align:center;font:500 10px/1.45 var(--mono);}
+.research-profile.simple-profile .balance-bar .cash{width:58.5%;background:var(--gear);color:#17210b;}
+.research-profile.simple-profile .balance-bar .operating-value{width:41.5%;background:var(--navy);color:#fff;}
+.research-profile.simple-profile .balance-bar b{display:block;font:400 20px/1.1 var(--serif);}
+.research-profile.simple-profile .watch-list{max-width:860px;margin:0 auto;padding:0;list-style:none;counter-reset:watch;}
+.research-profile.simple-profile .watch-list li{counter-increment:watch;display:grid;grid-template-columns:52px 1fr;gap:18px;padding:19px 0;border-bottom:1px solid var(--rule);font:400 16px/1.8 var(--serif);color:var(--text);}
+.research-profile.simple-profile .watch-list li:before{content:"0" counter(watch);font:500 11px/1.7 var(--mono);color:var(--gear-dark);}
+.research-profile.simple-profile .watch-list strong{font-weight:500;color:var(--ink-mid);}
+.research-profile.simple-profile .chart-wrap{max-width:960px;margin:26px auto 0;}
+.research-profile.simple-profile .chart-summary{display:grid;grid-template-columns:repeat(4,1fr);margin:16px auto 0;max-width:960px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);}
+.research-profile.simple-profile .chart-summary>div{padding:14px 16px;border-right:1px solid var(--rule);}
+.research-profile.simple-profile .chart-summary>div:last-child{border-right:0;}
+.research-profile.simple-profile .chart-summary span{display:block;font:500 9px/1.4 var(--mono);letter-spacing:.06em;color:var(--text-dim);}
+.research-profile.simple-profile .chart-summary b{display:block;margin-top:5px;font:400 17px/1.25 var(--serif);color:var(--ink-mid);}
+
+@media(max-width:680px){
+  .research-profile.simple-profile{max-width:100%;overflow:hidden;}
+  .research-profile.simple-profile .profile-hero{padding:34px 22px 30px;}
+  .research-profile.simple-profile .profile-title{font-size:32px;}
+  .research-profile.simple-profile .profile-deck{font-size:16px;line-height:1.7;}
+  .research-profile.simple-profile .profile-title,.research-profile.simple-profile .profile-deck,.research-profile.simple-profile .profile-dateline,.research-profile.simple-profile .prose{min-width:0;overflow-wrap:anywhere;}
+  .research-profile.simple-profile .profile-facts{padding:0 22px 26px;overflow:visible;}
+  .research-profile.simple-profile .profile-facts table,.research-profile.simple-profile .profile-facts tbody{display:block;width:100%;min-width:0;}
+  .research-profile.simple-profile .profile-facts tr{display:grid;grid-template-columns:minmax(82px,.75fr) minmax(0,1.25fr);}
+  .research-profile.simple-profile .profile-facts th,.research-profile.simple-profile .profile-facts td{min-width:0;padding:11px 9px;overflow-wrap:anywhere;}
+  .research-profile.simple-profile .figure-heading{display:block;}
+  .research-profile.simple-profile .figure-heading span{display:block;text-align:left;margin-top:5px;}
+  .research-profile.simple-profile .progress-figure,.research-profile.simple-profile .chart-summary{grid-template-columns:1fr 1fr;gap:0;}
+  .research-profile.simple-profile .progress-item{padding:12px;}
+  .research-profile.simple-profile .chart-summary>div:nth-child(2){border-right:0;}
+  .research-profile.simple-profile .chart-summary>div:nth-child(-n+2){border-bottom:1px solid var(--rule);}
+  .research-profile.simple-profile .balance-bar{min-height:96px;}
+  .research-profile.simple-profile .watch-list li{grid-template-columns:38px 1fr;gap:10px;font-size:15px;}
+}

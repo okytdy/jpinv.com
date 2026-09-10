@@ -1,9 +1,24 @@
 {
   "schemaVersion": 1,
   "pointInTimeConvention": "Each snapshot uses the last market close embedded in the published report.",
-  "marketDataMethod": "Last close and market capitalization use the published report snapshot. 60D ADTV is the arithmetic mean of archived J-Quants daily Close multiplied by Volume for exactly 60 trading sessions ending on the snapshot date.",
+  "marketDataMethod": "Last close and market capitalization use the published report snapshot. 60D ADTV is the arithmetic mean of archived daily traded value for exactly 60 trading sessions ending on the snapshot date.",
   "fundamentalDataMethod": "ROCE and the forward valuation multiple use the fiscal periods and calculations published in the corresponding JII report. The source operating-profit multiple is displayed as EV/EBIT on the hub.",
   "reports": [
+    {
+      "ticker": "2325",
+      "reportDate": "2026-09-02",
+      "snapshotDate": "2026-09-02",
+      "lastCloseYen": 4710,
+      "marketCapYen": 44853857520,
+      "adtv60dYen": 142558433,
+      "adtvWindowStart": "2026-06-09",
+      "adtvWindowEnd": "2026-09-02",
+      "adtvSessions": 60,
+      "rocePct": 11.6,
+      "valuationBasis": "EBIT",
+      "valuationInput": "OP",
+      "valuationMultiple": 5.17
+    },
     {
       "ticker": "4290",
       "reportDate": "2026-08-28",
@@ -78,21 +93,6 @@
       "valuationBasis": "EBIT",
       "valuationInput": "OP",
       "valuationMultiple": 13.8
-    },
-    {
-      "ticker": "3482",
-      "reportDate": "2026-07-22",
-      "snapshotDate": "2026-07-22",
-      "lastCloseYen": 2750,
-      "marketCapYen": 55800000000,
-      "adtv60dYen": 447337284,
-      "adtvWindowStart": "2026-04-23",
-      "adtvWindowEnd": "2026-07-22",
-      "adtvSessions": 60,
-      "rocePct": 13.7,
-      "valuationBasis": "EBIT",
-      "valuationInput": "OP",
-      "valuationMultiple": 7.4
     }
   ]
 }
