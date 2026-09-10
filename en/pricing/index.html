@@ -284,6 +284,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
         <form class="contact-form" id="inquiry-form" novalidate data-recaptcha-site-key="">
           <input type="hidden" name="form_type" value="rfq-en">
           <input type="hidden" name="_subject" value="EN RFQ from jpinv.com">
+          <div class="form-honeypot" aria-hidden="true"><label for="rfq_gotcha">Leave this field empty</label><input id="rfq_gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off"></div>
           <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" value="">
           <div class="form-grid">
             <div class="form-row">
@@ -370,7 +371,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
           <p class="form-help">Your information is used only for your quote and our reply (<a href="/en/privacy/">Privacy Policy</a>).</p>
           <button type="submit" class="form-submit" id="form-submit-btn">Send RFQ</button>
           <p class="form-status" id="form-status" role="status" aria-live="polite" aria-atomic="true"></p>
-          <p class="form-help">reCAPTCHA runs on submission. If the form fails, email the same details to <a href="mailto:info@jpinv.com">info@jpinv.com</a>.</p>
+          <p class="form-help">Automated spam filtering runs on submission. If the form fails, email the same details to <a href="mailto:info@jpinv.com">info@jpinv.com</a>.</p>
         </form>
       </div>
       <div class="contact-side reveal">

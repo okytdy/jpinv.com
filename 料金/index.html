@@ -415,6 +415,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
         <form class="contact-form" id="inquiry-form" novalidate data-recaptcha-site-key="">
           <input type="hidden" name="form_type" value="rfq-ja">
           <input type="hidden" name="_subject" value="JP inquiry from jpinv.com">
+          <div class="form-honeypot" aria-hidden="true"><label for="rfq_gotcha">この欄は空のままにしてください</label><input id="rfq_gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off"></div>
           <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" value="">
           <div class="form-grid">
             <div class="form-row">
