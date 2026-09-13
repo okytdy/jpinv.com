@@ -13,7 +13,7 @@ for (const languageRoot of roots) {
     const page = path.join(languageRoot, entry.name, "initiation", "index.html");
     if (!fs.existsSync(page)) continue;
     const html = fs.readFileSync(page, "utf8");
-    if (html.includes("/assets/compounder-research.css")) pages.push({ page, html });
+    if (html.includes("/assets/compounder-profile.css")) pages.push({ page, html });
   }
 }
 
@@ -34,39 +34,50 @@ const exactly = (html, needle, count, label, failures) => {
 let failed = false;
 for (const { page, html } of pages) {
   const failures = [];
-  const isSimpleProfile = html.includes('class="card research-profile simple-profile"');
-  exactly(html, "/assets/compounder-research.css", 1, "research stylesheet", failures);
-  exactly(html, "/assets/compounder-research.js", 1, "research script", failures);
+  const isMembraneProfile = html.includes('data-conviction-membrane="2.0"');
+  exactly(html, "/assets/compounder-profile.css", 1, "canonical profile stylesheet", failures);
+  exactly(html, "/assets/compounder-profile.js", 1, "canonical profile script", failures);
   exactly(html, "/assets/share-bar.js", 1, "share-bar script", failures);
   exactly(html, "/assets/nav.js", 1, "shared navigation", failures);
-  if (isSimpleProfile) {
-    exactly(html, 'class="profile-hero"', 1, "profile hero", failures);
-    exactly(html, 'class="profile-facts"', 1, "profile facts", failures);
-    exactly(html, 'class="research-section', 7, "research sections", failures);
-    exactly(html, 'class="section-label"', 7, "section labels", failures);
-    atLeast(html, 'class="report-figure', 6, "report figures", failures);
+  exactly(html, 'class="compounder-profile"', 1, "canonical profile root", failures);
+  exactly(html, 'class="cp-profile-header"', 1, "canonical profile header", failures);
+  exactly(html, 'class="cp-key-metrics"', 1, "data-driven key metrics", failures);
+  exactly(html, 'data-compounder-profile="1"', 1, "profile system marker", failures);
+  if (isMembraneProfile) {
+    exactly(html, 'data-conviction-membrane="2.0"', 1, "Conviction Membrane marker", failures);
+    exactly(html, 'data-conviction-role="title"', 1, "title-conviction role", failures);
+    exactly(html, 'data-conviction-role="valuation"', 1, "valuation-conviction role", failures);
+    exactly(html, 'data-conviction-role="risks"', 1, "affirmative-risks role", failures);
+    exactly(html, 'data-conviction-role="observable"', 1, "observable-confirmation role", failures);
+    const synthesisRoles = exact(html, 'data-conviction-role="master"') + exact(html, 'data-conviction-role="forecast"');
+    if (synthesisRoles < 1) failures.push("conviction traversal: expected at least one master or forecast role");
+    atLeast(html, 'class="research-section', 4, "research sections", failures);
+    atLeast(html, 'class="section-label"', 4, "section labels", failures);
     exactly(html, 'data-compounder-chart', 1, "price chart", failures);
-    exactly(html, 'class="watch-list"', 1, "watch list", failures);
-    for (const retired of ['class="investability-item"', 'class="underwriting-panel"', 'class="loop-panel"', 'class="question-card"', 'class="valuation-matrix"']) {
-      exactly(html, retired, 0, `retired profile block ${retired}`, failures);
+    for (const retired of ['class="question-card"', 'class="ct-card"', 'class="scn-card bear"', 'class="scn-card base"', 'class="scn-card bull"']) {
+      exactly(html, retired, 0, `retired analytical block ${retired}`, failures);
+    }
+    if (/>(?:\s|<[^>]+>)*(?:BULL|BEAR)(?:\s|<[^>]+>)*</i.test(html)) {
+      failures.push("retired BULL/BEAR publication label");
+    }
+    for (const match of html.matchAll(/<[^>]*class="[^"]*section-label[^"]*"[^>]*>([\s\S]*?)<\/[^>]+>/gi)) {
+      if (match[1].includes("?")) failures.push("section heading poses a research question");
+    }
+    for (const match of html.matchAll(/<(?:section|div)\b[^>]*class="[^"]*research-section[^"]*"[^>]*>/gi)) {
+      const tag = match[0];
+      if (!tag.includes("data-card-ids=") && !tag.includes('data-reader-orientation="true"')) {
+        failures.push("research section lacks data-card-ids or reader-orientation marker");
+      }
     }
   } else {
-    exactly(html, 'class="investability-item"', 4, "investability cells", failures);
-    atLeast(html, 'class="research-section', 5, "research sections", failures);
-    atLeast(html, 'class="section-label"', 5, "section labels", failures);
-    exactly(html, 'class="underwriting-panel"', 1, "underwriting panel", failures);
-    exactly(html, 'class="chart-wrap"', 1, "price chart", failures);
-    exactly(html, 'class="loop-panel"', 1, "economic-mechanism visual", failures);
-    atLeast(html, 'class="question-card"', 2, "decisive-question cards", failures);
-    exactly(html, 'class="valuation-matrix"', 1, "valuation matrix", failures);
+    atLeast(html, '<section', 4, "article sections", failures);
+    exactly(html, '<h1 class="cp-profile-title"', 1, "single research H1", failures);
   }
-  exactly(html, 'class="source-shelf"', 1, "source shelf", failures);
   exactly(html, 'class="share-bar"', 1, "shared share bar", failures);
-  exactly(html, 'class="publication-note"', 1, "publication note", failures);
   exactly(html, 'class="meth"', 1, "methodology/language footer", failures);
   exactly(html, "</main>", 1, "main close", failures);
 
-  for (const forbidden of ["profile-essay", "share-panel", "profile-footer", "compounders-nav.js", 'id="main-nav"']) {
+  for (const forbidden of ["profile-essay", "share-panel", "profile-footer", "compounders-nav.js", 'id="main-nav"', "simple-profile", "prestige-profile", "/assets/profile.css", "/assets/compounder-research.css", 'id="v2-inflections"']) {
     if (html.includes(forbidden)) failures.push(`forbidden fallback markup: ${forbidden}`);
   }
 

@@ -269,7 +269,7 @@
     "html[lang='ja'] #jii-nav .jn-burger{display:block;}html[lang='ja'] #jii-nav .jn-right{margin-left:auto;order:2;}",
     "html[lang='ja'] #jii-nav .jn-burger{order:3;margin-left:0;}html[lang='ja'] #jii-nav .jn-lang{padding:0 4px 0 0;}}",
     "@media(min-width:1001px){#jii-nav .jn-menu{display:none!important;}}",
-    "@media(max-width:760px){#jii-nav .jn-bar{padding-left:22px;}#jii-nav .jn-sub-in{padding:0 22px;}#jii-nav .jn-burger{margin-right:12px;}}",
+    "@media(max-width:760px){#jii-nav .jn-bar{padding-left:22px;}#jii-nav .jn-sub-in{height:auto;min-height:" + SUB_H + "px;padding:6px 12px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px 4px;overflow:visible;}#jii-nav .jn-sub a{min-width:0;padding:5px 0;text-align:center;white-space:normal;font-size:12px;line-height:1.35;}#jii-nav .jn-burger{margin-right:12px;}}",
     "@media(max-width:560px){#jii-nav .jn-logo img{display:none;}#jii-nav .jn-logo .jn-logo-sm{display:block;}}",
     /* ---- dropdown panels (desktop only) ----
        Nikkato's pattern: hover a section, a full-width white panel opens
