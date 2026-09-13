@@ -84,8 +84,10 @@ for (const [locale, relativePath] of pages) {
     if (record.attrs['data-valuation-input'] !== report.valuationInput) {
       errors.push(`${locale} ${ticker}: valuation input is ${record.attrs['data-valuation-input']}; expected ${report.valuationInput}`);
     }
-    if (!record.body.includes(`EV / ${report.valuationBasis}`)) {
-      errors.push(`${locale} ${ticker}: visible multiple does not use EV / ${report.valuationBasis}`);
+    const display = report.hubDisplay?.[locale];
+    const requiredValuationLabel = display?.valuationLabel || `EV / ${report.valuationBasis}`;
+    if (!record.body.includes(requiredValuationLabel)) {
+      errors.push(`${locale} ${ticker}: visible multiple does not use ${requiredValuationLabel}`);
     }
     if (record.body.includes('OP / EV') || record.body.includes('EV / OP') || record.body.includes('EBIT / EV')) {
       errors.push(`${locale} ${ticker}: visible valuation includes a reciprocal or OP label`);
@@ -95,8 +97,9 @@ for (const [locale, relativePath] of pages) {
     const labels = [...record.body.matchAll(new RegExp(`<${labelTag}>([^<]+)</${labelTag}>`, 'g'))]
       .map((match) => match[1].replace(/\s*·.*$/, ''))
       .slice(0, 4);
-    if (JSON.stringify(labels) !== JSON.stringify(metricOrder[locale])) {
-      errors.push(`${locale} ${ticker}: metric order is ${labels.join(', ')}; expected ${metricOrder[locale].join(', ')}`);
+    const expectedLabels = display?.metricLabels || metricOrder[locale];
+    if (JSON.stringify(labels) !== JSON.stringify(expectedLabels)) {
+      errors.push(`${locale} ${ticker}: metric order is ${labels.join(', ')}; expected ${expectedLabels.join(', ')}`);
     }
   }
 }
