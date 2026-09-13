@@ -178,7 +178,7 @@ export function renderProfilePage(page, bodyHtml) {
   <script src="/assets/locale-switcher.js" defer></script>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&amp;family=Noto+Sans+JP:wght@300;400;500;600&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/site.css?v=20260831c">
-  <link rel="stylesheet" href="/assets/compounder-profile.css?v=20260913">
+  <link rel="stylesheet" href="/assets/compounder-profile.css?v=20260913b">
   <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
   <script type="application/json" id="compounder-profile-data">${inlinePageData(page)}</script>
 </head>

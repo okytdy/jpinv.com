@@ -5,6 +5,21 @@ import process from "node:process";
 const root = process.cwd();
 const roots = [path.join(root, "en", "compounders"), path.join(root, "compounders")];
 const pages = [];
+const profileCss = fs.readFileSync(path.join(root, "assets", "compounder-profile.css"), "utf8");
+
+const cssFailures = [];
+const sectionLabelRule = profileCss.match(/\.compounder-profile \.section-num,\s*\.compounder-profile \.section-label\s*\{([^}]*)\}/);
+if (!sectionLabelRule || !/display:\s*block\b/.test(sectionLabelRule[1]) || !/margin:\s*0 0 12px\b/.test(sectionLabelRule[1]) || !/font:\s*600 14px\/1\.45 var\(--cp-sans\)/.test(sectionLabelRule[1])) {
+  cssFailures.push("shared section labels must remain block-level with the readable 14px hierarchy and 12px separation");
+}
+const narrativeQuestionRule = profileCss.match(/\.compounder-profile \.narrative-phase \.question-card\s*\{([^}]*)\}/);
+if (!narrativeQuestionRule || !/padding:\s*26px 28px 30px\b/.test(narrativeQuestionRule[1]) || !/border-top:\s*3px solid var\(--cp-gold\)/.test(narrativeQuestionRule[1]) || !/box-shadow:\s*none\b/.test(narrativeQuestionRule[1])) {
+  cssFailures.push("narrative decisive-question boxes must retain balanced internal spacing and the quiet gold top rule");
+}
+const narrativeOpenerRule = profileCss.match(/\.compounder-profile \.narrative-phase \.phase-opener\s*\{([^}]*)\}/);
+if (!narrativeOpenerRule || !/margin:\s*0 0 28px\b/.test(narrativeOpenerRule[1]) || !/padding:\s*0 0 22px\b/.test(narrativeOpenerRule[1]) || !/border-bottom:\s*1px solid var\(--cp-rule\)/.test(narrativeOpenerRule[1])) {
+  cssFailures.push("narrative box openers must preserve their lower inset and divider spacing");
+}
 
 for (const languageRoot of roots) {
   if (!fs.existsSync(languageRoot)) continue;
@@ -32,6 +47,11 @@ const exactly = (html, needle, count, label, failures) => {
 };
 
 let failed = false;
+if (cssFailures.length) {
+  failed = true;
+  console.error("FAIL assets/compounder-profile.css");
+  for (const failure of cssFailures) console.error(`  - ${failure}`);
+}
 for (const { page, html } of pages) {
   const failures = [];
   const isMembraneProfile = html.includes('data-conviction-membrane="2.0"');
