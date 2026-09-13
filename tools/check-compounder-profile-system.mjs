@@ -10,6 +10,27 @@ const data = JSON.parse(fs.readFileSync(DATA_PATH, 'utf8'));
 const failures = [];
 const bodySources = new Set();
 let pageCount = 0;
+const requiredSemanticComponents = [
+  'cat-meta', 'cat-num', 'cat-viz', 'cat-viz-bar-fill', 'cat-viz-bar-label',
+  'cat-viz-bar-row', 'cat-viz-bar-track', 'cat-viz-bar-val', 'cat-viz-cap',
+  'cat-viz-label', 'scn-delta', 'scn-driver-head', 'scn-drivers', 'scn-mult',
+  'sotp', 'sotp-foot', 'sotp-head', 'sotp-name', 'sotp-row', 'share-head',
+  'lead-grid', 'segment-snapshot', 'segment-snapshot-title', 'underwriting-table',
+  'thesis-points', 'loop-num', 'margin-chart', 'margin-fill', 'margin-row',
+  'margin-track', 'plan-comparison', 'plan-comparison-grid', 'plan-comparison-head',
+  'capital-visual', 'ev-bar', 'balance-list', 'valuation-basis', 'valuation-matrix',
+  'question-head', 'question-heading', 'question-index', 'question-body',
+  'promise-chain', 'promise-step', 'price-cost-bridge', 'bridge-step',
+  'divergence-card', 'divergence-grid', 'margin-history', 'margin-year',
+  'revenue-bar', 'campus-visual', 'campus-numbers', 'utilization-ramp',
+  'ramp-track', 'ramp-fill', 'ramp-marker', 'market-grid', 'market-facts',
+  'ev-bridge', 'ev-piece', 'sotp-range', 'range-line', 'range-point',
+  'current-marker', 'profile-table', 'watch-list'
+];
+const nonVisualClassHooks = new Set([
+  'lbl', 'share-cp', 'share-em', 'share-x', 'new',
+  'external-ai-profile-copy', 'explainer-fig'
+]);
 
 function exact(html, pattern) {
   return (html.match(pattern) || []).length;
@@ -53,6 +74,13 @@ for (const language of ['ja', 'en']) {
         const bodyHtml = fs.readFileSync(bodyFile, 'utf8');
         if (/<(?:html|head|body|main|article|h1|style|script)\b/i.test(bodyHtml)) fail(page, 'content source contains shell, H1, style, or script markup');
         if (/\sstyle\s*=/i.test(bodyHtml)) fail(page, 'content source contains inline presentation');
+        if (/△/.test(bodyHtml)) fail(page, 'uses the accounting triangle glyph instead of a true minus sign');
+        for (const classMatch of bodyHtml.matchAll(/\bclass=["']([^"']+)["']/g)) {
+          for (const className of classMatch[1].trim().split(/\s+/)) {
+            if (!className || className.startsWith('cp-u-') || nonVisualClassHooks.has(className)) continue;
+            if (!PROFILE_CSS.includes(`.${className}`)) fail(page, `content class ${className} has no canonical visual contract`);
+          }
+        }
         for (const match of bodyHtml.matchAll(/\bcp-u-([a-f0-9]{12})\b/g)) {
           if (!PROFILE_CSS.includes(`.cp-u-${match[1]}{`)) fail(page, `content utility cp-u-${match[1]} is missing from the canonical profile CSS`);
         }
@@ -131,6 +159,14 @@ if (pageCount % 2 !== 0) failures.push(`Expected bilingual pairs, found ${pageCo
 if (pageCount !== Object.keys(data.articles || {}).length * 2) failures.push('Published profile count and structured article registry disagree.');
 if (bodySources.size !== pageCount) failures.push('Canonical body sources are missing or reused.');
 if (/!important/i.test(PROFILE_CSS)) failures.push('Canonical profile CSS contains !important.');
+for (const component of requiredSemanticComponents) {
+  if (!PROFILE_CSS.includes(`.${component}`)) failures.push(`Canonical profile CSS is missing the ${component} component contract.`);
+}
+for (const relative of ['en/compounders/index.html', 'en/compounders/profiles/index.html']) {
+  const file = path.join(REPO, relative);
+  const visibleText = plain(fs.readFileSync(file, 'utf8'));
+  if (/(?:^|\W)Y(?=\d)/.test(visibleText)) failures.push(`${relative}: contains ASCII Y where a yen symbol is required.`);
+}
 
 if (failures.length) {
   console.error(`Compounder profile system: FAIL (${failures.length})`);
