@@ -299,6 +299,17 @@ html[lang="ja"] .cp-company-description { line-height: 1.9; }
   font: 500 clamp(18px, 1.8vw, 23px)/1.2 var(--cp-sans);
   font-variant-numeric: tabular-nums;
 }
+@media (min-width: 821px) {
+  .cp-key-metric--compact .cp-metric-value {
+    font-size: clamp(14px, 1.55vw, 20px);
+  }
+}
+@media (min-width: 821px) and (max-width: 980px) {
+  .cp-key-metric + .cp-key-metric--compact {
+    padding-right: 6px;
+    padding-left: 8px;
+  }
+}
 .compounder-profile .cp-metric-context {
   margin-top: 5px;
   color: var(--cp-text-dim);

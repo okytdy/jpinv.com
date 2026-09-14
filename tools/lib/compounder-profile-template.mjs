@@ -56,7 +56,8 @@ function renderMetric(metric) {
   const context = metric.context
     ? `<dd class="cp-metric-context">${escapeHtml(metric.context)}</dd>`
     : '';
-  return `<div class="cp-key-metric"><dt>${escapeHtml(metric.label)}</dt><dd class="cp-metric-value">${escapeHtml(metric.value)}</dd>${context}</div>`;
+  const compactClass = metric.compact ? ' cp-key-metric--compact' : '';
+  return `<div class="cp-key-metric${compactClass}"><dt>${escapeHtml(metric.label)}</dt><dd class="cp-metric-value">${escapeHtml(metric.value)}</dd>${context}</div>`;
 }
 
 export function renderProfileFooter(page) {
@@ -154,6 +155,7 @@ export function renderProfilePage(page, bodyHtml) {
     || company.description?.[language]
     || '';
   const ogDescription = article.ogDescription?.[language] || description;
+  const profileCssVersion = article.assetVersions?.profileCss || '20260913b';
   const imageAlt = article.ogImageAlt?.[language]
     || (isJa ? `JII Compounders 銘柄レポート · ${ticker}` : `JII Compounders company research · ${ticker}`);
   const dateModified = article.dateModified || article.datePublished || '';
@@ -209,7 +211,7 @@ ${isArchived(article) ? '  <meta name="robots" content="noindex,follow">\n' : ''
   <script src="/assets/locale-switcher.js" defer></script>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&amp;family=Noto+Sans+JP:wght@300;400;500;600&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/site.css?v=20260831c">
-  <link rel="stylesheet" href="/assets/compounder-profile.css?v=20260913b">
+  <link rel="stylesheet" href="/assets/compounder-profile.css?v=${escapeHtml(profileCssVersion)}">
   <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
   <script type="application/json" id="compounder-profile-data">${inlinePageData(page)}</script>
 </head>
