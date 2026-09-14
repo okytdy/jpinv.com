@@ -67,6 +67,18 @@ for (const [locale, relativePath] of pages) {
   if ((html.match(/data-voices-prev/g) || []).length !== 1 || (html.match(/data-voices-next/g) || []).length !== 1) {
     errors.push(`${locale}: investor voice reel controls are missing or duplicated`);
   }
+  if (locale === 'JA') {
+    const reportSection = html.match(/<section class="ch-reports" id="reports"[\s\S]*?<\/section>/)?.[0] || '';
+    if (!reportSection.includes('<h2 id="ch-reports-title">銘柄レポート</h2>')) {
+      errors.push('JA: report-list heading must be 銘柄レポート');
+    }
+    if (!reportSection.includes('>銘柄レポート一覧 <span aria-hidden="true">→</span></a>')) {
+      errors.push('JA: report-list navigation must be 銘柄レポート一覧 →');
+    }
+    for (const forbidden of ['現行の銘柄分析', '現行版一覧', '現在の銘柄分析']) {
+      if (reportSection.includes(forbidden)) errors.push(`JA: report-list component contains forbidden literal ${forbidden}`);
+    }
+  }
 
   for (const record of records) {
     const ticker = record.attrs['data-report-snapshot'];
@@ -96,6 +108,15 @@ for (const [locale, relativePath] of pages) {
     }
     if (record.body.includes('OP / EV') || record.body.includes('EV / OP') || record.body.includes('EBIT / EV')) {
       errors.push(`${locale} ${ticker}: visible valuation includes a reciprocal or OP label`);
+    }
+    if (locale === 'JA' && record.tag === 'a') {
+      const meta = record.body.match(/<span class="ch-report-meta">([\s\S]*?)<\/span>/)?.[1] || '';
+      if (!meta.includes(`<span>終値 ${display.closeValue}`)) {
+        errors.push(`JA ${ticker}: metadata must use 終値 ${display.closeValue} without repeating the date`);
+      }
+      if ((meta.match(new RegExp(report.snapshotDate.replace(/^(\d{4})-(\d{2})-(\d{2})$/, (_, y, m, d) => `${y}年${Number(m)}月${Number(d)}日`), 'g')) || []).length !== 1) {
+        errors.push(`JA ${ticker}: metadata must show the report date exactly once`);
+      }
     }
 
     const definitionLabels = [...record.body.matchAll(/<dt>([^<]+)<\/dt>/g)];
