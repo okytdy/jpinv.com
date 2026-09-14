@@ -25,8 +25,20 @@ const archived = articles.filter((article) => article.publicationStatus === 'arc
 if (!data.archive?.currentFormatTicker || !data.archive?.currentFormatStart || !data.archive?.archivedOn) {
   failures.push('Archive configuration is incomplete.');
 }
-if (current.length !== 1 || current[0] !== data.archive.currentFormatTicker) {
-  failures.push(`Current-format set is ${current.join(', ') || 'empty'}; expected only ${data.archive?.currentFormatTicker || 'configured ticker'}.`);
+const currentByDate = articles
+  .filter((article) => article.publicationStatus === 'current')
+  .sort((a, b) => (a.datePublished || '').localeCompare(b.datePublished || '') || a.ticker.localeCompare(b.ticker));
+if (!currentByDate.length || currentByDate[0].ticker !== data.archive.currentFormatTicker) {
+  failures.push(`Current-format series begins with ${currentByDate[0]?.ticker || 'nothing'}; expected ${data.archive?.currentFormatTicker || 'configured ticker'}.`);
+}
+if (currentByDate[0]?.datePublished !== data.archive.currentFormatStart) {
+  failures.push(`Current-format start is ${currentByDate[0]?.datePublished || 'missing'}; expected ${data.archive.currentFormatStart}.`);
+}
+for (const article of articles) {
+  const expectedStatus = article.datePublished >= data.archive.currentFormatStart ? 'current' : 'archived';
+  if (article.publicationStatus !== expectedStatus) {
+    failures.push(`${article.ticker}: ${article.datePublished} is ${article.publicationStatus}; expected ${expectedStatus} from the current-format boundary.`);
+  }
 }
 if (current.length + archived.length !== articles.length) failures.push('Every initiation article must be current or archived.');
 
