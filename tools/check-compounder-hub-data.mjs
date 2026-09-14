@@ -4,7 +4,12 @@ import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const source = JSON.parse(fs.readFileSync(path.join(root, 'tools/compounder-hub-snapshots.json'), 'utf8'));
-const expected = new Map(source.reports.map((report) => [report.ticker, report]));
+const profileData = JSON.parse(fs.readFileSync(path.join(root, 'content', 'compounders', 'profile-data.json'), 'utf8'));
+const currentTickers = new Set(Object.values(profileData.articles || {})
+  .filter((article) => article.slug === 'initiation' && article.publicationStatus === 'current')
+  .map((article) => article.ticker));
+const currentReports = source.reports.filter((report) => currentTickers.has(report.ticker));
+const expected = new Map(currentReports.map((report) => [report.ticker, report]));
 const pages = [
   ['EN', 'en/compounders/index.html'],
   ['JA', 'compounders/index.html'],
@@ -34,7 +39,7 @@ function sameNumber(name, actual, wanted, ticker, locale) {
   }
 }
 
-for (const report of source.reports) {
+  for (const report of currentReports) {
   if (report.snapshotDate > report.reportDate) {
     errors.push(`${report.ticker}: snapshot date ${report.snapshotDate} is after report date ${report.reportDate}`);
   }
@@ -127,4 +132,4 @@ if (errors.length) {
   process.exit(1);
 }
 
-console.log(`COMPOUNDER HUB DATA: PASS — ${source.reports.length} dated snapshots, 4 investor voices, and EN/JA labels agree`);
+console.log(`COMPOUNDER HUB DATA: PASS — ${currentReports.length} current dated snapshots, 4 investor voices, and EN/JA labels agree`);

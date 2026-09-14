@@ -95,6 +95,11 @@ const sitemapPath = path.join(root, "sitemap.xml");
 const sitemap = fs.readFileSync(sitemapPath, "utf8");
 const locations = Array.from(sitemap.matchAll(/<loc>([^<]+)<\/loc>/g), (match) => match[1]);
 for (const location of locations) {
+  if (locations.indexOf(location) !== locations.lastIndexOf(location)) {
+    report("duplicate sitemap location", "sitemap.xml", location);
+  }
+}
+for (const location of locations) {
   const url = new URL(location);
   const targetFile = fileForPathname(url.pathname);
   if (!fileSet.has(targetFile)) {
@@ -105,6 +110,9 @@ for (const location of locations) {
   const body = bodies.get(file) ?? fs.readFileSync(file, "utf8");
   if (/<meta[^>]+http-equiv=["']?refresh/i.test(body)) {
     report("sitemap target redirects", "sitemap.xml", location);
+  }
+  if (/<meta[^>]+name=["']robots["'][^>]+noindex/i.test(body)) {
+    report("sitemap target is noindex", "sitemap.xml", location);
   }
   const canonical = body.match(/<link(?=[^>]*\brel=["']canonical["'])(?=[^>]*\bhref=["']([^"']+)["'])[^>]*>/i)?.[1];
   if (!canonical || new URL(canonical, location).href !== url.href) {
