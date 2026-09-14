@@ -3,7 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const recentReportCount = 5;
+const maximumRecentReportCount = 5;
 const locales = [
   {
     name: 'EN',
@@ -65,10 +65,11 @@ const results = locales.map(readLocale);
 const errors = [];
 for (const result of results) {
   const {name} = result.config;
-  if (result.profileCards.length < recentReportCount + 1) {
-    errors.push(`${name}: profile library has only ${result.profileCards.length} dated cards`);
+  if (result.profileCards.length < 1) {
+    errors.push(`${name}: current profile library is empty`);
     continue;
   }
+  const recentReportCount = Math.min(maximumRecentReportCount, Math.max(0, result.profileCards.length - 1));
   for (let index = 1; index < result.profileCards.length; index += 1) {
     if (result.profileCards[index - 1].date < result.profileCards[index].date) {
       errors.push(`${name}: profile cards are not in descending date order at ${result.profileCards[index].ticker}`);

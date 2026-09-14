@@ -4,8 +4,8 @@ Build the human sitemap pages: /sitemap/ and /en/sitemap/.
 
 This is the COMPLETE index. The footer sitemap that assets/nav.js renders is a
 navigational summary and deliberately stops at section level; this page lists
-every real page, including all 32 Compounder profiles and all 34 IR-training
-lessons.
+every indexable page, including current Compounder profiles and all IR-training
+lessons. Archived profile pages remain reachable through the archive landing page.
 
 It reads the built site rather than a hand-kept list, so it cannot drift. Run it
 after any ship that adds pages:
@@ -105,7 +105,8 @@ def build(lang):
     # Research
     sect = []
     for rel, ja, eng in [
-        (f"{cmp_}/profiles", "銘柄分析", "Profiles"),
+        (f"{cmp_}/profiles", "現行の銘柄分析", "Current profiles"),
+        (f"{cmp_}/archive", "アーカイブ調査", "Archived research"),
         (f"{cmp_}/universe", "銘柄スクリーニング", "Universe"),
         (f"{cmp_}/methodology", "着眼点", "Methodology"),
         (f"{cmp_}/feed", "資本政策開示", "Capital actions"),
@@ -116,7 +117,7 @@ def build(lang):
             sect.append(("/" + rel + "/", L(ja, eng)))
     groups.append((L("銘柄レポート", "Research"), f"{P}/compounders/",
                    [(L("セクション", "Sections"), sect),
-                    (L("銘柄分析一覧", "All profiles"), profiles(lang))]))
+                    (L("現行の銘柄分析", "Current profiles"), profiles(lang))]))
 
     # IR training
     themes = []

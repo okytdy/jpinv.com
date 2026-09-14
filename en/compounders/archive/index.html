@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Archived research · JII Compounders</title>
+<meta name="description" content="JII company research published before the current Compounder format began with NJS in September 2026.">
+<meta property="og:title" content="Archived research · JII Compounders">
+<meta property="og:description" content="JII company research published before the current Compounder format began with NJS in September 2026.">
+<meta property="og:url" content="https://jpinv.com/en/compounders/archive/">
+<meta property="og:image" content="https://jpinv.com/assets/logo-jii-wordmark.svg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jpinv.com/assets/logo-jii-wordmark.svg">
+<link rel="canonical" href="https://jpinv.com/en/compounders/archive/">
+<link rel="alternate" hreflang="en" href="https://jpinv.com/en/compounders/archive/">
+<link rel="alternate" hreflang="ja" href="https://jpinv.com/compounders/archive/">
+<link rel="alternate" hreflang="x-default" href="https://jpinv.com/en/compounders/archive/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a2a4a; --ink-mid: #172641; --ink-soft: #304466;
+    --rule: #d6dee8; --rule-soft: #e8edf3;
+    --bg: #ffffff; --bg-mid: #f5f7fa; --bg-soft: #fafbfc;
+    --text: #1f2937; --text-mid: #4a5566; --text-dim: #7a8290;
+    --accent: #b08a4a; --accent-deep: #9a7838; --accent-soft: #f4eee4;
+    --serif: 'Noto Serif JP', 'Yu Mincho', serif;
+    --sans: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+    --mono: 'DM Mono', monospace;
+    --max: 1100px;
+  }
+  *,*::before,*::after { box-sizing: border-box; }
+  html,body { margin:0; padding:0; background: var(--bg); color: var(--text); font-family: var(--sans); }
+  body { font-size: 15px; line-height: 1.7; }
+  a { color: var(--ink-soft); text-decoration: none; }
+  a:hover { color: var(--ink); }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 28px; }
+
+  .topbar { padding: 22px 0 16px; border-bottom: 1px solid var(--rule); background: var(--bg); }
+  .topbar-inner { display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap; }
+  .back-link { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-deep); border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
+  .back-link:hover { color: var(--ink); border-color: var(--ink-mid); }
+  .lang-switch { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; }
+  .lang-switch a { color: var(--ink-soft); padding: 5px 10px; border: 1px solid var(--rule); margin-left: 6px; }
+  .lang-switch a.current { background: var(--bg-soft); border-color: var(--ink-mid); color: var(--ink-mid); }
+
+  .page-head { padding: 36px 0 12px; }
+  .page-h1 { font-family: var(--serif); font-size: clamp(1.6rem, 3.4vw, 2.3rem); font-weight: 300; color: var(--ink-mid); margin: 0 0 10px; letter-spacing: 0.02em; }
+  .page-intro { color: var(--text-mid); margin: 0 0 24px; max-width: 760px; }
+
+  /* Sticky controls bar */
+  .controls { position: sticky; top: 0; z-index: 50; background: var(--bg); padding: 14px 0; border-bottom: 1px solid var(--rule); display: flex; gap: 24px; align-items: center; flex-wrap: wrap; margin-bottom: 24px; }
+  .controls[hidden] { display: none; }
+  .ctrl-group { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .ctrl-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; color: var(--text-dim); text-transform: uppercase; margin-right: 4px; font-weight: 500; }
+  .btn { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: var(--text-mid); text-transform: uppercase; padding: 6px 12px; border: 1px solid var(--rule); background: var(--bg); cursor: pointer; transition: all 0.15s; }
+  .btn:hover { color: var(--ink); border-color: var(--ink-soft); }
+  .btn.active { color: var(--ink-mid); border-color: var(--ink-mid); background: var(--bg-soft); }
+  .search-input { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.04em; color: var(--ink-mid); padding: 7px 11px; border: 1px solid var(--rule); background: var(--bg); width: 240px; margin-left: auto; }
+  .search-input:focus { outline: none; border-color: var(--ink-mid); }
+  .search-input::placeholder { color: var(--text-dim); }
+  @media (max-width:760px) { .search-input { width: 100%; margin-left: 0; } }
+
+  /* Card grid */
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; padding-bottom: 60px; }
+  @media (max-width:760px) { .grid { grid-template-columns: 1fr; gap: 18px; } }
+
+  .card { display: block; min-width: 0; max-width: 100%; overflow-wrap: anywhere; padding: 26px 26px 22px; border: 1px solid var(--rule); background: var(--bg); transition: border-color 0.2s, transform 0.2s; }
+  .card:hover { border-color: var(--ink-soft); transform: translateY(-2px); }
+  .card-head { display: flex; gap: 10px; align-items: center; margin-bottom: 14px; flex-wrap: wrap; }
+  .card-ticker { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--accent-deep); text-transform: uppercase; padding: 3px 9px; border: 1px solid var(--accent); background: var(--accent-soft); border-radius: 0; font-weight: 500; }
+  .card-sector { min-width: 0; overflow-wrap: anywhere; font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; color: var(--text-dim); text-transform: uppercase; }
+  .card-segment { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; padding: 2px 7px; border: 1px solid var(--rule); color: var(--text-dim); background: var(--bg-soft); border-radius: 0; margin-left: auto; }
+  .card-name { font-family: var(--serif); font-size: 1.25rem; font-weight: 400; color: var(--ink-mid); margin: 0 0 4px; letter-spacing: 0.01em; }
+  .card-jp { font-family: var(--sans); font-size: 0.78rem; color: var(--text-dim); margin: 0 0 14px; letter-spacing: 0.04em; }
+  .card-hook { font-size: 0.92rem; line-height: 1.7; color: var(--text); margin: 0 0 18px; }
+  .card-hook b { color: var(--ink-mid); font-weight: 500; }
+  .card-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; padding-top: 14px; border-top: 1px solid var(--rule-soft); }
+  .card-stat-label { font-family: var(--mono); font-size: 9px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 4px; }
+  .card-stat-val { font-family: var(--mono); font-size: 0.92rem; color: var(--ink-mid); font-weight: 500; }
+  .card-stat-val small { font-size: 0.72rem; color: var(--text-mid); margin-left: 2px; }
+  .card-meta-row { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; margin-top: 14px; }
+
+  .empty-state { padding: 40px 0; text-align: center; color: var(--text-dim); font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; }
+
+  .footnote { font-family: var(--sans); font-size: 11.5px; color: var(--text-dim); font-style: italic; line-height: 1.7; padding: 18px 0 40px; border-top: 1px solid var(--rule-soft); margin-top: 24px; }
+
+  .card.is-hidden { display: none; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="back-link" href="/en/compounders/profiles/">← Current profiles</a>
+    <div class="lang-switch">
+      <a class="" href="/compounders/archive/">JA</a>
+      <a class="current" href="/en/compounders/archive/">EN</a>
+    </div>
+  </div>
+</div>
+
+<div class="wrap page-head">
+  <h1 class="page-h1">Archived research</h1>
+  <p class="page-intro">These profiles preserve JII company research published before the current Compounder format began with NJS on September 2, 2026. They remain available as dated records and are not maintained. <a href="/en/compounders/profiles/">View current profiles</a>.</p>
+</div>
+
+<div class="wrap">
+
+  <div class="controls" role="region" aria-label="Segment / Sort">
+    <div class="ctrl-group">
+      <span class="ctrl-label">Segment</span>
+      <button class="btn active" data-seg="all">All</button>
+      <button class="btn" data-seg="PRIME">Prime</button>
+      <button class="btn" data-seg="STANDARD">Standard</button>
+      <button class="btn" data-seg="GROWTH">Growth</button>
+    </div>
+    <div class="ctrl-group">
+      <span class="ctrl-label">Sort</span>
+      <button class="btn sort-trigger active" data-sort="date">Latest</button>
+      <button class="btn sort-trigger" data-sort="ticker">Ticker</button>
+    </div>
+    <input type="text" class="search-input" id="profile-search" placeholder="Search ticker or name" aria-label="Search profiles" maxlength="50">
+  </div>
+
+  <div class="grid" id="profile-grid">
+
+      <a class="card" data-segment="PRIME" href="/en/compounders/4290/initiation/" data-date="2026-08-28" data-ticker="4290">
+        <div class="card-head">
+          <span class="card-ticker">TSE PRIME · 4290</span>
+          <span class="card-sector">Contact-center, dispatch and administration infrastructure</span>
+          <span class="card-segment" data-segment="PRIME">PRIME</span>
+        </div>
+        <h3 class="card-name">Prestige International Inc.</h3>
+        <p class="card-jp">株式会社プレステージ・インターナショナル</p>
+        <p class="card-hook"><b>Prestige International runs the contact-center, dispatch and administration infrastructure behind insurers’ roadside-assistance promises. FY3/27 guidance assumes only a 12.6% operating margin; the key question is whether fee revisions can restore margins while the new Katagami Campus ramps, supported by net cash equal to 24.4% of market capitalization.</b></p>
+        <div class="card-stats">
+          <div><div class="card-stat-label">Last Close</div><div class="card-stat-val">¥726</div></div>
+          <div><div class="card-stat-label">EV / EBIT</div><div class="card-stat-val">8.34<small>x</small></div></div>
+          <div><div class="card-stat-label">ROCE</div><div class="card-stat-val">16.4<small>%</small></div></div>
+          <div><div class="card-stat-label">Net Cash / MC</div><div class="card-stat-val">24.4<small>%</small></div></div>
+        </div>
+        <div class="card-meta-row"><span>Published 28 Aug 2026</span></div>
+      </a>
+
+      <a class="card" data-segment="STANDARD" href="/en/compounders/4628/initiation/" data-date="2026-08-26" data-ticker="4628">
+        <div class="card-head">
+          <span class="card-ticker">TSE STANDARD · 4628</span>
+          <span class="card-sector">Architectural Coatings &amp; Finishing Materials</span>
+          <span class="card-segment" data-segment="STANDARD">STANDARD</span>
+        </div>
+        <h3 class="card-name">SK KAKEN CO., LTD.</h3>
+        <p class="card-jp">エスケー化研株式会社</p>
+        <p class="card-hook"><b>SK KAKEN is Japan’s leading architectural finishing-material supplier, using upstream specification work and distributor/contractor channels to sell building coatings. At about 7x FY03/27 guided OP, the shares look inexpensive, but the ¥147.2bn financial-asset base remains dependent on future capital allocation.</b></p>
+        <div class="card-stats">
+          <div><div class="card-stat-label">Last Close</div><div class="card-stat-val">¥9,100</div></div>
+          <div><div class="card-stat-label">EV / OP</div><div class="card-stat-val">7.0<small>x</small></div></div>
+          <div><div class="card-stat-label">ROCE</div><div class="card-stat-val">7.0<small>%</small></div></div>
+          <div><div class="card-stat-label">Net Cash / MC</div><div class="card-stat-val">34.8<small>%</small></div></div>
+        </div>
+        <div class="card-meta-row"><span>Published 26 Aug 2026</span></div>
+      </a>
+
+      <a class="card" data-segment="STANDARD" href="/en/compounders/6356/initiation/" data-date="2026-08-22" data-ticker="6356">
+        <div class="card-head">
+          <span class="card-ticker">TSE STANDARD · 6356</span>
+          <span class="card-sector">Critical Motion &amp; Installed-Base Service</span>
+          <span class="card-segment" data-segment="STANDARD">STANDARD</span>
+        </div>
+        <h3 class="card-name">NIPPON GEAR CO., LTD.</h3>
+        <p class="card-jp">日本ギア工業株式会社</p>
+        <p class="card-hook"><b>Nippon Gear sells critical valve actuators, then maintains previously sold gear devices and products for decades. Its reported service segment earns a 32.5% OP margin; after net cash, the operating business trades at 4.69x guided OP.</b></p>
+        <div class="card-stats">
+          <div><div class="card-stat-label">Last Close</div><div class="card-stat-val">¥1,299</div></div>
+          <div><div class="card-stat-label">EV / OP</div><div class="card-stat-val">4.69<small>x</small></div></div>
+          <div><div class="card-stat-label">ROCE</div><div class="card-stat-val">17.3<small>%</small></div></div>
+          <div><div class="card-stat-label">Net Cash / MC</div><div class="card-stat-val">36.6<small>%</small></div></div>
+        </div>
+        <div class="card-meta-row"><span>Published 22 Aug 2026</span></div>
+      </a>
+
+      <a class="card" data-segment="PRIME" href="/en/compounders/5930/initiation/" data-date="2026-07-27" data-ticker="5930">
+        <div class="card-head">
+          <span class="card-ticker">TSE PRIME · 5930</span>
+          <span class="card-sector">Building Materials · Shutters &amp; Doors</span>
+          <span class="card-segment" data-segment="PRIME">PRIME</span>
+        </div>
+        <h3 class="card-name">BUNKA SHUTTER CO., LTD.</h3>
+        <p class="card-jp">文化シヤッター株式会社</p>
+        <p class="card-hook"><b>Bunka Shutter is Japan's #2 maker of shutters and steel doors, earning a high-margin annuity servicing its installed base. Dalton Investments is pressing an activist campaign for the ¥38bn of net cash and securities — 27.5% of its market value — behind a stock at 7.9x operating profit.</b></p>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">Last Close</div>
+            <div class="card-stat-val">¥1,964</div>
+          </div>
+          <div>
+            <div class="card-stat-label">EV / OP</div>
+            <div class="card-stat-val">7.9<small>x</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ROCE</div>
+            <div class="card-stat-val">~11<small>%</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">Cash+Sec / MC</div>
+            <div class="card-stat-val">27.5<small>%</small></div>
+          </div>
+        </div>
+        <div class="card-meta-row">
+          <span>Published 27 Jul 2026</span>
+        </div>
+      </a>
+
+      <a class="card" data-segment="PRIME" href="/en/compounders/9274/initiation/" data-date="2026-07-24" data-ticker="9274">
+        <div class="card-head">
+          <span class="card-ticker">TSE PRIME · 9274</span>
+          <span class="card-sector">Paper Wholesale &amp; Distribution</span>
+          <span class="card-segment" data-segment="PRIME">PRIME</span>
+        </div>
+        <h3 class="card-name">KPP GROUP HOLDINGS CO., LTD.</h3>
+        <p class="card-jp">ＫＰＰグループホールディングス株式会社</p>
+        <p class="card-hook"><b>KPP Group Holdings is Japan's largest paper wholesaler — it buys paper from mills like Oji and Nippon Paper and resells it worldwide, holding the inventory and credit in between. On July 21, 2026 the board doubled its buyback frame to ¥7.2bn and set 3.0m shares for cancellation.</b></p>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">Last Close</div>
+            <div class="card-stat-val">¥1,088</div>
+          </div>
+          <div>
+            <div class="card-stat-label">EV / OP</div>
+            <div class="card-stat-val">13.8<small>x</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ROCE</div>
+            <div class="card-stat-val">6.2<small>%</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">Net Debt / MC</div>
+            <div class="card-stat-val">124<small>%</small></div>
+          </div>
+        </div>
+        <div class="card-meta-row">
+          <span>Published 24 Jul 2026</span>
+        </div>
+      </a>
+
+      <a class="card" data-segment="PRIME" href="/en/compounders/3482/initiation/" data-date="2026-07-22" data-ticker="3482">
+        <div class="card-head">
+          <span class="card-ticker">TSE PRIME &middot; 3482</span>
+          <span class="card-sector">Tokyo Office Principal Investor</span>
+          <span class="card-segment" data-segment="PRIME">PRIME</span>
+        </div>
+        <h3 class="card-name">LOADSTAR CAPITAL K.K.</h3>
+        <p class="card-jp">ロードスターキャピタル株式会社</p>
+        <p class="card-hook"><b>Buys mid-size Tokyo office buildings that are half empty, badly managed or tangled in rights; repairs, lets and sells them, and holds the rest for rent. On 2026-07-01 it handed shareholders 0.2 shares each out of treasury, lifting the payout ratio to 21.7%.</b></p>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">Last Close</div>
+            <div class="card-stat-val">¥2,750</div>
+          </div>
+          <div>
+            <div class="card-stat-label">EV / OP</div>
+            <div class="card-stat-val">7.4<small>x</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ROCE</div>
+            <div class="card-stat-val">13.7<small>%</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">P / B adj.</div>
+            <div class="card-stat-val">0.90<small>x</small></div>
+          </div>
+        </div>
+        <div class="card-meta-row">
+          <span>Published 22 Jul 2026</span>
+        </div>
+      </a>
+
+      <a class="card" data-segment="PRIME" href="/en/compounders/9722/initiation/" data-date="2026-07-21" data-ticker="9722">
+        <div class="card-head">
+          <span class="card-ticker">TSE PRIME · 9722</span>
+          <span class="card-sector">Hotels, Banquets &amp; Resorts</span>
+          <span class="card-segment" data-segment="PRIME">PRIME</span>
+        </div>
+        <h3 class="card-name">FUJITA KANKO INC.</h3>
+        <p class="card-jp">藤田観光株式会社</p>
+        <p class="card-hook"><b>Fujita Kanko runs WHG, a rented chain of 34 business hotels, alongside two estates it owns in Tokyo and Hakone; guests pay nightly and the chain pays rent. On February 10, 2026 the private-equity firm NSSK bought 25.00% from DOWA at ¥2,603 and signed a hotel-acquisition alliance.</b></p>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">Last Close</div>
+            <div class="card-stat-val">¥1,957</div>
+          </div>
+          <div>
+            <div class="card-stat-label">EV / OP</div>
+            <div class="card-stat-val">10.5<small>x</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ROCE</div>
+            <div class="card-stat-val">20.9<small>%</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">Net Debt / MC</div>
+            <div class="card-stat-val">8<small>%</small></div>
+          </div>
+        </div>
+        <div class="card-meta-row">
+          <span>Published 21 Jul 2026</span>
+        </div>
+      </a>
+
+      <a class="card" data-segment="STANDARD" href="/en/compounders/8864/initiation/" data-date="2026-07-18" data-ticker="8864">
+        <div class="card-head">
+          <span class="card-ticker">TSE STANDARD · 8864</span>
+          <span class="card-sector">Haneda Airport Landlord &amp; Utilities</span>
+          <span class="card-segment" data-segment="STANDARD">STANDARD</span>
+        </div>
+        <h3 class="card-name">AIRPORT FACILITIES</h3>
+        <p class="card-jp">空港施設株式会社</p>
+        <p class="card-hook"><b>The landlord inside the fence at Haneda — offices, hangars and airport utilities leased to the JAL and ANA groups, which each own 21.3% of it. In FY3/26 it posted record profits, doubled the dividend to ¥42, bought back and cancelled shares, and moved to TSE Standard.</b></p>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">Last Close</div>
+            <div class="card-stat-val">¥975</div>
+          </div>
+          <div>
+            <div class="card-stat-label">EV / OP</div>
+            <div class="card-stat-val">9.3<small>x</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">Div Yield</div>
+            <div class="card-stat-val">4.3<small>%</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">P / B</div>
+            <div class="card-stat-val">0.78<small>x</small></div>
+          </div>
+        </div>
+        <div class="card-meta-row">
+          <span>Published 18 Jul 2026</span>
+        </div>
+      </a>
+
+      <a class="card" data-segment="PRIME" href="/en/compounders/2733/initiation/" data-date="2026-07-16" data-ticker="2733">
+        <div class="card-head">
+          <span class="card-ticker">TSE PRIME · 2733</span>
+          <span class="card-sector">Daily Necessities Wholesale</span>
+          <span class="card-segment" data-segment="PRIME">PRIME</span>
+        </div>
+        <h3 class="card-name">ARATA Corporation</h3>
+        <p class="card-jp">株式会社あらた</p>
+        <p class="card-hook"><b>ARATA is Japan's second-largest wholesaler of daily necessities, cosmetics and pet supplies; it buys from about 1,100 makers and delivers daily to roughly 3,370 retailers on a spread of about 1.3%. On May 14, 2026 it guided FY3/27 profit lower while launching a 2030 margin-recovery plan.</b></p>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">EV / OP</div>
+            <div class="card-stat-val">8.7<small>x</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ROCE</div>
+            <div class="card-stat-val">8.2<small>%</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">OP Margin</div>
+            <div class="card-stat-val">1.3<small>%</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">Net Debt / MC</div>
+            <div class="card-stat-val">11<small>%</small></div>
+          </div>
+        </div>
+        <div class="card-meta-row">
+          <span>Published 16 Jul 2026</span>
+        </div>
+      </a>
+
+      <a class="card" data-segment="STANDARD" href="/en/compounders/2112/initiation/" data-date="2026-07-15" data-ticker="2112">
+        <div class="card-head">
+          <span class="card-ticker">TSE STANDARD · 2112</span>
+          <span class="card-sector">Sugar Refining &amp; Ingredients</span>
+          <span class="card-segment" data-segment="STANDARD">STANDARD</span>
+        </div>
+        <h3 class="card-name">ENSUIKO SUGAR REFINING</h3>
+        <p class="card-jp">塩水港精糖株式会社</p>
+        <p class="card-hook"><b>Ensuiko Sugar Refining is a 120-year-old sugar refiner that outsources production to shared-industry joint ventures and sells the gut-health brand Oligo no Okage. On May 8, 2026 it reported a record year but guided next-year profit down 21% — with ¥11.2bn of securities behind a ¥12.4bn market cap.</b></p>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">Last Close</div>
+            <div class="card-stat-val">¥451</div>
+          </div>
+          <div>
+            <div class="card-stat-label">EV / OP</div>
+            <div class="card-stat-val">6.8<small>x</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ROCE</div>
+            <div class="card-stat-val">13.2<small>%</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">Net Debt / MC</div>
+            <div class="card-stat-val">31<small>%</small></div>
+          </div>
+        </div>
+        <div class="card-meta-row">
+          <span>Published 15 Jul 2026</span>
+        </div>
+      </a>
+
+      <a class="card" data-segment="PRIME" href="/en/compounders/8088/initiation/" data-date="2026-07-14" data-ticker="8088">
+        <div class="card-head">
+          <span class="card-ticker">TSE PRIME · 8088</span>
+          <span class="card-sector">Household &amp; Industrial Gas · Hydrogen</span>
+          <span class="card-segment" data-segment="PRIME">PRIME</span>
+        </div>
+        <h3 class="card-name">IWATANI CORPORATION</h3>
+        <p class="card-jp">岩谷産業株式会社</p>
+        <p class="card-hook"><b>Japan's biggest household- and industrial-gas merchant and the only end-to-end handler of liquid hydrogen. A cash-generative LPG and gas base funds a hydrogen bet and a state-backed push into critical minerals. Operating profit is at a cyclical low; the case rests on optionality, not deep value.</b></p>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">Last Close</div>
+            <div class="card-stat-val">¥1,994.5</div>
+          </div>
+          <div>
+            <div class="card-stat-label">EV / OP</div>
+            <div class="card-stat-val">17.7<small>x</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ROIC</div>
+            <div class="card-stat-val">5.7<small>%</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">Net Debt / MC</div>
+            <div class="card-stat-val">48<small>%</small></div>
+          </div>
+        </div>
+        <div class="card-meta-row">
+          <span>Published 14 Jul 2026</span>
+        </div>
+      </a>
+
+      <a class="card" data-segment="STANDARD" href="/en/compounders/1850/initiation/" data-date="2026-07-13" data-ticker="1850">
+        <div class="card-head">
+          <span class="card-ticker">TSE STANDARD · 1850</span>
+          <span class="card-sector">Railway-Group General Contractor</span>
+          <span class="card-segment" data-segment="STANDARD">STANDARD</span>
+        </div>
+        <h3 class="card-name">NANKAI TATSUMURA CONSTRUCTION</h3>
+        <p class="card-jp">南海辰村建設株式会社</p>
+        <p class="card-hook"><b>A 100-year Osaka general contractor building offices, condominiums and civil works across Kansai — and much of the Nankai railway group's own stations; the group owns 62%. In April 2026 it made its first-ever buyback and raised the dividend, on net cash worth ~48% of its market value.</b></p>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">Last Close</div>
+            <div class="card-stat-val">¥438</div>
+          </div>
+          <div>
+            <div class="card-stat-label">EV / OP</div>
+            <div class="card-stat-val">2.2<small>x</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ROCE</div>
+            <div class="card-stat-val">20.6<small>%</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">Net Cash / MC</div>
+            <div class="card-stat-val">48<small>%</small></div>
+          </div>
+        </div>
+        <div class="card-meta-row">
+          <span>Published 13 Jul 2026</span>
+        </div>
+      </a>
+
+      <a class="card" data-segment="PRIME" href="/en/compounders/9991/initiation/" data-date="2026-07-13" data-ticker="9991">
+        <div class="card-head">
+          <span class="card-ticker">TSE PRIME · 9991</span>
+          <span class="card-sector">Heavy Temporary-Construction Rental</span>
+          <span class="card-segment" data-segment="PRIME">PRIME</span>
+        </div>
+        <h3 class="card-name">GECOSS CORPORATION</h3>
+        <p class="card-jp">ジェコス株式会社</p>
+        <p class="card-hook"><b>Gecoss rents, designs and installs the heavy temporary steel — H-beams and sheet piles — that shores up big construction sites; it is majority-held within the JFE steel group. In 2024–2025 JFE Steel cut its stake to 27.6% while Mizuho Leasing took 20%.</b></p>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">Last Close</div>
+            <div class="card-stat-val">¥1,574</div>
+          </div>
+          <div>
+            <div class="card-stat-label">EV / OP</div>
+            <div class="card-stat-val">5.7<small>x</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ROCE</div>
+            <div class="card-stat-val">9.7<small>%</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">Net Cash / MC</div>
+            <div class="card-stat-val">13<small>%</small></div>
+          </div>
+        </div>
+        <div class="card-meta-row">
+          <span>Published 13 Jul 2026</span>
+        </div>
+      </a>
+
+      <a class="card" data-segment="PRIME" href="/en/compounders/2378/initiation/" data-date="2026-07-09" data-ticker="2378">
+        <div class="card-head">
+          <span class="card-ticker">TSE PRIME · 2378</span>
+          <span class="card-sector">Sports Clubs &amp; Health</span>
+        </div>
+        <h3 class="card-name">RENAISSANCE INCORPORATED</h3>
+        <p class="card-jp">株式会社ルネサンス</p>
+        <p class="card-hook"><b>Renaissance runs total sports clubs — gyms, pools and swim and tennis schools — for 442,000 monthly members, spun out of DIC in 1979. On May 8, 2026 it took a ¥3.06bn impairment and net loss, changed CEO, and issued a 2026–2030 plan pivoting to lighter-capital health lines.</b></p>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">Last Close</div>
+            <div class="card-stat-val">¥1,040</div>
+          </div>
+          <div>
+            <div class="card-stat-label">EV / OP</div>
+            <div class="card-stat-val">~23<small>x</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ROCE</div>
+            <div class="card-stat-val">3.9<small>%</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">Net Debt / MC</div>
+            <div class="card-stat-val">113<small>%</small></div>
+          </div>
+        </div>
+        <div class="card-meta-row">
+          <span>Published 9 Jul 2026</span>
+        </div>
+      </a>
+
+      <a class="card" data-segment="PRIME" href="/en/compounders/7947/initiation/" data-date="2026-07-02" data-ticker="7947">
+        <div class="card-head">
+          <span class="card-ticker">TSE PRIME · 7947</span>
+          <span class="card-sector">Food Containers &amp; Recycling</span>
+        </div>
+        <h3 class="card-name">FP CORPORATION</h3>
+        <p class="card-jp">株式会社エフピコ</p>
+        <p class="card-hook"><b>FP Corporation makes the trays and prepared-food containers Japanese supermarkets pack fresh food in; stores collect used trays and FPCO recycles them into new ones. On April 30, 2026 it withheld its FY3/27 forecast and announced a 20%-plus price revision from June 1.</b></p>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">Last Close</div>
+            <div class="card-stat-val">¥2,631</div>
+          </div>
+          <div>
+            <div class="card-stat-label">EV / OP</div>
+            <div class="card-stat-val">12.3<small>x</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ROCE</div>
+            <div class="card-stat-val">10.2<small>%</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">Net Debt / MC</div>
+            <div class="card-stat-val">25<small>%</small></div>
+          </div>
+        </div>
+        <div class="card-meta-row">
+          <span>Published 2 Jul 2026</span>
+        </div>
+      </a>
+
+      <a class="card" data-segment="PRIME" href="/en/compounders/6328/initiation/" data-date="2026-07-01" data-ticker="6328">
+        <div class="card-head">
+          <span class="card-ticker">TSE PRIME · 6328</span>
+          <span class="card-sector">Water &amp; Environmental Engineering</span>
+          <span class="card-segment" data-segment="PRIME">PRIME</span>
+        </div>
+        <h3 class="card-name">EBARA JITSUGYO CO., LTD.</h3>
+        <p class="card-jp">荏原実業株式会社</p>
+        <p class="card-hook"><b>EBARA JITSUGYO designs and builds water and sewerage plant for Japan's municipalities, resells EBARA Corporation pumps, and makes its own environmental products — a net-cash, 22%-ROCE engineer. On June 30, 2026 the shares traded at 7.2x EV/OP with net cash worth 21% of its market value and a record backlog.</b></p>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">Last Close</div>
+            <div class="card-stat-val">¥2,446</div>
+          </div>
+          <div>
+            <div class="card-stat-label">EV / OP</div>
+            <div class="card-stat-val">7.2<small>x</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ROCE</div>
+            <div class="card-stat-val">22<small>%</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">Net Cash / MC</div>
+            <div class="card-stat-val">21<small>%</small></div>
+          </div>
+        </div>
+        <div class="card-meta-row">
+          <span>Published 1 Jul 2026</span>
+        </div>
+      </a>
+
+      <a class="card" data-segment="GROWTH" href="/en/compounders/7378/initiation/" data-date="2026-06-18" data-ticker="7378">
+        <div class="card-head">
+          <span class="card-ticker">TSE GROWTH · 7378</span>
+          <span class="card-sector">Legal Media · Lawyer Referral</span>
+          <span class="card-segment" data-segment="GROWTH">GROWTH</span>
+        </div>
+        <h3 class="card-name">ASIRO Inc.</h3>
+        <p class="card-jp">株式会社アシロ</p>
+        <p class="card-hook"><b>ASIRO runs Japan's Bennavi lawyer-referral websites, where lawyers pay monthly listing fees — a recurring base that more than tripled operating profit in FY2025. In March 2026 it lifted its payout policy above 40% as UK activist AVI built a 35% stake, larger than the founder's.</b></p>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">Last Close</div>
+            <div class="card-stat-val">¥1,481</div>
+          </div>
+          <div>
+            <div class="card-stat-label">EV / OP</div>
+            <div class="card-stat-val">5.9<small>x</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ROCE</div>
+            <div class="card-stat-val">~42<small>%</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">Net Cash / MC</div>
+            <div class="card-stat-val">~16<small>%</small></div>
+          </div>
+        </div>
+        <div class="card-meta-row">
+          <span>Updated 18 Jun 2026</span>
+        </div>
+      </a>
+
+      <a class="card" data-segment="STANDARD" href="/en/compounders/6835/initiation/" data-date="2026-06-17" data-ticker="6835">
+  <div class="card-head">
+    <span class="card-ticker">TSE STANDARD &middot; 6835</span>
+    <span class="card-sector">Network Hardware &middot; Install &amp; Maintenance &middot; Japan-Led</span>
+    <span class="card-segment" data-segment="STANDARD">STANDARD</span>
+  </div>
+  <h3 class="card-name">Allied Telesis Holdings K.K.</h3>
+  <p class="card-jp" lang="ja">アライドテレシスホールディングス株式会社</p>
+  <p class="card-hook"><b>Allied Telesis makes network switches and wireless gear, sold with on-site install and multi-year maintenance to Japan's schools, hospitals, and local governments. On June 16, 2026 it authorized a fresh buyback; the shares trade near 4x EV/OP, with net cash equal to 46% of market value.</b></p>
+  <div class="card-stats">
+    <div><div class="card-stat-label">Close</div><div class="card-stat-val">&yen;238</div></div>
+    <div><div class="card-stat-label">EV / OP</div><div class="card-stat-val">4.1<small>x</small></div></div>
+    <div><div class="card-stat-label">ROCE</div><div class="card-stat-val">16<small>%</small></div></div>
+    <div><div class="card-stat-label">Net Cash / MC</div><div class="card-stat-val">46<small>%</small></div></div>
+  </div>
+  <div class="card-meta-row">
+    <span>Published 17 June 2026</span>
+  </div>
+</a>
+
+      <a class="card" data-segment="PRIME" href="/en/compounders/2353/initiation/" data-date="2026-06-09" data-ticker="2353">
+        <div class="card-head">
+          <span class="card-ticker">TSE PRIME · 2353</span>
+          <span class="card-sector">Parking · Ski Resorts · Theme Parks</span>
+          <span class="card-segment" data-segment="PRIME">PRIME</span>
+        </div>
+        <h3 class="card-name">Nippon Parking Development Co., Ltd.</h3>
+        <p class="card-jp">日本駐車場開発株式会社</p>
+        <p class="card-hook"><b>Nippon Parking Development turns underused land into cash — car parks on an asset-light sublease model, plus Hakuba Valley ski resorts and regional theme parks. On June 5, 2026 it authorized a ¥1.0bn buyback, defending its ROE-above-30% target as ROE slid 42% to 28%, against ROCE near 19%.</b></p>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">Last Close</div>
+            <div class="card-stat-val">¥243</div>
+          </div>
+          <div>
+            <div class="card-stat-label">EV / OP</div>
+            <div class="card-stat-val">8.5<small>x</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ROCE</div>
+            <div class="card-stat-val">~20<small>%</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">Net Cash / MC</div>
+            <div class="card-stat-val">5<small>%</small></div>
+          </div>
+        </div>
+        <div class="card-meta-row">
+          <span>Published 8 Jun 2026</span>
+        </div>
+      </a>
+
+      <a class="card" data-segment="PRIME" href="/en/compounders/2301/initiation/" data-date="2026-06-08" data-ticker="2301">
+        <div class="card-head">
+          <span class="card-ticker">TSE PRIME · 2301</span>
+          <span class="card-sector">Recruiting Media · Agent · Job Fairs</span>
+          <span class="card-segment" data-segment="PRIME">PRIME</span>
+        </div>
+        <h3 class="card-name">GAKUJO CO., Ltd.</h3>
+        <p class="card-jp">株式会社学情</p>
+        <p class="card-hook"><b>Gakujo runs Japan's leading recruiting media and job fairs for people in their twenties — the Re-Katsu career-change site, an agent, and new-graduate services. On June 8, 2026 it cut full-year operating-profit guidance to ¥2.6bn and authorized a ¥650m buyback.</b></p>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">Last Close</div>
+            <div class="card-stat-val">¥1,547</div>
+          </div>
+          <div>
+            <div class="card-stat-label">EV / OP</div>
+            <div class="card-stat-val">5.5<small>x</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ROCE</div>
+            <div class="card-stat-val">~15<small>%</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">Net Cash / MC</div>
+            <div class="card-stat-val">54<small>%</small></div>
+          </div>
+        </div>
+        <div class="card-meta-row">
+          <span>Published 8 Jun 2026</span>
+        </div>
+      </a>
+
+      <a class="card" data-segment="STANDARD" href="/en/compounders/2477/initiation/" data-date="2026-06-07" data-ticker="2477">
+        <div class="card-head">
+          <span class="card-ticker">TSE STANDARD · 2477</span>
+          <span class="card-sector">Hotel SaaS · Booking Site Controller</span>
+          <span class="card-segment" data-segment="STANDARD">STANDARD</span>
+        </div>
+        <h3 class="card-name">Temairazu, Inc.</h3>
+        <p class="card-jp">手間いらず株式会社</p>
+        <p class="card-hook"><b>Temairazu runs TEMAIRAZU, the booking site-controller Japanese hotels use to manage inventory and rates across every online travel agency from one screen — a ~73% operating-margin, near-zero-capital subscription business. On June 5, 2026 it launched a ¥300mn buyback, with net cash worth 46% of its market value.</b></p>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">Last Close</div>
+            <div class="card-stat-val">¥2,146</div>
+          </div>
+          <div>
+            <div class="card-stat-label">EV / OP</div>
+            <div class="card-stat-val">4.6<small>x</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ROCE</div>
+            <div class="card-stat-val">26<small>%</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">Net Cash / MC</div>
+            <div class="card-stat-val">46<small>%</small></div>
+          </div>
+        </div>
+        <div class="card-meta-row">
+          <span>Published 7 Jun 2026</span>
+        </div>
+      </a>
+
+      <a class="card" data-segment="PRIME" href="/en/compounders/6532/initiation/" data-date="2026-06-04" data-ticker="6532">
+  <div class="card-head">
+    <span class="card-ticker">TSE PRIME &middot; 6532</span>
+    <span class="card-sector">Single Segment &middot; Consulting &middot; Strategy through AI Execution</span>
+          <span class="card-segment" data-segment="PRIME">PRIME</span>
+  </div>
+  <h3 class="card-name">BayCurrent, Inc.</h3>
+  <p class="card-jp" lang="ja">株式会社ベイカレント</p>
+  <p class="card-hook"><b>BayCurrent sells consulting projects to Japan's largest companies; one pool of about 5,600 consultants bills by time for strategy, digital, and generative-AI work. On March 18, 2026 the board authorized a &yen;30bn buyback, ten times last year's, with all repurchased shares cancelled in August.</b></p>
+  <div class="card-stats">
+    <div><div class="card-stat-label">Close</div><div class="card-stat-val">&yen;5,857</div></div>
+    <div><div class="card-stat-label">EV / OP</div><div class="card-stat-val">12.7<small>x</small></div></div>
+    <div><div class="card-stat-label">ROCE</div><div class="card-stat-val">46<small>%</small></div></div>
+    <div><div class="card-stat-label">Net Cash / Mkt Cap</div><div class="card-stat-val">7<small>%</small></div></div>
+  </div>
+  <div class="card-meta-row">
+    <span>Published 4 June 2026</span>
+  </div>
+</a>
+
+      <a class="card" data-segment="GROWTH" href="/en/compounders/4493/initiation/" data-date="2026-05-28" data-ticker="4493">
+        <div class="card-head">
+          <span class="card-ticker">TSE Growth · 4493</span>
+          <span class="card-sector">Single Segment · Cloud WAF · AI Cybersecurity SaaS</span>
+          <span class="card-segment" data-segment="GROWTH">GROWTH</span>
+        </div>
+        <h3 class="card-name">Cyber Security Cloud, Inc.</h3>
+        <p class="card-jp">株式会社サイバーセキュリティクラウド</p>
+        <p class="card-hook"><b>Cyber Security Cloud operates Japan's #1 cloud-based WAF "Shadan-kun" and the AWS WAF auto-management service "WafCharm," accumulating 2B+ annual attack data points into proprietary AI engines. ~90% recurring revenue, sub-1% churn, and six consecutive years of 25%+ growth in both revenue and operating profit.</b></p>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">Close</div>
+            <div class="card-stat-val">¥1,721</div>
+          </div>
+          <div>
+            <div class="card-stat-label">EV / OP</div>
+            <div class="card-stat-val">11.9<small>x</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ROCE</div>
+            <div class="card-stat-val">24<small>%</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">Net Cash / Mkt Cap</div>
+            <div class="card-stat-val">19<small>%</small></div>
+          </div>
+        </div>
+        <div class="card-meta-row">
+          <span>Published May 28, 2026</span>
+        </div>
+      </a>
+
+      <a class="card" data-segment="GROWTH" href="/en/compounders/5570/initiation/" data-date="2026-05-28" data-ticker="5570">
+        <div class="card-head">
+          <span class="card-ticker">TSE Growth · 5570</span>
+          <span class="card-sector">Single Segment · GNSS positioning-correction data · Monthly subscription</span>
+          <span class="card-segment" data-segment="GROWTH">GROWTH</span>
+        </div>
+        <h3 class="card-name">JENOBA Co., Ltd.</h3>
+        <p class="card-jp">株式会社ジェノバ</p>
+        <p class="card-hook"><b>JENOBA streams the data that lifts GNSS positioning from meters to centimeters &mdash; a 56% operating-margin subscription running on 1,300 Geospatial Information Authority reference stations. What decides it is whether subscriber growth lifts above 6%, and how the &yen;3.0bn net cash gets returned.</b></p>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">Close</div>
+            <div class="card-stat-val">¥669</div>
+          </div>
+          <div>
+            <div class="card-stat-label">EV / OP</div>
+            <div class="card-stat-val">7.5<small>x</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ROCE</div>
+            <div class="card-stat-val">23<small>%</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">Net Cash / Mkt Cap</div>
+            <div class="card-stat-val">34<small>%</small></div>
+          </div>
+        </div>
+        <div class="card-meta-row">
+          <span>Published May 28, 2026</span>
+        </div>
+      </a>
+
+      <a class="card" data-segment="STANDARD" href="/en/compounders/6037/initiation/" data-date="2026-05-27" data-ticker="6037">
+        <div class="card-head">
+          <span class="card-ticker">TSE STANDARD · 6037</span>
+          <span class="card-sector">Real Estate Investment Portal · Rakumachi · Brokerage-subscription marketplace</span>
+          <span class="card-segment" data-segment="STANDARD">STANDARD</span>
+        </div>
+        <h3 class="card-name">Rakumachi, Inc.</h3>
+        <p class="card-jp">楽待株式会社</p>
+        <p class="card-hook"><b>Rakumachi sells monthly listing subscriptions to 5,459 Japanese brokerages; the brokerages put rental apartments and small commercial properties in front of 487,000 individual investors. On May 25, 2026 the company restated the page-view figures it had called its headline audience indicator.</b></p>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">Last Close</div>
+            <div class="card-stat-val">¥977</div>
+          </div>
+          <div>
+            <div class="card-stat-label">EV / OP</div>
+            <div class="card-stat-val">10.0<small>x</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ROCE</div>
+            <div class="card-stat-val">28<small>%</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">Net Cash / MC</div>
+            <div class="card-stat-val">6<small>%</small></div>
+          </div>
+        </div>
+        <div class="card-meta-row">
+          <span>Published 27 May 2026</span>
+        </div>
+      </a>
+
+      <a class="card" data-segment="GROWTH" href="/en/compounders/4377/initiation/" data-date="2026-05-26" data-ticker="4377">
+        <div class="card-head">
+          <span class="card-ticker">TSE GROWTH · 4377</span>
+          <span class="card-sector">Single-segment career-data platform · New-graduate hiring · Mid-career hiring · Verified interview-review database</span>
+          <span class="card-segment" data-segment="GROWTH">GROWTH</span>
+        </div>
+        <h3 class="card-name">ONE CAREER, Inc.</h3>
+        <p class="card-jp">株式会社ワンキャリア</p>
+        <p class="card-hook"><b>ONE CAREER runs the new-graduate hiring platform two-thirds of graduating Japanese students use &mdash; a closed database of 700,000 interview reviews competitors cannot replicate. The question is whether a founder owning 57% reinvests a 38% return on capital, or returns it.</b></p>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">Last Close</div>
+            <div class="card-stat-val">¥1,947</div>
+          </div>
+          <div>
+            <div class="card-stat-label">EV / OP</div>
+            <div class="card-stat-val">9.7<small>x</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ROCE</div>
+            <div class="card-stat-val">38<small>%</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">Net Cash / MC</div>
+            <div class="card-stat-val">18<small>%</small></div>
+          </div>
+        </div>
+        <div class="card-meta-row">
+          <span>Published 26 May 2026</span>
+        </div>
+      </a>
+
+      <a class="card" data-segment="PRIME" href="/en/compounders/3984/initiation/" data-date="2026-05-25" data-ticker="3984">
+        <div class="card-head">
+          <span class="card-ticker">TSE PRIME · 3984</span>
+          <span class="card-sector">Single-segment SaaS · Web analytics · Social listening · Enterprise generative AI</span>
+          <span class="card-segment" data-segment="PRIME">PRIME</span>
+        </div>
+        <h3 class="card-name">User Local, Inc.</h3>
+        <p class="card-jp">株式会社ユーザーローカル</p>
+        <p class="card-hook"><b>User Local is a single-segment SaaS company that helps enterprises analyze customer behavior across websites, social channels, and in-house AI chat workflows. Its earnings model combines sticky subscription revenue from legacy analytics products with newer AI-DX demand, supported by high margins and tight cost control.</b></p>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">Last Close</div>
+            <div class="card-stat-val">¥1,791</div>
+          </div>
+          <div>
+            <div class="card-stat-label">EV / OP</div>
+            <div class="card-stat-val">8.6<small>x</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ROCE</div>
+            <div class="card-stat-val">24<small>%</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">Net Cash / MC</div>
+            <div class="card-stat-val">33<small>%</small></div>
+          </div>
+        </div>
+        <div class="card-meta-row">
+          <span>Published 25 May 2026</span>
+        </div>
+      </a>
+
+      <a class="card" data-segment="GROWTH" href="/en/compounders/4168/initiation/" data-date="2026-05-21" data-ticker="4168">
+        <div class="card-head">
+          <span class="card-ticker">TSE GROWTH · 4168</span>
+          <span class="card-sector">No-code Mobile DX Platform · Multi-product engagement SaaS</span>
+          <span class="card-segment" data-segment="GROWTH">GROWTH</span>
+        </div>
+        <h3 class="card-name">Yappli, Inc.</h3>
+        <p class="card-jp">株式会社ヤプリ</p>
+        <p class="card-hook"><b>Yappli sells the no-code platform Japanese retailers and restaurants run native apps on &mdash; a moat sub-one-percent churn underwrites. Four products attach to the same identifier layer; the case settles on a capital-return policy still unformalized.</b></p>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">Last Close</div>
+            <div class="card-stat-val">¥745</div>
+          </div>
+          <div>
+            <div class="card-stat-label">EV / OP</div>
+            <div class="card-stat-val">8.5<small>x</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ROCE</div>
+            <div class="card-stat-val">24<small>%</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">Net Cash / MC</div>
+            <div class="card-stat-val">11<small>%</small></div>
+          </div>
+        </div>
+        <div class="card-meta-row">
+          <span>Published 21 May 2026</span>
+        </div>
+      </a>
+
+      <a class="card" data-segment="PRIME" href="/en/compounders/6947/initiation/" data-date="2026-05-21" data-ticker="6947">
+        <div class="card-head">
+          <span class="card-ticker">TSE PRIME · 6947</span>
+          <span class="card-sector">Electronic Design Automation · PCB / Wire-harness CAD · MBSE</span>
+          <span class="card-segment" data-segment="PRIME">PRIME</span>
+        </div>
+        <h3 class="card-name">Zuken Inc.</h3>
+        <p class="card-jp">株式会社図研</p>
+        <p class="card-hook"><b>Zuken turns electrical-engineering intent into the working circuit board and the wire harness &mdash; a fifty-year franchise locked into Japanese OEM design libraries. The recurring Client Services book compounds with each renewal; the case settles on a capital-return debate just beginning.</b></p>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">Last Close</div>
+            <div class="card-stat-val">¥4,820</div>
+          </div>
+          <div>
+            <div class="card-stat-label">EV / OP</div>
+            <div class="card-stat-val">9.8<small>x</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ROCE</div>
+            <div class="card-stat-val">13<small>%</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">Net Cash / MC</div>
+            <div class="card-stat-val">36<small>%</small></div>
+          </div>
+        </div>
+        <div class="card-meta-row">
+          <span>Published 21 May 2026</span>
+        </div>
+      </a>
+
+      <a class="card" data-segment="PRIME" href="/en/compounders/4071/initiation/" data-date="2026-05-19" data-ticker="4071">
+        <div class="card-head">
+          <span class="card-ticker">TSE PRIME · 4071</span>
+          <span class="card-sector">HR &amp; Marketing SaaS · Japanese-NLP Compounder</span>
+          <span class="card-segment" data-segment="PRIME">PRIME</span>
+        </div>
+        <h3 class="card-name">Plus Alpha Consulting Co., Ltd.</h3>
+        <p class="card-jp">株式会社プラスアルファ・コンサルティング</p>
+        <p class="card-hook"><b>Plus Alpha Consulting is an HR SaaS company in Japan, centered on Talent Palette, with sticky enterprise contracts and high returns on capital. The profile explains why the stock can re-rate if growth and capital policy become easier for investors to verify.</b></p>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">Last Close</div>
+            <div class="card-stat-val">¥2,394</div>
+          </div>
+          <div>
+            <div class="card-stat-label">EV / OP</div>
+            <div class="card-stat-val">11.6<small>x</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ROCE</div>
+            <div class="card-stat-val">46<small>%</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">Net Cash / MC</div>
+            <div class="card-stat-val">14<small>%</small></div>
+          </div>
+        </div>
+        <div class="card-meta-row">
+          <span>Published 19 May 2026</span>
+        </div>
+      </a>
+
+      <a class="card" data-segment="STANDARD" href="/en/compounders/5843/initiation/" data-date="2026-05-19" data-ticker="5843">
+        <div class="card-head">
+          <span class="card-ticker">TSE STANDARD · 5843</span>
+          <span class="card-sector">Rent-Debt Guarantee · Pure-Play Specialty Credit</span>
+          <span class="card-segment" data-segment="STANDARD">STANDARD</span>
+        </div>
+        <h3 class="card-name">Nippon Insure Co., Ltd.</h3>
+        <p class="card-jp">ニッポンインシュア株式会社</p>
+        <p class="card-hook"><b>Nippon Insure guarantees rent for Japanese tenants whose landlords no longer accept human cosigners &mdash; a need aging households keep widening. What matters now is whether management raises a 10% payout as cash builds against a business earning 32% on capital.</b></p>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">Last Close</div>
+            <div class="card-stat-val">¥2,418</div>
+          </div>
+          <div>
+            <div class="card-stat-label">EV / OP</div>
+            <div class="card-stat-val">5.3<small>x</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ROCE</div>
+            <div class="card-stat-val">32<small>%</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">Net Cash / MC</div>
+            <div class="card-stat-val">33<small>%</small></div>
+          </div>
+        </div>
+        <div class="card-meta-row">
+          <span>Published 19 May 2026</span>
+        </div>
+      </a>
+
+      <a class="card" data-segment="GROWTH" href="/en/compounders/4058/initiation/" data-date="2026-05-18" data-ticker="4058">
+        <div class="card-head">
+          <span class="card-ticker">TSE GROWTH · 4058</span>
+          <span class="card-sector">Cloud Business SaaS · Anpi · kintone Integration · NotePM</span>
+          <span class="card-segment" data-segment="GROWTH">GROWTH</span>
+        </div>
+        <h3 class="card-name">Toyokumo, Inc.</h3>
+        <p class="card-jp">トヨクモ株式会社</p>
+        <p class="card-hook"><b>Toyokumo sells three pieces of cloud software Japanese small companies use to send disaster-safety alerts, extend the kintone business-app platform, and manage team knowledge. The debate is whether the NotePM acquisition earns back its goodwill, and whether ¥4.4bn of cash returns to shareholders.</b></p>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">Last Close</div>
+            <div class="card-stat-val">¥1,943</div>
+          </div>
+          <div>
+            <div class="card-stat-label">EV / OP</div>
+            <div class="card-stat-val">8.8<small>x</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ROCE</div>
+            <div class="card-stat-val">44<small>%</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">Net Cash / MC</div>
+            <div class="card-stat-val">21<small>%</small></div>
+          </div>
+        </div>
+        <div class="card-meta-row">
+          <span>Published 18 May 2026</span>
+        </div>
+      </a>
+
+      <a class="card" data-segment="PRIME" href="/en/compounders/4776/initiation/" data-date="2026-05-15" data-ticker="4776">
+        <div class="card-head">
+          <span class="card-ticker">TSE PRIME · 4776</span>
+          <span class="card-sector">Groupware &amp; No-Code Business-App SaaS</span>
+          <span class="card-segment" data-segment="PRIME">PRIME</span>
+        </div>
+        <h3 class="card-name">Cybozu, Inc.</h3>
+        <p class="card-jp">サイボウズ株式会社</p>
+        <p class="card-hook"><b>Cybozu makes kintone, the no-code platform 39,000 Japanese companies use to build internal business apps. The open question is whether FY25&apos;s price-revision profit jump holds at the higher cost base, and whether the May ¥3bn buyback becomes a stated policy.</b></p>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">Last Close</div>
+            <div class="card-stat-val">¥2,197</div>
+          </div>
+          <div>
+            <div class="card-stat-label">EV / OP</div>
+            <div class="card-stat-val">8.9<small>x</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ROCE</div>
+            <div class="card-stat-val">68<small>%</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">Net Cash / MC</div>
+            <div class="card-stat-val">8<small>%</small></div>
+          </div>
+        </div>
+        <div class="card-meta-row">
+          <span>Published 15 May 2026</span>
+        </div>
+      </a>
+
+      <a class="card" data-segment="GROWTH" href="/en/compounders/4475/initiation/" data-date="2026-05-14" data-ticker="4475">
+        <div class="card-head">
+          <span class="card-ticker">TSE GROWTH · 4475</span>
+          <span class="card-sector">Cloud Security · Identity &amp; DLP SaaS</span>
+          <span class="card-segment" data-segment="GROWTH">GROWTH</span>
+        </div>
+        <h3 class="card-name">HENNGE K.K.</h3>
+        <p class="card-jp">ＨＥＮＮＧＥ株式会社</p>
+        <p class="card-hook"><b>HENNGE sells cloud security software Japanese companies use to sign in to work email and apps safely, with data-protection and endpoint modules. The test is whether ARR growth re-accelerates from +14.7% and whether margins settle as new products absorb spend.</b></p>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">Last Close</div>
+            <div class="card-stat-val">¥1,016</div>
+          </div>
+          <div>
+            <div class="card-stat-label">EV / OP</div>
+            <div class="card-stat-val">12.5<small>x</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ROCE</div>
+            <div class="card-stat-val">~48<small>%</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">Net Cash / MC</div>
+            <div class="card-stat-val">22<small>%</small></div>
+          </div>
+        </div>
+        <div class="card-meta-row">
+          <span>Published 14 May 2026</span>
+        </div>
+      </a>
+
+      <a class="card" data-segment="PRIME" href="/en/compounders/4194/initiation/" data-date="2026-05-12" data-ticker="4194">
+        <div class="card-head">
+          <span class="card-ticker">TSE PRIME · 4194</span>
+          <span class="card-sector">HR Tech · Recruiting Platform</span>
+          <span class="card-segment" data-segment="PRIME">PRIME</span>
+        </div>
+        <h3 class="card-name">Visional, Inc.</h3>
+        <p class="card-jp">株式会社ビジョナル</p>
+        <p class="card-hook"><b>Visional runs BizReach, Japan&apos;s direct-sourcing recruitment platform for mid-career professionals, alongside HRMOS, an HR-management SaaS that just turned profitable. The debate now is whether HRMOS profitability is organic or driven by sonar ATS consolidation, and the use of ¥70bn cash.</b></p>
+        <div class="card-stats">
+          <div>
+            <div class="card-stat-label">Last Close</div>
+            <div class="card-stat-val">¥7,337</div>
+          </div>
+          <div>
+            <div class="card-stat-label">EV / OP</div>
+            <div class="card-stat-val">9.8<small>x</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">ROCE</div>
+            <div class="card-stat-val">~35<small>%</small></div>
+          </div>
+          <div>
+            <div class="card-stat-label">Net Cash / MC</div>
+            <div class="card-stat-val">24<small>%</small></div>
+          </div>
+        </div>
+        <div class="card-meta-row">
+          <span>Published 12 May 2026</span>
+        </div>
+      </a>
+
+  </div>
+
+  <div class="empty-state" id="empty-state" hidden>No matching profiles.</div>
+
+</div>
+
+<script>
+(function(){
+  var grid = document.getElementById('profile-grid');
+  var empty = document.getElementById('empty-state');
+  if (!grid) return;
+  var state = { seg: 'all', sort: 'date', q: '' };
+
+  function apply() {
+    var cards = Array.prototype.slice.call(grid.querySelectorAll('a.card'));
+    // sort
+    cards.sort(function(a, b) {
+      if (state.sort === 'ticker') {
+        return parseInt(a.dataset.ticker, 10) - parseInt(b.dataset.ticker, 10);
+      }
+      return (b.dataset.date || '').localeCompare(a.dataset.date || '');
+    });
+    cards.forEach(function(c) { grid.appendChild(c); });
+    // filter
+    var q = state.q.toUpperCase();
+    var visible = 0;
+    cards.forEach(function(c) {
+      var segOK = state.seg === 'all' || (c.dataset.segment || '').toUpperCase() === state.seg;
+      var nameEl = c.querySelector('.card-name');
+      var altEl = c.querySelector('.card-jp');
+      var nameTxt = ((nameEl ? nameEl.textContent : '') + ' ' + (altEl ? altEl.textContent : '')).toUpperCase();
+      var tickerTxt = (c.dataset.ticker || '').toUpperCase();
+      var qOK = !q || tickerTxt.indexOf(q) === 0 || nameTxt.indexOf(q) !== -1;
+      var show = segOK && qOK;
+      c.classList.toggle('is-hidden', !show);
+      if (show) visible++;
+    });
+    if (empty) empty.hidden = visible > 0;
+  }
+
+  document.querySelectorAll('.btn[data-seg]').forEach(function(b) {
+    b.addEventListener('click', function() {
+      document.querySelectorAll('.btn[data-seg]').forEach(function(x) { x.classList.remove('active'); });
+      b.classList.add('active');
+      state.seg = b.dataset.seg;
+      apply();
+    });
+  });
+  document.querySelectorAll('.btn.sort-trigger').forEach(function(b) {
+    b.addEventListener('click', function() {
+      document.querySelectorAll('.btn.sort-trigger').forEach(function(x) { x.classList.remove('active'); });
+      b.classList.add('active');
+      state.sort = b.dataset.sort;
+      apply();
+    });
+  });
+  var s = document.getElementById('profile-search');
+  if (s) s.addEventListener('input', function(e) { state.q = (e.target.value || '').trim(); apply(); });
+
+  apply();
+})();
+</script>
+
+<script src="/assets/nav.js?v=48f8466f8c" defer></script>
+</body>
+</html>

@@ -35,6 +35,23 @@ export function articleUrl(ticker, slug, language) {
   return `${language === 'en' ? '/en' : ''}/compounders/${ticker}/${slug}/`;
 }
 
+function isArchived(article) {
+  return article.publicationStatus === 'archived';
+}
+
+function renderArchiveNotice(page) {
+  if (!isArchived(page.article)) return '';
+  const isJa = page.language === 'ja';
+  const currentProfiles = isJa ? '/compounders/profiles/' : '/en/compounders/profiles/';
+  const archive = isJa ? '/compounders/archive/' : '/en/compounders/archive/';
+  return `<aside class="cp-archive-notice" aria-labelledby="cp-archive-title">
+  <span class="cp-archive-kicker">${isJa ? 'アーカイブ調査' : 'Archived research'}</span>
+  <h2 id="cp-archive-title">${isJa ? '旧形式で公開したJII Compounder Profileです。' : 'Published under JII\'s previous Compounder format.'}</h2>
+  <p>${isJa ? '本ページは公開時点の調査記録として保存しており、更新していません。JIIの現行フォーマットは、2026年9月2日公開のNJSから適用しています。' : 'This page preserves the research record as published and is not maintained. JII\'s current Compounder format begins with NJS, published on September 2, 2026.'}</p>
+  <div class="cp-archive-links"><a href="${currentProfiles}">${isJa ? '現行のCompounder Profileを見る' : 'View current Compounder profiles'}</a><a href="${archive}">${isJa ? 'アーカイブ一覧' : 'Browse the archive'}</a></div>
+</aside>`;
+}
+
 function renderMetric(metric) {
   const context = metric.context
     ? `<dd class="cp-metric-context">${escapeHtml(metric.context)}</dd>`
@@ -155,7 +172,8 @@ export function renderProfilePage(page, bodyHtml) {
     'class="compounder-profile"',
     'data-compounder-profile="1"',
     `data-profile-ticker="${escapeHtml(ticker)}"`,
-    `data-profile-article="${escapeHtml(slug)}"`
+    `data-profile-article="${escapeHtml(slug)}"`,
+    `data-publication-status="${isArchived(article) ? 'archived' : 'current'}"`
   ];
   if (article.convictionMembrane) rootAttrs.push(`data-conviction-membrane="${escapeHtml(article.convictionMembrane)}"`);
 
@@ -166,7 +184,7 @@ export function renderProfilePage(page, bodyHtml) {
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>${escapeHtml(documentTitle)}</title>
   <meta name="description" content="${escapeHtml(description)}">
-  <link rel="canonical" href="${canonical}">
+${isArchived(article) ? '  <meta name="robots" content="noindex,follow">\n' : ''}  <link rel="canonical" href="${canonical}">
   <link rel="alternate" hreflang="en" href="${isJa ? counterpartUrl : canonical}">
   <link rel="alternate" hreflang="ja" href="${isJa ? canonical : counterpartUrl}">
   <link rel="alternate" hreflang="x-default" href="${isJa ? counterpartUrl : canonical}">
@@ -200,6 +218,7 @@ export function renderProfilePage(page, bodyHtml) {
 <main id="main-content" tabindex="-1">
 <article ${rootAttrs.join(' ')}>
 ${renderProfileHeader(page)}
+${renderArchiveNotice(page)}
 ${bodyHtml.trim()}
 ${renderProfileFooter(page)}
 </article>

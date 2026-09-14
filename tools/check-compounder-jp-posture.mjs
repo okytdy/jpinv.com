@@ -3,10 +3,14 @@ import path from "node:path";
 
 const repoRoot = path.resolve(import.meta.dirname, "..");
 const compoundersRoot = path.join(repoRoot, "compounders");
+const profileData = JSON.parse(await readFile(path.join(repoRoot, "content", "compounders", "profile-data.json"), "utf8"));
+const currentTickers = new Set(Object.values(profileData.articles || {})
+  .filter((article) => article.slug === "initiation" && article.publicationStatus === "current")
+  .map((article) => article.ticker));
 
 const tickerEntries = await readdir(compoundersRoot, { withFileTypes: true });
 const profileFiles = tickerEntries
-  .filter((entry) => entry.isDirectory() && /^\d{4}$/.test(entry.name))
+  .filter((entry) => entry.isDirectory() && currentTickers.has(entry.name))
   .map((entry) => path.join(compoundersRoot, entry.name, "initiation", "index.html"));
 
 const libraryFiles = [
@@ -71,5 +75,5 @@ if (failures.length > 0) {
 }
 
 console.log(
-  `Japanese Compounder issuer-posture check passed: ${profileFiles.length} profiles and ${libraryFiles.length} library pages.`,
+  `Japanese Compounder issuer-posture check passed: ${profileFiles.length} current profiles and ${libraryFiles.length} current library pages.`,
 );
