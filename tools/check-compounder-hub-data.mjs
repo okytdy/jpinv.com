@@ -29,7 +29,7 @@ function attributes(raw) {
 
 function snapshots(html) {
   return [...html.matchAll(/<(article|a)\b([^>]*data-report-snapshot="[^"]+"[^>]*)>([\s\S]*?)<\/\1>/g)]
-    .map((match) => ({attrs: attributes(match[2]), body: match[3]}));
+    .map((match) => ({tag: match[1], attrs: attributes(match[2]), body: match[3]}));
 }
 
 function sameNumber(name, actual, wanted, ticker, locale) {
@@ -39,7 +39,7 @@ function sameNumber(name, actual, wanted, ticker, locale) {
   }
 }
 
-  for (const report of currentReports) {
+for (const report of currentReports) {
   if (report.snapshotDate > report.reportDate) {
     errors.push(`${report.ticker}: snapshot date ${report.snapshotDate} is after report date ${report.reportDate}`);
   }
@@ -98,8 +98,9 @@ for (const [locale, relativePath] of pages) {
       errors.push(`${locale} ${ticker}: visible valuation includes a reciprocal or OP label`);
     }
 
-    const labelTag = ticker === '2325' ? 'dt' : 'small';
-    const labels = [...record.body.matchAll(new RegExp(`<${labelTag}>([^<]+)</${labelTag}>`, 'g'))]
+    const definitionLabels = [...record.body.matchAll(/<dt>([^<]+)<\/dt>/g)];
+    const compactLabels = [...record.body.matchAll(/<small>([^<]+)<\/small>/g)];
+    const labels = (definitionLabels.length ? definitionLabels : compactLabels)
       .map((match) => match[1].replace(/\s*·.*$/, ''))
       .slice(0, 4);
     const expectedLabels = display?.metricLabels || metricOrder[locale];
