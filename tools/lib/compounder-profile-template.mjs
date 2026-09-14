@@ -1,4 +1,17 @@
+import crypto from 'node:crypto';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
 const SITE_ORIGIN = 'https://jpinv.com';
+const ROOT = path.dirname(path.dirname(path.dirname(fileURLToPath(import.meta.url))));
+
+function navVersion() {
+  const nav = fs.readFileSync(path.join(ROOT, 'assets', 'nav.js'), 'utf8');
+  const versionPattern = /(assets\/(?:nav\.js|hero\.js|hero\.css)\?v=)([0-9a-zA-Z]+)/g;
+  const stableSource = nav.replace(versionPattern, '$1');
+  return crypto.createHash('sha256').update(stableSource).digest('hex').slice(0, 10);
+}
 
 export function escapeHtml(value = '') {
   return String(value)
@@ -194,7 +207,7 @@ ${renderProfileFooter(page)}
 <script src="https://unpkg.com/lightweight-charts@4.2.0/dist/lightweight-charts.standalone.production.js"></script>
 <script src="/assets/compounder-profile.js?v=20260913"></script>
 <script src="/assets/share-bar.js"></script>
-<script src="/assets/nav.js?v=348fa48c4e" defer></script>
+<script src="/assets/nav.js?v=${navVersion()}" defer></script>
 </body>
 </html>
 `;

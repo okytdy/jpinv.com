@@ -512,6 +512,14 @@ html[lang="ja"] .nw-in{grid-template-columns:240px minmax(0,1fr);gap:40px}
   .jh h1,.jh-h{font-size:clamp(25px,7vw,29px);line-height:1.5}
   .jh-lead{font-size:15px;line-height:1.9}
   .nw{padding:48px 0 52px}
+  /* Match the language-specific desktop selector so it cannot outrank the
+     earlier responsive rule. Without this, the Japanese homepage remains a
+     240px + content-column grid and widens the whole page on phones. */
+  html[lang="ja"] .nw-in{grid-template-columns:minmax(0,1fr);gap:26px}
   .svr-head{padding:48px 0 26px}
   .svr-tx{padding:34px 24px 40px}
+}
+@media(max-width:420px){
+  .nw-tabs{display:grid;grid-template-columns:minmax(0,1.28fr) repeat(2,minmax(0,1fr));overflow:visible}
+  .nw-tabs button{min-width:0;padding:10px 4px;white-space:normal;line-height:1.4}
 }

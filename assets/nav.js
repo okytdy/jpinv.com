@@ -8,7 +8,7 @@
 
    Include on every page with one line, where the version is a hash of this
    file stamped by tools/bump_nav_version.py:
-     <script src="/assets/nav.js?v=HASH" defer></script>
+     <script src="/assets/nav.js?v=48f8466f8c" defer></script>
 
    AFTER ANY EDIT TO THIS FILE, RUN tools/bump_nav_version.py. Without it the
    browser keeps serving the copy it already cached and the site looks
@@ -271,6 +271,7 @@
     "@media(min-width:1001px){#jii-nav .jn-menu{display:none!important;}}",
     "@media(max-width:760px){#jii-nav .jn-bar{padding-left:22px;}#jii-nav .jn-sub-in{height:auto;min-height:" + SUB_H + "px;padding:6px 12px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px 4px;overflow:visible;}#jii-nav .jn-sub a{min-width:0;padding:5px 0;text-align:center;white-space:normal;font-size:12px;line-height:1.35;}#jii-nav .jn-burger{margin-right:12px;}}",
     "@media(max-width:560px){#jii-nav .jn-logo img{display:none;}#jii-nav .jn-logo .jn-logo-sm{display:block;}}",
+    "@media(max-width:420px){html[lang='ja'] .jp-keep{display:inline;white-space:normal;}}",
     /* ---- dropdown panels (desktop only) ----
        Nikkato's pattern: hover a section, a full-width white panel opens
        with the page list on the left and a visual tile on the right.
@@ -414,6 +415,19 @@
     "#jii-contact .jfc-btn{min-width:0;width:100%;max-width:330px;}}",
     "@media(max-width:520px){#jii-foot .jf-cols{grid-template-columns:1fr;}#jii-foot .jf-in{padding:40px 22px 26px;}",
     "#jii-foot .jf-mark{flex-direction:column;align-items:flex-start;}}",
+    /* The original English governance pages predate the shared curriculum
+       stylesheet. Their inline desktop table rule wins the cascade and bare
+       source URLs have no break opportunity, so mobile content is clipped by
+       body overflow. Confine only those legacy article surfaces here until
+       the English curriculum is regenerated on the current template. */
+    "@media(max-width:760px){.curriculum .post-content{min-width:0;overflow-wrap:anywhere;}",
+    ".curriculum .post-content table{display:block!important;width:100%!important;max-width:100%!important;overflow-x:auto!important;overscroll-behavior-inline:contain;}",
+    ".curriculum .post-content pre:not(.mermaid),.curriculum .post-content .mermaid{display:block;max-width:100%;overflow-x:auto;}",
+    ".curriculum .post-list-row{grid-template-columns:50px minmax(0,1fr)!important;min-width:0;}",
+    ".curriculum .post-list-row>div{min-width:0;}",
+    ".curriculum .post-list-meta{white-space:normal!important;overflow-wrap:anywhere;}",
+    ".curriculum .post-list-row>.post-list-meta{grid-column:2!important;padding-left:0!important;}",
+    ".curriculum .post-list-row>div .post-list-meta{padding-left:0!important;}}",
     /* retire the old systems wherever they still exist on the page */
     "nav#main-nav,nav.mobile-menu,#cmpnav{display:none!important;}",
     "footer:has(.footer-row){display:none!important;}",
@@ -632,13 +646,24 @@
   syncTopButton();
 
   /* ---------- 5. Reserve space ----------
-     Pages that load site.css already leave room for a 64px fixed bar.
-     Pages that do not (every Compounder profile) need it added here. */
+     Pages that load site.css already leave room for the 64px main bar.
+     Other pages need the complete fixed header added here. Measure the live
+     header instead of assuming SUB_H: on phones the six Compounder tabs wrap
+     to two rows and are taller than the desktop 46px constant. */
   var hasSiteCss = !!document.querySelector('link[href*="site.css"]');
-  if (!hasSiteCss) {
-    document.body.style.paddingTop = (NAV_H + (inCompounders ? SUB_H : 0)) + "px";
-  } else if (inCompounders) {
-    document.body.style.paddingTop = SUB_H + "px";
+  function reserveNavigationSpace() {
+    var renderedHeight = Math.ceil(nav.getBoundingClientRect().height);
+    if (!hasSiteCss) {
+      document.body.style.paddingTop = renderedHeight + "px";
+    } else if (inCompounders) {
+      document.body.style.paddingTop = Math.max(0, renderedHeight - NAV_H) + "px";
+    }
+  }
+  reserveNavigationSpace();
+  window.requestAnimationFrame(reserveNavigationSpace);
+  window.addEventListener("resize", reserveNavigationSpace, { passive: true });
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(reserveNavigationSpace);
   }
 
   /* ---------- 6. Behavior ---------- */

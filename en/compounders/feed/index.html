@@ -112,10 +112,10 @@
   a:focus-visible, button:focus-visible, input:focus-visible, [tabindex]:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
   @media (max-width:760px) {
     .wrap { padding:0 16px; } .hero { padding:40px 0 24px; }
+    .row-line { min-width:0; }
     .row-ts { min-width:auto; font-size:10.5px; }
-    .row-name, .row-class { max-width:100%; }
-    .row-name { overflow-wrap:normal; word-break:normal; }
-    .row-class { white-space:normal; overflow-wrap:normal; word-break:normal; }
+    .row-name, .row-tag { min-width:0; max-width:100%; overflow-wrap:anywhere; }
+    .row-class { max-width:100%; white-space:normal; overflow-wrap:anywhere; word-break:normal; line-height:1.45; }
     .row-expand { padding:12px; }
     .search-input, .search-wrap { width:100%; min-width:0; }
     .refresh-meta { margin-left:0; width:100%; }
@@ -487,6 +487,6 @@
   loadAllFeed();
 })();
 </script>
-<script src="/assets/nav.js?v=348fa48c4e" defer></script>
+<script src="/assets/nav.js?v=48f8466f8c" defer></script>
 </body>
 </html>
