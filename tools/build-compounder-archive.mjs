@@ -66,7 +66,7 @@ function renderHubReportRow(article, language) {
   const snapshotDate = displayDate(report.snapshotDate, language);
   const closeLine = language === 'en'
     ? `Last close · ${display.closeValue} · ${snapshotDate}`
-    : `終値 · ${display.closeValue} · ${snapshotDate}`;
+    : `終値 ${display.closeValue}`;
   return `<a class="ch-report-row" href="${prefix}/compounders/${article.ticker}/initiation/" data-report-snapshot="${article.ticker}" data-snapshot-date="${report.snapshotDate}" data-market-cap-yen="${report.marketCapYen}" data-adtv60d-yen="${report.adtv60dYen}" data-roce-pct="${report.rocePct}" data-valuation-basis="${report.valuationBasis}" data-valuation-input="${report.valuationInput}" data-valuation-multiple="${report.valuationMultiple}">
   <span class="ch-report-copy">
     <span class="ch-report-meta"><time datetime="${article.datePublished}">${escapeHtml(reportDate)}</time><span>${escapeHtml(closeLine)}</span></span>
@@ -133,17 +133,17 @@ function renderHubCurrentSection(language, reportArticles) {
 ${reportArticles.map((article) => renderHubReportRow(article, language)).join('\n')}
     </div>`
     : `<div class="ch-series-note">
-      <span>${isEn ? 'CURRENT FORMAT · SINCE SEPTEMBER 2026' : '現行フォーマット · 2026年9月開始'}</span>
-      <h3>${isEn ? 'The current Compounder series begins with NJS.' : '現行のCompounderシリーズはNJSから始まります。'}</h3>
+      <span>${isEn ? 'CURRENT FORMAT · SINCE SEPTEMBER 2026' : '2026年9月以降のレポート'}</span>
+      <h3>${isEn ? 'The current Compounder series begins with NJS.' : '銘柄レポートはNJSから掲載しています。'}</h3>
       <p>${isEn ? 'Earlier company research remains available as a dated, unmaintained record in the archive.' : 'それ以前の企業調査は、公開時点の記録としてアーカイブに保存しています。内容は更新していません。'}</p>
-      <div><a href="${prefix}/compounders/profiles/">${isEn ? 'View current profiles' : '現行の銘柄分析を見る'}</a><a href="${prefix}/compounders/archive/">${isEn ? 'Browse archived research' : 'アーカイブ調査を見る'}</a></div>
+      <div><a href="${prefix}/compounders/profiles/">${isEn ? 'View current profiles' : '銘柄レポートを見る'}</a><a href="${prefix}/compounders/archive/">${isEn ? 'Browse archived research' : 'アーカイブ調査を見る'}</a></div>
     </div>
     <div class="ch-report-list" aria-live="polite"></div>`;
   return `<section class="ch-reports" id="reports" aria-labelledby="ch-reports-title">
   <div class="wrap">
     <header class="ch-section-title">
-      <h2 id="ch-reports-title">${isEn ? 'Current profiles' : '現行の銘柄分析'}</h2>
-      <a href="${prefix}/compounders/profiles/">${isEn ? 'Current library' : '現行版一覧'} <span aria-hidden="true">→</span></a>
+      <h2 id="ch-reports-title">${isEn ? 'Current profiles' : '銘柄レポート'}</h2>
+      <a href="${prefix}/compounders/profiles/">${isEn ? 'Current library' : '銘柄レポート一覧'} <span aria-hidden="true">→</span></a>
     </header>
     ${body}
   </div>
