@@ -85,6 +85,7 @@ function renderHubCurrentSection(language) {
       <p>${isEn ? 'Earlier company research remains available as a dated, unmaintained record in the archive.' : 'それ以前の企業調査は、公開時点の記録としてアーカイブに保存しています。内容は更新していません。'}</p>
       <div><a href="${prefix}/compounders/profiles/">${isEn ? 'View current profiles' : '現行の銘柄分析を見る'}</a><a href="${prefix}/compounders/archive/">${isEn ? 'Browse archived research' : 'アーカイブ調査を見る'}</a></div>
     </div>
+    <div class="ch-report-list" aria-live="polite"></div>
   </div>
 </section>`;
 }
