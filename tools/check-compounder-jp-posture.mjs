@@ -19,7 +19,7 @@ const libraryFiles = [
 ];
 
 const bannedPhrases = [
-  ["当社", "omit routine research-house attribution or use JIIでは / JII予想 / JIIの見方 only when explicit attribution is necessary"],
+  ["当社", "never use 当社 for JII; explicitly anchor load-bearing judgments with JIIでは / JII予想 / JIIの試算 / JIIシナリオ / JIIの見方"],
   ["会社は", "use 同社 when the issuer is the grammatical subject; preserve labels such as 会社予想 and 会社計画"],
   ["経営陣", "attribute the fact to the company, board, disclosure, briefing, or a named executive"],
   ["経営者", "name the executive or describe the company, board, or management structure precisely"],
