@@ -12,14 +12,33 @@ DEFAULT_FEED = (Path(__file__).resolve().parents[2] / "compounders" /
                 "active-investors" / "data" / "new5_feed.json")
 JST = dt.timezone(dt.timedelta(hours=9))
 
+# Published Japanese national holidays and substitute/citizens' holidays.
+# Source: Cabinet Office, https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html
+# Add the next year when its official calendar is published each February.
+JP_HOLIDAYS = {
+    2026: {dt.date(2026, m, d) for m, d in (
+        (1, 1), (1, 12), (2, 11), (2, 23), (3, 20), (4, 29),
+        (5, 3), (5, 4), (5, 5), (5, 6), (7, 20), (8, 11),
+        (9, 21), (9, 22), (9, 23), (10, 12), (11, 3), (11, 23),
+    )},
+    2027: {dt.date(2027, m, d) for m, d in (
+        (1, 1), (1, 11), (2, 11), (2, 23), (3, 21), (3, 22),
+        (4, 29), (5, 3), (5, 4), (5, 5), (7, 19), (8, 11),
+        (9, 20), (9, 23), (10, 11), (11, 3), (11, 23),
+    )},
+}
+
 
 def business_days_after(earlier: dt.date, later: dt.date) -> int:
     if later <= earlier:
         return 0
+    missing_years = set(range(earlier.year, later.year + 1)) - JP_HOLIDAYS.keys()
+    if missing_years:
+        raise ValueError(f"Japanese holiday calendar missing for {sorted(missing_years)}")
     count = 0
     cur = earlier + dt.timedelta(days=1)
     while cur <= later:
-        if cur.weekday() < 5:
+        if cur.weekday() < 5 and cur not in JP_HOLIDAYS[cur.year]:
             count += 1
         cur += dt.timedelta(days=1)
     return count
