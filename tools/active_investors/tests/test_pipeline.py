@@ -153,5 +153,19 @@ class FreshnessTests(unittest.TestCase):
                                   max_stale_business_days=3), [])
 
 
+class HolidayFreshnessTests(unittest.TestCase):
+    def test_silver_week_is_one_business_day_old(self):
+        self.assertEqual(business_days_after(dt.date(2026, 9, 18),
+                                             dt.date(2026, 9, 24)), 1)
+
+    def test_real_staleness_still_fails_after_silver_week(self):
+        self.assertEqual(business_days_after(dt.date(2026, 9, 18),
+                                             dt.date(2026, 9, 29)), 4)
+
+    def test_missing_calendar_year_is_explicit(self):
+        with self.assertRaisesRegex(ValueError, "2028"):
+            business_days_after(dt.date(2027, 12, 31), dt.date(2028, 1, 3))
+
+
 if __name__ == "__main__":
     unittest.main()
