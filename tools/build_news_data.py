@@ -33,7 +33,7 @@ OUT = os.path.join(ROOT, "compounders", "feed", "data", "news.json")
 ROWS = 5
 
 CAP_LABELS = {
-    "BUYBACK_INIT": ("自社株買い", "Buyback"), "BUYBACK_BLOCK": ("自社株買い", "Buyback"),
+    "BUYBACK_INIT": ("自社株買い", "Buyback"), "BUYBACK_BLOCK": ("買付実行", "Buyback execution"),
     "BUYBACK_REV": ("枠拡大", "Buyback raised"), "DIV_HIKE": ("増配", "Dividend hike"),
     "DIV_POLICY": ("配当方針", "Dividend policy"), "MBO": ("MBO", "MBO"),
     "CANCEL": ("消却", "Cancellation"), "M_AND_A": ("M&A", "M&A"),
@@ -75,7 +75,7 @@ def capital():
     feed.sort(key=lambda r: r["ts"], reverse=True)
     out, seen = [], set()
     for r in feed:
-        if r.get("signal_score", 0) < 2 or r.get("ticker") in seen:
+        if r.get("signal_score", 0) < 2 or r.get("class") == "BUYBACK_BLOCK" or r.get("ticker") in seen:
             continue
         seen.add(r.get("ticker"))
         ja, en = CAP_LABELS.get(r.get("class"), ("資本政策", "Capital action"))

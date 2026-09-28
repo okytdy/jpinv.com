@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Capital-Allocation Inflection Feed | JII Compounders</title>
-<meta name="description" content="A live screen of Japanese listed-company disclosures that move the multiple: cost-of-capital plans, buybacks, cancellations, dividend policy shifts, cross-shareholding unwinds, take-privates, comp-KPI revisions and governance flips.">
-<meta property="og:title" content="Capital-Allocation Inflection Feed | JII Compounders">
-<meta property="og:description" content="A live screen of Japanese listed-company disclosures that move the multiple: cost-of-capital plans, buybacks, cancellations, dividend policy shifts, cross-shareholding unwinds, take-privates, comp-KPI revisions and governance flips.">
+<title>Capital-Allocation Disclosure Feed | JII Compounders</title>
+<meta name="description" content="A live screen that separates material capital-allocation decisions from routine execution and progress updates at Japanese listed companies.">
+<meta property="og:title" content="Capital-Allocation Disclosure Feed | JII Compounders">
+<meta property="og:description" content="A live screen that separates material capital-allocation decisions from routine execution and progress updates at Japanese listed companies.">
 <meta property="og:url" content="https://jpinv.com/en/compounders/feed/">
 <link rel="canonical" href="https://jpinv.com/en/compounders/feed/">
 <link rel="alternate" hreflang="en" href="https://jpinv.com/en/compounders/feed/">
@@ -59,6 +59,8 @@
   .chip:hover { color:var(--ink); border-color:var(--ink-soft); }
   .chip.active { color:var(--ink-mid); border-color:var(--ink-mid); background:var(--bg-soft); }
   .chip.off { opacity:0.45; }
+  .signal-toggle { font-family:var(--mono); font-size:10.5px; letter-spacing:0.08em; color:var(--text-mid); padding:6px 11px; border:1px solid var(--rule); background:var(--bg); cursor:pointer; white-space:nowrap; }
+  .signal-toggle[aria-pressed="true"] { color:var(--ink-mid); border-color:var(--ink-mid); background:var(--bg-soft); }
   .refresh-meta { margin-left:auto; font-family:var(--mono); font-size:10.5px; letter-spacing:0.12em; color:var(--text-dim); text-transform:uppercase; white-space:nowrap; }
   .refresh-meta b { color:var(--ink-soft); font-weight:500; }
 
@@ -79,6 +81,10 @@
   .row-tk:hover { color:var(--ink-mid); border-color:var(--ink-mid); }
   .row-name { font-family:var(--serif); color:var(--ink-mid); }
   .row-class { font-family:var(--mono); font-size:10px; letter-spacing:0.14em; text-transform:uppercase; padding:3px 8px; border:1px solid var(--accent); color:var(--accent-deep); background:var(--accent-soft); white-space:nowrap; }
+  .row-signal { font-family:var(--mono); font-size:9.5px; letter-spacing:0.12em; text-transform:uppercase; padding:2px 7px; border:1px solid var(--rule); color:var(--text-dim); white-space:nowrap; }
+  .row-signal-2 { color:var(--ink-soft); border-color:var(--ink-soft); }
+  .row-signal-3 { color:var(--accent-deep); border-color:var(--accent); background:var(--accent-soft); }
+  .row.signal-1 { background:var(--bg-soft); opacity:0.78; }
   .row-tag { font-family:var(--sans); color:var(--text-mid); }
   .row-arrow { margin-left:auto; font-family:var(--serif); color:var(--text-dim); font-size:14px; transition:transform 0.18s; }
   .row.open .row-arrow { transform:rotate(90deg); color:var(--ink-mid); }
@@ -134,8 +140,8 @@
   "@context": "https://schema.org",
   "@type": "WebPage",
   "url": "https://jpinv.com/en/compounders/feed/",
-  "name": "Capital-Allocation Inflection Feed | JII Compounders",
-  "description": "A live screen of Japanese listed-company disclosures that move the multiple: cost-of-capital plans, buybacks, cancellations, dividend policy shifts, cross-shareholding unwinds, take-privates, comp-KPI revisions and governance flips.",
+  "name": "Capital-Allocation Disclosure Feed | JII Compounders",
+  "description": "A live screen that separates material capital-allocation decisions from routine execution and progress updates at Japanese listed companies.",
   "inLanguage": "en"
 }
 </script></head>
@@ -151,9 +157,9 @@
       </a>
     </div>
     <div class="hero-eyebrow">JII COMPOUNDERS &middot; FEED</div>
-    <h1>Capital-Allocation Inflection Feed</h1>
-    <p class="hero-tagline">Only the disclosures that move the multiple.</p>
-    <p class="lede">A constantly-updated screen of every Japanese company that just announced something material about how it returns or allocates capital &mdash; buybacks, dividend hikes, take-privates, treasury cancellations, and the like. Pulled directly from the TSE's TDnet feed every half hour, filtered to remove earnings reports and other routine filings.</p>
+    <h1>Capital-Allocation Disclosure Feed</h1>
+    <p class="hero-tagline">Separate decisions from execution.</p>
+    <p class="lede">This feed tracks capital-allocation disclosures from Japanese listed companies. The default view shows new decisions and material policy changes. Routine execution under an existing authorization, including ToSTNeT-3 purchases and progress updates, is retained for chronology but clearly marked as low-signal and hidden until requested.</p>
   </header>
 
   <div class="controls" role="region" aria-label="Feed filters">
@@ -164,7 +170,7 @@
       </div>
       <div class="chips" role="group" aria-label="Filter by disclosure class">
         <button class="chip active" data-cls="COC" title="Cost-of-capital management plan. Initial publication, or material update, or introduction of ROIC/WACC/ROE targets into the mid-term plan; numeric targets must move at least 10% to qualify.">Cost-of-capital</button>
-        <button class="chip active" data-cls="BUYBACK" title="Buyback authorization at scale. Threshold: at least 1% of shares outstanding, or at least JPY1bn for sub-JPY100bn market-cap names.">Buyback</button>
+        <button class="chip active" data-cls="BUYBACK" title="New buyback authorizations, increases and extensions. ToSTNeT-3 execution notices under an existing authorization are shown separately as low-signal updates.">Buyback</button>
         <button class="chip active" data-cls="CANCEL" title="Treasury cancellation. Threshold: at least 0.5% of shares outstanding.">Cancellation</button>
         <button class="chip active" data-cls="DIV" title="Material dividend change. Payout-ratio jump at least 10pp, special div at least the recurring annual, first-ever dividend, or introduction of a progressive policy.">Dividend</button>
         <button class="chip active" data-cls="CROSS" title="Cross-shareholding unwind framed as policy or program (not a single tactical sale). Material threshold: explicit reduction policy, or specific sales over JPY500M.">Cross-shareholding</button>
@@ -173,6 +179,7 @@
         <button class="chip active" data-cls="COMP" title="Comp-linked KPI revision. Must add a capital-efficiency metric (ROIC/ROCE/TSR) to executive compensation.">Comp KPI</button>
         <button class="chip active" data-cls="GOV" title="Governance-code signal. Flip from 'explain' to 'comply' on a capital-policy principle (1-4, 1-5, 5-2).">Governance</button>
       </div>
+      <button class="signal-toggle" id="low-signal-toggle" type="button" aria-pressed="false" title="Also show routine execution and progress records with little new investment information.">Show execution updates</button>
       <div class="refresh-meta">Last refresh: <b id="last-refresh">—</b></div>
     </div>
     <div class="back-bar" id="back-bar"><a href="#" id="back-link">← Back to all</a></div>
@@ -244,7 +251,9 @@
     COC_INITIAL:"COC", COC_UPDATE:"COC", DIV_HIKE:"DIV", DIV_POLICY:"DIV",
     CROSS:"CROSS", MBO:"MBO", M_AND_A:"M_AND_A"
   };
+  var SIGNAL_LABELS = {1:"Execution update", 2:"Material", 3:"Inflection"};
   function groupOf(row){ return CLASS_GROUP[row.class] || row.class; }
+  function classLabel(row){ return row.class === "BUYBACK_BLOCK" ? "Buyback execution" : (CLASS_LABELS[groupOf(row)] || row.class); }
   var PAGE_SIZE = 80;
 
   var state = {
@@ -254,7 +263,8 @@
     tickerFilter: null,
     index: {},
     meta: null,
-    mode: "all"
+    mode: "all",
+    includeLowSignal: false
   };
 
   var $feed = document.getElementById("feed");
@@ -265,6 +275,7 @@
   var $backBar = document.getElementById("back-bar");
   var $backLink = document.getElementById("back-link");
   var $lastRefresh = document.getElementById("last-refresh");
+  var $lowSignalToggle = document.getElementById("low-signal-toggle");
 
   function fetchJSON(url) {
     return fetch(url, {cache:"no-store"}).then(function(r){
@@ -289,14 +300,18 @@
     } catch(e){ return iso; }
   }
 
-  function rowMatchesClassFilter(row){ return state.activeClasses.has(groupOf(row)); }
+  function rowMatchesClassFilter(row){
+    return state.activeClasses.has(groupOf(row)) && (state.includeLowSignal || Number(row.signal_score || 0) >= 2);
+  }
 
   function buildRowEl(row){
     var el = document.createElement("article");
-    el.className = "row";
+    var score = Number(row.signal_score || 0);
+    el.className = "row signal-" + score;
     el.dataset.id = row.id;
-    var clsLabel = CLASS_LABELS[groupOf(row)] || row.class;
+    var clsLabel = classLabel(row);
     var tag = row.tag_en || row.tag || "";
+    if (row.class === "BUYBACK_BLOCK") tag = tag.replace(/^Buyback execution\s*[·・-]?\s*/i, "");
     var nameEn = row.name_en || row.name_jp || "";
     var html = ''
       + '<div class="row-line">'
@@ -304,6 +319,7 @@
       +   '<span class="row-tk" data-ticker="' + escapeHTML(row.ticker) + '" role="button" tabindex="0">' + escapeHTML(row.ticker) + '</span>'
       +   '<span class="row-name">' + escapeHTML(nameEn) + '</span>'
       +   '<span class="row-class">' + escapeHTML(clsLabel) + (tag ? ' · ' + escapeHTML(tag) : '') + '</span>'
+      +   '<span class="row-signal row-signal-' + score + '">' + escapeHTML(SIGNAL_LABELS[score] || "Unrated") + '</span>'
       +   '<span class="row-arrow">›</span>'
       + '</div>'
       + '<div class="row-expand">'
@@ -435,6 +451,13 @@
   });
 
   $backLink.addEventListener("click", function(ev){ ev.preventDefault(); backToAll(); });
+
+  $lowSignalToggle.addEventListener("click", function(){
+    state.includeLowSignal = !state.includeLowSignal;
+    $lowSignalToggle.setAttribute("aria-pressed", state.includeLowSignal ? "true" : "false");
+    state.rendered = 0;
+    renderInitial();
+  });
 
   Array.prototype.forEach.call(document.querySelectorAll(".chip"), function(btn){
     btn.addEventListener("click", function(){

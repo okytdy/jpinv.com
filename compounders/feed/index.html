@@ -59,6 +59,8 @@
   .chip:hover { color:var(--ink); border-color:var(--ink-soft); }
   .chip.active { color:var(--ink-mid); border-color:var(--ink-mid); background:var(--bg-soft); }
   .chip.off { opacity:0.45; }
+  .signal-toggle { font-family:var(--mono); font-size:10.5px; letter-spacing:0.08em; color:var(--text-mid); padding:6px 11px; border:1px solid var(--rule); background:var(--bg); cursor:pointer; white-space:nowrap; }
+  .signal-toggle[aria-pressed="true"] { color:var(--ink-mid); border-color:var(--ink-mid); background:var(--bg-soft); }
   .refresh-meta { margin-left:auto; font-family:var(--mono); font-size:10.5px; letter-spacing:0.12em; color:var(--text-dim); text-transform:uppercase; white-space:nowrap; }
   .refresh-meta b { color:var(--ink-soft); font-weight:500; }
 
@@ -79,6 +81,10 @@
   .row-tk:hover { color:var(--ink-mid); border-color:var(--ink-mid); }
   .row-name { font-family:var(--serif); color:var(--ink-mid); }
   .row-class { font-family:var(--mono); font-size:10px; letter-spacing:0.14em; text-transform:uppercase; padding:3px 8px; border:1px solid var(--accent); color:var(--accent-deep); background:var(--accent-soft); white-space:nowrap; }
+  .row-signal { font-family:var(--mono); font-size:9.5px; letter-spacing:0.12em; text-transform:uppercase; padding:2px 7px; border:1px solid var(--rule); color:var(--text-dim); white-space:nowrap; }
+  .row-signal-2 { color:var(--ink-soft); border-color:var(--ink-soft); }
+  .row-signal-3 { color:var(--accent-deep); border-color:var(--accent); background:var(--accent-soft); }
+  .row.signal-1 { background:var(--bg-soft); opacity:0.78; }
   .row-tag { font-family:var(--sans); color:var(--text-mid); }
   .row-arrow { margin-left:auto; font-family:var(--serif); color:var(--text-dim); font-size:14px; transition:transform 0.18s; }
   .row.open .row-arrow { transform:rotate(90deg); color:var(--ink-mid); }
@@ -152,8 +158,8 @@
     </div>
     <div class="hero-eyebrow">JII COMPOUNDERS &middot; CAPITAL DISCLOSURE</div>
     <h1>資本政策開示</h1>
-    <p class="hero-tagline">企業評価に関わる資本政策の動きを追う。</p>
-    <p class="lede">東証上場企業の資本政策に関する重要な開示を随時掲載します。自社株買い、増配、TOB・MBO、自己株式の消却などを自動で抽出し、TDnetから30分ごとに更新します。決算短信や月次売上などの定型的な開示は対象外です。</p>
+    <p class="hero-tagline">意思決定と、その後の実行を分けて読む。</p>
+    <p class="lede">東証上場企業の資本政策開示を随時掲載します。通常表示は、新たな資本配分の決定や重要な方針変更に限定します。ToSTNeT-3による既存枠の実行や進捗などは記録として残しますが、低シグナルの「実行・経過」と明示し、初期表示からは除外しています。</p>
   </header>
 
   <div class="controls" role="region" aria-label="表示する開示を絞り込む">
@@ -164,7 +170,7 @@
       </div>
       <div class="chips" role="group" aria-label="開示区分で絞り込む">
         <button class="chip active" data-cls="COC" title="資本コストや株価を意識した経営に関する開示を対象とします。初回の公表、中期経営計画へのROIC/WACC/ROE目標の導入、目標水準を10%以上変更した場合などを含みます。">資本コスト</button>
-        <button class="chip active" data-cls="BUYBACK" title="自己株式取得の決議・実施のうち、発行済株式の1%以上、または時価総額1,000億円未満の銘柄で10億円以上のものを対象とします。">自社株買い</button>
+        <button class="chip active" data-cls="BUYBACK" title="自己株式取得の新規決議、増額、延長などを対象とします。既存枠のToSTNeT-3実行通知は低シグナルとして別表示です。">自社株買い</button>
         <button class="chip active" data-cls="CANCEL" title="自己株式の消却のうち、発行済株式の0.5%以上を対象とします。">自己株消却</button>
         <button class="chip active" data-cls="DIV" title="配当予想の修正や剰余金の配当に関する開示を対象とします。配当性向の10pp以上の変更、年間の通常配当を上回る特別配当、初配、累進配当の導入などを含みます。">配当</button>
         <button class="chip active" data-cls="CROSS" title="政策保有株式の縮減方針、または5億円以上の具体的な売却を対象とします。継続的な縮減方針・計画として公表されたものを扱い、単発の売却は除きます。">政策保有</button>
@@ -173,6 +179,7 @@
         <button class="chip active" data-cls="COMP" title="役員報酬制度の改定のうち、ROIC／ROCE／TSRなど資本効率に関する指標を報酬に組み込むものを対象とします。">報酬KPI</button>
         <button class="chip active" data-cls="GOV" title="コーポレートガバナンス・コードへの対応のうち、資本政策に関する原則（原則1-4、1-5、5-2）について「explain → comply」へ変更したケースを対象とします。">ガバナンス</button>
       </div>
+      <button class="signal-toggle" id="low-signal-toggle" type="button" aria-pressed="false" title="既存枠の実行や進捗など、投資判断上の新規性が低い記録も表示します。">実行・経過も表示</button>
       <div class="refresh-meta">最終更新: <b id="last-refresh">—</b></div>
     </div>
     <div class="back-bar" id="back-bar"><a href="#" id="back-link">← すべての開示に戻る</a></div>
@@ -232,7 +239,9 @@
     COC_INITIAL:"COC", COC_UPDATE:"COC", DIV_HIKE:"DIV", DIV_POLICY:"DIV",
     CROSS:"CROSS", MBO:"MBO", M_AND_A:"M_AND_A"
   };
+  var SIGNAL_LABELS = {1:"実行・経過", 2:"重要", 3:"転換点"};
   function groupOf(row){ return CLASS_GROUP[row.class] || row.class; }
+  function classLabel(row){ return row.class === "BUYBACK_BLOCK" ? "自社株買い実行" : (CLASS_LABELS[groupOf(row)] || row.class); }
   var PAGE_SIZE = 80;
 
   var state = {
@@ -242,7 +251,8 @@
     tickerFilter: null,
     index: {},         // index.json
     meta: null,
-    mode: "all"        // "all" | "ticker"
+    mode: "all",       // "all" | "ticker"
+    includeLowSignal: false
   };
 
   var $feed = document.getElementById("feed");
@@ -253,6 +263,7 @@
   var $backBar = document.getElementById("back-bar");
   var $backLink = document.getElementById("back-link");
   var $lastRefresh = document.getElementById("last-refresh");
+  var $lowSignalToggle = document.getElementById("low-signal-toggle");
 
   function fetchJSON(url) {
     return fetch(url, {cache:"no-store"}).then(function(r){
@@ -278,15 +289,17 @@
   }
 
   function rowMatchesClassFilter(row){
-    return state.activeClasses.has(groupOf(row));
+    return state.activeClasses.has(groupOf(row)) && (state.includeLowSignal || Number(row.signal_score || 0) >= 2);
   }
 
   function buildRowEl(row){
     var el = document.createElement("article");
-    el.className = "row";
+    var score = Number(row.signal_score || 0);
+    el.className = "row signal-" + score;
     el.dataset.id = row.id;
-    var clsLabel = CLASS_LABELS[groupOf(row)] || row.class;
+    var clsLabel = classLabel(row);
     var tag = row.tag_jp || row.tag || "";
+    if (row.class === "BUYBACK_BLOCK") tag = tag.replace(/^自己株式取得の実行\s*[・·-]?\s*/, "");
     var nameJp = row.name_jp || row.name_en || "";
     var html = ''
       + '<div class="row-line">'
@@ -294,6 +307,7 @@
       +   '<span class="row-tk" data-ticker="' + escapeHTML(row.ticker) + '" role="button" tabindex="0">' + escapeHTML(row.ticker) + '</span>'
       +   '<span class="row-name">' + escapeHTML(nameJp) + '</span>'
       +   '<span class="row-class">' + escapeHTML(clsLabel) + (tag ? ' · ' + escapeHTML(tag) : '') + '</span>'
+      +   '<span class="row-signal row-signal-' + score + '">' + escapeHTML(SIGNAL_LABELS[score] || "未評価") + '</span>'
       +   '<span class="row-arrow">›</span>'
       + '</div>'
       + '<div class="row-expand">'
@@ -431,6 +445,13 @@
   });
 
   $backLink.addEventListener("click", function(ev){ ev.preventDefault(); backToAll(); });
+
+  $lowSignalToggle.addEventListener("click", function(){
+    state.includeLowSignal = !state.includeLowSignal;
+    $lowSignalToggle.setAttribute("aria-pressed", state.includeLowSignal ? "true" : "false");
+    state.rendered = 0;
+    renderInitial();
+  });
 
   // ---- Chips ----
   Array.prototype.forEach.call(document.querySelectorAll(".chip"), function(btn){
