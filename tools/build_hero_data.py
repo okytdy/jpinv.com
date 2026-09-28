@@ -34,7 +34,7 @@ HOME_ROWS = 4
 # chip, so the chip comes from the class instead.
 LABELS = {
     "BUYBACK_INIT":  ("自社株買い",   "Buyback"),
-    "BUYBACK_BLOCK": ("自社株買い",   "Buyback"),
+    "BUYBACK_BLOCK": ("買付実行",     "Buyback execution"),
     "BUYBACK_REV":   ("枠拡大",       "Buyback raised"),
     "DIV_HIKE":      ("増配",         "Dividend hike"),
     "DIV_POLICY":    ("配当方針",     "Dividend policy"),
@@ -146,9 +146,9 @@ def bake(payload):
         )
 
         c = payload["counts"]
-        labels = ([("last30", "disclosures, 30 days"), ("watched", "names watched"),
+        labels = ([("last30", "material disclosures, 30 days"), ("watched", "names watched"),
                    ("profiles", "research profiles")] if lang == "en" else
-                  [("last30", "開示件数・直近30日"), ("watched", "追跡銘柄"),
+                  [("last30", "重要開示・直近30日"), ("watched", "追跡銘柄"),
                    ("profiles", "銘柄レポート")])
         stats_html = "".join(
             "<span><b>{v:,}</b><span>{l}</span></span>".format(v=c.get(k, 0), l=esc(lab))
@@ -172,11 +172,16 @@ def main():
 
     today = datetime.date.today()
     cutoff = (today - datetime.timedelta(days=30)).isoformat()
-    last30 = sum(1 for r in feed if r["ts"][:10] >= cutoff)
+    last30 = sum(
+        1 for r in feed
+        if r["ts"][:10] >= cutoff
+        and r.get("signal_score", 0) >= 2
+        and r.get("class") != "BUYBACK_BLOCK"
+    )
 
     rows, seen = [], set()
     for r in feed:
-        if r.get("signal_score", 0) < 2:
+        if r.get("signal_score", 0) < 2 or r.get("class") == "BUYBACK_BLOCK":
             continue
         if r.get("ticker") in seen:
             continue
@@ -201,7 +206,7 @@ def main():
 
     home_rows, home_groups, home_tickers = [], set(), set()
     for r in feed:
-        if r.get("signal_score", 0) < 1:
+        if r.get("signal_score", 0) < 2 or r.get("class") == "BUYBACK_BLOCK":
             continue
         group = home_group(r)
         ticker = r.get("ticker")

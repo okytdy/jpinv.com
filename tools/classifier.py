@@ -471,12 +471,10 @@ def _match_buyback(d: dict) -> MatchResult:
     is_progress = bool(
         re.search(r"取得状況|取得結果|取得終了|取得完了", title)
     )
-    is_block = bool(
-        re.search(r"ToSTNeT|トストネット|立会外", title + "\n" + body)
-    )
+    is_block = bool(re.search(r"ToSTNeT|トストネット|立会外", combined))
     is_rev = bool(
-        re.search(r"増額|上方修正|上限引上|拡大", title)
-        and re.search(r"取得", title)
+        re.search(r"増額|上方修正|上限引上|拡大", combined)
+        and re.search(r"取得", combined)
     )
 
     if is_house:
@@ -485,12 +483,12 @@ def _match_buyback(d: dict) -> MatchResult:
     elif is_progress:
         subtype_code = "BUYBACK_PROGRESS"
         subtype_label = "progress"
-    elif is_block:
-        subtype_code = "BUYBACK_BLOCK"
-        subtype_label = "block"
     elif is_rev:
         subtype_code = "BUYBACK_REV"
         subtype_label = "revision"
+    elif is_block:
+        subtype_code = "BUYBACK_BLOCK"
+        subtype_label = "block"
     else:
         subtype_code = "BUYBACK_INIT"
         subtype_label = "authorization"
@@ -886,10 +884,6 @@ def _normalise_ts(raw: str) -> str:
 # signal_score derivation (1=Housekeeping, 2=Material, 3=Inflection)
 # ---------------------------------------------------------------------------
 
-# Block-trade size threshold for upgrading BUYBACK_BLOCK from 1 -> 2.
-_BLOCK_YEN_THRESHOLD = 10_000_000_000  # ¥10bn
-
-
 def _signal_score(class_code: str, facts: dict) -> int:
     """Derive a 1-3 signal score from class and extracted facts.
 
@@ -900,7 +894,6 @@ def _signal_score(class_code: str, facts: dict) -> int:
     losing rows in the feed.
     """
     pct = facts.get("pct_so") if isinstance(facts, dict) else None
-    yen = facts.get("yen") if isinstance(facts, dict) else None
 
     # --- 3: Inflection -----------------------------------------------------
     if class_code in ("COC_INITIAL", "DIV_POLICY", "GOV_FLIP", "COMP_KPI"):
@@ -932,10 +925,9 @@ def _signal_score(class_code: str, facts: dict) -> int:
     if class_code == "CROSS":
         return 2
     if class_code == "BUYBACK_BLOCK":
-        big = (isinstance(yen, (int, float)) and yen >= _BLOCK_YEN_THRESHOLD) or (
-            isinstance(pct, (int, float)) and pct >= 3.0
-        )
-        return 2 if big else 1
+        # Execution under an existing authorisation is chronology, not a new
+        # capital-allocation decision.  Size alone must not promote it.
+        return 1
     # Outbound M&A (the filer acquiring another company) is material capital
     # deployment, now its own visible category — not housekeeping.
     if class_code == "M_AND_A":
@@ -1079,14 +1071,14 @@ def _run_tests() -> tuple[int, int]:
             2,
         ),
         (
-            "BUYBACK_BLOCK . ToSTNeT-3 block ¥15bn -> material",
+            "BUYBACK_BLOCK . ToSTNeT-3 execution remains housekeeping",
             _make_disclosure(
                 title_jp="ToSTNeT-3を通じた自己株式の取得に関するお知らせ",
                 body_jp="取得価額の総額 15,000,000,000 円",
             ),
             "BUYBACK_BLOCK",
             "Buyback (block)",
-            2,
+            1,
         ),
         (
             "BUYBACK_BLOCK . small block -> housekeeping",
@@ -1097,6 +1089,16 @@ def _run_tests() -> tuple[int, int]:
             "BUYBACK_BLOCK",
             "Buyback (block)",
             1,
+        ),
+        (
+            "BUYBACK_REV . cap expansion outranks bundled ToSTNeT execution",
+            _make_disclosure(
+                title_jp="自己株式立会外買付取引による自己株式の取得に関するお知らせ",
+                body_jp="取得上限を400,000株から900,000株に拡大し、発行済株式総数に対する割合は9.99%。ToSTNeT-3で買付ける。",
+            ),
+            "BUYBACK_REV",
+            "Buyback (revision)",
+            2,
         ),
         (
             "BUYBACK_HOUSE . J-ESOP bundle",
