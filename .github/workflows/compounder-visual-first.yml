@@ -3,6 +3,14 @@ name: Compounder visual-first structure
 on:
   pull_request:
     paths:
+      - "index.html"
+      - "en/index.html"
+      - "content/compounders/profile-data.json"
+      - "compounders/feed/data/news.json"
+      - "tools/build_news_data.py"
+      - "tools/build-compounder-home-news.mjs"
+      - "tools/check-compounder-home-news.mjs"
+      - "tools/lib/compounder-home-news.mjs"
       - "compounders/index.html"
       - "compounders/profiles/index.html"
       - "en/compounders/index.html"
@@ -20,6 +28,14 @@ on:
   push:
     branches: [main]
     paths:
+      - "index.html"
+      - "en/index.html"
+      - "content/compounders/profile-data.json"
+      - "compounders/feed/data/news.json"
+      - "tools/build_news_data.py"
+      - "tools/build-compounder-home-news.mjs"
+      - "tools/check-compounder-home-news.mjs"
+      - "tools/lib/compounder-home-news.mjs"
       - "compounders/index.html"
       - "compounders/profiles/index.html"
       - "en/compounders/index.html"
@@ -48,3 +64,4 @@ jobs:
           node-version: 20
       - run: node tools/check-compounder-visual-first.mjs
       - run: node tools/check-compounder-hub-recency.mjs
+      - run: node tools/check-compounder-home-news.mjs
