@@ -15,6 +15,9 @@ the EDINET filing CSV, not by the LLM enrichment tier that produced the 億
 conversion errors.
 
 CI runs this with --no-bake (it stages only compounders/feed/data/).
+Reports come from the same current-publication registry used by the Compounder
+build. That build refreshes the reports JSON and both baked homepage lists at
+publication time; the scheduled job retains the same report sequence.
 
     python3 tools/build_news_data.py [--no-bake]
 """
@@ -48,25 +51,22 @@ MOVE_LABELS = {
 
 
 def reports():
+    # Match the publication builder: current bilingual reports come from the registry,
+    # never from a gallery-HTML scrape that can silently miss newly published cards.
+    with open(os.path.join(ROOT, "content", "compounders", "profile-data.json"), encoding="utf-8") as fh:
+        data = json.load(fh)
+    articles = [a for a in data["articles"].values()
+                if a.get("slug") == "initiation" and a.get("publicationStatus") == "current"]
+    articles.sort(key=lambda a: a["ticker"])
+    articles.sort(key=lambda a: a["datePublished"], reverse=True)
     out = []
-    for lang, path in (("ja", "compounders/profiles/index.html"),
-                       ("en", "en/compounders/profiles/index.html")):
-        html = open(os.path.join(ROOT, path), encoding="utf-8").read()
-        cards = {}
-        for m in re.finditer(
-                r'<a class="card"[^>]*href="([^"]+)"[^>]*data-date="([0-9-]+)"[^>]*data-ticker="([^"]+)"'
-                r'.*?<h3 class="card-name">([^<]+)</h3>', html, re.S):
-            cards[m.group(3)] = {"href": m.group(1), "date": m.group(2),
-                                 "name": m.group(4).strip()}
-        for t, c in cards.items():
-            row = next((r for r in out if r["ticker"] == t), None)
-            if not row:
-                row = {"ticker": t, "date": c["date"]}
-                out.append(row)
-            row["name_" + ("jp" if lang == "ja" else "en")] = c["name"]
-            row["href_" + ("jp" if lang == "ja" else "en")] = c["href"]
-    out.sort(key=lambda r: r["date"], reverse=True)
-    return out[:ROWS]
+    for article in articles[:ROWS]:
+        ticker = article["ticker"]
+        company = data["companies"][ticker]
+        out.append({"ticker": ticker, "date": article["datePublished"],
+                    "name_jp": company["name"]["ja"], "href_jp": f"/compounders/{ticker}/initiation/",
+                    "name_en": company["name"]["en"], "href_en": f"/en/compounders/{ticker}/initiation/"})
+    return out
 
 
 def capital():
