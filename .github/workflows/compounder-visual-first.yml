@@ -6,6 +6,11 @@ on:
       - "index.html"
       - "en/index.html"
       - "content/compounders/profile-data.json"
+      - "content/compounders/articles/**"
+      - "assets/compounder-profile.css"
+      - "tools/check-compounder-profile-system.mjs"
+      - "tools/lib/compounder-figure-labels.mjs"
+      - "tools/tests/compounder-figure-labels.test.mjs"
       - "compounders/feed/data/news.json"
       - "tools/build_news_data.py"
       - "tools/build-compounder-home-news.mjs"
@@ -15,8 +20,8 @@ on:
       - "compounders/profiles/index.html"
       - "en/compounders/index.html"
       - "en/compounders/profiles/index.html"
-      - "compounders/**/initiation/index.html"
-      - "en/compounders/**/initiation/index.html"
+      - "compounders/**/index.html"
+      - "en/compounders/**/index.html"
       - "assets/compounder-research.css"
       - "assets/compounder-research.js"
       - "assets/share-bar.js"
@@ -31,6 +36,11 @@ on:
       - "index.html"
       - "en/index.html"
       - "content/compounders/profile-data.json"
+      - "content/compounders/articles/**"
+      - "assets/compounder-profile.css"
+      - "tools/check-compounder-profile-system.mjs"
+      - "tools/lib/compounder-figure-labels.mjs"
+      - "tools/tests/compounder-figure-labels.test.mjs"
       - "compounders/feed/data/news.json"
       - "tools/build_news_data.py"
       - "tools/build-compounder-home-news.mjs"
@@ -40,8 +50,8 @@ on:
       - "compounders/profiles/index.html"
       - "en/compounders/index.html"
       - "en/compounders/profiles/index.html"
-      - "compounders/**/initiation/index.html"
-      - "en/compounders/**/initiation/index.html"
+      - "compounders/**/index.html"
+      - "en/compounders/**/index.html"
       - "assets/compounder-research.css"
       - "assets/compounder-research.js"
       - "assets/share-bar.js"
@@ -62,6 +72,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+      - run: node --test tools/tests/compounder-figure-labels.test.mjs
+      - run: node tools/check-compounder-profile-system.mjs
       - run: node tools/check-compounder-visual-first.mjs
       - run: node tools/check-compounder-hub-recency.mjs
       - run: node tools/check-compounder-home-news.mjs
