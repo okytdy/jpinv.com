@@ -119,12 +119,15 @@ for (const [locale, relativePath] of pages) {
       }
     }
 
-    const definitionLabels = [...record.body.matchAll(/<dt>([^<]+)<\/dt>/g)];
+    const definitionLabels = [...record.body.matchAll(/<dt>(?:<span>)?([^<]+)(?:<\/span>)?(?:<small>[\s\S]*?<\/small>)?<\/dt>/g)];
     const compactLabels = [...record.body.matchAll(/<small>([^<]+)<\/small>/g)];
     const labels = (definitionLabels.length ? definitionLabels : compactLabels)
       .map((match) => match[1].replace(/\s*·.*$/, ''))
       .slice(0, 4);
-    const expectedLabels = display?.metricLabels || metricOrder[locale];
+    const sourceLabels = display?.metricLabels || metricOrder[locale];
+    const expectedLabels = record.body.includes('ch-lead-metrics')
+      ? [sourceLabels[2], locale === 'JA' ? '投下資本利益率（ROCE）' : 'Return on capital (ROCE)', sourceLabels[0], sourceLabels[1]]
+      : sourceLabels;
     if (JSON.stringify(labels) !== JSON.stringify(expectedLabels)) {
       errors.push(`${locale} ${ticker}: metric order is ${labels.join(', ')}; expected ${expectedLabels.join(', ')}`);
     }
