@@ -559,7 +559,7 @@
   .compounders-hub *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
 }
 
-/* Featured report: readable metric rows with a clear value hierarchy. */
+/* Featured report: IR fact-sheet rows with restrained, consistent typography. */
 .ch-lead-points.ch-lead-metrics {
   display: flex;
   flex-direction: column;
@@ -575,7 +575,7 @@
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   gap: 16px;
-  padding: 15px 0;
+  padding: 14px 0;
   border: 0;
   border-bottom: 1px solid var(--ch-rule);
 }
@@ -584,8 +584,8 @@
 .ch-lead-metrics dt {
   min-width: 0;
   font-family: var(--sans);
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 14px;
+  font-weight: 400;
   letter-spacing: 0;
   line-height: 1.55;
   color: var(--ch-copy);
@@ -595,7 +595,7 @@
 .ch-lead-metrics dt > small {
   display: block;
   margin-top: 4px;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 400;
   line-height: 1.5;
   color: var(--ch-muted);
@@ -603,22 +603,19 @@
 .ch-lead-metrics dd {
   margin: 0;
   font-family: var(--sans);
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
-  line-height: 1.3;
-  letter-spacing: -.03em;
+  line-height: 1.5;
+  letter-spacing: 0;
+  font-variant-numeric: tabular-nums;
   white-space: nowrap;
   color: var(--ch-ink);
 }
-.ch-lead-metrics .ch-lead-metric-main { padding: 20px 0; }
-.ch-lead-metrics .ch-lead-metric-main dt { font-size: 14px; }
-.ch-lead-metrics .ch-lead-metric-main dd { font-size: 32px; }
-.ch-lead-metrics .ch-valuation dd { font-size: 40px; }
 .ch-lead-metrics .ch-lead-asof {
   margin: 12px 0 0;
   padding-top: 12px;
   border-top: 1px solid var(--ch-rule);
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1.6;
   color: var(--ch-muted);
 }
@@ -628,9 +625,5 @@
 @media (max-width: 760px) {
   .ch-lead-points.ch-lead-metrics { padding: 12px 22px 22px; }
   .ch-lead-metrics .ch-lead-metric { gap: 12px; }
-  .ch-lead-metrics .ch-lead-metric-main { padding: 18px 0; }
-  .ch-lead-metrics .ch-lead-metric-main dt { font-size: 13px; }
-  .ch-lead-metrics .ch-lead-metric-main dd { font-size: 28px; }
-  .ch-lead-metrics .ch-valuation dd { font-size: 34px; }
   .ch-lead-metrics dd { font-size: 16px; }
 }
