@@ -156,6 +156,7 @@ export function renderProfilePage(page, bodyHtml) {
     || '';
   const ogDescription = article.ogDescription?.[language] || description;
   const profileCssVersion = article.assetVersions?.profileCss || '20260913b';
+  const profileJsVersion = article.assetVersions?.profileJs || '20260913';
   const imageAlt = article.ogImageAlt?.[language]
     || (isJa ? `JII Compounders 銘柄レポート · ${ticker}` : `JII Compounders company research · ${ticker}`);
   const dateModified = article.dateModified || article.datePublished || '';
@@ -226,7 +227,7 @@ ${renderProfileFooter(page)}
 </article>
 </main>
 <script src="https://unpkg.com/lightweight-charts@4.2.0/dist/lightweight-charts.standalone.production.js"></script>
-<script src="/assets/compounder-profile.js?v=20260913"></script>
+<script src="/assets/compounder-profile.js?v=${escapeHtml(profileJsVersion)}"></script>
 <script src="/assets/share-bar.js"></script>
 <script src="/assets/nav.js?v=${navVersion()}" defer></script>
 </body>
