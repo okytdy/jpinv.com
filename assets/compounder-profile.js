@@ -190,16 +190,21 @@
     if (!data) return;
     container.dataset.cpChartReady = 'true';
 
+    var enhanced = container.dataset.chartPresentation === 'research';
+    var panel = container.closest('.cp-chart-panel');
+    var isJa = (document.documentElement.lang || '').toLowerCase().indexOf('ja') === 0;
     var chart = window.LightweightCharts.createChart(container, {
       width: container.clientWidth,
       height: container.clientHeight || 430,
-      layout: { background: { color: '#fafbfc' }, textColor: '#4a5566', fontFamily: 'DM Mono, monospace', fontSize: 10 },
+      layout: { background: { color: '#fafbfc' }, textColor: '#4a5566', fontFamily: 'DM Mono, monospace', fontSize: enhanced ? 12 : 10 },
       grid: { vertLines: { color: '#edf0f3' }, horzLines: { color: '#edf0f3' } },
       rightPriceScale: { borderColor: '#d6dee8' },
       timeScale: { borderColor: '#d6dee8', timeVisible: false },
-      crosshair: { mode: 1 }
+      crosshair: { mode: 1 },
+      handleScroll: enhanced ? { mouseWheel: false, pressedMouseMove: true, horzTouchDrag: true, vertTouchDrag: false } : true,
+      handleScale: enhanced ? { mouseWheel: false, pinch: true, axisPressedMouseMove: true } : true
     });
-    var topix = chart.addLineSeries({ color: 'rgba(48,68,102,.72)', lineWidth: 1.5, priceLineVisible: false, lastValueVisible: true });
+    var topix = chart.addLineSeries({ color: enhanced ? '#a58a54' : 'rgba(48,68,102,.72)', lineWidth: enhanced ? 2 : 1.5, priceLineVisible: false, lastValueVisible: true, visible: !enhanced });
     topix.setData(data.topix_rebased || []);
     var sma = chart.addLineSeries({ color: '#9a7838', lineWidth: 1.5, lineStyle: 2, priceLineVisible: false, lastValueVisible: false });
     sma.setData(data.sma60 || []);
@@ -215,20 +220,49 @@
         return isJa ? value + '円 ' + label : '¥' + value + ' ' + label;
       }
       var markers = [
-        { time: data.peak_close.time, position: 'aboveBar', color: '#2f6f4f', shape: 'arrowDown', text: markerText(data.peak_close, peakLabel) }
+        { time: data.peak_close.time, position: 'aboveBar', color: '#2f6f4f', shape: 'arrowDown', text: enhanced ? '' : markerText(data.peak_close, peakLabel) }
       ];
       if (data.post_peak_low_close) {
-        markers.push({ time: data.post_peak_low_close.time, position: 'belowBar', color: '#a8322a', shape: 'arrowUp', text: markerText(data.post_peak_low_close, postPeakLabel) });
+        markers.push({ time: data.post_peak_low_close.time, position: 'belowBar', color: '#a8322a', shape: 'arrowUp', text: enhanced ? '' : markerText(data.post_peak_low_close, postPeakLabel) });
       } else if (data.window_low_close) {
-        markers.push({ time: data.window_low_close.time, position: 'belowBar', color: '#a8322a', shape: 'arrowUp', text: markerText(data.window_low_close, windowLowLabel) });
+        markers.push({ time: data.window_low_close.time, position: 'belowBar', color: '#a8322a', shape: 'arrowUp', text: enhanced ? '' : markerText(data.window_low_close, windowLowLabel) });
       }
       candles.setMarkers(markers);
     }
     var volume = chart.addHistogramSeries({ color: 'rgba(48,68,102,.38)', priceFormat: { type: 'volume' }, priceScaleId: 'volume' });
     volume.setData(data.volume || []);
     chart.priceScale('volume').applyOptions({ scaleMargins: { top: .83, bottom: 0 }, borderColor: '#d6dee8' });
+
+    if (enhanced && panel) {
+      chart.priceScale('right').applyOptions({ scaleMargins: { top: .10, bottom: .23 } });
+      // Compare both series from the same first date, using the existing source observations.
+      var base = data.candles[0];
+      var benchmarkBase = data.topix_rebased.find(function (point) { return point.time === base.time; });
+      var performance = chart.addLineSeries({ color: '#304466', lineWidth: 2, visible: false, priceLineVisible: false });
+      var oneDecimal = { type: 'custom', minMove: .1, formatter: function (value) { return value.toFixed(1); } };
+      performance.applyOptions({ priceFormat: oneDecimal });
+      performance.setData(data.candles.map(function (point) { return { time: point.time, value: point.close / base.close * 100 }; }));
+      var buttons = Array.prototype.slice.call(panel.querySelectorAll('[data-chart-view]'));
+      function setView(view) {
+        var compare = view === 'compare';
+        if (compare && !benchmarkBase) return;
+        panel.dataset.activeView = view;
+        candles.applyOptions({ visible: !compare });
+        sma.applyOptions({ visible: !compare });
+        volume.applyOptions({ visible: !compare });
+        performance.applyOptions({ visible: compare });
+        topix.applyOptions({ visible: compare, priceFormat: oneDecimal });
+        if (compare) topix.setData(data.topix_rebased.map(function (point) { return { time: point.time, value: point.value / benchmarkBase.value * 100 }; }));
+        buttons.forEach(function (button) { button.setAttribute('aria-pressed', String(button.dataset.chartView === view)); });
+        chart.priceScale('right').applyOptions({ autoScale: true, scaleMargins: { top: .10, bottom: compare ? .10 : .23 } });
+        chart.timeScale().fitContent();
+      }
+      buttons.forEach(function (button) { button.addEventListener('click', function () { setView(button.dataset.chartView); }); });
+      setView('price');
+    }
+
     chart.timeScale().fitContent();
-    var resize = function () { chart.applyOptions({ width: container.clientWidth, height: container.clientHeight || 430 }); };
+    var resize = function () { chart.applyOptions({ width: container.clientWidth, height: container.clientHeight || 430 }); if (enhanced) chart.timeScale().fitContent(); };
     window.addEventListener('resize', resize, { passive: true });
   }
 
