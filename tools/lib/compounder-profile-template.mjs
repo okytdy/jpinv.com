@@ -53,11 +53,14 @@ function renderArchiveNotice(page) {
 }
 
 function renderMetric(metric) {
+  const comparison = metric.comparison
+    ? `<dd class="cp-metric-context cp-metric-comparison">${escapeHtml(metric.comparison)}</dd>`
+    : '';
   const context = metric.context
     ? `<dd class="cp-metric-context">${escapeHtml(metric.context)}</dd>`
     : '';
   const compactClass = metric.compact ? ' cp-key-metric--compact' : '';
-  return `<div class="cp-key-metric${compactClass}"><dt>${escapeHtml(metric.label)}</dt><dd class="cp-metric-value">${escapeHtml(metric.value)}</dd>${context}</div>`;
+  return `<div class="cp-key-metric${compactClass}"><dt>${escapeHtml(metric.label)}</dt><dd class="cp-metric-value">${escapeHtml(metric.value)}</dd>${comparison}${context}</div>`;
 }
 
 export function renderProfileFooter(page) {
