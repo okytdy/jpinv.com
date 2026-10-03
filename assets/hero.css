@@ -59,7 +59,12 @@
   align-items: center;
   gap: 56px;
 }
-.jh-copy { flex: 1 1 auto; max-width: 720px; }
+.jh-copy {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 720px;
+  container-type: inline-size;
+}
 
 .jh-kick {
   font-family: var(--sans, 'Noto Sans JP', sans-serif);
@@ -491,8 +496,11 @@ html[lang="en"] .voices .voice-pull { letter-spacing: 0; line-height: 1.55; }
 }
 
 /* Content-first corporate hierarchy (2026-08-31) */
-.jh h1,.jh-h{font-size:clamp(30px,3vw,36px);font-weight:400;line-height:1.5;text-wrap:pretty}
-.jh-lead{max-width:650px;font-size:16px;line-height:1.95}
+/* Fit each Japanese headline clause beside the disclosure panel. The copy
+   column narrows before the mobile layout starts, so use its width rather
+   than the viewport to keep the first headline on two desktop lines. */
+.jh h1,.jh-h{font-size:clamp(20px,4.8cqi,28px);font-weight:400;line-height:1.5;text-wrap:pretty}
+.jh-lead{max-width:650px;font-size:14px;line-height:1.9}
 .jb-d{font-size:15px;line-height:1.8}
 .nw{padding:64px 0 68px}
 .nw-head h2{font-size:clamp(23px,2.2vw,28px);font-weight:400;line-height:1.55}
@@ -509,8 +517,8 @@ html[lang="ja"] .nw-in{grid-template-columns:240px minmax(0,1fr);gap:40px}
 .voices .voice-card2 .voice-firm{font-size:12px;line-height:1.65}
 
 @media(max-width:760px){
-  .jh h1,.jh-h{font-size:clamp(25px,7vw,29px);line-height:1.5}
-  .jh-lead{font-size:15px;line-height:1.9}
+  .jh h1,.jh-h{font-size:clamp(22px,6vw,24px);line-height:1.5}
+  .jh-lead{font-size:14px;line-height:1.9}
   .nw{padding:48px 0 52px}
   /* Match the language-specific desktop selector so it cannot outrank the
      earlier responsive rule. Without this, the Japanese homepage remains a
