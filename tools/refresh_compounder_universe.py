@@ -279,8 +279,8 @@ def export_watchlist(result):
         old = prior.get(ticker) or {}
         row = {key: "" for key in fields}
         profile = REPO / "compounders" / ticker
-        profile_url = (f"/en/compounders/{ticker}/" if (profile / "index.html").exists()
-                       else f"/en/compounders/{ticker}/initiation/" if (profile / "initiation/index.html").exists()
+        profile_url = (f"/en/compounders/{ticker}/initiation/" if (profile / "initiation/index.html").exists()
+                       else f"/en/compounders/{ticker}/" if (profile / "index.html").exists()
                        else "")
         row.update({
             "rank": rank, "sec_code": ticker + "0", "edinet_code": r["edinet_code"],
@@ -334,7 +334,7 @@ def render_pages(result):
     def row_markup(r, rank, lang):
         ticker = r["ticker"]
         link = REPO / ("en/compounders" if lang == "en" else "compounders") / ticker
-        rel = "initiation/" if not (link / "index.html").exists() and (link / "initiation/index.html").exists() else ""
+        rel = "initiation/" if (link / "initiation/index.html").exists() else ""
         ticker_html = (f'<a href="/{"en/" if lang == "en" else ""}compounders/{ticker}/{rel}">{ticker}</a>'
                        if (link / "index.html").exists() or rel else ticker)
         name = html.escape(r["name_en"] if lang == "en" else r["name_ja"])

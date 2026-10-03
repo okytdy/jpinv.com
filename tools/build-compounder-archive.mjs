@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { englishArchiveCards } from './lib/english-archive-cards.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DATA_PATH = path.join(ROOT, 'content', 'compounders', 'profile-data.json');
@@ -170,6 +171,7 @@ for (const language of ['ja', 'en']) {
   const currentHtml = fs.readFileSync(currentPath, 'utf8');
   const archiveHtml = fs.readFileSync(archivePath, 'utf8');
   const localizedCards = new Map([...extractCards(archiveHtml), ...extractCards(currentHtml)]);
+  if (language === 'en') for (const [ticker, card] of englishArchiveCards(ROOT, data)) localizedCards.set(ticker, card);
   for (const ticker of [...currentTickers, ...archivedTickers]) {
     if (!localizedCards.has(ticker)) throw new Error(`${language}: no gallery card found for ${ticker}.`);
   }

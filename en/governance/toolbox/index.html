@@ -1,278 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-
-<title>The IR Toolbox | JII Governance Curriculum</title>
-<meta name="description" content="An indexed repository of every official artifact an IR representative should know — codes, guidelines, lists, FAQs, working-group reports, and data dashboards.">
-<meta property="og:title" content="The IR Toolbox | JII Governance Curriculum">
-<meta property="og:description" content="An indexed repository of every official artifact an IR representative should know — codes, guidelines, lists, FAQs, working-group reports, and data dashboards.">
-<meta property="og:url" content="https://jpinv.com/en/governance/toolbox/">
-<link rel="canonical" href="https://jpinv.com/en/governance/toolbox/">
-<link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/toolbox/">
-<link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/toolbox/">
-<link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/toolbox/">
-
-<style>
-:root {
-  --ink:        #1a2a4a;
-  --ink-mid:    #172641;
-  --ink-soft:   #304466;
-  --rule:       #d6dee8;
-  --rule-soft:  #e8edf3;
-  --bg:         #ffffff;
-  --bg-mid:     #f5f7fa;
-  --bg-soft:    #fafbfc;
-  --text:       #1f2937;
-  --text-mid:   #4a5566;
-  --text-dim:   #5f6875;
-  --accent:     #9a7838;
-  --accent-deep:#9a7838;
-  --accent-soft:#f4eee4;
-  --bad:        #b91c1c;
-  --warn:       #8a682b;
-  --ok:         #2f6f4f;
-  --serif: 'Noto Serif JP', 'Yu Mincho', serif;
-  --sans:  'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
-  --mono:  'DM Mono', monospace;
-  --max: 1100px;
-  --pad: 88px;
-  --gutter: 48px;
-  --nav-h: 64px;
-  --measure: 720px;
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 400; line-height: 1.7; overflow-x: hidden; }
-img { max-width: 100%; display: block; }
-a { color: var(--ink-soft); text-decoration: none; }
-a:hover { color: var(--ink); }
-.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
-@media (max-width: 768px) { :root { --gutter: 22px; --pad: 56px; } }
-strong { font-weight: 600; color: var(--ink); }
-em { font-style: normal; color: var(--ink); font-weight: 600; }
-.label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); }
-
-/* Nav (copied from jpinv.com base) */
-nav#main-nav { position: fixed; top:0; left:0; right:0; z-index:100; height: var(--nav-h); background: rgba(255,255,255,0.96); backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule); display: flex; align-items: center; transition: box-shadow 0.3s; }
-nav#main-nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
-.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; }
-.nav-logo { text-decoration: none; display: inline-flex; align-items: center; flex: 0 0 auto; min-width: max-content; white-space: nowrap; }
-.nav-logo-img { display: block; width: auto; height: 40px; max-width: none; object-fit: contain; object-position: left center; }
-.nav-logo-img--mobile { display: none; width: 32px; height: 32px; object-fit: contain; }
-.nav-center { flex: 1; display: flex; justify-content: center; }
-.nav-links { display: flex; gap: 18px; list-style: none; flex-wrap: nowrap; white-space: nowrap; }
-.nav-links a { font-family: var(--sans); font-size: 0.74rem; font-weight: 400; letter-spacing: 0.02em; color: var(--text); text-decoration: none; transition: color 0.2s; }
-.nav-links a:hover { color: var(--ink-soft); }
-.nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; margin-left: auto; }
-.nav-cta { padding: 7px 11px; font-size: 0.66rem; letter-spacing: 0.05em; }
-.locale-switcher { display: inline-flex; align-items: center; gap: 0; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; }
-.locale-switcher a { color: var(--text-dim); border: 1px solid var(--rule); padding: 6px 9px; text-decoration: none; transition: all 0.2s; }
-.locale-switcher a + a { margin-left: -1px; }
-.locale-switcher a:hover, .locale-switcher a.current { color: var(--ink); border-color: var(--ink-mid); background: var(--bg-soft); position: relative; z-index: 1; }
-.hamburger { display: none; flex-shrink:0; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
-.hamburger span { display:block; width:22px; height:1px; background:var(--ink); transition: all 0.25s; }
-@media (max-width: 900px) { .nav-center, .nav-right .nav-cta { display:none; } .hamburger { display:flex; } }
-@media (max-width: 768px) { .nav-logo-img--desktop { display:none; } .nav-logo-img--mobile { display:block; } }
-.mobile-menu { display:none; position:fixed; top:var(--nav-h); left:0; right:0; background:var(--bg); border-bottom:1px solid var(--rule); z-index:99; padding:8px var(--gutter) 20px; flex-direction:column; gap:0; }
-.mobile-menu.open { display:flex; }
-.mobile-menu a { font-size:0.88rem; color:var(--text); text-decoration:none; padding:14px 0; border-bottom:1px solid var(--rule); letter-spacing:0.04em; }
-.mobile-menu a:last-child { border-bottom:none; }
-.mobile-menu .mobile-menu-cta { margin-top:12px; padding:13px 18px; text-align:center; color:#fff; border-bottom:none; }
-
-.btn { display: inline-block; text-decoration: none; font-family: var(--sans); font-size: 0.84rem; font-weight: 400; letter-spacing: 0.06em; padding: 13px 28px; transition: all 0.2s; cursor: pointer; border: none; }
-.btn-primary { background: var(--ink); color: #fff; }
-.btn-primary:hover { background: var(--ink-mid); color: #fff; }
-.btn-outline { border: 1px solid var(--ink-mid); color: var(--ink); background: transparent; }
-.btn-outline:hover { border-color: var(--ink); color: var(--ink); }
-.rule-accent { width: 32px; height: 2px; background: var(--accent); margin: 14px 0 22px; }
-
-/* Footer (mirror) */
-footer { border-top: 1px solid var(--rule); padding: 52px 0 28px; background: var(--bg-soft); font-size: 0.82rem; color: var(--text-dim); }
-footer .footer-grid { display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); gap: 32px; align-items: start; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
-footer h2 { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.2em; color: var(--ink-soft); text-transform: uppercase; margin-bottom: 12px; font-weight: 500; }
-footer h3 { font-family: var(--serif); font-size: 1rem; font-weight: 400; color: var(--ink); margin-bottom: 8px; }
-footer ul { list-style: none; }
-footer ul li { padding: 4px 0; }
-footer ul li a { color: var(--text-mid); }
-footer ul li a:hover { color: var(--ink); }
-footer .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 18px; flex-wrap: wrap; gap: 12px; }
-footer .footer-locale-switcher a.current { font-weight: 600; color: var(--ink); }
-@media (max-width: 900px) { footer .footer-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 580px) { footer .footer-grid { grid-template-columns: 1fr; } }
-
-/* === Curriculum-specific === */
-main.curriculum { padding-top: var(--nav-h); }
-.curr-hero { padding: 96px 0 64px; border-bottom: 1px solid var(--rule); position: relative; overflow: hidden; }
-.curr-hero::before { content:''; position:absolute; inset:0;
-  background-image: linear-gradient(rgba(15,31,58,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(15,31,58,0.04) 1px, transparent 1px);
-  background-size: 64px 64px;
-  -webkit-mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent);
-          mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent); }
-.curr-hero-inner { position:relative; z-index:2; max-width: 880px; }
-.curr-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.32em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 18px; }
-.curr-hero h1 { font-family: var(--serif); font-size: clamp(1.9rem, 4.4vw, 3.1rem); font-weight: 300; color: var(--ink-mid); line-height: 1.3; letter-spacing: 0.02em; margin: 0 0 22px; }
-.curr-hero h1 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-.curr-hero .lede { font-size: 1.05rem; line-height: 1.85; color: var(--text); margin: 0 0 24px; max-width: 700px; }
-.curr-hero-meta { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
-.curr-hero-meta strong { color: var(--ink); font-family: var(--mono); }
-
-.crumbs { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; padding: 22px 0 0; }
-.crumbs a { color: var(--text-mid); }
-.crumbs a:hover { color: var(--ink); }
-.crumbs .sep { color: var(--rule); margin: 0 8px; }
-
-.theme-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; padding: 56px 0; }
-.theme-card { display: block; background: #fff; border: 1px solid var(--rule); padding: 30px 28px; position: relative; transition: all 0.2s; }
-.theme-card:hover { border-color: var(--ink-soft); box-shadow: 0 12px 32px rgba(15,31,58,0.08); transform: translateY(-2px); }
-.theme-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background: var(--accent); opacity: 0.85; }
-.theme-card-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; }
-.theme-card-name { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--ink-mid); margin: 10px 0 8px; line-height: 1.35; }
-.theme-card-period { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 14px; }
-.theme-card-desc { font-size: 0.92rem; line-height: 1.7; color: var(--text); margin-bottom: 18px; }
-.theme-card-list { font-size: 0.84rem; color: var(--text-mid); list-style: none; padding-top: 14px; border-top: 1px solid var(--rule-soft); }
-.theme-card-list li { padding: 5px 0; }
-.theme-card-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; }
-.theme-card-foot .arrow { color: var(--accent-deep); }
-
-.post-list { padding: 28px 0 56px; }
-.post-list-row { display: grid; grid-template-columns: 60px 1fr auto; gap: 22px; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--rule-soft); transition: all 0.18s; }
-.post-list-row:hover { background: var(--bg-mid); padding-left: 12px; padding-right: 12px; }
-.post-list-num { font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em; color: var(--accent-deep); font-weight: 500; }
-.post-list-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--ink-mid); line-height: 1.45; }
-.post-list-meta { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; white-space: nowrap; }
-@media (max-width: 600px) { .post-list-row { grid-template-columns: 50px 1fr; } .post-list-meta { grid-column: 1 / -1; padding-left: 72px; } }
-
-/* Post body */
-.post-body { padding: 48px 0 80px; }
-.post-content { max-width: var(--measure); margin: 0 auto; }
-.post-content > p, .post-content > ul, .post-content > ol, .post-content > blockquote, .post-content > pre, .post-content > table, .post-content > hr, .post-content > h2, .post-content > h3, .post-content > h4 { max-width: var(--measure); margin-left: auto; margin-right: auto; }
-.post-content h2 { font-family: var(--serif); font-size: 1.55rem; font-weight: 400; color: var(--ink-mid); line-height: 1.35; margin: 56px 0 14px; padding-top: 22px; border-top: 1px solid var(--rule-soft); }
-.post-content h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 500; color: var(--ink); margin: 36px 0 10px; line-height: 1.4; }
-.post-content h4 { font-family: var(--sans); font-size: 1rem; font-weight: 600; color: var(--ink); margin: 26px 0 8px; letter-spacing: 0.02em; }
-.post-content p { margin: 0 0 18px; font-size: 1rem; line-height: 1.85; color: var(--text); }
-.post-content p:first-of-type { font-size: 1.05rem; }
-.post-content ul, .post-content ol { margin: 0 0 22px; padding-left: 28px; }
-.post-content ul li, .post-content ol li { font-size: 0.97rem; line-height: 1.8; margin-bottom: 8px; color: var(--text); }
-.post-content ul li::marker { color: var(--accent-deep); }
-.post-content blockquote { margin: 30px 0; padding: 20px 24px; border-left: 3px solid var(--accent); background: var(--accent-soft); color: var(--ink-mid); font-style: normal; }
-.post-content blockquote p { margin-bottom: 8px; font-size: 0.97rem; }
-.post-content blockquote p:last-child { margin-bottom: 0; }
-.post-content blockquote strong { color: var(--ink); }
-.post-content code { background: #f0f0f0; color: var(--ink-mid); font-family: var(--mono); font-size: 0.88rem; padding: 2px 6px; border-radius: 3px; }
-.post-content pre { background: #f9f9fb; border: 1px solid var(--rule); padding: 18px 22px; overflow-x: auto; font-family: var(--mono); font-size: 0.85rem; line-height: 1.55; margin: 24px 0; }
-.post-content pre code { background: transparent; padding: 0; font-size: inherit; }
-.post-content a { color: var(--accent-deep); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; transition: text-decoration-color 0.18s; }
-.post-content a:hover { text-decoration-color: var(--accent-deep); }
-.post-content hr { border: none; border-top: 1px solid var(--rule); margin: 40px auto; max-width: 120px; }
-.post-content table { width: 100%; max-width: var(--measure); margin: 28px auto; border-collapse: collapse; font-size: 0.9rem; }
-.post-content th { background: var(--bg-mid); color: var(--ink-mid); font-family: var(--sans); font-weight: 600; text-align: left; padding: 12px 14px; border-bottom: 2px solid var(--rule); }
-.post-content td { padding: 10px 14px; border-bottom: 1px solid var(--rule-soft); vertical-align: top; color: var(--text); }
-.post-content tr:nth-child(even) td { background: #fafbfc; }
-
-/* Mermaid container */
-.mermaid-wrap { background: #fdfdfe; border: 1px solid var(--rule); padding: 22px 18px; margin: 28px 0; overflow-x: auto; }
-.mermaid { font-family: var(--sans); text-align: center; }
-
-/* Post header */
-.post-header { padding: 48px 0 28px; border-bottom: 1px solid var(--rule); }
-.post-header-inner { max-width: var(--measure); margin: 0 auto; }
-.post-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.28em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 14px; }
-.post-title { font-family: var(--serif); font-size: clamp(1.7rem, 3.6vw, 2.4rem); font-weight: 400; color: var(--ink-mid); line-height: 1.3; margin: 0 0 16px; letter-spacing: 0.005em; }
-.post-summary { font-size: 1.02rem; line-height: 1.8; color: var(--text); margin: 0 0 22px; max-width: 660px; }
-.post-meta { display: flex; gap: 26px; flex-wrap: wrap; padding-top: 18px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
-.post-meta span strong { color: var(--ink); font-family: var(--mono); }
-
-/* Post nav (prev/next) */
-.post-nav { max-width: var(--measure); margin: 56px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding-top: 36px; border-top: 1px solid var(--rule); }
-.post-nav-link { display: block; padding: 18px 20px; background: var(--bg-mid); border: 1px solid var(--rule); transition: all 0.18s; }
-.post-nav-link:hover { border-color: var(--ink-soft); background: #fff; transform: translateY(-1px); }
-.post-nav-dir { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px; }
-.post-nav-title { font-family: var(--serif); font-size: 0.94rem; color: var(--ink-mid); line-height: 1.4; }
-.post-nav-link.next { text-align: right; }
-@media (max-width: 640px) { .post-nav { grid-template-columns: 1fr; } .post-nav-link.next { text-align: left; } }
-
-/* Knowledge check */
-.kcheck { background: var(--bg-mid); padding: 72px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
-.kcheck-head { max-width: 720px; margin: 0 auto 36px; text-align: center; }
-.kcheck h2 { font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 300; color: var(--ink-mid); margin: 0 0 14px; line-height: 1.3; }
-.kcheck h2 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-.kcheck p.lede { font-size: 0.98rem; line-height: 1.75; color: var(--text); }
-.kcheck-q { background: #fff; border: 1px solid var(--rule); padding: 28px 30px; margin-bottom: 18px; max-width: 760px; margin-left: auto; margin-right: auto; }
-.kcheck-q-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; margin-bottom: 12px; }
-.kcheck-q-text { font-family: var(--serif); font-size: 1.1rem; line-height: 1.5; color: var(--ink-mid); margin-bottom: 18px; }
-.kcheck-opts { display: grid; gap: 8px; }
-.kcheck-opt { display: block; padding: 12px 16px; background: var(--bg-soft); border: 1px solid var(--rule); text-align: left; font-family: var(--sans); font-size: 0.92rem; color: var(--text); cursor: pointer; transition: all 0.15s; }
-.kcheck-opt:hover { background: #fff; border-color: var(--ink-soft); }
-.kcheck-opt.correct { background: #e8f3ec; border-color: var(--ok); color: var(--ok); }
-.kcheck-opt.incorrect { background: #fbe9e9; border-color: var(--bad); color: var(--bad); }
-.kcheck-explain { margin-top: 16px; padding: 14px 18px; background: var(--accent-soft); border-left: 3px solid var(--accent); font-size: 0.9rem; line-height: 1.7; color: var(--ink-mid); display: none; }
-.kcheck-q.answered .kcheck-explain { display: block; }
-.kcheck-score { text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--text-dim); margin-top: 28px; text-transform: uppercase; }
-.kcheck-score strong { color: var(--ink-mid); font-family: var(--mono); }
-
-/* Stats / hero stats */
-.stat-band { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; padding: 56px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); background: var(--bg-soft); }
-.stat-item { padding: 0 18px; }
-.stat-num { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 300; color: var(--ink-mid); line-height: 1; margin-bottom: 8px; }
-.stat-num em { color: var(--accent-deep); font-weight: 400; font-style: normal; }
-.stat-label { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; }
-</style>
-
-<meta property="og:image" content="https://jpinv.com/og/jii-default-en.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://jpinv.com/og/jii-default-en.png">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "url": "https://jpinv.com/en/governance/toolbox/",
-  "name": "The IR Toolbox | JII Governance Curriculum",
-  "description": "An indexed repository of every official artifact an IR representative should know — codes, guidelines, lists, FAQs, working-group reports, and data dashboards.",
-  "inLanguage": "en"
-}
-</script></head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IR Toolbox: Primary materials necessary for governance practices organized by field｜JII</title>
+  <meta name="description" content="We have organized the official materials referenced by IR personnel into nine categories, including codes, guidelines, list of disclosing companies, FAQs, reports of councils and study groups, and statistics. This is a collection of materials that can be used repeatedly in daily work and will be updated from time to time.">
+  <link rel="canonical" href="https://jpinv.com/en/governance/toolbox/">
+  <link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/toolbox/">
+  <link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/toolbox/">
+  <link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/toolbox/">
+  <meta property="og:title" content="IR Toolbox: Primary materials necessary for governance practices organized by field｜JII">
+  <meta property="og:description" content="We have organized the official materials referenced by IR personnel into nine categories, including codes, guidelines, list of disclosing companies, FAQs, reports of councils and study groups, and statistics. This is a collection of materials that can be used repeatedly in daily work and will be updated from time to time.">
+  <meta property="og:url" content="https://jpinv.com/en/governance/toolbox/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://jpinv.com/og/jii-default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://jpinv.com/og/jii-default.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&amp;family=Noto+Sans+JP:wght@300;400;500;600&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/governance.css?v=cf50a6cc07">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"IR Toolbox: Primary materials necessary for governance practices organized by field｜JII","description":"We have organized the official materials referenced by IR personnel into nine categories, including codes, guidelines, list of disclosing companies, FAQs, reports of councils and study groups, and statistics. This is a collection of materials that can be used repeatedly in daily work and will be updated from time to time.","url":"https://jpinv.com/en/governance/toolbox/","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Japan Investor Interface","url":"https://jpinv.com/"}}</script>
+</head>
 <body>
-<main id="main-content" class="curriculum" tabindex="-1">
-<div class="wrap crumbs">
-  <a href="/en/">JII</a> <span class="sep">/</span>
-  <a href="/en/governance/">Governance Curriculum</a> <span class="sep">/</span>
-  IR Toolbox
-</div>
-<header class="post-header">
-  <div class="wrap">
-    <div class="post-header-inner">
-      <div class="post-eyebrow">★ KEYSTONE · REFERENCE</div>
-      <h1 class="post-title">The IR Toolbox: every JPX / FSA / METI / SSBJ artifact, indexed</h1>
-      <p class="post-summary">An indexed repository of every official artifact an IR representative should know — codes, guidelines, lists, FAQs, working-group reports, and data dashboards.</p>
-      <div class="post-meta">
-        <span>Updated: <strong>2026-05-17</strong></span>
-        <span>Categories: <strong>9</strong></span>
-        <span>Updated <strong>as needed</strong></span>
-      </div>
-    </div>
-  </div>
-</header>
-<section class="post-body">
-  <div class="wrap">
-    <article class="post-content">
-<blockquote>
-<p><strong>TL;DR</strong>
-- This page is the keystone reference for IR representatives at Japan-listed companies — a single, curated catalogue of every official artifact (codes, guidelines, lists, FAQs, working-group reports, dashboards) produced by FSA, JPX/TSE, METI, SSBJ, MoJ, and GPIF.
-- Nine categories (A–I) organise every artifact by <em>function</em>, not by issuer, so you can find what you need by the question you are asking — not by which agency happens to own it.
-- Bilingual links wherever a Japanese-language original exists. URLs are verified against issuer domains only (<code>jpx.co.jp</code>, <code>fsa.go.jp</code>, <code>meti.go.jp</code>, <code>ssb-j.jp</code>, <code>moj.go.jp</code>, <code>gpif.go.jp</code>, <code>jira.or.jp</code>).
-- Read the <strong>seven-item shortlist at the bottom</strong> if you only have an afternoon. The full Toolbox is for when you need to find the canonical answer to a specific engagement question.</p>
-</blockquote>
-<h2>What this Toolbox is</h2>
+  <a class="gov-skip" href="#main-content">Skip to content</a>
+  <main id="main-content" class="governance-page" tabindex="-1">
+    <nav class="gov-wrap gov-crumbs" aria-label="Breadcrumb"><a href="/en/">Home</a><span class="sep">/</span><a href="/en/governance/">Governance Reform Curriculum</a><span class="sep">/</span><span aria-current="page">IR Toolbox</span></nav>
+    <header class="post-header"><div class="gov-wrap"><div class="post-header-inner"><span class="post-eyebrow">Core reference · Updated periodically</span><h1 class="post-title">IR Toolbox: Primary materials necessary for governance practices organized by field</h1><p class="post-summary">We have organized the official materials referenced by IR personnel into nine categories, including codes, guidelines, list of disclosing companies, FAQs, reports of councils and study groups, and statistics. This is a collection of materials that can be used repeatedly in daily work and will be updated from time to time.</p><div class="post-meta"><span>Categories: <strong>9</strong></span><span>Primary sources: <strong>Around 50 or more</strong></span><span>Updated: <strong>2026-08-30</strong></span></div></div></div></header>
+    <section class="post-body toolbox-body"><div class="gov-wrap"><article class="post-content"><h3 id="section-1">About this toolbox</h3>
+<p>As core materials for the JII governance reform curriculum, we have indexed more than 50 materials published by JPX/TSE, Financial Services Agency, Ministry of Economy, Trade and Industry, SSBJ, Ministry of Justice, and GPIF.</p>
+<p>The English version is also available in full (approximately 7,500 words).</p>
+<h3 id="section-2">Areas covered</h3>
+<ul>
+<li><strong>A. Codes</strong> - Corporate Governance Code (2015/2018/2021), Stewardship Code (2014/2017/2020/2025), Asset Owner Principles (2024)</li>
+<li><strong>B. Market structure/listing system</strong> - Prime/Standard/Growth standards, continued listing criteria, English disclosure rules, TOPIX calculation guidelines</li>
+<li><strong>C. List of disclosing companies</strong> - List of disclosing companies whose management is conscious of cost of capital and stock prices (updated monthly), list of companies eligible for grace period for disclosure in English</li>
+<li><strong>D. Good examples/case studies</strong> - Good examples of cost of capital disclosure, examples of dialogue with investors</li>
+<li><strong>E. Ministry of Economy, Trade and Industry guidelines</strong> - CGS guidelines, group guidelines, fair M&amp;A guidelines, Guidelines for Corporate Takeovers</li>
+<li><strong>F. Report of the Council/Study Group</strong> - Financial Services Agency follow-up meeting, TSE follow-up meeting regarding market classification review</li>
+<li><strong>G. FAQ/Practical Materials</strong> - Corporate Governance Report Writing Guidelines, English Disclosure Practice Handbook, Timely Disclosure Guidebook</li>
+<li><strong>H. Data/Statistics</strong> - Corporate Governance Information Service, Corporate Governance White Paper</li>
+<li><strong>I. Materials for overseas investors</strong> - English materials and English portal published by the Financial Services Agency, Ministry of Economy, Trade and Industry, and JPX</li>
+</ul><h2>Expanded primary-source reference</h2><p>The overview above follows the Japanese toolbox. This expanded English index provides direct links and practical reading notes. For current requirements and implementation status, use the corresponding updated curriculum articles.</p><h2>What this Toolbox is</h2>
 <p>Japan's corporate-governance reform produces a constant stream of official documents — codes, supplementary guidance, study-group reports, follow-up opinion statements, monthly disclosure lists, sample forms, and statistical surveys. The volume is genuinely high: in any given calendar year the FSA, JPX/TSE, METI, and SSBJ together publish more than 100 distinct artifacts that an IR representative would benefit from knowing about. Most are bilingual; a meaningful minority remain Japanese-only.</p>
 <p>This Toolbox indexes those artifacts in one place. Each entry is a card with:</p>
 <ul>
@@ -307,7 +79,7 @@ main.curriculum { padding-top: var(--nav-h); }
 <h3>Japan's Corporate Governance Code · TSE / FSA</h3>
 <blockquote>
 <p><strong>What it is:</strong> The five-General-Principle / 31-Principle / 42-Supplementary-Principle comply-or-explain rulebook governing every TSE-listed company's board behaviour, disclosure, and shareholder relations. Formally adopted as part of the TSE Securities Listing Regulations.
-<strong>Latest revision:</strong> 2021-06-11 (third edition; 1.0 was 2015, 2.0 was 2018). A fourth revision is in active preparation by the FSA Expert Panel — first meeting October 2025, second meeting February 2026, publication expected mid-2026.
+<strong>Latest revision:</strong> 2026-07-21. The revised Code was finalized and applied by the TSE on that date. Earlier editions were published in 2015, 2018 and 2021.
 <strong>Why IR cares:</strong> Every CG Report your company files is structured around explaining your compliance — or your "explain" — with these 78 items. The 2021 Prime-specific principles (TCFD-aligned climate disclosure, majority-independent boards or independent special committees for listed subsidiaries, skills matrices, diversity, electronic voting, English disclosure) are the implicit floor investors use in engagement.</p>
 </blockquote>
 <ul>
@@ -320,8 +92,8 @@ main.curriculum { padding-top: var(--nav-h); }
 </ul>
 <h3>Expert Panel on the Revision of the Corporate Governance Code · FSA</h3>
 <blockquote>
-<p><strong>What it is:</strong> The active FSA-convened expert panel preparing the fourth revision of the CG Code. Status: active; first meeting 21 October 2025, second meeting 19 February 2026.
-<strong>Latest revision:</strong> 2026-02-19 (second meeting).
+<p><strong>What it is:</strong> The FSA-convened expert panel that prepared the 2026 revised Code. Its first meeting was in October 2025; the revised Code was finalized on July 21, 2026. The focus is now implementation.
+<strong>Latest revision:</strong> 2026-07-21 (revised Code finalized).
 <strong>Why IR cares:</strong> This is where the next round of explicit demands on companies — likely on substance-of-engagement, board-effectiveness assessment, controlling-shareholder relationships, and sustainability integration — is being negotiated. Tracking the panel's published materials lets you brief your CEO 12 months ahead of any new comply-or-explain item.</p>
 </blockquote>
 <ul>
@@ -394,8 +166,8 @@ main.curriculum { padding-top: var(--nav-h); }
 </ul>
 <h3>Growth Market revised continued listing criteria · TSE</h3>
 <blockquote>
-<p><strong>What it is:</strong> The September-2025 revision that raises the Growth Market continued-listing market-cap threshold to ¥10 billion at the end of the 5th fiscal year after listing (was ¥4 billion at 10 years). Applies from fiscal years ending on or after 1 March 2030.
-<strong>Latest revision:</strong> 2025-09-26 (publication).
+<p><strong>What it is:</strong> The reform finalized in December 2025 that raises the Growth Market continued-listing market-cap threshold to ¥10 billion at the end of the 5th fiscal year after listing (was ¥4 billion at 10 years). Applies from fiscal years ending on or after 1 March 2030.
+<strong>Latest revision:</strong> 2025-12 (rules finalized following the September proposal).
 <strong>Why IR cares:</strong> If you are a Growth-Market issuer, this resets the timeline pressure on your growth-plan execution — roughly 200 of the current Growth-Market constituents will need to cross a meaningfully higher bar in the next four years.</p>
 </blockquote>
 <ul>
@@ -406,7 +178,7 @@ main.curriculum { padding-top: var(--nav-h); }
 <h3>English Disclosure mandate · TSE</h3>
 <blockquote>
 <p><strong>What it is:</strong> The TSE policy requiring Prime-market companies to disclose earnings reports (kessan tanshin) and timely-disclosure material simultaneously in Japanese and English via TDnet. Summary/excerpt English is acceptable; full translation is encouraged.
-<strong>Latest revision:</strong> 2025-04-01 (effective for FYs ending on or after 1 March 2025).
+<strong>Latest revision:</strong> 2025-04-01 (effective from April 1, 2025).
 <strong>Why IR cares:</strong> This is the operational rule behind your team's deadlines. Every TDnet release now has an English twin requirement. Implementation status is publicly surveyed (see C.3) and grace-period companies are publicly listed (see C.2).</p>
 </blockquote>
 <ul>
@@ -417,8 +189,8 @@ main.curriculum { padding-top: var(--nav-h); }
 </ul>
 <h3>TOPIX methodology and index-series rules · JPXI</h3>
 <blockquote>
-<p><strong>What it is:</strong> The methodology guidebooks for the TOPIX index and the TOPIX New Index Series, governing free-float adjustment, periodic-review schedule, the 10% cap rule, and the second-stage revision program (from October 2026, TOPIX will be selected by liquidity, not segment, and rebalanced annually).
-<strong>Latest revision:</strong> Ongoing; second-stage revisions phased through 2026–2028.
+<p><strong>What it is:</strong> The methodology guidebooks for the TOPIX index and the TOPIX New Index Series, governing free-float adjustment, periodic-review schedule, the 10% cap rule, and the second-stage revision program (from October 2026, TOPIX will be selected by liquidity, not segment, with the first review in October 2026, a reassessment in October 2027 and the second review in October 2028).
+<strong>Latest revision:</strong> Ongoing; second-stage transition from October 2026 to July 2028, followed by the second review in October 2028.
 <strong>Why IR cares:</strong> TOPIX inclusion drives passive-flow exposure. Under the new methodology, low-liquidity issuers risk losing weight or being excluded. Engagement programs of passive houses (Nikko AM, Nomura AM, BlackRock Japan) hinge on these rules — your index weight is their lever.</p>
 </blockquote>
 <ul>
@@ -631,7 +403,7 @@ main.curriculum { padding-top: var(--nav-h); }
 <h3>Guidelines for Corporate Takeovers · METI</h3>
 <blockquote>
 <p><strong>What it is:</strong> The 2023 reset of the M&amp;A norm in Japan: three principles (corporate-value-and-shareholder-interest principle, shareholder-intent principle, transparency principle), conduct expectations for target boards on receipt of an acquisition proposal, and anti-takeover-measure standards.
-<strong>Latest revision:</strong> 2023-08-31 (publication); Fair Acquisition Study Group reconvened February 2026 for further work.
+<strong>Latest revision:</strong> 2023-08-31 (Guidelines); Key Points and Q&amp;A were published on July 30, 2026, following the study group’s reconvening in 2026.
 <strong>Why IR cares:</strong> Re-set the M&amp;A norm in Japan. Unsolicited bids are now substantially more likely, and target-board behaviour is judged against this document. Activists cite it explicitly in shareholder proposals.</p>
 </blockquote>
 <ul>
@@ -1329,7 +1101,7 @@ main.curriculum { padding-top: var(--nav-h); }
 </tr>
 <tr>
 <td>2025-04-01</td>
-<td>English Disclosure mandate effective for FYs ending on/after 1 March 2025 (B.4).</td>
+<td>English Disclosure mandate effective from April 1, 2025 (B.4).</td>
 <td>https://www.jpx.co.jp/english/equities/follow-up/b5b4pj000004yqcc-att/u5j7e50000000l3i.pdf</td>
 </tr>
 <tr>
@@ -1360,21 +1132,9 @@ main.curriculum { padding-top: var(--nav-h); }
 </tbody>
 </table>
 <hr>
-<p><em>The Toolbox is maintained by jpinv.com. Last full URL verification: 2026-05-16. Next scheduled URL re-verification: 2026-08-15. To suggest an addition, correction, or broken-link report, log an issue at the jpinv.com GitHub repository or email editor@jpinv.com.</em></p>
-    </article>
-  </div>
-</section>
-</main>
-<style>footer{background:var(--ink,#1a2a4a);color:#cfd6e2;padding:48px 0 30px;font-size:0.8rem;line-height:1.8;border-top:none}footer a{color:#cfd6e2;text-decoration:none}footer .footer-row{list-style:none;display:flex;flex-wrap:wrap;gap:8px 26px;margin:0 0 26px;padding:0}footer .footer-row li{padding:0}footer .footer-row a{color:#cfd6e2;text-decoration:none;font-size:0.8rem}footer .footer-bottom{padding-top:24px;border-top:1px solid rgba(255,255,255,0.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-family:var(--mono),monospace;font-size:0.68rem;letter-spacing:0.06em;color:rgba(255,255,255,0.55)}</style><script>
-const nav = document.getElementById('main-nav');
-if (nav) window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
-const hamburgerBtn = document.querySelector('.hamburger');
-function setMenuOpen(isOpen) { const menu = document.getElementById('mobileMenu'); if (!menu || !hamburgerBtn) return; menu.classList.toggle('open', isOpen); menu.hidden = !isOpen; hamburgerBtn.setAttribute('aria-expanded', String(isOpen)); }
-function toggleMenu() { const menu = document.getElementById('mobileMenu'); setMenuOpen(!(menu && menu.classList.contains('open'))); }
-document.addEventListener('click', (e) => { const menu = document.getElementById('mobileMenu'); if (menu && menu.classList.contains('open') && !menu.contains(e.target) && hamburgerBtn && !hamburgerBtn.contains(e.target)) setMenuOpen(false); });
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenuOpen(false); });
-</script>
-
-<script src="/assets/nav.js?v=48f8466f8c" defer></script>
+</article><div class="post-language"><a href="/governance/toolbox/" data-locale-route lang="ja">日本語版 →</a></div></div></section>
+  </main>
+  <script src="/assets/governance.js?v=cc6033456e" defer></script>
+  <script src="/assets/nav.js?v=393a8e17be" defer></script>
 </body>
 </html>

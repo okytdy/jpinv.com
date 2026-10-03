@@ -1,432 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-
-<title>The 2021 Revision: Prime, sustainability, diversity | JII Governance Curriculum</title>
-<meta name="description" content="The June 2021 revision aligned the Code with the April 2022 Prime/Standard/Growth market restructuring. It introduced Prime-only obligations on independence, skills matrix, TCFD-aligned climate disclosure, English disclosure and electronic voting, and tightened the comply-or-explain regime around sustainability, diversity and human capital.">
-<meta property="og:title" content="The 2021 Revision: Prime, sustainability, diversity | JII Governance Curriculum">
-<meta property="og:description" content="The June 2021 revision aligned the Code with the April 2022 Prime/Standard/Growth market restructuring. It introduced Prime-only obligations on independence, skills matrix, TCFD-aligned climate disclosure, English disclosure and electronic voting, and tightened the comply-or-explain regime around sustainability, diversity and human capital.">
-<meta property="og:url" content="https://jpinv.com/en/governance/cg-code/2.3-cg-code-2021-revision/">
-<link rel="canonical" href="https://jpinv.com/en/governance/cg-code/2.3-cg-code-2021-revision/">
-<link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/cg-code/2.3-cg-code-2021-revision/">
-<link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/cg-code/2.3-cg-code-2021-revision/">
-<link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/cg-code/2.3-cg-code-2021-revision/">
-
-<style>
-:root {
-  --ink:        #1a2a4a;
-  --ink-mid:    #172641;
-  --ink-soft:   #304466;
-  --rule:       #d6dee8;
-  --rule-soft:  #e8edf3;
-  --bg:         #ffffff;
-  --bg-mid:     #f5f7fa;
-  --bg-soft:    #fafbfc;
-  --text:       #1f2937;
-  --text-mid:   #4a5566;
-  --text-dim:   #5f6875;
-  --accent:     #9a7838;
-  --accent-deep:#9a7838;
-  --accent-soft:#f4eee4;
-  --bad:        #b91c1c;
-  --warn:       #8a682b;
-  --ok:         #2f6f4f;
-  --serif: 'Noto Serif JP', 'Yu Mincho', serif;
-  --sans:  'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
-  --mono:  'DM Mono', monospace;
-  --max: 1100px;
-  --pad: 88px;
-  --gutter: 48px;
-  --nav-h: 64px;
-  --measure: 720px;
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 400; line-height: 1.7; overflow-x: hidden; }
-img { max-width: 100%; display: block; }
-a { color: var(--ink-soft); text-decoration: none; }
-a:hover { color: var(--ink); }
-.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
-@media (max-width: 768px) { :root { --gutter: 22px; --pad: 56px; } }
-strong { font-weight: 600; color: var(--ink); }
-em { font-style: normal; color: var(--ink); font-weight: 600; }
-.label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); }
-
-/* Nav (copied from jpinv.com base) */
-nav#main-nav { position: fixed; top:0; left:0; right:0; z-index:100; height: var(--nav-h); background: rgba(255,255,255,0.96); backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule); display: flex; align-items: center; transition: box-shadow 0.3s; }
-nav#main-nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
-.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; }
-.nav-logo { text-decoration: none; display: inline-flex; align-items: center; flex: 0 0 auto; min-width: max-content; white-space: nowrap; }
-.nav-logo-img { display: block; width: auto; height: 40px; max-width: none; object-fit: contain; object-position: left center; }
-.nav-logo-img--mobile { display: none; width: 32px; height: 32px; object-fit: contain; }
-.nav-center { flex: 1; display: flex; justify-content: center; }
-.nav-links { display: flex; gap: 18px; list-style: none; flex-wrap: nowrap; white-space: nowrap; }
-.nav-links a { font-family: var(--sans); font-size: 0.74rem; font-weight: 400; letter-spacing: 0.02em; color: var(--text); text-decoration: none; transition: color 0.2s; }
-.nav-links a:hover { color: var(--ink-soft); }
-.nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; margin-left: auto; }
-.nav-cta { padding: 7px 11px; font-size: 0.66rem; letter-spacing: 0.05em; }
-.locale-switcher { display: inline-flex; align-items: center; gap: 0; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; }
-.locale-switcher a { color: var(--text-dim); border: 1px solid var(--rule); padding: 6px 9px; text-decoration: none; transition: all 0.2s; }
-.locale-switcher a + a { margin-left: -1px; }
-.locale-switcher a:hover, .locale-switcher a.current { color: var(--ink); border-color: var(--ink-mid); background: var(--bg-soft); position: relative; z-index: 1; }
-.hamburger { display: none; flex-shrink:0; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
-.hamburger span { display:block; width:22px; height:1px; background:var(--ink); transition: all 0.25s; }
-@media (max-width: 900px) { .nav-center, .nav-right .nav-cta { display:none; } .hamburger { display:flex; } }
-@media (max-width: 768px) { .nav-logo-img--desktop { display:none; } .nav-logo-img--mobile { display:block; } }
-.mobile-menu { display:none; position:fixed; top:var(--nav-h); left:0; right:0; background:var(--bg); border-bottom:1px solid var(--rule); z-index:99; padding:8px var(--gutter) 20px; flex-direction:column; gap:0; }
-.mobile-menu.open { display:flex; }
-.mobile-menu a { font-size:0.88rem; color:var(--text); text-decoration:none; padding:14px 0; border-bottom:1px solid var(--rule); letter-spacing:0.04em; }
-.mobile-menu a:last-child { border-bottom:none; }
-.mobile-menu .mobile-menu-cta { margin-top:12px; padding:13px 18px; text-align:center; color:#fff; border-bottom:none; }
-
-.btn { display: inline-block; text-decoration: none; font-family: var(--sans); font-size: 0.84rem; font-weight: 400; letter-spacing: 0.06em; padding: 13px 28px; transition: all 0.2s; cursor: pointer; border: none; }
-.btn-primary { background: var(--ink); color: #fff; }
-.btn-primary:hover { background: var(--ink-mid); color: #fff; }
-.btn-outline { border: 1px solid var(--ink-mid); color: var(--ink); background: transparent; }
-.btn-outline:hover { border-color: var(--ink); color: var(--ink); }
-.rule-accent { width: 32px; height: 2px; background: var(--accent); margin: 14px 0 22px; }
-
-/* Footer (mirror) */
-footer { border-top: 1px solid var(--rule); padding: 52px 0 28px; background: var(--bg-soft); font-size: 0.82rem; color: var(--text-dim); }
-footer .footer-grid { display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); gap: 32px; align-items: start; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
-footer h2 { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.2em; color: var(--ink-soft); text-transform: uppercase; margin-bottom: 12px; font-weight: 500; }
-footer h3 { font-family: var(--serif); font-size: 1rem; font-weight: 400; color: var(--ink); margin-bottom: 8px; }
-footer ul { list-style: none; }
-footer ul li { padding: 4px 0; }
-footer ul li a { color: var(--text-mid); }
-footer ul li a:hover { color: var(--ink); }
-footer .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 18px; flex-wrap: wrap; gap: 12px; }
-footer .footer-locale-switcher a.current { font-weight: 600; color: var(--ink); }
-@media (max-width: 900px) { footer .footer-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 580px) { footer .footer-grid { grid-template-columns: 1fr; } }
-
-/* === Curriculum-specific === */
-main.curriculum { padding-top: var(--nav-h); }
-.curr-hero { padding: 96px 0 64px; border-bottom: 1px solid var(--rule); position: relative; overflow: hidden; }
-.curr-hero::before { content:''; position:absolute; inset:0;
-  background-image: linear-gradient(rgba(15,31,58,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(15,31,58,0.04) 1px, transparent 1px);
-  background-size: 64px 64px;
-  -webkit-mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent);
-          mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent); }
-.curr-hero-inner { position:relative; z-index:2; max-width: 880px; }
-.curr-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.32em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 18px; }
-.curr-hero h1 { font-family: var(--serif); font-size: clamp(1.9rem, 4.4vw, 3.1rem); font-weight: 300; color: var(--ink-mid); line-height: 1.3; letter-spacing: 0.02em; margin: 0 0 22px; }
-.curr-hero h1 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-.curr-hero .lede { font-size: 1.05rem; line-height: 1.85; color: var(--text); margin: 0 0 24px; max-width: 700px; }
-.curr-hero-meta { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
-.curr-hero-meta strong { color: var(--ink); font-family: var(--mono); }
-
-.crumbs { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; padding: 22px 0 0; }
-.crumbs a { color: var(--text-mid); }
-.crumbs a:hover { color: var(--ink); }
-.crumbs .sep { color: var(--rule); margin: 0 8px; }
-
-.theme-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; padding: 56px 0; }
-.theme-card { display: block; background: #fff; border: 1px solid var(--rule); padding: 30px 28px; position: relative; transition: all 0.2s; }
-.theme-card:hover { border-color: var(--ink-soft); box-shadow: 0 12px 32px rgba(15,31,58,0.08); transform: translateY(-2px); }
-.theme-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background: var(--accent); opacity: 0.85; }
-.theme-card-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; }
-.theme-card-name { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--ink-mid); margin: 10px 0 8px; line-height: 1.35; }
-.theme-card-period { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 14px; }
-.theme-card-desc { font-size: 0.92rem; line-height: 1.7; color: var(--text); margin-bottom: 18px; }
-.theme-card-list { font-size: 0.84rem; color: var(--text-mid); list-style: none; padding-top: 14px; border-top: 1px solid var(--rule-soft); }
-.theme-card-list li { padding: 5px 0; }
-.theme-card-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; }
-.theme-card-foot .arrow { color: var(--accent-deep); }
-
-.post-list { padding: 28px 0 56px; }
-.post-list-row { display: grid; grid-template-columns: 60px 1fr auto; gap: 22px; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--rule-soft); transition: all 0.18s; }
-.post-list-row:hover { background: var(--bg-mid); padding-left: 12px; padding-right: 12px; }
-.post-list-num { font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em; color: var(--accent-deep); font-weight: 500; }
-.post-list-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--ink-mid); line-height: 1.45; }
-.post-list-meta { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; white-space: nowrap; }
-@media (max-width: 600px) { .post-list-row { grid-template-columns: 50px 1fr; } .post-list-meta { grid-column: 1 / -1; padding-left: 72px; } }
-
-/* Post body */
-.post-body { padding: 48px 0 80px; }
-.post-content { max-width: var(--measure); margin: 0 auto; }
-.post-content > p, .post-content > ul, .post-content > ol, .post-content > blockquote, .post-content > pre, .post-content > table, .post-content > hr, .post-content > h2, .post-content > h3, .post-content > h4 { max-width: var(--measure); margin-left: auto; margin-right: auto; }
-.post-content h2 { font-family: var(--serif); font-size: 1.55rem; font-weight: 400; color: var(--ink-mid); line-height: 1.35; margin: 56px 0 14px; padding-top: 22px; border-top: 1px solid var(--rule-soft); }
-.post-content h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 500; color: var(--ink); margin: 36px 0 10px; line-height: 1.4; }
-.post-content h4 { font-family: var(--sans); font-size: 1rem; font-weight: 600; color: var(--ink); margin: 26px 0 8px; letter-spacing: 0.02em; }
-.post-content p { margin: 0 0 18px; font-size: 1rem; line-height: 1.85; color: var(--text); }
-.post-content p:first-of-type { font-size: 1.05rem; }
-.post-content ul, .post-content ol { margin: 0 0 22px; padding-left: 28px; }
-.post-content ul li, .post-content ol li { font-size: 0.97rem; line-height: 1.8; margin-bottom: 8px; color: var(--text); }
-.post-content ul li::marker { color: var(--accent-deep); }
-.post-content blockquote { margin: 30px 0; padding: 20px 24px; border-left: 3px solid var(--accent); background: var(--accent-soft); color: var(--ink-mid); font-style: normal; }
-.post-content blockquote p { margin-bottom: 8px; font-size: 0.97rem; }
-.post-content blockquote p:last-child { margin-bottom: 0; }
-.post-content blockquote strong { color: var(--ink); }
-.post-content code { background: #f0f0f0; color: var(--ink-mid); font-family: var(--mono); font-size: 0.88rem; padding: 2px 6px; border-radius: 3px; }
-.post-content pre { background: #f9f9fb; border: 1px solid var(--rule); padding: 18px 22px; overflow-x: auto; font-family: var(--mono); font-size: 0.85rem; line-height: 1.55; margin: 24px 0; }
-.post-content pre code { background: transparent; padding: 0; font-size: inherit; }
-.post-content a { color: var(--accent-deep); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; transition: text-decoration-color 0.18s; overflow-wrap: anywhere; word-break: break-word; }
-.post-content a:hover { text-decoration-color: var(--accent-deep); }
-.post-content hr { border: none; border-top: 1px solid var(--rule); margin: 40px auto; max-width: 120px; }
-.post-content table { width: 100%; max-width: var(--measure); margin: 28px auto; border-collapse: collapse; font-size: 0.9rem; }
-.post-content th { background: var(--bg-mid); color: var(--ink-mid); font-family: var(--sans); font-weight: 600; text-align: left; padding: 12px 14px; border-bottom: 2px solid var(--rule); }
-.post-content td { padding: 10px 14px; border-bottom: 1px solid var(--rule-soft); vertical-align: top; color: var(--text); }
-.post-content tr:nth-child(even) td { background: #fafbfc; }
-
-/* Mermaid container */
-.mermaid-wrap { background: #fdfdfe; border: 1px solid var(--rule); padding: 22px 18px; margin: 28px 0; overflow-x: auto; }
-.mermaid { font-family: var(--sans); text-align: center; }
-
-/* Post header */
-.post-header { padding: 48px 0 28px; border-bottom: 1px solid var(--rule); }
-.post-header-inner { max-width: var(--measure); margin: 0 auto; }
-.post-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.28em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 14px; }
-.post-title { font-family: var(--serif); font-size: clamp(1.7rem, 3.6vw, 2.4rem); font-weight: 400; color: var(--ink-mid); line-height: 1.3; margin: 0 0 16px; letter-spacing: 0.005em; }
-.post-summary { font-size: 1.02rem; line-height: 1.8; color: var(--text); margin: 0 0 22px; max-width: 660px; }
-.post-meta { display: flex; gap: 26px; flex-wrap: wrap; padding-top: 18px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
-.post-meta span strong { color: var(--ink); font-family: var(--mono); }
-
-/* Post nav (prev/next) */
-.post-nav { max-width: var(--measure); margin: 56px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding-top: 36px; border-top: 1px solid var(--rule); }
-.post-nav-link { display: block; padding: 18px 20px; background: var(--bg-mid); border: 1px solid var(--rule); transition: all 0.18s; }
-.post-nav-link:hover { border-color: var(--ink-soft); background: #fff; transform: translateY(-1px); }
-.post-nav-dir { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px; }
-.post-nav-title { font-family: var(--serif); font-size: 0.94rem; color: var(--ink-mid); line-height: 1.4; }
-.post-nav-link.next { text-align: right; }
-@media (max-width: 640px) { .post-nav { grid-template-columns: 1fr; } .post-nav-link.next { text-align: left; } }
-
-/* Knowledge check */
-.kcheck { background: var(--bg-mid); padding: 72px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
-.kcheck-head { max-width: 720px; margin: 0 auto 36px; text-align: center; }
-.kcheck h2 { font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 300; color: var(--ink-mid); margin: 0 0 14px; line-height: 1.3; }
-.kcheck h2 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-.kcheck p.lede { font-size: 0.98rem; line-height: 1.75; color: var(--text); }
-.kcheck-q { background: #fff; border: 1px solid var(--rule); padding: 28px 30px; margin-bottom: 18px; max-width: 760px; margin-left: auto; margin-right: auto; }
-.kcheck-q-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; margin-bottom: 12px; }
-.kcheck-q-text { font-family: var(--serif); font-size: 1.1rem; line-height: 1.5; color: var(--ink-mid); margin-bottom: 18px; }
-.kcheck-opts { display: grid; gap: 8px; }
-.kcheck-opt { display: block; padding: 12px 16px; background: var(--bg-soft); border: 1px solid var(--rule); text-align: left; font-family: var(--sans); font-size: 0.92rem; color: var(--text); cursor: pointer; transition: all 0.15s; }
-.kcheck-opt:hover { background: #fff; border-color: var(--ink-soft); }
-.kcheck-opt.correct { background: #e8f3ec; border-color: var(--ok); color: var(--ok); }
-.kcheck-opt.incorrect { background: #fbe9e9; border-color: var(--bad); color: var(--bad); }
-.kcheck-explain { margin-top: 16px; padding: 14px 18px; background: var(--accent-soft); border-left: 3px solid var(--accent); font-size: 0.9rem; line-height: 1.7; color: var(--ink-mid); display: none; }
-.kcheck-q.answered .kcheck-explain { display: block; }
-.kcheck-score { text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--text-dim); margin-top: 28px; text-transform: uppercase; }
-.kcheck-score strong { color: var(--ink-mid); font-family: var(--mono); }
-
-/* Stats / hero stats */
-.stat-band { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; padding: 56px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); background: var(--bg-soft); }
-.stat-item { padding: 0 18px; }
-.stat-num { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 300; color: var(--ink-mid); line-height: 1; margin-bottom: 8px; }
-.stat-num em { color: var(--accent-deep); font-weight: 400; font-style: normal; }
-.stat-label { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; }
-</style>
-
-<meta property="og:image" content="https://jpinv.com/og/jii-default-en.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://jpinv.com/og/jii-default-en.png">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "url": "https://jpinv.com/en/governance/cg-code/2.3-cg-code-2021-revision/",
-  "name": "The 2021 Revision: Prime, sustainability, diversity | JII Governance Curriculum",
-  "description": "The June 2021 revision aligned the Code with the April 2022 Prime/Standard/Growth market restructuring. It introduced Prime-only obligations on independence, skills matrix, TCFD-aligned climate disclosure, English disclosure and electronic voting, and tightened the comply-or-explain regime around sustainability, diversity and human capital.",
-  "inLanguage": "en"
-}
-</script></head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The 2021 revision: Prime Market, sustainability and diversity｜JII Governance Reform Curriculum</title>
+  <meta name="description" content="The June 2021 revision was carried out in conjunction with the TSE&#39;s market segments reorganization scheduled for the following year. Higher principles have been established for the prime market, including having at least one-third of directors be independent, disclosing important information in English, using an electronic voting platform for institutional investors, and enhancing climate-related disclosures in line with the TCFD or equivalent framework. In addition, listed companies to which all principles apply are now required to make more specific disclosures regarding the skill composition of their boards, sustainability, investment in human capital and intellectual property, and diversity in management positions.">
+  <link rel="canonical" href="https://jpinv.com/en/governance/cg-code/2.3-cg-code-2021-revision/">
+  <link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/cg-code/2.3-cg-code-2021-revision/">
+  <link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/cg-code/2.3-cg-code-2021-revision/">
+  <link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/cg-code/2.3-cg-code-2021-revision/">
+  <meta property="og:title" content="The 2021 revision: Prime Market, sustainability and diversity｜JII Governance Reform Curriculum">
+  <meta property="og:description" content="The June 2021 revision was carried out in conjunction with the TSE&#39;s market segments reorganization scheduled for the following year. Higher principles have been established for the prime market, including having at least one-third of directors be independent, disclosing important information in English, using an electronic voting platform for institutional investors, and enhancing climate-related disclosures in line with the TCFD or equivalent framework. In addition, listed companies to which all principles apply are now required to make more specific disclosures regarding the skill composition of their boards, sustainability, investment in human capital and intellectual property, and diversity in management positions.">
+  <meta property="og:url" content="https://jpinv.com/en/governance/cg-code/2.3-cg-code-2021-revision/">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://jpinv.com/og/jii-default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://jpinv.com/og/jii-default.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&amp;family=Noto+Sans+JP:wght@300;400;500;600&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/governance.css?v=cf50a6cc07">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","name":"The 2021 revision: Prime Market, sustainability and diversity｜JII Governance Reform Curriculum","description":"The June 2021 revision was carried out in conjunction with the TSE's market segments reorganization scheduled for the following year. Higher principles have been established for the prime market, including having at least one-third of directors be independent, disclosing important information in English, using an electronic voting platform for institutional investors, and enhancing climate-related disclosures in line with the TCFD or equivalent framework. In addition, listed companies to which all principles apply are now required to make more specific disclosures regarding the skill composition of their boards, sustainability, investment in human capital and intellectual property, and diversity in management positions.","url":"https://jpinv.com/en/governance/cg-code/2.3-cg-code-2021-revision/","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Japan Investor Interface","url":"https://jpinv.com/"},"headline":"The 2021 revision: Prime Market, sustainability and diversity","dateModified":"2026-08-30","author":{"@type":"Organization","name":"Japan Investor Interface Co., Ltd."},"publisher":{"@type":"Organization","name":"Japan Investor Interface Co., Ltd.","url":"https://jpinv.com/"}}</script>
+</head>
 <body>
-<main id="main-content" class="curriculum" tabindex="-1">
-<div class="wrap crumbs">
-  <a href="/en/">JII</a> <span class="sep">/</span>
-  <a href="/en/governance/">Governance Curriculum</a> <span class="sep">/</span>
-  <a href="/en/governance/cg-code/">The Code Era</a> <span class="sep">/</span>
-  Post 2.3
-</div>
-<header class="post-header">
-  <div class="wrap">
-    <div class="post-header-inner">
-      <div class="post-eyebrow">Theme 2 · POST 2.3</div>
-      <h1 class="post-title">The 2021 Revision: Prime, sustainability, diversity</h1>
-      <p class="post-summary">The June 2021 revision aligned the Code with the April 2022 Prime/Standard/Growth market restructuring. It introduced Prime-only obligations on independence, skills matrix, TCFD-aligned climate disclosure, English disclosure and electronic voting, and tightened the comply-or-explain regime around sustainability, diversity and human capital.</p>
-      <div class="post-meta">
-        <span>Theme: <strong>The Code Era</strong></span>
-        <span>Reading: <strong>12 minutes min</strong></span>
-        <span>Updated: <strong>2026-05-16</strong></span>
-      </div>
-    </div>
-  </div>
-</header>
-<section class="post-body">
-  <div class="wrap">
-    <article class="post-content">
-<blockquote>
-<p><strong>TL;DR</strong>
-- The 2021 revision was <strong>finalised on 11 June 2021</strong> and designed to take effect with the April 2022 Prime/Standard/Growth market restructuring.
-- It introduced <strong>Prime-only obligations</strong>: at least one-third independent directors, TCFD-aligned (or equivalent) climate disclosure, skills-matrix disclosure, English-language IR materials, and electronic voting platforms.
-- The 2021 Code expanded the rulebook from 73 provisions to <strong>83 (5 General + 31 Principles + 47 Supplementary)</strong> and pushed sustainability, diversity and human capital into the comply-or-explain net.</p>
-</blockquote>
-<h2>The 2022 market restructuring is the backdrop</h2>
-<p>You cannot read the 2021 revision without the <strong>April 2022 market restructuring</strong> in mind. The TSE replaced its four legacy segments — 1st Section, 2nd Section, Mothers, JASDAQ — with three new ones: <strong>Prime</strong>, <strong>Standard</strong>, and <strong>Growth</strong>. Prime was positioned as the premium segment for companies engaging globally with institutional capital. Standard would house the bulk of established mid-caps. Growth would replace Mothers and JASDAQ as the start-up segment.</p>
-<p>The Code revision was the policy lever that gave the new segments substantive content. Prime would not be just a label — it would be a comply-or-explain regime with materially higher governance expectations than Standard or Growth. The 2021 revision built that differentiation directly into the Code text.</p>
-<h2>The five thematic shifts</h2>
-<table>
-<thead>
-<tr>
-<th>Theme</th>
-<th>2018 Code</th>
-<th>2021 Code</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Board independence</strong></td>
-<td>Companies should appoint at least one-third independent directors <strong>where necessary</strong>. Hard floor: two.</td>
-<td><strong>Prime Market</strong> companies must have <strong>at least one-third independent directors</strong> (majority where necessary). <strong>Standard / Growth</strong> retain the floor of two. Issuers are also expected to appoint independent directors with <strong>management experience at other companies</strong>.</td>
-</tr>
-<tr>
-<td><strong>Board skills matrix</strong></td>
-<td>Supplementary Principle 4.11.1 required disclosure of policy on board diversity. No reference to a skills matrix.</td>
-<td><strong>Supplementary Principle 4.11.1 rewritten</strong>: disclosure required "in an appropriate form according to the business environment and business characteristics, <strong>such as what is known as a skills matrix</strong>", mapping director skills to the company's management strategy.</td>
-</tr>
-<tr>
-<td><strong>Sustainability / climate</strong></td>
-<td>Sustainability was referenced only briefly under Principle 2.3. No climate-specific disclosure expectation.</td>
-<td><strong>Supplementary Principle 3.1.3 newly written</strong>: all companies must disclose initiatives on sustainability, human capital and intellectual-property investment. <strong>Prime Market</strong> companies must enhance climate disclosure based on <strong>TCFD recommendations or an equivalent international framework</strong>. <strong>Supplementary Principle 4.2.2</strong> adds that the board itself should develop the basic sustainability policy.</td>
-</tr>
-<tr>
-<td><strong>Diversity in management</strong></td>
-<td>Principle 2.4 referred to "ensuring diversity, including the active participation of women". No measurable-target requirement.</td>
-<td><strong>Principle 2.4 strengthened</strong> + <strong>new Supplementary Principle 2.4.1</strong>: companies must set and disclose <strong>voluntary measurable goals</strong> for promoting women, non-Japanese, and mid-career hires into core management positions, alongside HR development and internal-environment policies.</td>
-</tr>
-<tr>
-<td><strong>Digital, group, Prime extras</strong></td>
-<td>Limited reference to electronic voting or English disclosure; both treated as best practice rather than expectation.</td>
-<td><strong>Prime Market</strong>-specific expectations on (i) <strong>English-language disclosure</strong> of important materials, (ii) <strong>electronic voting platforms</strong> (Platform for Electronic Voting administered by ICJ), (iii) heightened board oversight of digital and group governance.</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><strong>Sidebar — Prime-only obligations, at a glance</strong></p>
-<p>The table below lists the Code provisions that bind only Prime-listed issuers — the regulatory bargain that justified the "Prime" label.</p>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Prime-only obligation</th>
-<th>Code anchor</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>At least <strong>one-third independent directors</strong> (majority where necessary)</td>
-<td>Principle 4.8</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Skills-matrix disclosure mapped to management strategy</td>
-<td>Supplementary Principle 4.11.1</td>
-</tr>
-<tr>
-<td>3</td>
-<td><strong>TCFD-aligned</strong> (or equivalent) climate disclosure</td>
-<td>Supplementary Principle 3.1.3</td>
-</tr>
-<tr>
-<td>4</td>
-<td><strong>English-language</strong> disclosure of important materials</td>
-<td>Supplementary Principle 3.1.2</td>
-</tr>
-<tr>
-<td>5</td>
-<td><strong>Electronic voting platform</strong> participation</td>
-<td>Supplementary Principle 1.2.4</td>
-</tr>
-<tr>
-<td>6</td>
-<td>Independent directors with <strong>outside management experience</strong> expected</td>
-<td>Principle 4.8 (commentary)</td>
-</tr>
-<tr>
-<td>7</td>
-<td>Heightened oversight of <strong>group governance</strong></td>
-<td>Principle 4.8 + Supplementary Principle 4.8.3</td>
-</tr>
-</tbody>
-</table>
-</blockquote>
-<h2>What the Code says — the Prime independence pull-quote</h2>
-<blockquote>
-<p><em>"Prime Market listed companies should appoint at least one-third of the directors as independent directors, regardless of the company's organizational form. If a Prime Market listed company believes it needs to appoint a majority of directors as independent directors… it should appoint a sufficient number of independent directors."</em>
-— Japan's Corporate Governance Code (2021), Principle 4.8</p>
-</blockquote>
-<p>And on TCFD climate disclosure:</p>
-<blockquote>
-<p><em>"Companies… should collect and analyse necessary data on the impact of climate-related risks and opportunities on their business activities and profits, and enhance the quality and quantity of disclosure based on the TCFD recommendations or an equivalent framework. In particular, Prime Market listed companies should make such disclosures."</em>
-— Japan's Corporate Governance Code (2021), Supplementary Principle 3.1.3</p>
-</blockquote>
-<p>The TCFD reference is one of the most consequential single sentences in the 2021 Code. It made TCFD-aligned climate disclosure the de facto comply-or-explain standard for Prime Market companies — and laid the groundwork for the <strong>mandatory inclusion of sustainability disclosure in the yuho</strong> (annual securities report) from FY2023, and ultimately for the SSBJ standards that take effect in phases from FY2027 onward.</p>
-<h2>The diversity equation</h2>
-<p>Supplementary Principle 2.4.1 made Japanese boards do something they had not been asked to do before: publish <strong>measurable voluntary targets</strong> for promoting women, non-Japanese, and mid-career hires into "core management positions". The Code did not specify the targets — it required only that they be measurable and disclosed.</p>
-<p>The numerical context made the principle bite. At the time of the revision (March 2021 fiscal-year-end), <strong>women held only about 7.4% of executive seats</strong> at the roughly 2,220 listed companies with March fiscal years. The gap between that baseline and the government's later <strong>"30% by 2030"</strong> target — set out in the June 2023 <em>Priority Policy on Women's Empowerment and Gender Equality</em> — is the policy distance that Supplementary Principle 2.4.1 is doing the work of closing.</p>
-<h2>A bigger rulebook</h2>
-<p>The 2021 revision added one new Principle (the cluster reorganisation gave Principle 3.1 a new sub-principle treatment) and nine Supplementary Principles. The Code expanded from <strong>73 provisions in 2015 to 83 provisions in 2021</strong> (5 General + 31 Principles + 47 Supplementary). For an IR rep, the practical point is that the comply-or-explain table in Section II of the CG Report grew correspondingly — and the <strong>principle numbering</strong> in some sections shifted slightly. The most-numbered new line is Supplementary Principle 4.10.1 (nomination/remuneration committee composition), which was given more specific majority-independence expectations.</p>
-<h2>What happened at the April 2022 Prime Market launch</h2>
-<p>The first measurement after the segment switch — the TSE's August 2022 follow-up brief based on CG Reports submitted through 14 July 2022 — showed the comply-or-explain mechanic in motion. <strong>About 13% of the 1,839 Prime-listed companies (239)</strong> did not yet meet all the new continued-listing criteria at launch and entered the <strong>"improvement period"</strong>, with a March 2025 deadline (covered in Theme 3.3). Compliance with the Prime-specific Code provisions improved sharply in the run-up to the launch — but the long-tail companies that needed time to recruit independent directors, build climate-disclosure capacity, or stand up an English IR function were given explicit room to explain.</p>
-<blockquote>
-<p><strong>Sidebar — "Comply or explain" is not "comply or comply later"</strong>
-The 2021 revision was sometimes read by issuers as setting an effective deadline (April 2022). It did not. A Prime-listed company that explains why it has not yet met the one-third independence floor, with a credible roadmap, is fully Code-compliant. The friction with proxy advisers and stewardship-active investors is a separate, real, market-discipline question — but the listing-contract status is determined by the quality of the explanation, not the binary fact of non-compliance.</p>
-</blockquote>
-<h2>What this means for IR</h2>
-<ol>
-<li><strong>Audit your CG Report against the Prime-only list.</strong> If you are Prime-listed, the seven Prime-only obligations are the seven lines your overseas investors and proxy advisers will read first. Make sure each has a substantive, dated, board-owned compliance narrative.</li>
-<li><strong>Treat the skills matrix as a strategic disclosure, not a checklist.</strong> Supplementary Principle 4.11.1 expects the skills matrix to map <em>to the company's management strategy</em>. A boilerplate matrix that lists "finance, legal, governance" against every director without a strategic-rationale column is exactly the disclosure that the Follow-up Council's 2023 <em>From Form to Substance</em> Opinion Statement criticises.</li>
-<li><strong>Build the TCFD pipeline now — before SSBJ binds.</strong> Climate disclosure responsibilities under the Code, the yuho, and the eventual SSBJ standards are layered. The earliest of those — Supplementary Principle 3.1.3 — is the one that gives you years of reporting practice before mandatory disclosure rules elevate the legal stakes.</li>
-<li><strong>Disclose measurable diversity goals, not aspirations.</strong> Supplementary Principle 2.4.1 is explicit about "voluntary measurable goals". An IR pack that quotes a goal of "promoting diversity" is non-compliant in substance. A goal of "20% women in core management by FY2030, from 9% in FY2024" is compliant.</li>
-<li><strong>Treat English IR as a Code-level expectation, not a courtesy.</strong> From 2021 onward, English disclosure of important materials by Prime issuers is a comply-or-explain item. The April 2025 English-disclosure switch (covered in Theme 5.1) tightens this further but the comply-or-explain anchor predates it.</li>
-</ol>
-<h2>Sources &amp; further reading</h2>
+  <a class="gov-skip" href="#main-content">Skip to content</a>
+  <main id="main-content" class="governance-page" tabindex="-1">
+    <nav class="gov-wrap gov-crumbs" aria-label="Breadcrumb"><a href="/en/">Home</a><span class="sep">/</span><a href="/en/governance/">Governance Reform Curriculum</a><span class="sep">/</span><a href="/en/governance/cg-code/">code era</a><span class="sep">/</span><span aria-current="page">Article 2.3</span></nav>
+    <header class="post-header"><div class="gov-wrap"><div class="post-header-inner"><span class="post-eyebrow">Theme 2 · Article 2.3</span><h1 class="post-title">The 2021 revision: Prime Market, sustainability and diversity</h1><p class="post-summary">The June 2021 revision was carried out in conjunction with the TSE&#39;s market segments reorganization scheduled for the following year. Higher principles have been established for the prime market, including having at least one-third of directors be independent, disclosing important information in English, using an electronic voting platform for institutional investors, and enhancing climate-related disclosures in line with the TCFD or equivalent framework. In addition, listed companies to which all principles apply are now required to make more specific disclosures regarding the skill composition of their boards, sustainability, investment in human capital and intellectual property, and diversity in management positions.</p><div class="post-meta"><span>Theme: <strong>code era</strong></span><span>Reading time: <strong>11 min</strong></span><span>Updated: <strong>2026-08-30</strong></span></div></div></div></header>
+    <section class="post-body"><div class="gov-wrap"><article class="post-content"><blockquote>
+<p><strong>Key points</strong></p>
 <ul>
-<li>FSA — Revisions of Japan's Corporate Governance Code and Guidelines for Investor and Company Engagement (Apr 2021 outline + 11 Jun 2021 finalisation): https://www.fsa.go.jp/en/news/2021/20210406.html</li>
-<li>JPX — Publication of Revised Japan's Corporate Governance Code (11 Jun 2021): https://www.jpx.co.jp/english/news/1020/20210611-01.html</li>
-<li>JPX — Revised CG Code (English PDF, June 2021): https://www.jpx.co.jp/english/news/1020/b5b4pj0000046kxj-att/b5b4pj0000046l0c.pdf</li>
-<li>FSA — 11 June 2021 explanatory note (English PDF): https://www.fsa.go.jp/en/news/2021/20210611/04.pdf</li>
-<li>JPX — How Listed Companies Have Addressed the Corporate Governance Code (post-AGM Jun 2022): https://www.jpx.co.jp/english/news/1020/20220803-01.html</li>
-<li>Cabinet Office — <em>Highlighting Japan</em> Nov 2021 explainer: https://www.gov-online.go.jp/eng/publicity/book/hlj/html/202111/202111_09_en.html</li>
+<li>The 2021 Amendments went into effect on <strong>June 11, 2021</strong>. The principles for the prime market came into effect from <strong>April 4, 2022</strong>, when the new market segment began.</li>
+<li>Additional requirements have been established for the prime market, including at least one-third of independent directors, independence of nomination and remuneration committees, English-language disclosure, electronic voting platforms, and climate-related disclosures based on TCFD, etc.</li>
+<li>The skills matrix, managerial diversity, sustainability, and investment in human capital and intellectual property are amendments that are relevant not only to the prime market, but also to listed companies that are subject to all of the Code&#39;s principles.</li>
 </ul>
-<h2>Cross-references</h2>
-<p><strong>Next in this theme:</strong> Post 2.4 — <em>How to Read a Japanese CG Report in 15 Minutes</em>.</p>
-<p><strong>Related posts in other themes:</strong>
-- Post 3.1 — <em>From Four Segments to Three</em> (the market restructuring the 2021 Code was designed to support)
-- Post 3.3 — <em>The March 2025 Cliff</em> (what happened to companies that entered the Prime improvement period)
-- Post 5.1 — <em>The English disclosure mandate</em> (the 2025 sequel to Supplementary Principle 3.1.2)
-- Post 5.5 — <em>SSBJ in Action</em> (where the TCFD seed in 3.1.3 becomes a mandatory standard)
-- Post 5.6 — <em>"30% by 2030" Is a Pipeline Problem</em> (the diversity trajectory Supplementary Principle 2.4.1 started)</p>
-    </article>
-    <div class="post-nav"><a href="/en/governance/cg-code/2.2-cg-code-2018-revision/" class="post-nav-link prev"><div class="post-nav-dir">← Previous</div><div class="post-nav-title">The 2018 Revision: capital efficiency enters the Code</div></a><a href="/en/governance/cg-code/2.4-reading-a-cg-report/" class="post-nav-link next"><div class="post-nav-dir">Next →</div><div class="post-nav-title">How to Read a Japanese CG Report in 15 Minutes</div></a></div>
-  </div>
-</section>
-</main>
-<style>footer{background:var(--ink,#1a2a4a);color:#cfd6e2;padding:48px 0 30px;font-size:0.8rem;line-height:1.8;border-top:none}footer a{color:#cfd6e2;text-decoration:none}footer .footer-row{list-style:none;display:flex;flex-wrap:wrap;gap:8px 26px;margin:0 0 26px;padding:0}footer .footer-row li{padding:0}footer .footer-row a{color:#cfd6e2;text-decoration:none;font-size:0.8rem}footer .footer-bottom{padding-top:24px;border-top:1px solid rgba(255,255,255,0.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-family:var(--mono),monospace;font-size:0.68rem;letter-spacing:0.06em;color:rgba(255,255,255,0.55)}</style><script>
-const nav = document.getElementById('main-nav');
-if (nav) window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
-const hamburgerBtn = document.querySelector('.hamburger');
-function setMenuOpen(isOpen) { const menu = document.getElementById('mobileMenu'); if (!menu || !hamburgerBtn) return; menu.classList.toggle('open', isOpen); menu.hidden = !isOpen; hamburgerBtn.setAttribute('aria-expanded', String(isOpen)); }
-function toggleMenu() { const menu = document.getElementById('mobileMenu'); setMenuOpen(!(menu && menu.classList.contains('open'))); }
-document.addEventListener('click', (e) => { const menu = document.getElementById('mobileMenu'); if (menu && menu.classList.contains('open') && !menu.contains(e.target) && hamburgerBtn && !hamburgerBtn.contains(e.target)) setMenuOpen(false); });
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenuOpen(false); });
-</script>
-<script type="module">
-import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs';
-mermaid.initialize({ startOnLoad: true, theme: 'neutral', fontFamily: 'Noto Sans JP, Hiragino Kaku Gothic ProN, sans-serif', themeVariables: { primaryColor: '#f4eee4', primaryTextColor: '#1a2a4a', primaryBorderColor: '#9a7838', lineColor: '#304466', secondaryColor: '#f5f7fa', tertiaryColor: '#fafbfc' } });
-</script>
-<script src="/assets/nav.js?v=48f8466f8c" defer></script>
+</blockquote>
+<h2 id="section-1">Revisions made in conjunction with market segments reorganization</h2>
+<p>The 2021 revision cannot be understood without mentioning the April 2022 market segments realignment. The Tokyo Stock Exchange has reorganized the traditional First Section, Second Section, Mothers, and JASDAQ into three markets: <strong>Prime, Standard, and Growth</strong>. The prime market in particular was positioned as “for companies that focus on constructive dialogue with global investors.”</p>
+<p>The revision of the Corporate Governance Code gave substance to this position. By simply changing the market segment, the difference between prime and standard is limited to market capitalization and liquidity standards. Therefore, the TSE established principles in its code that apply only to the prime market, requiring higher standards for board independence, English-language disclosure, climate-related disclosure, and the environment in which shareholders&#39; meetings can be used.</p>
+<p>Meanwhile, the scope of the code itself has also been organized by market. Companies listed on the Prime Market and Standard Market must comply or explain all fundamental principles, principles, and supplementary principles. Listed companies in growth markets are subject to basic principles.</p>
+<h2 id="section-2">Five areas that have changed with the revision</h2>
+<table>
+<thead>
+<tr>
+<th>issue</th>
+<th>2018 edition</th>
+<th>What has changed in the 2021 edition</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Board of Directors Independence</strong></td>
+<td>At least two independent directors. Companies that were deemed necessary by more than one-third of respondents were asked to disclose their policies.</td>
+<td>In the <strong>prime market</strong>, <strong>one-third or more</strong> of directors should be independent outside directors. Companies that considered it necessary were encouraged to appoint a majority. Regarding the nomination and remuneration committee, in the prime market, the majority of the members are independent outside directors.</td>
+</tr>
+<tr>
+<td><strong>Board of Directors Skill Composition</strong></td>
+<td>They were asked to express their thoughts on the knowledge, experience, ability, diversity, and size of the board of directors as a whole.</td>
+<td><strong>Revised supplementary principle 4.11.1.</strong> The revision required identification of the skills needed by the board in light of the management strategy, and that the relationship between the skills of each director be disclosed in an appropriate format such as a skill matrix. It also specified that independent outside directors should include people with management experience at other companies.</td>
+</tr>
+<tr>
+<td><strong>Sustainability/Climate Change</strong></td>
+<td>Principle 2.3 touched on responding to sustainability issues, but did not provide a framework for human capital/intellectual property or specific climate disclosure.</td>
+<td><strong>Added supplementary principle 3.1.3.</strong> Required to disclose sustainability initiatives and investments in human capital and intellectual property in a way that makes it clear how they relate to business strategy. The revision called on <strong>Prime Market companies</strong> to enhance their climate-related disclosures based on the TCFD or equivalent framework. <strong>Supplementary Principle 4.2.2</strong> specifies the formulation and supervision of basic policies by the board of directors.</td>
+</tr>
+<tr>
+<td><strong>Diversity of core human resources</strong></td>
+<td>They called for ensuring diversity, including promoting the active participation of women, but did not call for numerical targets.</td>
+<td><strong>Added supplementary principle 2.4.1.</strong> Requested that companies publicize their approach, voluntary and measurable goals, and progress toward promoting women, foreigners, and mid-career hires to management positions. Human resource development policies and internal environment improvement policies were also subject to disclosure.</td>
+</tr>
+<tr>
+<td><strong>Response to overseas investors and shareholder meetings</strong></td>
+<td>It called for the establishment of an environment for disclosure in English and the exercise of electronic voting rights in accordance with shareholder composition.</td>
+<td>The <strong>Prime Market</strong> stipulates that necessary information must be disclosed and provided in English, and that at least an electronic voting platform must be made available to institutional investors.</td>
+</tr>
+</tbody></table>
+<p>It is important to distinguish between principles that apply only to the prime market and principles that apply to all companies covered by the principles. Requirements unique to the prime market include having at least one-third of independent outside directors, adding independence to the nomination and remuneration committee, English-language disclosure, an electronic voting platform, and climate-related disclosure based on the TCFD. In contrast, disclosure of skills matrices, managerial diversity, sustainability policies, and investments in human capital and intellectual property are relevant to companies covered by all of the Code&#39;s principles, including the Standard Market.</p>
+<h2 id="section-3">More than one-third of independent outside directors</h2>
+<p>The 2021 revision is symbolized by the part of Principle 4.8 for the prime market.</p>
+<blockquote>
+<p><em>&quot;Companies listed on the Prime Market should appoint at least one-third or more of independent outside directors. (Companies listed on the Prime Market that consider it necessary to appoint a majority of independent outside directors from the perspective of realizing the functions of the board of directors required by these principles, depending on the institutional design, should appoint a sufficient number of independent outside directors.)&quot;</em></p>
+<ul>
+<li>Corporate Governance Code (2021 Edition) Principle 4.8</li>
+</ul>
+</blockquote>
+<p>The 2015 and 2018 editions had a common standard of &quot;at least two people.&quot; The 2021 revision clarifies the <strong>proportion of board members</strong> for the prime market, rather than the number of people. This is to ensure that the influence of independent outside directors does not diminish even if the size of the board of directors increases.</p>
+<p>Furthermore, Supplementary Principle 4.10.1 stipulates that the majority of the members of the nomination committee and remuneration committee in the prime market should be independent outside directors. The revisions call for not only having independent outside directors on the board of directors, but also requiring them to be actually involved in important decisions such as selecting CEO successors and executive compensation.</p>
+<h2 id="section-4">Incorporating sustainability into business strategy disclosure</h2>
+<p>Supplementary Principle 3.1.3 treated sustainability as a matter of business strategy and resource allocation, rather than as an independent social contribution activity.</p>
+<blockquote>
+<p><em>&quot;Listed companies should appropriately disclose their own sustainability initiatives when disclosing their business strategies. Also, regarding investments in human capital and intellectual property, etc., they should disclose and provide concrete information in an easy-to-understand manner while being conscious of consistency with their own business strategies and management issues. In particular, companies listed on the prime market should collect and analyze the necessary data on the impact of climate change-related risks and profit opportunities on their business activities and profits, and improve the quality and quantity of disclosure based on the internationally established disclosure framework TCFD or an equivalent framework.&#39;&#39;</em></p>
+<ul>
+<li>Corporate Governance Code (2021 Edition) Supplementary Principle 3.1.3</li>
+</ul>
+</blockquote>
+<p>This principle has three stages. First, all target companies will disclose their sustainability efforts. Second, companies explain how investment in human capital and intellectual property relates to business strategy. Third, Prime Market companies analyze climate-related risks and opportunities and enhance disclosure in line with frameworks such as the TCFD.</p>
+<p>Subsequently, a section for sustainability information was added to annual securities reports, and progress was made in the development of SSBJ standards. The 2021 amendments served as a wake-up call for boards and investor relations departments in advance of such statutory disclosures.</p>
+<h2 id="section-5">Diversity from “policy” to “measurable goal”</h2>
+<p>Supplementary Principle 2.4.1 required companies to present not only a philosophy but also “voluntary and measurable goals” regarding the promotion of women, foreign nationals, and mid-career hires to management positions. The code does not specify a uniform number. This is a system in which each company sets goals according to its own situation and publishes its approach, progress, human resources development policy, and internal environment improvement policy.</p>
+<p>At the time of the revision, the ratio of female executives in the approximately 2,220 listed companies with financial results for the fiscal year ended March was approximately 7.4%. There is a big difference between this and the government&#39;s 2023 goal of having a female executive ratio of 30% or more by 2030. Supplementary Principle 2.4.1 directly targets the managerial level, but continuous development of candidates there will lead to a human resource base for future executive officers and directors.</p>
+<h2 id="section-6">Code changed from 73 items to 83 items</h2>
+<p>The revised code in 2021 now has a total of 83 items, including 5 basic principles, 31 principles, and 47 supplementary principles. This is an increase of 10 items from 73 in the 2015 edition, and includes additional principles for sustainability, human capital, intellectual property, diversity, group governance, and prime markets.</p>
+<p>More important than the number of items is the increased need to connect disclosures. For example, the skills matrix is linked to business strategy, and human capital investment is linked to sustainability policy and capital allocation. The English disclosure should not be treated as a summary of the Japanese version, but as the information base that supports dialogue with overseas investors. It became difficult to provide a convincing explanation as a whole by simply responding to each principle separately.</p>
+<h2 id="section-7">Application starts in April 2022</h2>
+<p>The principles for the prime market were applied at the same time as the market realignment on April 4, 2022. Even before that, companies had added director candidates, changed the composition of nomination and compensation committees, collected climate data, established English-language disclosure systems, and introduced electronic voting platforms.</p>
+<p>The data compiled by TSE from corporate governance reports as of July 14, 2022 shows the status of compliance with each revised principle by market. &quot;Explanation&quot; here does not necessarily mean that the transition is delayed. The Code allows companies to specifically explain their circumstances and future policies even if they do not implement the principles.</p>
+<blockquote>
+<p><strong>Column: Comply or explain is not a system where you just have to comply eventually</strong>
+Even if a company does not implement the principles, the explanations in the code will still hold true if the reasons for doing so are appropriate to the company&#39;s circumstances and the alternative measures and future policy are clear. On the other hand, if you simply state that you will consider the decision in the future, but do not indicate the reason for the decision or the timing, it may be a formal explanation, but it will be perceived by investors as an insubstantial response. The question is not so much the choice between compliance or explanation, but rather how the board made that decision.</p>
+</blockquote>
+<h2 id="section-8">Practical matters that IR personnel should keep in mind</h2>
+<ol>
+<li><strong>Independently manage principles for prime market.</strong> For each item, such as independent outside directors, nomination and compensation committee, English disclosure, electronic voting, TCFD, etc., list the responsible department, confirmation period at the board of directors, and disclosure medium.</li>
+<li><strong>Create a skills matrix from management strategy.</strong> Rather than listing items that are likely to apply to a director&#39;s background, first determine the abilities necessary to implement the medium-term management plan, and then indicate who will be responsible for those abilities.</li>
+<li><strong>Connect sustainability disclosure with financial planning.</strong> Align climate, human capital, and intellectual property investments and performance metrics with business strategy, capital allocation, and risk management narratives.</li>
+<li><strong>Diversity represents a set of goals, achievements, and development strategies.</strong> Disclose not only the policy of “emphasizing diversity,” but also current values, target values, deadlines, and the system for developing candidates.</li>
+<li><strong>Do not limit English disclosure to translation work only.</strong> Establish a system in which overseas investors can access the same important information at the same time as Japanese documents. The mandatory disclosure in English in April 2025 is a system that strengthens the trend that started with the 2021 revision.</li>
+</ol>
+<h2 id="section-9">Source/reference materials</h2>
+<ul>
+<li>Financial Services Agency - Revision of Corporate Governance Code and Investor-Company Dialogue Guidelines (announced in April 2021, finalized on June 11): <a href="https://www.fsa.go.jp/news/r2/singi/20210406.html">https://www.fsa.go.jp/news/r2/singi/20210406.html</a></li>
+<li>Japan Exchange Group - Announcement of &quot;Revised Corporate Governance Code&quot; (June 11, 2021): <a href="https://www.jpx.co.jp/news/1020/20210611-01.html">https://www.jpx.co.jp/news/1020/20210611-01.html</a></li>
+<li>Japan Exchange Group - Revised Corporate Governance Code (June 2021, PDF): <a href="https://www.jpx.co.jp/equities/listing/cg/tvdivq0000008jdy-att/b7gje6000005ob1l.pdf">https://www.jpx.co.jp/equities/listing/cg/tvdivq0000008jdy-att/b7gje6000005ob1l.pdf</a></li>
+<li>Financial Services Agency - Commentary on June 11, 2021 final version (PDF): <a href="https://www.fsa.go.jp/news/r2/singi/20210611/04.pdf">https://www.fsa.go.jp/news/r2/singi/20210611/04.pdf</a></li>
+<li>Japan Exchange Group - Status of listed companies&#39; compliance with the Corporate Governance Code (after the June 2022 Ordinary General Meeting): <a href="https://www.jpx.co.jp/news/1020/20220803-01.html">https://www.jpx.co.jp/news/1020/20220803-01.html</a></li>
+</ul>
+<h2 id="section-10">Related articles</h2>
+<p><strong>Next article on this theme:</strong> 2.4 - How to read a corporate governance report in 15 minutes</p>
+<p><strong>Related articles on other themes:</strong></p>
+<ul>
+<li>3.1 - <a href="/en/governance/market-restructuring/3.1-four-segments-to-three/">From 4 segments to 3 segments - Market reorganization in April 2022</a> (New market segment designed in conjunction with the 2021 revision)</li>
+<li>3.3 - <a href="/en/governance/market-restructuring/3.3-transitional-measures-cliff/">Listing maintenance rules after transitional measures end</a> (understand the quantitative standards of market segments and the principles of the code separately)</li>
+<li>5.1 - <a href="/en/governance/frontier/5.1-english-disclosure-mandate/">Simultaneous disclosure in Japanese and English is just the beginning - mandatory in April 2025</a> (Development from Supplementary Principle 3.1.2 to timely disclosure rules)</li>
+<li>5.5 - <a href="/en/governance/frontier/5.5-ssbj-sustainability/">SSBJ Standards in Practice - Steps of Application and Preparation Key Points</a> (Continuing from Supplementary Principle 3.1.3 to Statutory Disclosure)</li>
+<li>5.6—<a href="/en/governance/frontier/5.6-board-diversity-30-by-30/">To achieve “30% in 2030”—How to develop female executive candidates</a> (Replenishment Principle 2.4.1 and talent pipeline)</li>
+</ul></article><nav class="post-nav" aria-label="Article navigation"><a class="post-nav-link prev" href="/en/governance/cg-code/2.2-cg-code-2018-revision/"><div class="post-nav-dir">← Previous article</div><div class="post-nav-title">The 2018 revision: Bringing cost of capital into the Code</div></a><a class="post-nav-link next" href="/en/governance/cg-code/2.4-reading-a-cg-report/"><div class="post-nav-dir">Next article →</div><div class="post-nav-title">How to read a corporate governance report in 15 minutes</div></a></nav><div class="post-language"><a href="/governance/cg-code/2.3-cg-code-2021-revision/" data-locale-route lang="ja">日本語版 →</a></div></div></section>
+  </main>
+  <script src="/assets/governance.js?v=cc6033456e" defer></script>
+  <script src="/assets/nav.js?v=393a8e17be" defer></script>
 </body>
 </html>

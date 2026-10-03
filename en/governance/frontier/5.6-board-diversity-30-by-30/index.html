@@ -1,420 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-
-<title>&#x27;30% by 2030&#x27; Is a Pipeline Problem | JII Governance Curriculum</title>
-<meta name="description" content="The Japanese government&#x27;s 30%-female-directors-by-2030 target for Prime issuers is a board-composition number resting on a deeper executive-pipeline problem. CGC Supplementary Principle 2-4 ① named the three diversity axes — women, foreign nationals, mid-career hires — in 2021; the 16 June 2023 KPI announcement put a hard date on the headline number; the actual constraint is the talent pool behind it.">
-<meta property="og:title" content="&#x27;30% by 2030&#x27; Is a Pipeline Problem | JII Governance Curriculum">
-<meta property="og:description" content="The Japanese government&#x27;s 30%-female-directors-by-2030 target for Prime issuers is a board-composition number resting on a deeper executive-pipeline problem. CGC Supplementary Principle 2-4 ① named the three diversity axes — women, foreign nationals, mid-career hires — in 2021; the 16 June 2023 KPI announcement put a hard date on the headline number; the actual constraint is the talent pool behind it.">
-<meta property="og:url" content="https://jpinv.com/en/governance/frontier/5.6-board-diversity-30-by-30/">
-<link rel="canonical" href="https://jpinv.com/en/governance/frontier/5.6-board-diversity-30-by-30/">
-<link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/frontier/5.6-board-diversity-30-by-30/">
-<link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/frontier/5.6-board-diversity-30-by-30/">
-<link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/frontier/5.6-board-diversity-30-by-30/">
-
-<style>
-:root {
-  --ink:        #1a2a4a;
-  --ink-mid:    #172641;
-  --ink-soft:   #304466;
-  --rule:       #d6dee8;
-  --rule-soft:  #e8edf3;
-  --bg:         #ffffff;
-  --bg-mid:     #f5f7fa;
-  --bg-soft:    #fafbfc;
-  --text:       #1f2937;
-  --text-mid:   #4a5566;
-  --text-dim:   #5f6875;
-  --accent:     #9a7838;
-  --accent-deep:#9a7838;
-  --accent-soft:#f4eee4;
-  --bad:        #b91c1c;
-  --warn:       #8a682b;
-  --ok:         #2f6f4f;
-  --serif: 'Noto Serif JP', 'Yu Mincho', serif;
-  --sans:  'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
-  --mono:  'DM Mono', monospace;
-  --max: 1100px;
-  --pad: 88px;
-  --gutter: 48px;
-  --nav-h: 64px;
-  --measure: 720px;
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 400; line-height: 1.7; overflow-x: hidden; }
-img { max-width: 100%; display: block; }
-a { color: var(--ink-soft); text-decoration: none; }
-a:hover { color: var(--ink); }
-.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
-@media (max-width: 768px) { :root { --gutter: 22px; --pad: 56px; } }
-strong { font-weight: 600; color: var(--ink); }
-em { font-style: normal; color: var(--ink); font-weight: 600; }
-.label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); }
-
-/* Nav (copied from jpinv.com base) */
-nav#main-nav { position: fixed; top:0; left:0; right:0; z-index:100; height: var(--nav-h); background: rgba(255,255,255,0.96); backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule); display: flex; align-items: center; transition: box-shadow 0.3s; }
-nav#main-nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
-.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; }
-.nav-logo { text-decoration: none; display: inline-flex; align-items: center; flex: 0 0 auto; min-width: max-content; white-space: nowrap; }
-.nav-logo-img { display: block; width: auto; height: 40px; max-width: none; object-fit: contain; object-position: left center; }
-.nav-logo-img--mobile { display: none; width: 32px; height: 32px; object-fit: contain; }
-.nav-center { flex: 1; display: flex; justify-content: center; }
-.nav-links { display: flex; gap: 18px; list-style: none; flex-wrap: nowrap; white-space: nowrap; }
-.nav-links a { font-family: var(--sans); font-size: 0.74rem; font-weight: 400; letter-spacing: 0.02em; color: var(--text); text-decoration: none; transition: color 0.2s; }
-.nav-links a:hover { color: var(--ink-soft); }
-.nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; margin-left: auto; }
-.nav-cta { padding: 7px 11px; font-size: 0.66rem; letter-spacing: 0.05em; }
-.locale-switcher { display: inline-flex; align-items: center; gap: 0; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; }
-.locale-switcher a { color: var(--text-dim); border: 1px solid var(--rule); padding: 6px 9px; text-decoration: none; transition: all 0.2s; }
-.locale-switcher a + a { margin-left: -1px; }
-.locale-switcher a:hover, .locale-switcher a.current { color: var(--ink); border-color: var(--ink-mid); background: var(--bg-soft); position: relative; z-index: 1; }
-.hamburger { display: none; flex-shrink:0; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
-.hamburger span { display:block; width:22px; height:1px; background:var(--ink); transition: all 0.25s; }
-@media (max-width: 900px) { .nav-center, .nav-right .nav-cta { display:none; } .hamburger { display:flex; } }
-@media (max-width: 768px) { .nav-logo-img--desktop { display:none; } .nav-logo-img--mobile { display:block; } }
-.mobile-menu { display:none; position:fixed; top:var(--nav-h); left:0; right:0; background:var(--bg); border-bottom:1px solid var(--rule); z-index:99; padding:8px var(--gutter) 20px; flex-direction:column; gap:0; }
-.mobile-menu.open { display:flex; }
-.mobile-menu a { font-size:0.88rem; color:var(--text); text-decoration:none; padding:14px 0; border-bottom:1px solid var(--rule); letter-spacing:0.04em; }
-.mobile-menu a:last-child { border-bottom:none; }
-.mobile-menu .mobile-menu-cta { margin-top:12px; padding:13px 18px; text-align:center; color:#fff; border-bottom:none; }
-
-.btn { display: inline-block; text-decoration: none; font-family: var(--sans); font-size: 0.84rem; font-weight: 400; letter-spacing: 0.06em; padding: 13px 28px; transition: all 0.2s; cursor: pointer; border: none; }
-.btn-primary { background: var(--ink); color: #fff; }
-.btn-primary:hover { background: var(--ink-mid); color: #fff; }
-.btn-outline { border: 1px solid var(--ink-mid); color: var(--ink); background: transparent; }
-.btn-outline:hover { border-color: var(--ink); color: var(--ink); }
-.rule-accent { width: 32px; height: 2px; background: var(--accent); margin: 14px 0 22px; }
-
-/* Footer (mirror) */
-footer { border-top: 1px solid var(--rule); padding: 52px 0 28px; background: var(--bg-soft); font-size: 0.82rem; color: var(--text-dim); }
-footer .footer-grid { display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); gap: 32px; align-items: start; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
-footer h2 { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.2em; color: var(--ink-soft); text-transform: uppercase; margin-bottom: 12px; font-weight: 500; }
-footer h3 { font-family: var(--serif); font-size: 1rem; font-weight: 400; color: var(--ink); margin-bottom: 8px; }
-footer ul { list-style: none; }
-footer ul li { padding: 4px 0; }
-footer ul li a { color: var(--text-mid); }
-footer ul li a:hover { color: var(--ink); }
-footer .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 18px; flex-wrap: wrap; gap: 12px; }
-footer .footer-locale-switcher a.current { font-weight: 600; color: var(--ink); }
-@media (max-width: 900px) { footer .footer-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 580px) { footer .footer-grid { grid-template-columns: 1fr; } }
-
-/* === Curriculum-specific === */
-main.curriculum { padding-top: var(--nav-h); }
-.curr-hero { padding: 96px 0 64px; border-bottom: 1px solid var(--rule); position: relative; overflow: hidden; }
-.curr-hero::before { content:''; position:absolute; inset:0;
-  background-image: linear-gradient(rgba(15,31,58,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(15,31,58,0.04) 1px, transparent 1px);
-  background-size: 64px 64px;
-  -webkit-mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent);
-          mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent); }
-.curr-hero-inner { position:relative; z-index:2; max-width: 880px; }
-.curr-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.32em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 18px; }
-.curr-hero h1 { font-family: var(--serif); font-size: clamp(1.9rem, 4.4vw, 3.1rem); font-weight: 300; color: var(--ink-mid); line-height: 1.3; letter-spacing: 0.02em; margin: 0 0 22px; }
-.curr-hero h1 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-.curr-hero .lede { font-size: 1.05rem; line-height: 1.85; color: var(--text); margin: 0 0 24px; max-width: 700px; }
-.curr-hero-meta { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
-.curr-hero-meta strong { color: var(--ink); font-family: var(--mono); }
-
-.crumbs { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; padding: 22px 0 0; }
-.crumbs a { color: var(--text-mid); }
-.crumbs a:hover { color: var(--ink); }
-.crumbs .sep { color: var(--rule); margin: 0 8px; }
-
-.theme-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; padding: 56px 0; }
-.theme-card { display: block; background: #fff; border: 1px solid var(--rule); padding: 30px 28px; position: relative; transition: all 0.2s; }
-.theme-card:hover { border-color: var(--ink-soft); box-shadow: 0 12px 32px rgba(15,31,58,0.08); transform: translateY(-2px); }
-.theme-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background: var(--accent); opacity: 0.85; }
-.theme-card-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; }
-.theme-card-name { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--ink-mid); margin: 10px 0 8px; line-height: 1.35; }
-.theme-card-period { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 14px; }
-.theme-card-desc { font-size: 0.92rem; line-height: 1.7; color: var(--text); margin-bottom: 18px; }
-.theme-card-list { font-size: 0.84rem; color: var(--text-mid); list-style: none; padding-top: 14px; border-top: 1px solid var(--rule-soft); }
-.theme-card-list li { padding: 5px 0; }
-.theme-card-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; }
-.theme-card-foot .arrow { color: var(--accent-deep); }
-
-.post-list { padding: 28px 0 56px; }
-.post-list-row { display: grid; grid-template-columns: 60px 1fr auto; gap: 22px; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--rule-soft); transition: all 0.18s; }
-.post-list-row:hover { background: var(--bg-mid); padding-left: 12px; padding-right: 12px; }
-.post-list-num { font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em; color: var(--accent-deep); font-weight: 500; }
-.post-list-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--ink-mid); line-height: 1.45; }
-.post-list-meta { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; white-space: nowrap; }
-@media (max-width: 600px) { .post-list-row { grid-template-columns: 50px 1fr; } .post-list-meta { grid-column: 1 / -1; padding-left: 72px; } }
-
-/* Post body */
-.post-body { padding: 48px 0 80px; }
-.post-content { max-width: var(--measure); margin: 0 auto; }
-.post-content > p, .post-content > ul, .post-content > ol, .post-content > blockquote, .post-content > pre, .post-content > table, .post-content > hr, .post-content > h2, .post-content > h3, .post-content > h4 { max-width: var(--measure); margin-left: auto; margin-right: auto; }
-.post-content h2 { font-family: var(--serif); font-size: 1.55rem; font-weight: 400; color: var(--ink-mid); line-height: 1.35; margin: 56px 0 14px; padding-top: 22px; border-top: 1px solid var(--rule-soft); }
-.post-content h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 500; color: var(--ink); margin: 36px 0 10px; line-height: 1.4; }
-.post-content h4 { font-family: var(--sans); font-size: 1rem; font-weight: 600; color: var(--ink); margin: 26px 0 8px; letter-spacing: 0.02em; }
-.post-content p { margin: 0 0 18px; font-size: 1rem; line-height: 1.85; color: var(--text); }
-.post-content p:first-of-type { font-size: 1.05rem; }
-.post-content ul, .post-content ol { margin: 0 0 22px; padding-left: 28px; }
-.post-content ul li, .post-content ol li { font-size: 0.97rem; line-height: 1.8; margin-bottom: 8px; color: var(--text); }
-.post-content ul li::marker { color: var(--accent-deep); }
-.post-content blockquote { margin: 30px 0; padding: 20px 24px; border-left: 3px solid var(--accent); background: var(--accent-soft); color: var(--ink-mid); font-style: normal; }
-.post-content blockquote p { margin-bottom: 8px; font-size: 0.97rem; }
-.post-content blockquote p:last-child { margin-bottom: 0; }
-.post-content blockquote strong { color: var(--ink); }
-.post-content code { background: #f0f0f0; color: var(--ink-mid); font-family: var(--mono); font-size: 0.88rem; padding: 2px 6px; border-radius: 3px; }
-.post-content pre { background: #f9f9fb; border: 1px solid var(--rule); padding: 18px 22px; overflow-x: auto; font-family: var(--mono); font-size: 0.85rem; line-height: 1.55; margin: 24px 0; }
-.post-content pre code { background: transparent; padding: 0; font-size: inherit; }
-.post-content a { color: var(--accent-deep); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; transition: text-decoration-color 0.18s; overflow-wrap: anywhere; word-break: break-word; }
-.post-content a:hover { text-decoration-color: var(--accent-deep); }
-.post-content hr { border: none; border-top: 1px solid var(--rule); margin: 40px auto; max-width: 120px; }
-.post-content table { width: 100%; max-width: var(--measure); margin: 28px auto; border-collapse: collapse; font-size: 0.9rem; }
-.post-content th { background: var(--bg-mid); color: var(--ink-mid); font-family: var(--sans); font-weight: 600; text-align: left; padding: 12px 14px; border-bottom: 2px solid var(--rule); }
-.post-content td { padding: 10px 14px; border-bottom: 1px solid var(--rule-soft); vertical-align: top; color: var(--text); }
-.post-content tr:nth-child(even) td { background: #fafbfc; }
-
-/* Mermaid container */
-.mermaid-wrap { background: #fdfdfe; border: 1px solid var(--rule); padding: 22px 18px; margin: 28px 0; overflow-x: auto; }
-.mermaid { font-family: var(--sans); text-align: center; }
-
-/* Post header */
-.post-header { padding: 48px 0 28px; border-bottom: 1px solid var(--rule); }
-.post-header-inner { max-width: var(--measure); margin: 0 auto; }
-.post-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.28em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 14px; }
-.post-title { font-family: var(--serif); font-size: clamp(1.7rem, 3.6vw, 2.4rem); font-weight: 400; color: var(--ink-mid); line-height: 1.3; margin: 0 0 16px; letter-spacing: 0.005em; }
-.post-summary { font-size: 1.02rem; line-height: 1.8; color: var(--text); margin: 0 0 22px; max-width: 660px; }
-.post-meta { display: flex; gap: 26px; flex-wrap: wrap; padding-top: 18px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
-.post-meta span strong { color: var(--ink); font-family: var(--mono); }
-
-/* Post nav (prev/next) */
-.post-nav { max-width: var(--measure); margin: 56px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding-top: 36px; border-top: 1px solid var(--rule); }
-.post-nav-link { display: block; padding: 18px 20px; background: var(--bg-mid); border: 1px solid var(--rule); transition: all 0.18s; }
-.post-nav-link:hover { border-color: var(--ink-soft); background: #fff; transform: translateY(-1px); }
-.post-nav-dir { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px; }
-.post-nav-title { font-family: var(--serif); font-size: 0.94rem; color: var(--ink-mid); line-height: 1.4; }
-.post-nav-link.next { text-align: right; }
-@media (max-width: 640px) { .post-nav { grid-template-columns: 1fr; } .post-nav-link.next { text-align: left; } }
-
-/* Knowledge check */
-.kcheck { background: var(--bg-mid); padding: 72px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
-.kcheck-head { max-width: 720px; margin: 0 auto 36px; text-align: center; }
-.kcheck h2 { font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 300; color: var(--ink-mid); margin: 0 0 14px; line-height: 1.3; }
-.kcheck h2 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-.kcheck p.lede { font-size: 0.98rem; line-height: 1.75; color: var(--text); }
-.kcheck-q { background: #fff; border: 1px solid var(--rule); padding: 28px 30px; margin-bottom: 18px; max-width: 760px; margin-left: auto; margin-right: auto; }
-.kcheck-q-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; margin-bottom: 12px; }
-.kcheck-q-text { font-family: var(--serif); font-size: 1.1rem; line-height: 1.5; color: var(--ink-mid); margin-bottom: 18px; }
-.kcheck-opts { display: grid; gap: 8px; }
-.kcheck-opt { display: block; padding: 12px 16px; background: var(--bg-soft); border: 1px solid var(--rule); text-align: left; font-family: var(--sans); font-size: 0.92rem; color: var(--text); cursor: pointer; transition: all 0.15s; }
-.kcheck-opt:hover { background: #fff; border-color: var(--ink-soft); }
-.kcheck-opt.correct { background: #e8f3ec; border-color: var(--ok); color: var(--ok); }
-.kcheck-opt.incorrect { background: #fbe9e9; border-color: var(--bad); color: var(--bad); }
-.kcheck-explain { margin-top: 16px; padding: 14px 18px; background: var(--accent-soft); border-left: 3px solid var(--accent); font-size: 0.9rem; line-height: 1.7; color: var(--ink-mid); display: none; }
-.kcheck-q.answered .kcheck-explain { display: block; }
-.kcheck-score { text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--text-dim); margin-top: 28px; text-transform: uppercase; }
-.kcheck-score strong { color: var(--ink-mid); font-family: var(--mono); }
-
-/* Stats / hero stats */
-.stat-band { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; padding: 56px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); background: var(--bg-soft); }
-.stat-item { padding: 0 18px; }
-.stat-num { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 300; color: var(--ink-mid); line-height: 1; margin-bottom: 8px; }
-.stat-num em { color: var(--accent-deep); font-weight: 400; font-style: normal; }
-.stat-label { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; }
-</style>
-
-<meta property="og:image" content="https://jpinv.com/og/jii-default-en.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://jpinv.com/og/jii-default-en.png">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "url": "https://jpinv.com/en/governance/frontier/5.6-board-diversity-30-by-30/",
-  "name": "&#x27;30% by 2030&#x27; Is a Pipeline Problem | JII Governance Curriculum",
-  "description": "The Japanese government&#x27;s 30%-female-directors-by-2030 target for Prime issuers is a board-composition number resting on a deeper executive-pipeline problem. CGC Supplementary Principle 2-4 ① named the three diversity axes — women, foreign nationals, mid-career hires — in 2021; the 16 June 2023 KPI announcement put a hard date on the headline number; the actual constraint is the talent pool behind it.",
-  "inLanguage": "en"
-}
-</script></head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To achieve “30% by 2030” - How to develop female executive candidates｜JII Governance Reform Curriculum</title>
+  <meta name="description" content="Companies listed on the TSE Prime Market are encouraged to aim for women to hold at least 30% of officer positions by 2030. In 2025, women accounted for 17.7% of officers and the share of companies with no female officers fell to 2.5%. However, the management pipeline remains narrow: women held 24.4% of assistant manager positions, 15.9% of section manager positions and 9.8% of department manager positions. This article explains the target’s legal status, how to interpret the data and how to develop future officer candidates.">
+  <link rel="canonical" href="https://jpinv.com/en/governance/frontier/5.6-board-diversity-30-by-30/">
+  <link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/frontier/5.6-board-diversity-30-by-30/">
+  <link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/frontier/5.6-board-diversity-30-by-30/">
+  <link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/frontier/5.6-board-diversity-30-by-30/">
+  <meta property="og:title" content="To achieve “30% by 2030” - How to develop female executive candidates｜JII Governance Reform Curriculum">
+  <meta property="og:description" content="Companies listed on the TSE Prime Market are encouraged to aim for women to hold at least 30% of officer positions by 2030. In 2025, women accounted for 17.7% of officers and the share of companies with no female officers fell to 2.5%. However, the management pipeline remains narrow: women held 24.4% of assistant manager positions, 15.9% of section manager positions and 9.8% of department manager positions. This article explains the target’s legal status, how to interpret the data and how to develop future officer candidates.">
+  <meta property="og:url" content="https://jpinv.com/en/governance/frontier/5.6-board-diversity-30-by-30/">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://jpinv.com/og/jii-default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://jpinv.com/og/jii-default.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&amp;family=Noto+Sans+JP:wght@300;400;500;600&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/governance.css?v=cf50a6cc07">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","name":"To achieve “30% by 2030” - How to develop female executive candidates｜JII Governance Reform Curriculum","description":"Companies listed on the TSE Prime Market are encouraged to aim for women to hold at least 30% of officer positions by 2030. In 2025, women accounted for 17.7% of officers and the share of companies with no female officers fell to 2.5%. However, the management pipeline remains narrow: women held 24.4% of assistant manager positions, 15.9% of section manager positions and 9.8% of department manager positions. This article explains the target’s legal status, how to interpret the data and how to develop future officer candidates.","url":"https://jpinv.com/en/governance/frontier/5.6-board-diversity-30-by-30/","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Japan Investor Interface","url":"https://jpinv.com/"},"headline":"To achieve “30% by 2030” - How to develop female executive candidates","dateModified":"2026-08-30","author":{"@type":"Organization","name":"Japan Investor Interface Co., Ltd."},"publisher":{"@type":"Organization","name":"Japan Investor Interface Co., Ltd.","url":"https://jpinv.com/"}}</script>
+</head>
 <body>
-<main id="main-content" class="curriculum" tabindex="-1">
-<div class="wrap crumbs">
-  <a href="/en/">JII</a> <span class="sep">/</span>
-  <a href="/en/governance/">Governance Curriculum</a> <span class="sep">/</span>
-  <a href="/en/governance/frontier/">The Frontier</a> <span class="sep">/</span>
-  Post 5.6
-</div>
-<header class="post-header">
-  <div class="wrap">
-    <div class="post-header-inner">
-      <div class="post-eyebrow">Theme 5 · POST 5.6</div>
-      <h1 class="post-title">&#x27;30% by 2030&#x27; Is a Pipeline Problem</h1>
-      <p class="post-summary">The Japanese government&#x27;s 30%-female-directors-by-2030 target for Prime issuers is a board-composition number resting on a deeper executive-pipeline problem. CGC Supplementary Principle 2-4 ① named the three diversity axes — women, foreign nationals, mid-career hires — in 2021; the 16 June 2023 KPI announcement put a hard date on the headline number; the actual constraint is the talent pool behind it.</p>
-      <div class="post-meta">
-        <span>Theme: <strong>The Frontier</strong></span>
-        <span>Reading: <strong>13 minutes min</strong></span>
-        <span>Updated: <strong>2026-05-17</strong></span>
-      </div>
-    </div>
-  </div>
-</header>
-<section class="post-body">
-  <div class="wrap">
-    <article class="post-content">
-<blockquote>
-<p><strong>TL;DR</strong>
-- On <strong>16 June 2023</strong> the Japanese government's "Policy on Women's Active Engagement" announced the target of <strong>30% female directors at Prime Market companies by 2030</strong>, with an interim milestone of "at least one female director by 2025."
-- The 2021 CGC <strong>Supplementary Principle 2-4 ①</strong> is the operative comply-or-explain text: every listed company must set and disclose voluntary, measurable targets for promoting women, foreign nationals, and mid-career hires into management, alongside a human-resource development policy.
-- The metric is improving — from <strong>11.4% in 2022 to 18.4% female executives at major firms in October 2025</strong> — but the trajectory is decisively below the 30% target. The structural constraint is the executive <strong>pipeline</strong>, not the nomination committee.</p>
+  <a class="gov-skip" href="#main-content">Skip to content</a>
+  <main id="main-content" class="governance-page" tabindex="-1">
+    <nav class="gov-wrap gov-crumbs" aria-label="Breadcrumb"><a href="/en/">Home</a><span class="sep">/</span><a href="/en/governance/">Governance Reform Curriculum</a><span class="sep">/</span><a href="/en/governance/frontier/">Ongoing issues</a><span class="sep">/</span><span aria-current="page">Article 5.6</span></nav>
+    <header class="post-header"><div class="gov-wrap"><div class="post-header-inner"><span class="post-eyebrow">Theme 5 · Article 5.6</span><h1 class="post-title">To achieve “30% by 2030” - How to develop female executive candidates</h1><p class="post-summary">Companies listed on the TSE Prime Market are encouraged to aim for women to hold at least 30% of officer positions by 2030. In 2025, women accounted for 17.7% of officers and the share of companies with no female officers fell to 2.5%. However, the management pipeline remains narrow: women held 24.4% of assistant manager positions, 15.9% of section manager positions and 9.8% of department manager positions. This article explains the target’s legal status, how to interpret the data and how to develop future officer candidates.</p><div class="post-meta"><span>Theme: <strong>Ongoing issues</strong></span><span>Reading time: <strong>8 min</strong></span><span>Updated: <strong>2026-08-30</strong></span></div></div></div></header>
+    <section class="post-body"><div class="gov-wrap"><article class="post-content"><blockquote>
+<p><strong>Key points</strong></p>
+<ul>
+<li>“The ratio of female executives to 30% or more by 2030” is not a legal quota. Since October 2023, it has been positioned as a <strong>desired item</strong> in the TSE Corporate Code of Conduct.</li>
+<li>In 2025, women held 17.7% of officer positions at Prime Market companies, while 2.5% of companies had no female officers.</li>
+<li>The problem is not just in the final selection of director candidates. The ratio of women is 24.4% for assistant manager or equivalent positions, 15.9% for section manager equivalent positions, and 9.8% for general manager positions, which is lower in higher positions, and there is a need to increase the pool of potential executive candidates over the medium to long term.</li>
+</ul>
 </blockquote>
-<h2>The headline numbers, in time-series form</h2>
+<h2 id="section-1">Positioning of the 30% target</h2>
+<p>The government has set the following goals for companies listed on the prime market in its “Basic Policy on Gender Equality and Empowerment of Women 2023.”</p>
+<ul>
+<li>Appoint at least one female director by 2025.</li>
+<li>By 2030, aim to increase the ratio of female executives to 30% or more.</li>
+<li>Recommend the development of an action plan to achieve the goal.</li>
+</ul>
+<p>On October 10, 2023, the TSE incorporated these as &quot;desired matters&quot; in the corporate code of conduct of the Securities Listing Regulations. Therefore, 30% is neither a legally mandated quota nor a value that would result in immediate delisting if it is not reached. However, it is publicized as expected behavior in the prime market, and investors use it as a standard when evaluating board composition and candidate development.</p>
+<p>Care must also be taken in the definition of &quot;officer.&quot; In addition to directors, auditors, and executive officers, the government&#39;s tally may include certain executive officers and others that each company has included in its targets. When disclosing your company&#39;s goals, you must specify who is included in the numerator and denominator, or you will not be able to compare them with other companies.</p>
+<h2 id="section-2">Current location in 2025</h2>
 <table>
 <thead>
 <tr>
-<th>Year</th>
-<th>Prime-issuer female director ratio (approx.)</th>
-<th>Major-firm female executive ratio</th>
-<th>Policy / regulatory milestone</th>
+<th>indicators</th>
+<th>Current situation</th>
+<th>2030 goals</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td>2014</td>
-<td>~2%</td>
-<td>~3%</td>
-<td>Ito Review published; corporate-governance reform begins</td>
+<tbody><tr>
+<td>Ratio of female executives in prime market listed companies</td>
+<td><strong>17.7%</strong>(2025)</td>
+<td><strong>30% or more</strong></td>
 </tr>
 <tr>
-<td>2018</td>
-<td>~5%</td>
-<td>~5%</td>
-<td>CGC 2018 revision; first general reference to "diversity"</td>
+<td>Prime company with no female executives</td>
+<td><strong>2.5%</strong> (2025)</td>
+<td>Establish the appointment of one or more people</td>
 </tr>
 <tr>
-<td>2021</td>
-<td>~8%</td>
-<td>~9%</td>
-<td><strong>CGC 2021 revision: Supplementary Principle 2-4 ①</strong> names three axes</td>
+<td>Ratio of female executives in all listed companies</td>
+<td><strong>14.0%</strong> (2025)</td>
+<td>20%</td>
 </tr>
 <tr>
-<td>2022</td>
-<td>~11%</td>
-<td><strong>11.4%</strong></td>
-<td>TSE market restructuring; Prime/Standard/Growth split</td>
+<td>Listed company that formulates goals and action plans for female executives</td>
+<td><strong>5.9%</strong> (2025)</td>
+<td>30%</td>
 </tr>
-<tr>
-<td>2023</td>
-<td>~13%</td>
-<td>~14%</td>
-<td><strong>16 June 2023: 30%-by-2030 government target</strong></td>
-</tr>
-<tr>
-<td>2024</td>
-<td>~15%</td>
-<td>~16%</td>
-<td>FSA mandates female-manager / gender-wage-gap disclosure in YUHO</td>
-</tr>
-<tr>
-<td>2025 (Oct)</td>
-<td>~17%</td>
-<td><strong>18.4%</strong></td>
-<td>Ongoing engagement-letter pressure</td>
-</tr>
-<tr>
-<td><strong>2030 target</strong></td>
-<td><strong>30%</strong></td>
-<td>n/a</td>
-<td>Government KPI</td>
-</tr>
-</tbody>
-</table>
-<p>The headline trajectory is real — female participation in Japanese executive ranks has tripled in the last decade — but the gap between the 2025 actual and the 2030 target is now the operative challenge. To reach 30% by 2030 from a 2025 baseline of ~17%, the female-director count at Prime issuers needs to grow at approximately 12-13% per year compounded. Through 2022-25 the realised growth has been around 8-10% per year. The arithmetic is tightening.</p>
-<h2>The three diversity axes — and why the policy mentions all three</h2>
-<p>A common misreading of Japan's diversity policy treats it as a female-representation policy. The 2021 CGC <strong>Supplementary Principle 2-4 ①</strong> explicitly names <strong>three</strong> axes:</p>
-<blockquote>
-<p>"Companies should disclose the policies and goals concerning the promotion of women's active participation, ensuring diversity in human resources including by promoting foreign nationals and mid-career hires to important positions, as well as the disclosure of human resource development policies and internal environment improvement policies and their implementation status."</p>
-</blockquote>
-<p>The three-axis framing is structurally important for two reasons.</p>
-<p>First, <strong>diversity in Japan is bounded differently than diversity in most Western governance contexts</strong>. Race and ethnicity, the central diversity axes in the US, are not the operative variables in a society that is ethnically more homogeneous. Sexual-orientation diversity is increasingly visible but is not part of the 2-4 ① framing. The Japanese policy framing emphasises the three axes that produce measurable executive-pipeline diversification in the Japanese context: <strong>women</strong> (gender), <strong>foreign nationals</strong> (national origin / cross-border talent), and <strong>mid-career hires</strong> (career-path origin, in contrast to lifetime-employment internal promotion).</p>
-<p>Second, <strong>the three axes are deeply interconnected through the lifetime-employment system</strong>. The Japanese executive pipeline has historically been a single track: graduate from a top university, join a major company, rotate through assignments, advance through senior management over 25-30 years. Each of the three axes represents a way to break the single-track pattern. Female promotion requires reform of the early-career pipeline (where women have historically been under-promoted). Foreign-national hiring requires reform of the executive recruitment system (where mid-career hiring from outside the company has historically been rare). Mid-career hiring requires reform of the internal-promotion expectation (where promoting an outsider over an insider has historically been culturally costly).</p>
-<p>A board that has solved its female-representation problem by recruiting two female outside directors from a narrow pool — without addressing the underlying executive pipeline — has technically complied with 2-4 ① but has not made structural progress. This is the pattern ACGA and JACD have been critical of in 2024-25 governance reports.</p>
-<h2>The 16 June 2023 announcement and what it changed</h2>
-<p>The government's "Policy on Women's Active Engagement" — announced 16 June 2023 by the gender-equality bureau of the Cabinet Office — converted the soft-law 2-4 ① obligation into a measurable national target. Two numbers in the announcement matter:</p>
-<p><strong>"At least one female director by 2025"</strong> — an interim milestone designed to ensure that no Prime issuer enters the final five-year window of the 30%-by-2030 target with zero female board representation. As of the FY March 2024 governance reporting cycle, approximately 95% of Prime issuers had at least one female director; the residual 5% were under explicit engagement pressure from domestic and foreign investors, with ISS and Glass Lewis both signalling that they would consider voting against chair / nomination-committee chair candidates at issuers without any female board representation.</p>
-<p><strong>"30% female directors at Prime Market companies by 2030"</strong> — the headline KPI. The phrasing is operative: it applies to <strong>Prime Market companies</strong> as a collective average, not as a per-issuer minimum. A Prime issuer with 0% female directors and a Prime issuer with 60% female directors both count towards the average. Several Japanese issuers (notably some financial-services issuers and a small cohort of foreign-controlled issuers) already operate above the 30% level, providing the upward statistical pull.</p>
-<p>The announcement also clarified that the <strong>30% applies to all directors</strong> (executive and outside, internal and independent), not only outside directors. This is a meaningful design choice. A 30% target restricted to outside directors only would be relatively easy to hit through external nomination; a 30% target across all directors requires reform of the internal executive pipeline.</p>
-<p>The KPI is non-binding — it is government policy, not a TSE listing rule. But its enforcement mechanism is operative: ISS, Glass Lewis, GPIF and the major Japanese institutional investors have aligned their voting policies around it. The 2025 ISS Japan policy expressly contemplates voting against board chairs at Prime issuers that lag the trajectory; Glass Lewis's 2025 Japan policy is similar but more aggressive on female-director targets.</p>
-<h2>Why this is a pipeline problem, not a board-composition problem</h2>
-<p>A Japanese board nomination committee that needs to identify a female director candidate has, in 2026, a manageable problem. There are roughly <strong>2,000-2,500 Japanese women</strong> with sufficiently senior executive-level experience to credibly serve as a director at a major Prime issuer. Some have served on multiple boards (the so-called "professional director" career path); some are sitting executives at peer companies; some are former government, academic or legal-professional executives. The talent pool is small but operationally workable for nominating one or two outside directors per board.</p>
-<p>The 30% target imposes a different problem. To reach 30% across the Prime universe by 2030, roughly <strong>2,500-3,000 incremental female directorships</strong> need to be filled — and the new appointments need to draw from a broader pool than the current "professional director" core. Without expansion of the underlying pipeline, the target either becomes mechanically unfeasible or becomes met by recycling the same small set of high-profile candidates across multiple boards.</p>
-<p>The pipeline problem has three operative layers:</p>
-<p><strong>Mid-career executive layer (Director / General Manager level).</strong> This is the layer immediately below the executive officer / shikkō yakuin level. In a Japanese company of 5,000 employees, this layer might be 100-200 positions. The female representation in this layer at the average Japanese major company in 2024-25 is approximately <strong>8-12%</strong> — meaningfully below board-level representation. The structural constraint here is the in-company promotion track: Japanese women have historically been over-represented in support and administrative tracks and under-represented in line-management tracks, which is the route to General Manager and above.</p>
-<p><strong>Executive officer layer.</strong> This is the layer of formal executive officers (officers below board level but with significant operational authority). Female representation in this layer at the average major Japanese company is approximately <strong>10-12%</strong> in 2024-25 — higher than the mid-career executive layer but still below board level. The structural constraint is dual: pipeline (the layer feeds from the mid-career executive layer) plus career-path discontinuity (women who have taken time out of the workforce for caregiving may be at career-position parity with younger male peers despite age seniority).</p>
-<p><strong>Board layer.</strong> Female representation at the board layer is the layer most actively reformed and most visible in public disclosure — currently at ~17% for Prime issuers and tracking towards 30% by 2030 if the trajectory holds.</p>
-<p>The pipeline problem says, in short: <strong>the 30% board-layer target cannot be hit durably unless the mid-career executive layer and the executive officer layer also reach 25-30% female representation by the late 2020s</strong>. Otherwise the 30% target is met by an unsustainable concentration of multi-board appointments and outside-director appointments from a narrow pool.</p>
-<h2>What the FSA YUHO disclosure mandate actually requires</h2>
-<p>In addition to the 2-4 ① soft-law obligation, the FSA has hardened the diversity disclosure regime through statutory YUHO requirements. From the FY2022 reporting cycle (filed mid-2023), every YUHO filer (~4,000 companies) must disclose three specific metrics:</p>
+</tbody></table>
+<p>The number of companies without any female officers has fallen considerably. The next challenge is not to just appoint one person, but to change the overall composition of the board of directors and bring it closer to 30%.</p>
+<p>For example, if the board of directors is 10 people, there will be 3 women, and if the board is 12 people, 4 women will make up 30% or more. Even in companies where the term of office is one year and candidates are elected every year, it takes time to search for candidates, prepare candidates, and make adjustments both within and outside the company. Counting backwards from the annual general meeting of shareholders in 2030, a multi-year election plan will need to be fleshed out from 2026 to 2028.</p>
+<h2 id="section-3">The real issue is the depth of the candidate pool.</h2>
+<p>Candidates for executive positions do not suddenly appear. In companies that emphasize internal promotion, opportunities to gain managerial experience create a population of executive candidates, such as general managers, executive officers, business managers, overseas office managers, and CFO candidates.</p>
+<p>In private-sector companies in 2024, women held 24.4% of assistant manager positions, 15.9% of section manager positions and 9.8% of department manager positions. Representation falls at higher levels. Trying to reach 30% quickly through internal candidates alone may concentrate outside director and committee responsibilities among a small number of people.</p>
+<p>This issue cannot be solved by simply increasing the number of employees. The distribution of experience is important, including who should be given responsibility for profits, who should be given overseas experience, who should be entrusted with M&amp;A and business restructuring, and who should be allowed to participate in management meetings.</p>
+<h2 id="section-4">Connecting board diversity and internal human resources strategy</h2>
+<p>The 2026 revised Corporate Governance Code considers diversity to include not only gender, but also internationality, background (including mid-career recruitment), age, cultural background, etc. Additionally, due to the revision of the Cabinet Office Disclosure Ordinance in February 2026, human capital disclosure has been expanded in annual securities reports, including human resources strategies related to corporate strategies on a consolidated basis, policies for determining employee salaries, etc., and increases and decreases in average salaries.</p>
+<p>For this reason, rather than treating the ratio of female executives as an independent numerical target, it is more persuasive to present it as a single flow.</p>
 <ol>
-<li><strong>Female manager ratio</strong> (women as a percentage of managerial positions, by the company's own definition of manager).</li>
-<li><strong>Male parental leave take-up rate</strong> (proportion of male employees taking parental leave, with a target of 30% by FY2025 under the government's policy).</li>
-<li><strong>Gender wage gap</strong> (the male-female wage gap, calculated under a standardised methodology).</li>
+<li>Define the knowledge and experience of the board of directors necessary for the company&#39;s strategy.</li>
+<li>Identify the experience gaps on your current board using the skills matrix.</li>
+<li>Provide necessary experience to female candidates for managerial positions and executive officers within the company.</li>
+<li>If there are insufficient candidates within the company, systematically search for candidates from outside the company.</li>
+<li>Disclose the composition of the Board of Directors and the progress of candidate training every year.</li>
 </ol>
-<p>The three metrics are statutory disclosure, not soft law. The methodology is defined by Cabinet Office Order; the disclosure location is the YUHO; and the audit responsibility for accuracy attaches.</p>
-<p>The FSA's choice of these three metrics is structurally significant. It shifts attention from the <strong>board-composition</strong> number (where most public discussion concentrates) to the <strong>executive pipeline</strong> metrics (where the structural constraint actually lives). A foreign investor reading a Japanese issuer's YUHO can now see the female-manager ratio, the gender wage gap and the male parental leave rate side by side — and can ask the IR team why the board-composition number is moving without the pipeline metrics moving.</p>
-<p>The OECD has consistently ranked Japan with the <strong>third-largest gender wage gap</strong> among 37 member countries. The mandatory YUHO disclosure is the FSA's institutional response to that context.</p>
-<h2>The CGS Guidelines, succession, and the skills matrix</h2>
-<p>A complementary policy instrument is METI's <strong>CGS (Corporate Governance System) Guidelines</strong>, revised most recently in <strong>July 2022</strong>, with a dedicated 60-page supplement titled "Guidelines for Nomination and Compensation Committees and Succession Planning." The supplement is the most explicit Japanese soft-law document on CEO succession and executive-pipeline management.</p>
-<p>Two of its operative recommendations matter for diversity:</p>
-<p><strong>One — Succession plans should be expressly diverse.</strong> The succession plan for the CEO and for senior executive positions should consider candidates across the three diversity axes; the nomination committee should not narrow the candidate pool early. This is a discipline on the nomination committee's process, not on the eventual outcome.</p>
-<p><strong>Two — Skills matrices should reveal pipeline gaps.</strong> The skills matrix required by CGC Supplementary Principle 4-11 ① is intended to identify gaps in the board's collective capability — including gaps in diversity-related experience. Where a skills matrix shows a board concentrated in single-track lifetime-employment careers, the gap analysis should drive recruitment to fill it.</p>
-<p>JPX Information Services Inc. (JPXI) began offering machine-readable director and auditor skills data in August 2025, making cross-issuer benchmarking of skills matrices possible. The data is now used by major institutional investors to identify outlier boards on the skills-matrix gap dimension.</p>
-<h2>What this means for IR</h2>
+<p>Candidates are not chosen solely because they are women. The company broadly searches for candidates with the skills necessary for the company&#39;s strategy, and in the process of searching and developing them, it expands access to traditionally overlooked female talent.</p>
+<h2 id="section-5">Items to include in your action plan</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Examples of disclosure and operation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Current location</td>
+<td>Ratio of female executives, ratio of female managers, number of people in each position, definitions</td>
+</tr>
+<tr>
+<td>goal</td>
+<td>Not only the ratio of executives in 2030, but also interim targets for 2027 and 2028</td>
+</tr>
+<tr>
+<td>Board of Directors re-election plan</td>
+<td>Relationship with expiration of term, retirement schedule, and appropriate size of the board of directors</td>
+</tr>
+<tr>
+<td>Developing internal candidates</td>
+<td>Experience in business responsibility, overseas, finance, digital, M&amp;A, etc.</td>
+</tr>
+<tr>
+<td>Search for external candidates</td>
+<td>Utilize candidate databases, search companies, and human resources from other industries</td>
+</tr>
+<tr>
+<td>Environmental maintenance</td>
+<td>Long working hours, transfers, childcare/nursing care, reappointment, flexible work system</td>
+</tr>
+<tr>
+<td>director</td>
+<td>How many times a year and which indicators do the nominating committee and board of directors check?</td>
+</tr>
+</tbody></table>
+<p>Particularly important are intermediate goals. If we just say “30% in 2030”, we can postpone it until 2029. It is necessary to discuss the list of director candidates for 2027 and 2028 and how each candidate will compensate for the lack of experience.</p>
+<h2 id="section-6">Three common mistakes</h2>
+<h3 id="section-7">1. Make numbers with only outside directors</h3>
+<p>Appointing outside directors is important, but unless internal executives change, the diversity of management personnel will not progress. Review the composition of internal directors, executive officers and business managers as well.</p>
+<h3 id="section-8">2. Treat manager ratio and executive ratio as the same thing</h3>
+<p>The ratio of officers is an indicator of the composition of the board of directors, and the ratio of managers is an indicator of human resource development. The time axis and population are different. Disclose both and explain how they are connected.</p>
+<h3 id="section-9">3. End with “There is no suitable person”</h3>
+<p>If there are no suitable people, analyze why they are not available. Identify areas where the number of candidates is decreasing in recruitment, assignment, evaluation, transfer, balancing work with childcare, and promotion to important positions, and take corrective measures.</p>
+<h2 id="section-10">Implications that IR personnel should be aware of</h2>
 <ol>
-<li><strong>Report against the pipeline metrics, not only the board number.</strong> When you disclose your 30%-by-2030 progress, disclose the executive-officer-layer percentage and the mid-career-manager-layer percentage alongside the board number. The honesty signal is what overseas investors will engage with.</li>
-<li><strong>Treat 2-4 ① as a three-axis obligation, not a women-only obligation.</strong> Disclose female, foreign-national, and mid-career-hire targets and progress separately. The CGC text is clear that all three axes need disclosure.</li>
-<li><strong>Make your skills matrix tell a story.</strong> A skills matrix that lists every director as "general management experience" tells investors nothing. A skills matrix that identifies pipeline gaps and shows recent appointments closing them tells investors the nomination committee is functioning.</li>
-<li><strong>Anticipate the 2025 voting policy alignment.</strong> ISS, Glass Lewis and the major Japanese institutional investors have aligned voting policies around the 30%-by-2030 target. If your trajectory is materially below the curve, expect against votes on the chair or nomination-committee-chair candidates at your AGM.</li>
-<li><strong>Coordinate the diversity disclosure with the YUHO statutory metrics.</strong> The female-manager ratio, the male parental leave rate and the gender wage gap are now statutory. Make sure your narrative voluntary disclosure (in the integrated report, the governance report and the IR deck) is consistent with the YUHO numbers — investors will compare them.</li>
+<li><strong>Specify the denominator of the 30% target and target position.</strong> If the definitions differ between government statistics and in-house disclosures, explain the differences.</li>
+<li><strong>Create a re-election table counting backwards from 2030.</strong> Indicates the number of candidates required for each year, reflecting director terms of office, resignations, increases and decreases in number of directors.</li>
+<li><strong>Treat the ratio of female managers as a leading indicator for executive candidates.</strong> In particular, track the number and experience of general managers, executive officers, and business managers.</li>
+<li><strong>Disclose the role of the nominating committee.</strong> Specify how you will be involved in candidate search, training plans, external searches, and progress confirmation.</li>
+<li><strong>Explain the distribution of experience, not just numbers.</strong> Who you entrust with important business, overseas, finance, digital, and M&amp;A shows the true state of the candidate pool.</li>
 </ol>
-<h2>Sources &amp; further reading</h2>
+<h2 id="section-11">Source/reference materials</h2>
 <ul>
-<li>FSA, "Revisions of Japan's Corporate Governance Code and Guidelines for Investor and Company Engagement" (April 2021): https://www.fsa.go.jp/en/news/2021/20210406.html</li>
-<li>JPX, "Publication of Revised Japan's Corporate Governance Code" (11 June 2021): https://www.jpx.co.jp/english/news/1020/20210611-01.html</li>
-<li>METI press release, "The Practical Guidelines for Corporate Governance Systems (CGS Guidelines) Have Been Revised" (19 July 2022): https://www.meti.go.jp/english/press/2022/0719_002.html</li>
-<li>Lexology, "Japan Mandates 30% Female Board Ratio by 2030": https://www.lexology.com/library/detail.aspx?g=71abd0c9-a133-45ae-a9dd-e2bb98fb79a9</li>
-<li>JPX, "Sample Data Available for JPXI Customized Data on Director and Auditor Skills" (19 August 2025): https://www.jpx.co.jp/english/corporate/news/news-releases/6020/20250819-01.html</li>
-<li>Cabinet Office, "Policy on Women's Active Engagement" (16 June 2023): https://www.gender.go.jp/english_contents/index.html</li>
-<li>OECD Gender Equality Reports — Japan country profile: https://www.oecd.org/gender/</li>
+<li>Cabinet Office Gender Equality Bureau “Female Executive Information Site”: <a href="https://www.gender.go.jp/policy/mieruka/company/yakuin.html">https://www.gender.go.jp/policy/mieruka/company/yakuin.html</a></li>
+<li>Cabinet Office “Priority Policies for Women’s Empowerment and Gender Equality 2023” related commentary: <a href="https://www.gender.go.jp/public/kyodosankaku/2023/202402/202402_02.html">https://www.gender.go.jp/public/kyodosankaku/2023/202402/202402_02.html</a></li>
+<li>Cabinet Office “Joint Participation May 2026 Issue”: <a href="https://www.gender.go.jp/public/kyodosankaku/2026/202605/202605_02.html">https://www.gender.go.jp/public/kyodosankaku/2026/202605/202605_02.html</a></li>
+<li>Cabinet Office “White Paper on Gender Equality 2020”: <a href="https://www.gender.go.jp/about_danjo/whitepaper/r08/zentai/html/honpen/b1_s01_04.html">https://www.gender.go.jp/about_danjo/whitepaper/r08/zentai/html/honpen/b1_s01_04.html</a></li>
+<li>Financial Services Agency/TSE “Corporate Governance Code (2026 revised edition)”: <a href="https://www.fsa.go.jp/singi/follow-up/index.html">https://www.fsa.go.jp/singi/follow-up/index.html</a></li>
+<li>Financial Services Agency “Revision of Disclosure Ordinances, etc. Including Human Capital Disclosure” (February 20, 2026): <a href="https://www.fsa.go.jp/news/r7/shouken/20260220/20260220.html">https://www.fsa.go.jp/news/r7/shouken/20260220/20260220.html</a></li>
 </ul>
 <hr>
-<p><strong>Next in this theme:</strong> <a href="/en/governance/frontier/5.7-activism-engagement-2025/">5.7 Collaborative Engagement After Stewardship Code 3.0</a></p>
-<p><strong>Related posts in other themes:</strong>
-- <a href="/en/governance/cg-code/2.3-cg-code-2021-revision/">2.3 The 2021 Revision: Prime, sustainability, diversity</a>
-- <a href="/en/governance/cg-code/2.5-meti-guideline-family/">2.5 Code vs Guideline: when METI's CGS, GGS, Fair-M&amp;A and Takeover Guidelines override the Code</a>
-- <a href="/en/governance/frontier/5.8-working-groups-landscape/">5.8 The Working Groups That Are Writing Japan's Next Governance Rules</a></p>
-    </article>
-    <div class="post-nav"><a href="/en/governance/frontier/5.5-ssbj-sustainability/" class="post-nav-link prev"><div class="post-nav-dir">← Previous</div><div class="post-nav-title">SSBJ in Action: the three-phase sustainability disclosure roll-out</div></a><a href="/en/governance/frontier/5.7-activism-engagement-2025/" class="post-nav-link next"><div class="post-nav-dir">Next →</div><div class="post-nav-title">Collaborative Engagement After Stewardship Code 3.0</div></a></div>
-  </div>
-</section>
-</main>
-<style>footer{background:var(--ink,#1a2a4a);color:#cfd6e2;padding:48px 0 30px;font-size:0.8rem;line-height:1.8;border-top:none}footer a{color:#cfd6e2;text-decoration:none}footer .footer-row{list-style:none;display:flex;flex-wrap:wrap;gap:8px 26px;margin:0 0 26px;padding:0}footer .footer-row li{padding:0}footer .footer-row a{color:#cfd6e2;text-decoration:none;font-size:0.8rem}footer .footer-bottom{padding-top:24px;border-top:1px solid rgba(255,255,255,0.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-family:var(--mono),monospace;font-size:0.68rem;letter-spacing:0.06em;color:rgba(255,255,255,0.55)}</style><script>
-const nav = document.getElementById('main-nav');
-if (nav) window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
-const hamburgerBtn = document.querySelector('.hamburger');
-function setMenuOpen(isOpen) { const menu = document.getElementById('mobileMenu'); if (!menu || !hamburgerBtn) return; menu.classList.toggle('open', isOpen); menu.hidden = !isOpen; hamburgerBtn.setAttribute('aria-expanded', String(isOpen)); }
-function toggleMenu() { const menu = document.getElementById('mobileMenu'); setMenuOpen(!(menu && menu.classList.contains('open'))); }
-document.addEventListener('click', (e) => { const menu = document.getElementById('mobileMenu'); if (menu && menu.classList.contains('open') && !menu.contains(e.target) && hamburgerBtn && !hamburgerBtn.contains(e.target)) setMenuOpen(false); });
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenuOpen(false); });
-</script>
-<script type="module">
-import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs';
-mermaid.initialize({ startOnLoad: true, theme: 'neutral', fontFamily: 'Noto Sans JP, Hiragino Kaku Gothic ProN, sans-serif', themeVariables: { primaryColor: '#f4eee4', primaryTextColor: '#1a2a4a', primaryBorderColor: '#9a7838', lineColor: '#304466', secondaryColor: '#f5f7fa', tertiaryColor: '#fafbfc' } });
-</script>
-<script src="/assets/nav.js?v=48f8466f8c" defer></script>
+<p><strong>Previous article on this topic:</strong> <a href="/en/governance/frontier/5.5-ssbj-sustainability/">5.5 SSBJ Standards in Practice - Key Points of Phased Application and Preparation</a></p>
+<p><strong>Next article on this theme:</strong> <a href="/en/governance/frontier/5.7-activism-engagement-2025/">5.7 Collaborative engagement after the third revision of the Stewardship Code</a></p>
+<p><strong>Related articles on other themes:</strong></p>
+<ul>
+<li><a href="/en/governance/cg-code/2.3-cg-code-2021-revision/">2.3 2021 Revision - Prime Market, Sustainability, and Diversity</a></li>
+<li><a href="/en/governance/cg-code/2.4-reading-a-cg-report/">2.4 How to read a corporate governance report in 15 minutes</a></li>
+<li><a href="/en/governance/frontier/5.5-ssbj-sustainability/">5.5 SSBJ Standards in Practice - Key Points of Phased Application and Preparation</a></li>
+<li><a href="/en/governance/frontier/5.8-working-groups-landscape/">5.8 Tracking the next reforms: Governance councils and study groups</a></li>
+</ul></article><nav class="post-nav" aria-label="Article navigation"><a class="post-nav-link prev" href="/en/governance/frontier/5.5-ssbj-sustainability/"><div class="post-nav-dir">← Previous article</div><div class="post-nav-title">SSBJ Standards in Practice: Key Points of Phased Application and Preparation</div></a><a class="post-nav-link next" href="/en/governance/frontier/5.7-activism-engagement-2025/"><div class="post-nav-dir">Next article →</div><div class="post-nav-title">Collaborative engagement after the third revision of the Stewardship Code</div></a></nav><div class="post-language"><a href="/governance/frontier/5.6-board-diversity-30-by-30/" data-locale-route lang="ja">日本語版 →</a></div></div></section>
+  </main>
+  <script src="/assets/governance.js?v=cc6033456e" defer></script>
+  <script src="/assets/nav.js?v=393a8e17be" defer></script>
 </body>
 </html>

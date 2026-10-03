@@ -2,10 +2,9 @@
 """
 Build the human sitemap pages: /sitemap/ and /en/sitemap/.
 
-This is the COMPLETE index. The footer sitemap that assets/nav.js renders is a
-navigational summary and deliberately stops at section level; this page lists
-every indexable page, including current Compounder profiles and all IR-training
-lessons. Archived profile pages remain reachable through the archive landing page.
+This is a curated index of the main pages, current Compounder profiles and
+IR-training lessons. Archived reports and individual signal logs remain
+reachable through their respective landing pages.
 
 It reads the built site rather than a hand-kept list, so it cannot drift. Run it
 after any ship that adds pages:
@@ -20,7 +19,7 @@ import re
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-NAV_TAG = '<script src="/assets/nav.js?v=48f8466f8c" defer></script>'
+NAV_TAG = '<script src="/assets/nav.js?v=393a8e17be" defer></script>'
 
 TITLE_RE = re.compile(r"<title>(.*?)</title>", re.S)
 REFRESH_RE = re.compile(r'http-equiv="refresh"', re.I)
@@ -169,10 +168,10 @@ def build(lang):
         secs.append(f'<section class="sm-sec"><h2><a href="{head_href}">{head}</a></h2>{b}</section>')
 
     title = L("サイトマップ", "Sitemap")
-    desc = L("jpinv.com の全ページ一覧です。",
-             "Every page on jpinv.com, listed in one place.")
-    lead = L(f"jpinv.com に公開されているページを、セクションごとにすべて並べています（全 {total} ページ）。",
-             f"Every published page on jpinv.com, grouped by section ({total} pages in total).")
+    desc = L("jpinv.com の主要ページを分野別にご案内します。",
+             "An index of the main pages on jpinv.com, grouped by section.")
+    lead = L(f"主要ページを分野別にまとめています（{total} ページ）。過去の銘柄レポートと個別の開示情報は、アーカイブ一覧とシグナルログからご覧いただけます。",
+             f"Main pages, grouped by section ({total} pages). Historical company reports and individual disclosures are available through the research archive and signal log.")
     alt_ja, alt_en = "https://jpinv.com/sitemap/", "https://jpinv.com/en/sitemap/"
 
     html = f"""<!DOCTYPE html>

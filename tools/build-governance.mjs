@@ -7,6 +7,8 @@ import { fileURLToPath } from "node:url";
 import { marked, Renderer } from "marked";
 
 const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
+const ENGLISH = process.argv.includes('--lang=en');
+const localePath = pathname => ENGLISH ? '/en' + pathname : pathname;
 const SOURCE = path.join(ROOT, "content", "governance", "curriculum-ja.md");
 const CHECKSUM = `${SOURCE}.sha256`;
 const SITE_ORIGIN = "https://jpinv.com";
@@ -51,6 +53,15 @@ function verifySource() {
   const sourceBuffer = fs.readFileSync(SOURCE);
   const actual = crypto.createHash("sha256").update(sourceBuffer).digest("hex");
   if (expected !== actual) fail(`source checksum mismatch (expected ${expected}, received ${actual})`);
+  if (ENGLISH) {
+    const record = JSON.parse(fs.readFileSync(path.join(ROOT, 'content/governance/curriculum-en.parity.json'), 'utf8'));
+    if (record.sourceSha256 !== actual) fail('English curriculum requires review against the changed Japanese source');
+    const englishPath = path.join(ROOT, 'content/governance/curriculum-en.md');
+    const english = fs.readFileSync(englishPath);
+    const englishHash = crypto.createHash('sha256').update(english).digest('hex');
+    if (englishHash !== fs.readFileSync(englishPath + '.sha256', 'utf8').trim()) fail('English curriculum checksum mismatch');
+    return english.toString('utf8').replaceAll('\r\n', '\n');
+  }
   return sourceBuffer.toString("utf8").replaceAll("\r\n", "\n");
 }
 
@@ -241,7 +252,8 @@ function navVersion() {
 }
 
 function commonHead({ title, description, pathname, type = "WebPage", schema = {} }) {
-  const canonical = `${SITE_ORIGIN}${pathname}`;
+  const japanese = `${SITE_ORIGIN}${pathname}`;
+  const canonical = `${SITE_ORIGIN}${localePath(pathname)}`;
   const english = `${SITE_ORIGIN}/en${pathname}`;
   const cssVersion = assetVersion("governance.css");
   const schemaPayload = {
@@ -250,21 +262,21 @@ function commonHead({ title, description, pathname, type = "WebPage", schema = {
     name: title,
     description,
     url: canonical,
-    inLanguage: "ja",
+    inLanguage: ENGLISH ? "en" : "ja",
     isPartOf: { "@type": "WebSite", name: "Japan Investor Interface", url: `${SITE_ORIGIN}/` },
     ...schema
   };
   return `<!DOCTYPE html>
-<html lang="ja">
+<html lang="${ENGLISH ? 'en' : 'ja'}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${escapeHtml(title)}</title>
   <meta name="description" content="${escapeAttr(description)}">
   <link rel="canonical" href="${canonical}">
-  <link rel="alternate" hreflang="ja" href="${canonical}">
+  <link rel="alternate" hreflang="ja" href="${japanese}">
   <link rel="alternate" hreflang="en" href="${english}">
-  <link rel="alternate" hreflang="x-default" href="${canonical}">
+  <link rel="alternate" hreflang="x-default" href="${japanese}">
   <meta property="og:title" content="${escapeAttr(title)}">
   <meta property="og:description" content="${escapeAttr(description)}">
   <meta property="og:url" content="${canonical}">
@@ -297,7 +309,7 @@ function breadcrumbs(items) {
 }
 
 function pageShell(head, main, scripts = commonScripts()) {
-  return `${head}
+  const html = `${head}
 <body>
   <a class="gov-skip" href="#main-content">本文へ移動</a>
 ${main}
@@ -305,6 +317,36 @@ ${scripts}
 </body>
 </html>
 `;
+  return ENGLISH ? englishShell(html) : html;
+}
+
+function englishShell(html) {
+  const ui = {
+    'ホーム':'Home', 'パンくず':'Breadcrumb', '本文へ移動':'Skip to content',
+    'ガバナンス改革講座':'Governance Reform Curriculum', 'IR実務講座':'IR practice',
+    'ページ内メニュー':'On this page', '5つのテーマ':'Five themes', 'IRツールボックス':'IR Toolbox',
+    '理解度チェック':'Knowledge check', '目的別の使い方':'Reading paths', '講座の全体像':'Course overview',
+    'カリキュラム':'Curriculum', '講座テーマ':'Course themes', 'テーマへ →':'Explore theme →',
+    '実務資料':'Practical resources', 'ツールボックスを開く →':'Open the toolbox →', '解説:':'Explanation:', 'スコア:':'Score:',
+    '受講・研修の相談':'Discuss training', '研修を相談する →':'Discuss training →', 'お問い合わせ →':'Contact us →',
+    'テーマ概要':'Theme overview', '本テーマの記事一覧':'Articles in this theme', '記事を読む →':'Read article →',
+    '記事数:':'Articles:', '期間:':'Period:', '中核資料 · 随時更新':'Core reference · Updated periodically',
+    '収録分野:':'Categories:', '一次資料:':'Primary sources:', '約50点以上':'Around 50 or more',
+    '更新:':'Updated:', '← 前の記事':'← Previous article', '次の記事 →':'Next article →', '次に読む →':'Read next →',
+    '前後の記事':'Article navigation', '読了目安:':'Reading time:', '本文内の制度図':'Diagram of the policy framework',
+    'テーマ:':'Theme:', 'テーマ ':'Theme ', '記事 ':'Article ', '読み方':'Reading paths',
+    'IR担当者研修':'IR team training', 'IR研修について相談する →':'Discuss IR training →'
+  };
+  let result = html.replace(/<div class="post-language"><a href="(\/en\/governance\/[^"]*)">English version →<\/a><\/div>/g, (_, href) => '<div class="post-language"><a href="__JAPANESE__' + href.slice(3) + '" data-locale-route lang="ja">日本語版 →</a></div>');
+  for (const [ja, en] of Object.entries(ui)) result = result.split(ja).join(en);
+  result = result.replace(/href="(\/governance\/[^"]*)"/g, 'href="/en$1"')
+    .replace(/href="\/"/g, 'href="/en/"')
+    .replace(/href="\/お問い合わせ\/"/g, 'href="/en/contact/"')
+    .replace(/href="\/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B\/"/g, 'href="/en/contact/"')
+    .replace(/href="__JAPANESE__/g, 'href="')
+    .replace(/(\d+)分<\/strong>/g, '$1 min</strong>');
+  result = result.replace(/<\/strong>(?=[A-Za-z])/g, '</strong> ').replace(/([A-Za-z])<strong>/g, '$1 <strong>');
+  return result;
 }
 
 function parseLandingThemes(section) {
@@ -422,12 +464,13 @@ function renderToolbox(toolbox) {
   const main = `  <main id="main-content" class="governance-page" tabindex="-1">
     ${breadcrumbs([{ label: "ガバナンス改革講座", href: "/governance/" }, { label: "IRツールボックス" }])}
     <header class="post-header"><div class="gov-wrap"><div class="post-header-inner"><span class="post-eyebrow">中核資料 · 随時更新</span><h1 class="post-title">${escapeHtml(title)}</h1><p class="post-summary">${renderInline(summary)}</p><div class="post-meta"><span>収録分野: <strong>9</strong></span><span>一次資料: <strong>約50点以上</strong></span><span>更新: <strong>${UPDATED}</strong></span></div></div></div></header>
-    <section class="post-body toolbox-body"><div class="gov-wrap"><article class="post-content">${renderMarkdown(body)}</article><div class="post-language"><a href="/en/governance/toolbox/">English version →</a></div></div></section>
+    <section class="post-body toolbox-body"><div class="gov-wrap"><article class="post-content">${renderMarkdown(body)}${ENGLISH ? fs.readFileSync(path.join(ROOT, 'content/governance/toolbox-reference-en.html'), 'utf8') : ''}</article><div class="post-language"><a href="/en/governance/toolbox/">English version →</a></div></div></section>
   </main>`;
   return pageShell(head, main);
 }
 
 function readingMinutes(markdown) {
+  if (ENGLISH) return Math.max(4, Math.ceil(stripMarkdown(markdown).split(/\s+/).length / 200));
   const count = stripMarkdown(markdown).replace(/\s/g, "").length;
   return Math.max(4, Math.ceil(count / 500));
 }
@@ -463,7 +506,7 @@ function renderArticle(article, index, articles, themes) {
 }
 
 function writePage(pathname, html) {
-  const relative = pathname.replace(/^\//, "");
+  const relative = localePath(pathname).replace(/^\//, "");
   const destination = path.join(ROOT, relative, "index.html");
   fs.mkdirSync(path.dirname(destination), { recursive: true });
   fs.writeFileSync(destination, html, "utf8");
@@ -527,7 +570,7 @@ function assertGovernanceLinks(pathname, html) {
 }
 
 function validateBuild(articles) {
-  const expectedPages = ["/governance/", "/governance/toolbox/", ...THEME_META.map((theme) => `/governance/${theme.slug}/`), ...articles.map((article) => article.pathname)];
+  const expectedPages = ["/governance/", "/governance/toolbox/", ...THEME_META.map((theme) => `/governance/${theme.slug}/`), ...articles.map((article) => article.pathname)].map(localePath);
   if (expectedPages.length !== 34) fail(`expected 34 generated pages, found ${expectedPages.length}`);
   let mermaidCount = 0;
   let genericLinks = 0;
@@ -548,7 +591,7 @@ function validateBuild(articles) {
     assertGovernanceLinks(pathname, html);
   }
   articles.forEach((article) => {
-    const html = fs.readFileSync(path.join(ROOT, article.pathname.replace(/^\//, ""), "index.html"), "utf8");
+    const html = fs.readFileSync(path.join(ROOT, localePath(article.pathname).replace(/^\//, ""), "index.html"), "utf8");
     assertContentParity(article, html);
   });
   if (mermaidCount !== 13) fail(`expected 13 Mermaid diagrams, found ${mermaidCount}`);
@@ -558,6 +601,10 @@ function validateBuild(articles) {
 }
 
 function main() {
+  if (ENGLISH) {
+    const periods = ['1990s–2014','2015–2021','2022–2025','March 2023–present','2024–2027'];
+    THEME_META.forEach((theme, index) => { theme.period = periods[index]; });
+  }
   const source = verifySource();
   const occurrences = sourceOccurrences(source);
   if (occurrences.length !== 29) fail(`expected 29 source URLs, found ${occurrences.length}`);

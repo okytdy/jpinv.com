@@ -4,14 +4,16 @@
     "build:compounder-profiles": "node tools/build-compounder-profile-system.mjs && node tools/build-compounder-archive.mjs && node tools/build-compounder-home-news.mjs",
     "check:compounder-profiles": "node tools/check-compounder-profile-system.mjs && node tools/check-compounder-archive.mjs && node tools/check-compounder-home-news.mjs",
     "check:homepage-reports": "node tools/check-compounder-home-news.mjs",
-    "build:governance": "node tools/build-governance.mjs",
+    "build:governance": "node tools/build-governance.mjs && node tools/build-governance.mjs --lang=en",
     "check:compounders-hub": "node tools/check-compounder-hub-recency.mjs && node tools/check-compounder-hub-data.mjs",
     "check:hub-recency": "node tools/check-compounder-hub-recency.mjs",
     "check:indexing": "node tools/check-indexing.mjs",
     "check:mobile-layout": "node tools/check-mobile-layout-contracts.mjs",
     "check:jp-posture": "node tools/check-compounder-jp-posture.mjs",
     "check:visual-first": "node tools/check-compounder-visual-first.mjs",
-    "lhci": "lhci autorun --config=./lighthouserc.cjs"
+    "lhci": "lhci autorun --config=./lighthouserc.cjs",
+    "build:english-parity": "node tools/build-english-parity-pages.mjs && node tools/build-governance.mjs --lang=en && node tools/build-english-profile-bodies.mjs && node tools/sync-english-research-disclaimers.mjs && npm run build:compounder-profiles && node tools/sync-english-research-disclaimers.mjs",
+    "check:english-parity": "node tools/check-english-parity.mjs && node tools/sync-english-research-disclaimers.mjs --check"
   },
   "devDependencies": {
     "@lhci/cli": "^0.14.0",

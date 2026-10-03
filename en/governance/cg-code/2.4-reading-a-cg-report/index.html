@@ -1,422 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-
-<title>How to Read a Japanese CG Report in 15 Minutes | JII Governance Curriculum</title>
-<meta name="description" content="A section-by-section walkthrough of the four-part TSE Corporate Governance Report template — what each section contains, what to read first, and what separates a strong comply-or-explain narrative from a weak one.">
-<meta property="og:title" content="How to Read a Japanese CG Report in 15 Minutes | JII Governance Curriculum">
-<meta property="og:description" content="A section-by-section walkthrough of the four-part TSE Corporate Governance Report template — what each section contains, what to read first, and what separates a strong comply-or-explain narrative from a weak one.">
-<meta property="og:url" content="https://jpinv.com/en/governance/cg-code/2.4-reading-a-cg-report/">
-<link rel="canonical" href="https://jpinv.com/en/governance/cg-code/2.4-reading-a-cg-report/">
-<link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/cg-code/2.4-reading-a-cg-report/">
-<link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/cg-code/2.4-reading-a-cg-report/">
-<link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/cg-code/2.4-reading-a-cg-report/">
-
-<style>
-:root {
-  --ink:        #1a2a4a;
-  --ink-mid:    #172641;
-  --ink-soft:   #304466;
-  --rule:       #d6dee8;
-  --rule-soft:  #e8edf3;
-  --bg:         #ffffff;
-  --bg-mid:     #f5f7fa;
-  --bg-soft:    #fafbfc;
-  --text:       #1f2937;
-  --text-mid:   #4a5566;
-  --text-dim:   #5f6875;
-  --accent:     #9a7838;
-  --accent-deep:#9a7838;
-  --accent-soft:#f4eee4;
-  --bad:        #b91c1c;
-  --warn:       #8a682b;
-  --ok:         #2f6f4f;
-  --serif: 'Noto Serif JP', 'Yu Mincho', serif;
-  --sans:  'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
-  --mono:  'DM Mono', monospace;
-  --max: 1100px;
-  --pad: 88px;
-  --gutter: 48px;
-  --nav-h: 64px;
-  --measure: 720px;
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 400; line-height: 1.7; overflow-x: hidden; }
-img { max-width: 100%; display: block; }
-a { color: var(--ink-soft); text-decoration: none; }
-a:hover { color: var(--ink); }
-.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
-@media (max-width: 768px) { :root { --gutter: 22px; --pad: 56px; } }
-strong { font-weight: 600; color: var(--ink); }
-em { font-style: normal; color: var(--ink); font-weight: 600; }
-.label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); }
-
-/* Nav (copied from jpinv.com base) */
-nav#main-nav { position: fixed; top:0; left:0; right:0; z-index:100; height: var(--nav-h); background: rgba(255,255,255,0.96); backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule); display: flex; align-items: center; transition: box-shadow 0.3s; }
-nav#main-nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
-.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; }
-.nav-logo { text-decoration: none; display: inline-flex; align-items: center; flex: 0 0 auto; min-width: max-content; white-space: nowrap; }
-.nav-logo-img { display: block; width: auto; height: 40px; max-width: none; object-fit: contain; object-position: left center; }
-.nav-logo-img--mobile { display: none; width: 32px; height: 32px; object-fit: contain; }
-.nav-center { flex: 1; display: flex; justify-content: center; }
-.nav-links { display: flex; gap: 18px; list-style: none; flex-wrap: nowrap; white-space: nowrap; }
-.nav-links a { font-family: var(--sans); font-size: 0.74rem; font-weight: 400; letter-spacing: 0.02em; color: var(--text); text-decoration: none; transition: color 0.2s; }
-.nav-links a:hover { color: var(--ink-soft); }
-.nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; margin-left: auto; }
-.nav-cta { padding: 7px 11px; font-size: 0.66rem; letter-spacing: 0.05em; }
-.locale-switcher { display: inline-flex; align-items: center; gap: 0; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; }
-.locale-switcher a { color: var(--text-dim); border: 1px solid var(--rule); padding: 6px 9px; text-decoration: none; transition: all 0.2s; }
-.locale-switcher a + a { margin-left: -1px; }
-.locale-switcher a:hover, .locale-switcher a.current { color: var(--ink); border-color: var(--ink-mid); background: var(--bg-soft); position: relative; z-index: 1; }
-.hamburger { display: none; flex-shrink:0; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
-.hamburger span { display:block; width:22px; height:1px; background:var(--ink); transition: all 0.25s; }
-@media (max-width: 900px) { .nav-center, .nav-right .nav-cta { display:none; } .hamburger { display:flex; } }
-@media (max-width: 768px) { .nav-logo-img--desktop { display:none; } .nav-logo-img--mobile { display:block; } }
-.mobile-menu { display:none; position:fixed; top:var(--nav-h); left:0; right:0; background:var(--bg); border-bottom:1px solid var(--rule); z-index:99; padding:8px var(--gutter) 20px; flex-direction:column; gap:0; }
-.mobile-menu.open { display:flex; }
-.mobile-menu a { font-size:0.88rem; color:var(--text); text-decoration:none; padding:14px 0; border-bottom:1px solid var(--rule); letter-spacing:0.04em; }
-.mobile-menu a:last-child { border-bottom:none; }
-.mobile-menu .mobile-menu-cta { margin-top:12px; padding:13px 18px; text-align:center; color:#fff; border-bottom:none; }
-
-.btn { display: inline-block; text-decoration: none; font-family: var(--sans); font-size: 0.84rem; font-weight: 400; letter-spacing: 0.06em; padding: 13px 28px; transition: all 0.2s; cursor: pointer; border: none; }
-.btn-primary { background: var(--ink); color: #fff; }
-.btn-primary:hover { background: var(--ink-mid); color: #fff; }
-.btn-outline { border: 1px solid var(--ink-mid); color: var(--ink); background: transparent; }
-.btn-outline:hover { border-color: var(--ink); color: var(--ink); }
-.rule-accent { width: 32px; height: 2px; background: var(--accent); margin: 14px 0 22px; }
-
-/* Footer (mirror) */
-footer { border-top: 1px solid var(--rule); padding: 52px 0 28px; background: var(--bg-soft); font-size: 0.82rem; color: var(--text-dim); }
-footer .footer-grid { display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); gap: 32px; align-items: start; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
-footer h2 { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.2em; color: var(--ink-soft); text-transform: uppercase; margin-bottom: 12px; font-weight: 500; }
-footer h3 { font-family: var(--serif); font-size: 1rem; font-weight: 400; color: var(--ink); margin-bottom: 8px; }
-footer ul { list-style: none; }
-footer ul li { padding: 4px 0; }
-footer ul li a { color: var(--text-mid); }
-footer ul li a:hover { color: var(--ink); }
-footer .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 18px; flex-wrap: wrap; gap: 12px; }
-footer .footer-locale-switcher a.current { font-weight: 600; color: var(--ink); }
-@media (max-width: 900px) { footer .footer-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 580px) { footer .footer-grid { grid-template-columns: 1fr; } }
-
-/* === Curriculum-specific === */
-main.curriculum { padding-top: var(--nav-h); }
-.curr-hero { padding: 96px 0 64px; border-bottom: 1px solid var(--rule); position: relative; overflow: hidden; }
-.curr-hero::before { content:''; position:absolute; inset:0;
-  background-image: linear-gradient(rgba(15,31,58,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(15,31,58,0.04) 1px, transparent 1px);
-  background-size: 64px 64px;
-  -webkit-mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent);
-          mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent); }
-.curr-hero-inner { position:relative; z-index:2; max-width: 880px; }
-.curr-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.32em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 18px; }
-.curr-hero h1 { font-family: var(--serif); font-size: clamp(1.9rem, 4.4vw, 3.1rem); font-weight: 300; color: var(--ink-mid); line-height: 1.3; letter-spacing: 0.02em; margin: 0 0 22px; }
-.curr-hero h1 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-.curr-hero .lede { font-size: 1.05rem; line-height: 1.85; color: var(--text); margin: 0 0 24px; max-width: 700px; }
-.curr-hero-meta { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
-.curr-hero-meta strong { color: var(--ink); font-family: var(--mono); }
-
-.crumbs { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; padding: 22px 0 0; }
-.crumbs a { color: var(--text-mid); }
-.crumbs a:hover { color: var(--ink); }
-.crumbs .sep { color: var(--rule); margin: 0 8px; }
-
-.theme-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; padding: 56px 0; }
-.theme-card { display: block; background: #fff; border: 1px solid var(--rule); padding: 30px 28px; position: relative; transition: all 0.2s; }
-.theme-card:hover { border-color: var(--ink-soft); box-shadow: 0 12px 32px rgba(15,31,58,0.08); transform: translateY(-2px); }
-.theme-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background: var(--accent); opacity: 0.85; }
-.theme-card-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; }
-.theme-card-name { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--ink-mid); margin: 10px 0 8px; line-height: 1.35; }
-.theme-card-period { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 14px; }
-.theme-card-desc { font-size: 0.92rem; line-height: 1.7; color: var(--text); margin-bottom: 18px; }
-.theme-card-list { font-size: 0.84rem; color: var(--text-mid); list-style: none; padding-top: 14px; border-top: 1px solid var(--rule-soft); }
-.theme-card-list li { padding: 5px 0; }
-.theme-card-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; }
-.theme-card-foot .arrow { color: var(--accent-deep); }
-
-.post-list { padding: 28px 0 56px; }
-.post-list-row { display: grid; grid-template-columns: 60px 1fr auto; gap: 22px; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--rule-soft); transition: all 0.18s; }
-.post-list-row:hover { background: var(--bg-mid); padding-left: 12px; padding-right: 12px; }
-.post-list-num { font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em; color: var(--accent-deep); font-weight: 500; }
-.post-list-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--ink-mid); line-height: 1.45; }
-.post-list-meta { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; white-space: nowrap; }
-@media (max-width: 600px) { .post-list-row { grid-template-columns: 50px 1fr; } .post-list-meta { grid-column: 1 / -1; padding-left: 72px; } }
-
-/* Post body */
-.post-body { padding: 48px 0 80px; }
-.post-content { max-width: var(--measure); margin: 0 auto; }
-.post-content > p, .post-content > ul, .post-content > ol, .post-content > blockquote, .post-content > pre, .post-content > table, .post-content > hr, .post-content > h2, .post-content > h3, .post-content > h4 { max-width: var(--measure); margin-left: auto; margin-right: auto; }
-.post-content h2 { font-family: var(--serif); font-size: 1.55rem; font-weight: 400; color: var(--ink-mid); line-height: 1.35; margin: 56px 0 14px; padding-top: 22px; border-top: 1px solid var(--rule-soft); }
-.post-content h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 500; color: var(--ink); margin: 36px 0 10px; line-height: 1.4; }
-.post-content h4 { font-family: var(--sans); font-size: 1rem; font-weight: 600; color: var(--ink); margin: 26px 0 8px; letter-spacing: 0.02em; }
-.post-content p { margin: 0 0 18px; font-size: 1rem; line-height: 1.85; color: var(--text); }
-.post-content p:first-of-type { font-size: 1.05rem; }
-.post-content ul, .post-content ol { margin: 0 0 22px; padding-left: 28px; }
-.post-content ul li, .post-content ol li { font-size: 0.97rem; line-height: 1.8; margin-bottom: 8px; color: var(--text); }
-.post-content ul li::marker { color: var(--accent-deep); }
-.post-content blockquote { margin: 30px 0; padding: 20px 24px; border-left: 3px solid var(--accent); background: var(--accent-soft); color: var(--ink-mid); font-style: normal; }
-.post-content blockquote p { margin-bottom: 8px; font-size: 0.97rem; }
-.post-content blockquote p:last-child { margin-bottom: 0; }
-.post-content blockquote strong { color: var(--ink); }
-.post-content code { background: #f0f0f0; color: var(--ink-mid); font-family: var(--mono); font-size: 0.88rem; padding: 2px 6px; border-radius: 3px; }
-.post-content pre { background: #f9f9fb; border: 1px solid var(--rule); padding: 18px 22px; overflow-x: auto; font-family: var(--mono); font-size: 0.85rem; line-height: 1.55; margin: 24px 0; }
-.post-content pre code { background: transparent; padding: 0; font-size: inherit; }
-.post-content a { color: var(--accent-deep); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; transition: text-decoration-color 0.18s; overflow-wrap: anywhere; word-break: break-word; }
-.post-content a:hover { text-decoration-color: var(--accent-deep); }
-.post-content hr { border: none; border-top: 1px solid var(--rule); margin: 40px auto; max-width: 120px; }
-.post-content table { width: 100%; max-width: var(--measure); margin: 28px auto; border-collapse: collapse; font-size: 0.9rem; }
-.post-content th { background: var(--bg-mid); color: var(--ink-mid); font-family: var(--sans); font-weight: 600; text-align: left; padding: 12px 14px; border-bottom: 2px solid var(--rule); }
-.post-content td { padding: 10px 14px; border-bottom: 1px solid var(--rule-soft); vertical-align: top; color: var(--text); }
-.post-content tr:nth-child(even) td { background: #fafbfc; }
-
-/* Mermaid container */
-.mermaid-wrap { background: #fdfdfe; border: 1px solid var(--rule); padding: 22px 18px; margin: 28px 0; overflow-x: auto; }
-.mermaid { font-family: var(--sans); text-align: center; }
-
-/* Post header */
-.post-header { padding: 48px 0 28px; border-bottom: 1px solid var(--rule); }
-.post-header-inner { max-width: var(--measure); margin: 0 auto; }
-.post-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.28em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 14px; }
-.post-title { font-family: var(--serif); font-size: clamp(1.7rem, 3.6vw, 2.4rem); font-weight: 400; color: var(--ink-mid); line-height: 1.3; margin: 0 0 16px; letter-spacing: 0.005em; }
-.post-summary { font-size: 1.02rem; line-height: 1.8; color: var(--text); margin: 0 0 22px; max-width: 660px; }
-.post-meta { display: flex; gap: 26px; flex-wrap: wrap; padding-top: 18px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
-.post-meta span strong { color: var(--ink); font-family: var(--mono); }
-
-/* Post nav (prev/next) */
-.post-nav { max-width: var(--measure); margin: 56px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding-top: 36px; border-top: 1px solid var(--rule); }
-.post-nav-link { display: block; padding: 18px 20px; background: var(--bg-mid); border: 1px solid var(--rule); transition: all 0.18s; }
-.post-nav-link:hover { border-color: var(--ink-soft); background: #fff; transform: translateY(-1px); }
-.post-nav-dir { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px; }
-.post-nav-title { font-family: var(--serif); font-size: 0.94rem; color: var(--ink-mid); line-height: 1.4; }
-.post-nav-link.next { text-align: right; }
-@media (max-width: 640px) { .post-nav { grid-template-columns: 1fr; } .post-nav-link.next { text-align: left; } }
-
-/* Knowledge check */
-.kcheck { background: var(--bg-mid); padding: 72px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
-.kcheck-head { max-width: 720px; margin: 0 auto 36px; text-align: center; }
-.kcheck h2 { font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 300; color: var(--ink-mid); margin: 0 0 14px; line-height: 1.3; }
-.kcheck h2 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-.kcheck p.lede { font-size: 0.98rem; line-height: 1.75; color: var(--text); }
-.kcheck-q { background: #fff; border: 1px solid var(--rule); padding: 28px 30px; margin-bottom: 18px; max-width: 760px; margin-left: auto; margin-right: auto; }
-.kcheck-q-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; margin-bottom: 12px; }
-.kcheck-q-text { font-family: var(--serif); font-size: 1.1rem; line-height: 1.5; color: var(--ink-mid); margin-bottom: 18px; }
-.kcheck-opts { display: grid; gap: 8px; }
-.kcheck-opt { display: block; padding: 12px 16px; background: var(--bg-soft); border: 1px solid var(--rule); text-align: left; font-family: var(--sans); font-size: 0.92rem; color: var(--text); cursor: pointer; transition: all 0.15s; }
-.kcheck-opt:hover { background: #fff; border-color: var(--ink-soft); }
-.kcheck-opt.correct { background: #e8f3ec; border-color: var(--ok); color: var(--ok); }
-.kcheck-opt.incorrect { background: #fbe9e9; border-color: var(--bad); color: var(--bad); }
-.kcheck-explain { margin-top: 16px; padding: 14px 18px; background: var(--accent-soft); border-left: 3px solid var(--accent); font-size: 0.9rem; line-height: 1.7; color: var(--ink-mid); display: none; }
-.kcheck-q.answered .kcheck-explain { display: block; }
-.kcheck-score { text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--text-dim); margin-top: 28px; text-transform: uppercase; }
-.kcheck-score strong { color: var(--ink-mid); font-family: var(--mono); }
-
-/* Stats / hero stats */
-.stat-band { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; padding: 56px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); background: var(--bg-soft); }
-.stat-item { padding: 0 18px; }
-.stat-num { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 300; color: var(--ink-mid); line-height: 1; margin-bottom: 8px; }
-.stat-num em { color: var(--accent-deep); font-weight: 400; font-style: normal; }
-.stat-label { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; }
-</style>
-
-<meta property="og:image" content="https://jpinv.com/og/jii-default-en.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://jpinv.com/og/jii-default-en.png">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "url": "https://jpinv.com/en/governance/cg-code/2.4-reading-a-cg-report/",
-  "name": "How to Read a Japanese CG Report in 15 Minutes | JII Governance Curriculum",
-  "description": "A section-by-section walkthrough of the four-part TSE Corporate Governance Report template — what each section contains, what to read first, and what separates a strong comply-or-explain narrative from a weak one.",
-  "inLanguage": "en"
-}
-</script></head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to read a corporate governance report in 15 minutes｜JII Governance Reform Curriculum</title>
+  <meta name="description" content="A corporate governance report is a disclosure document prescribed by the Tokyo Stock Exchange that summarizes a listed company&#39;s capital structure, compliance with the Code, board composition, shareholder meeting/IR operations, internal controls, etc. In this article, we will review the official five-part structure, and then organize the reading order that allows investors and IR personnel to get an overall picture in 15 minutes, as well as the points to focus on to discern persuasive &quot;compliance&quot; and &quot;explanation.&quot;">
+  <link rel="canonical" href="https://jpinv.com/en/governance/cg-code/2.4-reading-a-cg-report/">
+  <link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/cg-code/2.4-reading-a-cg-report/">
+  <link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/cg-code/2.4-reading-a-cg-report/">
+  <link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/cg-code/2.4-reading-a-cg-report/">
+  <meta property="og:title" content="How to read a corporate governance report in 15 minutes｜JII Governance Reform Curriculum">
+  <meta property="og:description" content="A corporate governance report is a disclosure document prescribed by the Tokyo Stock Exchange that summarizes a listed company&#39;s capital structure, compliance with the Code, board composition, shareholder meeting/IR operations, internal controls, etc. In this article, we will review the official five-part structure, and then organize the reading order that allows investors and IR personnel to get an overall picture in 15 minutes, as well as the points to focus on to discern persuasive &quot;compliance&quot; and &quot;explanation.&quot;">
+  <meta property="og:url" content="https://jpinv.com/en/governance/cg-code/2.4-reading-a-cg-report/">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://jpinv.com/og/jii-default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://jpinv.com/og/jii-default.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&amp;family=Noto+Sans+JP:wght@300;400;500;600&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/governance.css?v=cf50a6cc07">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","name":"How to read a corporate governance report in 15 minutes｜JII Governance Reform Curriculum","description":"A corporate governance report is a disclosure document prescribed by the Tokyo Stock Exchange that summarizes a listed company's capital structure, compliance with the Code, board composition, shareholder meeting/IR operations, internal controls, etc. In this article, we will review the official five-part structure, and then organize the reading order that allows investors and IR personnel to get an overall picture in 15 minutes, as well as the points to focus on to discern persuasive \"compliance\" and \"explanation.\"","url":"https://jpinv.com/en/governance/cg-code/2.4-reading-a-cg-report/","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Japan Investor Interface","url":"https://jpinv.com/"},"headline":"How to read a corporate governance report in 15 minutes","dateModified":"2026-08-30","author":{"@type":"Organization","name":"Japan Investor Interface Co., Ltd."},"publisher":{"@type":"Organization","name":"Japan Investor Interface Co., Ltd.","url":"https://jpinv.com/"}}</script>
+</head>
 <body>
-<main id="main-content" class="curriculum" tabindex="-1">
-<div class="wrap crumbs">
-  <a href="/en/">JII</a> <span class="sep">/</span>
-  <a href="/en/governance/">Governance Curriculum</a> <span class="sep">/</span>
-  <a href="/en/governance/cg-code/">The Code Era</a> <span class="sep">/</span>
-  Post 2.4
-</div>
-<header class="post-header">
-  <div class="wrap">
-    <div class="post-header-inner">
-      <div class="post-eyebrow">Theme 2 · POST 2.4</div>
-      <h1 class="post-title">How to Read a Japanese CG Report in 15 Minutes</h1>
-      <p class="post-summary">A section-by-section walkthrough of the four-part TSE Corporate Governance Report template — what each section contains, what to read first, and what separates a strong comply-or-explain narrative from a weak one.</p>
-      <div class="post-meta">
-        <span>Theme: <strong>The Code Era</strong></span>
-        <span>Reading: <strong>10 minutes min</strong></span>
-        <span>Updated: <strong>2026-05-16</strong></span>
-      </div>
-    </div>
-  </div>
-</header>
-<section class="post-body">
-  <div class="wrap">
-    <article class="post-content">
-<blockquote>
-<p><strong>TL;DR</strong>
-- Every domestic TSE-listed company files a <strong>Corporate Governance Report</strong> using a fixed four-section template: <strong>I — Basic Information, II — Business Management Organization, III — Shareholders &amp; Stakeholders, IV — Internal Control System</strong>.
-- For an IR rep doing diligence on a peer, an investor, or your own filing, the practical reading order is <strong>I → III → II → IV</strong> — capital structure first, IR posture second, comply-or-explain narrative third.
-- The single most-read part of the document is <strong>Section II</strong>, which houses the principle-by-principle comply-or-explain narrative. The quality of those explanations is where reputational risk lives.</p>
+  <a class="gov-skip" href="#main-content">Skip to content</a>
+  <main id="main-content" class="governance-page" tabindex="-1">
+    <nav class="gov-wrap gov-crumbs" aria-label="Breadcrumb"><a href="/en/">Home</a><span class="sep">/</span><a href="/en/governance/">Governance Reform Curriculum</a><span class="sep">/</span><a href="/en/governance/cg-code/">code era</a><span class="sep">/</span><span aria-current="page">Article 2.4</span></nav>
+    <header class="post-header"><div class="gov-wrap"><div class="post-header-inner"><span class="post-eyebrow">Theme 2 · Article 2.4</span><h1 class="post-title">How to read a corporate governance report in 15 minutes</h1><p class="post-summary">A corporate governance report is a disclosure document prescribed by the Tokyo Stock Exchange that summarizes a listed company&#39;s capital structure, compliance with the Code, board composition, shareholder meeting/IR operations, internal controls, etc. In this article, we will review the official five-part structure, and then organize the reading order that allows investors and IR personnel to get an overall picture in 15 minutes, as well as the points to focus on to discern persuasive &quot;compliance&quot; and &quot;explanation.&quot;</p><div class="post-meta"><span>Theme: <strong>code era</strong></span><span>Reading time: <strong>13 min</strong></span><span>Updated: <strong>2026-08-30</strong></span></div></div></div></header>
+    <section class="post-body"><div class="gov-wrap"><article class="post-content"><blockquote>
+<p><strong>Key points</strong></p>
+<ul>
+<li>The TSE Corporate Governance Report consists of five parts, Parts I to V.</li>
+<li>The reasons for not implementing each principle of the Code and the disclosures under each principle are primarily set out in <strong>Part I</strong>. The structure of the board of directors, committees, audits, remuneration, etc. is described in <strong>Part II</strong>.</li>
+<li>If you want to read it in 15 minutes, first check the capital structure and Code compliance in Part I, then check the actual state of the board of directors in Part II, the general meeting of shareholders and IR in Part III, and internal control and other important matters in Parts IV and V.</li>
+</ul>
 </blockquote>
-<h2>The document, in one diagram</h2>
-<div class="mermaid-wrap"><pre class="mermaid">flowchart TB
-    CG[&quot;Corporate Governance Report&lt;br/&gt;TSE template, updated on material change&quot;]
-    S1[&quot;&lt;b&gt;Section I — Basic Information&lt;/b&gt;&lt;br/&gt;1. Basic policy&lt;br/&gt;2. Capital structure&lt;br/&gt;3. Corporate attributes&lt;br/&gt;4. Group governance / other&quot;]
-    S2[&quot;&lt;b&gt;Section II — Business Management Organization&lt;/b&gt;&lt;br/&gt;1. Board, audit, committees&lt;br/&gt;2. &lt;b&gt;Comply-or-explain narrative (principle-by-principle)&lt;/b&gt;&lt;br/&gt;3. Skills matrix, Prime disclosures&lt;br/&gt;4. Officer compensation, related-party transactions&quot;]
-    S3[&quot;&lt;b&gt;Section III — Shareholders &amp; Stakeholders&lt;/b&gt;&lt;br/&gt;1. IR activities, dialogue policy&lt;br/&gt;2. AGM operations, electronic voting&lt;br/&gt;3. English disclosure status&lt;br/&gt;4. Sustainability / ESG / supply chain&quot;]
-    S4[&quot;&lt;b&gt;Section IV — Internal Control System&lt;/b&gt;&lt;br/&gt;1. J-SOX basic policy&lt;br/&gt;2. Anti-social forces policy&lt;br/&gt;3. Other material matters&quot;]
+<h2 id="section-1">Overall structure of CG report</h2>
+<pre class="mermaid" role="img" aria-label="Diagram of the policy framework">flowchart TB
+    CG[&quot;Corporate Governance Report &lt;br/&gt; TSE prescribed format (updated from time to time when important matters change)&quot;]
+    S1[&quot;&lt;b&gt; Part I - Basic information &lt;/b&gt;&lt;br/&gt;1. Basic concept &lt;br/&gt;2. Reasons for not implementing the code &lt;br/&gt;3. Disclosure based on each principle &lt;br/&gt;4. Capital structure, corporate attributes, group management&quot;]
+    S2[&quot;&lt;b&gt; Part II - Governance Structure &lt;/b&gt;&lt;br/&gt;1. Board of Directors/Auditing Body &lt;br/&gt;2. Outside Officers/Independence &lt;br/&gt;3. Nomination/Compensation Committee &lt;br/&gt;4. Audit/Compensation/Liability Limitation Agreement&quot;]
+    S3[&quot;&lt;b&gt; Part III - Shareholder and stakeholder measures &lt;/b&gt;&lt;br/&gt;1. General meeting of shareholders and exercise of voting rights &lt;br/&gt;2. IR activities &lt;br/&gt;3. Stakeholder measures &lt;br/&gt;4. English disclosure/sustainability&quot;]
+    S4[&quot;&lt;b&gt; Part IV - Internal control, etc. &lt;/b&gt;&lt;br/&gt;1. Internal control system &lt;br/&gt;2. Risk management/reporting system &lt;br/&gt;3. Elimination of anti-social forces&quot;]
+    S5[&quot;&lt;b&gt; Part V - Others &lt;/b&gt;&lt;br/&gt;1. Takeover defense measures &lt;br/&gt;2. Governance system diagram &lt;br/&gt;3. Timely disclosure system diagram &lt;br/&gt;4. Future issues and measures&quot;]
     CG --&gt; S1
     CG --&gt; S2
     CG --&gt; S3
-    CG --&gt; S4</pre></div>
+    CG --&gt; S4
+    CG --&gt; S5</pre>
 
-<h2>Section I — Basic Information</h2>
-<p><strong>Section I</strong> is the orientation. It typically runs to 4–6 pages and contains four sub-blocks:</p>
+<p>A report is not just an organizational chart. You can search for what principles a company implements, what they don&#39;t, and how they explain their decisions. It is updated from time to time if there are changes to the composition of the board of directors or IR activities, so it should be thought of as a continuous disclosure that shows the company&#39;s current governance, rather than a document created only once a year.</p>
+<h2 id="section-2">Part I - Basic information to read first and Code compliance</h2>
+<p>The official name of Part I is <strong>“Basic Concepts, Capital Structure, Corporate Attributes, and Other Basic Information Regarding Corporate Governance”</strong>. Although the name is long, much of the information that investors see first is gathered here.</p>
+<p>The main contents are as follows.</p>
 <ol>
-<li><strong>Basic policy on corporate governance</strong> — a short narrative statement of the company's governance philosophy. Usually generic, but worth scanning for any reference to the company's specific industry, controlling-shareholder situation, or special-circumstances framing.</li>
-<li><strong>Capital structure</strong> — the <em>most-cited</em> part of the CG Report. It lists the company's <strong>foreign-ownership ratio</strong>, <strong>major shareholders</strong>, the presence of a <strong>controlling shareholder</strong> (and identifies them), and the parent-company relationship if any. This is also where you find the <strong>tradable-share ratio</strong> disclosure (covered in Theme 3.2).</li>
-<li><strong>Corporate attributes</strong> — listing segment (Prime/Standard/Growth, post-April 2022), fiscal year-end, organisational form (<strong>kansayaku</strong> company, <strong>audit and supervisory committee</strong> company, or <strong>three-committee</strong> company), industry classification.</li>
-<li><strong>Other matters</strong> — including the company's group governance arrangements where they apply.</li>
+<li><strong>Basic ideas regarding corporate governance</strong> - Explain what the company uses for governance and how to position shareholders and other stakeholders.</li>
+<li><strong>Reasons for not implementing each principle of the code</strong> - If any of the basic principles, principles, and supplementary principles are not being implemented in the prime standard market, and the basic principles in the growth market, please state the reasons why they are not being implemented.</li>
+<li><strong>Disclosures based on the principles of the Code</strong> - Describe matters that the Code requires to be disclosed, such as cross-shareholdings, board skills, sustainability, cost of capital, and shareholder dialogue, or provide references to other resources.</li>
+<li><strong>Capital structure</strong> - State the foreign shareholding ratio, major shareholders, controlling shareholders, presence or absence of a parent company, etc.</li>
+<li><strong>Corporate attributes and group management</strong> - Indicates market segments, fiscal year-end, industry type, number of employees, number of consolidated subsidiaries, whether parent and subsidiary are listed, and how to protect minority shareholders.</li>
 </ol>
-<p><strong>What to look for first:</strong> the organisational form. The three structures (kansayaku, audit-supervisory-committee, three-committee) have materially different governance implications — kansayaku boards have separate statutory auditors; audit-and-supervisory-committee companies fold audit oversight into the board itself; three-committee companies have nomination, audit and remuneration committees as legally constituted board committees. The same Code principles apply, but the comply-or-explain logic in Section II reads differently depending on which structure the company uses.</p>
+<p>In this part, we will first look at <strong>the presence or absence of a controlling shareholder/parent company</strong> and <strong>foreign shareholding ratio</strong>. In companies with controlling shareholders, independence and protection of minority shareholders are central to understanding. Companies with a high proportion of foreign ownership tend to have higher expectations for English-language disclosure, access to shareholder meetings, independent outside directors, and explanations regarding capital allocation.</p>
+<p>Next, we will review the reasons for not implementing the Code and the disclosures based on each principle. Not only do they &quot;explain&quot; which principles, but they also look at whether their explanations are more specific than those of other companies in the same industry, whether they indicate dates and who made decisions, and whether they are consistent with other disclosure materials.</p>
 <blockquote>
-<p><strong>Sidebar — Foreign-ownership ratio is the canary</strong>
-An IR rep should know the company's foreign-ownership ratio cold. It is the single most-asked metric in inbound investor calls and the field that drives a disproportionate amount of stewardship engagement intensity. The CG Report is the authoritative source — not the IR deck.</p>
+<p><strong>Column: Foreign stock ownership ratio changes the premise of dialogue</strong>
+As the percentage of foreign ownership increases, the amount of information required by overseas investment management companies and voting advisory companies also increases. In addition to the availability of materials in English, it is necessary to explain in terms that foreign investors can understand, such as Japan&#39;s unique institutional design, cross-shareholdings, parent-child listings, and the authority of corporate auditors. IR personnel should keep track of the latest ratios and changes from the previous year.</p>
 </blockquote>
-<h2>Section II — Business Management Organization (the heart)</h2>
-<p><strong>Section II</strong> is by far the longest and most-read part of the document. It is where the principle-by-principle comply-or-explain narrative lives, and where the <strong>Prime-only disclosures</strong> (skills matrix, climate, English IR status) appear. It is organised in roughly this order:</p>
+<h2 id="section-3">Part II: Actual picture of the board of directors and supervisory system</h2>
+<p>Part II deals with “Status of the business management organization and other corporate governance systems related to management decision-making, execution, and supervision”. Read here to understand the institutional design adopted by the company and how it is structured in practice.</p>
+<p>Items to check are as follows.</p>
 <ol>
-<li><strong>Composition of the board</strong> — number of directors, number of independent directors, term lengths, brief biographies. Increasingly, this section also includes the <strong>skills matrix</strong> (required under 2021 Code Supplementary Principle 4.11.1 for all companies, with Prime expected to map skills to strategy).</li>
-<li><strong>Independence determinations</strong> — the company's <strong>independence criteria</strong> and how each independent director satisfies them. The TSE's standard criteria are the floor; the Code expects companies to publish their own stricter standards.</li>
-<li><strong>Voluntary committees</strong> — composition and remit of the nomination advisory committee, remuneration advisory committee, and any sustainability or ESG committee.</li>
-<li><strong>Audit structure</strong> — relationship with the kansayaku board / audit-supervisory committee / audit committee, internal-audit function, accounting auditor.</li>
-<li><strong>Officer compensation</strong> — basic policy on compensation, the mix of fixed/variable/equity-based components, and the process for determining individual amounts. This is the section that maps onto the <em>Disclosure of Compensation</em> in the yuho.</li>
-<li><strong>The comply-or-explain table</strong> — <strong>this is the most important block of the CG Report</strong>. For every Principle and Supplementary Principle that applies, the company records either "we comply" with a supporting narrative, or "we explain" with a reasoned non-compliance statement. The table is searchable on the TSE's <em>Corporate Governance Information Search</em> portal.</li>
-<li><strong>Related-party transactions</strong> — policy and oversight process.</li>
+<li><strong>Organizational design</strong> - Either a company with a board of auditors, a company with an audit and supervisory committee, or a company with a nominating committee, etc.</li>
+<li><strong>Composition of the Board of Directors</strong> - Number of directors, term of office, chairman, number and attributes of outside directors and independent officers.</li>
+<li><strong>Independence of outside officers</strong> ---Business relationships with the company, relationships with major shareholders and business partners, status of designation as independent officers.</li>
+<li><strong>Nomination and Compensation Committee</strong> - Presence of a voluntary committee, composition, chairperson, ratio of independent outside directors, role and authority.</li>
+<li><strong>Audit system</strong> - Cooperation between corporate auditors, audit and supervisory committee members, audit committee members, internal audit department, and accounting auditors.</li>
+<li><strong>Executive remuneration</strong> - Remuneration policy, concept of fixed, performance-linked, and stock remuneration, and decision-making procedures.</li>
+<li><strong>Reasons for choosing the current structure</strong> - Why is this organizational design suitable for your company, and what functions will the outside directors perform?</li>
 </ol>
-<h2>What "good" comply-or-explain looks like</h2>
-<p>Compare two stylised examples for the same principle — Supplementary Principle 4.11.1 (board skills matrix):</p>
+<p>The three institutional designs differ not only in name but also in the allocation of authority. In a company with a board of corporate auditors, the corporate auditors constitute a statutory body separate from the directors. In a company with an audit and supervisory committee, directors who are members of the audit and supervisory committee participate in decisions by the board of directors. In a company with a nominating committee, etc., the nominating, auditing, and compensation committees are statutory committees. Even if the ratio of independent outside directors is the same, the effectiveness will vary depending on which organization they belong to and which decisions they participate in.</p>
+<h2 id="section-4">Persuasive “compliance” and “explanation”</h2>
+<p>Disclosure in accordance with the spirit of the Code is not sufficient simply by stating that the code is being implemented. It is important that the reader understands the implementation details, the decision-making body, the timing of reviews, and the connection to management strategy.</p>
+<p>Let&#39;s compare the skills matrix in Replenishment Principle 4.11.1 with an example.</p>
 <blockquote>
-<p><strong>Weak comply</strong> (boilerplate)</p>
-<p><em>"The Company complies with Supplementary Principle 4.11.1. The Board is composed of directors with diverse backgrounds and skills."</em></p>
-<p><strong>Strong comply</strong> (specific, dated, strategic)</p>
-<p><em>"The Company complies with Supplementary Principle 4.11.1. The Board adopted a Skills Matrix at the May 2024 meeting, mapping eight skill categories (corporate management, finance/accounting, M&amp;A, technology, global business, legal/governance, sustainability, human capital) to the three strategic priorities of our FY2025–2027 Medium-Term Plan. The matrix is reviewed by the Nomination Advisory Committee annually before AGM director nominations. The current matrix is reproduced on p.14 of this Report."</em></p>
+<p><strong>Weak compliance explanation</strong></p>
+<p><em>“We implement Supplementary Principle 4.11.1. Our Board of Directors is comprised of directors with diverse experience and abilities.”</em></p>
+<p><strong>Specific compliance explanation</strong></p>
+<p><em>“At its May 2024 meeting, our board identified eight areas of expertise needed to implement the priority measures in the FY2025–2027 medium-term plan: corporate management, finance and accounting, M&amp;A, technology, overseas business, law and governance, sustainability, and human capital. The skills matrix on page 14 of this report shows how each director’s skills correspond to these areas. Before selecting candidates each year, the nomination committee reviews the expertise required and the composition of the current board.”</em></p>
 </blockquote>
-<p>The Code does not specify the length, but the substance of the second version — concrete categories, an explicit link to a named strategic document, board-level review cadence, cross-reference to a specific page — is the hallmark the FSA's <em>From Form to Substance</em> Opinion Statement (April 2023) was written to encourage.</p>
-<p>Now compare two "explain" examples for Principle 4.8 (one-third independence for Prime issuers):</p>
+<p>The latter includes management strategy, timing of decisions by the board of directors, classification of abilities, review body, and reference pages. Readers can see that the matrix is used to select director candidates, not as a list of backgrounds.</p>
+<p>Next, compare the explanations for cases in which the ratio of independent outside directors in Principle 4.8 is not met.</p>
 <blockquote>
-<p><strong>Weak explain</strong></p>
-<p><em>"The Company does not currently appoint one-third independent directors. We will consider this matter going forward."</em></p>
-<p><strong>Strong explain</strong></p>
-<p><em>"The Company is a Prime Market issuer and currently has 3 independent directors out of 10 (30%). Recognising the Code expectation of at least one-third independence, the Nomination Advisory Committee has been instructed to identify one additional independent director candidate, with a target appointment at the AGM in June 2026 (raising the ratio to 36%). Search progress is reported to the Board quarterly. The Company is on track to comply with the principle from FY2026."</em></p>
+<p><strong>Weak explanation</strong></p>
+<p><em>&quot;Currently, we have not appointed more than one-third of our directors as independent outside directors. We will consider this in the future.&quot;</em></p>
+<p><strong>Specific explanation</strong></p>
+<p><em>&quot;Out of the Company&#39;s 10 directors, three are independent outside directors, accounting for a ratio of 30%. The nominating committee is selecting candidates with a policy of adding one independent outside director at the regular general meeting of shareholders in June 2026. If elected, the ratio will be 36%. Progress will be reported to the board of directors quarterly.&quot;</em></p>
 </blockquote>
-<p>The strong explain is, in many investor communications, <em>better</em> than a generic comply. It gives the investor a date, a process, and a measurable target. Proxy advisers and engagement letters consistently reward this style.</p>
-<h2>Section III — Shareholders &amp; Stakeholders</h2>
-<p><strong>Section III</strong> is the IR-team section. It contains:</p>
+<p>Even when explaining the reasons why something has not been implemented, investors can evaluate the board&#39;s thinking by showing the current situation, reasons for the decision, alternative measures, responsible party, and timing. A concrete &quot;explanation&quot; may have more informational value than a statement that only concludes &quot;compliance.&quot;</p>
+<h2 id="section-5">Part III: General Meeting of Shareholders, IR, Stakeholder Measures</h2>
+<p>Part III is “Implementation Status of Measures Concerning Shareholders and Other Stakeholders” and is the part most directly relevant to IR personnel.</p>
 <ol>
-<li><strong>Status of IR activities</strong> — investor briefings (frequency, audience, who presents), presentation materials, contact point for inquiries, IR policy, dialogue policy with shareholders, and the <strong>anti-takeover-measures</strong> disclosure.</li>
-<li><strong>AGM operations</strong> — electronic-voting platform participation (the ICJ platform for Prime issuers under Supplementary Principle 1.2.4), date concentration, English-language convening notice, and any measures to facilitate participation.</li>
-<li><strong>English-language disclosure status</strong> — important for the April 2025 mandate (Theme 5.1) and for Prime Market Supplementary Principle 3.1.2 compliance.</li>
-<li><strong>Stakeholder and sustainability initiatives</strong> — basic policy on stakeholder cooperation, sustainability/ESG initiatives, supply-chain governance, whistleblower policy.</li>
+<li><strong>Activating shareholder meetings and facilitating the exercise of voting rights</strong> -- Early sending of convocation notices, holding meetings that avoid crowded days, electronic voting, electronic voting platform for institutional investors, English translation of convocation notices, virtual general meetings, etc.</li>
+<li><strong>IR activities</strong> - Disclosure policy, briefing sessions for individual investors, analysts, and overseas investors, presence or absence of explanations by representatives themselves, posting of IR materials, departments and officers in charge.</li>
+<li><strong>Stakeholder measures</strong> - Respect for stakeholders in internal regulations, environment/CSR/sustainability reporting, diversity, internal reporting system, etc.</li>
 </ol>
-<p><strong>For an IR rep, this is the second-most-important section after II.</strong> Many of the questions an overseas investor or proxy adviser will ask about IR philosophy, AGM accessibility, and English-language disclosure are answered, in machine-readable form, here. If your IR pack and your CG Report Section III contradict each other, the CG Report wins — because it is the disclosure of record.</p>
-<h2>Section IV — Internal Control System</h2>
-<p><strong>Section IV</strong> is the shortest. It records:</p>
-<ol>
-<li>The board's resolution on the <strong>basic policy on internal control</strong> under <strong>Article 362(4)(vi)</strong> of the Companies Act and the J-SOX-aligned implementation framework.</li>
-<li>The <strong>anti-social forces</strong> policy — Japanese law and listing rules require listed companies to maintain an explicit policy of refusing transactions with organised crime groups.</li>
-<li>Any other internal-control matter the company considers material.</li>
-</ol>
-<p>Section IV is often read last and quickly. The exception is when the company has had a recent material weakness or compliance event, in which case investors will read Section IV with care to understand the remediation framing.</p>
+<p>Here, rather than whether the company states that it “emphasizes dialogue with investors,” we look at who provides explanations, to which investor groups, and how often. I would like to confirm whether information is published in Japanese and English at the same time, whether the CEO and CFO are participating in dialogue, and whether sufficient consideration time is secured before the general meeting of shareholders.</p>
+<h2 id="section-6">Part IV: Internal Control and Response to Anti-Social Forces</h2>
+<p>Part IV describes the basic concept and development status of the internal control system under the Companies Act, risk management, information management, whistleblowing, group company management, policies and systems for eliminating anti-social forces, etc.</p>
+<p>The internal controls covered here are not completely the same as internal controls related to financial reporting under the Financial Instruments and Exchange Act, so-called J-SOX. The CG report focuses on the broader framework of the Companies Act, including the system for ensuring that the duties of directors and employees comply with laws and regulations and the articles of incorporation, the system for managing loss risk, the storage and management of job information, and the appropriateness of the corporate group&#39;s operations.</p>
+<p>Normally, it is sufficient to read the summary at the end, but for companies that have had scandals, significant internal control deficiencies, or subsidiary management problems, it is worth reading this part first. Check whether measures to prevent recurrence are not limited to adding an organizational chart, and how the reporting channels and reporting to the board of directors have changed.</p>
+<h2 id="section-7">Part V--Takeover defense measures and organizational chart</h2>
+<p>“Others” in Part V includes the status of implementation of takeover defense measures, future governance issues, governance system diagram, timely disclosure system diagram, etc.</p>
+<p>For companies that have adopted takeover defense measures, we look at management&#39;s evaluation of their purpose, structure, and rationality. The organizational chart allows you to understand how the general meeting of shareholders, board of directors, auditing body, voluntary committees, executive committee, internal audit, and accounting auditor are connected. A timely disclosure system diagram shows which route important information is aggregated from business departments, who makes disclosure decisions, and where it is approved.</p>
 <blockquote>
-<p><strong>Sidebar — Where to find a company's CG Report</strong>
-Every CG Report is available on the <strong>TSE Corporate Governance Information Search</strong> portal — https://www.jpx.co.jp/english/listing/cg-search/ — searchable by ticker, by name, or by Principle. Companies also typically post the PDF on their own IR website. The TSE portal is the authoritative version.</p>
+<p><strong>Column - Where to get it</strong>
+The latest reports for each company can be searched by company name or securities code on TSE&#39;s <strong>Corporate Governance Information Service</strong>. PDFs are often posted on companies&#39; IR sites, but for comparative research, using the TSE search service makes it easy to check multiple companies using the same format.</p>
 </blockquote>
-<h2>How to read one in 15 minutes</h2>
+<h2 id="section-8">Steps to read in 15 minutes</h2>
 <table>
 <thead>
 <tr>
-<th>Minute</th>
-<th>Action</th>
+<th>elapsed time</th>
+<th>What to check</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td>0–3</td>
-<td><strong>Section I</strong> — basic policy, foreign-ownership ratio, controlling shareholder, organisational form, listing segment.</td>
+<tbody><tr>
+<td>0-4 minutes</td>
+<td><strong>Part I</strong> - Disclosure by principle of controlling shareholder/parent company, foreign ownership ratio, market segment, reasons for not implementing the code, cross-shareholdings, cost of capital, skill composition, etc.</td>
 </tr>
 <tr>
-<td>3–6</td>
-<td><strong>Section III</strong> — IR policy, English disclosure status, AGM operations.</td>
+<td>4-9 minutes</td>
+<td><strong>Part II</strong> - Institutional design, board of directors and independent outside directors, nomination and compensation committee, audit system, executive compensation, and reasons for choosing the current structure.</td>
 </tr>
 <tr>
-<td>6–12</td>
-<td><strong>Section II</strong> — read the comply-or-explain narrative for the principles that matter to your investor base: 1.4 (cross-shareholdings), 4.8 (independence), 4.11.1 (skills matrix), 5.2 (cost of capital), 2.4.1 (diversity targets), 3.1.3 (TCFD).</td>
+<td>9-12 minutes</td>
+<td><strong>Part III</strong> -- General meeting of shareholders, electronic voting, English convocation notice, briefing session, CEO/CFO involvement, IR system.</td>
 </tr>
 <tr>
-<td>12–14</td>
-<td><strong>Section II</strong> continued — voluntary committees, officer compensation.</td>
+<td>12-14 minutes</td>
+<td><strong>Part IV</strong>—Internal Control, Risk Management, Whistleblowing, Subsidiary Management. Increase the time if there has been a recent scandal.</td>
 </tr>
 <tr>
-<td>14–15</td>
-<td><strong>Section IV</strong> — scan for anything atypical; usually nothing.</td>
+<td>14-15 minutes</td>
+<td><strong>Part V</strong> -- Takeover defense measures, governance system diagram, timely disclosure system diagram, and future challenges.</td>
 </tr>
-</tbody>
-</table>
-<p>That order — capital structure, IR posture, comply-or-explain, internal control — gives you the picture in roughly the same time it takes to read a 20-page sell-side initiation note.</p>
-<h2>What this means for IR</h2>
+</tbody></table>
+<p>For quick comparisons, it is not necessary to read all items at the same depth. First, we narrow down the issues based on shareholder composition and code compliance, and then follow up on the board of directors, committees, and IR systems related to those issues. If there is a controlling shareholder, minority shareholder protection is required, if there are many cross-shareholdings, the principle is 1.4, if the PBR is less than 1x, the principle is 5.2, and if the overseas ownership ratio is high, English disclosure and shareholder meeting environment are required.</p>
+<h2 id="section-9">Practical matters that IR personnel should keep in mind</h2>
 <ol>
-<li><strong>Audit your own CG Report quarterly.</strong> It is your governance face to the world. Update it whenever a board composition change, a new policy, a new committee, or a material engagement event lands — not on a fixed annual cycle.</li>
-<li><strong>Make Section II Principle-by-Principle compliance text read like investor communication, not legal boilerplate.</strong> The narrative is <em>yours</em> to write. Use the active voice, name your strategy documents, give dates and metrics, and link to the page numbers where supporting evidence lives.</li>
-<li><strong>Treat the skills matrix and Prime disclosures as competitive ground.</strong> Peer benchmarking on Section II quality is one of the easiest comparative exercises a stewardship investor performs. A best-in-class skills matrix is a low-cost reputational asset.</li>
-<li><strong>Reconcile your IR deck and your CG Report.</strong> Any numeric or policy discrepancy between the two is a flag — investors will pick it up immediately, and proxy advisers will weight the CG Report as the disclosure of record.</li>
-<li><strong>Use the TSE <em>Examples of Good Practice</em> document.</strong> JPX publishes a free PDF of strong-practice examples drawn from real filings. It is the best single benchmarking resource for upgrading your own CG Report.</li>
+<li><strong>Manage the CG report for disclosure at any time.</strong> Any significant changes to board composition, committees, controlling shareholders, policies, or code compliance will be amended without waiting for the annual update.</li>
+<li><strong>Write the principle-based disclosures in Part I for investors.</strong> Instead of using fixed phrases, include the person making the decision, date, numerical value, target material, and review period. When referring to other materials, make sure that the reader can easily reach the relevant section.</li>
+<li><strong>Align Parts I and II.</strong> If you write that “the nominating committee will oversee succession planning,” the composition, number of meetings, and roles of the committee in Part II must also support this.</li>
+<li><strong>Eliminate inconsistencies with IR materials, annual securities reports, and integrated reports.</strong> When disclosing the same information in multiple media, such as foreign ownership ratio, independent outside director ratio, cross-shareholdings, remuneration policy, sustainability goals, etc., use the same reference date and definition.</li>
+<li><strong>Improve based on TSE&#39;s entry guidelines and collection of good practices.</strong> Before pursuing your own unique expression, check the formal purpose and precautions for each column, and compare with best practices from other companies in your industry.</li>
 </ol>
-<h2>Sources &amp; further reading</h2>
+<h2 id="section-10">Source/reference materials</h2>
 <ul>
-<li>JPX — Corporate Governance Report page (template, preparation guidelines, samples): https://www.jpx.co.jp/english/equities/listing/cg/01.html</li>
-<li>JPX — Examples of Good Practice in CG Reports (PDF): https://www.jpx.co.jp/english/equities/listing/cg/tvdivq0000008jdy-att/b5b4pj0000036oc5.pdf</li>
-<li>JPX — Corporate Governance Information Search portal: https://www.jpx.co.jp/english/listing/cg-search/index.html</li>
-<li>JPX — TSE Listed Companies White Paper on Corporate Governance (landing): https://www.jpx.co.jp/english/equities/listing/cg/02.html</li>
+<li>Japan Exchange Group - Report on Corporate Governance (Format, Instructions, Sample): <a href="https://www.jpx.co.jp/equities/listing/cg/01.html">https://www.jpx.co.jp/equities/listing/cg/01.html</a></li>
+<li>Japan Exchange Group - Collection of good examples of corporate governance reports (PDF): <a href="https://www.jpx.co.jp/equities/listing/cg/tvdivq0000008jdy-att/b5b4pj0000036oc5.pdf">https://www.jpx.co.jp/equities/listing/cg/tvdivq0000008jdy-att/b5b4pj0000036oc5.pdf</a></li>
+<li>Japan Exchange Group - Corporate Governance Information Service: <a href="https://www2.tse.or.jp/tseHpFront/CGK010010Action.do">https://www2.tse.or.jp/tseHpFront/CGK010010Action.do</a></li>
+<li>Japan Exchange Group - TSE listed company Corporate Governance White Paper: <a href="https://www.jpx.co.jp/equities/listing/cg/02.html">https://www.jpx.co.jp/equities/listing/cg/02.html</a></li>
 </ul>
-<h2>Cross-references</h2>
-<p><strong>Next in this theme:</strong> Post 2.5 — <em>Code vs Guideline: when METI's CGS, GGS, Fair-M&amp;A and Takeover Guidelines override the Code</em>.</p>
-<p><strong>Related posts in other themes:</strong>
-- Post 3.2 — <em>The Tradable-Share Ratio</em> (the Section I capital-structure number that reshaped cross-shareholdings)
-- Post 4.3 — <em>The Shame-and-Showcase List</em> (TSE's separate monthly disclosure mechanism alongside the CG Report)
-- Post 5.1 — <em>The English disclosure mandate</em> (Section III English disclosure status, post-April 2025)</p>
-    </article>
-    <div class="post-nav"><a href="/en/governance/cg-code/2.3-cg-code-2021-revision/" class="post-nav-link prev"><div class="post-nav-dir">← Previous</div><div class="post-nav-title">The 2021 Revision: Prime, sustainability, diversity</div></a><a href="/en/governance/cg-code/2.5-meti-guideline-family/" class="post-nav-link next"><div class="post-nav-dir">Next →</div><div class="post-nav-title">Code vs Guideline: when METI&#x27;s CGS, GGS, Fair-M&amp;A and Takeover Guidelines override the Code</div></a></div>
-  </div>
-</section>
-</main>
-<style>footer{background:var(--ink,#1a2a4a);color:#cfd6e2;padding:48px 0 30px;font-size:0.8rem;line-height:1.8;border-top:none}footer a{color:#cfd6e2;text-decoration:none}footer .footer-row{list-style:none;display:flex;flex-wrap:wrap;gap:8px 26px;margin:0 0 26px;padding:0}footer .footer-row li{padding:0}footer .footer-row a{color:#cfd6e2;text-decoration:none;font-size:0.8rem}footer .footer-bottom{padding-top:24px;border-top:1px solid rgba(255,255,255,0.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-family:var(--mono),monospace;font-size:0.68rem;letter-spacing:0.06em;color:rgba(255,255,255,0.55)}</style><script>
-const nav = document.getElementById('main-nav');
-if (nav) window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
-const hamburgerBtn = document.querySelector('.hamburger');
-function setMenuOpen(isOpen) { const menu = document.getElementById('mobileMenu'); if (!menu || !hamburgerBtn) return; menu.classList.toggle('open', isOpen); menu.hidden = !isOpen; hamburgerBtn.setAttribute('aria-expanded', String(isOpen)); }
-function toggleMenu() { const menu = document.getElementById('mobileMenu'); setMenuOpen(!(menu && menu.classList.contains('open'))); }
-document.addEventListener('click', (e) => { const menu = document.getElementById('mobileMenu'); if (menu && menu.classList.contains('open') && !menu.contains(e.target) && hamburgerBtn && !hamburgerBtn.contains(e.target)) setMenuOpen(false); });
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenuOpen(false); });
-</script>
-<script type="module">
-import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs';
-mermaid.initialize({ startOnLoad: true, theme: 'neutral', fontFamily: 'Noto Sans JP, Hiragino Kaku Gothic ProN, sans-serif', themeVariables: { primaryColor: '#f4eee4', primaryTextColor: '#1a2a4a', primaryBorderColor: '#9a7838', lineColor: '#304466', secondaryColor: '#f5f7fa', tertiaryColor: '#fafbfc' } });
-</script>
-<script src="/assets/nav.js?v=48f8466f8c" defer></script>
+<h2 id="section-11">Related articles</h2>
+<p><strong>Next article on this theme:</strong> 2.5 - Code and guidelines - Differences in roles and how to distinguish them</p>
+<p><strong>Related articles on other themes:</strong></p>
+<ul>
+<li>3.2 - <a href="/en/governance/market-restructuring/3.2-tradable-share-ratio/">tradable-share ratio - Mechanism that promoted the reduction of cross-shareholdings</a> (Indicator for reading capital structure and continued listing criteria)</li>
+<li>4.3 - <a href="/en/governance/capital-efficiency/4.3-the-disclosure-list/">List of companies disclosed by TSE - Discipline created by publication</a> (Monthly publication system starting from CG report)</li>
+<li>5.1 - <a href="/en/governance/frontier/5.1-english-disclosure-mandate/">Simultaneous Japanese and English disclosure is just the beginning - Mandatory in April 2025</a> (Part III English disclosure status and timely disclosure rules)</li>
+</ul></article><nav class="post-nav" aria-label="Article navigation"><a class="post-nav-link prev" href="/en/governance/cg-code/2.3-cg-code-2021-revision/"><div class="post-nav-dir">← Previous article</div><div class="post-nav-title">The 2021 revision: Prime Market, sustainability and diversity</div></a><a class="post-nav-link next" href="/en/governance/cg-code/2.5-meti-guideline-family/"><div class="post-nav-dir">Next article →</div><div class="post-nav-title">Codes and guidelines: Their different roles and uses</div></a></nav><div class="post-language"><a href="/governance/cg-code/2.4-reading-a-cg-report/" data-locale-route lang="ja">日本語版 →</a></div></div></section>
+  </main>
+  <script src="/assets/governance.js?v=cc6033456e" defer></script>
+  <script src="/assets/nav.js?v=393a8e17be" defer></script>
 </body>
 </html>

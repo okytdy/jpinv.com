@@ -48,7 +48,7 @@
       panel: true, img: "slot01_kaiji_card",
       items: [
         { ja: "料金表",       en: "Pricing",            jaHref: "/%E6%96%99%E9%87%91/",                   enHref: "/en/pricing/" },
-        { ja: "特急翻訳",     en: "Express translation", jaHref: "/%E7%89%B9%E6%80%A5%E7%BF%BB%E8%A8%B3/", enHref: "/%E7%89%B9%E6%80%A5%E7%BF%BB%E8%A8%B3/" },
+        { ja: "特急翻訳",     en: "Express translation", jaHref: "/%E7%89%B9%E6%80%A5%E7%BF%BB%E8%A8%B3/", enHref: "/en/services/express-translation/" },
         { ja: "よくある質問", en: "FAQ",                jaHref: "/faq/",                                  enHref: "/en/faq/" },
         { ja: "お問い合わせ", en: "Contact",            jaHref: "/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B/", enHref: "/en/contact/" }
       ] },
@@ -111,7 +111,7 @@
         { ja: "IR通訳",     en: "IR interpretation",       jaHref: "/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/IR%E9%80%9A%E8%A8%B3/",                 enHref: "/en/services/ir-interpretation/" },
         { ja: "継続翻訳・IR相談", en: "Ongoing translation and IR consultation", jaHref: "/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/%E7%B6%99%E7%B6%9AIR%E6%94%AF%E6%8F%B4/", enHref: "/en/services/ongoing-ir-support/" },
         { ja: "招集通知・有報・統合報告書翻訳", en: "AGM notice and annual report", jaHref: "/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/%E6%8B%9B%E9%9B%86%E9%80%9A%E7%9F%A5%E3%83%BB%E6%9C%89%E5%A0%B1%E3%83%BB%E7%B5%B1%E5%90%88%E5%A0%B1%E5%91%8A%E6%9B%B8%E7%BF%BB%E8%A8%B3/", enHref: "/en/services/annual-agm-translation/" },
-        { ja: "特急翻訳",   en: "Express translation (JP)", jaHref: "/%E7%89%B9%E6%80%A5%E7%BF%BB%E8%A8%B3/",                                     enHref: "/%E7%89%B9%E6%80%A5%E7%BF%BB%E8%A8%B3/" },
+        { ja: "特急翻訳",   en: "Express translation", jaHref: "/%E7%89%B9%E6%80%A5%E7%BF%BB%E8%A8%B3/",                                     enHref: "/en/services/express-translation/" },
         { ja: "品質管理と機密保持", en: "Quality Control and Confidentiality", jaHref: "/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/AI%E3%81%A8%E6%A9%9F%E5%AF%86%E4%BF%9D%E6%8C%81/", enHref: "/en/services/ai-confidentiality/" }
       ] },
     { head: S("調査レポート"), items: [

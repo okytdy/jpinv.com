@@ -1,390 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-
-<title>Hostile Is No Longer a Slur: METI&#x27;s 2023 Guidelines for Corporate Takeovers | JII Governance Curriculum</title>
-<meta name="description" content="How METI&#x27;s August 2023 Guidelines for Corporate Takeovers reframed the Japanese M&amp;A market by introducing the &#x27;bona-fide offer&#x27; doctrine, codifying the special-committee/MoM architecture for controlled deals, and triggering a wave of mega-MBOs from Toshiba to Benesse to Taisho to Outsourcing to Infocom.">
-<meta property="og:title" content="Hostile Is No Longer a Slur: METI&#x27;s 2023 Guidelines for Corporate Takeovers | JII Governance Curriculum">
-<meta property="og:description" content="How METI&#x27;s August 2023 Guidelines for Corporate Takeovers reframed the Japanese M&amp;A market by introducing the &#x27;bona-fide offer&#x27; doctrine, codifying the special-committee/MoM architecture for controlled deals, and triggering a wave of mega-MBOs from Toshiba to Benesse to Taisho to Outsourcing to Infocom.">
-<meta property="og:url" content="https://jpinv.com/en/governance/frontier/5.4-mbo-takeover-guidelines/">
-<link rel="canonical" href="https://jpinv.com/en/governance/frontier/5.4-mbo-takeover-guidelines/">
-<link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/frontier/5.4-mbo-takeover-guidelines/">
-<link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/frontier/5.4-mbo-takeover-guidelines/">
-<link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/frontier/5.4-mbo-takeover-guidelines/">
-
-<style>
-:root {
-  --ink:        #1a2a4a;
-  --ink-mid:    #172641;
-  --ink-soft:   #304466;
-  --rule:       #d6dee8;
-  --rule-soft:  #e8edf3;
-  --bg:         #ffffff;
-  --bg-mid:     #f5f7fa;
-  --bg-soft:    #fafbfc;
-  --text:       #1f2937;
-  --text-mid:   #4a5566;
-  --text-dim:   #5f6875;
-  --accent:     #9a7838;
-  --accent-deep:#9a7838;
-  --accent-soft:#f4eee4;
-  --bad:        #b91c1c;
-  --warn:       #8a682b;
-  --ok:         #2f6f4f;
-  --serif: 'Noto Serif JP', 'Yu Mincho', serif;
-  --sans:  'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
-  --mono:  'DM Mono', monospace;
-  --max: 1100px;
-  --pad: 88px;
-  --gutter: 48px;
-  --nav-h: 64px;
-  --measure: 720px;
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
-body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 400; line-height: 1.7; overflow-x: hidden; }
-img { max-width: 100%; display: block; }
-a { color: var(--ink-soft); text-decoration: none; }
-a:hover { color: var(--ink); }
-.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
-@media (max-width: 768px) { :root { --gutter: 22px; --pad: 56px; } }
-strong { font-weight: 600; color: var(--ink); }
-em { font-style: normal; color: var(--ink); font-weight: 600; }
-.label { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-soft); }
-
-/* Nav (copied from jpinv.com base) */
-nav#main-nav { position: fixed; top:0; left:0; right:0; z-index:100; height: var(--nav-h); background: rgba(255,255,255,0.96); backdrop-filter: blur(14px); border-bottom: 1px solid var(--rule); display: flex; align-items: center; transition: box-shadow 0.3s; }
-nav#main-nav.scrolled { box-shadow: 0 4px 24px rgba(15,31,58,0.08); }
-.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; }
-.nav-logo { text-decoration: none; display: inline-flex; align-items: center; flex: 0 0 auto; min-width: max-content; white-space: nowrap; }
-.nav-logo-img { display: block; width: auto; height: 40px; max-width: none; object-fit: contain; object-position: left center; }
-.nav-logo-img--mobile { display: none; width: 32px; height: 32px; object-fit: contain; }
-.nav-center { flex: 1; display: flex; justify-content: center; }
-.nav-links { display: flex; gap: 18px; list-style: none; flex-wrap: nowrap; white-space: nowrap; }
-.nav-links a { font-family: var(--sans); font-size: 0.74rem; font-weight: 400; letter-spacing: 0.02em; color: var(--text); text-decoration: none; transition: color 0.2s; }
-.nav-links a:hover { color: var(--ink-soft); }
-.nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; margin-left: auto; }
-.nav-cta { padding: 7px 11px; font-size: 0.66rem; letter-spacing: 0.05em; }
-.locale-switcher { display: inline-flex; align-items: center; gap: 0; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em; }
-.locale-switcher a { color: var(--text-dim); border: 1px solid var(--rule); padding: 6px 9px; text-decoration: none; transition: all 0.2s; }
-.locale-switcher a + a { margin-left: -1px; }
-.locale-switcher a:hover, .locale-switcher a.current { color: var(--ink); border-color: var(--ink-mid); background: var(--bg-soft); position: relative; z-index: 1; }
-.hamburger { display: none; flex-shrink:0; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:4px; }
-.hamburger span { display:block; width:22px; height:1px; background:var(--ink); transition: all 0.25s; }
-@media (max-width: 900px) { .nav-center, .nav-right .nav-cta { display:none; } .hamburger { display:flex; } }
-@media (max-width: 768px) { .nav-logo-img--desktop { display:none; } .nav-logo-img--mobile { display:block; } }
-.mobile-menu { display:none; position:fixed; top:var(--nav-h); left:0; right:0; background:var(--bg); border-bottom:1px solid var(--rule); z-index:99; padding:8px var(--gutter) 20px; flex-direction:column; gap:0; }
-.mobile-menu.open { display:flex; }
-.mobile-menu a { font-size:0.88rem; color:var(--text); text-decoration:none; padding:14px 0; border-bottom:1px solid var(--rule); letter-spacing:0.04em; }
-.mobile-menu a:last-child { border-bottom:none; }
-.mobile-menu .mobile-menu-cta { margin-top:12px; padding:13px 18px; text-align:center; color:#fff; border-bottom:none; }
-
-.btn { display: inline-block; text-decoration: none; font-family: var(--sans); font-size: 0.84rem; font-weight: 400; letter-spacing: 0.06em; padding: 13px 28px; transition: all 0.2s; cursor: pointer; border: none; }
-.btn-primary { background: var(--ink); color: #fff; }
-.btn-primary:hover { background: var(--ink-mid); color: #fff; }
-.btn-outline { border: 1px solid var(--ink-mid); color: var(--ink); background: transparent; }
-.btn-outline:hover { border-color: var(--ink); color: var(--ink); }
-.rule-accent { width: 32px; height: 2px; background: var(--accent); margin: 14px 0 22px; }
-
-/* Footer (mirror) */
-footer { border-top: 1px solid var(--rule); padding: 52px 0 28px; background: var(--bg-soft); font-size: 0.82rem; color: var(--text-dim); }
-footer .footer-grid { display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); gap: 32px; align-items: start; padding-bottom: 36px; border-bottom: 1px solid var(--rule); }
-footer h2 { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.2em; color: var(--ink-soft); text-transform: uppercase; margin-bottom: 12px; font-weight: 500; }
-footer h3 { font-family: var(--serif); font-size: 1rem; font-weight: 400; color: var(--ink); margin-bottom: 8px; }
-footer ul { list-style: none; }
-footer ul li { padding: 4px 0; }
-footer ul li a { color: var(--text-mid); }
-footer ul li a:hover { color: var(--ink); }
-footer .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 18px; flex-wrap: wrap; gap: 12px; }
-footer .footer-locale-switcher a.current { font-weight: 600; color: var(--ink); }
-@media (max-width: 900px) { footer .footer-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 580px) { footer .footer-grid { grid-template-columns: 1fr; } }
-
-/* === Curriculum-specific === */
-main.curriculum { padding-top: var(--nav-h); }
-.curr-hero { padding: 96px 0 64px; border-bottom: 1px solid var(--rule); position: relative; overflow: hidden; }
-.curr-hero::before { content:''; position:absolute; inset:0;
-  background-image: linear-gradient(rgba(15,31,58,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(15,31,58,0.04) 1px, transparent 1px);
-  background-size: 64px 64px;
-  -webkit-mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent);
-          mask-image: linear-gradient(180deg, transparent, black 15%, black 85%, transparent); }
-.curr-hero-inner { position:relative; z-index:2; max-width: 880px; }
-.curr-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.32em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 18px; }
-.curr-hero h1 { font-family: var(--serif); font-size: clamp(1.9rem, 4.4vw, 3.1rem); font-weight: 300; color: var(--ink-mid); line-height: 1.3; letter-spacing: 0.02em; margin: 0 0 22px; }
-.curr-hero h1 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-.curr-hero .lede { font-size: 1.05rem; line-height: 1.85; color: var(--text); margin: 0 0 24px; max-width: 700px; }
-.curr-hero-meta { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
-.curr-hero-meta strong { color: var(--ink); font-family: var(--mono); }
-
-.crumbs { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; padding: 22px 0 0; }
-.crumbs a { color: var(--text-mid); }
-.crumbs a:hover { color: var(--ink); }
-.crumbs .sep { color: var(--rule); margin: 0 8px; }
-
-.theme-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; padding: 56px 0; }
-.theme-card { display: block; background: #fff; border: 1px solid var(--rule); padding: 30px 28px; position: relative; transition: all 0.2s; }
-.theme-card:hover { border-color: var(--ink-soft); box-shadow: 0 12px 32px rgba(15,31,58,0.08); transform: translateY(-2px); }
-.theme-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background: var(--accent); opacity: 0.85; }
-.theme-card-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; }
-.theme-card-name { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--ink-mid); margin: 10px 0 8px; line-height: 1.35; }
-.theme-card-period { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 14px; }
-.theme-card-desc { font-size: 0.92rem; line-height: 1.7; color: var(--text); margin-bottom: 18px; }
-.theme-card-list { font-size: 0.84rem; color: var(--text-mid); list-style: none; padding-top: 14px; border-top: 1px solid var(--rule-soft); }
-.theme-card-list li { padding: 5px 0; }
-.theme-card-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--ink-soft); text-transform: uppercase; }
-.theme-card-foot .arrow { color: var(--accent-deep); }
-
-.post-list { padding: 28px 0 56px; }
-.post-list-row { display: grid; grid-template-columns: 60px 1fr auto; gap: 22px; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--rule-soft); transition: all 0.18s; }
-.post-list-row:hover { background: var(--bg-mid); padding-left: 12px; padding-right: 12px; }
-.post-list-num { font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em; color: var(--accent-deep); font-weight: 500; }
-.post-list-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 400; color: var(--ink-mid); line-height: 1.45; }
-.post-list-meta { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--text-dim); text-transform: uppercase; white-space: nowrap; }
-@media (max-width: 600px) { .post-list-row { grid-template-columns: 50px 1fr; } .post-list-meta { grid-column: 1 / -1; padding-left: 72px; } }
-
-/* Post body */
-.post-body { padding: 48px 0 80px; }
-.post-content { max-width: var(--measure); margin: 0 auto; }
-.post-content > p, .post-content > ul, .post-content > ol, .post-content > blockquote, .post-content > pre, .post-content > table, .post-content > hr, .post-content > h2, .post-content > h3, .post-content > h4 { max-width: var(--measure); margin-left: auto; margin-right: auto; }
-.post-content h2 { font-family: var(--serif); font-size: 1.55rem; font-weight: 400; color: var(--ink-mid); line-height: 1.35; margin: 56px 0 14px; padding-top: 22px; border-top: 1px solid var(--rule-soft); }
-.post-content h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 500; color: var(--ink); margin: 36px 0 10px; line-height: 1.4; }
-.post-content h4 { font-family: var(--sans); font-size: 1rem; font-weight: 600; color: var(--ink); margin: 26px 0 8px; letter-spacing: 0.02em; }
-.post-content p { margin: 0 0 18px; font-size: 1rem; line-height: 1.85; color: var(--text); }
-.post-content p:first-of-type { font-size: 1.05rem; }
-.post-content ul, .post-content ol { margin: 0 0 22px; padding-left: 28px; }
-.post-content ul li, .post-content ol li { font-size: 0.97rem; line-height: 1.8; margin-bottom: 8px; color: var(--text); }
-.post-content ul li::marker { color: var(--accent-deep); }
-.post-content blockquote { margin: 30px 0; padding: 20px 24px; border-left: 3px solid var(--accent); background: var(--accent-soft); color: var(--ink-mid); font-style: normal; }
-.post-content blockquote p { margin-bottom: 8px; font-size: 0.97rem; }
-.post-content blockquote p:last-child { margin-bottom: 0; }
-.post-content blockquote strong { color: var(--ink); }
-.post-content code { background: #f0f0f0; color: var(--ink-mid); font-family: var(--mono); font-size: 0.88rem; padding: 2px 6px; border-radius: 3px; }
-.post-content pre { background: #f9f9fb; border: 1px solid var(--rule); padding: 18px 22px; overflow-x: auto; font-family: var(--mono); font-size: 0.85rem; line-height: 1.55; margin: 24px 0; }
-.post-content pre code { background: transparent; padding: 0; font-size: inherit; }
-.post-content a { color: var(--accent-deep); text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; transition: text-decoration-color 0.18s; overflow-wrap: anywhere; word-break: break-word; }
-.post-content a:hover { text-decoration-color: var(--accent-deep); }
-.post-content hr { border: none; border-top: 1px solid var(--rule); margin: 40px auto; max-width: 120px; }
-.post-content table { width: 100%; max-width: var(--measure); margin: 28px auto; border-collapse: collapse; font-size: 0.9rem; }
-.post-content th { background: var(--bg-mid); color: var(--ink-mid); font-family: var(--sans); font-weight: 600; text-align: left; padding: 12px 14px; border-bottom: 2px solid var(--rule); }
-.post-content td { padding: 10px 14px; border-bottom: 1px solid var(--rule-soft); vertical-align: top; color: var(--text); }
-.post-content tr:nth-child(even) td { background: #fafbfc; }
-
-/* Mermaid container */
-.mermaid-wrap { background: #fdfdfe; border: 1px solid var(--rule); padding: 22px 18px; margin: 28px 0; overflow-x: auto; }
-.mermaid { font-family: var(--sans); text-align: center; }
-
-/* Post header */
-.post-header { padding: 48px 0 28px; border-bottom: 1px solid var(--rule); }
-.post-header-inner { max-width: var(--measure); margin: 0 auto; }
-.post-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.28em; color: var(--accent-deep); text-transform: uppercase; font-weight: 500; margin-bottom: 14px; }
-.post-title { font-family: var(--serif); font-size: clamp(1.7rem, 3.6vw, 2.4rem); font-weight: 400; color: var(--ink-mid); line-height: 1.3; margin: 0 0 16px; letter-spacing: 0.005em; }
-.post-summary { font-size: 1.02rem; line-height: 1.8; color: var(--text); margin: 0 0 22px; max-width: 660px; }
-.post-meta { display: flex; gap: 26px; flex-wrap: wrap; padding-top: 18px; border-top: 1px solid var(--rule-soft); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.16em; color: var(--text-dim); text-transform: uppercase; }
-.post-meta span strong { color: var(--ink); font-family: var(--mono); }
-
-/* Post nav (prev/next) */
-.post-nav { max-width: var(--measure); margin: 56px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding-top: 36px; border-top: 1px solid var(--rule); }
-.post-nav-link { display: block; padding: 18px 20px; background: var(--bg-mid); border: 1px solid var(--rule); transition: all 0.18s; }
-.post-nav-link:hover { border-color: var(--ink-soft); background: #fff; transform: translateY(-1px); }
-.post-nav-dir { font-family: var(--mono); font-size: 10px; letter-spacing: 0.18em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 6px; }
-.post-nav-title { font-family: var(--serif); font-size: 0.94rem; color: var(--ink-mid); line-height: 1.4; }
-.post-nav-link.next { text-align: right; }
-@media (max-width: 640px) { .post-nav { grid-template-columns: 1fr; } .post-nav-link.next { text-align: left; } }
-
-/* Knowledge check */
-.kcheck { background: var(--bg-mid); padding: 72px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
-.kcheck-head { max-width: 720px; margin: 0 auto 36px; text-align: center; }
-.kcheck h2 { font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 300; color: var(--ink-mid); margin: 0 0 14px; line-height: 1.3; }
-.kcheck h2 em { font-style: normal; color: var(--accent-deep); font-weight: 400; }
-.kcheck p.lede { font-size: 0.98rem; line-height: 1.75; color: var(--text); }
-.kcheck-q { background: #fff; border: 1px solid var(--rule); padding: 28px 30px; margin-bottom: 18px; max-width: 760px; margin-left: auto; margin-right: auto; }
-.kcheck-q-num { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent-deep); font-weight: 500; margin-bottom: 12px; }
-.kcheck-q-text { font-family: var(--serif); font-size: 1.1rem; line-height: 1.5; color: var(--ink-mid); margin-bottom: 18px; }
-.kcheck-opts { display: grid; gap: 8px; }
-.kcheck-opt { display: block; padding: 12px 16px; background: var(--bg-soft); border: 1px solid var(--rule); text-align: left; font-family: var(--sans); font-size: 0.92rem; color: var(--text); cursor: pointer; transition: all 0.15s; }
-.kcheck-opt:hover { background: #fff; border-color: var(--ink-soft); }
-.kcheck-opt.correct { background: #e8f3ec; border-color: var(--ok); color: var(--ok); }
-.kcheck-opt.incorrect { background: #fbe9e9; border-color: var(--bad); color: var(--bad); }
-.kcheck-explain { margin-top: 16px; padding: 14px 18px; background: var(--accent-soft); border-left: 3px solid var(--accent); font-size: 0.9rem; line-height: 1.7; color: var(--ink-mid); display: none; }
-.kcheck-q.answered .kcheck-explain { display: block; }
-.kcheck-score { text-align: center; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--text-dim); margin-top: 28px; text-transform: uppercase; }
-.kcheck-score strong { color: var(--ink-mid); font-family: var(--mono); }
-
-/* Stats / hero stats */
-.stat-band { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; padding: 56px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); background: var(--bg-soft); }
-.stat-item { padding: 0 18px; }
-.stat-num { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 300; color: var(--ink-mid); line-height: 1; margin-bottom: 8px; }
-.stat-num em { color: var(--accent-deep); font-weight: 400; font-style: normal; }
-.stat-label { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; }
-</style>
-
-<meta property="og:image" content="https://jpinv.com/og/jii-default-en.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://jpinv.com/og/jii-default-en.png">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "url": "https://jpinv.com/en/governance/frontier/5.4-mbo-takeover-guidelines/",
-  "name": "Hostile Is No Longer a Slur: METI&#x27;s 2023 Guidelines for Corporate Takeovers | JII Governance Curriculum",
-  "description": "How METI&#x27;s August 2023 Guidelines for Corporate Takeovers reframed the Japanese M&amp;A market by introducing the &#x27;bona-fide offer&#x27; doctrine, codifying the special-committee/MoM architecture for controlled deals, and triggering a wave of mega-MBOs from Toshiba to Benesse to Taisho to Outsourcing to Infocom.",
-  "inLanguage": "en"
-}
-</script></head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Handle Unsolicited Acquisitions - 2023 &quot;Guidelines for Corporate Takeovers&quot;｜JII Governance Reform Curriculum</title>
+  <meta name="description" content="The Ministry of Economy, Trade and Industry&#39;s “Guidelines for Corporate Acquisitions” published in 2023 clarified the idea that acquisition proposals that do not have the consent of management will be considered in accordance with the content and procedures of the proposal. The guidelines set out three principles: corporate value and the common interests of shareholders, shareholder will, and transparency, and require the board of directors to conduct independent consideration and provide sufficient information, rather than dismissing sincere proposals based on management&#39;s preferences. In 2026, the study group organized practical issues into &quot;Key Points/Q&amp;A.&quot;">
+  <link rel="canonical" href="https://jpinv.com/en/governance/frontier/5.4-mbo-takeover-guidelines/">
+  <link rel="alternate" hreflang="ja" href="https://jpinv.com/governance/frontier/5.4-mbo-takeover-guidelines/">
+  <link rel="alternate" hreflang="en" href="https://jpinv.com/en/governance/frontier/5.4-mbo-takeover-guidelines/">
+  <link rel="alternate" hreflang="x-default" href="https://jpinv.com/governance/frontier/5.4-mbo-takeover-guidelines/">
+  <meta property="og:title" content="How to Handle Unsolicited Acquisitions - 2023 &quot;Guidelines for Corporate Takeovers&quot;｜JII Governance Reform Curriculum">
+  <meta property="og:description" content="The Ministry of Economy, Trade and Industry&#39;s “Guidelines for Corporate Acquisitions” published in 2023 clarified the idea that acquisition proposals that do not have the consent of management will be considered in accordance with the content and procedures of the proposal. The guidelines set out three principles: corporate value and the common interests of shareholders, shareholder will, and transparency, and require the board of directors to conduct independent consideration and provide sufficient information, rather than dismissing sincere proposals based on management&#39;s preferences. In 2026, the study group organized practical issues into &quot;Key Points/Q&amp;A.&quot;">
+  <meta property="og:url" content="https://jpinv.com/en/governance/frontier/5.4-mbo-takeover-guidelines/">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://jpinv.com/og/jii-default.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://jpinv.com/og/jii-default.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&amp;family=Noto+Sans+JP:wght@300;400;500;600&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/governance.css?v=cf50a6cc07">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","name":"How to Handle Unsolicited Acquisitions - 2023 \"Guidelines for Corporate Takeovers\"｜JII Governance Reform Curriculum","description":"The Ministry of Economy, Trade and Industry's “Guidelines for Corporate Acquisitions” published in 2023 clarified the idea that acquisition proposals that do not have the consent of management will be considered in accordance with the content and procedures of the proposal. The guidelines set out three principles: corporate value and the common interests of shareholders, shareholder will, and transparency, and require the board of directors to conduct independent consideration and provide sufficient information, rather than dismissing sincere proposals based on management's preferences. In 2026, the study group organized practical issues into \"Key Points/Q&A.\"","url":"https://jpinv.com/en/governance/frontier/5.4-mbo-takeover-guidelines/","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Japan Investor Interface","url":"https://jpinv.com/"},"headline":"How to Handle Unsolicited Acquisitions - 2023 \"Guidelines for Corporate Takeovers\"","dateModified":"2026-08-30","author":{"@type":"Organization","name":"Japan Investor Interface Co., Ltd."},"publisher":{"@type":"Organization","name":"Japan Investor Interface Co., Ltd.","url":"https://jpinv.com/"}}</script>
+</head>
 <body>
-<main id="main-content" class="curriculum" tabindex="-1">
-<div class="wrap crumbs">
-  <a href="/en/">JII</a> <span class="sep">/</span>
-  <a href="/en/governance/">Governance Curriculum</a> <span class="sep">/</span>
-  <a href="/en/governance/frontier/">The Frontier</a> <span class="sep">/</span>
-  Post 5.4
-</div>
-<header class="post-header">
-  <div class="wrap">
-    <div class="post-header-inner">
-      <div class="post-eyebrow">Theme 5 · POST 5.4</div>
-      <h1 class="post-title">Hostile Is No Longer a Slur: METI&#x27;s 2023 Guidelines for Corporate Takeovers</h1>
-      <p class="post-summary">How METI&#x27;s August 2023 Guidelines for Corporate Takeovers reframed the Japanese M&amp;A market by introducing the &#x27;bona-fide offer&#x27; doctrine, codifying the special-committee/MoM architecture for controlled deals, and triggering a wave of mega-MBOs from Toshiba to Benesse to Taisho to Outsourcing to Infocom.</p>
-      <div class="post-meta">
-        <span>Theme: <strong>The Frontier</strong></span>
-        <span>Reading: <strong>16 minutes min</strong></span>
-        <span>Updated: <strong>2026-05-16</strong></span>
-      </div>
-    </div>
-  </div>
-</header>
-<section class="post-body">
-  <div class="wrap">
-    <article class="post-content">
-<blockquote>
-<p><strong>TL;DR</strong>
-- METI's <strong>31 August 2023</strong> Guidelines for Corporate Takeovers replaced the 2005 defence-friendly framework with three operative principles — corporate value, shareholder intent, transparency — and introduced the <strong>"bona-fide offer"</strong> doctrine: boards must engage with a genuine proposal, not reflexively reject it.
-- The Guidelines coincided with and catalysed a wave of mega-MBOs: <strong>Toshiba (JPY ~2 trn, JIP, Sep 2023)</strong>, <strong>Benesse (JPY 208 bn, EQT/Fukutake, Feb 2024)</strong>, <strong>Taisho Pharmaceutical (JPY 710 bn, Uehara MBO, Nov 2023)</strong>, <strong>Outsourcing (Bain, Dec 2023)</strong>, and Blackstone's <strong>Infocom</strong> carve-out (Nov 2024).
-- The 2024 FIEA amendments — Diet-passed May 2024, effective <strong>1 May 2026</strong> — lowered the mandatory-TOB threshold from &gt;1/3 to <strong>&gt;30%</strong> and brought on-market purchases into TOB scope. METI's Fair Acquisition Study Group was <strong>reconvened on 3 February 2026</strong> to update guidance on hostile-takeover countermeasures and preconditional TOBs.</p>
-</blockquote>
-<h2>A 2005-doctrine reversal</h2>
-<p>For roughly fifteen years, the Japanese discourse on hostile takeovers ran on a doctrine quietly embedded in METI's <strong>2005 Guidelines on Takeover Defences</strong> (the so-called <em>baishu boueisaku shishin</em>). The 2005 guidelines were issued in the wake of the Steel Partners–Bull-Dog Sauce and Murakami Fund–Hanshin Electric Railway episodes; their language was carefully neutral on paper but in practice gave Japanese boards substantial latitude to deploy poison-pill defences and to characterise hostile bids as inherently suspect. The default cultural framing — that <em>hostile</em> was a slur — survived for the same period.</p>
-<p>The 2023 reversal is doctrinal, not merely linguistic. METI's <em>Guidelines for Corporate Takeovers</em> (企業買収における行動指針), published 31 August 2023 after the Fair Acquisition Study Group convened in November 2022, replaces the 2005 framing with three principles whose ordering matters:</p>
-<ol>
-<li><strong>Corporate Value and Shareholders' Common Interest.</strong> A takeover proposal should be evaluated by reference to its expected contribution to corporate value and the common interest of shareholders.</li>
-<li><strong>Shareholder Intent.</strong> Shareholders should have sufficient information and time to evaluate a proposal and express their intent.</li>
-<li><strong>Transparency.</strong> The target board's process and reasoning should be disclosed transparently.</li>
-</ol>
-<p>The structural innovation is the first principle's elevation of <em>shareholder common interest</em> over <em>board judgement of corporate value</em>. The 2005 framework asked, in effect, "does the board believe this offer is good for the company?" The 2023 framework asks, "is this offer good for shareholders, judged in a process that gives them a fair say?" The difference is the entire policy reversal.</p>
-<p>A consequence of the reformulation is the introduction of the <strong>"bona-fide offer" (真摯な買収提案) doctrine</strong>: where a credible third party makes a genuine proposal — defined by its substantive seriousness, not by its friendliness — the target board has an <em>affirmative duty</em> to engage. Reflexive rejection, foot-dragging, or use of structural defences to deny shareholders the chance to consider the offer are now characterised as breaches of the board's duty to shareholders' common interest.</p>
-<h2>What "bona-fide" actually means</h2>
-<p>The Guidelines do not specify a numerical or procedural threshold for an offer to qualify as bona-fide. Three indicia are described instead:</p>
+  <a class="gov-skip" href="#main-content">Skip to content</a>
+  <main id="main-content" class="governance-page" tabindex="-1">
+    <nav class="gov-wrap gov-crumbs" aria-label="Breadcrumb"><a href="/en/">Home</a><span class="sep">/</span><a href="/en/governance/">Governance Reform Curriculum</a><span class="sep">/</span><a href="/en/governance/frontier/">Ongoing issues</a><span class="sep">/</span><span aria-current="page">Article 5.4</span></nav>
+    <header class="post-header"><div class="gov-wrap"><div class="post-header-inner"><span class="post-eyebrow">Theme 5 · Article 5.4</span><h1 class="post-title">How to Handle Unsolicited Acquisitions - 2023 &quot;Guidelines for Corporate Takeovers&quot;</h1><p class="post-summary">The Ministry of Economy, Trade and Industry&#39;s “Guidelines for Corporate Acquisitions” published in 2023 clarified the idea that acquisition proposals that do not have the consent of management will be considered in accordance with the content and procedures of the proposal. The guidelines set out three principles: corporate value and the common interests of shareholders, shareholder will, and transparency, and require the board of directors to conduct independent consideration and provide sufficient information, rather than dismissing sincere proposals based on management&#39;s preferences. In 2026, the study group organized practical issues into &quot;Key Points/Q&amp;A.&quot;</p><div class="post-meta"><span>Theme: <strong>Ongoing issues</strong></span><span>Reading time: <strong>8 min</strong></span><span>Updated: <strong>2026-08-30</strong></span></div></div></div></header>
+    <section class="post-body"><div class="gov-wrap"><article class="post-content"><blockquote>
+<p><strong>Key points</strong></p>
 <ul>
-<li><strong>Credibility of the proponent.</strong> A proposer who is a recognised financial or strategic acquirer with the financial capacity to execute.</li>
-<li><strong>Substantive seriousness.</strong> A proposal that includes price, structure, financing and a plausible operational thesis — not merely a non-binding "indication of interest."</li>
-<li><strong>Constructive intent.</strong> Willingness of the proposer to engage in dialogue, provide additional information, and respond to the board's concerns.</li>
+<li>The 2023 Guidance does not uniformly characterize unsolicited acquisitions as harmful. The board of directors needs to seriously consider whether specific proposals contribute to corporate value and the common interests of shareholders.</li>
+<li>The three guiding principles are the principle of corporate value and common interests of shareholders, the principle of shareholder will, and the principle of transparency.</li>
+<li>In many cases, the final decision on whether to accept a takeover proposal is left to the shareholders. The role of the board of directors is to prepare comparable information, conduct necessary negotiations, and explain the reasons for decisions.</li>
 </ul>
-<p>The threshold is purposely qualitative. In practice, it has been operationalised by Japanese boards through a five-step playbook: receive the proposal; convene the special committee within a defined window (often 10 business days); request supplementary information; conduct a market check; and produce a transparent board response that explains the engagement process.</p>
-<h2>The takeover-process timeline</h2>
-<div class="mermaid-wrap"><pre class="mermaid">timeline
-    title Japanese Takeover Process Under the 2023 Guidelines
-    Bona-fide offer received : Letter / NDA / preliminary terms
-                              : Board acknowledges receipt within ~5-10 business days
-    Special committee formed : Independent directors + external advisers
-                            : Mandate, scope, operating rules disclosed
-    Engagement phase : Information exchange under NDA
-                    : Special-committee due diligence
-                    : Independent valuation work
-    Market check : Optional dual-track / go-shop
-                : Outreach to alternative bidders
-    Board response : Recommendation or rejection
-                  : Disclosure of reasoning
-                  : Disclosure of special-committee opinion
-    Tender offer launch : Statutory TOB under FIEA
-                       : Tender period (20-60 business days)
-                       : Squeeze-out completion</pre></div>
+</blockquote>
+<h2 id="section-1">Stay away from the word &quot;hostile&quot;</h2>
+<p>Traditionally, in Japan, takeovers without the consent of management have been called &quot;hostile takeovers,&quot; and there has been a tendency to treat them as if they were undesirable transactions in and of themselves. However, being hostile to management is not the same as being detrimental to shareholders and the company.</p>
+<p>Therefore, the 2023 Guidelines adopt a perspective that is more in line with the fact that the acquisition is an unsolicited acquisition without the consent of the target company&#39;s board of directors, rather than the emotionally charged expression &quot;hostile.&quot; Even if it is unsolicited, there is a possibility that the proposal will increase corporate value after considering the price, certainty of funding, business plan, impact on employees and business partners, and post-acquisition management policy. On the other hand, even if a proposal starts out amicably, it will be undesirable for shareholders if the terms are unfair.</p>
+<h2 id="section-2">three principles</h2>
+<table>
+<thead>
+<tr>
+<th>principle</th>
+<th>meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Principles of corporate value and common interests of shareholders</strong></td>
+<td>The pros and cons of an acquisition are determined based on whether it contributes to the company&#39;s sustainable corporate value and the interests of shareholders as a whole.</td>
+</tr>
+<tr>
+<td><strong>Principles of shareholder will</strong></td>
+<td>When making decisions regarding control of a company, respect the wishes of shareholders given reasonable information and time.</td>
+</tr>
+<tr>
+<td><strong>Principle of transparency</strong></td>
+<td>Both the acquirer and the target company appropriately disclose information necessary for shareholders to make decisions.</td>
+</tr>
+</tbody></table>
+<p>The three principles are neither intended to promote takeovers nor to negate defensive measures. This is a standard that organizes the roles of the acquirer, the target company&#39;s board of directors, and shareholders, and creates a fair judgment process.</p>
+<h2 id="section-3">What should the board do?</h2>
+<p>The practice of a board of directors that receives an unsolicited takeover proposal is easy to understand if you consider the following flow.</p>
+<pre class="mermaid" role="img" aria-label="Diagram of the policy framework">flowchart TD
+    A[&quot;Acquisition proposal received&quot;] --&gt; B{&quot;Is it specific, has financial backing, and is it possible to realize it?&quot;}
+    B --&gt;|&quot;insufficient&quot;| C[&quot;Request additional information &lt;br/&gt; Deciding whether to continue consideration&quot;]
+    B --&gt;|&quot;sincere suggestion&quot;| D[&quot;Establish an independent review system&quot;]
+    D --&gt; E[&quot;Compare independent continuation plans, other proposals, and acquisition plans&quot;]
+    E --&gt; F[&quot;Negotiate prices, terms, and contracts&quot;]
+    F --&gt; G[&quot;Disclosing information necessary to shareholders and the opinions of the board of directors&quot;]
+    G --&gt; H[&quot;Shareholders make decisions based on application, voting, etc.&quot;]</pre>
 
-<p>Each step in the timeline is now expected to be disclosed under Principle 3 of the Guidelines. The disclosure obligations have produced a recognisable house style in 2024-25 Japanese takeover documentation: a long, prose-heavy board statement that walks shareholders through the proposal, the special-committee composition, the engagement timeline, the market-check process, the valuation work, and the recommendation. The Toshiba, Benesse, Taisho and Outsourcing documents are good worked examples.</p>
-<h2>The five case studies that made the Guidelines real</h2>
-<h3>Toshiba (JIP-led, September 2023, JPY ~2 trn)</h3>
-<p>The <strong>Toshiba take-private</strong> is the largest Japanese take-private on record and the first major test of the new doctrine. The Japan Industrial Partners (JIP) led consortium, supported by Orix and Chubu Electric, completed the tender at JPY 4,620/share. The transaction ended Toshiba's 74-year listing and resolved a years-long activist saga (Effissimo, Elliott, 3D Investment, Farallon).</p>
-<p>What made Toshiba a Guidelines case is the <strong>process discipline</strong> the board imposed after years of internal turmoil. A special committee of independent directors ran the bid solicitation, reviewed competing proposals from JIP, KKR, Bain and CVC, conducted explicit market-check work, and disclosed the rationale for the eventual JIP selection. The Toshiba process is now the de facto reference for any going-private transaction north of JPY 500 bn — and the precedent every subsequent Japanese mega-MBO has cited.</p>
-<h3>Benesse Holdings (EQT/Fukutake family, February 2024, JPY 208 bn)</h3>
-<p>The <strong>Benesse Holdings</strong> MBO is the cleanest controlled-company case to apply the 2019 Fair M&amp;A Guidelines / 2023 Takeover Guidelines architecture in full. The Fukutake family (founders, holding ~50%) partnered with EQT to take the company private at <strong>JPY 2,600/share — a 45.13% premium</strong> to the unaffected price. Total deal value JPY 208 bn (announced November 2023; closed February 2024).</p>
-<p>What makes Benesse instructive is the <strong>MBO conflict architecture</strong>. With founder management on the buying side, the special-committee + majority-of-minority + market-check triad becomes load-bearing for fairness. Benesse's special committee included two independent directors and two outside advisers; the majority-of-minority condition required acceptance by holders of more than 50% of the non-Fukutake float; and a market check identified two alternative parties before EQT was selected. The 45% premium, although the median for Japanese MBOs, was defended by the special committee in a published opinion.</p>
-<h3>Taisho Pharmaceutical Holdings (Uehara family MBO, November 2023, JPY 710 bn)</h3>
-<p>The <strong>Taisho Pharmaceutical</strong> MBO priced at <strong>JPY 8,620/share, a 50% premium</strong> to the 6-month average, total deal value JPY 710 bn. It was the largest family-MBO in Japanese history at announcement and the second-largest controlled-company transaction of 2023 after Toshiba.</p>
-<p>The case is significant because it generated a price-fairness debate. Several minority shareholders argued that the 50% premium understated intrinsic value because Taisho's brand and franchise (Lipovitan, OTC dominance) carried significant non-disclosed earning power. The Uehara family's response — that the premium fairly compensated minority shareholders given the long-run business risks — was accepted by the special committee but received pushback from foreign-investor representatives. Taisho is now cited as the case that demonstrates <strong>family-MBO premiums require especially explicit valuation reasoning</strong> under the Guidelines.</p>
-<h3>Outsourcing Inc. (Bain Capital, December 2023)</h3>
-<p>The <strong>Outsourcing Inc.</strong> take-private by Bain Capital was notable for two features. First, the price increased twice during the offer period (from JPY 1,755 to JPY 2,094) in response to a competing bid by Bain itself in a so-called "white knight" sequence — a process that demonstrated competitive tension can be engineered within the new Guidelines' framework. Second, the special committee's process was reviewed positively by ACGA as an early demonstration of how an independent-led process can deliver an improved price for minorities.</p>
-<h3>Infocom (Blackstone, November 2024, JPY 287 bn)</h3>
-<p>The <strong>Infocom</strong> carve-out by Blackstone was the first major <strong>parent-driven sale</strong> under the new Guidelines. Teijin sold its 55% stake in Infocom to Blackstone at JPY 6,060/share. The transaction was structured as a competitive process with multiple bidders, with the controlling-parent (Teijin) sale running in parallel with a TOB for the minority float. The structure resolves the listed-subsidiary conflict (post-deal Infocom is no longer a Teijin subsidiary) and provides minority shareholders an exit at a defined premium.</p>
-<p>Infocom is now cited as the template for parent-driven divestitures of listed subsidiaries — a pattern likely to recur across the trading-house, electronics and IT-services sectors over 2026-27.</p>
-<h2>The 2024 FIEA amendments</h2>
-<p>A frequent IR-team confusion is to conflate the 2023 Takeover Guidelines (soft law, METI, doctrine) with the 2024 FIEA amendments (hard law, FSA, mechanics). The two are distinct but mutually reinforcing.</p>
-<p>The <strong>2024 FIEA amendments</strong> were passed by the Diet in May 2024 and the corresponding Cabinet Office Ordinance was finalised on 4 July 2025, with the operative changes effective from <strong>1 May 2026</strong>. Two changes matter most:</p>
-<p><strong>The mandatory-TOB threshold drops from &gt;1/3 to &gt;30%.</strong> Any purchaser who, alone or with joint holders, acquires more than 30% of a listed company's voting rights now triggers the mandatory tender offer obligation. The previous threshold of 1/3 had been criticised as exploitable through structured "below-threshold" acquisitions that captured de facto control without triggering the equal-treatment obligation.</p>
-<p><strong>On-market purchases now fall within TOB scope.</strong> Previously, on-market open-market purchases were exempt from the TOB regime, creating an avenue for accumulation outside the equal-treatment principle. Under the amendments, on-market purchases above the 30% threshold are within scope.</p>
-<p>The combined effect is to <strong>tighten the equal-treatment principle</strong>: any acquisition pathway that takes voting power above 30% now has to be conducted as a TOB, regardless of structure. This is a structural shift in the M&amp;A regulatory regime that will reshape how raiders, activists and strategic acquirers approach Japanese targets.</p>
-<p>A related amendment — the clarification of "joint holders" and "acts of material proposal" — narrows the 5%-rule trigger in ways that should reduce the chilling effect on collaborative engagement (see Post 5.7). The two amendments together represent a coordinated rewiring of the FIEA disclosure and TOB framework.</p>
-<h2>The February 2026 reconvening</h2>
-<p>METI's <strong>Fair Acquisition Study Group was reconvened on 3 February 2026</strong> to update the 2023 Guidelines on two topics:</p>
-<ol>
-<li><strong>Hostile-takeover countermeasures.</strong> The 2023 Guidelines did not prescribe a specific stance on poison pills, white-knight defences or other structural countermeasures. The reconvened Study Group is expected to provide more detailed guidance on when countermeasures are consistent with the bona-fide-offer doctrine and when they cross into improper defence territory.</li>
-<li><strong>Preconditional TOBs.</strong> Several recent transactions have included pre-conditions to the TOB launch — such as regulatory clearance, financing certainty, or due-diligence completion — that effectively suspend the tender. The Study Group is expected to provide guidance on the consistency of such preconditions with the shareholder-intent principle.</li>
-</ol>
-<p>Both items reflect the operational refinement that the 2023 Guidelines now require. The doctrine is settled; the implementation questions are not.</p>
-<h2>The new doctrine in practice — three observations</h2>
-<p><strong>One — the volume effect.</strong> Public-M&amp;A deal count rose around 15% YoY in 2023 and again in 2024, with going-private activity setting records. The Toshiba, Benesse, Taisho, Outsourcing and Infocom transactions are not isolated events; they are the visible peaks of a structural shift in how Japanese boards engage with acquisition proposals. The Guidelines did not create the demand for deals — that was largely driven by the cost-of-capital revolution (Theme 4) and by financial-sponsor capital availability — but they removed institutional friction that had previously suppressed conversion of demand into transactions.</p>
-<p><strong>Two — the premium standard.</strong> The 2024-25 Japanese take-private universe shows a relatively narrow premium range — most deals between 40-50% to the unaffected price. This is a meaningfully higher central tendency than the 2010s norm (~25-30%). The Guidelines' shareholder-intent principle has effectively re-anchored the premium-fairness conversation around the 40% mark.</p>
-<p><strong>Three — the activist effect.</strong> The Guidelines created an institutional pathway through which activists can credibly threaten — and credibly execute — engagement with controlled and family-controlled targets. Elliott's intervention in Toyota Industries, ValueAct's positions in Seven &amp; i and JSR, and the multiple activist positions visible in Toshiba's pre-take-private saga are all examples. The doctrine works both ways: activists can use it to demand price increases, and managements can use it to argue for engagement with proposals that minority shareholders demand they consider.</p>
-<h2>What this means for IR</h2>
-<ol>
-<li><strong>Build a standing takeover-response playbook.</strong> Even if your company has no current acquisition exposure, the board should have a documented process for receiving and evaluating a bona-fide offer. Three elements at minimum: special-committee composition, advisor engagement protocols, and disclosure templates.</li>
-<li><strong>Treat "reflexive rejection" as out of bounds.</strong> The Guidelines explicitly characterise reflexive rejection of a bona-fide offer as a potential breach of the board's duty. Train senior management and IR teams to acknowledge receipt promptly, engage the special-committee mechanism, and avoid early defensive public statements.</li>
-<li><strong>Document your independent-director independence — from the controlling shareholder, if any.</strong> In controlled-company contexts, the special committee's effectiveness depends on directors who are demonstrably independent of the controlling party. This is a documentation discipline as much as a selection discipline.</li>
-<li><strong>Brief your major shareholders on the bona-fide-offer doctrine.</strong> Many domestic institutional investors and corporate cross-holders still operate on the 2005 mental model. An IR team that pre-emptively explains how the board would respond to a bona-fide offer — and what shareholders' role in that process is — pre-empts confusion if a proposal arrives.</li>
-<li><strong>Monitor the February 2026 reconvening output.</strong> The reconvened Fair Acquisition Study Group will publish guidance over 2026 on countermeasures and preconditional TOBs. Both items have implications for IR teams; both should be reviewed when published and reflected in the takeover playbook.</li>
-</ol>
-<h2>Sources &amp; further reading</h2>
+<h3 id="section-4">1. Determine whether the proposal is sincere.</h3>
+<p>In addition to the proposed price, we check the financing support, post-acquisition business plan, necessary permits and approvals, conditions for completion of the transaction, and the acquirer&#39;s track record. There is no need for an immediate company-wide response to inquiries that lack specificity. On the other hand, it is also not appropriate to ignore potentially viable proposals based solely on the wishes of management.</p>
+<h3 id="section-5">2. Establish an independent review system</h3>
+<p>Conflicts of interest arise in judgments when management may lose their position as a result of an acquisition. A special committee will be established as necessary, with independent outside directors focusing on the matter. The necessity of a special committee will depend on the nature of the transaction, but the stronger the interests of management, the greater the need for an independent entity to be involved in price negotiations and judgments.</p>
+<h3 id="section-6">3. Compare with alternatives</h3>
+<p>The acquisition proposal is not a choice between maintaining the status quo. Compare with standalone medium-term plans, changes in capital policy, business sales, proposals from other acquirers, etc. If the target company claims that its plan is better, it must demonstrate the plan&#39;s assumptions, feasibility, and timeline in a way that shareholders can compare.</p>
+<h3 id="section-7">4. Negotiate terms</h3>
+<p>The board doesn&#39;t just say whether it&#39;s for or against something. Negotiate for better terms for the company and shareholders, including price, purchase period, preconditions, treatment of employees and business partners, provision of information, and contractual restrictions.</p>
+<h3 id="section-8">5. Provide judgment material to shareholders</h3>
+<p>In order for shareholders to make a decision, they need not only the acquirer&#39;s proposal, but also an analysis of the target company&#39;s board of directors, an independent committee&#39;s opinion, a value calculation concept, and alternative plans. If the board objects, abstract arguments such as “it doesn&#39;t fit the corporate culture” or “it&#39;s not long-term oriented” are not enough. Explain which conditions undermine corporate value.</p>
+<h2 id="section-9">2026 “Points/Q&amp;A”</h2>
+<p>In 2026, the Ministry of Economy, Trade and Industry restarted a study group on fair acquisitions and compiled “Points/Q&amp;A” to apply the concepts of the 2023 Guidelines to practice. Rather than replacing them with new guidelines, they confirmed that the 2023 Guidelines continue to be appropriate, and supplemented their interpretation with respect to consideration of proposals, confirmation of shareholder intentions, comparison of multiple proposals, etc.</p>
+<p>In practice, the following points are important.</p>
 <ul>
-<li>METI press release, "METI Formulates Guidelines for Corporate Takeovers" (31 August 2023): https://www.meti.go.jp/english/press/2023/0831_001.html</li>
-<li>METI, "Guidelines for Corporate Takeovers" (English reference translation, PDF): https://www.meti.go.jp/english/press/2023/pdf/0831_001b.pdf</li>
-<li>METI, "Reconvening of Fair Acquisition Study Group" (February 2026): https://www.meti.go.jp/english/press/2026/0203_001.html</li>
-<li>METI, "Fair M&amp;A Guidelines" (2019, English): https://www.meti.go.jp/policy/economy/keiei_innovation/keizaihousei/pdf/fairmaguidelines_english.pdf</li>
-<li>DLA Piper, "Recent developments on TOB rules and shareholding transparency in Japan" (January 2026): https://www.dlapiper.com/en/insights/publications/2026/01/recent-developments-on-tob-rules-and-shareholding-transparency-in-japan</li>
-<li>FSA, "Action Programme for Corporate Governance Reform 2025": https://www.fsa.go.jp/en/news/2025/20250630-1.html</li>
+<li>The board of directors does not necessarily immediately announce the fact that it has received a proposal, but when it reaches a stage that is important for shareholder judgment, timely and appropriate disclosure becomes necessary.</li>
+<li>If there are multiple proposals, compare not only price, but also conditions, feasibility, time, and business impact on the same basis.</li>
+<li>When an acquirer requests information, consider providing reasonable information to evaluate the proposal, taking into account confidentiality and competitive concerns.</li>
+<li>There is more than one way to confirm shareholder intent. Judgments will be made depending on the type of transaction, such as applying for a TOB, voting at a general meeting of shareholders, and confirming intentions regarding the activation of takeover defense measures.</li>
+</ul>
+<h2 id="section-10">How should takeover defense measures be positioned?</h2>
+<p>The 2023 Guidelines do not completely deny takeover defense measures. However, they say that defensive measures should not be used to protect the management team, but rather to secure information and time for shareholders to make decisions, and to protect corporate value and the common interests of shareholders.</p>
+<p>When introducing or activating defensive measures, the following points should be considered.</p>
+<ol>
+<li>Are the target acquirers and actions clear?</li>
+<li>Is it necessary and appropriate?</li>
+<li>Were independent outside directors substantially involved?</li>
+<li>Is there a system in place to confirm shareholder intentions?</li>
+<li>Is there no undue disadvantage to the acquirer and unreasonable exclusion of competitive proposals?</li>
+</ol>
+<p>If companies continue to request information indefinitely in order to buy time, or if they impose difficult-to-fulfill conditions only on the acquirer, transparency and appropriateness will be lacking. Defensive measures need to be designed not as “a mechanism to stop takeovers,” but “a mechanism to create a forum where shareholders can make informed decisions.”</p>
+<h2 id="section-11">Implications that IR personnel should be aware of</h2>
+<ol>
+<li><strong>Create a line of communication during normal times in case you receive an unsolicited proposal.</strong> Determine the roles of the CEO, chairman of the board, independent outside director, legal affairs, IR, external lawyers, and FA.</li>
+<li><strong>Always be ready to explain independent continuation plans.</strong> The medium-term plan that was hastily created after receiving the acquisition proposal lacks persuasive power. Clarify capital cost, business portfolio, and capital allocation on a daily basis.</li>
+<li><strong>Evaluate based on conditions and procedures, not &quot;friendly or hostile.&quot;</strong> Do not make relationships with management the focus of explanations to shareholders.</li>
+<li><strong>Accelerate the provision of information to independent outside directors.</strong> In cases where there is a strong conflict of interest, it is not enough for outside directors to approve the matter afterwards. Involve them from the early stages of proposal evaluation and terms negotiation.</li>
+<li><strong>Assemble the explanation for shareholders by comparing the two.</strong> Compare acquisition and go-ahead proposals, and other proposals as appropriate, using the same assumptions and time horizon.</li>
+</ol>
+<h2 id="section-12">Source/reference materials</h2>
+<ul>
+<li>Ministry of Economy, Trade and Industry “Guidelines for Corporate Takeovers” (August 31, 2023): <a href="https://www.meti.go.jp/press/2023/08/20230831003/20230831003.html">https://www.meti.go.jp/press/2023/08/20230831003/20230831003.html</a></li>
+<li>List of documents related to Ministry of Economy, Trade and Industry&#39;s &quot;Guidelines for Corporate Takeovers&quot;: <a href="https://www.meti.go.jp/policy/economy/keiei_innovation/keizaihousei/fair-ma-rule/ma-guideline-publications.html">https://www.meti.go.jp/policy/economy/keiei_innovation/keizaihousei/fair-ma-rule/ma-guideline-publications.html</a></li>
+<li>Ministry of Economy, Trade and Industry “Study Group on Fair Acquisitions”: <a href="https://www.meti.go.jp/shingikai/economy/kosei_baishu/index.html">https://www.meti.go.jp/shingikai/economy/kosei_baishu/index.html</a></li>
+<li>Ministry of Economy, Trade and Industry “Reopening of the Study Group on Fair Acquisitions” (February 3, 2026): <a href="https://www.meti.go.jp/press/2025/02/20260203001/20260203001.html">https://www.meti.go.jp/press/2025/02/20260203001/20260203001.html</a></li>
+<li>Ministry of Economy, Trade and Industry “Key Points and Q&amp;A of “Guidelines for Corporate Takeovers” (July 30, 2026): <a href="https://www.meti.go.jp/press/2026/07/20260730002.html">https://www.meti.go.jp/press/2026/07/20260730002.html</a></li>
+<li>Ministry of Economy, Trade and Industry “Guidelines for fair M&amp;A”: <a href="https://www.meti.go.jp/policy/economy/keiei_innovation/keizaihousei/pdf/fairma-guidelines.pdf">https://www.meti.go.jp/policy/economy/keiei_innovation/keizaihousei/pdf/fairma-guidelines.pdf</a></li>
 </ul>
 <hr>
-<p><strong>Next in this theme:</strong> <a href="/en/governance/frontier/5.5-ssbj-sustainability/">5.5 SSBJ in Action: the three-phase sustainability disclosure roll-out</a></p>
-<p><strong>Related posts in other themes:</strong>
-- <a href="/en/governance/cg-code/2.5-meti-guideline-family/">2.5 Code vs Guideline: when METI's CGS, GGS, Fair-M&amp;A and Takeover Guidelines override the Code</a>
-- <a href="/en/governance/frontier/5.3-listed-subsidiaries/">5.3 The Toyota Industries Deal Is the End of Keiretsu, in One Transaction</a>
-- <a href="/en/governance/frontier/5.7-activism-engagement-2025/">5.7 Collaborative Engagement After Stewardship Code 3.0</a>
-- <a href="/en/governance/frontier/5.8-working-groups-landscape/">5.8 The Working Groups That Are Writing Japan's Next Governance Rules</a></p>
-    </article>
-    <div class="post-nav"><a href="/en/governance/frontier/5.3-listed-subsidiaries/" class="post-nav-link prev"><div class="post-nav-dir">← Previous</div><div class="post-nav-title">The Toyota Industries Deal Is the End of Keiretsu, in One Transaction</div></a><a href="/en/governance/frontier/5.5-ssbj-sustainability/" class="post-nav-link next"><div class="post-nav-dir">Next →</div><div class="post-nav-title">SSBJ in Action: the three-phase sustainability disclosure roll-out</div></a></div>
-  </div>
-</section>
-</main>
-<style>footer{background:var(--ink,#1a2a4a);color:#cfd6e2;padding:48px 0 30px;font-size:0.8rem;line-height:1.8;border-top:none}footer a{color:#cfd6e2;text-decoration:none}footer .footer-row{list-style:none;display:flex;flex-wrap:wrap;gap:8px 26px;margin:0 0 26px;padding:0}footer .footer-row li{padding:0}footer .footer-row a{color:#cfd6e2;text-decoration:none;font-size:0.8rem}footer .footer-bottom{padding-top:24px;border-top:1px solid rgba(255,255,255,0.12);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-family:var(--mono),monospace;font-size:0.68rem;letter-spacing:0.06em;color:rgba(255,255,255,0.55)}</style><script>
-const nav = document.getElementById('main-nav');
-if (nav) window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
-const hamburgerBtn = document.querySelector('.hamburger');
-function setMenuOpen(isOpen) { const menu = document.getElementById('mobileMenu'); if (!menu || !hamburgerBtn) return; menu.classList.toggle('open', isOpen); menu.hidden = !isOpen; hamburgerBtn.setAttribute('aria-expanded', String(isOpen)); }
-function toggleMenu() { const menu = document.getElementById('mobileMenu'); setMenuOpen(!(menu && menu.classList.contains('open'))); }
-document.addEventListener('click', (e) => { const menu = document.getElementById('mobileMenu'); if (menu && menu.classList.contains('open') && !menu.contains(e.target) && hamburgerBtn && !hamburgerBtn.contains(e.target)) setMenuOpen(false); });
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenuOpen(false); });
-</script>
-<script type="module">
-import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs';
-mermaid.initialize({ startOnLoad: true, theme: 'neutral', fontFamily: 'Noto Sans JP, Hiragino Kaku Gothic ProN, sans-serif', themeVariables: { primaryColor: '#f4eee4', primaryTextColor: '#1a2a4a', primaryBorderColor: '#9a7838', lineColor: '#304466', secondaryColor: '#f5f7fa', tertiaryColor: '#fafbfc' } });
-</script>
-<script src="/assets/nav.js?v=48f8466f8c" defer></script>
+<p><strong>Previous article on this topic:</strong> <a href="/en/governance/frontier/5.3-listed-subsidiaries/">5.3 What Toyota Industries&#39; privatization showed - group reorganization of listed companies and protection of minority shareholders</a></p>
+<p><strong>Next article on this theme:</strong> <a href="/en/governance/frontier/5.5-ssbj-sustainability/">5.5 SSBJ Standards in Practice - Steps of Application and Preparation Key Points</a></p>
+<p><strong>Related articles on other themes:</strong></p>
+<ul>
+<li><a href="/en/governance/cg-code/2.5-meti-guideline-family/">2.5 Codes and guidelines: Their different roles and uses</a></li>
+<li><a href="/en/governance/capital-efficiency/4.5-action-plan-2-update/">4.5 From disclosure to implementation - Request update for April 2026</a></li>
+<li><a href="/en/governance/frontier/5.3-listed-subsidiaries/">5.3 What the privatization of Toyota Industries showed</a></li>
+<li><a href="/en/governance/frontier/5.7-activism-engagement-2025/">5.7 Collaborative engagement after the third revision of the Stewardship Code</a></li>
+</ul></article><nav class="post-nav" aria-label="Article navigation"><a class="post-nav-link prev" href="/en/governance/frontier/5.3-listed-subsidiaries/"><div class="post-nav-dir">← Previous article</div><div class="post-nav-title">What the delisting of Toyota Industries revealed: Group reorganization of listed companies and protection of minority shareholders</div></a><a class="post-nav-link next" href="/en/governance/frontier/5.5-ssbj-sustainability/"><div class="post-nav-dir">Next article →</div><div class="post-nav-title">SSBJ Standards in Practice: Key Points of Phased Application and Preparation</div></a></nav><div class="post-language"><a href="/governance/frontier/5.4-mbo-takeover-guidelines/" data-locale-route lang="ja">日本語版 →</a></div></div></section>
+  </main>
+  <script src="/assets/governance.js?v=cc6033456e" defer></script>
+  <script src="/assets/nav.js?v=393a8e17be" defer></script>
 </body>
 </html>

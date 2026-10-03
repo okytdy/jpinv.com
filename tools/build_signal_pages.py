@@ -12,12 +12,13 @@ that has >=1 signal. Output:
     en/compounders/signals/index.html           (EN index)
 Run after watchlist_join.py.
 """
-import json, os, html, datetime
+import json, os, html, datetime, re
+from pathlib import Path
 
 from company_names import normalize_company_name_en
 
 # The one navigation for jpinv.com. See assets/nav.js.
-NAV_TAG = '<script src="/assets/nav.js?v=48f8466f8c" defer></script>'
+NAV_TAG = '<script src="/assets/nav.js?v=393a8e17be" defer></script>'
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "compounders", "feed", "data", "watchlist_signals.json")
@@ -117,16 +118,23 @@ DISC_JP = """<section class="disclaimer"><div class="wrap">
   <p class="d-en-note" lang="en">Japan Investor Interface Co., Ltd. ("JII") is an investor-relations consultancy and is not registered as a Financial Instruments Business Operator under Japan's Financial Instruments and Exchange Act. JII does not provide investment advice. JII Compounders is an editorial publication for educational and research purposes. Nothing herein constitutes a recommendation. Consult qualified, licensed advisors before any investment decision.</p>
   </div></div></section>"""
 
-DISC_EN = """<section class="disclaimer"><div class="wrap">
-  <div class="disclaimer-head"><span class="d-eyebrow">Important Disclaimer · 重要なご注意</span>
-  <h2 class="d-title">This is not investment advice.</h2></div>
-  <div class="disclaimer-body">
-  <p><b>Japan Investor Interface Co., Ltd. ("JII")</b> is an investor-relations (IR) consultancy. JII is <b>not</b> a registered investment advisor, financial advisor, broker-dealer, or securities firm in any jurisdiction, and is <b>not</b> registered as a Financial Instruments Business Operator (金融商品取引業者) under Japan's Financial Instruments and Exchange Act. JII does not provide investment advice or solicit the purchase, sale, or holding of any security.</p>
-  <p><b>JII Compounders is an editorial publication.</b> Each profile and this signal log are analytical studies of how publicly disclosed information about Japanese listed companies has been received by the market, for educational and research purposes. <b>Nothing here constitutes a recommendation or solicitation to buy, sell, or hold any security.</b></p>
-  <p><b>No reliance.</b> The information may be incomplete, out of date, or incorrect. Past price performance does not indicate future results. Before any investment, tax, accounting, or legal decision, consult qualified, licensed advisors and conduct your own due diligence based on the company's primary disclosures.</p>
-  <p><b>Conflicts of interest.</b> JII, its officers, and related parties do not hold or trade securities of companies covered in JII research. If JII has a paid engagement with a company covered in a publication, that relationship is disclosed in the relevant publication. JII's publications are for informational purposes only and do not constitute investment advice or a recommendation to buy or sell any security.</p>
-  <p class="d-jp-note" lang="ja">本資料は投資助言・代理業ではなく、特定の有価証券の売買の勧誘・推奨を目的とするものではありません。教育・研究を目的とした分析記事です。</p>
-  </div></div></section>"""
+# Translate the current Japanese clauses, including their exact scope. New
+# Japanese wording must be reviewed before it can appear in English builds.
+def source_matched_disclosure():
+    records = json.loads(Path(ROOT, 'content/compounders/disclaimer-parity.json').read_text(encoding='utf-8'))
+    translations = {r['ja']: r['en'] for r in records['translations']}
+    paragraphs = []
+    body = re.search(r'<div class="disclaimer-body">([\s\S]*?)</div>', DISC_JP).group(1)
+    for attrs, text in re.findall(r'<p\b([^>]*)>([\s\S]*?)</p>', body):
+        if 'd-en-note' in attrs:
+            continue
+        key = re.sub(r'\s+', ' ', re.sub(r'<[^>]*>', '', text)).strip()
+        if key not in translations:
+            raise ValueError('Japanese disclosure changed; review its English translation: ' + key)
+        paragraphs.append('<p>' + html.escape(translations[key]) + '</p>')
+    return '<section class="disclaimer"><div class="wrap"><div class="disclaimer-head"><span class="d-eyebrow">Important Disclaimer</span><h2 class="d-title">This is not investment advice.</h2></div><div class="disclaimer-body">' + '\n'.join(paragraphs) + '</div></div></section>'
+
+DISC_EN = source_matched_disclosure()
 
 def brand(lang):
     if lang == "ja":
