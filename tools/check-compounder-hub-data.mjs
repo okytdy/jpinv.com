@@ -32,14 +32,45 @@ function snapshots(html) {
     .map((match) => ({tag: match[1], attrs: attributes(match[2]), body: match[3]}));
 }
 
-function sameNumber(name, actual, wanted, ticker, locale) {
+function sameNumber(name, actual, wanted, ticker, locale, tolerance = 0.5) {
   const value = Number(actual);
-  if (!Number.isFinite(value) || Math.abs(value - wanted) > 0.5) {
+  if (!Number.isFinite(value) || Math.abs(value - wanted) > tolerance) {
     errors.push(`${locale} ${ticker}: ${name} is ${actual}; expected ${wanted}`);
   }
 }
 
 for (const report of currentReports) {
+  if (report.valuationBasis !== 'EBIT' || report.valuationInput !== 'OP') {
+    errors.push(`${report.ticker}: current profile comparisons require forward EV/EBIT using company-forecast OP; found ${report.valuationBasis}/${report.valuationInput}`);
+  }
+  for (const [locale, language] of [['EN', 'en'], ['JA', 'ja']]) {
+    const label = language === 'en' ? 'Forward EV/EBIT' : '予想EV / 営業利益';
+    const display = report.hubDisplay?.[locale];
+    if (display?.valuationLabel !== label || display?.metricLabels?.[2] !== label) {
+      errors.push(`${locale} ${report.ticker}: comparison label must be ${label}`);
+    }
+    sameNumber('display multiple', parseFloat(display?.valuationValue), report.valuationMultiple, report.ticker, locale, 0.005);
+    const article = profileData.articles[`${report.ticker}/initiation`];
+    const metric = article?.metrics?.[language]?.[3];
+    if (metric?.label !== label || metric?.value !== display?.valuationValue) {
+      errors.push(`${locale} ${report.ticker}: profile headline valuation must match the hub label and value`);
+    }
+    const prefix = language === 'en' ? 'en/' : '';
+    const gallery = fs.readFileSync(path.join(root, `${prefix}compounders/profiles/index.html`), 'utf8');
+    const card = [...gallery.matchAll(/<a\b[^>]*data-ticker="([^"]+)"[^>]*>[\s\S]*?<\/a>/g)]
+      .find((match) => match[1] === report.ticker)?.[0] || '';
+    const valuationCell = `<div class="card-stat-label">${label}</div><div class="card-stat-val">${display?.valuationValue}</div>`;
+    if (!card.includes(valuationCell)) {
+      errors.push(`${locale} ${report.ticker}: library card valuation must match the forward EV/EBIT snapshot`);
+    }
+  }
+  if (report.valuationCalculation) {
+    const { netCashYen, forwardOperatingProfitYen } = report.valuationCalculation;
+    const calculated = (report.marketCapYen - netCashYen) / forwardOperatingProfitYen;
+    if (!(forwardOperatingProfitYen > 0) || !Number.isFinite(calculated) || Math.abs(calculated - report.valuationMultiple) > 0.05) {
+      errors.push(`${report.ticker}: forward EV/EBIT does not reconcile to market cap, net cash and forecast OP`);
+    }
+  }
   if (report.snapshotDate > report.reportDate) {
     errors.push(`${report.ticker}: snapshot date ${report.snapshotDate} is after report date ${report.reportDate}`);
   }
@@ -93,7 +124,7 @@ for (const [locale, relativePath] of pages) {
     sameNumber('market cap', record.attrs['data-market-cap-yen'], report.marketCapYen, ticker, locale);
     sameNumber('60D ADTV', record.attrs['data-adtv60d-yen'], report.adtv60dYen, ticker, locale);
     sameNumber('ROCE', record.attrs['data-roce-pct'], report.rocePct, ticker, locale);
-    sameNumber('valuation multiple', record.attrs['data-valuation-multiple'], report.valuationMultiple, ticker, locale);
+    sameNumber('valuation multiple', record.attrs['data-valuation-multiple'], report.valuationMultiple, ticker, locale, 0.005);
 
     if (record.attrs['data-valuation-basis'] !== report.valuationBasis) {
       errors.push(`${locale} ${ticker}: valuation basis is ${record.attrs['data-valuation-basis']}; expected ${report.valuationBasis}`);

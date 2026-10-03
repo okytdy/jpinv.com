@@ -151,6 +151,12 @@ ${reportArticles.map((article) => renderHubReportRow(article, language)).join('\
 }
 
 const currentArticles = statusArticles('current');
+for (const article of currentArticles) {
+  const report = snapshotsByTicker.get(article.ticker);
+  if (report?.valuationBasis !== 'EBIT' || report?.valuationInput !== 'OP') {
+    throw new Error(`${article.ticker}: current profile comparisons require forward EV/EBIT using company-forecast OP.`);
+  }
+}
 const archivedArticles = statusArticles('archived');
 const currentTickers = currentArticles.map((article) => article.ticker);
 const archivedTickers = archivedArticles.map((article) => article.ticker);

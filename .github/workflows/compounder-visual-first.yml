@@ -28,6 +28,9 @@ on:
       - "assets/nav.js"
       - "tools/check-compounder-visual-first.mjs"
       - "tools/check-compounder-hub-recency.mjs"
+      - "tools/check-compounder-hub-data.mjs"
+      - "tools/compounder-hub-snapshots.json"
+      - "tools/build-compounder-archive.mjs"
       - ".github/workflows/compounder-visual-first.yml"
       - "package.json"
   push:
@@ -58,6 +61,9 @@ on:
       - "assets/nav.js"
       - "tools/check-compounder-visual-first.mjs"
       - "tools/check-compounder-hub-recency.mjs"
+      - "tools/check-compounder-hub-data.mjs"
+      - "tools/compounder-hub-snapshots.json"
+      - "tools/build-compounder-archive.mjs"
       - ".github/workflows/compounder-visual-first.yml"
       - "package.json"
 
@@ -76,4 +82,5 @@ jobs:
       - run: node tools/check-compounder-profile-system.mjs
       - run: node tools/check-compounder-visual-first.mjs
       - run: node tools/check-compounder-hub-recency.mjs
+      - run: node tools/check-compounder-hub-data.mjs
       - run: node tools/check-compounder-home-news.mjs
