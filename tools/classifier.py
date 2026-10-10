@@ -38,10 +38,8 @@ _FALLBACK_UNIVERSE: frozenset[str] = frozenset({
     "5843", "9271", "324A", "4428", "6090", "340A", "137A", "Cocolive",
 })
 
-_WATCHLIST_CSV = Path(
-    r"C:\Users\okuya\OneDrive\Desktop\JII\3 Pipeline\watchlist_v4_compounders.csv"
-)
 _REPO_ROOT = Path(__file__).resolve().parent.parent
+_WATCHLIST_CSV = _REPO_ROOT / "_watchlist_v4_compounders.csv"
 
 
 # ---------------------------------------------------------------------------

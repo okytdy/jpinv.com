@@ -27,15 +27,15 @@ OUT  = os.path.join(ROOT, "compounders", "feed", "data", "watchlist_signals.json
 CLASS_META = {
     "BUYBACK_INIT":  ("Buyback",                          "自社株買い",            "BUYBACK"),
     "BUYBACK_BLOCK": ("Buyback (block / ASR)",            "自社株買い（市場外・ASR）", "BUYBACK"),
-    "CANCEL":        ("Treasury cancellation",            "自己株消却",            "CANCEL"),
-    "COC_INITIAL":   ("Cost-of-capital management (new)", "資本コスト経営（初回）",   "COC"),
-    "COC_UPDATE":    ("Cost-of-capital management (upd.)","資本コスト経営（更新）",   "COC"),
+    "CANCEL":        ("Treasury cancellation",            "自己株式の消却",        "CANCEL"),
+    "COC_INITIAL":   ("Cost-of-capital management (new)", "資本コスト対応（初回開示）", "COC"),
+    "COC_UPDATE":    ("Cost-of-capital management (upd.)","資本コスト対応（更新）", "COC"),
     "DIV_HIKE":      ("Dividend increase",                "増配",                  "DIV"),
     "DIV_POLICY":    ("Dividend policy",                  "配当方針",              "DIV"),
     "CROSS":         ("Cross-shareholding reduction",     "政策保有株式の縮減",      "CROSS"),
     "MBO":           ("Take-private / tender offer",      "非公開化・TOB",          "MBO"),
     "M_AND_A":       ("M&A",                              "M&A",                  "MBO"),
-    "INSIDER_REORG": ("Founder shareholding restructuring","創業者株式整理",         "OTHER"),
+    "INSIDER_REORG": ("Founder shareholding restructuring","創業者の保有株式整理",   "OTHER"),
 }
 def cls_meta(c):
     return CLASS_META.get(c, (c or "Signal", c or "開示", "OTHER"))

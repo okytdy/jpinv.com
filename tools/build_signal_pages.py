@@ -210,6 +210,15 @@ def head(lang, title, desc, canon, alt_ja, alt_en, noindex=False):
 def sig_card(s, lang):
     chip = s["class_jp"] if lang == "ja" else s["class_en"]
     tag = s["tag_jp"] if lang == "ja" else s["tag_en"]
+    if lang == "ja":
+        chip = {
+            "自己株消却": "自己株式の消却",
+            "資本コスト経営（初回）": "資本コスト対応（初回開示）",
+            "資本コスト経営（更新）": "資本コスト対応（更新）",
+            "創業者株式整理": "創業者の保有株式整理",
+        }.get(chip, chip)
+        if tag in {"COC_INITIAL", "COC_UPDATE"}:
+            tag = ""
     cls = "ja" if lang == "ja" else "en"
     parts = ['<article class="sig-card">']
     parts.append('<div class="sig-head">')
@@ -238,10 +247,10 @@ def name_page(n, lang):
     cnt = n["signal_count"]; latest = n["latest"]["date"]
     if lang == "ja":
         title = f"{nm_jp}（{tk}）資本政策開示履歴｜JII Compounders"
-        desc = f"{nm_jp}（{tk}）の資本政策に関する開示（自社株買い・配当・消却・資本コスト経営等）をまとめています。直近{cnt}件を掲載し、最新は{latest}です。"
+        desc = f"{nm_jp}（{tk}）の資本政策に関する開示（自社株買い・配当・自己株式の消却・資本コストへの対応など）をまとめています。直近{cnt}件を掲載し、最新は{latest}です。"
         h1 = f"{esc(nm_jp)} <span class='tk'>{esc(tk)}</span>"
         eyebrow = "JII COMPOUNDERS · 資本政策の動き"
-        subline = f"{esc(n['industry'])}" + (f" · 選定基準を満たす" if n["in_universe"] else "")
+        subline = f"{esc(n['industry'])}" + (" · 7条件に該当" if n["in_universe"] else "")
         meta = f'開示<b>{cnt}</b>件 · 最新 <b>{esc(latest)}</b>'
     else:
         title = f"{nm_en} ({tk}) — Capital-Allocation Signal Log | JII Compounders"
@@ -258,7 +267,7 @@ def name_page(n, lang):
     feedurl = "/en/compounders/feed/" if lang == "en" else "/compounders/feed/"
     univurl = "/en/compounders/universe/" if lang == "en" else "/compounders/universe/"
     acts.append(f'<a href="{feedurl}">{"全銘柄の開示一覧で見る →" if lang=="ja" else "Open in the full feed →"}</a>')
-    acts.append(f'<a href="{univurl}">{"← ユニバースに戻る" if lang=="ja" else "← Back to the universe"}</a>')
+    acts.append(f'<a href="{univurl}">{"← 銘柄一覧に戻る" if lang=="ja" else "← Back to the universe"}</a>')
     # Per-ticker page: noindex,follow. See the comment on head() for the reasoning.
     body = [head(lang, title, desc, canon, alt_ja, alt_en, noindex=True)]
     body.append('<body>')
@@ -301,11 +310,18 @@ def index_page(names, lang):
     for n in names:
         l = n["latest"]
         chip = l["class_jp"] if lang == "ja" else l["class_en"]
+        if lang == "ja":
+            chip = {
+                "自己株消却": "自己株式の消却",
+                "資本コスト経営（初回）": "資本コスト対応（初回開示）",
+                "資本コスト経営（更新）": "資本コスト対応（更新）",
+                "創業者株式整理": "創業者の保有株式整理",
+            }.get(chip, chip)
         nm = n["name_jp"] if lang == "ja" else normalize_company_name_en(n["name_en"], n["ticker"])
         page = f"/en/compounders/signals/{n['ticker']}/" if lang == "en" else f"/compounders/signals/{n['ticker']}/"
         flags = []
-        if n["in_universe"]: flags.append("UNIVERSE" if lang == "en" else "ユニバース")
-        if n["profile_exists"]: flags.append("PROFILE" if lang == "en" else "レポート")
+        if n["in_universe"]: flags.append("UNIVERSE" if lang == "en" else "銘柄一覧掲載")
+        if n["profile_exists"]: flags.append("PROFILE" if lang == "en" else "レポートあり")
         cntlbl = f'{n["signal_count"]}' + ("件" if lang == "ja" else "")
         rows.append('<a class="idx-row" href="' + page + '">'
             f'<span class="idx-date">{esc(l["date"])}</span>'
@@ -339,6 +355,7 @@ def write(path, content):
 def main():
     payload = json.load(open(DATA, encoding="utf-8"))
     names = payload["names"]
+    active = {n["ticker"] for n in names}
     n_pages = 0
     for n in names:
         tk = n["ticker"]
@@ -348,6 +365,19 @@ def main():
     write(os.path.join(ROOT, "compounders", "signals", "index.html"), index_page(names, "ja"))
     write(os.path.join(ROOT, "en", "compounders", "signals", "index.html"), index_page(names, "en"))
     n_pages += 2
+    # Keep historical deep links, but remove membership claims once a name
+    # leaves the current strict screen. These pages have no dated pass label.
+    for lang, directory in (("ja", Path(ROOT, "compounders", "signals")),
+                            ("en", Path(ROOT, "en", "compounders", "signals"))):
+        for path in directory.glob("*/index.html"):
+            if path.parent.name in active:
+                continue
+            source = path.read_text(encoding="utf-8")
+            updated = source.replace(" · 選定基準を満たす", "").replace(" · Standing universe", "")
+            if lang == "ja":
+                updated = updated.replace("← ユニバースに戻る", "← 銘柄一覧に戻る")
+            if updated != source:
+                write(str(path), updated)
     print(f"Generated {n_pages} pages for {len(names)} names (+2 index).")
     print(f"  sample JP: compounders/signals/2353/index.html")
     print(f"  sample EN: en/compounders/signals/2353/index.html")

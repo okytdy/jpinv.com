@@ -35,7 +35,7 @@ SCRIPT = """
   function esc(x){ return (""+(x==null?"":x)).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
   // Rename the last header cell (the old STATUS column).
   var ths = document.querySelectorAll("#universe thead th");
-  if (ths.length) { ths[ths.length-1].textContent = EN ? "Latest Signal" : "最新シグナル"; }
+  if (ths.length) { ths[ths.length-1].textContent = EN ? "Latest Signal" : "直近の開示"; }
   fetch("/compounders/feed/data/watchlist_signals.json", {cache:"no-store"})
     .then(function(r){ return r.ok ? r.json() : null; })
     .then(function(d){

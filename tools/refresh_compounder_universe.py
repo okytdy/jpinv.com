@@ -16,6 +16,7 @@ import json
 import math
 import re
 import sys
+import time
 from pathlib import Path
 
 
@@ -163,6 +164,14 @@ def evaluate(snapshot, *, run_date):
         price, share_count = closes.get(ticker), number(shares.get(ticker))
         supplement = supplements.get(ticker) or {}
         supplement_current = bool(supplement and run_date <= supplement["valid_through"])
+        # A completed cancellation can make the last financial-summary share
+        # count stale even when the cache itself was refreshed today. Keep a
+        # dated issuer-source correction active until the next report catches up.
+        if supplement.get("share_override_after_action"):
+            if supplement_current:
+                share_count = number(supplement.get("shares_ex_treasury"))
+            else:
+                share_count = None
         if supplement_current and (forecast_op is None or forecast_op <= 0):
             forecast_op = number(supplement.get("forecast_op_yen"))
         if supplement_current and not share_count:
@@ -265,6 +274,64 @@ def evaluate(snapshot, *, run_date):
     }
 
 
+def verify_forward_periods(result):
+    """Fail closed when a cached company forecast covers an ended fiscal year."""
+    sys.path.insert(0, str(ENGINE))
+    import jq_v2
+
+    close = result["close_date"]
+    cache_path = OUTPUT / f"forecast_periods_{result['run_date']}.json"
+    OUTPUT.mkdir(parents=True, exist_ok=True)
+    cache = load_json(cache_path) if cache_path.exists() else {}
+    verified, expired = [], []
+    for candidate in result["passes"]:
+        ticker = candidate["ticker"]
+        cached_op = candidate["forecast_oi_myen"] * 1_000_000
+        cached = cache.get(ticker)
+        if cached and cached.get("close") == close and cached.get("cached_op") == cached_op:
+            matches = cached["matches"]
+        else:
+            try:
+                rows = jq_v2.fins_summary(code=ticker + "0")
+            except RuntimeError as error:
+                if "HTTP 429" not in str(error):
+                    raise
+                time.sleep(70)
+                rows = jq_v2.fins_summary(code=ticker + "0")
+            matches = []
+            for row in rows:
+                disclosed = str(row.get("DiscDate") or "")[:10]
+                if not disclosed or disclosed > close:
+                    continue
+                for op_key, period_key in (("NxFOP", "NxtFYEn"), ("FOP", "CurFYEn")):
+                    op = number(row.get(op_key))
+                    period = str(row.get(period_key) or "")[:10]
+                    if op is not None and period and abs(op - cached_op) <= max(1, cached_op * 1e-8):
+                        matches.append((disclosed, period))
+            cache[ticker] = {"close": close, "cached_op": cached_op, "matches": matches}
+            temporary = cache_path.with_suffix(".tmp")
+            temporary.write_text(json.dumps(cache, ensure_ascii=False), encoding="utf-8")
+            temporary.replace(cache_path)
+            time.sleep(2.5)
+        if not matches:
+            expired.append({"ticker": ticker, "reason": ["unverified_forward_forecast_period"]})
+            continue
+        disclosed, period = max(matches)
+        if period <= close:
+            expired.append({"ticker": ticker, "reason": ["forecast_fiscal_year_ended"],
+                            "forecast_period_end": period})
+            continue
+        candidate["forecast_period_end"] = period
+        candidate["forecast_period_verified_at"] = result["run_date"]
+        verified.append(candidate)
+    result["passes"] = verified
+    result["pass_count"] = len(verified)
+    result["rejected"].extend(expired)
+    result["rejected_count"] = len(result["rejected"])
+    result["forward_period_rejections"] = expired
+    return result
+
+
 def export_watchlist(result):
     target = REPO / "_watchlist_v4_compounders.csv"
     with target.open("r", encoding="utf-8", newline="") as handle:
@@ -330,6 +397,10 @@ def render_pages(result):
     if any(not all(r["gates"].values()) for r in rows):
         raise RuntimeError("A rendered company fails a numeric gate")
     date, close = result["run_date"], result["close_date"]
+    close_day = dt.date.fromisoformat(close)
+    run_day = dt.date.fromisoformat(date)
+    close_ja = f"{close_day.year}年{close_day.month}月{close_day.day}日"
+    run_ja = f"{run_day.year}年{run_day.month}月{run_day.day}日"
 
     def row_markup(r, rank, lang):
         ticker = r["ticker"]
@@ -340,13 +411,18 @@ def render_pages(result):
         name = html.escape(r["name_en"] if lang == "en" else r["name_ja"])
         sector = html.escape(sector_en.get(r["sector_ja"], r["sector_ja"]) if lang == "en" else r["sector_ja"])
         mc = r["market_cap_myen"] / 1000
-        mc_text = f"¥{mc:,.0f}bn" if mc >= 10 else f"¥{mc:.1f}bn"
+        if lang == "en":
+            mc_text = f"¥{mc:,.0f}bn" if mc >= 10 else f"¥{mc:.1f}bn"
+        else:
+            oku = r["market_cap_myen"] / 100
+            mc_text = (f"{oku / 10000:.2f}兆円" if oku >= 10000 else
+                       f"{oku:,.0f}億円" if oku >= 100 else f"{oku:,.1f}億円")
         cells = [rank, ticker_html, name, sector, mc_text,
                  f'{r["roce_pct"]:.1f}%', f'{r["ev_ebit_forward"]:.1f}x',
                  f'{r["operating_margin_pct"]:.1f}%', f'{r["equity_ratio_pct"]:.1f}%',
                  f'{r["revenue_cagr_3y_pct"]:.1f}%', f'{r["pbr"]:.1f}x',
                  f'{r["fcf_yield_pct"]:.1f}%', f'{r["composite"]:.1f}',
-                 "Qualified" if lang == "en" else "基準合格"]
+                 "—"]
         classes = ["cell-rank", "cell-tk", "cell-name", "cell-ind"] + ["cell-num"] * 9 + ["cell-status status-active"]
         data = (f'data-status="active" data-mc="{r["market_cap_myen"]:.6f}" '
                 f'data-roce="{r["roce_pct"]:.6f}" data-evebit="{r["ev_ebit_forward"]:.6f}" '
@@ -360,31 +436,36 @@ def render_pages(result):
         path = REPO / relative
         source = path.read_text(encoding="utf-8")
         en = lang == "en"
-        title = "Screen-qualified" if en else "スクリーン合格"
-        criteria = ("Screen criteria (all seven, at the latest close): ROCE ≥15% · "
-                    "forward EV/EBIT 2–12x · operating margin ≥15% · equity ratio ≥40% · "
+        title = "Screen-qualified" if en else "該当銘柄"
+        criteria = ("Screen criteria (all seven; price-based metrics use the latest close): ROCE ≥15% · "
+                    "company-forecast EV/EBIT 2–12x · operating margin ≥15% · equity ratio ≥40% · "
                     "3-year revenue CAGR ≥5% · P/B ≥1.0x · FCF yield ≥4%" if en else
-                    "スクリーン基準（全7条件・直近終値で判定）：ROCE 15%以上・EV/EBIT（翌12M）2〜12倍・"
-                    "営業利益率 15%以上・自己資本比率 40%以上・売上CAGR（3年）5%以上・P/B 1.0倍以上・FCF利回り 4%以上")
-        headers = (["#", "Code", "Company", "Sector", "Market Cap", "ROCE", "EV/EBIT (12M fwd)",
-                    "Op Margin", "Equity Ratio", "Rev CAGR (3y)", "P/B", "FCF Yield", "Composite", "Status"]
+                    "抽出条件：ROCE 15%以上・EV/EBIT（会社予想営業利益ベース）2〜12倍・"
+                    "営業利益率 15%以上・自己資本比率 40%以上・売上高の年平均成長率（過去3年）5%以上・"
+                    "PBR 1.0倍以上・FCF利回り 4%以上")
+        headers = (["#", "Code", "Company", "Sector", "Market Cap", "ROCE", "EV/EBIT (company forecast)",
+                    "Op Margin", "Equity Ratio", "Rev CAGR (3y)", "P/B", "FCF Yield", "Composite", "Latest Signal"]
                    if en else
-                   ["#", "証券コード", "企業名", "業種", "時価総額", "ROCE", "EV/EBIT(翌12M)",
-                    "営業利益率", "自己資本比率", "売上CAGR(3年)", "P/B", "FCF利回り", "複合スコア", "ステータス"])
+                   ["#", "証券コード", "企業名", "業種", "時価総額", "ROCE", "EV/EBIT（会社予想）",
+                    "営業利益率", "自己資本比率", "売上高年平均成長率（3年）", "PBR", "FCF利回り",
+                    "ROCE÷EV/EBIT", "直近の開示"])
         th = "".join(f'<th class="cell-num">{v}</th>' if 4 <= i <= 12 else f"<th>{v}</th>"
                      for i, v in enumerate(headers))
         body = "".join(row_markup(r, i + 1, lang) for i, r in enumerate(rows))
-        asof = f"As of {date} · prices at the {close} close" if en else f"基準日 {date}・{close} 終値ベース"
+        asof = (f"As of {date} · prices at the {close} close" if en else
+                f"{close_ja}終値時点（{run_ja}更新）")
+        chip = f"Screen-qualified ({len(rows)})" if en else f"{len(rows)}銘柄"
+        count_label = f"({len(rows)})" if en else f"（{len(rows)}銘柄）"
         controls = (f'<div class="controls"><div class="ctrl-group"><span class="ctrl-label">'
-                    f'{"Showing:" if en else "掲載："}</span><span class="btn lane-chip">'
-                    f'{title} ({len(rows)})</span></div><div class="ctrl-group" style="margin-left:auto;">'
+                    f'{"Showing:" if en else "該当銘柄："}</span><span class="btn lane-chip">'
+                    f'{chip}</span></div><div class="ctrl-group" style="margin-left:auto;">'
                     f'<span class="ctrl-label">{"Sort:" if en else "並べ替え："}</span>'
-                    '<button class="btn sort-trigger active" data-sort="mc" data-dir="desc">Market Cap</button>'
-                    '<button class="btn sort-trigger" data-sort="score" data-dir="desc">Composite</button>'
+                    f'<button class="btn sort-trigger active" data-sort="mc" data-dir="desc">{"Market Cap" if en else "時価総額"}</button>'
+                    f'<button class="btn sort-trigger" data-sort="score" data-dir="desc">{"Composite" if en else "ROCE÷EV/EBIT"}</button>'
                     '<button class="btn sort-trigger" data-sort="roce" data-dir="desc">ROCE</button>'
                     '<button class="btn sort-trigger" data-sort="evebit" data-dir="asc">EV/EBIT</button>'
-                    '<button class="btn sort-trigger" data-sort="pbr" data-dir="desc">P/B</button>'
-                    '<button class="btn sort-trigger" data-sort="fcfy" data-dir="desc">FCF Yield</button>'
+                    f'<button class="btn sort-trigger" data-sort="pbr" data-dir="desc">{"P/B" if en else "PBR"}</button>'
+                    f'<button class="btn sort-trigger" data-sort="fcfy" data-dir="desc">{"FCF Yield" if en else "FCF利回り"}</button>'
                     '</div></div>')
         block = ("<!-- UNIVERSE:LANES START (generated by refresh_compounder_universe.py) -->\n"
                  '<style>.lane { margin-top:4px; }.lane-head { padding:30px 0 12px; }'
@@ -399,7 +480,7 @@ def render_pages(result):
                  '.table-scroll table { min-width:1450px; }.table-scroll .cell-name { min-width:160px; }'
                  '.lane-chip { border-color:var(--accent); color:var(--accent-deep); }</style>\n'
                  + controls + "\n" + f'<section class="lane" id="lane-screen"><div class="lane-head">'
-                 f'<h2 class="lane-title">{title}<span class="lane-count">({len(rows)})</span></h2>'
+                 f'<h2 class="lane-title">{title}<span class="lane-count">{count_label}</span></h2>'
                  f'<p class="lane-criteria">{criteria}</p><p class="lane-asof">{asof}</p></div>\n'
                  f'<div class="table-scroll"><table id="universe" class="universe-table">'
                  f'<thead><tr>{th}</tr></thead><tbody>\n'
@@ -409,21 +490,42 @@ def render_pages(result):
             raise RuntimeError(f"Universe marker count changed: {path}")
         source = pattern.sub(lambda _: block, source)
         if en:
-            source = re.sub(r'    <p>Japanese listed companies JII keeps.*?</p>',
-                            '    <p>Tokyo Stock Exchange companies meeting all seven screening criteria at the latest close. '
-                            'Compare valuation, returns on capital, growth, and free cash flow. '
-                            '<a href="/en/compounders/methodology/">Methodology →</a></p>', source, count=1)
+            source = re.sub(
+                r'(    <h1>[^<]*</h1>\s*)<p>.*?</p>',
+                lambda match: match.group(1) +
+                '<p>Tokyo Stock Exchange companies meeting all seven screening criteria. '
+                'Price-based metrics use the latest close. Compare valuation, returns on capital, '
+                'growth, and free cash flow. <a href="/en/compounders/methodology/">Methodology →</a></p>',
+                source, count=1, flags=re.S)
             source = re.sub(r'    <span>Last refreshed .*?</span>',
                             f'    <span>Last refreshed {date}. Market cap uses the {close} close and shares excluding treasury. '
                             'Every listed name passes all seven criteria.</span>', source, count=1)
         else:
-            source = re.sub(r'    <p>長く稼ぎ続けられる企業を.*?</p>',
-                            '    <p>直近終値で7つのスクリーン基準をすべて満たす東証上場企業の一覧です。時価総額、資本効率、'
-                            '成長率、フリーキャッシュフロー利回りなどを比較できます。'
-                            '<a href="/compounders/methodology/">6つの着眼点 →</a></p>', source, count=1)
+            page_title = '7条件に該当する銘柄｜JII Compounders'
+            description = ('東証上場銘柄のうち、7つの条件に該当する銘柄を時価総額、'
+                           '会社予想EV/EBIT、収益性、FCF利回りなどで比較できます。')
+            source = re.sub(r'<title>[^<]*</title>', f'<title>{page_title}</title>', source, count=1)
+            source = re.sub(r'<meta name="description" content="[^"]*">',
+                            f'<meta name="description" content="{description}">', source, count=1)
+            source = re.sub(r'<meta property="og:title" content="[^"]*">',
+                            f'<meta property="og:title" content="{page_title}">', source, count=1)
+            source = re.sub(r'<meta property="og:description" content="[^"]*">',
+                            f'<meta property="og:description" content="{description}">', source, count=1)
+            source = source.replace(
+                '<div class="hero-eyebrow">JII COMPOUNDERS &middot; UNIVERSE</div>',
+                '<div class="hero-eyebrow">JII COMPOUNDERS &middot; 銘柄一覧</div>', 1)
+            source = re.sub(r'    <h1>[^<]*</h1>',
+                            '    <h1>7条件に該当する銘柄</h1>', source, count=1)
+            source = re.sub(
+                r'(    <h1>7条件に該当する銘柄</h1>\s*)<p>.*?</p>',
+                lambda match: match.group(1) +
+                '<p>7つの条件に該当する東証上場銘柄を掲載しています。株価を用いる指標は直近の終値で計算し、'
+                '時価総額、資本効率、成長率、フリーキャッシュフロー利回りなどを比較できます。'
+                '<a href="/compounders/methodology/">6つの着眼点 →</a></p>',
+                source, count=1, flags=re.S)
             source = re.sub(r'    <span>最終更新.*?</span>',
-                            f'    <span>最終更新：{date}。時価総額は{close}の終値と自己株式控除後の株式数で算出。'
-                            '掲載銘柄はすべて7条件を満たしています。</span>', source, count=1)
+                            f'    <span>最終更新：{run_ja}。時価総額は{close_ja}の終値と'
+                            '自己株式を除いた発行済株式数で算出しています。</span>', source, count=1)
         old_keys = 'const headerKeys = [null, null, null, null, "mc", "roce", "evebit", null, null, null, "fcfy", "score", null];'
         new_keys = 'const headerKeys = [null, null, null, null, "mc", "roce", "evebit", null, null, null, "pbr", "fcfy", "score", null];'
         if old_keys in source:
@@ -445,7 +547,7 @@ def main():
     snapshot = load_json(args.snapshot) if args.snapshot else fetch_screen()
     if len(snapshot["companies"]) != snapshot["total"]:
         raise RuntimeError("EDINET DB broad screen is incomplete")
-    result = evaluate(snapshot, run_date=args.date)
+    result = verify_forward_periods(evaluate(snapshot, run_date=args.date))
     OUTPUT.mkdir(parents=True, exist_ok=True)
     snap_path = OUTPUT / f"edinet_screen_{args.date}.json"
     out_path = OUTPUT / f"qualified_{args.date}.json"
