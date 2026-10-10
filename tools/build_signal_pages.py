@@ -131,8 +131,10 @@ def source_matched_disclosure():
         key = re.sub(r'\s+', ' ', re.sub(r'<[^>]*>', '', text)).strip()
         if key not in translations:
             raise ValueError('Japanese disclosure changed; review its English translation: ' + key)
-        paragraphs.append('<p>' + html.escape(translations[key]) + '</p>')
-    return '<section class="disclaimer"><div class="wrap"><div class="disclaimer-head"><span class="d-eyebrow">Important Disclaimer</span><h2 class="d-title">This is not investment advice.</h2></div><div class="disclaimer-body">' + '\n'.join(paragraphs) + '</div></div></section>'
+        # Match sync-english-research-disclaimers.mjs exactly: quotes need no
+        # escaping in text nodes, and the body has a newline at both boundaries.
+        paragraphs.append('<p>' + html.escape(translations[key], quote=False) + '</p>')
+    return '<section class="disclaimer"><div class="wrap"><div class="disclaimer-head"><span class="d-eyebrow">Important Disclaimer</span><h2 class="d-title">This is not investment advice.</h2></div><div class="disclaimer-body">\n' + '\n'.join(paragraphs) + '\n</div></div></section>'
 
 DISC_EN = source_matched_disclosure()
 
