@@ -10,6 +10,9 @@ on:
       - "assets/compounder-profile.css"
       - "tools/check-compounder-profile-system.mjs"
       - "tools/lib/compounder-figure-labels.mjs"
+      - "tools/lib/compounder-profile-template.mjs"
+      - "tools/lib/compounder-ev-first-use.mjs"
+      - "tools/test-compounder-ev-first-use.mjs"
       - "tools/tests/compounder-figure-labels.test.mjs"
       - "compounders/feed/data/news.json"
       - "tools/build_news_data.py"
@@ -43,6 +46,9 @@ on:
       - "assets/compounder-profile.css"
       - "tools/check-compounder-profile-system.mjs"
       - "tools/lib/compounder-figure-labels.mjs"
+      - "tools/lib/compounder-profile-template.mjs"
+      - "tools/lib/compounder-ev-first-use.mjs"
+      - "tools/test-compounder-ev-first-use.mjs"
       - "tools/tests/compounder-figure-labels.test.mjs"
       - "compounders/feed/data/news.json"
       - "tools/build_news_data.py"
@@ -79,6 +85,7 @@ jobs:
         with:
           node-version: 20
       - run: node --test tools/tests/compounder-figure-labels.test.mjs
+      - run: node --test tools/test-compounder-ev-first-use.mjs
       - run: node tools/check-compounder-profile-system.mjs
       - run: node tools/check-compounder-visual-first.mjs
       - run: node tools/check-compounder-hub-recency.mjs

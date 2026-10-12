@@ -2,6 +2,7 @@ import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { explainFirstEv } from './compounder-ev-first-use.mjs';
 
 const SITE_ORIGIN = 'https://jpinv.com';
 const ROOT = path.dirname(path.dirname(path.dirname(fileURLToPath(import.meta.url))));
@@ -107,7 +108,7 @@ export function renderProfileHeader(page) {
   const altLine = altHtml ? `      ${altHtml}\n` : '';
   const descriptionLine = descriptionHtml ? `      ${descriptionHtml}\n` : '';
 
-  return `<header class="cp-profile-header" data-profile-shell="1">
+  return explainFirstEv(`<header class="cp-profile-header" data-profile-shell="1">
   <div class="cp-profile-header__inner">
     <div class="cp-research-summary">
       <a class="cp-breadcrumb" href="${home}">${homeLabel}</a>
@@ -120,7 +121,7 @@ ${deckLine}    </div>
 ${altLine}${descriptionLine}    </div>
   </div>
   ${metricHtml}
-</header>`;
+</header>`, language).replace(/(<dt>企業価値（EV）\s*[/／]\s*)(予想(?:営業利益|EBITDA|EBIT))(<\/dt>)/g, '$1<br>$2$3');
 }
 
 export function inlinePageData(page) {
