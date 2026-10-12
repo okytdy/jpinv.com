@@ -9,6 +9,14 @@ export function hasEvDefinition(text, language) {
     : /enterprise value\s*\(\s*$/i.test(preceding);
 }
 
+export function hasProseEvDefinition(bodyHtml, language) {
+  // Canonical running prose is held in .prose containers. Figures, figure notes,
+  // metric strips and captions do not satisfy its independent first-use rule.
+  const prose = [...bodyHtml.matchAll(/<div\b[^>]*class=["'](?:[^"']*\s)?prose(?:\s[^"']*)?["'][^>]*>([\s\S]*?)<\/div>/g)]
+    .map((match) => match[1].replace(/<[^>]+>/g, ' ')).join(' ');
+  return hasEvDefinition(prose, language);
+}
+
 // Input is a template-rendered header, not arbitrary article HTML. Only text
 // tokens change; attribute values, data, URLs and all later mentions stay intact.
 export function explainFirstEv(headerHtml, language) {
