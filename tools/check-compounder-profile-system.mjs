@@ -3,6 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { renderProfilePage } from './lib/compounder-profile-template.mjs';
 import { inspectFigureLabels } from './lib/compounder-figure-labels.mjs';
+import { hasEvDefinition } from './lib/compounder-ev-first-use.mjs';
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DATA_PATH = path.join(REPO, 'content', 'compounders', 'profile-data.json');
@@ -59,6 +60,8 @@ for (const language of ['ja', 'en']) {
       pageCount += 1;
       const page = path.relative(REPO, file).replaceAll('\\', '/');
       const html = fs.readFileSync(file, 'utf8');
+      const mainText = plain(html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/i)?.[1] || '');
+      if (!hasEvDefinition(mainText, language)) fail(page, 'first visible EV use must define enterprise value in the page language');
       for (const message of inspectFigureLabels(html)) fail(page, `rendered figure labels: ${message}`);
       const article = data.articles[`${ticker}/${slug}`];
       const company = data.companies[ticker];
