@@ -25,7 +25,9 @@ NSD is the worked example of the refinements; NJS remains the shared page shell.
   show the amount first and the growth below it in smaller parentheses, followed by
   its period. Preserve forecast/actual status and the dates of price, cash and shares.
 - Introduce EV at the first visible use as `企業価値（EV）` / `enterprise value (EV)`,
-  including a deck or masthead metric. Later uses may remain `EV`. For the initial
+  including a deck or masthead metric. Independently introduce it again at the first
+  use in running body prose; a masthead, figure or note definition does not satisfy
+  this body-text requirement. Later uses in that prose may remain `EV`. For the initial
   forward ratio, use `企業価値（EV） / 予想営業利益` / `Enterprise value (EV)/forecast EBIT`,
   adapting the earnings measure when appropriate. The forecast qualifier belongs
   to earnings. The Japanese initial ratio label has a clean line break between its

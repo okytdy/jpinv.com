@@ -3,7 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { renderProfilePage } from './lib/compounder-profile-template.mjs';
 import { inspectFigureLabels } from './lib/compounder-figure-labels.mjs';
-import { hasEvDefinition } from './lib/compounder-ev-first-use.mjs';
+import { hasEvDefinition, hasProseEvDefinition } from './lib/compounder-ev-first-use.mjs';
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DATA_PATH = path.join(REPO, 'content', 'compounders', 'profile-data.json');
@@ -77,6 +77,9 @@ for (const language of ['ja', 'en']) {
       if (relativeBody && !fs.existsSync(bodyFile)) fail(page, `canonical content source does not exist: ${relativeBody}`);
       if (relativeBody && fs.existsSync(bodyFile)) {
         const bodyHtml = fs.readFileSync(bodyFile, 'utf8');
+        if (article.publicationStatus === 'current' && !hasProseEvDefinition(bodyHtml, language)) {
+          fail(page, 'first EV use in running body prose must define enterprise value independently of masthead/figures/notes');
+        }
         for (const message of inspectFigureLabels(bodyHtml)) fail(page, `canonical figure labels: ${message}`);
         if (/<(?:html|head|body|main|article|h1|style|script)\b/i.test(bodyHtml)) fail(page, 'content source contains shell, H1, style, or script markup');
         if (/\sstyle\s*=/i.test(bodyHtml)) fail(page, 'content source contains inline presentation');
