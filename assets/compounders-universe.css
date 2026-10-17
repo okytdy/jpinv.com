@@ -1,0 +1,68 @@
+/* The full 14-column screen fits the desktop content area. Narrow screens use
+   labelled company cards so no metric or signal is hidden off screen. */
+.table-scroll { width: 100%; }
+.universe-table { width: 100%; min-width: 0; table-layout: fixed; }
+.universe-table caption.universe-sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+.universe-table th, .universe-table td {
+  min-width: 0; padding-left: 4px; padding-right: 4px;
+  overflow-wrap: anywhere;
+}
+.universe-table thead th {
+  white-space: normal; font-size: 11px; line-height: 1.35;
+  letter-spacing: .02em; cursor: default;
+}
+.universe-table td { font-size: 11.5px; line-height: 1.45; }
+.universe-table .cell-label { display: none; }
+.universe-table td.cell-num { white-space: nowrap; }
+.universe-table .cell-name { min-width: 0; }
+.universe-table .cell-ind,
+.universe-table .cell-status,
+.universe-table .cell-latest-sig .ls-class { white-space: normal; }
+.universe-table .cell-ind { letter-spacing: 0; overflow-wrap: normal; }
+html[lang="en"] .universe-table .cell-ind { letter-spacing: -.03em; }
+.universe-table .cell-latest-sig .ls-class,
+.universe-table .cell-latest-sig .ls-date { font-size: 10px; letter-spacing: 0; }
+
+@media (max-width: 960px) {
+  .universe-table, .universe-table tbody { display: block; width: 100%; }
+  .universe-table thead {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+  }
+  .universe-table tbody tr {
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 16px; padding: 12px 14px; margin-top: 14px;
+    border: 1px solid var(--rule); background: var(--bg);
+  }
+  .universe-table tbody tr:hover { background: var(--bg-soft); }
+  .universe-table tbody td {
+    display: block; width: auto; padding: 6px 0; text-align: left;
+    font-size: 13px; line-height: 1.45; white-space: normal;
+  }
+  .universe-table tbody .cell-label {
+    display: block; margin-bottom: 2px; color: var(--text-dim);
+    font-family: var(--mono); font-size: 10px; letter-spacing: .04em;
+  }
+  .universe-table tbody .cell-rank { grid-column: 1; }
+  .universe-table tbody .cell-tk { grid-column: 2; }
+  .universe-table tbody .cell-name { grid-column: 1 / -1; font-size: 16px; }
+  .universe-table tbody .cell-ind {
+    grid-column: 1 / -1; padding-bottom: 10px; margin-bottom: 4px;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .universe-table tbody .cell-status {
+    grid-column: 1 / -1; margin-top: 4px; padding-top: 10px;
+    border-top: 1px solid var(--rule-soft);
+  }
+  .universe-table .cell-latest-sig .ls-class,
+  .universe-table .cell-latest-sig .ls-date { font-size: 12px; }
+}
+
+@media (min-width: 620px) and (max-width: 960px) {
+  .universe-table tbody tr { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .universe-table tbody .cell-rank { grid-column: 1; }
+  .universe-table tbody .cell-tk { grid-column: 2 / 4; }
+}

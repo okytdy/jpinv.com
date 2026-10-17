@@ -428,7 +428,17 @@ def render_pages(result):
                 f'data-roce="{r["roce_pct"]:.6f}" data-evebit="{r["ev_ebit_forward"]:.6f}" '
                 f'data-pbr="{r["pbr"]:.6f}" data-fcfy="{r["fcf_yield_pct"]:.6f}" '
                 f'data-score="{r["composite"]:.6f}" data-sec="{ticker}0"')
-        body = "\n".join(f'      <td class="{cls}">{value}</td>' for cls, value in zip(classes, cells))
+        labels = (["Rank", "Code", "Company", "Sector", "Market cap", "ROCE",
+                   "EV/EBIT (forecast)", "Operating margin", "Equity ratio",
+                   "Revenue CAGR (3y)", "P/B", "FCF yield", "ROCE÷EV/EBIT", "Latest signal"]
+                  if lang == "en" else
+                  ["順位", "証券コード", "企業名", "業種", "時価総額", "ROCE",
+                   "EV/EBIT（会社予想）", "営業利益率", "自己資本比率",
+                   "売上高CAGR（3年）", "PBR", "FCF利回り", "ROCE÷EV/EBIT", "直近の開示"])
+        cells[0] = f'<span class="rank-value">{rank}</span>'
+        body = "\n".join(
+            f'      <td class="{cls}"><span class="cell-label">{html.escape(label)}</span>{value}</td>'
+            for cls, label, value in zip(classes, labels, cells))
         return f"    <tr {data}>\n{body}\n    </tr>\n"
 
     for lang, relative in (("ja", "compounders/universe/index.html"),
@@ -443,14 +453,29 @@ def render_pages(result):
                     "抽出条件：ROCE 15%以上・EV/EBIT（会社予想営業利益ベース）2〜12倍・"
                     "営業利益率 15%以上・自己資本比率 40%以上・売上高の年平均成長率（過去3年）5%以上・"
                     "PBR 1.0倍以上・FCF利回り 4%以上")
-        headers = (["#", "Code", "Company", "Sector", "Market Cap", "ROCE", "EV/EBIT (company forecast)",
-                    "Op Margin", "Equity Ratio", "Rev CAGR (3y)", "P/B", "FCF Yield", "Composite", "Latest Signal"]
+        headers = ([('#', 'Rank'), ('Code', 'Code'), ('Company', 'Company'), ('Sector', 'Sector'),
+                    ('Market cap', 'Market capitalization'), ('ROCE', 'Return on capital employed'),
+                    ('EV/EBIT<br>(Est.)', 'EV/EBIT based on company forecast operating profit'),
+                    ('Op margin', 'Operating margin'), ('Equity ratio', 'Equity ratio'),
+                    ('Revenue CAGR<br>(3y)', 'Three-year compound annual revenue growth rate'),
+                    ('P/B', 'Price-to-book ratio'), ('FCF yield', 'Free cash flow yield'),
+                    ('ROCE÷<br>EV/EBIT', 'ROCE divided by forecast EV/EBIT'), ('Latest signal', 'Latest capital-action signal')]
                    if en else
-                   ["#", "証券コード", "企業名", "業種", "時価総額", "ROCE", "EV/EBIT（会社予想）",
-                    "営業利益率", "自己資本比率", "売上高年平均成長率（3年）", "PBR", "FCF利回り",
-                    "ROCE÷EV/EBIT", "直近の開示"])
-        th = "".join(f'<th class="cell-num">{v}</th>' if 4 <= i <= 12 else f"<th>{v}</th>"
-                     for i, v in enumerate(headers))
+                   [('#', '順位'), ('証券コード', '証券コード'), ('企業名', '企業名'), ('業種', '業種'),
+                    ('時価総額', '時価総額'), ('ROCE', '投下資本利益率'),
+                    ('EV/EBIT<br>（予想）', '会社予想営業利益に基づくEV/EBIT'),
+                    ('営業利益率', '営業利益率'), ('自己資本比率', '自己資本比率'),
+                    ('売上高CAGR<br>（3年）', '売上高年平均成長率（過去3年）'),
+                    ('PBR', '株価純資産倍率'), ('FCF利回り', 'フリーキャッシュフロー利回り'),
+                    ('ROCE÷<br>EV/EBIT', 'ROCEを会社予想EV/EBITで割った値'),
+                    ('直近の開示', '直近の資本政策開示')])
+        th = "".join(f'<th scope="col" aria-label="{html.escape(label, quote=True)}"'
+                     + (' class="cell-num"' if 4 <= i <= 12 else '') + f'>{visible}</th>'
+                     for i, (visible, label) in enumerate(headers))
+        column_widths = [3, 5, 14, 10.5, 8, 5, 7, 6, 7, 7, 4, 6, 6.5, 11]
+        cols = '<colgroup>' + ''.join(f'<col style="width:{width}%">' for width in column_widths) + '</colgroup>'
+        caption = ('Screen-qualified companies and their seven screening metrics' if en else
+                   '該当銘柄と7つの抽出指標')
         body = "".join(row_markup(r, i + 1, lang) for i, r in enumerate(rows))
         asof = (f"As of {date} · prices at the {close} close" if en else
                 f"{close_ja}終値時点（{run_ja}更新）")
@@ -460,12 +485,12 @@ def render_pages(result):
                     f'{"Showing:" if en else "該当銘柄："}</span><span class="btn lane-chip">'
                     f'{chip}</span></div><div class="ctrl-group" style="margin-left:auto;">'
                     f'<span class="ctrl-label">{"Sort:" if en else "並べ替え："}</span>'
-                    f'<button class="btn sort-trigger active" data-sort="mc" data-dir="desc">{"Market Cap" if en else "時価総額"}</button>'
-                    f'<button class="btn sort-trigger" data-sort="score" data-dir="desc">{"Composite" if en else "ROCE÷EV/EBIT"}</button>'
-                    '<button class="btn sort-trigger" data-sort="roce" data-dir="desc">ROCE</button>'
-                    '<button class="btn sort-trigger" data-sort="evebit" data-dir="asc">EV/EBIT</button>'
-                    f'<button class="btn sort-trigger" data-sort="pbr" data-dir="desc">{"P/B" if en else "PBR"}</button>'
-                    f'<button class="btn sort-trigger" data-sort="fcfy" data-dir="desc">{"FCF Yield" if en else "FCF利回り"}</button>'
+                    f'<button class="btn sort-trigger active" aria-pressed="true" data-sort="mc" data-dir="desc">{"Market Cap" if en else "時価総額"}</button>'
+                    f'<button class="btn sort-trigger" aria-pressed="false" data-sort="score" data-dir="desc">ROCE÷EV/EBIT</button>'
+                    '<button class="btn sort-trigger" aria-pressed="false" data-sort="roce" data-dir="desc">ROCE</button>'
+                    '<button class="btn sort-trigger" aria-pressed="false" data-sort="evebit" data-dir="asc">EV/EBIT</button>'
+                    f'<button class="btn sort-trigger" aria-pressed="false" data-sort="pbr" data-dir="desc">{"P/B" if en else "PBR"}</button>'
+                    f'<button class="btn sort-trigger" aria-pressed="false" data-sort="fcfy" data-dir="desc">{"FCF Yield" if en else "FCF利回り"}</button>'
                     '</div></div>')
         block = ("<!-- UNIVERSE:LANES START (generated by refresh_compounder_universe.py) -->\n"
                  '<style>.lane { margin-top:4px; }.lane-head { padding:30px 0 12px; }'
@@ -476,34 +501,12 @@ def render_pages(result):
                  'margin:0 0 4px; line-height:1.8; max-width:960px; }.lane-asof { '
                  'font-family:var(--mono); font-size:10px; color:var(--text-dim); margin:0 0 2px; '
                  'text-transform:uppercase; }.lane table { border-top:1px solid var(--rule); }'
-                 '.table-scroll { width:100%; overflow-x:auto; overscroll-behavior-inline:contain; }'
-                 '.table-scroll table { min-width:1450px; }.table-scroll .cell-name { min-width:160px; }'
-                 '.table-scroll-controls { position:sticky; top:0; z-index:2; display:flex; '
-                 'align-items:center; justify-content:flex-end; gap:10px; margin:8px 0; '
-                 'background:var(--bg); font-family:var(--mono); font-size:11px; color:var(--text-mid); }'
-                 '.table-scroll-controls[hidden] { display:none; }'
-                 '.table-scroll-controls button { border:1px solid var(--rule); background:var(--bg); '
-                 'color:var(--ink-soft); padding:6px 10px; font:inherit; cursor:pointer; }'
-                 '.table-scroll-controls button:hover:not(:disabled) { border-color:var(--ink-soft); }'
-                 '.table-scroll-controls button:disabled { opacity:.4; cursor:default; }'
-                 '@media (max-width:760px) { .table-scroll-controls { flex-wrap:wrap; '
-                 'justify-content:flex-start; }.table-scroll-controls span { flex:1 1 100%; } }'
                  '.lane-chip { border-color:var(--accent); color:var(--accent-deep); }</style>\n'
                  + controls + "\n" + f'<section class="lane" id="lane-screen"><div class="lane-head">'
                  f'<h2 class="lane-title">{title}<span class="lane-count">{count_label}</span></h2>'
                  f'<p class="lane-criteria">{criteria}</p><p class="lane-asof">{asof}</p></div>\n'
-                 f'<div class="table-scroll-controls" data-table-scroll-controls '
-                 f'aria-label="{"表の横移動" if not en else "Table horizontal navigation"}">'
-                 f'<span>{"横に移動して残りの列を表示" if not en else "Move horizontally to view every column"}</span>'
-                 f'<button type="button" data-scroll-prev aria-controls="universe" '
-                 f'aria-label="{"表を左へ移動" if not en else "Scroll table left"}">'
-                 f'{"← 左へ" if not en else "← Left"}</button>'
-                 f'<button type="button" data-scroll-next aria-controls="universe" '
-                 f'aria-label="{"表を右へ移動" if not en else "Scroll table right"}">'
-                 f'{"右へ →" if not en else "Right →"}</button></div>\n'
-                 f'<div class="table-scroll" tabindex="0" role="region" '
-                 f'aria-label="{"該当銘柄の全指標" if not en else "All screen-qualified company metrics"}">'
-                 f'<table id="universe" class="universe-table">'
+                 f'<div class="table-scroll"><table id="universe" class="universe-table">'
+                 f'<caption class="universe-sr-only">{caption}</caption>{cols}'
                  f'<thead><tr>{th}</tr></thead><tbody>\n'
                  + body + '</tbody></table></div></section>\n<!-- UNIVERSE:LANES END -->')
         pattern = re.compile(r"<!-- UNIVERSE:LANES START.*?<!-- UNIVERSE:LANES END -->", re.S)
