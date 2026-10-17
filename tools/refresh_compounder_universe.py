@@ -430,7 +430,7 @@ def render_pages(result):
                 f'data-score="{r["composite"]:.6f}" data-sec="{ticker}0"')
         labels = (["Rank", "Code", "Company", "Sector", "Market cap", "ROCE",
                    "EV/EBIT (forecast)", "Operating margin", "Equity ratio",
-                   "Revenue CAGR (3y)", "P/B", "FCF yield", "ROCE÷EV/EBIT", "Latest signal"]
+                   "Revenue CAGR (3y)", "P/B", "FCF yield", "Composite score", "Latest signal"]
                   if lang == "en" else
                   ["順位", "証券コード", "企業名", "業種", "時価総額", "ROCE",
                    "EV/EBIT（会社予想）", "営業利益率", "自己資本比率",
@@ -459,7 +459,7 @@ def render_pages(result):
                     ('Op margin', 'Operating margin'), ('Equity ratio', 'Equity ratio'),
                     ('Revenue CAGR<br>(3y)', 'Three-year compound annual revenue growth rate'),
                     ('P/B', 'Price-to-book ratio'), ('FCF yield', 'Free cash flow yield'),
-                    ('ROCE÷<br>EV/EBIT', 'ROCE divided by forecast EV/EBIT'), ('Latest signal', 'Latest capital-action signal')]
+                    ('Score', 'Composite score: ROCE divided by forecast EV/EBIT'), ('Latest signal', 'Latest capital-action signal')]
                    if en else
                    [('#', '順位'), ('証券コード', '証券コード'), ('企業名', '企業名'), ('業種', '業種'),
                     ('時価総額', '時価総額'), ('ROCE', '投下資本利益率'),
@@ -481,12 +481,16 @@ def render_pages(result):
                 f"{close_ja}終値時点（{run_ja}更新）")
         chip = f"Screen-qualified ({len(rows)})" if en else f"{len(rows)}銘柄"
         count_label = f"({len(rows)})" if en else f"（{len(rows)}銘柄）"
+        score_label = "Composite" if en else "ROCE÷EV/EBIT"
+        score_aria = ("Composite score: ROCE divided by forecast EV/EBIT" if en else
+                      "ROCEを会社予想EV/EBITで割った値")
         controls = (f'<div class="controls"><div class="ctrl-group"><span class="ctrl-label">'
                     f'{"Showing:" if en else "該当銘柄："}</span><span class="btn lane-chip">'
                     f'{chip}</span></div><div class="ctrl-group" style="margin-left:auto;">'
                     f'<span class="ctrl-label">{"Sort:" if en else "並べ替え："}</span>'
                     f'<button class="btn sort-trigger active" aria-pressed="true" data-sort="mc" data-dir="desc">{"Market Cap" if en else "時価総額"}</button>'
-                    f'<button class="btn sort-trigger" aria-pressed="false" data-sort="score" data-dir="desc">ROCE÷EV/EBIT</button>'
+                    f'<button class="btn sort-trigger" aria-pressed="false" data-sort="score" data-dir="desc"'
+                    f' aria-label="{score_aria}">{score_label}</button>'
                     '<button class="btn sort-trigger" aria-pressed="false" data-sort="roce" data-dir="desc">ROCE</button>'
                     '<button class="btn sort-trigger" aria-pressed="false" data-sort="evebit" data-dir="asc">EV/EBIT</button>'
                     f'<button class="btn sort-trigger" aria-pressed="false" data-sort="pbr" data-dir="desc">{"P/B" if en else "PBR"}</button>'
