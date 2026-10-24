@@ -15,7 +15,7 @@ Writes:
 
 Run from repo root. Safe to run repeatedly (pure function of inputs).
 """
-import csv, json, os, re, glob, datetime
+import csv, json, os, re, glob, datetime, html as html_lib
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CSV  = os.path.join(ROOT, "_watchlist_v4_compounders.csv")
@@ -69,11 +69,14 @@ def load_screen():
 
 def load_universe():
     """Return {ticker: jp_name} for the standing universe table (the clickable list)."""
-    html = open(UNIV, encoding="utf-8").read()
+    source = open(UNIV, encoding="utf-8").read()
     out = {}
-    # rows look like: <td class="cell-tk">2477</td> ... <td class="cell-name">手間いらず株式会社</td>
-    for m in re.finditer(r'cell-tk">(?:<a[^>]*>)?([0-9A-Z]{4})(?:</a>)?</td>\s*<td class="cell-name">([^<]*)</td>', html):
-        out[m.group(1)] = m.group(2).strip()
+    for row in re.finditer(r'<tr\b[^>]*data-sec="([0-9A-Z]{4})0"[^>]*>(.*?)</tr>', source, re.S):
+        cell = re.search(r'<td class="cell-name">(.*?)</td>', row.group(2), re.S)
+        if cell:
+            content = re.sub(r'<span class="cell-label">.*?</span>', '', cell.group(1), flags=re.S)
+            name = re.sub(r'<[^>]+>', '', content).strip()
+            out[row.group(1)] = html_lib.unescape(name)
     return out
 
 def profile_exists(tk):
