@@ -212,6 +212,9 @@ def head(lang, title, desc, canon, alt_ja, alt_en, noindex=False):
 def sig_card(s, lang):
     chip = s["class_jp"] if lang == "ja" else s["class_en"]
     tag = s["tag_jp"] if lang == "ja" else s["tag_en"]
+    # A legacy class code is an internal placeholder, not reader-facing copy.
+    if re.fullmatch(r"[A-Z][A-Z0-9_]+", tag or ""):
+        tag = ""
     if lang == "ja":
         chip = {
             "自己株消却": "自己株式の消却",
