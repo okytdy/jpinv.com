@@ -92,7 +92,8 @@
   var SUBTABS = [
     { k: "methodology", ja: "着眼点",             en: "Methodology",  path: "/compounders/methodology/" },
     { k: "profiles",    ja: "銘柄分析",           en: "Profiles",     path: "/compounders/profiles/" },
-    { k: "models",      ja: "業績予想モデル",       en: "Forecast models", path: "/models/" },
+    { k: "models", en: "Forecast models", path: "/models/", englishOnly: true },
+    { k: "portfolio", en: "Paper portfolio", enHref: "/en/portfolio/", englishOnly: true },
     { k: "universe",    ja: "銘柄スクリーニング", en: "Universe",     path: "/compounders/universe/" },
     { k: "signals",     ja: "資本政策開示",       en: "Capital Actions", path: "/compounders/feed/" },
     { k: "disclosures", ja: "大量保有報告",       en: "5% Filings",   path: "/compounders/active-investors/" }
@@ -117,7 +118,8 @@
       ] },
     { head: S("調査レポート"), items: [
         { ja: "銘柄分析",           en: "Profiles",         jaHref: "/compounders/profiles/",          enHref: "/en/compounders/profiles/" },
-        { ja: "業績予想モデル",       en: "Forecast models",  jaHref: "/models/",                         enHref: "/en/models/" },
+        { en: "Forecast models", enHref: "/en/models/", englishOnly: true },
+        { en: "Paper portfolio", enHref: "/en/portfolio/", englishOnly: true },
         { ja: "銘柄スクリーニング", en: "Universe",         jaHref: "/compounders/universe/",          enHref: "/en/compounders/universe/" },
         { ja: "資本政策開示",       en: "Capital actions",  jaHref: "/compounders/feed/",              enHref: "/en/compounders/feed/" },
         { ja: "大量保有報告",       en: "5% filings",       jaHref: "/compounders/active-investors/",  enHref: "/en/compounders/active-investors/" },
@@ -156,6 +158,11 @@
 
   var path = location.pathname;
   var isEn = /^\/en(\/|$)/.test(path);
+  // The model library and personal portfolio are English-only resources.
+  SUBTABS = SUBTABS.filter(function (item) { return !item.englishOnly || isEn; });
+  FOOTER.forEach(function (column) {
+    column.items = column.items.filter(function (item) { return !item.englishOnly || isEn; });
+  });
   var inCompounders = /^\/(en\/)?compounders(\/|$)/.test(path);
   var inModels = /^\/(en\/)?models(\/|$)/.test(path);
   var L = isEn ? "en" : "ja";
@@ -179,7 +186,7 @@
     if (document.querySelector('meta[name="robots"][content*="noindex"]')) {
       return isEn ? "/" : "/en/";
     }
-    /* An English-only model links back to the real Japanese library,
+    /* An English-only model can return to the generic Japanese research page,
        without claiming a translated counterpart. */
     var fallback = document.body.getAttribute("data-jii-language-fallback");
     if (fallback && fallback.charAt(0) === "/") return fallback;
@@ -509,7 +516,7 @@
   if (inCompounders || inModels) {
     for (var j = 0; j < SUBTABS.length; j++) {
       var t = SUBTABS[j];
-      menuHtml += '<a class="jn-menu-sub" href="' + esc((isEn ? "/en" : "") + t.path) + '">' + esc(isEn ? t.en : t.ja) + '</a>';
+      menuHtml += '<a class="jn-menu-sub" href="' + esc(t.path ? (isEn ? "/en" : "") + t.path : href(t)) + '">' + esc(isEn ? t.en : t.ja) + '</a>';
     }
   }
 
@@ -528,7 +535,7 @@
     subHtml += '<a href="' + P + '/compounders/"' + (path.replace(/\/$/, "") === (P + "/compounders").replace(/\/$/, "") ? ' class="jn-on"' : '') + '>' +
                esc(isEn ? "Overview" : "概要") + '</a>';
     for (var k = 0; k < SUBTABS.length; k++) {
-      var tb = SUBTABS[k], hp = P + tb.path;
+      var tb = SUBTABS[k], hp = tb.path ? P + tb.path : href(tb);
       var act = path.indexOf(hp) === 0 ||
                 (tb.k === "profiles" && /\/compounders\/[0-9A-Za-z]{3,5}\//.test(path));
       subHtml += '<a href="' + esc(hp) + '"' + (act ? ' class="jn-on" aria-current="page"' : '') + '>' + esc(isEn ? tb.en : tb.ja) + '</a>';

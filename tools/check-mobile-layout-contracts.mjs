@@ -32,11 +32,20 @@ for (const url of urls) {
     /<meta\s+name=["']viewport["'][^>]*content=["'][^"']*width=device-width/i,
     `${relativePath}: missing a device-width viewport`,
   );
+  // The explicitly standalone personal portfolio retains its reviewed app shell.
+  // It must keep its simulation label rather than acquire corporate sales chrome.
+  if (relativePath.split(path.sep).join("/") === "en/portfolio/index.html") {
+    requireMatch(html, /data-jii-standalone=["']personal-portfolio["']/,
+      `${relativePath}: missing the explicit standalone personal-portfolio marker`);
+    requireMatch(html, /Simulated investments/,
+      `${relativePath}: missing the portfolio simulation label`);
+  } else {
   requireMatch(
     html,
     /\/assets\/(?:nav|compounders-nav)\.js(?:\?v=[^"']+)?/i,
     `${relativePath}: missing the shared navigation loader`,
   );
+  }
 }
 
 const heroCss = read("assets/hero.css");

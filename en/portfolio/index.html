@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f8f7f3">
+  <meta name="description" content="Teddy Okuyama’s Japan Research Portfolio: dated allocations, simulated holdings and performance alongside the Japan Investor Interface Substack.">
+  <meta property="og:title" content="Japan Research Portfolio · Japan Investor Interface">
+  <meta property="og:description" content="Research, decisions, and what happens next. A personal portfolio of simulated Japanese equity investments by Teddy Okuyama.">
+  <link rel="canonical" href="https://jpinv.com/en/portfolio/">
+  <title>Japan Research Portfolio · Japan Investor Interface</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body data-jii-standalone="personal-portfolio">
+  <a class="skip" href="#main">Skip to portfolio</a>
+  <header class="masthead"><a class="wordmark" href="https://japaninterface.substack.com">Japan Investor Interface<span>A personal publication by Teddy Okuyama</span></a><a class="back-link" href="https://japaninterface.substack.com">Read the Substack <span aria-hidden="true">↗</span></a></header>
+  <main id="main">
+    <section class="intro" aria-labelledby="title">
+      <div><p class="eyebrow"><span class="status-dot"></span> A personal research project</p><h1 id="title">Japan Research Portfolio</h1><p class="lede">Research, put to the test. A record of my allocations, decisions and outcomes.</p></div>
+      <div class="intro-note"><span class="pill">Simulated investments</span><p>Started <strong>2 November 2026</strong><br>¥10 million in hypothetical capital</p><p class="muted" id="asof">Loading the latest saved snapshot…</p></div>
+    </section>
+    <nav class="section-nav" aria-label="Portfolio sections"><a href="#overview" class="active">Overview</a><a href="#holdings">Holdings</a><a href="#activity">Activity</a><a href="#how-it-works">How it works</a><a class="download" href="holdings.csv" download>Download holdings <span aria-hidden="true">↓</span></a></nav>
+    <div id="load-error" hidden role="alert">The portfolio data could not load. Please reload, or <a href="portfolio-data.json">open the saved data</a>.</div>
+    <div id="portfolio-content" hidden>
+      <section class="metrics" id="overview" aria-label="Portfolio summary">
+        <article class="metric"><h2>Portfolio value</h2><p id="nav-value" class="metric-value"></p><span>Cash + market value of holdings</span></article>
+        <article class="metric"><h2>Return since inception</h2><p id="total-return" class="metric-value"></p><span id="total-pnl"></span></article>
+        <article class="metric"><h2>Invested in equities</h2><p id="equity-weight" class="metric-value"></p><span id="equity-detail"></span></article>
+        <article class="metric"><h2>Cash available</h2><p id="cash-value" class="metric-value"></p><span id="cash-detail"></span></article>
+      </section>
+      <section class="performance panel" aria-labelledby="performance-title">
+        <div class="panel-heading"><div><p class="eyebrow">The whole portfolio, including cash</p><h2 id="performance-title">Performance over time</h2></div><div class="segmented" role="group" aria-label="Performance display"><button type="button" class="selected" data-chart="return" aria-pressed="true">Return</button><button type="button" data-chart="index" aria-pressed="false">Index</button></div></div>
+        <div id="chart" class="chart" aria-live="polite"></div>
+        <div class="chart-footer"><p><span class="legend-dot"></span> Japan Research Portfolio <span class="baseline-key"></span> <span id="baseline-label">Opening capital = 0%</span></p><a href="performance.csv" download>Download history ↓</a></div>
+        <p class="chart-note" id="history-note"></p>
+        <div id="return-bridge" class="return-bridge" aria-label="Return reconciliation"></div>
+      </section>
+      <section class="allocation-strip" id="allocation" aria-labelledby="allocation-title"><div class="allocation-heading"><h2 id="allocation-title">Where the capital sits</h2><p id="allocation-label"></p></div><div class="allocation-bar" role="img" id="allocation-bar"></div><div class="allocation-legend" id="allocation-legend"></div></section>
+      <section class="holdings-section" id="holdings" aria-labelledby="holdings-title"><div class="section-heading"><div><p class="eyebrow">The decisions behind the numbers</p><h2 id="holdings-title">Current holdings <span id="holdings-count" class="count"></span></h2></div><span class="muted">Select a company for its allocation record</span></div>
+        <div class="table-wrap"><table class="holdings-table"><caption class="sr-only">Current hypothetical holdings and their allocation dates, prices and returns</caption><thead><tr><th scope="col">Company</th><th scope="col">First allocated</th><th scope="col" class="number">Weight <span class="th-note">current / initial target</span></th><th scope="col" class="number">Avg. entry <span class="th-note">incl. modeled cost</span></th><th scope="col" class="number">Latest close</th><th scope="col" class="number">Unrealized return</th><th scope="col"></th></tr></thead><tbody id="holdings-body"></tbody></table></div>
+        <p class="table-note">Weights use current market values. Entry targets are preserved; price changes and whole-share rounding make current weights differ. Unrealized returns include purchase costs; portfolio return also includes cash and any recorded dividends.</p>
+        <div id="holding-detail" class="holding-detail" hidden></div>
+        <div class="entry-calculation" id="entry-calculation" aria-labelledby="entry-title"><p class="eyebrow">From market data to the paper purchase</p><h3 id="entry-title">How the entry price is calculated</h3><div id="entry-math"></div></div>
+      </section>
+      <section class="activity-section" id="activity" aria-labelledby="activity-title"><div class="section-heading"><div><p class="eyebrow">Every allocation has a date</p><h2 id="activity-title">Activity record</h2></div><a href="activity.csv" download>Download activity ↓</a></div><div id="activity-list" class="activity-list"></div><div class="downloads" aria-label="Download portfolio records"><strong>Download records</strong><a href="holdings.csv" download>Holdings <span aria-hidden="true">↓</span></a><a href="activity.csv" download>Activity <span aria-hidden="true">↓</span></a><a href="performance.csv" download>Performance <span aria-hidden="true">↓</span></a></div></section>
+      <section class="method-section" id="how-it-works" aria-labelledby="method-title"><div class="method-intro"><p class="eyebrow">Read the numbers in context</p><h2 id="method-title">How this portfolio works</h2><p>This is my personal research project, shared alongside <a href="https://japaninterface.substack.com/about">the Substack</a>. It helps me revisit decisions and prepare for investing when I have surplus savings to commit for the long term. This publication and its paper portfolio are free and will never be monetized.</p><p>The publication is separate from my professional work through <a href="https://jpinv.com/en/company/">Japan Investor Interface Co., Ltd.</a></p><p><a href="/en/models/">Forecast models</a> · <a href="/en/">Company website</a></p></div><div class="method-list">
+          <details open><summary>Whole shares, including odd lots</summary><p>Holdings use whole shares. Quantities below Japan’s usual 100-share trading unit are allowed. A purchase uses the largest whole-share quantity within its allocation budget, including modeled transaction costs; the remainder stays in cash.</p></details>
+          <details><summary>VWAP and the 0.2% cost assumption</summary><p>The reference entry price is the chosen session’s volume-weighted average price (VWAP). Purchases add 0.2%; sales deduct 0.2%. This single hypothetical cost covers transaction friction for this simulation and is not a broker quotation.</p><p>The first decision was recorded after the November 2 close using that day’s full-session VWAP. It is a reference-priced simulation, not a claim that an order could have been filled at that price.</p></details>
+          <details><summary>Performance, cash and dividends</summary><p>Portfolio value equals cash plus holdings at their dated closing prices. Return since inception is the change from the original ¥10 million, after recorded transaction costs and including cash. Cash earns no interest. Verified dividends are credited to cash when paid; taxes are not modeled. No dividends have been recorded at launch.</p><p>Positions are marked at the close, without deducting a hypothetical future selling cost. A sale incurs its cost when recorded. Splits and other corporate actions require explicit ledger adjustments. No new external cash is assumed after inception.</p></details>
+          <details><summary>Dates, sources and updates</summary><p>This is a dated end-of-day record. The “Prices as of” date identifies the saved valuation; the page is not a live quote feed. Allocation dates and original entry references stay in the activity history as later observations are added.</p><p id="source-note">The opening VWAP is calculated from the November 2 TSE session’s ¥42,390,800 traded value ÷ 73,100 shares = ¥579.9015. Source: <a href="https://jpx-jquants.com/ja/spec/eq-bars-daily" target="_blank" rel="noopener">JPX J-Quants daily price data</a>. Calculations retain precision; displayed amounts are rounded.</p></details>
+      </div></section>
+    </div>
+    <noscript><p>JavaScript displays the interactive portfolio. You can also download the <a href="holdings.csv">holdings</a>, <a href="activity.csv">activity record</a> and <a href="performance.csv">performance history</a>.</p></noscript>
+  </main>
+  <footer><p>Paper investments. Real questions.</p><span>© 2026 Teddy Okuyama · A personal project</span><a href="https://japaninterface.substack.com">Return to the research ↗</a></footer>
+</body>
+</html>
