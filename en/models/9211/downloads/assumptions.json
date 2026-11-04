@@ -1,0 +1,251 @@
+{
+  "estimate_level": "rough_screening_first_pass",
+  "confidence": "Low: conditional house seller/ownership and funding cases; no claim of disclosed exercise terms.",
+  "operating_growth": {
+    "bear": [
+      -0.08,
+      -0.03,
+      0,
+      0.02
+    ],
+    "base": [
+      0.06,
+      0.08,
+      0.065,
+      0.05
+    ],
+    "bull": [
+      0.14,
+      0.15,
+      0.12,
+      0.09
+    ]
+  },
+  "realized_price_mix": {
+    "bear": 0,
+    "base": 0.015,
+    "bull": 0.02
+  },
+  "variable_input_inflation": {
+    "bear": 0.04,
+    "base": 0.025,
+    "bull": 0.025
+  },
+  "fixed_cash_inflation": {
+    "bear": 0.065,
+    "base": 0.055,
+    "bull": 0.07
+  },
+  "variable_cash_cost_share": 0.6,
+  "entity_profit_growth": {
+    "AI ONE25%outside": {
+      "bear": [
+        -0.05,
+        -0.08,
+        -0.02,
+        0
+      ],
+      "base": [
+        0.06,
+        0.08,
+        0.06,
+        0.05
+      ],
+      "bull": [
+        0.15,
+        0.16,
+        0.13,
+        0.1
+      ]
+    },
+    "Roombox15%outside": {
+      "bear": [
+        0,
+        -0.05,
+        0,
+        0.01
+      ],
+      "base": [
+        0.08,
+        0.1,
+        0.08,
+        0.06
+      ],
+      "bull": [
+        0.18,
+        0.18,
+        0.15,
+        0.12
+      ]
+    },
+    "Other observed nonparent-profit cohort": {
+      "bear": [
+        -0.03,
+        -0.03,
+        0,
+        0.01
+      ],
+      "base": [
+        0.04,
+        0.04,
+        0.035,
+        0.03
+      ],
+      "bull": [
+        0.08,
+        0.08,
+        0.065,
+        0.05
+      ]
+    }
+  },
+  "put_exercise_fraction_of_original_covered_pool": {
+    "bear": [
+      0.35,
+      0.35,
+      0.3,
+      0
+    ],
+    "base": [
+      0,
+      0.2,
+      0.3,
+      0.5
+    ],
+    "bull": [
+      0,
+      0.1,
+      0.3,
+      0.6
+    ]
+  },
+  "earnout_cash_fraction": {
+    "bear": [
+      0.25,
+      0.35,
+      0.25,
+      0.15
+    ],
+    "base": [
+      0.1,
+      0.25,
+      0.3,
+      0.35
+    ],
+    "bull": [
+      0.1,
+      0.2,
+      0.3,
+      0.4
+    ]
+  },
+  "put_price_multiplier_house": {
+    "bear": 1.75,
+    "base": 1.0,
+    "bull": 1.15
+  },
+  "earnout_price_multiplier_house": {
+    "bear": 1.5,
+    "base": 1.0,
+    "bull": 1.2
+  },
+  "put_earnings_elasticity": {
+    "bear": 0.5,
+    "base": 1.0,
+    "bull": 1.25
+  },
+  "earnout_earnings_elasticity": {
+    "bear": 0.5,
+    "base": 1.0,
+    "bull": 1.25
+  },
+  "seller_time_value_rate": 0.02,
+  "bank_rate": {
+    "bear": 0.045,
+    "base": 0.025,
+    "bull": 0.025
+  },
+  "lease_interest_rate": 0.025,
+  "annual_other_cash_finance_fee": 20,
+  "annual_maintenance_capex": 100,
+  "expansion_capex_per_incremental_revenue": 0.02,
+  "software_asset_life": 4,
+  "annual_lease_principal_proxy": 147.908,
+  "annual_ROU_DA_proxy": 147.908,
+  "contract_delivery_fraction_of_opening": {
+    "bear": [
+      0.3,
+      0.3,
+      0.1,
+      0
+    ],
+    "base": [
+      0.5,
+      0.4,
+      0.1,
+      0
+    ],
+    "bull": [
+      0.65,
+      0.3,
+      0.05,
+      0
+    ]
+  },
+  "contract_refund_fraction_of_opening": {
+    "bear": [
+      0.3,
+      0,
+      0,
+      0
+    ],
+    "base": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "bull": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "fixed_AI_ONE_is_extra_to_seller_pools_house": true,
+  "fixed_AI_ONE_schedule": [
+    0,
+    250,
+    250,
+    250
+  ],
+  "bank_repayment_house": [
+    3005.627,
+    3143.726,
+    2317.313,
+    1446.912
+  ],
+  "cash_floor_months_of_revenue": 1.0,
+  "unsettled_claim_cash_reserve_fraction": 1.0,
+  "equity_issue_discount": 0.2,
+  "maximum_new_credit_above_repaid_maturity_assumed": 0,
+  "rollover_fraction_of_maturing_principal": 1.0,
+  "reference_opening_contract_delivery_house": [
+    0.5,
+    0.4,
+    0.1,
+    0
+  ],
+  "source_basis": "H1coreOP1214.861m and actualcash costs/delivery are observable. Newacquisitions are annualized only as explicit elapsedperiod financial proxies; no futureM&A/guidance growth assumed. Source putPV3715.008m/earnoutFV1419.910m are conditional expectedcash pricepoints, not caps.",
+  "transaction_mapping": "HOUSE ONLY: assume put-covered fractions of the separately observed nonparent cohorts; allocate observed3715mpricepoint by their put-covered annual profit claims. Settling any fraction extinguishes the identical fraction of that covered cohort claim from future parentEPS. Actual put-to-entity mapping/strike/exercise dates are not disclosed. The no-exercise sensitivity retains both liabilities/reserves and all currentNCI.",
+  "pricing_rule": "Forward HOUSE cashpoint scales with the same acquired-cohort earnings plus2%time value and explicit adverse multipliers. Earnouts use acquired-cohort profit index and never change ownership. Floors at25%of the initial pricepoint are houseprudence, not known contractual minima; no maximum is asserted.",
+  "customer_cash_rule": "Acquiredcash is already in Juneactualcash. Opening2593.943mcustomeradvances are earned/refunded over scenarios. Recognizing prepaid revenue subtracts the same amount from cashflow, deliverycosts remain in the operatingcashcost pool, refunds reducecash/liability without becoming new revenue. Remaining obligations stay reserved; compensationreceivables generate no cash.",
+  "financing_rule": "Repay house maturity ladder, pay modeled sellerclaims once, reserve pendingclaims/customerobligations. Conditional bankrefinancing limited to principal repaid in that year; any excess need uses discounted newequity with basicshare dilution and sourcecurrentprice stress. Neither refinancing nor equityissuance is presented as committed.",
+  "tax_rule": "30%normalized cash/book tax on taxable operating income and bankinterest. SellerPVunwind is conservatively nondeductible. No taxrefund onloss. NCIentityincome is already aftertax and is subtracted once.",
+  "falsifiers": [
+    "Course delivery/refunds or acquired-unit earnings invalidate normalized service activity.",
+    "Actual put mapping/exercise/price formula differs materially from conditional cohort assumption.",
+    "Seller cash exceeds source-FV-based points, credit cannot roll, or required dilution is unavailable.",
+    "H1other-income/expense normalization omits a recurringoperatingcost or currententityNIcontains additional special gains."
+  ]
+}
