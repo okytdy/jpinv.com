@@ -1,0 +1,383 @@
+{
+  "version": "JII-6184-2026-11-04-v1",
+  "cutoff": "2026-11-04",
+  "growth": {
+    "graves": [
+      0.1,
+      0.09,
+      0.08,
+      0.07
+    ],
+    "funeral": [
+      0.18,
+      0.16,
+      0.14,
+      0.12
+    ],
+    "inheritance": [
+      0.08,
+      0.12,
+      0.12,
+      0.1
+    ],
+    "care": [
+      0.35,
+      0.3,
+      0.25,
+      0.2
+    ],
+    "municipal": [
+      0.28,
+      0.23,
+      0.2,
+      0.18
+    ],
+    "insurance": [
+      0.04,
+      0.06,
+      0.055,
+      0.05
+    ],
+    "other": [
+      0,
+      0.05,
+      0.05,
+      0.05
+    ]
+  },
+  "scenario_growth_spread": {
+    "graves": 0.04,
+    "funeral": 0.06,
+    "inheritance": 0.08,
+    "care": 0.1,
+    "municipal": 0.1,
+    "insurance": 0.03,
+    "other": 0.05
+  },
+  "wage_inflation": 0.03,
+  "other_cost_inflation": 0.02,
+  "other_cost_elasticity": 0.6,
+  "staff_mix_response": 1.0,
+  "staff_elasticity_cap": 0.75,
+  "ad_intensity_annual_change": 0.0,
+  "capex": [
+    600,
+    650,
+    700,
+    750
+  ],
+  "prepaid_spend": [
+    35,
+    35,
+    35,
+    35
+  ],
+  "software_share": 0.9,
+  "software_life": 5,
+  "ppe_life": 8,
+  "prepaid_life": 3,
+  "cip_commission_h2_fraction": 1.0,
+  "legacy_da_annual": 311.942,
+  "goodwill_amort_annual": 80.894,
+  "sbc_annual": [
+    50,
+    50,
+    50,
+    50
+  ],
+  "tax_rate": 0.315,
+  "nondeductible_goodwill_fraction": 1.0,
+  "cash_yield": 0.003,
+  "existing_debt_rate": 0.01,
+  "new_debt_rate": 0.03,
+  "other_nonoperating_cost_annual": 10.0,
+  "dividend_per_share": 20.0,
+  "minority_loss_scale": 1.0,
+  "new_ma": 0,
+  "buybacks": 0,
+  "option_cash_proceeds": 0,
+  "working_capital_days_add": 0.0,
+  "additional_funding_requirement_only": true,
+  "sensitivity_nci_profit": [
+    0,
+    60
+  ],
+  "register": [
+    {
+      "id": "revenue_graves",
+      "type": "JII assumption",
+      "unit": "nominal revenue growth, fraction",
+      "definition": "First value applies only to unreported H2 versus prior H2; later values are annual growth.",
+      "values": [
+        0.1,
+        0.09,
+        0.08,
+        0.07
+      ],
+      "anchor": "H1 sales+11.3%; Q2+9.3%, closings+2.3%, business profit−8.8%.",
+      "basis": "Mature network; growth fades without assuming a fresh acquisition.",
+      "sources": "H1deck pp6,14",
+      "range": "Bear/base/bull paths in assumptions.json; judgment ranges, not confidence intervals.",
+      "falsifier": "Closings/realized fees fall or acquisition costs rise.",
+      "outputs": [
+        "business revenue",
+        "group sales",
+        "OP",
+        "EPS",
+        "cash"
+      ]
+    },
+    {
+      "id": "revenue_funeral",
+      "type": "JII assumption",
+      "unit": "nominal revenue growth, fraction",
+      "definition": "First value applies only to unreported H2 versus prior H2; later values are annual growth.",
+      "values": [
+        0.18,
+        0.16,
+        0.14,
+        0.12
+      ],
+      "anchor": "H1+20.8%; Q2+20.9%, realized unit fee+12.8%.",
+      "basis": "Continued referrals and fee/mix gains, fading as comparisons strengthen.",
+      "sources": "H1deck pp6,15",
+      "range": "Bear/base/bull paths in assumptions.json; judgment ranges, not confidence intervals.",
+      "falsifier": "Completed referrals or realized fees stop growing.",
+      "outputs": [
+        "business revenue",
+        "group sales",
+        "OP",
+        "EPS",
+        "cash"
+      ]
+    },
+    {
+      "id": "revenue_inheritance",
+      "type": "JII assumption",
+      "unit": "nominal revenue growth, fraction",
+      "definition": "First value applies only to unreported H2 versus prior H2; later values are annual growth.",
+      "values": [
+        0.08,
+        0.12,
+        0.12,
+        0.1
+      ],
+      "anchor": "FY26−16.3%; H1+3.0%; Q2 closings+9.5%.",
+      "basis": "Partial recovery through existing families; no restoration to the old peak by assumption.",
+      "sources": "FY26deck p11; H1deck pp6,16",
+      "range": "Bear/base/bull paths in assumptions.json; judgment ranges, not confidence intervals.",
+      "falsifier": "Recovery in closings fails to become recognized fee revenue.",
+      "outputs": [
+        "business revenue",
+        "group sales",
+        "OP",
+        "EPS",
+        "cash"
+      ]
+    },
+    {
+      "id": "revenue_care",
+      "type": "JII assumption",
+      "unit": "nominal revenue growth, fraction",
+      "definition": "First value applies only to unreported H2 versus prior H2; later values are annual growth.",
+      "values": [
+        0.35,
+        0.3,
+        0.25,
+        0.2
+      ],
+      "anchor": "H1+59.2%; Q2 closings+30.5%; offline share42.1%.",
+      "basis": "Hiring and offline access support growth; substantial deceleration preserves staffing constraints.",
+      "sources": "H1deck pp6,17,24",
+      "range": "Bear/base/bull paths in assumptions.json; judgment ranges, not confidence intervals.",
+      "falsifier": "Staffing, referrals or conversion fail to support growth.",
+      "outputs": [
+        "business revenue",
+        "group sales",
+        "OP",
+        "EPS",
+        "cash"
+      ]
+    },
+    {
+      "id": "revenue_municipal",
+      "type": "JII assumption",
+      "unit": "nominal revenue growth, fraction",
+      "definition": "First value applies only to unreported H2 versus prior H2; later values are annual growth.",
+      "values": [
+        0.28,
+        0.23,
+        0.2,
+        0.18
+      ],
+      "anchor": "H1+34.1%; Q2+51.1%;543 partner municipalities.",
+      "basis": "Publishing/support contracts expand; partnerships are not multiplied by a fabricated fee.",
+      "sources": "H1deck pp6,18,24",
+      "range": "Bear/base/bull paths in assumptions.json; judgment ranges, not confidence intervals.",
+      "falsifier": "Municipality coverage grows without paid projects or advertising sales.",
+      "outputs": [
+        "business revenue",
+        "group sales",
+        "OP",
+        "EPS",
+        "cash"
+      ]
+    },
+    {
+      "id": "revenue_insurance",
+      "type": "JII assumption",
+      "unit": "nominal revenue growth, fraction",
+      "definition": "First value applies only to unreported H2 versus prior H2; later values are annual growth.",
+      "values": [
+        0.04,
+        0.06,
+        0.055,
+        0.05
+      ],
+      "anchor": "H1+4.9%; FY26 growth includes full-year consolidation.",
+      "basis": "Modest organic premium growth; no repeat of acquisition uplift.",
+      "sources": "H1deck p6; Bell pp11–12",
+      "range": "Bear/base/bull paths in assumptions.json; judgment ranges, not confidence intervals.",
+      "falsifier": "Policy retention or underwriting costs deteriorate.",
+      "outputs": [
+        "business revenue",
+        "group sales",
+        "OP",
+        "EPS",
+        "cash"
+      ]
+    },
+    {
+      "id": "revenue_other",
+      "type": "JII assumption",
+      "unit": "nominal revenue growth, fraction",
+      "definition": "First value applies only to unreported H2 versus prior H2; later values are annual growth.",
+      "values": [
+        0,
+        0.05,
+        0.05,
+        0.05
+      ],
+      "anchor": "H1−34.0%; mixed new and legacy services.",
+      "basis": "Prior H2 held flat, then5% growth; no assumed real-estate sale or future M&A windfall.",
+      "sources": "H1deck p6; FY26deck p11",
+      "range": "Bear/base/bull paths in assumptions.json; judgment ranges, not confidence intervals.",
+      "falsifier": "New services fail to replace declining legacy sales.",
+      "outputs": [
+        "business revenue",
+        "group sales",
+        "OP",
+        "EPS",
+        "cash"
+      ]
+    },
+    {
+      "id": "advertising",
+      "type": "JII assumption",
+      "values": "Flat intensity on all noninsurance revenue",
+      "unit": "cost/revenue",
+      "anchor": "H1 advertising897.167m vs772.583m; broad noninsurance revenue grew about15.7%.",
+      "basis": "Observed current intensity/seasonal ratios; care and municipal acquisition are not made free. No incremental AI saving is booked.",
+      "sources": "Annual p64; half-year p16; H1deck p7",
+      "falsifier": "Ad spend rises faster than paid noninsurance services.",
+      "range": "Intensity±10%; bear+5%, bull−2%."
+    },
+    {
+      "id": "personnel",
+      "type": "JII assumption",
+      "values": "3% wages + inflation-stripped observed staffing elasticity, increasing with care/municipal mix",
+      "unit": "expense growth",
+      "anchor": "H1 personnel1445m vs1333m; latest quarter730m. Observed staffing elasticity is calculated, not chosen to make OP.",
+      "basis": "Unreported H2 cost has a two-quarter730m run-rate floor. Later staffing response scales with care/municipal mix; cap0.75.",
+      "sources": "FY26deck p8; H1deck pp7,24",
+      "falsifier": "Growth requires more staff or wage increases than this response supports.",
+      "range": "Wage2–5%; elasticity sensitivity to1.0."
+    },
+    {
+      "id": "other_operating_costs",
+      "type": "JII assumption",
+      "values": 0.6,
+      "unit": "incremental nominal activity elasticity, before2% inflation",
+      "anchor": "Reconciled H1 residual1258.010m vs1184.701m, excluding observed personnel, ads, DA and goodwill.",
+      "basis": "0.60 is above the inflation-stripped H1 response (~0.28); reserve releases and favorable mix are not extrapolated as permanent savings.",
+      "sources": "Annual pp53,57,64; half-year pp12,14,16",
+      "falsifier": "Printing, outsourcing, insurance/guarantee costs rise with sales faster than assumed.",
+      "range": "0.30–1.00; mix response and wage stress separately tested."
+    },
+    {
+      "id": "investment",
+      "type": "JII assumption",
+      "values": {
+        "capex": [
+          600,
+          650,
+          700,
+          750
+        ],
+        "prepaid_spend": [
+          35,
+          35,
+          35,
+          35
+        ]
+      },
+      "unit": "JPY million",
+      "anchor": "FY26PPE/software cash480.296m; H1cash277.586m; software-in-progress302.486m.",
+      "basis": "Retain original rising platform budget;90%software/10%PPE is a house mix. Existing CIP is commissioned separately and never counted again as new cash capex.",
+      "sources": "Annual pp51,57,59; half-year pp10,14",
+      "falsifier": "Investment fails to support service volume or commissioning is delayed.",
+      "range": "Capex−10%/+25%; software life3–7years; CIP1year delay."
+    },
+    {
+      "id": "tax",
+      "type": "JII assumption",
+      "values": {
+        "rate": 0.315,
+        "goodwill_nondeductible": 1.0
+      },
+      "unit": "fraction",
+      "anchor": "FY26 tax362.739m/PBT1121.674m; H1tax250.666m/PBT804.246m.",
+      "basis": "Prospective group rate31.5% before full goodwill nondeductibility; no new loss-tax credits. Observed H1 tax remains actual.",
+      "sources": "Annual p53; half-year p12",
+      "falsifier": "Effective tax or deductibility differs.",
+      "range": "Rate+5pp; goodwill0–100% nondeductible."
+    },
+    {
+      "id": "minorities",
+      "type": "JII assumption",
+      "values": "Entity-specific recurring loss proxies; H1actual22.165m retained",
+      "unit": "JPY million",
+      "anchor": "Bell ordinaryPBT−11.090m, with special gains excluded; HouseBoat NI−14.217739m. Parent ownership71.6%/50.2%.",
+      "basis": "Loss exposures scale only with their own insurance/grave revenue; no new loss-tax benefit. Differing fiscal dates/PPA leave a consolidation uncertainty, bounded explicitly.",
+      "sources": "Bell pp6,11,20; HouseBoat p2; annual p7; half-year p12",
+      "falsifier": "Subsidiaries turn profitable or reserve/PPA effects change the nonparent claim.",
+      "range": "Future annual NCI0–60m stress; actual H1 is never overwritten."
+    },
+    {
+      "id": "shares_returns",
+      "type": "JII assumption",
+      "values": {
+        "basic_shares": 41194972,
+        "identified_options": 1737500,
+        "dps": 20
+      },
+      "unit": "shares; JPY/share",
+      "anchor": "H1 weighted basic shares41194972; full identified option overhang1737500; FY27 announced DPS20.",
+      "basis": "Future20yen dividends are JII assumptions. No unexecuted buyback, issuance, acquisition or option proceeds. Full option overhang is an economic sensitivity, not GAAP diluted EPS.",
+      "sources": "Half-year pp18,21; annual option notes; May21option notice",
+      "falsifier": "Actual capital actions or dividend policy change.",
+      "range": "Shares±5%; dividends0–20yen."
+    },
+    {
+      "id": "cash_conversion",
+      "type": "JII assumption",
+      "values": "Receivables, inventory/prepaids, payables/advances and insurance reserves roll from July balances",
+      "unit": "balance/revenue ratios",
+      "anchor": "July cash3614.481m; H1CFO473.020m; receivables1390.447m and insurance reserves217.624m.",
+      "basis": "Receivables and operating balances scale with relevant sales; guarantee provision held flat, so no repeated reserve release. Cash taxes approximate future expense. Debt maturity assumptions are separate.",
+      "sources": "Half-year pp10–15",
+      "falsifier": "Collection slows, provisions require cash, or cash is unavailable outside regulated entities.",
+      "range": "Receivable days+15; capex+25%; full NCI claim60m; funding stress."
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "as_of": "2026-11-04",
+  "method": "Revision of the article’s existing illustrative P/E valuation. No DCF or fresh peer-derived multiple is introduced.",
+  "period": "FY1/30 earnings at a three-year model horizon in November2029; a valuation horizon, not a share-price deadline.",
+  "assumptions": {
+    "bear_PE": 18,
+    "base_PE": 20,
+    "bull_PE": 22,
+    "required_annual_return": 0.1,
+    "years_discounted": 3,
+    "annual_dividend_jpy": 20
+  },
+  "original_fair_value": 726.120010005155,
+  "old_reference_close": 584,
+  "old_reference_date": "2026-10-29",
+  "reference_close": 579,
+  "reference_date": "2026-11-02",
+  "quote_source": "https://finance.yahoo.co.jp/quote/6184.T/history",
+  "selection_basis": "Retain the previously published18/20/22x illustrative P/E choices and10% hurdle to isolate the earnings revision. These are JII assumptions, not measured peer multiples. A separate sector SOTP valuation has not been commissioned.",
+  "cases": {
+    "bear": {
+      "fy30_basic_eps": 12.964234437642398,
+      "fy30_option_adjusted_eps": 12.43956496751723,
+      "PE": 18,
+      "modeled_equity_value_at_horizon": 223.91216941531013,
+      "PV_assumed_dividends": 49.73703981968444,
+      "estimated_fair_value": 217.96556680338847,
+      "gap_vs_reference_pct": -62.3548243862887
+    },
+    "base": {
+      "fy30_basic_eps": 46.71879350353248,
+      "fy30_option_adjusted_eps": 44.82805905636653,
+      "PE": 20,
+      "modeled_equity_value_at_horizon": 896.5611811273305,
+      "PV_assumed_dividends": 49.73703981968444,
+      "estimated_fair_value": 723.336725114448,
+      "gap_vs_reference_pct": 24.92862264498237
+    },
+    "bull": {
+      "fy30_basic_eps": 78.99788484338586,
+      "fy30_option_adjusted_eps": 75.8007983836222,
+      "PE": 22,
+      "modeled_equity_value_at_horizon": 1667.6175644396883,
+      "PV_assumed_dividends": 49.73703981968444,
+      "estimated_fair_value": 1302.6427982266625,
+      "gap_vs_reference_pct": 124.98148501324052
+    }
+  }
+}

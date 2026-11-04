@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "checks": [
+    "12annualrows: external sales, exact operating/PBT/tax/NCI/EPS identities, annual/H2 cash labels and cash/debt bridges PASS",
+    "Guidance/target mutation has zero numerical effect PASS",
+    "Share-denominator mutation propagates to EPS/dividends without changing EBIT PASS",
+    "NCI0→60m changes parent EPS by¥1.4565; consolidated cash unchanged absent minority dividends PASS",
+    "Commissioning delay and useful-life mutations alter depreciation/earnings; CIP is not charged again as cash capex PASS",
+    "Additional investment consumes cash/raises DA; severe financing need incurs explicit interest and remains a displayed unfunded gap PASS",
+    "Missing issuer-specific operating source inputs fail explicitly PASS",
+    "FY26reported cost7173.570m and TTMreported basic EPS¥23.173519 independently reconcile PASS"
+  ],
+  "target_base": {
+    "sales_m": 13867.64182452,
+    "op_m": 2818.593067607668,
+    "basic_eps": 46.71879350353248,
+    "economic_option_adjusted_eps": 44.82805905636653,
+    "closing_cash_m": 6165.953293336952
+  },
+  "scope": "Arithmetic, dependency and consequential mutation checks. Economic and primary-source judgment reviewed separately.",
+  "source_actuals_sha256": "b05d673ca55026884ff733b56ebfea78f5008014587725649e7c4145901e99d5",
+  "assumptions_sha256": "4ebadc3a6251941d775e27928e4c77c7d6501b29c813159745bde8439f7a9db8",
+  "engine_sha256": "90155b82eb22d7d2c5aea5585f5bb06758f9145a2e8165e7997a9cdc693e882e"
+}
