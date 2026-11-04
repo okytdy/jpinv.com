@@ -92,6 +92,7 @@
   var SUBTABS = [
     { k: "methodology", ja: "着眼点",             en: "Methodology",  path: "/compounders/methodology/" },
     { k: "profiles",    ja: "銘柄分析",           en: "Profiles",     path: "/compounders/profiles/" },
+    { k: "models",      ja: "業績予想モデル",       en: "Forecast models", path: "/models/" },
     { k: "universe",    ja: "銘柄スクリーニング", en: "Universe",     path: "/compounders/universe/" },
     { k: "signals",     ja: "資本政策開示",       en: "Capital Actions", path: "/compounders/feed/" },
     { k: "disclosures", ja: "大量保有報告",       en: "5% Filings",   path: "/compounders/active-investors/" }
@@ -116,6 +117,7 @@
       ] },
     { head: S("調査レポート"), items: [
         { ja: "銘柄分析",           en: "Profiles",         jaHref: "/compounders/profiles/",          enHref: "/en/compounders/profiles/" },
+        { ja: "業績予想モデル",       en: "Forecast models",  jaHref: "/models/",                         enHref: "/en/models/" },
         { ja: "銘柄スクリーニング", en: "Universe",         jaHref: "/compounders/universe/",          enHref: "/en/compounders/universe/" },
         { ja: "資本政策開示",       en: "Capital actions",  jaHref: "/compounders/feed/",              enHref: "/en/compounders/feed/" },
         { ja: "大量保有報告",       en: "5% filings",       jaHref: "/compounders/active-investors/",  enHref: "/en/compounders/active-investors/" },
@@ -155,6 +157,7 @@
   var path = location.pathname;
   var isEn = /^\/en(\/|$)/.test(path);
   var inCompounders = /^\/(en\/)?compounders(\/|$)/.test(path);
+  var inModels = /^\/(en\/)?models(\/|$)/.test(path);
   var L = isEn ? "en" : "ja";
   var homeHref = isEn ? "/en/" : "/";
 
@@ -176,6 +179,10 @@
     if (document.querySelector('meta[name="robots"][content*="noindex"]')) {
       return isEn ? "/" : "/en/";
     }
+    /* An English-only model links back to the real Japanese library,
+       without claiming a translated counterpart. */
+    var fallback = document.body.getAttribute("data-jii-language-fallback");
+    if (fallback && fallback.charAt(0) === "/") return fallback;
     if (isEn) { return path.replace(/^\/en/, "") || "/"; }
     return "/en" + path;
   }
@@ -438,7 +445,7 @@
   /* Compounder profile pages carry their own logo and breadcrumb inside the
      masthead. The bar above now provides the route home, so those stay
      hidden to avoid two logos stacked on top of each other. */
-  if (inCompounders) {
+  if (inCompounders || inModels) {
     css += ".hero-brand,.crumb,.masthead-inner .brand-home-link{display:none!important;}";
   }
 
@@ -493,13 +500,13 @@
   }
 
   for (var i = 0; i < SECTIONS.length; i++) {
-    var s = SECTIONS[i], h = href(s), on = isActive(h);
+    var s = SECTIONS[i], h = href(s), on = isActive(h) || (inModels && s.en === "Research");
     linksHtml += '<li><a href="' + esc(h) + '"' + (on ? ' class="jn-on" aria-current="page"' : '') + '>' + esc(label(s)) + '</a>' +
                  (s.panel ? panelFor(s) : '') + '</li>';
     menuHtml += '<a href="' + esc(h) + '">' + esc(label(s)) + '</a>';
   }
 
-  if (inCompounders) {
+  if (inCompounders || inModels) {
     for (var j = 0; j < SUBTABS.length; j++) {
       var t = SUBTABS[j];
       menuHtml += '<a class="jn-menu-sub" href="' + esc((isEn ? "/en" : "") + t.path) + '">' + esc(isEn ? t.en : t.ja) + '</a>';
@@ -515,7 +522,7 @@
   menuHtml += '<a class="jn-cta" href="' + esc(href(CONTACT)) + '">' + esc(label(CONTACT)) + '</a>';
 
   var subHtml = "";
-  if (inCompounders) {
+  if (inCompounders || inModels) {
     var P = isEn ? "/en" : "";
     subHtml += '<div class="jn-sub"><div class="jn-sub-in">';
     subHtml += '<a href="' + P + '/compounders/"' + (path.replace(/\/$/, "") === (P + "/compounders").replace(/\/$/, "") ? ' class="jn-on"' : '') + '>' +
@@ -655,7 +662,7 @@
     var renderedHeight = Math.ceil(nav.getBoundingClientRect().height);
     if (!hasSiteCss) {
       document.body.style.paddingTop = renderedHeight + "px";
-    } else if (inCompounders) {
+    } else if (inCompounders || inModels) {
       document.body.style.paddingTop = Math.max(0, renderedHeight - NAV_H) + "px";
     }
   }

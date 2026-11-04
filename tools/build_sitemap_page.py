@@ -19,7 +19,7 @@ import re
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-NAV_TAG = '<script src="/assets/nav.js?v=393a8e17be" defer></script>'
+NAV_TAG = '<script src="/assets/nav.js?v=30c664f650" defer></script>'
 
 TITLE_RE = re.compile(r"<title>(.*?)</title>", re.S)
 REFRESH_RE = re.compile(r'http-equiv="refresh"', re.I)
@@ -105,6 +105,7 @@ def build(lang):
     sect = []
     for rel, ja, eng in [
         (f"{cmp_}/profiles", "現行の銘柄分析", "Current profiles"),
+        (f"{S}models", "業績予想モデル", "Forecast models"),
         (f"{cmp_}/archive", "アーカイブ調査", "Archived research"),
         (f"{cmp_}/universe", "銘柄スクリーニング", "Universe"),
         (f"{cmp_}/methodology", "着眼点", "Methodology"),
@@ -114,9 +115,11 @@ def build(lang):
     ]:
         if page_title(rel):
             sect.append(("/" + rel + "/", L(ja, eng)))
+    model_pages = children(f"{S}models") if en else []
     groups.append((L("銘柄レポート", "Research"), f"{P}/compounders/",
                    [(L("セクション", "Sections"), sect),
-                    (L("現行の銘柄分析", "Current profiles"), profiles(lang))]))
+                    (L("現行の銘柄分析", "Current profiles"), profiles(lang)),
+                    (L("企業別モデル", "Company models"), model_pages)]))
 
     # IR training
     themes = []

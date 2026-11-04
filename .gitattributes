@@ -27,3 +27,8 @@
 *.woff2     binary
 *.ttf       binary
 *.otf       binary
+
+# Frozen public financial-model artifacts retain their verified exact bytes.
+/en/models/*/downloads/** -text
+/en/models/*/model-data.js -text
+/en/models/*/model-data.json -text

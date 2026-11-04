@@ -18,7 +18,7 @@ from pathlib import Path
 from company_names import normalize_company_name_en
 
 # The one navigation for jpinv.com. See assets/nav.js.
-NAV_TAG = '<script src="/assets/nav.js?v=393a8e17be" defer></script>'
+NAV_TAG = '<script src="/assets/nav.js?v=30c664f650" defer></script>'
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "compounders", "feed", "data", "watchlist_signals.json")

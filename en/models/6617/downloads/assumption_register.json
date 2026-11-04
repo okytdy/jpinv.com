@@ -1,0 +1,2700 @@
+{
+  "company": "TakaokaToko6617",
+  "date": "2026-11-03",
+  "entries": [
+    {
+      "id": "advance_days",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "workingcapital",
+      "definition": "advance days",
+      "axis": null,
+      "values": {
+        "bear": 6,
+        "base": 7.8,
+        "bull": 10
+      },
+      "observed_anchor": "Septrade/notes/contract/electronicAR19894;inventory31710;AP9737;contractadvances3935;bonus2401. FY26ARdays85.4/inventory124/AP55.2/advances7.8.",
+      "source_locators": [
+        "financial/tktk_latest_result.pdf PDF7–11",
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json"
+      ],
+      "mechanism": "Rollallmaterialreceivable/inventory/payable/advanceaccountswithannualsalesorconstantactivity-costproxy;bonus/DTAseparate;legacyotherCLfundingtimingexplicit.",
+      "base_reason": "Year-enddaysanchoredMaractualratherthanextrapolatingseasonalSep;propertydepositneverordinaryWC. OtherCLheldbaseisaliveoperatingbalanceassumption,notknownfreecapitalcredit.",
+      "supported_bounds": "AR+10/inventory+15days;settlealllegacyotherCLcase;cash-flowprojectionnotmonthlycovenanttest.",
+      "falsifier": "Collection, WIPacceptance,contractadvances,bonus/warranty/creditorpaymentstimingdiffer.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "days"
+    },
+    {
+      "id": "asset_lives",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "capital",
+      "definition": "asset lives",
+      "axis": [
+        "power",
+        "meter",
+        "GX",
+        "optical",
+        "property(no newcapital)",
+        "corporate"
+      ],
+      "values": {
+        "bear": [
+          12,
+          7,
+          6,
+          5,
+          30,
+          7
+        ],
+        "base": [
+          12,
+          7,
+          6,
+          5,
+          30,
+          7
+        ],
+        "bull": [
+          12,
+          7,
+          6,
+          5,
+          30,
+          7
+        ]
+      },
+      "observed_anchor": "FY26cashCAPEX6036vsbookadditions6248;H1paid2546/CIP1049. Hasuda1610budget,313paidMar26;Jun27completion/Oct27operation. Newmeteringequipment1626plannedSep26.",
+      "source_locators": [
+        "financial/tktk_yuho_2026.pdf PDF29–30,77,80,103",
+        "audit/capital_schedule_review/REFINED_CAPITAL_REVIEW.json"
+      ],
+      "mechanism": "Post-Sepcapitalonly;namedHasudaspendinginsidebudget,unallocatedCIPexplicit;DAbycommission/life. Preserveopeningland/CIPfromlegacyamortization.",
+      "base_reason": "6.5/7.5/7/6.5bnannualcashbudgetsremainhouseunderwriting,notcopyof33bnMTPwhichincludesR&D. Current2×H1DAisrun-rateproxy,notknownfullyearforecast. FlatlegacyDAavoidsunsupported4%automaticbenefit;runoffandlatecommissionstressesretained.",
+      "supported_bounds": "Casecapitalbudgets;extra2bn/year;legacy−4%/+5%;736unallocatedCIPtiming. FutureSLlivesareeconomicproxiesnotstatutorycertainty.",
+      "falsifier": "Projectcash/creditors,invoicevsbookadditions,assetregister,lives/commissioninganddomesticdecliningbalanceproduceotherDA.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "years"
+    },
+    {
+      "id": "borrow_average_fraction",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "finance",
+      "definition": "borrow average fraction",
+      "axis": null,
+      "values": {
+        "bear": 0.5,
+        "base": 0.5,
+        "bull": 0.5
+      },
+      "observed_anchor": "Sepbank1880+lease21;LTschedule300/600/600/0remaining. BankSTrate1%,LT1.17%observedMar. CCE19135includes8000currentsecuritiesonce.",
+      "source_locators": [
+        "financial/DEBT_MATURITIES_AND_CAPEX_CREDITORS.json",
+        "financial/tktk_latest_result.pdf PDF7–11"
+      ],
+      "mechanism": "Repaydatedcontractualprincipal,chargeexisting/newdrawinterestandcashdistributions;newdrawsolvescashshortfallsubjecthouseplanningcap;noneclaimedcommitted.",
+      "base_reason": "Baseusesnofreshborrowing.8bnminimumisplanningbuffer,notcovenant.25bncreditlimitisanalystscenarioceiling,notavailablefacility;bearrequirementisuncommittedfinancing.",
+      "supported_bounds": "Existingratesstep20bp/yearbase;newdraw2.5%/3.5%bear;borrowingunavailablestress;no negativecash/debtaccepted.",
+      "falsifier": "Bank/refinancingterms,newborrowingpermissions,interestratesorliquiditytimingdiffer.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction / annual rate; see segment or fiscal axis"
+    },
+    {
+      "id": "cancellation_rate",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "power",
+      "definition": "cancellation rate",
+      "axis": null,
+      "values": {
+        "bear": 0.0,
+        "base": 0.0,
+        "bull": 0.0
+      },
+      "observed_anchor": "FY26orders67880/sales63864;Sep26orders35973/sales27491/backlog75939. PriorH2sales36430. No quantified whole-power nameplate;Oyamaearly2030s.",
+      "source_locators": [
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json/orders_backlog_actuals",
+        "operating/OPERATING_CLAIM_REGISTER.json"
+      ],
+      "mechanism": "Nominalneworderactivity andold/newdelivery jointlygeneratefixed-pricecohortshipments within constant-valuefinancialthroughput.",
+      "base_reason": "Retain moderateorderpath: H2intake36000 only+2.5%versuspriorH2; annualnominalgrowth4.5%. Current6%/later4.5%resourcegrowthareexplicitfinancialplanningceilings,notmeasuredphysicalunits.",
+      "supported_bounds": "Operationalcaseenvelopesplus0%capacitygrowthandneworderflatstress;notconfidenceintervals.",
+      "falsifier": "Delivery/acceptancecalendar, staff/testingconstraints orprice-costevidence fails; throughputorbookingsbelowpath.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction / annual rate; see segment or fiscal axis"
+    },
+    {
+      "id": "capex",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "capital",
+      "definition": "capex",
+      "axis": [
+        "2027-03-31",
+        "2028-03-31",
+        "2029-03-31",
+        "2030-03-31"
+      ],
+      "values": {
+        "bear": [
+          6200,
+          7000,
+          6800,
+          6500
+        ],
+        "base": [
+          6500,
+          7500,
+          7000,
+          6500
+        ],
+        "bull": [
+          7000,
+          8500,
+          8500,
+          8000
+        ]
+      },
+      "observed_anchor": "FY26cashCAPEX6036vsbookadditions6248;H1paid2546/CIP1049. Hasuda1610budget,313paidMar26;Jun27completion/Oct27operation. Newmeteringequipment1626plannedSep26.",
+      "source_locators": [
+        "financial/tktk_yuho_2026.pdf PDF29–30,77,80,103",
+        "audit/capital_schedule_review/REFINED_CAPITAL_REVIEW.json"
+      ],
+      "mechanism": "Post-Sepcapitalonly;namedHasudaspendinginsidebudget,unallocatedCIPexplicit;DAbycommission/life. Preserveopeningland/CIPfromlegacyamortization.",
+      "base_reason": "6.5/7.5/7/6.5bnannualcashbudgetsremainhouseunderwriting,notcopyof33bnMTPwhichincludesR&D. Current2×H1DAisrun-rateproxy,notknownfullyearforecast. FlatlegacyDAavoidsunsupported4%automaticbenefit;runoffandlatecommissionstressesretained.",
+      "supported_bounds": "Casecapitalbudgets;extra2bn/year;legacy−4%/+5%;736unallocatedCIPtiming. FutureSLlivesareeconomicproxiesnotstatutorycertainty.",
+      "falsifier": "Projectcash/creditors,invoicevsbookadditions,assetregister,lives/commissioninganddomesticdecliningbalanceproduceotherDA.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "JPY million; annual amounts except first post-Sep forecast-period inputs"
+    },
+    {
+      "id": "capex_allocation",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "capital",
+      "definition": "capex allocation",
+      "axis": [
+        "power",
+        "meter",
+        "GX",
+        "optical",
+        "property(no newcapital)",
+        "corporate"
+      ],
+      "values": {
+        "bear": [
+          0.43,
+          0.29,
+          0.04,
+          0.03,
+          0,
+          0.21
+        ],
+        "base": [
+          0.43,
+          0.29,
+          0.04,
+          0.03,
+          0,
+          0.21
+        ],
+        "bull": [
+          0.43,
+          0.29,
+          0.04,
+          0.03,
+          0,
+          0.21
+        ]
+      },
+      "observed_anchor": "FY26cashCAPEX6036vsbookadditions6248;H1paid2546/CIP1049. Hasuda1610budget,313paidMar26;Jun27completion/Oct27operation. Newmeteringequipment1626plannedSep26.",
+      "source_locators": [
+        "financial/tktk_yuho_2026.pdf PDF29–30,77,80,103",
+        "audit/capital_schedule_review/REFINED_CAPITAL_REVIEW.json"
+      ],
+      "mechanism": "Post-Sepcapitalonly;namedHasudaspendinginsidebudget,unallocatedCIPexplicit;DAbycommission/life. Preserveopeningland/CIPfromlegacyamortization.",
+      "base_reason": "6.5/7.5/7/6.5bnannualcashbudgetsremainhouseunderwriting,notcopyof33bnMTPwhichincludesR&D. Current2×H1DAisrun-rateproxy,notknownfullyearforecast. FlatlegacyDAavoidsunsupported4%automaticbenefit;runoffandlatecommissionstressesretained.",
+      "supported_bounds": "Casecapitalbudgets;extra2bn/year;legacy−4%/+5%;736unallocatedCIPtiming. FutureSLlivesareeconomicproxiesnotstatutorycertainty.",
+      "falsifier": "Projectcash/creditors,invoicevsbookadditions,assetregister,lives/commissioninganddomesticdecliningbalanceproduceotherDA.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction / annual rate; see segment or fiscal axis"
+    },
+    {
+      "id": "cash_interest_rate",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "equitymethod",
+      "definition": "cash interest rate",
+      "axis": null,
+      "values": {
+        "bear": 0.0015,
+        "base": 0.0015,
+        "bull": 0.0015
+      },
+      "observed_anchor": "FY26equitymethodprofit121,H166;FY26CFinterest/div192versusPL158,H1CF134versusPL42. ATS25%/Decyearend;individualbookundisclosed.",
+      "source_locators": [
+        "financial/PROPERTY_AND_INVESTMENT_SCOPE_AUDIT.json",
+        "financial/tktk_yuho_2026.pdf PDF7,77,79,83"
+      ],
+      "mechanism": "ProfitentersPBTafterentitytax;cashdistributionseparateandreducesinvestmentcarrying,notnewincome;onlyidentifiedheldamountchanges.",
+      "base_reason": "Annual121holdand50%distributionareboundedhousejudgments;othercashnonop50+datedcashinterestkeptseparate. No applyingATSreturntowhole1788securities.",
+      "supported_bounds": "Distribution0–100%,nonop50baselinevsannual/currenthalfobservedrange;notallprofitiscash.",
+      "falsifier": "ATSfinancials,distribution/timingorroyalty/FX/othernonopchanges.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction / annual rate; see segment or fiscal axis"
+    },
+    {
+      "id": "contractual_lt_repayment",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "finance",
+      "definition": "contractual lt repayment",
+      "axis": [
+        "2027-03-31",
+        "2028-03-31",
+        "2029-03-31",
+        "2030-03-31"
+      ],
+      "values": {
+        "bear": [
+          300,
+          600,
+          600,
+          0
+        ],
+        "base": [
+          300,
+          600,
+          600,
+          0
+        ],
+        "bull": [
+          300,
+          600,
+          600,
+          0
+        ]
+      },
+      "observed_anchor": "Sepbank1880+lease21;LTschedule300/600/600/0remaining. BankSTrate1%,LT1.17%observedMar. CCE19135includes8000currentsecuritiesonce.",
+      "source_locators": [
+        "financial/DEBT_MATURITIES_AND_CAPEX_CREDITORS.json",
+        "financial/tktk_latest_result.pdf PDF7–11"
+      ],
+      "mechanism": "Repaydatedcontractualprincipal,chargeexisting/newdrawinterestandcashdistributions;newdrawsolvescashshortfallsubjecthouseplanningcap;noneclaimedcommitted.",
+      "base_reason": "Baseusesnofreshborrowing.8bnminimumisplanningbuffer,notcovenant.25bncreditlimitisanalystscenarioceiling,notavailablefacility;bearrequirementisuncommittedfinancing.",
+      "supported_bounds": "Existingratesstep20bp/yearbase;newdraw2.5%/3.5%bear;borrowingunavailablestress;no negativecash/debtaccepted.",
+      "falsifier": "Bank/refinancingterms,newborrowingpermissions,interestratesorliquiditytimingdiffer.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "JPY million; annual amounts except first post-Sep forecast-period inputs"
+    },
+    {
+      "id": "contribution",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "cost",
+      "definition": "contribution",
+      "axis": [
+        "power",
+        "meter",
+        "GX",
+        "optical"
+      ],
+      "values": {
+        "bear": [
+          0.35,
+          0.4,
+          0.3,
+          0.5
+        ],
+        "base": [
+          0.35,
+          0.4,
+          0.3,
+          0.5
+        ],
+        "bull": [
+          0.35,
+          0.4,
+          0.3,
+          0.5
+        ]
+      },
+      "observed_anchor": "FY26externalS/segmentOP/DA,latestH1andpriorH1costseasonality;manufacturingunitcostcurvesundisclosed.",
+      "source_locators": [
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json/segment_actuals",
+        "financial/tktk_yuho_2026.pdf PDF28,68,102–103"
+      ],
+      "mechanism": "Affinevariable/fixedcashcostcalibrationreproducesactualsegmentprofit;prices,inputinflation,staffelasticityandDAproducefuturemargins.",
+      "base_reason": "Contribution35/40/30/50%arehistoricalfinancialdecompositions(netinternalallocations),notdisclosedproductunitmargins.3%cashfixedinflationcoverswage/R&Dpressurealreadyinactuals.",
+      "supported_bounds": "Casecostpaths;1ppinputinflation, alternativehistoricaldecompositions;fixedvaluesarenotempiricallyestimatedconfidencebounds.",
+      "falsifier": "Incrementalmargins, payroll, R&D,qualitycostoroutsourcingdepartsfrompool.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction / annual rate; see segment or fiscal axis"
+    },
+    {
+      "id": "corp_cash_inflation",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "corporate",
+      "definition": "corp cash inflation",
+      "axis": null,
+      "values": {
+        "bear": 0.04,
+        "base": 0.03,
+        "bull": 0.025
+      },
+      "observed_anchor": "CurrentH1central3121/prior2710;FY26central5639;neteliminationsH1−50. CommonR&D485alreadyexpensed.",
+      "source_locators": [
+        "financial/tktk_latest_result.pdf PDF12–13",
+        "financial/tktk_yuho_2026.pdf PDF28,103"
+      ],
+      "mechanism": "LockactualH1;infercashcostwithnamedhistoricaltransfer/DAproxyandpriorhalfseasonality;inflatecashprograms;addDAandneteliminationsonce.",
+      "base_reason": "No residualtohitmanagement11bnOP. Transfer350m ispresentationjudgmentrange0–800andmustconservegroupOP; futureincrementalprogram100/200/300namedplanningallowance.",
+      "supported_bounds": "3–4%inflationcases;0–800transferisclassificationrange,notgroupcostupside;cashprogramsboundedcasepaths.",
+      "falsifier": "Functionalheadcount/R&Dprogram/allocationdisclosuresshowdifferentrecurringcostscope.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction / annual rate; see segment or fiscal axis"
+    },
+    {
+      "id": "corp_incremental_program",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "corporate",
+      "definition": "corp incremental program",
+      "axis": [
+        "2027-03-31",
+        "2028-03-31",
+        "2029-03-31",
+        "2030-03-31"
+      ],
+      "values": {
+        "bear": [
+          100,
+          250,
+          400,
+          550
+        ],
+        "base": [
+          0,
+          100,
+          200,
+          300
+        ],
+        "bull": [
+          0,
+          150,
+          300,
+          450
+        ]
+      },
+      "observed_anchor": "CurrentH1central3121/prior2710;FY26central5639;neteliminationsH1−50. CommonR&D485alreadyexpensed.",
+      "source_locators": [
+        "financial/tktk_latest_result.pdf PDF12–13",
+        "financial/tktk_yuho_2026.pdf PDF28,103"
+      ],
+      "mechanism": "LockactualH1;infercashcostwithnamedhistoricaltransfer/DAproxyandpriorhalfseasonality;inflatecashprograms;addDAandneteliminationsonce.",
+      "base_reason": "No residualtohitmanagement11bnOP. Transfer350m ispresentationjudgmentrange0–800andmustconservegroupOP; futureincrementalprogram100/200/300namedplanningallowance.",
+      "supported_bounds": "3–4%inflationcases;0–800transferisclassificationrange,notgroupcostupside;cashprogramsboundedcasepaths.",
+      "falsifier": "Functionalheadcount/R&Dprogram/allocationdisclosuresshowdifferentrecurringcostscope.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "JPY million; annual amounts except first post-Sep forecast-period inputs"
+    },
+    {
+      "id": "draw_interest_rate",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "finance",
+      "definition": "draw interest rate",
+      "axis": null,
+      "values": {
+        "bear": 0.035,
+        "base": 0.025,
+        "bull": 0.025
+      },
+      "observed_anchor": "Sepbank1880+lease21;LTschedule300/600/600/0remaining. BankSTrate1%,LT1.17%observedMar. CCE19135includes8000currentsecuritiesonce.",
+      "source_locators": [
+        "financial/DEBT_MATURITIES_AND_CAPEX_CREDITORS.json",
+        "financial/tktk_latest_result.pdf PDF7–11"
+      ],
+      "mechanism": "Repaydatedcontractualprincipal,chargeexisting/newdrawinterestandcashdistributions;newdrawsolvescashshortfallsubjecthouseplanningcap;noneclaimedcommitted.",
+      "base_reason": "Baseusesnofreshborrowing.8bnminimumisplanningbuffer,notcovenant.25bncreditlimitisanalystscenarioceiling,notavailablefacility;bearrequirementisuncommittedfinancing.",
+      "supported_bounds": "Existingratesstep20bp/yearbase;newdraw2.5%/3.5%bear;borrowingunavailablestress;no negativecash/debtaccepted.",
+      "falsifier": "Bank/refinancingterms,newborrowingpermissions,interestratesorliquiditytimingdiffer.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction / annual rate; see segment or fiscal axis"
+    },
+    {
+      "id": "equity_method_cash_distribution_fraction",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "equitymethod",
+      "definition": "equity method cash distribution fraction",
+      "axis": null,
+      "values": {
+        "bear": 0.5,
+        "base": 0.5,
+        "bull": 0.5
+      },
+      "observed_anchor": "FY26equitymethodprofit121,H166;FY26CFinterest/div192versusPL158,H1CF134versusPL42. ATS25%/Decyearend;individualbookundisclosed.",
+      "source_locators": [
+        "financial/PROPERTY_AND_INVESTMENT_SCOPE_AUDIT.json",
+        "financial/tktk_yuho_2026.pdf PDF7,77,79,83"
+      ],
+      "mechanism": "ProfitentersPBTafterentitytax;cashdistributionseparateandreducesinvestmentcarrying,notnewincome;onlyidentifiedheldamountchanges.",
+      "base_reason": "Annual121holdand50%distributionareboundedhousejudgments;othercashnonop50+datedcashinterestkeptseparate. No applyingATSreturntowhole1788securities.",
+      "supported_bounds": "Distribution0–100%,nonop50baselinevsannual/currenthalfobservedrange;notallprofitiscash.",
+      "falsifier": "ATSfinancials,distribution/timingorroyalty/FX/othernonopchanges.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction / annual rate; see segment or fiscal axis"
+    },
+    {
+      "id": "equity_method_profit_annual",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "equitymethod",
+      "definition": "equity method profit annual",
+      "axis": null,
+      "values": {
+        "bear": 121.0,
+        "base": 121.0,
+        "bull": 121.0
+      },
+      "observed_anchor": "FY26equitymethodprofit121,H166;FY26CFinterest/div192versusPL158,H1CF134versusPL42. ATS25%/Decyearend;individualbookundisclosed.",
+      "source_locators": [
+        "financial/PROPERTY_AND_INVESTMENT_SCOPE_AUDIT.json",
+        "financial/tktk_yuho_2026.pdf PDF7,77,79,83"
+      ],
+      "mechanism": "ProfitentersPBTafterentitytax;cashdistributionseparateandreducesinvestmentcarrying,notnewincome;onlyidentifiedheldamountchanges.",
+      "base_reason": "Annual121holdand50%distributionareboundedhousejudgments;othercashnonop50+datedcashinterestkeptseparate. No applyingATSreturntowhole1788securities.",
+      "supported_bounds": "Distribution0–100%,nonop50baselinevsannual/currenthalfobservedrange;notallprofitiscash.",
+      "falsifier": "ATSfinancials,distribution/timingorroyalty/FX/othernonopchanges.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "JPY million; annual amounts except first post-Sep forecast-period inputs"
+    },
+    {
+      "id": "existing_long_bank_rate",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "finance",
+      "definition": "existing long bank rate",
+      "axis": [
+        "2027-03-31",
+        "2028-03-31",
+        "2029-03-31",
+        "2030-03-31"
+      ],
+      "values": {
+        "bear": [
+          0.017,
+          0.02,
+          0.022,
+          0.024
+        ],
+        "base": [
+          0.0117,
+          0.0137,
+          0.0157,
+          0.0177
+        ],
+        "bull": [
+          0.0117,
+          0.0137,
+          0.0157,
+          0.0177
+        ]
+      },
+      "observed_anchor": "Sepbank1880+lease21;LTschedule300/600/600/0remaining. BankSTrate1%,LT1.17%observedMar. CCE19135includes8000currentsecuritiesonce.",
+      "source_locators": [
+        "financial/DEBT_MATURITIES_AND_CAPEX_CREDITORS.json",
+        "financial/tktk_latest_result.pdf PDF7–11"
+      ],
+      "mechanism": "Repaydatedcontractualprincipal,chargeexisting/newdrawinterestandcashdistributions;newdrawsolvescashshortfallsubjecthouseplanningcap;noneclaimedcommitted.",
+      "base_reason": "Baseusesnofreshborrowing.8bnminimumisplanningbuffer,notcovenant.25bncreditlimitisanalystscenarioceiling,notavailablefacility;bearrequirementisuncommittedfinancing.",
+      "supported_bounds": "Existingratesstep20bp/yearbase;newdraw2.5%/3.5%bear;borrowingunavailablestress;no negativecash/debtaccepted.",
+      "falsifier": "Bank/refinancingterms,newborrowingpermissions,interestratesorliquiditytimingdiffer.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction / annual rate; see segment or fiscal axis"
+    },
+    {
+      "id": "existing_short_bank_rate",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "finance",
+      "definition": "existing short bank rate",
+      "axis": [
+        "2027-03-31",
+        "2028-03-31",
+        "2029-03-31",
+        "2030-03-31"
+      ],
+      "values": {
+        "bear": [
+          0.015,
+          0.018,
+          0.02,
+          0.022
+        ],
+        "base": [
+          0.01,
+          0.012,
+          0.014,
+          0.016
+        ],
+        "bull": [
+          0.01,
+          0.012,
+          0.014,
+          0.016
+        ]
+      },
+      "observed_anchor": "Sepbank1880+lease21;LTschedule300/600/600/0remaining. BankSTrate1%,LT1.17%observedMar. CCE19135includes8000currentsecuritiesonce.",
+      "source_locators": [
+        "financial/DEBT_MATURITIES_AND_CAPEX_CREDITORS.json",
+        "financial/tktk_latest_result.pdf PDF7–11"
+      ],
+      "mechanism": "Repaydatedcontractualprincipal,chargeexisting/newdrawinterestandcashdistributions;newdrawsolvescashshortfallsubjecthouseplanningcap;noneclaimedcommitted.",
+      "base_reason": "Baseusesnofreshborrowing.8bnminimumisplanningbuffer,notcovenant.25bncreditlimitisanalystscenarioceiling,notavailablefacility;bearrequirementisuncommittedfinancing.",
+      "supported_bounds": "Existingratesstep20bp/yearbase;newdraw2.5%/3.5%bear;borrowingunavailablestress;no negativecash/debtaccepted.",
+      "falsifier": "Bank/refinancingterms,newborrowingpermissions,interestratesorliquiditytimingdiffer.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction / annual rate; see segment or fiscal axis"
+    },
+    {
+      "id": "fixed_inflation",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "cost",
+      "definition": "fixed inflation",
+      "axis": [
+        "power",
+        "meter",
+        "GX",
+        "optical"
+      ],
+      "values": {
+        "bear": [
+          0.04,
+          0.04,
+          0.04,
+          0.04
+        ],
+        "base": [
+          0.03,
+          0.03,
+          0.03,
+          0.035
+        ],
+        "bull": [
+          0.025,
+          0.025,
+          0.025,
+          0.03
+        ]
+      },
+      "observed_anchor": "FY26externalS/segmentOP/DA,latestH1andpriorH1costseasonality;manufacturingunitcostcurvesundisclosed.",
+      "source_locators": [
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json/segment_actuals",
+        "financial/tktk_yuho_2026.pdf PDF28,68,102–103"
+      ],
+      "mechanism": "Affinevariable/fixedcashcostcalibrationreproducesactualsegmentprofit;prices,inputinflation,staffelasticityandDAproducefuturemargins.",
+      "base_reason": "Contribution35/40/30/50%arehistoricalfinancialdecompositions(netinternalallocations),notdisclosedproductunitmargins.3%cashfixedinflationcoverswage/R&Dpressurealreadyinactuals.",
+      "supported_bounds": "Casecostpaths;1ppinputinflation, alternativehistoricaldecompositions;fixedvaluesarenotempiricallyestimatedconfidencebounds.",
+      "falsifier": "Incrementalmargins, payroll, R&D,qualitycostoroutsourcingdepartsfrompool.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction / annual rate; see segment or fiscal axis"
+    },
+    {
+      "id": "future_nci_payout",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "jv",
+      "definition": "future nci payout",
+      "axis": null,
+      "values": {
+        "bear": 0.65,
+        "base": 0.65,
+        "bull": 0.65
+      },
+      "observed_anchor": "TTMS51%owned;FY26externalS20833,ordinary1770,net1259;49%NI616.91ofgroupNCI626. OthersourceH1NCI396.",
+      "source_locators": [
+        "financial/tktk_yuho_2026.pdf PDF7,79",
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json/NCI_entity_anchor"
+      ],
+      "mechanism": "Forecastentityprofitfromactualentityordinaryprofit+incrementalmeteractivity−itsDAexposure;deduct49%after-taxentityincome,includinglosses. OtherNCIresidualseparate.",
+      "base_reason": "Incrementalcapture10%andDA45%areunderidentifiedfinancialproxies,not49%ofsegmentOPorfullmeterASPxassemblycapacity. H2baseusespreviousNCIseasonality,actualcurrentH1locked.",
+      "supported_bounds": "Capture7–15%;DAshare0–1;loss-sharing/entitytaxmutations;65%priorNCIcashpayoutnotlegalpromise.",
+      "falsifier": "Entityaccounts/component-vsassemblyprofit,JVDAorToshibadividendsshowdifferentcapture.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction / annual rate; see segment or fiscal axis"
+    },
+    {
+      "id": "future_share_grants",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "ownership",
+      "definition": "future share grants",
+      "axis": [
+        "2027-03-31",
+        "2028-03-31",
+        "2029-03-31",
+        "2030-03-31"
+      ],
+      "values": {
+        "bear": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "base": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "bull": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "observed_anchor": "Executed657000buybackcompletedSep1;Oct8cancellationreducesissued/treasuryequally. ExBBT EPSshares15399767/H1weighted15766037. MarBBT162040;Septtrustcountundisclosed.",
+      "source_locators": [
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json/share_actions",
+        "financial/press_2881333.pdf"
+      ],
+      "mechanism": "Actualhalfshare-days+postbuybackshares;cashdividendssharesincludetrustproxy;futuregrantseparate. Actual67interimonly, futurefinal/interimfromownEPS×40%policy.",
+      "base_reason": "No repeatbuybackorEPSbenefitfromcancellation;no undeclaredmanagement67finalinengine.40%policyactualbutfutureimplementationhousefundingassumption,notgrowth/yieldgate.",
+      "supported_bounds": "0vsMarchtrustproxy;annual10000grantcase;policy0–40/50%cashstress.",
+      "falsifier": "Newgrant/BBTdelivery/distributiondeclaredorsecuritiesevent.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "ordinary shares"
+    },
+    {
+      "id": "gx_annual_new",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "gx",
+      "definition": "gx annual new",
+      "axis": null,
+      "values": {
+        "bear": 0.65,
+        "base": 0.65,
+        "bull": 0.65
+      },
+      "observed_anchor": "H1externalS3492/orders5641/B4586;EVchargerorderscontractedsharply;PPPacceptancecanbeepisodic.",
+      "source_locators": [
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json/orders_backlog_actuals",
+        "operating/OPERATING_CLAIM_REGISTER.json"
+      ],
+      "mechanism": "Separateoldbook/newwinsandcashfixedcost;classificationtransferconservesgroupOP.",
+      "base_reason": "No genericEVmarketgrowth;H2deliveryallowsprojecttimingrecoverybelowFY26salespeak.",
+      "supported_bounds": "Caseorder/conversionpaths;directinputcostandunoffsetwarranty/cash-timingstress.",
+      "falsifier": "PPPprojectsarecancelled/delayedorchargerbookings/costscontradictpath.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction / annual rate; see segment or fiscal axis"
+    },
+    {
+      "id": "gx_annual_open",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "gx",
+      "definition": "gx annual open",
+      "axis": null,
+      "values": {
+        "bear": 0.85,
+        "base": 0.85,
+        "bull": 0.85
+      },
+      "observed_anchor": "H1externalS3492/orders5641/B4586;EVchargerorderscontractedsharply;PPPacceptancecanbeepisodic.",
+      "source_locators": [
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json/orders_backlog_actuals",
+        "operating/OPERATING_CLAIM_REGISTER.json"
+      ],
+      "mechanism": "Separateoldbook/newwinsandcashfixedcost;classificationtransferconservesgroupOP.",
+      "base_reason": "No genericEVmarketgrowth;H2deliveryallowsprojecttimingrecoverybelowFY26salespeak.",
+      "supported_bounds": "Caseorder/conversionpaths;directinputcostandunoffsetwarranty/cash-timingstress.",
+      "falsifier": "PPPprojectsarecancelled/delayedorchargerbookings/costscontradictpath.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction / annual rate; see segment or fiscal axis"
+    },
+    {
+      "id": "gx_h2_new",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "gx",
+      "definition": "gx h2 new",
+      "axis": null,
+      "values": {
+        "bear": 0.35,
+        "base": 0.45,
+        "bull": 0.5
+      },
+      "observed_anchor": "H1externalS3492/orders5641/B4586;EVchargerorderscontractedsharply;PPPacceptancecanbeepisodic.",
+      "source_locators": [
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json/orders_backlog_actuals",
+        "operating/OPERATING_CLAIM_REGISTER.json"
+      ],
+      "mechanism": "Separateoldbook/newwinsandcashfixedcost;classificationtransferconservesgroupOP.",
+      "base_reason": "No genericEVmarketgrowth;H2deliveryallowsprojecttimingrecoverybelowFY26salespeak.",
+      "supported_bounds": "Caseorder/conversionpaths;directinputcostandunoffsetwarranty/cash-timingstress.",
+      "falsifier": "PPPprojectsarecancelled/delayedorchargerbookings/costscontradictpath.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction / annual rate; see segment or fiscal axis"
+    },
+    {
+      "id": "gx_h2_open",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "gx",
+      "definition": "gx h2 open",
+      "axis": null,
+      "values": {
+        "bear": 0.65,
+        "base": 0.75,
+        "bull": 0.8
+      },
+      "observed_anchor": "H1externalS3492/orders5641/B4586;EVchargerorderscontractedsharply;PPPacceptancecanbeepisodic.",
+      "source_locators": [
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json/orders_backlog_actuals",
+        "operating/OPERATING_CLAIM_REGISTER.json"
+      ],
+      "mechanism": "Separateoldbook/newwinsandcashfixedcost;classificationtransferconservesgroupOP.",
+      "base_reason": "No genericEVmarketgrowth;H2deliveryallowsprojecttimingrecoverybelowFY26salespeak.",
+      "supported_bounds": "Caseorder/conversionpaths;directinputcostandunoffsetwarranty/cash-timingstress.",
+      "falsifier": "PPPprojectsarecancelled/delayedorchargerbookings/costscontradictpath.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction / annual rate; see segment or fiscal axis"
+    },
+    {
+      "id": "gx_h2_orders",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "gx",
+      "definition": "gx h2 orders",
+      "axis": null,
+      "values": {
+        "bear": 5000,
+        "base": 5600,
+        "bull": 6200
+      },
+      "observed_anchor": "H1externalS3492/orders5641/B4586;EVchargerorderscontractedsharply;PPPacceptancecanbeepisodic.",
+      "source_locators": [
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json/orders_backlog_actuals",
+        "operating/OPERATING_CLAIM_REGISTER.json"
+      ],
+      "mechanism": "Separateoldbook/newwinsandcashfixedcost;classificationtransferconservesgroupOP.",
+      "base_reason": "No genericEVmarketgrowth;H2deliveryallowsprojecttimingrecoverybelowFY26salespeak.",
+      "supported_bounds": "Caseorder/conversionpaths;directinputcostandunoffsetwarranty/cash-timingstress.",
+      "falsifier": "PPPprojectsarecancelled/delayedorchargerbookings/costscontradictpath.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "JPY million; annual amounts except first post-Sep forecast-period inputs"
+    },
+    {
+      "id": "gx_orders",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "gx",
+      "definition": "gx orders",
+      "axis": [
+        "2028-03-31",
+        "2029-03-31",
+        "2030-03-31"
+      ],
+      "values": {
+        "bear": [
+          10000,
+          10000,
+          10000
+        ],
+        "base": [
+          11300,
+          11500,
+          11800
+        ],
+        "bull": [
+          12500,
+          13500,
+          14500
+        ]
+      },
+      "observed_anchor": "H1externalS3492/orders5641/B4586;EVchargerorderscontractedsharply;PPPacceptancecanbeepisodic.",
+      "source_locators": [
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json/orders_backlog_actuals",
+        "operating/OPERATING_CLAIM_REGISTER.json"
+      ],
+      "mechanism": "Separateoldbook/newwinsandcashfixedcost;classificationtransferconservesgroupOP.",
+      "base_reason": "No genericEVmarketgrowth;H2deliveryallowsprojecttimingrecoverybelowFY26salespeak.",
+      "supported_bounds": "Caseorder/conversionpaths;directinputcostandunoffsetwarranty/cash-timingstress.",
+      "falsifier": "PPPprojectsarecancelled/delayedorchargerbookings/costscontradictpath.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "JPY million; annual amounts except first post-Sep forecast-period inputs"
+    },
+    {
+      "id": "hasuda_building_fraction",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "capital",
+      "definition": "hasuda building fraction",
+      "axis": null,
+      "values": {
+        "bear": 0.6,
+        "base": 0.6,
+        "bull": 0.6
+      },
+      "observed_anchor": "FY26cashCAPEX6036vsbookadditions6248;H1paid2546/CIP1049. Hasuda1610budget,313paidMar26;Jun27completion/Oct27operation. Newmeteringequipment1626plannedSep26.",
+      "source_locators": [
+        "financial/tktk_yuho_2026.pdf PDF29–30,77,80,103",
+        "audit/capital_schedule_review/REFINED_CAPITAL_REVIEW.json"
+      ],
+      "mechanism": "Post-Sepcapitalonly;namedHasudaspendinginsidebudget,unallocatedCIPexplicit;DAbycommission/life. Preserveopeningland/CIPfromlegacyamortization.",
+      "base_reason": "6.5/7.5/7/6.5bnannualcashbudgetsremainhouseunderwriting,notcopyof33bnMTPwhichincludesR&D. Current2×H1DAisrun-rateproxy,notknownfullyearforecast. FlatlegacyDAavoidsunsupported4%automaticbenefit;runoffandlatecommissionstressesretained.",
+      "supported_bounds": "Casecapitalbudgets;extra2bn/year;legacy−4%/+5%;736unallocatedCIPtiming. FutureSLlivesareeconomicproxiesnotstatutorycertainty.",
+      "falsifier": "Projectcash/creditors,invoicevsbookadditions,assetregister,lives/commissioninganddomesticdecliningbalanceproduceotherDA.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction / annual rate; see segment or fiscal axis"
+    },
+    {
+      "id": "hasuda_building_life",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "capital",
+      "definition": "hasuda building life",
+      "axis": null,
+      "values": {
+        "bear": 30,
+        "base": 30,
+        "bull": 30
+      },
+      "observed_anchor": "FY26cashCAPEX6036vsbookadditions6248;H1paid2546/CIP1049. Hasuda1610budget,313paidMar26;Jun27completion/Oct27operation. Newmeteringequipment1626plannedSep26.",
+      "source_locators": [
+        "financial/tktk_yuho_2026.pdf PDF29–30,77,80,103",
+        "audit/capital_schedule_review/REFINED_CAPITAL_REVIEW.json"
+      ],
+      "mechanism": "Post-Sepcapitalonly;namedHasudaspendinginsidebudget,unallocatedCIPexplicit;DAbycommission/life. Preserveopeningland/CIPfromlegacyamortization.",
+      "base_reason": "6.5/7.5/7/6.5bnannualcashbudgetsremainhouseunderwriting,notcopyof33bnMTPwhichincludesR&D. Current2×H1DAisrun-rateproxy,notknownfullyearforecast. FlatlegacyDAavoidsunsupported4%automaticbenefit;runoffandlatecommissionstressesretained.",
+      "supported_bounds": "Casecapitalbudgets;extra2bn/year;legacy−4%/+5%;736unallocatedCIPtiming. FutureSLlivesareeconomicproxiesnotstatutorycertainty.",
+      "falsifier": "Projectcash/creditors,invoicevsbookadditions,assetregister,lives/commissioninganddomesticdecliningbalanceproduceotherDA.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "years"
+    },
+    {
+      "id": "hasuda_commission",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "capital",
+      "definition": "hasuda commission",
+      "axis": null,
+      "values": {
+        "bear": "2027-10-01",
+        "base": "2027-10-01",
+        "bull": "2027-10-01"
+      },
+      "observed_anchor": "FY26cashCAPEX6036vsbookadditions6248;H1paid2546/CIP1049. Hasuda1610budget,313paidMar26;Jun27completion/Oct27operation. Newmeteringequipment1626plannedSep26.",
+      "source_locators": [
+        "financial/tktk_yuho_2026.pdf PDF29–30,77,80,103",
+        "audit/capital_schedule_review/REFINED_CAPITAL_REVIEW.json"
+      ],
+      "mechanism": "Post-Sepcapitalonly;namedHasudaspendinginsidebudget,unallocatedCIPexplicit;DAbycommission/life. Preserveopeningland/CIPfromlegacyamortization.",
+      "base_reason": "6.5/7.5/7/6.5bnannualcashbudgetsremainhouseunderwriting,notcopyof33bnMTPwhichincludesR&D. Current2×H1DAisrun-rateproxy,notknownfullyearforecast. FlatlegacyDAavoidsunsupported4%automaticbenefit;runoffandlatecommissionstressesretained.",
+      "supported_bounds": "Casecapitalbudgets;extra2bn/year;legacy−4%/+5%;736unallocatedCIPtiming. FutureSLlivesareeconomicproxiesnotstatutorycertainty.",
+      "falsifier": "Projectcash/creditors,invoicevsbookadditions,assetregister,lives/commissioninganddomesticdecliningbalanceproduceotherDA.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "ISO date; null means commissioning not assumed"
+    },
+    {
+      "id": "hasuda_equipment_life",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "capital",
+      "definition": "hasuda equipment life",
+      "axis": null,
+      "values": {
+        "bear": 10,
+        "base": 10,
+        "bull": 10
+      },
+      "observed_anchor": "FY26cashCAPEX6036vsbookadditions6248;H1paid2546/CIP1049. Hasuda1610budget,313paidMar26;Jun27completion/Oct27operation. Newmeteringequipment1626plannedSep26.",
+      "source_locators": [
+        "financial/tktk_yuho_2026.pdf PDF29–30,77,80,103",
+        "audit/capital_schedule_review/REFINED_CAPITAL_REVIEW.json"
+      ],
+      "mechanism": "Post-Sepcapitalonly;namedHasudaspendinginsidebudget,unallocatedCIPexplicit;DAbycommission/life. Preserveopeningland/CIPfromlegacyamortization.",
+      "base_reason": "6.5/7.5/7/6.5bnannualcashbudgetsremainhouseunderwriting,notcopyof33bnMTPwhichincludesR&D. Current2×H1DAisrun-rateproxy,notknownfullyearforecast. FlatlegacyDAavoidsunsupported4%automaticbenefit;runoffandlatecommissionstressesretained.",
+      "supported_bounds": "Casecapitalbudgets;extra2bn/year;legacy−4%/+5%;736unallocatedCIPtiming. FutureSLlivesareeconomicproxiesnotstatutorycertainty.",
+      "falsifier": "Projectcash/creditors,invoicevsbookadditions,assetregister,lives/commissioninganddomesticdecliningbalanceproduceotherDA.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "years"
+    },
+    {
+      "id": "hasuda_future_additions",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "capital",
+      "definition": "hasuda future additions",
+      "axis": [
+        "2027-03-31",
+        "2028-03-31",
+        "2029-03-31",
+        "2030-03-31"
+      ],
+      "values": {
+        "bear": [
+          900,
+          397,
+          0,
+          0
+        ],
+        "base": [
+          900,
+          397,
+          0,
+          0
+        ],
+        "bull": [
+          900,
+          397,
+          0,
+          0
+        ]
+      },
+      "observed_anchor": "FY26cashCAPEX6036vsbookadditions6248;H1paid2546/CIP1049. Hasuda1610budget,313paidMar26;Jun27completion/Oct27operation. Newmeteringequipment1626plannedSep26.",
+      "source_locators": [
+        "financial/tktk_yuho_2026.pdf PDF29–30,77,80,103",
+        "audit/capital_schedule_review/REFINED_CAPITAL_REVIEW.json"
+      ],
+      "mechanism": "Post-Sepcapitalonly;namedHasudaspendinginsidebudget,unallocatedCIPexplicit;DAbycommission/life. Preserveopeningland/CIPfromlegacyamortization.",
+      "base_reason": "6.5/7.5/7/6.5bnannualcashbudgetsremainhouseunderwriting,notcopyof33bnMTPwhichincludesR&D. Current2×H1DAisrun-rateproxy,notknownfullyearforecast. FlatlegacyDAavoidsunsupported4%automaticbenefit;runoffandlatecommissionstressesretained.",
+      "supported_bounds": "Casecapitalbudgets;extra2bn/year;legacy−4%/+5%;736unallocatedCIPtiming. FutureSLlivesareeconomicproxiesnotstatutorycertainty.",
+      "falsifier": "Projectcash/creditors,invoicevsbookadditions,assetregister,lives/commissioninganddomesticdecliningbalanceproduceotherDA.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "JPY million; annual amounts except first post-Sep forecast-period inputs"
+    },
+    {
+      "id": "hasuda_opening_cip_proxy",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "capital",
+      "definition": "hasuda opening cip proxy",
+      "axis": null,
+      "values": {
+        "bear": 313.0,
+        "base": 313.0,
+        "bull": 313.0
+      },
+      "observed_anchor": "FY26cashCAPEX6036vsbookadditions6248;H1paid2546/CIP1049. Hasuda1610budget,313paidMar26;Jun27completion/Oct27operation. Newmeteringequipment1626plannedSep26.",
+      "source_locators": [
+        "financial/tktk_yuho_2026.pdf PDF29–30,77,80,103",
+        "audit/capital_schedule_review/REFINED_CAPITAL_REVIEW.json"
+      ],
+      "mechanism": "Post-Sepcapitalonly;namedHasudaspendinginsidebudget,unallocatedCIPexplicit;DAbycommission/life. Preserveopeningland/CIPfromlegacyamortization.",
+      "base_reason": "6.5/7.5/7/6.5bnannualcashbudgetsremainhouseunderwriting,notcopyof33bnMTPwhichincludesR&D. Current2×H1DAisrun-rateproxy,notknownfullyearforecast. FlatlegacyDAavoidsunsupported4%automaticbenefit;runoffandlatecommissionstressesretained.",
+      "supported_bounds": "Casecapitalbudgets;extra2bn/year;legacy−4%/+5%;736unallocatedCIPtiming. FutureSLlivesareeconomicproxiesnotstatutorycertainty.",
+      "falsifier": "Projectcash/creditors,invoicevsbookadditions,assetregister,lives/commissioninganddomesticdecliningbalanceproduceotherDA.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "JPY million; annual amounts except first post-Sep forecast-period inputs"
+    },
+    {
+      "id": "hasuda_total_budget",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "capital",
+      "definition": "hasuda total budget",
+      "axis": null,
+      "values": {
+        "bear": 1610.0,
+        "base": 1610.0,
+        "bull": 1610.0
+      },
+      "observed_anchor": "FY26cashCAPEX6036vsbookadditions6248;H1paid2546/CIP1049. Hasuda1610budget,313paidMar26;Jun27completion/Oct27operation. Newmeteringequipment1626plannedSep26.",
+      "source_locators": [
+        "financial/tktk_yuho_2026.pdf PDF29–30,77,80,103",
+        "audit/capital_schedule_review/REFINED_CAPITAL_REVIEW.json"
+      ],
+      "mechanism": "Post-Sepcapitalonly;namedHasudaspendinginsidebudget,unallocatedCIPexplicit;DAbycommission/life. Preserveopeningland/CIPfromlegacyamortization.",
+      "base_reason": "6.5/7.5/7/6.5bnannualcashbudgetsremainhouseunderwriting,notcopyof33bnMTPwhichincludesR&D. Current2×H1DAisrun-rateproxy,notknownfullyearforecast. FlatlegacyDAavoidsunsupported4%automaticbenefit;runoffandlatecommissionstressesretained.",
+      "supported_bounds": "Casecapitalbudgets;extra2bn/year;legacy−4%/+5%;736unallocatedCIPtiming. FutureSLlivesareeconomicproxiesnotstatutorycertainty.",
+      "falsifier": "Projectcash/creditors,invoicevsbookadditions,assetregister,lives/commissioninganddomesticdecliningbalanceproduceotherDA.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "JPY million; annual amounts except first post-Sep forecast-period inputs"
+    },
+    {
+      "id": "historical_transfer_reference",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "corporate",
+      "definition": "historical transfer reference",
+      "axis": null,
+      "values": {
+        "bear": 350,
+        "base": 350,
+        "bull": 350
+      },
+      "observed_anchor": "CurrentH1central3121/prior2710;FY26central5639;neteliminationsH1−50. CommonR&D485alreadyexpensed.",
+      "source_locators": [
+        "financial/tktk_latest_result.pdf PDF12–13",
+        "financial/tktk_yuho_2026.pdf PDF28,103"
+      ],
+      "mechanism": "LockactualH1;infercashcostwithnamedhistoricaltransfer/DAproxyandpriorhalfseasonality;inflatecashprograms;addDAandneteliminationsonce.",
+      "base_reason": "No residualtohitmanagement11bnOP. Transfer350m ispresentationjudgmentrange0–800andmustconservegroupOP; futureincrementalprogram100/200/300namedplanningallowance.",
+      "supported_bounds": "3–4%inflationcases;0–800transferisclassificationrange,notgroupcostupside;cashprogramsboundedcasepaths.",
+      "falsifier": "Functionalheadcount/R&Dprogram/allocationdisclosuresshowdifferentrecurringcostscope.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "JPY million; annual amounts except first post-Sep forecast-period inputs"
+    },
+    {
+      "id": "input_inflation",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "cost",
+      "definition": "input inflation",
+      "axis": [
+        "power",
+        "meter",
+        "GX",
+        "optical"
+      ],
+      "values": {
+        "bear": [
+          0.025,
+          0.02,
+          0.025,
+          0.02
+        ],
+        "base": [
+          0.015,
+          0.015,
+          0.02,
+          0.015
+        ],
+        "bull": [
+          0.015,
+          0.01,
+          0.015,
+          0.01
+        ]
+      },
+      "observed_anchor": "FY26externalS/segmentOP/DA,latestH1andpriorH1costseasonality;manufacturingunitcostcurvesundisclosed.",
+      "source_locators": [
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json/segment_actuals",
+        "financial/tktk_yuho_2026.pdf PDF28,68,102–103"
+      ],
+      "mechanism": "Affinevariable/fixedcashcostcalibrationreproducesactualsegmentprofit;prices,inputinflation,staffelasticityandDAproducefuturemargins.",
+      "base_reason": "Contribution35/40/30/50%arehistoricalfinancialdecompositions(netinternalallocations),notdisclosedproductunitmargins.3%cashfixedinflationcoverswage/R&Dpressurealreadyinactuals.",
+      "supported_bounds": "Casecostpaths;1ppinputinflation, alternativehistoricaldecompositions;fixedvaluesarenotempiricallyestimatedconfidencebounds.",
+      "falsifier": "Incrementalmargins, payroll, R&D,qualitycostoroutsourcingdepartsfrompool.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction / annual rate; see segment or fiscal axis"
+    },
+    {
+      "id": "inventory_days",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "workingcapital",
+      "definition": "inventory days",
+      "axis": null,
+      "values": {
+        "bear": 140,
+        "base": 124,
+        "bull": 115
+      },
+      "observed_anchor": "Septrade/notes/contract/electronicAR19894;inventory31710;AP9737;contractadvances3935;bonus2401. FY26ARdays85.4/inventory124/AP55.2/advances7.8.",
+      "source_locators": [
+        "financial/tktk_latest_result.pdf PDF7–11",
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json"
+      ],
+      "mechanism": "Rollallmaterialreceivable/inventory/payable/advanceaccountswithannualsalesorconstantactivity-costproxy;bonus/DTAseparate;legacyotherCLfundingtimingexplicit.",
+      "base_reason": "Year-enddaysanchoredMaractualratherthanextrapolatingseasonalSep;propertydepositneverordinaryWC. OtherCLheldbaseisaliveoperatingbalanceassumption,notknownfreecapitalcredit.",
+      "supported_bounds": "AR+10/inventory+15days;settlealllegacyotherCLcase;cash-flowprojectionnotmonthlycovenanttest.",
+      "falsifier": "Collection, WIPacceptance,contractadvances,bonus/warranty/creditorpaymentstimingdiffer.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "days"
+    },
+    {
+      "id": "jv_da_fraction",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "jv",
+      "definition": "jv da fraction",
+      "axis": null,
+      "values": {
+        "bear": 0.45,
+        "base": 0.45,
+        "bull": 0.45
+      },
+      "observed_anchor": "TTMS51%owned;FY26externalS20833,ordinary1770,net1259;49%NI616.91ofgroupNCI626. OthersourceH1NCI396.",
+      "source_locators": [
+        "financial/tktk_yuho_2026.pdf PDF7,79",
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json/NCI_entity_anchor"
+      ],
+      "mechanism": "Forecastentityprofitfromactualentityordinaryprofit+incrementalmeteractivity−itsDAexposure;deduct49%after-taxentityincome,includinglosses. OtherNCIresidualseparate.",
+      "base_reason": "Incrementalcapture10%andDA45%areunderidentifiedfinancialproxies,not49%ofsegmentOPorfullmeterASPxassemblycapacity. H2baseusespreviousNCIseasonality,actualcurrentH1locked.",
+      "supported_bounds": "Capture7–15%;DAshare0–1;loss-sharing/entitytaxmutations;65%priorNCIcashpayoutnotlegalpromise.",
+      "falsifier": "Entityaccounts/component-vsassemblyprofit,JVDAorToshibadividendsshowdifferentcapture.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction / annual rate; see segment or fiscal axis"
+    },
+    {
+      "id": "jv_incremental_pretax_capture",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "jv",
+      "definition": "jv incremental pretax capture",
+      "axis": null,
+      "values": {
+        "bear": 0.07,
+        "base": 0.1,
+        "bull": 0.13
+      },
+      "observed_anchor": "TTMS51%owned;FY26externalS20833,ordinary1770,net1259;49%NI616.91ofgroupNCI626. OthersourceH1NCI396.",
+      "source_locators": [
+        "financial/tktk_yuho_2026.pdf PDF7,79",
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json/NCI_entity_anchor"
+      ],
+      "mechanism": "Forecastentityprofitfromactualentityordinaryprofit+incrementalmeteractivity−itsDAexposure;deduct49%after-taxentityincome,includinglosses. OtherNCIresidualseparate.",
+      "base_reason": "Incrementalcapture10%andDA45%areunderidentifiedfinancialproxies,not49%ofsegmentOPorfullmeterASPxassemblycapacity. H2baseusespreviousNCIseasonality,actualcurrentH1locked.",
+      "supported_bounds": "Capture7–15%;DAshare0–1;loss-sharing/entitytaxmutations;65%priorNCIcashpayoutnotlegalpromise.",
+      "falsifier": "Entityaccounts/component-vsassemblyprofit,JVDAorToshibadividendsshowdifferentcapture.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "JPYpretax perJPYnominalmeterexternal-saleschange (dimensionless)"
+    },
+    {
+      "id": "jv_tax",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "tax",
+      "definition": "jv tax",
+      "axis": null,
+      "values": {
+        "bear": 0.315,
+        "base": 0.315,
+        "bull": 0.315
+      },
+      "observed_anchor": "FY26taxcurrent3104/deferred−106/cash1116;H1current2993/deferred383/cash2300/taxpay3189. AnnualnetDTLchange521=−106PL+627OCI;lossDTA375fullyallowed.",
+      "source_locators": [
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json/tax_observations",
+        "financial/nta_defence_levy.pdf"
+      ],
+      "mechanism": "JVandremaininggroupseparatetaxfloors;after-taxequitymethodincomeexcludedfromsecondtax;DTAflowsfrombonus/pensioncashvsbook;cashsettlesopeningpayable. NoJVtaxoffsetfromloss/restgroupdeductions.",
+      "base_reason": "31.5%isHOUSEfuturegroupassumptionreflectingnewnationallevy/mix,notissuer-statedprospectiverate.65%yearendpayableisacashcalendarproxy;OCIheldzero,sourcedoldDTLheld.",
+      "supported_bounds": "Rates30.5–33%economicrange;1ppstress;payable40–80%;DTAavailability/entitytaxfloor.",
+      "falsifier": "Taxinstallments/entitymix/creditrealizabilityorbook-taxassetbasesdiffer.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction / annual rate; see segment or fiscal axis"
+    },
+    {
+      "id": "lease_interest_rate",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "finance",
+      "definition": "lease interest rate",
+      "axis": null,
+      "values": {
+        "bear": 0.015,
+        "base": 0.015,
+        "bull": 0.015
+      },
+      "observed_anchor": "Sepbank1880+lease21;LTschedule300/600/600/0remaining. BankSTrate1%,LT1.17%observedMar. CCE19135includes8000currentsecuritiesonce.",
+      "source_locators": [
+        "financial/DEBT_MATURITIES_AND_CAPEX_CREDITORS.json",
+        "financial/tktk_latest_result.pdf PDF7–11"
+      ],
+      "mechanism": "Repaydatedcontractualprincipal,chargeexisting/newdrawinterestandcashdistributions;newdrawsolvescashshortfallsubjecthouseplanningcap;noneclaimedcommitted.",
+      "base_reason": "Baseusesnofreshborrowing.8bnminimumisplanningbuffer,notcovenant.25bncreditlimitisanalystscenarioceiling,notavailablefacility;bearrequirementisuncommittedfinancing.",
+      "supported_bounds": "Existingratesstep20bp/yearbase;newdraw2.5%/3.5%bear;borrowingunavailablestress;no negativecash/debtaccepted.",
+      "falsifier": "Bank/refinancingterms,newborrowingpermissions,interestratesorliquiditytimingdiffer.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction / annual rate; see segment or fiscal axis"
+    },
+    {
+      "id": "legacy_core_da_growth",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "capital",
+      "definition": "legacy core da growth",
+      "axis": null,
+      "values": {
+        "bear": 0.0,
+        "base": 0.0,
+        "bull": 0.0
+      },
+      "observed_anchor": "FY26cashCAPEX6036vsbookadditions6248;H1paid2546/CIP1049. Hasuda1610budget,313paidMar26;Jun27completion/Oct27operation. Newmeteringequipment1626plannedSep26.",
+      "source_locators": [
+        "financial/tktk_yuho_2026.pdf PDF29–30,77,80,103",
+        "audit/capital_schedule_review/REFINED_CAPITAL_REVIEW.json"
+      ],
+      "mechanism": "Post-Sepcapitalonly;namedHasudaspendinginsidebudget,unallocatedCIPexplicit;DAbycommission/life. Preserveopeningland/CIPfromlegacyamortization.",
+      "base_reason": "6.5/7.5/7/6.5bnannualcashbudgetsremainhouseunderwriting,notcopyof33bnMTPwhichincludesR&D. Current2×H1DAisrun-rateproxy,notknownfullyearforecast. FlatlegacyDAavoidsunsupported4%automaticbenefit;runoffandlatecommissionstressesretained.",
+      "supported_bounds": "Casecapitalbudgets;extra2bn/year;legacy−4%/+5%;736unallocatedCIPtiming. FutureSLlivesareeconomicproxiesnotstatutorycertainty.",
+      "falsifier": "Projectcash/creditors,invoicevsbookadditions,assetregister,lives/commissioninganddomesticdecliningbalanceproduceotherDA.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction / annual rate; see segment or fiscal axis"
+    },
+    {
+      "id": "legacy_lease_repayment",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "finance",
+      "definition": "legacy lease repayment",
+      "axis": [
+        "2027-03-31",
+        "2028-03-31",
+        "2029-03-31",
+        "2030-03-31"
+      ],
+      "values": {
+        "bear": [
+          2,
+          4,
+          4,
+          4
+        ],
+        "base": [
+          2,
+          4,
+          4,
+          4
+        ],
+        "bull": [
+          2,
+          4,
+          4,
+          4
+        ]
+      },
+      "observed_anchor": "Sepbank1880+lease21;LTschedule300/600/600/0remaining. BankSTrate1%,LT1.17%observedMar. CCE19135includes8000currentsecuritiesonce.",
+      "source_locators": [
+        "financial/DEBT_MATURITIES_AND_CAPEX_CREDITORS.json",
+        "financial/tktk_latest_result.pdf PDF7–11"
+      ],
+      "mechanism": "Repaydatedcontractualprincipal,chargeexisting/newdrawinterestandcashdistributions;newdrawsolvescashshortfallsubjecthouseplanningcap;noneclaimedcommitted.",
+      "base_reason": "Baseusesnofreshborrowing.8bnminimumisplanningbuffer,notcovenant.25bncreditlimitisanalystscenarioceiling,notavailablefacility;bearrequirementisuncommittedfinancing.",
+      "supported_bounds": "Existingratesstep20bp/yearbase;newdraw2.5%/3.5%bear;borrowingunavailablestress;no negativecash/debtaccepted.",
+      "falsifier": "Bank/refinancingterms,newborrowingpermissions,interestratesorliquiditytimingdiffer.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "JPY million; annual amounts except first post-Sep forecast-period inputs"
+    },
+    {
+      "id": "legacy_other_CL_settlement_fraction",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "workingcapital",
+      "definition": "legacy other CL settlement fraction",
+      "axis": null,
+      "values": {
+        "bear": 0.0,
+        "base": 0.0,
+        "bull": 0.0
+      },
+      "observed_anchor": "Septrade/notes/contract/electronicAR19894;inventory31710;AP9737;contractadvances3935;bonus2401. FY26ARdays85.4/inventory124/AP55.2/advances7.8.",
+      "source_locators": [
+        "financial/tktk_latest_result.pdf PDF7–11",
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json"
+      ],
+      "mechanism": "Rollallmaterialreceivable/inventory/payable/advanceaccountswithannualsalesorconstantactivity-costproxy;bonus/DTAseparate;legacyotherCLfundingtimingexplicit.",
+      "base_reason": "Year-enddaysanchoredMaractualratherthanextrapolatingseasonalSep;propertydepositneverordinaryWC. OtherCLheldbaseisaliveoperatingbalanceassumption,notknownfreecapitalcredit.",
+      "supported_bounds": "AR+10/inventory+15days;settlealllegacyotherCLcase;cash-flowprojectionnotmonthlycovenanttest.",
+      "falsifier": "Collection, WIPacceptance,contractadvances,bonus/warranty/creditorpaymentstimingdiffer.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction / annual rate; see segment or fiscal axis"
+    },
+    {
+      "id": "maintenance_capex",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "capital",
+      "definition": "maintenance capex",
+      "axis": null,
+      "values": {
+        "bear": 2000,
+        "base": 2000,
+        "bull": 2000
+      },
+      "observed_anchor": "FY26cashCAPEX6036vsbookadditions6248;H1paid2546/CIP1049. Hasuda1610budget,313paidMar26;Jun27completion/Oct27operation. Newmeteringequipment1626plannedSep26.",
+      "source_locators": [
+        "financial/tktk_yuho_2026.pdf PDF29–30,77,80,103",
+        "audit/capital_schedule_review/REFINED_CAPITAL_REVIEW.json"
+      ],
+      "mechanism": "Post-Sepcapitalonly;namedHasudaspendinginsidebudget,unallocatedCIPexplicit;DAbycommission/life. Preserveopeningland/CIPfromlegacyamortization.",
+      "base_reason": "6.5/7.5/7/6.5bnannualcashbudgetsremainhouseunderwriting,notcopyof33bnMTPwhichincludesR&D. Current2×H1DAisrun-rateproxy,notknownfullyearforecast. FlatlegacyDAavoidsunsupported4%automaticbenefit;runoffandlatecommissionstressesretained.",
+      "supported_bounds": "Casecapitalbudgets;extra2bn/year;legacy−4%/+5%;736unallocatedCIPtiming. FutureSLlivesareeconomicproxiesnotstatutorycertainty.",
+      "falsifier": "Projectcash/creditors,invoicevsbookadditions,assetregister,lives/commissioninganddomesticdecliningbalanceproduceotherDA.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "JPY million; annual amounts except first post-Sep forecast-period inputs"
+    },
+    {
+      "id": "meter_annual_new",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "meter",
+      "definition": "meter annual new",
+      "axis": null,
+      "values": {
+        "bear": 0.8,
+        "base": 0.84,
+        "bull": 0.88
+      },
+      "observed_anchor": "FY26externalS33212/orders34524;H1S18218/orders19952/B7693. PriorconditionalH2newdelivery71.4%atoldconversion85%.",
+      "source_locators": [
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json/segment_actuals",
+        "operating/OPERATING_REFINEMENT_REVIEW.md"
+      ],
+      "mechanism": "Utilityexpiry/tenderordersconverttoexternalrevenue; assemblyfees/fullmeters/intragroupturnovernotdoublecounted.",
+      "base_reason": "H2newdelivery65%belowpriorconditional71.4%;3/2/1%laternominalordergrowthrecognizesfinitecycle. SMAC3.6mnameplatedoesnotidentifyutilization/ASP/materialownership.",
+      "supported_bounds": "Bear/base/bullbookingandconversionpaths;flatlaterordersstress.",
+      "falsifier": "Awardmix, utilityreplacementstaging, outsourcingorqualifiedthroughputdiffers.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction / annual rate; see segment or fiscal axis"
+    },
+    {
+      "id": "meter_annual_open",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "meter",
+      "definition": "meter annual open",
+      "axis": null,
+      "values": {
+        "bear": 0.85,
+        "base": 0.9,
+        "bull": 0.93
+      },
+      "observed_anchor": "FY26externalS33212/orders34524;H1S18218/orders19952/B7693. PriorconditionalH2newdelivery71.4%atoldconversion85%.",
+      "source_locators": [
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json/segment_actuals",
+        "operating/OPERATING_REFINEMENT_REVIEW.md"
+      ],
+      "mechanism": "Utilityexpiry/tenderordersconverttoexternalrevenue; assemblyfees/fullmeters/intragroupturnovernotdoublecounted.",
+      "base_reason": "H2newdelivery65%belowpriorconditional71.4%;3/2/1%laternominalordergrowthrecognizesfinitecycle. SMAC3.6mnameplatedoesnotidentifyutilization/ASP/materialownership.",
+      "supported_bounds": "Bear/base/bullbookingandconversionpaths;flatlaterordersstress.",
+      "falsifier": "Awardmix, utilityreplacementstaging, outsourcingorqualifiedthroughputdiffers.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction / annual rate; see segment or fiscal axis"
+    },
+    {
+      "id": "meter_h2_new",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "meter",
+      "definition": "meter h2 new",
+      "axis": null,
+      "values": {
+        "bear": 0.55,
+        "base": 0.65,
+        "bull": 0.72
+      },
+      "observed_anchor": "FY26externalS33212/orders34524;H1S18218/orders19952/B7693. PriorconditionalH2newdelivery71.4%atoldconversion85%.",
+      "source_locators": [
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json/segment_actuals",
+        "operating/OPERATING_REFINEMENT_REVIEW.md"
+      ],
+      "mechanism": "Utilityexpiry/tenderordersconverttoexternalrevenue; assemblyfees/fullmeters/intragroupturnovernotdoublecounted.",
+      "base_reason": "H2newdelivery65%belowpriorconditional71.4%;3/2/1%laternominalordergrowthrecognizesfinitecycle. SMAC3.6mnameplatedoesnotidentifyutilization/ASP/materialownership.",
+      "supported_bounds": "Bear/base/bullbookingandconversionpaths;flatlaterordersstress.",
+      "falsifier": "Awardmix, utilityreplacementstaging, outsourcingorqualifiedthroughputdiffers.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction / annual rate; see segment or fiscal axis"
+    },
+    {
+      "id": "meter_h2_open",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "meter",
+      "definition": "meter h2 open",
+      "axis": null,
+      "values": {
+        "bear": 0.85,
+        "base": 0.85,
+        "bull": 0.85
+      },
+      "observed_anchor": "FY26externalS33212/orders34524;H1S18218/orders19952/B7693. PriorconditionalH2newdelivery71.4%atoldconversion85%.",
+      "source_locators": [
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json/segment_actuals",
+        "operating/OPERATING_REFINEMENT_REVIEW.md"
+      ],
+      "mechanism": "Utilityexpiry/tenderordersconverttoexternalrevenue; assemblyfees/fullmeters/intragroupturnovernotdoublecounted.",
+      "base_reason": "H2newdelivery65%belowpriorconditional71.4%;3/2/1%laternominalordergrowthrecognizesfinitecycle. SMAC3.6mnameplatedoesnotidentifyutilization/ASP/materialownership.",
+      "supported_bounds": "Bear/base/bullbookingandconversionpaths;flatlaterordersstress.",
+      "falsifier": "Awardmix, utilityreplacementstaging, outsourcingorqualifiedthroughputdiffers.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction / annual rate; see segment or fiscal axis"
+    },
+    {
+      "id": "meter_h2_orders",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "meter",
+      "definition": "meter h2 orders",
+      "axis": null,
+      "values": {
+        "bear": 18500,
+        "base": 20000,
+        "bull": 21500
+      },
+      "observed_anchor": "FY26externalS33212/orders34524;H1S18218/orders19952/B7693. PriorconditionalH2newdelivery71.4%atoldconversion85%.",
+      "source_locators": [
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json/segment_actuals",
+        "operating/OPERATING_REFINEMENT_REVIEW.md"
+      ],
+      "mechanism": "Utilityexpiry/tenderordersconverttoexternalrevenue; assemblyfees/fullmeters/intragroupturnovernotdoublecounted.",
+      "base_reason": "H2newdelivery65%belowpriorconditional71.4%;3/2/1%laternominalordergrowthrecognizesfinitecycle. SMAC3.6mnameplatedoesnotidentifyutilization/ASP/materialownership.",
+      "supported_bounds": "Bear/base/bullbookingandconversionpaths;flatlaterordersstress.",
+      "falsifier": "Awardmix, utilityreplacementstaging, outsourcingorqualifiedthroughputdiffers.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "JPY million; annual amounts except first post-Sep forecast-period inputs"
+    },
+    {
+      "id": "meter_order_growth",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "meter",
+      "definition": "meter order growth",
+      "axis": [
+        "2028-03-31",
+        "2029-03-31",
+        "2030-03-31"
+      ],
+      "values": {
+        "bear": [
+          0.01,
+          0,
+          -0.01
+        ],
+        "base": [
+          0.03,
+          0.02,
+          0.01
+        ],
+        "bull": [
+          0.06,
+          0.05,
+          0.03
+        ]
+      },
+      "observed_anchor": "FY26externalS33212/orders34524;H1S18218/orders19952/B7693. PriorconditionalH2newdelivery71.4%atoldconversion85%.",
+      "source_locators": [
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json/segment_actuals",
+        "operating/OPERATING_REFINEMENT_REVIEW.md"
+      ],
+      "mechanism": "Utilityexpiry/tenderordersconverttoexternalrevenue; assemblyfees/fullmeters/intragroupturnovernotdoublecounted.",
+      "base_reason": "H2newdelivery65%belowpriorconditional71.4%;3/2/1%laternominalordergrowthrecognizesfinitecycle. SMAC3.6mnameplatedoesnotidentifyutilization/ASP/materialownership.",
+      "supported_bounds": "Bear/base/bullbookingandconversionpaths;flatlaterordersstress.",
+      "falsifier": "Awardmix, utilityreplacementstaging, outsourcingorqualifiedthroughputdiffers.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction / annual rate; see segment or fiscal axis"
+    },
+    {
+      "id": "min_cash",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "finance",
+      "definition": "min cash",
+      "axis": null,
+      "values": {
+        "bear": 8000,
+        "base": 8000,
+        "bull": 8000
+      },
+      "observed_anchor": "Sepbank1880+lease21;LTschedule300/600/600/0remaining. BankSTrate1%,LT1.17%observedMar. CCE19135includes8000currentsecuritiesonce.",
+      "source_locators": [
+        "financial/DEBT_MATURITIES_AND_CAPEX_CREDITORS.json",
+        "financial/tktk_latest_result.pdf PDF7–11"
+      ],
+      "mechanism": "Repaydatedcontractualprincipal,chargeexisting/newdrawinterestandcashdistributions;newdrawsolvescashshortfallsubjecthouseplanningcap;noneclaimedcommitted.",
+      "base_reason": "Baseusesnofreshborrowing.8bnminimumisplanningbuffer,notcovenant.25bncreditlimitisanalystscenarioceiling,notavailablefacility;bearrequirementisuncommittedfinancing.",
+      "supported_bounds": "Existingratesstep20bp/yearbase;newdraw2.5%/3.5%bear;borrowingunavailablestress;no negativecash/debtaccepted.",
+      "falsifier": "Bank/refinancingterms,newborrowingpermissions,interestratesorliquiditytimingdiffer.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "JPY million; annual amounts except first post-Sep forecast-period inputs"
+    },
+    {
+      "id": "net_elimination",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "corporate",
+      "definition": "net elimination",
+      "axis": null,
+      "values": {
+        "bear": 100,
+        "base": 100,
+        "bull": 100
+      },
+      "observed_anchor": "CurrentH1central3121/prior2710;FY26central5639;neteliminationsH1−50. CommonR&D485alreadyexpensed.",
+      "source_locators": [
+        "financial/tktk_latest_result.pdf PDF12–13",
+        "financial/tktk_yuho_2026.pdf PDF28,103"
+      ],
+      "mechanism": "LockactualH1;infercashcostwithnamedhistoricaltransfer/DAproxyandpriorhalfseasonality;inflatecashprograms;addDAandneteliminationsonce.",
+      "base_reason": "No residualtohitmanagement11bnOP. Transfer350m ispresentationjudgmentrange0–800andmustconservegroupOP; futureincrementalprogram100/200/300namedplanningallowance.",
+      "supported_bounds": "3–4%inflationcases;0–800transferisclassificationrange,notgroupcostupside;cashprogramsboundedcasepaths.",
+      "falsifier": "Functionalheadcount/R&Dprogram/allocationdisclosuresshowdifferentrecurringcostscope.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "JPY million; annual amounts except first post-Sep forecast-period inputs"
+    },
+    {
+      "id": "new_credit_planning_limit",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "finance",
+      "definition": "new credit planning limit",
+      "axis": null,
+      "values": {
+        "bear": 25000.0,
+        "base": 25000.0,
+        "bull": 25000.0
+      },
+      "observed_anchor": "Sepbank1880+lease21;LTschedule300/600/600/0remaining. BankSTrate1%,LT1.17%observedMar. CCE19135includes8000currentsecuritiesonce.",
+      "source_locators": [
+        "financial/DEBT_MATURITIES_AND_CAPEX_CREDITORS.json",
+        "financial/tktk_latest_result.pdf PDF7–11"
+      ],
+      "mechanism": "Repaydatedcontractualprincipal,chargeexisting/newdrawinterestandcashdistributions;newdrawsolvescashshortfallsubjecthouseplanningcap;noneclaimedcommitted.",
+      "base_reason": "Baseusesnofreshborrowing.8bnminimumisplanningbuffer,notcovenant.25bncreditlimitisanalystscenarioceiling,notavailablefacility;bearrequirementisuncommittedfinancing.",
+      "supported_bounds": "Existingratesstep20bp/yearbase;newdraw2.5%/3.5%bear;borrowingunavailablestress;no negativecash/debtaccepted.",
+      "falsifier": "Bank/refinancingterms,newborrowingpermissions,interestratesorliquiditytimingdiffer.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "JPY million; annual amounts except first post-Sep forecast-period inputs"
+    },
+    {
+      "id": "new_order_retention_threshold_months",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "power",
+      "definition": "new order retention threshold months",
+      "axis": null,
+      "values": {
+        "bear": null,
+        "base": null,
+        "bull": null
+      },
+      "observed_anchor": "FY26orders67880/sales63864;Sep26orders35973/sales27491/backlog75939. PriorH2sales36430. No quantified whole-power nameplate;Oyamaearly2030s.",
+      "source_locators": [
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json/orders_backlog_actuals",
+        "operating/OPERATING_CLAIM_REGISTER.json"
+      ],
+      "mechanism": "Nominalneworderactivity andold/newdelivery jointlygeneratefixed-pricecohortshipments within constant-valuefinancialthroughput.",
+      "base_reason": "Retain moderateorderpath: H2intake36000 only+2.5%versuspriorH2; annualnominalgrowth4.5%. Current6%/later4.5%resourcegrowthareexplicitfinancialplanningceilings,notmeasuredphysicalunits.",
+      "supported_bounds": "Operationalcaseenvelopesplus0%capacitygrowthandneworderflatstress;notconfidenceintervals.",
+      "falsifier": "Delivery/acceptancecalendar, staff/testingconstraints orprice-costevidence fails; throughputorbookingsbelowpath.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "months; null means no additional queue-retention rule"
+    },
+    {
+      "id": "normalization_marginal_tax",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "tax",
+      "definition": "normalization marginal tax",
+      "axis": null,
+      "values": {
+        "bear": 0.315,
+        "base": 0.315,
+        "bull": 0.315
+      },
+      "observed_anchor": "FY26taxcurrent3104/deferred−106/cash1116;H1current2993/deferred383/cash2300/taxpay3189. AnnualnetDTLchange521=−106PL+627OCI;lossDTA375fullyallowed.",
+      "source_locators": [
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json/tax_observations",
+        "financial/nta_defence_levy.pdf"
+      ],
+      "mechanism": "JVandremaininggroupseparatetaxfloors;after-taxequitymethodincomeexcludedfromsecondtax;DTAflowsfrombonus/pensioncashvsbook;cashsettlesopeningpayable. NoJVtaxoffsetfromloss/restgroupdeductions.",
+      "base_reason": "31.5%isHOUSEfuturegroupassumptionreflectingnewnationallevy/mix,notissuer-statedprospectiverate.65%yearendpayableisacashcalendarproxy;OCIheldzero,sourcedoldDTLheld.",
+      "supported_bounds": "Rates30.5–33%economicrange;1ppstress;payable40–80%;DTAavailability/entitytaxfloor.",
+      "falsifier": "Taxinstallments/entitymix/creditrealizabilityorbook-taxassetbasesdiffer.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction / annual rate; see segment or fiscal axis"
+    },
+    {
+      "id": "old_backlog_repricing_fraction",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "price",
+      "definition": "old backlog repricing fraction",
+      "axis": null,
+      "values": {
+        "bear": 0.0,
+        "base": 0.0,
+        "bull": 0.0
+      },
+      "observed_anchor": "IssuerdiscussespriceimprovementbutpublishesnounitASP/backlogcontractpriceindex.",
+      "source_locators": [
+        "operating/OPERATING_REFINEMENT_REVIEW.md",
+        "financial/tktk_latest_supplement.pdf PDF6,8–10"
+      ],
+      "mechanism": "Separateone-timeopeningcontractpricelevelversusFY26financialreference;futureannualpricegrowthappliesonlytoneworders. Openingcontractsretainvintagepriceunlessexplicitrepricingstress.",
+      "base_reason": "2/1.5/1/1%segmentpricelevels/ratesareweakhouseproxies. Initialunityandfutureflat-pricecasesarecritical,notoptionalconfidenceembellishment.",
+      "supported_bounds": "Openingindicesunitytohousecaselevels;newprice0andstatedcasepaths;old-bookrepricing0base,50%hypotheticalupperstress.",
+      "falsifier": "Contractescalationclauses,quote/realizedASPormixcontradictslevels.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction / annual rate; see segment or fiscal axis"
+    },
+    {
+      "id": "opening_backlog_price_index",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "price",
+      "definition": "opening backlog price index",
+      "axis": [
+        "power",
+        "meter",
+        "GX",
+        "optical"
+      ],
+      "values": {
+        "bear": [
+          1.01,
+          1.005,
+          1,
+          1
+        ],
+        "base": [
+          1.02,
+          1.015,
+          1.01,
+          1.01
+        ],
+        "bull": [
+          1.03,
+          1.02,
+          1.015,
+          1.02
+        ]
+      },
+      "observed_anchor": "IssuerdiscussespriceimprovementbutpublishesnounitASP/backlogcontractpriceindex.",
+      "source_locators": [
+        "operating/OPERATING_REFINEMENT_REVIEW.md",
+        "financial/tktk_latest_supplement.pdf PDF6,8–10"
+      ],
+      "mechanism": "Separateone-timeopeningcontractpricelevelversusFY26financialreference;futureannualpricegrowthappliesonlytoneworders. Openingcontractsretainvintagepriceunlessexplicitrepricingstress.",
+      "base_reason": "2/1.5/1/1%segmentpricelevels/ratesareweakhouseproxies. Initialunityandfutureflat-pricecasesarecritical,notoptionalconfidenceembellishment.",
+      "supported_bounds": "Openingindicesunitytohousecaselevels;newprice0andstatedcasepaths;old-bookrepricing0base,50%hypotheticalupperstress.",
+      "falsifier": "Contractescalationclauses,quote/realizedASPormixcontradictslevels.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "price index relative to FY26 average financial reference"
+    },
+    {
+      "id": "optical_annual_new",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "optical",
+      "definition": "optical annual new",
+      "axis": null,
+      "values": {
+        "bear": 0.25,
+        "base": 0.35,
+        "bull": 0.45
+      },
+      "observed_anchor": "H1orders2732/S403/B3226;bigdomesticbatchandfirstoverseasorder,acceptanceundisclosed.",
+      "source_locators": [
+        "operating/OPERATING_CLAIM_REGISTER.json",
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json/orders_backlog_actuals"
+      ],
+      "mechanism": "Backlogandnewordersconvertunderacceptanceassumptions;noautomaticqualificationorindustryCAGR.",
+      "base_reason": "Do notannualizetheH1orderbatch. Recurringneworders2400/2700/3100andoldbookconversionarefinancialproxies.",
+      "supported_bounds": "Bear/base/bullconversion/orderpaths;notCamtekmarketCAGR.",
+      "falsifier": "Acceptanceorepeatorderslag;newtoolsfailqualification.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction / annual rate; see segment or fiscal axis"
+    },
+    {
+      "id": "optical_annual_open",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "optical",
+      "definition": "optical annual open",
+      "axis": null,
+      "values": {
+        "bear": 0.5,
+        "base": 0.65,
+        "bull": 0.75
+      },
+      "observed_anchor": "H1orders2732/S403/B3226;bigdomesticbatchandfirstoverseasorder,acceptanceundisclosed.",
+      "source_locators": [
+        "operating/OPERATING_CLAIM_REGISTER.json",
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json/orders_backlog_actuals"
+      ],
+      "mechanism": "Backlogandnewordersconvertunderacceptanceassumptions;noautomaticqualificationorindustryCAGR.",
+      "base_reason": "Do notannualizetheH1orderbatch. Recurringneworders2400/2700/3100andoldbookconversionarefinancialproxies.",
+      "supported_bounds": "Bear/base/bullconversion/orderpaths;notCamtekmarketCAGR.",
+      "falsifier": "Acceptanceorepeatorderslag;newtoolsfailqualification.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction / annual rate; see segment or fiscal axis"
+    },
+    {
+      "id": "optical_h2_new",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "optical",
+      "definition": "optical h2 new",
+      "axis": null,
+      "values": {
+        "bear": 0.1,
+        "base": 0.1,
+        "bull": 0.1
+      },
+      "observed_anchor": "H1orders2732/S403/B3226;bigdomesticbatchandfirstoverseasorder,acceptanceundisclosed.",
+      "source_locators": [
+        "operating/OPERATING_CLAIM_REGISTER.json",
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json/orders_backlog_actuals"
+      ],
+      "mechanism": "Backlogandnewordersconvertunderacceptanceassumptions;noautomaticqualificationorindustryCAGR.",
+      "base_reason": "Do notannualizetheH1orderbatch. Recurringneworders2400/2700/3100andoldbookconversionarefinancialproxies.",
+      "supported_bounds": "Bear/base/bullconversion/orderpaths;notCamtekmarketCAGR.",
+      "falsifier": "Acceptanceorepeatorderslag;newtoolsfailqualification.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction / annual rate; see segment or fiscal axis"
+    },
+    {
+      "id": "optical_h2_open",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "optical",
+      "definition": "optical h2 open",
+      "axis": null,
+      "values": {
+        "bear": 0.3,
+        "base": 0.45,
+        "bull": 0.6
+      },
+      "observed_anchor": "H1orders2732/S403/B3226;bigdomesticbatchandfirstoverseasorder,acceptanceundisclosed.",
+      "source_locators": [
+        "operating/OPERATING_CLAIM_REGISTER.json",
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json/orders_backlog_actuals"
+      ],
+      "mechanism": "Backlogandnewordersconvertunderacceptanceassumptions;noautomaticqualificationorindustryCAGR.",
+      "base_reason": "Do notannualizetheH1orderbatch. Recurringneworders2400/2700/3100andoldbookconversionarefinancialproxies.",
+      "supported_bounds": "Bear/base/bullconversion/orderpaths;notCamtekmarketCAGR.",
+      "falsifier": "Acceptanceorepeatorderslag;newtoolsfailqualification.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction / annual rate; see segment or fiscal axis"
+    },
+    {
+      "id": "optical_h2_orders",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "optical",
+      "definition": "optical h2 orders",
+      "axis": null,
+      "values": {
+        "bear": 1000,
+        "base": 1000,
+        "bull": 1000
+      },
+      "observed_anchor": "H1orders2732/S403/B3226;bigdomesticbatchandfirstoverseasorder,acceptanceundisclosed.",
+      "source_locators": [
+        "operating/OPERATING_CLAIM_REGISTER.json",
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json/orders_backlog_actuals"
+      ],
+      "mechanism": "Backlogandnewordersconvertunderacceptanceassumptions;noautomaticqualificationorindustryCAGR.",
+      "base_reason": "Do notannualizetheH1orderbatch. Recurringneworders2400/2700/3100andoldbookconversionarefinancialproxies.",
+      "supported_bounds": "Bear/base/bullconversion/orderpaths;notCamtekmarketCAGR.",
+      "falsifier": "Acceptanceorepeatorderslag;newtoolsfailqualification.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "JPY million; annual amounts except first post-Sep forecast-period inputs"
+    },
+    {
+      "id": "optical_orders",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "optical",
+      "definition": "optical orders",
+      "axis": [
+        "2028-03-31",
+        "2029-03-31",
+        "2030-03-31"
+      ],
+      "values": {
+        "bear": [
+          1800,
+          2000,
+          2200
+        ],
+        "base": [
+          2400,
+          2700,
+          3100
+        ],
+        "bull": [
+          3000,
+          3800,
+          4600
+        ]
+      },
+      "observed_anchor": "H1orders2732/S403/B3226;bigdomesticbatchandfirstoverseasorder,acceptanceundisclosed.",
+      "source_locators": [
+        "operating/OPERATING_CLAIM_REGISTER.json",
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json/orders_backlog_actuals"
+      ],
+      "mechanism": "Backlogandnewordersconvertunderacceptanceassumptions;noautomaticqualificationorindustryCAGR.",
+      "base_reason": "Do notannualizetheH1orderbatch. Recurringneworders2400/2700/3100andoldbookconversionarefinancialproxies.",
+      "supported_bounds": "Bear/base/bullconversion/orderpaths;notCamtekmarketCAGR.",
+      "falsifier": "Acceptanceorepeatorderslag;newtoolsfailqualification.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "JPY million; annual amounts except first post-Sep forecast-period inputs"
+    },
+    {
+      "id": "other_cash_nonop_annual",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "equitymethod",
+      "definition": "other cash nonop annual",
+      "axis": null,
+      "values": {
+        "bear": 50.0,
+        "base": 50.0,
+        "bull": 50.0
+      },
+      "observed_anchor": "FY26equitymethodprofit121,H166;FY26CFinterest/div192versusPL158,H1CF134versusPL42. ATS25%/Decyearend;individualbookundisclosed.",
+      "source_locators": [
+        "financial/PROPERTY_AND_INVESTMENT_SCOPE_AUDIT.json",
+        "financial/tktk_yuho_2026.pdf PDF7,77,79,83"
+      ],
+      "mechanism": "ProfitentersPBTafterentitytax;cashdistributionseparateandreducesinvestmentcarrying,notnewincome;onlyidentifiedheldamountchanges.",
+      "base_reason": "Annual121holdand50%distributionareboundedhousejudgments;othercashnonop50+datedcashinterestkeptseparate. No applyingATSreturntowhole1788securities.",
+      "supported_bounds": "Distribution0–100%,nonop50baselinevsannual/currenthalfobservedrange;notallprofitiscash.",
+      "falsifier": "ATSfinancials,distribution/timingorroyalty/FX/othernonopchanges.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "JPY million; annual amounts except first post-Sep forecast-period inputs"
+    },
+    {
+      "id": "payable_days",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "workingcapital",
+      "definition": "payable days",
+      "axis": null,
+      "values": {
+        "bear": 50,
+        "base": 55.2,
+        "bull": 58
+      },
+      "observed_anchor": "Septrade/notes/contract/electronicAR19894;inventory31710;AP9737;contractadvances3935;bonus2401. FY26ARdays85.4/inventory124/AP55.2/advances7.8.",
+      "source_locators": [
+        "financial/tktk_latest_result.pdf PDF7–11",
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json"
+      ],
+      "mechanism": "Rollallmaterialreceivable/inventory/payable/advanceaccountswithannualsalesorconstantactivity-costproxy;bonus/DTAseparate;legacyotherCLfundingtimingexplicit.",
+      "base_reason": "Year-enddaysanchoredMaractualratherthanextrapolatingseasonalSep;propertydepositneverordinaryWC. OtherCLheldbaseisaliveoperatingbalanceassumption,notknownfreecapitalcredit.",
+      "supported_bounds": "AR+10/inventory+15days;settlealllegacyotherCLcase;cash-flowprojectionnotmonthlycovenanttest.",
+      "falsifier": "Collection, WIPacceptance,contractadvances,bonus/warranty/creditorpaymentstimingdiffer.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "days"
+    },
+    {
+      "id": "payout",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "ownership",
+      "definition": "payout",
+      "axis": null,
+      "values": {
+        "bear": 0.4,
+        "base": 0.4,
+        "bull": 0.4
+      },
+      "observed_anchor": "Executed657000buybackcompletedSep1;Oct8cancellationreducesissued/treasuryequally. ExBBT EPSshares15399767/H1weighted15766037. MarBBT162040;Septtrustcountundisclosed.",
+      "source_locators": [
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json/share_actions",
+        "financial/press_2881333.pdf"
+      ],
+      "mechanism": "Actualhalfshare-days+postbuybackshares;cashdividendssharesincludetrustproxy;futuregrantseparate. Actual67interimonly, futurefinal/interimfromownEPS×40%policy.",
+      "base_reason": "No repeatbuybackorEPSbenefitfromcancellation;no undeclaredmanagement67finalinengine.40%policyactualbutfutureimplementationhousefundingassumption,notgrowth/yieldgate.",
+      "supported_bounds": "0vsMarchtrustproxy;annual10000grantcase;policy0–40/50%cashstress.",
+      "falsifier": "Newgrant/BBTdelivery/distributiondeclaredorsecuritiesevent.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction / annual rate; see segment or fiscal axis"
+    },
+    {
+      "id": "pension_cash_drag",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "pension",
+      "definition": "pension cash drag",
+      "axis": [
+        "2027-03-31",
+        "2028-03-31",
+        "2029-03-31",
+        "2030-03-31"
+      ],
+      "values": {
+        "bear": [
+          900,
+          800,
+          750,
+          700
+        ],
+        "base": [
+          900,
+          800,
+          750,
+          700
+        ],
+        "bull": [
+          900,
+          800,
+          750,
+          700
+        ]
+      },
+      "observed_anchor": "FY26CFcash-over-book539vsH1461;grossSep10701/assets3017. FY26actuarialOCI1635pretaxnotcash;DBexpense821/DC148alreadyincosts.",
+      "source_locators": [
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json/pension",
+        "financial/tktk_yuho_2026.pdf PDF80,96–98"
+      ],
+      "mechanism": "Separatecashabovebookexpensefromcostpools;netpensionreducesbycashdragonlywithzeroassumedfutureOCI;grossliability/assetallocationexplicit;taxbenefitonlyasrealizable.",
+      "base_reason": "FullFY27drag900lessactualH1461→H2439,then800/750/700annual.80%liability/20%assetallocationnearH1CF371/90isproxy;notactuarialvaluation. Interest/amortizationeffectsnotclaimfreeEPSupside.",
+      "supported_bounds": "Additional300mcash/yearstress;grossallocation0–1;no futureOCIforecast.",
+      "falsifier": "Retirements, contributions,actuarialamortization/discountorassetreturnsdiffer.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "JPY million; annual amounts except first post-Sep forecast-period inputs"
+    },
+    {
+      "id": "pension_liability_share_of_cash_drag",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "pension",
+      "definition": "pension liability share of cash drag",
+      "axis": null,
+      "values": {
+        "bear": 0.8,
+        "base": 0.8,
+        "bull": 0.8
+      },
+      "observed_anchor": "FY26CFcash-over-book539vsH1461;grossSep10701/assets3017. FY26actuarialOCI1635pretaxnotcash;DBexpense821/DC148alreadyincosts.",
+      "source_locators": [
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json/pension",
+        "financial/tktk_yuho_2026.pdf PDF80,96–98"
+      ],
+      "mechanism": "Separatecashabovebookexpensefromcostpools;netpensionreducesbycashdragonlywithzeroassumedfutureOCI;grossliability/assetallocationexplicit;taxbenefitonlyasrealizable.",
+      "base_reason": "FullFY27drag900lessactualH1461→H2439,then800/750/700annual.80%liability/20%assetallocationnearH1CF371/90isproxy;notactuarialvaluation. Interest/amortizationeffectsnotclaimfreeEPSupside.",
+      "supported_bounds": "Additional300mcash/yearstress;grossallocation0–1;no futureOCIforecast.",
+      "falsifier": "Retirements, contributions,actuarialamortization/discountorassetreturnsdiffer.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction"
+    },
+    {
+      "id": "power_annual_new",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "power",
+      "definition": "power annual new",
+      "axis": null,
+      "values": {
+        "bear": 0.23,
+        "base": 0.25,
+        "bull": 0.28
+      },
+      "observed_anchor": "FY26orders67880/sales63864;Sep26orders35973/sales27491/backlog75939. PriorH2sales36430. No quantified whole-power nameplate;Oyamaearly2030s.",
+      "source_locators": [
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json/orders_backlog_actuals",
+        "operating/OPERATING_CLAIM_REGISTER.json"
+      ],
+      "mechanism": "Nominalneworderactivity andold/newdelivery jointlygeneratefixed-pricecohortshipments within constant-valuefinancialthroughput.",
+      "base_reason": "Retain moderateorderpath: H2intake36000 only+2.5%versuspriorH2; annualnominalgrowth4.5%. Current6%/later4.5%resourcegrowthareexplicitfinancialplanningceilings,notmeasuredphysicalunits.",
+      "supported_bounds": "Operationalcaseenvelopesplus0%capacitygrowthandneworderflatstress;notconfidenceintervals.",
+      "falsifier": "Delivery/acceptancecalendar, staff/testingconstraints orprice-costevidence fails; throughputorbookingsbelowpath.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction / annual rate; see segment or fiscal axis"
+    },
+    {
+      "id": "power_annual_open",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "power",
+      "definition": "power annual open",
+      "axis": null,
+      "values": {
+        "bear": 0.68,
+        "base": 0.7392,
+        "bull": 0.77
+      },
+      "observed_anchor": "FY26orders67880/sales63864;Sep26orders35973/sales27491/backlog75939. PriorH2sales36430. No quantified whole-power nameplate;Oyamaearly2030s.",
+      "source_locators": [
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json/orders_backlog_actuals",
+        "operating/OPERATING_CLAIM_REGISTER.json"
+      ],
+      "mechanism": "Nominalneworderactivity andold/newdelivery jointlygeneratefixed-pricecohortshipments within constant-valuefinancialthroughput.",
+      "base_reason": "Retain moderateorderpath: H2intake36000 only+2.5%versuspriorH2; annualnominalgrowth4.5%. Current6%/later4.5%resourcegrowthareexplicitfinancialplanningceilings,notmeasuredphysicalunits.",
+      "supported_bounds": "Operationalcaseenvelopesplus0%capacitygrowthandneworderflatstress;notconfidenceintervals.",
+      "falsifier": "Delivery/acceptancecalendar, staff/testingconstraints orprice-costevidence fails; throughputorbookingsbelowpath.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction / annual rate; see segment or fiscal axis"
+    },
+    {
+      "id": "power_current_volume_cap",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "power",
+      "definition": "power current volume cap",
+      "axis": null,
+      "values": {
+        "bear": 0.03,
+        "base": 0.06,
+        "bull": 0.1
+      },
+      "observed_anchor": "FY26orders67880/sales63864;Sep26orders35973/sales27491/backlog75939. PriorH2sales36430. No quantified whole-power nameplate;Oyamaearly2030s.",
+      "source_locators": [
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json/orders_backlog_actuals",
+        "operating/OPERATING_CLAIM_REGISTER.json"
+      ],
+      "mechanism": "Nominalneworderactivity andold/newdelivery jointlygeneratefixed-pricecohortshipments within constant-valuefinancialthroughput.",
+      "base_reason": "Retain moderateorderpath: H2intake36000 only+2.5%versuspriorH2; annualnominalgrowth4.5%. Current6%/later4.5%resourcegrowthareexplicitfinancialplanningceilings,notmeasuredphysicalunits.",
+      "supported_bounds": "Operationalcaseenvelopesplus0%capacitygrowthandneworderflatstress;notconfidenceintervals.",
+      "falsifier": "Delivery/acceptancecalendar, staff/testingconstraints orprice-costevidence fails; throughputorbookingsbelowpath.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "growthfraction versuspriorH2constant-referencefinancialthroughput"
+    },
+    {
+      "id": "power_h2_new",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "power",
+      "definition": "power h2 new",
+      "axis": null,
+      "values": {
+        "bear": 0.14,
+        "base": 0.15,
+        "bull": 0.18
+      },
+      "observed_anchor": "FY26orders67880/sales63864;Sep26orders35973/sales27491/backlog75939. PriorH2sales36430. No quantified whole-power nameplate;Oyamaearly2030s.",
+      "source_locators": [
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json/orders_backlog_actuals",
+        "operating/OPERATING_CLAIM_REGISTER.json"
+      ],
+      "mechanism": "Nominalneworderactivity andold/newdelivery jointlygeneratefixed-pricecohortshipments within constant-valuefinancialthroughput.",
+      "base_reason": "Retain moderateorderpath: H2intake36000 only+2.5%versuspriorH2; annualnominalgrowth4.5%. Current6%/later4.5%resourcegrowthareexplicitfinancialplanningceilings,notmeasuredphysicalunits.",
+      "supported_bounds": "Operationalcaseenvelopesplus0%capacitygrowthandneworderflatstress;notconfidenceintervals.",
+      "falsifier": "Delivery/acceptancecalendar, staff/testingconstraints orprice-costevidence fails; throughputorbookingsbelowpath.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction / annual rate; see segment or fiscal axis"
+    },
+    {
+      "id": "power_h2_open",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "power",
+      "definition": "power h2 open",
+      "axis": null,
+      "values": {
+        "bear": 0.39,
+        "base": 0.43,
+        "bull": 0.46
+      },
+      "observed_anchor": "FY26orders67880/sales63864;Sep26orders35973/sales27491/backlog75939. PriorH2sales36430. No quantified whole-power nameplate;Oyamaearly2030s.",
+      "source_locators": [
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json/orders_backlog_actuals",
+        "operating/OPERATING_CLAIM_REGISTER.json"
+      ],
+      "mechanism": "Nominalneworderactivity andold/newdelivery jointlygeneratefixed-pricecohortshipments within constant-valuefinancialthroughput.",
+      "base_reason": "Retain moderateorderpath: H2intake36000 only+2.5%versuspriorH2; annualnominalgrowth4.5%. Current6%/later4.5%resourcegrowthareexplicitfinancialplanningceilings,notmeasuredphysicalunits.",
+      "supported_bounds": "Operationalcaseenvelopesplus0%capacitygrowthandneworderflatstress;notconfidenceintervals.",
+      "falsifier": "Delivery/acceptancecalendar, staff/testingconstraints orprice-costevidence fails; throughputorbookingsbelowpath.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction / annual rate; see segment or fiscal axis"
+    },
+    {
+      "id": "power_h2_orders",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "power",
+      "definition": "power h2 orders",
+      "axis": null,
+      "values": {
+        "bear": 34000,
+        "base": 36000,
+        "bull": 38000
+      },
+      "observed_anchor": "FY26orders67880/sales63864;Sep26orders35973/sales27491/backlog75939. PriorH2sales36430. No quantified whole-power nameplate;Oyamaearly2030s.",
+      "source_locators": [
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json/orders_backlog_actuals",
+        "operating/OPERATING_CLAIM_REGISTER.json"
+      ],
+      "mechanism": "Nominalneworderactivity andold/newdelivery jointlygeneratefixed-pricecohortshipments within constant-valuefinancialthroughput.",
+      "base_reason": "Retain moderateorderpath: H2intake36000 only+2.5%versuspriorH2; annualnominalgrowth4.5%. Current6%/later4.5%resourcegrowthareexplicitfinancialplanningceilings,notmeasuredphysicalunits.",
+      "supported_bounds": "Operationalcaseenvelopesplus0%capacitygrowthandneworderflatstress;notconfidenceintervals.",
+      "falsifier": "Delivery/acceptancecalendar, staff/testingconstraints orprice-costevidence fails; throughputorbookingsbelowpath.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "JPY million; annual amounts except first post-Sep forecast-period inputs"
+    },
+    {
+      "id": "power_order_growth",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "power",
+      "definition": "power order growth",
+      "axis": [
+        "2028-03-31",
+        "2029-03-31",
+        "2030-03-31"
+      ],
+      "values": {
+        "bear": [
+          0.02,
+          0.01,
+          0
+        ],
+        "base": [
+          0.045,
+          0.045,
+          0.045
+        ],
+        "bull": [
+          0.065,
+          0.065,
+          0.065
+        ]
+      },
+      "observed_anchor": "FY26orders67880/sales63864;Sep26orders35973/sales27491/backlog75939. PriorH2sales36430. No quantified whole-power nameplate;Oyamaearly2030s.",
+      "source_locators": [
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json/orders_backlog_actuals",
+        "operating/OPERATING_CLAIM_REGISTER.json"
+      ],
+      "mechanism": "Nominalneworderactivity andold/newdelivery jointlygeneratefixed-pricecohortshipments within constant-valuefinancialthroughput.",
+      "base_reason": "Retain moderateorderpath: H2intake36000 only+2.5%versuspriorH2; annualnominalgrowth4.5%. Current6%/later4.5%resourcegrowthareexplicitfinancialplanningceilings,notmeasuredphysicalunits.",
+      "supported_bounds": "Operationalcaseenvelopesplus0%capacitygrowthandneworderflatstress;notconfidenceintervals.",
+      "falsifier": "Delivery/acceptancecalendar, staff/testingconstraints orprice-costevidence fails; throughputorbookingsbelowpath.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction / annual rate; see segment or fiscal axis"
+    },
+    {
+      "id": "power_volume_cap",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "power",
+      "definition": "power volume cap",
+      "axis": null,
+      "values": {
+        "bear": 0.015,
+        "base": 0.045,
+        "bull": 0.08
+      },
+      "observed_anchor": "FY26orders67880/sales63864;Sep26orders35973/sales27491/backlog75939. PriorH2sales36430. No quantified whole-power nameplate;Oyamaearly2030s.",
+      "source_locators": [
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json/orders_backlog_actuals",
+        "operating/OPERATING_CLAIM_REGISTER.json"
+      ],
+      "mechanism": "Nominalneworderactivity andold/newdelivery jointlygeneratefixed-pricecohortshipments within constant-valuefinancialthroughput.",
+      "base_reason": "Retain moderateorderpath: H2intake36000 only+2.5%versuspriorH2; annualnominalgrowth4.5%. Current6%/later4.5%resourcegrowthareexplicitfinancialplanningceilings,notmeasuredphysicalunits.",
+      "supported_bounds": "Operationalcaseenvelopesplus0%capacitygrowthandneworderflatstress;notconfidenceintervals.",
+      "falsifier": "Delivery/acceptancecalendar, staff/testingconstraints orprice-costevidence fails; throughputorbookingsbelowpath.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "annualgrowthfraction ofresourceceiling"
+    },
+    {
+      "id": "prices",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "price",
+      "definition": "prices",
+      "axis": [
+        "power",
+        "meter",
+        "GX",
+        "optical"
+      ],
+      "values": {
+        "bear": [
+          0.01,
+          0.005,
+          0,
+          0
+        ],
+        "base": [
+          0.02,
+          0.015,
+          0.01,
+          0.01
+        ],
+        "bull": [
+          0.03,
+          0.02,
+          0.015,
+          0.02
+        ]
+      },
+      "observed_anchor": "IssuerdiscussespriceimprovementbutpublishesnounitASP/backlogcontractpriceindex.",
+      "source_locators": [
+        "operating/OPERATING_REFINEMENT_REVIEW.md",
+        "financial/tktk_latest_supplement.pdf PDF6,8–10"
+      ],
+      "mechanism": "Separateone-timeopeningcontractpricelevelversusFY26financialreference;futureannualpricegrowthappliesonlytoneworders. Openingcontractsretainvintagepriceunlessexplicitrepricingstress.",
+      "base_reason": "2/1.5/1/1%segmentpricelevels/ratesareweakhouseproxies. Initialunityandfutureflat-pricecasesarecritical,notoptionalconfidenceembellishment.",
+      "supported_bounds": "Openingindicesunitytohousecaselevels;newprice0andstatedcasepaths;old-bookrepricing0base,50%hypotheticalupperstress.",
+      "falsifier": "Contractescalationclauses,quote/realizedASPormixcontradictslevels.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction / annual rate; see segment or fiscal axis"
+    },
+    {
+      "id": "property_advance_m",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "property",
+      "definition": "property advance m",
+      "axis": null,
+      "values": {
+        "bear": 911,
+        "base": 911,
+        "bull": 911
+      },
+      "observed_anchor": "FY26segmentOP622/DA285versusexternalrentalprofit308/DA136;internalrent524,H1internal264vsprior261. PlannedfinaltransferJun11,2027;consideration/bookundisclosed;H1advance911investingcash.",
+      "source_locators": [
+        "financial/PROPERTY_AND_INVESTMENT_SCOPE_AUDIT.json",
+        "financial/tktk_property_sale.pdf PDF1–2",
+        "financial/tktk_yuho_2026.pdf PDF29,99,102–103"
+      ],
+      "mechanism": "Prorateexternalrenttoclosing;preservederived314profit/149DAaccountscopecounterpartcostselsewhere;separatebookderecognition,netgain,cashreceiptandnoncashadvancerelease.",
+      "base_reason": "Residualcontinuityisconsolidationaccountingjudgment,notnewexternalbusiness. Book3.8bnisroundedproxyfrom7.775bnrentalbooklessfirstnetdisposal,notcontractdata. Gain5.299bnisremainingissuerestimate;receipt8.188bnisinferred,nevercashfloor.",
+      "supported_bounds": "Coherentnofurthersalescenario;0–314mtrueunoffsetannualprofitloss;classificationfraction0–1changesfundingbaseassumptionbutmustkeepfullBS;receiptnotfixedindependentlyofbook/gain/advance.",
+      "falsifier": "Finalsettlement/book/costs,tenant/assetallocationsorpost-exitcostchangesdiffer.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "JPY million; annual amounts except first post-Sep forecast-period inputs"
+    },
+    {
+      "id": "property_advance_other_CL_fraction",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "property",
+      "definition": "property advance other CL fraction",
+      "axis": null,
+      "values": {
+        "bear": 1.0,
+        "base": 1.0,
+        "bull": 1.0
+      },
+      "observed_anchor": "FY26segmentOP622/DA285versusexternalrentalprofit308/DA136;internalrent524,H1internal264vsprior261. PlannedfinaltransferJun11,2027;consideration/bookundisclosed;H1advance911investingcash.",
+      "source_locators": [
+        "financial/PROPERTY_AND_INVESTMENT_SCOPE_AUDIT.json",
+        "financial/tktk_property_sale.pdf PDF1–2",
+        "financial/tktk_yuho_2026.pdf PDF29,99,102–103"
+      ],
+      "mechanism": "Prorateexternalrenttoclosing;preservederived314profit/149DAaccountscopecounterpartcostselsewhere;separatebookderecognition,netgain,cashreceiptandnoncashadvancerelease.",
+      "base_reason": "Residualcontinuityisconsolidationaccountingjudgment,notnewexternalbusiness. Book3.8bnisroundedproxyfrom7.775bnrentalbooklessfirstnetdisposal,notcontractdata. Gain5.299bnisremainingissuerestimate;receipt8.188bnisinferred,nevercashfloor.",
+      "supported_bounds": "Coherentnofurthersalescenario;0–314mtrueunoffsetannualprofitloss;classificationfraction0–1changesfundingbaseassumptionbutmustkeepfullBS;receiptnotfixedindependentlyofbook/gain/advance.",
+      "falsifier": "Finalsettlement/book/costs,tenant/assetallocationsorpost-exitcostchangesdiffer.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction / annual rate; see segment or fiscal axis"
+    },
+    {
+      "id": "property_final_book",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "property",
+      "definition": "property final book",
+      "axis": null,
+      "values": {
+        "bear": 3800.0,
+        "base": 3800.0,
+        "bull": 3800.0
+      },
+      "observed_anchor": "FY26segmentOP622/DA285versusexternalrentalprofit308/DA136;internalrent524,H1internal264vsprior261. PlannedfinaltransferJun11,2027;consideration/bookundisclosed;H1advance911investingcash.",
+      "source_locators": [
+        "financial/PROPERTY_AND_INVESTMENT_SCOPE_AUDIT.json",
+        "financial/tktk_property_sale.pdf PDF1–2",
+        "financial/tktk_yuho_2026.pdf PDF29,99,102–103"
+      ],
+      "mechanism": "Prorateexternalrenttoclosing;preservederived314profit/149DAaccountscopecounterpartcostselsewhere;separatebookderecognition,netgain,cashreceiptandnoncashadvancerelease.",
+      "base_reason": "Residualcontinuityisconsolidationaccountingjudgment,notnewexternalbusiness. Book3.8bnisroundedproxyfrom7.775bnrentalbooklessfirstnetdisposal,notcontractdata. Gain5.299bnisremainingissuerestimate;receipt8.188bnisinferred,nevercashfloor.",
+      "supported_bounds": "Coherentnofurthersalescenario;0–314mtrueunoffsetannualprofitloss;classificationfraction0–1changesfundingbaseassumptionbutmustkeepfullBS;receiptnotfixedindependentlyofbook/gain/advance.",
+      "falsifier": "Finalsettlement/book/costs,tenant/assetallocationsorpost-exitcostchangesdiffer.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "JPY million; annual amounts except first post-Sep forecast-period inputs"
+    },
+    {
+      "id": "property_final_gain",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "property",
+      "definition": "property final gain",
+      "axis": null,
+      "values": {
+        "bear": 4700,
+        "base": 5299,
+        "bull": 5299
+      },
+      "observed_anchor": "FY26segmentOP622/DA285versusexternalrentalprofit308/DA136;internalrent524,H1internal264vsprior261. PlannedfinaltransferJun11,2027;consideration/bookundisclosed;H1advance911investingcash.",
+      "source_locators": [
+        "financial/PROPERTY_AND_INVESTMENT_SCOPE_AUDIT.json",
+        "financial/tktk_property_sale.pdf PDF1–2",
+        "financial/tktk_yuho_2026.pdf PDF29,99,102–103"
+      ],
+      "mechanism": "Prorateexternalrenttoclosing;preservederived314profit/149DAaccountscopecounterpartcostselsewhere;separatebookderecognition,netgain,cashreceiptandnoncashadvancerelease.",
+      "base_reason": "Residualcontinuityisconsolidationaccountingjudgment,notnewexternalbusiness. Book3.8bnisroundedproxyfrom7.775bnrentalbooklessfirstnetdisposal,notcontractdata. Gain5.299bnisremainingissuerestimate;receipt8.188bnisinferred,nevercashfloor.",
+      "supported_bounds": "Coherentnofurthersalescenario;0–314mtrueunoffsetannualprofitloss;classificationfraction0–1changesfundingbaseassumptionbutmustkeepfullBS;receiptnotfixedindependentlyofbook/gain/advance.",
+      "falsifier": "Finalsettlement/book/costs,tenant/assetallocationsorpost-exitcostchangesdiffer.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "JPY million; annual amounts except first post-Sep forecast-period inputs"
+    },
+    {
+      "id": "property_remaining_rent_runrate",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "property",
+      "definition": "property remaining rent runrate",
+      "axis": null,
+      "values": {
+        "bear": 400.0,
+        "base": 400.0,
+        "bull": 400.0
+      },
+      "observed_anchor": "FY26segmentOP622/DA285versusexternalrentalprofit308/DA136;internalrent524,H1internal264vsprior261. PlannedfinaltransferJun11,2027;consideration/bookundisclosed;H1advance911investingcash.",
+      "source_locators": [
+        "financial/PROPERTY_AND_INVESTMENT_SCOPE_AUDIT.json",
+        "financial/tktk_property_sale.pdf PDF1–2",
+        "financial/tktk_yuho_2026.pdf PDF29,99,102–103"
+      ],
+      "mechanism": "Prorateexternalrenttoclosing;preservederived314profit/149DAaccountscopecounterpartcostselsewhere;separatebookderecognition,netgain,cashreceiptandnoncashadvancerelease.",
+      "base_reason": "Residualcontinuityisconsolidationaccountingjudgment,notnewexternalbusiness. Book3.8bnisroundedproxyfrom7.775bnrentalbooklessfirstnetdisposal,notcontractdata. Gain5.299bnisremainingissuerestimate;receipt8.188bnisinferred,nevercashfloor.",
+      "supported_bounds": "Coherentnofurthersalescenario;0–314mtrueunoffsetannualprofitloss;classificationfraction0–1changesfundingbaseassumptionbutmustkeepfullBS;receiptnotfixedindependentlyofbook/gain/advance.",
+      "falsifier": "Finalsettlement/book/costs,tenant/assetallocationsorpost-exitcostchangesdiffer.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "JPYmillion/year externalrent"
+    },
+    {
+      "id": "property_sale_date",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "property",
+      "definition": "property sale date",
+      "axis": null,
+      "values": {
+        "bear": "2027-06-11",
+        "base": "2027-06-11",
+        "bull": "2027-06-11"
+      },
+      "observed_anchor": "FY26segmentOP622/DA285versusexternalrentalprofit308/DA136;internalrent524,H1internal264vsprior261. PlannedfinaltransferJun11,2027;consideration/bookundisclosed;H1advance911investingcash.",
+      "source_locators": [
+        "financial/PROPERTY_AND_INVESTMENT_SCOPE_AUDIT.json",
+        "financial/tktk_property_sale.pdf PDF1–2",
+        "financial/tktk_yuho_2026.pdf PDF29,99,102–103"
+      ],
+      "mechanism": "Prorateexternalrenttoclosing;preservederived314profit/149DAaccountscopecounterpartcostselsewhere;separatebookderecognition,netgain,cashreceiptandnoncashadvancerelease.",
+      "base_reason": "Residualcontinuityisconsolidationaccountingjudgment,notnewexternalbusiness. Book3.8bnisroundedproxyfrom7.775bnrentalbooklessfirstnetdisposal,notcontractdata. Gain5.299bnisremainingissuerestimate;receipt8.188bnisinferred,nevercashfloor.",
+      "supported_bounds": "Coherentnofurthersalescenario;0–314mtrueunoffsetannualprofitloss;classificationfraction0–1changesfundingbaseassumptionbutmustkeepfullBS;receiptnotfixedindependentlyofbook/gain/advance.",
+      "falsifier": "Finalsettlement/book/costs,tenant/assetallocationsorpost-exitcostchangesdiffer.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "ISO date; null means commissioning not assumed"
+    },
+    {
+      "id": "property_sale_enabled",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "property",
+      "definition": "property sale enabled",
+      "axis": null,
+      "values": {
+        "bear": true,
+        "base": true,
+        "bull": true
+      },
+      "observed_anchor": "FY26segmentOP622/DA285versusexternalrentalprofit308/DA136;internalrent524,H1internal264vsprior261. PlannedfinaltransferJun11,2027;consideration/bookundisclosed;H1advance911investingcash.",
+      "source_locators": [
+        "financial/PROPERTY_AND_INVESTMENT_SCOPE_AUDIT.json",
+        "financial/tktk_property_sale.pdf PDF1–2",
+        "financial/tktk_yuho_2026.pdf PDF29,99,102–103"
+      ],
+      "mechanism": "Prorateexternalrenttoclosing;preservederived314profit/149DAaccountscopecounterpartcostselsewhere;separatebookderecognition,netgain,cashreceiptandnoncashadvancerelease.",
+      "base_reason": "Residualcontinuityisconsolidationaccountingjudgment,notnewexternalbusiness. Book3.8bnisroundedproxyfrom7.775bnrentalbooklessfirstnetdisposal,notcontractdata. Gain5.299bnisremainingissuerestimate;receipt8.188bnisinferred,nevercashfloor.",
+      "supported_bounds": "Coherentnofurthersalescenario;0–314mtrueunoffsetannualprofitloss;classificationfraction0–1changesfundingbaseassumptionbutmustkeepfullBS;receiptnotfixedindependentlyofbook/gain/advance.",
+      "falsifier": "Finalsettlement/book/costs,tenant/assetallocationsorpost-exitcostchangesdiffer.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "boolean scope choice"
+    },
+    {
+      "id": "property_scope_retention",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "property",
+      "definition": "property scope retention",
+      "axis": null,
+      "values": {
+        "bear": 1.0,
+        "base": 1.0,
+        "bull": 1.0
+      },
+      "observed_anchor": "FY26segmentOP622/DA285versusexternalrentalprofit308/DA136;internalrent524,H1internal264vsprior261. PlannedfinaltransferJun11,2027;consideration/bookundisclosed;H1advance911investingcash.",
+      "source_locators": [
+        "financial/PROPERTY_AND_INVESTMENT_SCOPE_AUDIT.json",
+        "financial/tktk_property_sale.pdf PDF1–2",
+        "financial/tktk_yuho_2026.pdf PDF29,99,102–103"
+      ],
+      "mechanism": "Prorateexternalrenttoclosing;preservederived314profit/149DAaccountscopecounterpartcostselsewhere;separatebookderecognition,netgain,cashreceiptandnoncashadvancerelease.",
+      "base_reason": "Residualcontinuityisconsolidationaccountingjudgment,notnewexternalbusiness. Book3.8bnisroundedproxyfrom7.775bnrentalbooklessfirstnetdisposal,notcontractdata. Gain5.299bnisremainingissuerestimate;receipt8.188bnisinferred,nevercashfloor.",
+      "supported_bounds": "Coherentnofurthersalescenario;0–314mtrueunoffsetannualprofitloss;classificationfraction0–1changesfundingbaseassumptionbutmustkeepfullBS;receiptnotfixedindependentlyofbook/gain/advance.",
+      "falsifier": "Finalsettlement/book/costs,tenant/assetallocationsorpost-exitcostchangesdiffer.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction / annual rate; see segment or fiscal axis"
+    },
+    {
+      "id": "property_unoffset_scope_loss_annual",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "property",
+      "definition": "property unoffset scope loss annual",
+      "axis": null,
+      "values": {
+        "bear": 0.0,
+        "base": 0.0,
+        "bull": 0.0
+      },
+      "observed_anchor": "FY26segmentOP622/DA285versusexternalrentalprofit308/DA136;internalrent524,H1internal264vsprior261. PlannedfinaltransferJun11,2027;consideration/bookundisclosed;H1advance911investingcash.",
+      "source_locators": [
+        "financial/PROPERTY_AND_INVESTMENT_SCOPE_AUDIT.json",
+        "financial/tktk_property_sale.pdf PDF1–2",
+        "financial/tktk_yuho_2026.pdf PDF29,99,102–103"
+      ],
+      "mechanism": "Prorateexternalrenttoclosing;preservederived314profit/149DAaccountscopecounterpartcostselsewhere;separatebookderecognition,netgain,cashreceiptandnoncashadvancerelease.",
+      "base_reason": "Residualcontinuityisconsolidationaccountingjudgment,notnewexternalbusiness. Book3.8bnisroundedproxyfrom7.775bnrentalbooklessfirstnetdisposal,notcontractdata. Gain5.299bnisremainingissuerestimate;receipt8.188bnisinferred,nevercashfloor.",
+      "supported_bounds": "Coherentnofurthersalescenario;0–314mtrueunoffsetannualprofitloss;classificationfraction0–1changesfundingbaseassumptionbutmustkeepfullBS;receiptnotfixedindependentlyofbook/gain/advance.",
+      "falsifier": "Finalsettlement/book/costs,tenant/assetallocationsorpost-exitcostchangesdiffer.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "JPY million; annual amounts except first post-Sep forecast-period inputs"
+    },
+    {
+      "id": "receivable_days",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "workingcapital",
+      "definition": "receivable days",
+      "axis": null,
+      "values": {
+        "bear": 95,
+        "base": 85.4,
+        "bull": 82
+      },
+      "observed_anchor": "Septrade/notes/contract/electronicAR19894;inventory31710;AP9737;contractadvances3935;bonus2401. FY26ARdays85.4/inventory124/AP55.2/advances7.8.",
+      "source_locators": [
+        "financial/tktk_latest_result.pdf PDF7–11",
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json"
+      ],
+      "mechanism": "Rollallmaterialreceivable/inventory/payable/advanceaccountswithannualsalesorconstantactivity-costproxy;bonus/DTAseparate;legacyotherCLfundingtimingexplicit.",
+      "base_reason": "Year-enddaysanchoredMaractualratherthanextrapolatingseasonalSep;propertydepositneverordinaryWC. OtherCLheldbaseisaliveoperatingbalanceassumption,notknownfreecapitalcredit.",
+      "supported_bounds": "AR+10/inventory+15days;settlealllegacyotherCLcase;cash-flowprojectionnotmonthlycovenanttest.",
+      "falsifier": "Collection, WIPacceptance,contractadvances,bonus/warranty/creditorpaymentstimingdiffer.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "days"
+    },
+    {
+      "id": "reclassification",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "corporate",
+      "definition": "reclassification",
+      "axis": null,
+      "values": {
+        "bear": 350,
+        "base": 350,
+        "bull": 350
+      },
+      "observed_anchor": "CurrentH1central3121/prior2710;FY26central5639;neteliminationsH1−50. CommonR&D485alreadyexpensed.",
+      "source_locators": [
+        "financial/tktk_latest_result.pdf PDF12–13",
+        "financial/tktk_yuho_2026.pdf PDF28,103"
+      ],
+      "mechanism": "LockactualH1;infercashcostwithnamedhistoricaltransfer/DAproxyandpriorhalfseasonality;inflatecashprograms;addDAandneteliminationsonce.",
+      "base_reason": "No residualtohitmanagement11bnOP. Transfer350m ispresentationjudgmentrange0–800andmustconservegroupOP; futureincrementalprogram100/200/300namedplanningallowance.",
+      "supported_bounds": "3–4%inflationcases;0–800transferisclassificationrange,notgroupcostupside;cashprogramsboundedcasepaths.",
+      "falsifier": "Functionalheadcount/R&Dprogram/allocationdisclosuresshowdifferentrecurringcostscope.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "JPY million; annual amounts except first post-Sep forecast-period inputs"
+    },
+    {
+      "id": "staff_elasticity",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "cost",
+      "definition": "staff elasticity",
+      "axis": [
+        "power",
+        "meter",
+        "GX",
+        "optical"
+      ],
+      "values": {
+        "bear": [
+          0.2,
+          0.15,
+          0.1,
+          0.15
+        ],
+        "base": [
+          0.2,
+          0.15,
+          0.1,
+          0.15
+        ],
+        "bull": [
+          0.2,
+          0.15,
+          0.1,
+          0.15
+        ]
+      },
+      "observed_anchor": "FY26externalS/segmentOP/DA,latestH1andpriorH1costseasonality;manufacturingunitcostcurvesundisclosed.",
+      "source_locators": [
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json/segment_actuals",
+        "financial/tktk_yuho_2026.pdf PDF28,68,102–103"
+      ],
+      "mechanism": "Affinevariable/fixedcashcostcalibrationreproducesactualsegmentprofit;prices,inputinflation,staffelasticityandDAproducefuturemargins.",
+      "base_reason": "Contribution35/40/30/50%arehistoricalfinancialdecompositions(netinternalallocations),notdisclosedproductunitmargins.3%cashfixedinflationcoverswage/R&Dpressurealreadyinactuals.",
+      "supported_bounds": "Casecostpaths;1ppinputinflation, alternativehistoricaldecompositions;fixedvaluesarenotempiricallyestimatedconfidencebounds.",
+      "falsifier": "Incrementalmargins, payroll, R&D,qualitycostoroutsourcingdepartsfrompool.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction / annual rate; see segment or fiscal axis"
+    },
+    {
+      "id": "tax",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "tax",
+      "definition": "tax",
+      "axis": null,
+      "values": {
+        "bear": 0.315,
+        "base": 0.315,
+        "bull": 0.315
+      },
+      "observed_anchor": "FY26taxcurrent3104/deferred−106/cash1116;H1current2993/deferred383/cash2300/taxpay3189. AnnualnetDTLchange521=−106PL+627OCI;lossDTA375fullyallowed.",
+      "source_locators": [
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json/tax_observations",
+        "financial/nta_defence_levy.pdf"
+      ],
+      "mechanism": "JVandremaininggroupseparatetaxfloors;after-taxequitymethodincomeexcludedfromsecondtax;DTAflowsfrombonus/pensioncashvsbook;cashsettlesopeningpayable. NoJVtaxoffsetfromloss/restgroupdeductions.",
+      "base_reason": "31.5%isHOUSEfuturegroupassumptionreflectingnewnationallevy/mix,notissuer-statedprospectiverate.65%yearendpayableisacashcalendarproxy;OCIheldzero,sourcedoldDTLheld.",
+      "supported_bounds": "Rates30.5–33%economicrange;1ppstress;payable40–80%;DTAavailability/entitytaxfloor.",
+      "falsifier": "Taxinstallments/entitymix/creditrealizabilityorbook-taxassetbasesdiffer.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction / annual rate; see segment or fiscal axis"
+    },
+    {
+      "id": "tax_payable_fraction",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "tax",
+      "definition": "tax payable fraction",
+      "axis": null,
+      "values": {
+        "bear": 0.65,
+        "base": 0.65,
+        "bull": 0.65
+      },
+      "observed_anchor": "FY26taxcurrent3104/deferred−106/cash1116;H1current2993/deferred383/cash2300/taxpay3189. AnnualnetDTLchange521=−106PL+627OCI;lossDTA375fullyallowed.",
+      "source_locators": [
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json/tax_observations",
+        "financial/nta_defence_levy.pdf"
+      ],
+      "mechanism": "JVandremaininggroupseparatetaxfloors;after-taxequitymethodincomeexcludedfromsecondtax;DTAflowsfrombonus/pensioncashvsbook;cashsettlesopeningpayable. NoJVtaxoffsetfromloss/restgroupdeductions.",
+      "base_reason": "31.5%isHOUSEfuturegroupassumptionreflectingnewnationallevy/mix,notissuer-statedprospectiverate.65%yearendpayableisacashcalendarproxy;OCIheldzero,sourcedoldDTLheld.",
+      "supported_bounds": "Rates30.5–33%economicrange;1ppstress;payable40–80%;DTAavailability/entitytaxfloor.",
+      "falsifier": "Taxinstallments/entitymix/creditrealizabilityorbook-taxassetbasesdiffer.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "fraction / annual rate; see segment or fiscal axis"
+    },
+    {
+      "id": "trust_dividend_shares_proxy",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "ownership",
+      "definition": "trust dividend shares proxy",
+      "axis": null,
+      "values": {
+        "bear": 162040,
+        "base": 162040,
+        "bull": 162040
+      },
+      "observed_anchor": "Executed657000buybackcompletedSep1;Oct8cancellationreducesissued/treasuryequally. ExBBT EPSshares15399767/H1weighted15766037. MarBBT162040;Septtrustcountundisclosed.",
+      "source_locators": [
+        "financial/FINANCIAL_ACTUALS_AND_COMMITMENTS.json/share_actions",
+        "financial/press_2881333.pdf"
+      ],
+      "mechanism": "Actualhalfshare-days+postbuybackshares;cashdividendssharesincludetrustproxy;futuregrantseparate. Actual67interimonly, futurefinal/interimfromownEPS×40%policy.",
+      "base_reason": "No repeatbuybackorEPSbenefitfromcancellation;no undeclaredmanagement67finalinengine.40%policyactualbutfutureimplementationhousefundingassumption,notgrowth/yieldgate.",
+      "supported_bounds": "0vsMarchtrustproxy;annual10000grantcase;policy0–40/50%cashstress.",
+      "falsifier": "Newgrant/BBTdelivery/distributiondeclaredorsecuritiesevent.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "ordinary shares"
+    },
+    {
+      "id": "unallocated_opening_CIP_commission",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "capital",
+      "definition": "unallocated opening CIP commission",
+      "axis": null,
+      "values": {
+        "bear": null,
+        "base": null,
+        "bull": null
+      },
+      "observed_anchor": "FY26cashCAPEX6036vsbookadditions6248;H1paid2546/CIP1049. Hasuda1610budget,313paidMar26;Jun27completion/Oct27operation. Newmeteringequipment1626plannedSep26.",
+      "source_locators": [
+        "financial/tktk_yuho_2026.pdf PDF29–30,77,80,103",
+        "audit/capital_schedule_review/REFINED_CAPITAL_REVIEW.json"
+      ],
+      "mechanism": "Post-Sepcapitalonly;namedHasudaspendinginsidebudget,unallocatedCIPexplicit;DAbycommission/life. Preserveopeningland/CIPfromlegacyamortization.",
+      "base_reason": "6.5/7.5/7/6.5bnannualcashbudgetsremainhouseunderwriting,notcopyof33bnMTPwhichincludesR&D. Current2×H1DAisrun-rateproxy,notknownfullyearforecast. FlatlegacyDAavoidsunsupported4%automaticbenefit;runoffandlatecommissionstressesretained.",
+      "supported_bounds": "Casecapitalbudgets;extra2bn/year;legacy−4%/+5%;736unallocatedCIPtiming. FutureSLlivesareeconomicproxiesnotstatutorycertainty.",
+      "falsifier": "Projectcash/creditors,invoicevsbookadditions,assetregister,lives/commissioninganddomesticdecliningbalanceproduceotherDA.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "ISO date; null means commissioning not assumed"
+    },
+    {
+      "id": "unallocated_opening_CIP_life",
+      "type": "JII_house_assumption_or_identified_scope_control",
+      "family": "capital",
+      "definition": "unallocated opening CIP life",
+      "axis": null,
+      "values": {
+        "bear": 12,
+        "base": 12,
+        "bull": 12
+      },
+      "observed_anchor": "FY26cashCAPEX6036vsbookadditions6248;H1paid2546/CIP1049. Hasuda1610budget,313paidMar26;Jun27completion/Oct27operation. Newmeteringequipment1626plannedSep26.",
+      "source_locators": [
+        "financial/tktk_yuho_2026.pdf PDF29–30,77,80,103",
+        "audit/capital_schedule_review/REFINED_CAPITAL_REVIEW.json"
+      ],
+      "mechanism": "Post-Sepcapitalonly;namedHasudaspendinginsidebudget,unallocatedCIPexplicit;DAbycommission/life. Preserveopeningland/CIPfromlegacyamortization.",
+      "base_reason": "6.5/7.5/7/6.5bnannualcashbudgetsremainhouseunderwriting,notcopyof33bnMTPwhichincludesR&D. Current2×H1DAisrun-rateproxy,notknownfullyearforecast. FlatlegacyDAavoidsunsupported4%automaticbenefit;runoffandlatecommissionstressesretained.",
+      "supported_bounds": "Casecapitalbudgets;extra2bn/year;legacy−4%/+5%;736unallocatedCIPtiming. FutureSLlivesareeconomicproxiesnotstatutorycertainty.",
+      "falsifier": "Projectcash/creditors,invoicevsbookadditions,assetregister,lives/commissioninganddomesticdecliningbalanceproduceotherDA.",
+      "confidence": "Conditional; no statisticalconfidenceinterval",
+      "output_lineage": "See namedparameter inengine.py; flows to operating/cash/capital calculation or explicitly identified reportingcontrol.",
+      "units": "years"
+    }
+  ],
+  "additional_controls": [
+    {
+      "id": "LEASE_GAAP_SCOPE",
+      "type": "known_reporting_gap",
+      "observed": "IssueradoptsnewleaseaccountingApr2027;impactnotquantified.",
+      "treatment": "Consistentafter-rent economic earnings; newJGAAPleaseeffectfromApr2027notquantified. Do notdoublechargeexistingrentandnewleaseprincipal."
+    },
+    {
+      "id": "FIXED_DTL_AND_OCI",
+      "type": "house_scope_assumption",
+      "observed": "SepDTL2267held;historicalFY26OCI-tax627keptoutofCFO.",
+      "treatment": "No futureOCI/book-taxdepreciation/propertybasisdetailinvented;futurecash-taxconditional,notexactstatutorytaxreturn."
+    },
+    {
+      "id": "WARRANTY_AND_REPAIR",
+      "type": "house_cash_timing_assumption",
+      "observed": "Sepwarranty1877/repair81/director190;H1cashreleasedwarranty253,repair1343includingoneoffgain.",
+      "treatment": "Holdfutureclosingreservebalancesbase,implyingfutureordinarychargesandcashsettlementsbalancewithinobservedcostpools. No newunquantifiedfine/reserveadded. Stresslegacyliabilitysettlementseparately."
+    },
+    {
+      "id": "POWER_PRODUCTIVITY_REQUIRED",
+      "type": "derived_capacity_requirement",
+      "observed": "SourceFY26power1360permanent+288temporary;nameplatephysicalcapacityundisclosed.",
+      "treatment": "4.5%realworkloadgrowthwithlowfixedcoststaffelasticityrequiresproductivity/mix/test-acceptanceimprovement. Itisnotverifiedworkers×unitoutput;zerocapacitygrowthstressisdecisioncritical."
+    },
+    {
+      "id": "PENSION_EXPENSE_SCOPE",
+      "type": "known_model_limit",
+      "observed": "DBexpense821includesactuarialcredit238andpastservice47;discount2.7%versus1.2%;unrecognizedgain2153amortizedunder5yrpolicy.",
+      "treatment": "CostpoolinflationretainsDBcostimplicitly. HigherPBOinterestandgainamortizationcanoffset; nofreeactuarialprofitadded. Individualservice/benefitcohortforecastrequiresunpublishedcurrentpensioninformation."
+    }
+  ],
+  "interpretation": "Evidence-groundedactuals plus explicitunderidentifiedfinancialproxies; sourcefacts andfutureassumptionsnever interchangeable. Figurecount orgranularitydoesnotproveaccuracy."
+}
