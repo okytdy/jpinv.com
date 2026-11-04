@@ -93,7 +93,7 @@
     { k: "methodology", ja: "着眼点",             en: "Methodology",  path: "/compounders/methodology/" },
     { k: "profiles",    ja: "銘柄分析",           en: "Profiles",     path: "/compounders/profiles/" },
     { k: "models", en: "Forecast models", path: "/models/", englishOnly: true },
-    { k: "portfolio", en: "Paper portfolio", enHref: "/en/portfolio/", englishOnly: true },
+    { k: "portfolio", en: "Research portfolio", enHref: "/en/portfolio/", englishOnly: true },
     { k: "universe",    ja: "銘柄スクリーニング", en: "Universe",     path: "/compounders/universe/" },
     { k: "signals",     ja: "資本政策開示",       en: "Capital Actions", path: "/compounders/feed/" },
     { k: "disclosures", ja: "大量保有報告",       en: "5% Filings",   path: "/compounders/active-investors/" }
@@ -119,7 +119,7 @@
     { head: S("調査レポート"), items: [
         { ja: "銘柄分析",           en: "Profiles",         jaHref: "/compounders/profiles/",          enHref: "/en/compounders/profiles/" },
         { en: "Forecast models", enHref: "/en/models/", englishOnly: true },
-        { en: "Paper portfolio", enHref: "/en/portfolio/", englishOnly: true },
+        { en: "Research portfolio", enHref: "/en/portfolio/", englishOnly: true },
         { ja: "銘柄スクリーニング", en: "Universe",         jaHref: "/compounders/universe/",          enHref: "/en/compounders/universe/" },
         { ja: "資本政策開示",       en: "Capital actions",  jaHref: "/compounders/feed/",              enHref: "/en/compounders/feed/" },
         { ja: "大量保有報告",       en: "5% filings",       jaHref: "/compounders/active-investors/",  enHref: "/en/compounders/active-investors/" },
