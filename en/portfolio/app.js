@@ -5,7 +5,7 @@ const yen = (value, decimals = 0) => new Intl.NumberFormat('en-US', {style:'curr
 const pct = (value, digits = 2) => `${Number(value).toFixed(digits)}%`;
 const signed = (value, digits = 2, suffix = '%') => `${value < 0 ? '−' : value > 0 ? '+' : ''}${Math.abs(value).toFixed(digits)}${suffix}`;
 const signedYen = (value, digits = 2) => `${value < 0 ? '−' : value > 0 ? '+' : ''}${yen(Math.abs(value),digits)}`;
-const date = (day, year = true) => new Intl.DateTimeFormat('en-GB', {day:'numeric',month:'short',...(year ? {year:'numeric'} : {}),timeZone:'Asia/Tokyo'}).format(new Date(`${day}T12:00:00+09:00`));
+const date = (day, year = true, month = 'short') => new Intl.DateTimeFormat('en-GB', {day:'numeric',month,...(year ? {year:'numeric'} : {}),timeZone:'Asia/Tokyo'}).format(new Date(`${day}T12:00:00+09:00`));
 const esc = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const tabNames = ['portfolio','performance','about'];
 let data, chartMode = 'return', activeTab = 'portfolio', chartObserver;
@@ -85,7 +85,8 @@ function openHolding(ticker,origin){
   if(!h) return;
   const buys=data.snapshot.activity.filter(a=>a.type==='buy'&&a.ticker===ticker);
   const fields=[['Shares',h.shares.toLocaleString('en-US')],['Current weight',pct(h.weight_pct,3)],['Average cost',yen(h.average_cost,4)],['Latest close',yen(h.mark,2)],['Unrealized P&L',signedYen(h.unrealized)],['Return',signed(h.return_pct,2)],['First allocated',date(h.first_date)],['Latest allocation',date(h.last_date)],['Initial target',pct(h.initial_target_pct)],['Price date',date(h.mark_date)]];
-  $('position-content').innerHTML=`<div class="dialog-heading"><div><p>${esc(h.ticker)} · ${esc(h.japanese_name)} · ${esc(h.exchange)}</p><h2 id="position-title" tabindex="-1">${esc(h.name)}</h2></div><button type="button" class="dialog-close" data-close="position-dialog" aria-label="Close holding details">×</button></div><dl class="detail-grid">${fields.map(([label,value])=>`<div><dt>${label}</dt><dd>${esc(value)}</dd></div>`).join('')}</dl><div class="detail-research"><a href="${esc(h.research_url)}">Read the research ↗</a>${h.model_url?`<a href="${esc(h.model_url)}">Forecast model ↗</a>`:''}</div><h3 class="detail-label">Allocations</h3><ul class="purchase-list">${buys.map(a=>`<li><div><time datetime="${a.date}">${date(a.date)}</time><span>${a.shares} shares · ${yen(a.effective_price,2)} each</span></div><button type="button" class="inline-button" data-entry="${esc(a.id)}" aria-haspopup="dialog">Entry details</button></li>`).join('')}</ul>`;
+  const links=`<div class="detail-research"><a href="${esc(h.research_url)}">Substack article ↗</a>${h.model_url?`<a href="${esc(h.model_url)}">Forecast model ↗</a>`:''}</div>`;
+  $('position-content').innerHTML=`<div class="dialog-heading"><div><p>${esc(h.ticker)} · ${esc(h.japanese_name)} · ${esc(h.exchange)}</p><h2 id="position-title" tabindex="-1">${esc(h.name)}</h2></div><button type="button" class="dialog-close" data-close="position-dialog" aria-label="Close holding details">×</button></div>${links}<dl class="detail-grid">${fields.map(([label,value])=>`<div><dt>${label}</dt><dd>${esc(value)}</dd></div>`).join('')}</dl><h3 class="detail-label">Allocations</h3><ul class="purchase-list">${buys.map(a=>`<li><div><time datetime="${a.date}">${date(a.date)}</time><span>${a.shares} shares · ${yen(a.effective_price,2)} each</span></div><button type="button" class="inline-button" data-entry="${esc(a.id)}" aria-haspopup="dialog">Entry details</button></li>`).join('')}</ul>`;
   showDialog('position-dialog',origin);
 }
 
@@ -177,6 +178,8 @@ async function init(){
     data=await response.json();
     const s=data.snapshot;
     $('asof').textContent=`TSE close · ${date(data.asof)}`;
+    const startingCapital=data.initial_capital>=1000000?`¥${new Intl.NumberFormat('en-US',{maximumFractionDigits:2}).format(data.initial_capital/1000000)} million`:yen(data.initial_capital);
+    $('inception').textContent=`Started ${date(data.inception_date,true,'long')} · ${startingCapital} in hypothetical capital`;
     $('nav-value').textContent=yen(s.nav);
     setSigned($('total-return'),s.return_pct,signed(s.return_pct,2));
     $('total-pnl').textContent=signedYen(s.pnl,0);
