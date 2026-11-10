@@ -111,9 +111,11 @@
       }
 
       if (labelEl) {
-        labelEl.textContent = isEn
-          ? "TSE capital actions · refreshed every 30 minutes"
-          : "東証・資本政策開示 ／ 30分ごとに更新";
+        var latest = d.rows.map(function (r) { return r.date; }).filter(function (date) {
+          return /^\d{4}-\d{2}-\d{2}$/.test(date);
+        }).sort().pop();
+        labelEl.textContent = (isEn ? "TSE capital actions" : "東証・資本政策開示") +
+          (latest ? " ／ " + latest.replace(/-/g, ".") : "");
       }
     })
     .catch(function () {

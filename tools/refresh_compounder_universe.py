@@ -530,8 +530,7 @@ def render_pages(result):
                             'Every listed name passes all seven criteria.</span>', source, count=1)
         else:
             page_title = '7条件に該当する銘柄｜JII Compounders'
-            description = ('東証上場銘柄のうち、7つの条件に該当する銘柄を時価総額、'
-                           '会社予想EV/EBIT、収益性、FCF利回りなどで比較できます。')
+            description = '東証上場企業の公開情報をもとに、条件に該当する銘柄を一覧で比較できます。時価総額、会社予想EV/EBIT、収益性、FCF利回りなどを確認し、各指標の定義とデータ時点を参照しながら、企業調査の入口として利用する銘柄ユニバースです。'
             source = re.sub(r'<title>[^<]*</title>', f'<title>{page_title}</title>', source, count=1)
             source = re.sub(r'<meta name="description" content="[^"]*">',
                             f'<meta name="description" content="{description}">', source, count=1)

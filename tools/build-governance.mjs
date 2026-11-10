@@ -8,11 +8,13 @@ import { marked, Renderer } from "marked";
 
 const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const ENGLISH = process.argv.includes('--lang=en');
+const SEARCH_ONLY = process.argv.includes('--search-only');
 const localePath = pathname => ENGLISH ? '/en' + pathname : pathname;
 const SOURCE = path.join(ROOT, "content", "governance", "curriculum-ja.md");
 const CHECKSUM = `${SOURCE}.sha256`;
 const SITE_ORIGIN = "https://jpinv.com";
 const UPDATED = "2026-08-30";
+const SEARCH_META = JSON.parse(fs.readFileSync(path.join(ROOT, "content/governance/search-metadata.json"), "utf8"));
 
 const THEME_META = [
   { index: 1, slug: "foundations", period: "1990年代～2014年" },
@@ -252,6 +254,9 @@ function navVersion() {
 }
 
 function commonHead({ title, description, pathname, type = "WebPage", schema = {} }) {
+  const searchMeta = SEARCH_META[localePath(pathname)] || {};
+  title = searchMeta.title || title;
+  description = searchMeta.description || description;
   const japanese = `${SITE_ORIGIN}${pathname}`;
   const canonical = `${SITE_ORIGIN}${localePath(pathname)}`;
   const english = `${SITE_ORIGIN}/en${pathname}`;
@@ -337,7 +342,7 @@ function englishShell(html) {
     'テーマ:':'Theme:', 'テーマ ':'Theme ', '記事 ':'Article ', '読み方':'Reading paths',
     'IR担当者研修':'IR team training', 'IR研修について相談する →':'Discuss IR training →'
   };
-  let result = html.replace(/<div class="post-language"><a href="(\/en\/governance\/[^"]*)">English version →<\/a><\/div>/g, (_, href) => '<div class="post-language"><a href="__JAPANESE__' + href.slice(3) + '" data-locale-route lang="ja">日本語版 →</a></div>');
+  let result = html.replace(/<a href="(\/en\/governance\/[^"]*)">English version →<\/a>/g, (_, href) => '<a href="__JAPANESE__' + href.slice(3) + '" data-locale-route lang="ja">日本語版 →</a>');
   for (const [ja, en] of Object.entries(ui)) result = result.split(ja).join(en);
   result = result.replace(/href="(\/governance\/[^"]*)"/g, 'href="/en$1"')
     .replace(/href="\/"/g, 'href="/en/"')
@@ -491,6 +496,11 @@ function renderArticle(article, index, articles, themes) {
     }
   });
   const previous = articles[index - 1];
+  const service = ['3.2', '3.5', '4.2', '5.1'].includes(article.number)
+    ? (article.number === '4.2'
+      ? { ja: '投資家面談の通訳 →', en: 'Investor-meeting interpretation →', href: ENGLISH ? '/en/services/ir-interpretation/' : '/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/IR%E9%80%9A%E8%A8%B3/' }
+      : { ja: '英文開示の翻訳・レビュー →', en: 'Disclosure translation & review →', href: ENGLISH ? '/en/services/disclosure-translation/' : '/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/%E9%96%8B%E7%A4%BA%E7%BF%BB%E8%A8%B3/' })
+    : null;
   const next = articles[index + 1];
   const navItems = [];
   if (previous) navItems.push(`<a class="post-nav-link prev" href="${previous.pathname}"><div class="post-nav-dir">← 前の記事</div><div class="post-nav-title">${escapeHtml(previous.title)}</div></a>`);
@@ -500,7 +510,7 @@ function renderArticle(article, index, articles, themes) {
   const main = `  <main id="main-content" class="governance-page" tabindex="-1">
     ${breadcrumbs([{ label: "ガバナンス改革講座", href: "/governance/" }, { label: theme.pageHeading, href: theme.pathname }, { label: `記事 ${article.number}` }])}
     <header class="post-header"><div class="gov-wrap"><div class="post-header-inner"><span class="post-eyebrow">テーマ ${article.themeIndex} · 記事 ${article.number}</span><h1 class="post-title">${escapeHtml(article.title)}</h1><p class="post-summary">${renderInline(article.summary)}</p><div class="post-meta"><span>テーマ: <strong>${escapeHtml(theme.pageHeading)}</strong></span><span>読了目安: <strong>${readingMinutes(article.body)}分</strong></span><span>更新: <strong>${UPDATED}</strong></span></div></div></div></header>
-    <section class="post-body"><div class="gov-wrap"><article class="post-content">${renderMarkdown(article.body)}</article><nav class="post-nav" aria-label="前後の記事">${navItems.join("")}</nav><div class="post-language"><a href="/en${article.pathname}">English version →</a></div></div></section>
+    <section class="post-body"><div class="gov-wrap"><article class="post-content">${renderMarkdown(article.body)}</article><nav class="post-nav" aria-label="前後の記事">${navItems.join("")}</nav><div class="post-language${service ? ' post-language--service' : ''}">${service ? `<a href="${service.href}">${escapeHtml(ENGLISH ? service.en : service.ja)}</a>` : ''}<a href="/en${article.pathname}">English version →</a></div></div></section>
   </main>`;
   return pageShell(head, main);
 }
@@ -509,6 +519,36 @@ function writePage(pathname, html) {
   const relative = localePath(pathname).replace(/^\//, "");
   const destination = path.join(ROOT, relative, "index.html");
   fs.mkdirSync(path.dirname(destination), { recursive: true });
+  if (SEARCH_ONLY) {
+    // Search maintenance must preserve editorial wording and hand-fitted headings.
+    let current = fs.readFileSync(destination, "utf8");
+    const beforeBody = current.slice(current.indexOf("<body>"))
+      .replace(/<div class="post-language[^"]*">[\s\S]*?<\/div>/, "");
+    const metadata = SEARCH_META[localePath(pathname)] || {};
+    for (const [key, pattern] of [
+      ["title", /<title>[\s\S]*?<\/title>/],
+      ["title", /<meta property="og:title"[^>]*>/],
+      ["description", /<meta name="description"[^>]*>/],
+      ["description", /<meta property="og:description"[^>]*>/]
+    ]) {
+      if (metadata[key]) current = current.replace(pattern, html.match(pattern)[0]);
+    }
+    if (Object.keys(metadata).length) {
+      current = current.replace(/(<script type="application\/ld\+json">)([\s\S]*?)(<\/script>)/, (_, open, json, close) => {
+        const schema = JSON.parse(json);
+        if (metadata.title) schema.name = metadata.title;
+        if (metadata.description) schema.description = metadata.description;
+        return open + JSON.stringify(schema).replaceAll("</", "<\\/") + close;
+      });
+    }
+    current = current.replace(/(assets\/governance\.css\?v=)[a-z0-9]+/g, "$1" + assetVersion("governance.css"));
+    const service = html.match(/<div class="post-language post-language--service">[\s\S]*?<\/div>/)?.[0];
+    if (service) current = current.replace(/<div class="post-language[^"]*">[\s\S]*?<\/div>/, service);
+    const afterBody = current.slice(current.indexOf("<body>"))
+      .replace(/<div class="post-language[^"]*">[\s\S]*?<\/div>/, "");
+    if (beforeBody !== afterBody) fail("search update changed the article body: " + pathname);
+    html = current;
+  }
   fs.writeFileSync(destination, html, "utf8");
 }
 
@@ -592,7 +632,7 @@ function validateBuild(articles) {
   }
   articles.forEach((article) => {
     const html = fs.readFileSync(path.join(ROOT, localePath(article.pathname).replace(/^\//, ""), "index.html"), "utf8");
-    assertContentParity(article, html);
+    if (!SEARCH_ONLY) assertContentParity(article, html);
   });
   if (mermaidCount !== 13) fail(`expected 13 Mermaid diagrams, found ${mermaidCount}`);
   if (genericLinks > 140) fail("unexpected number of curriculum-home links");

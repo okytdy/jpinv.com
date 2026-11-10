@@ -82,6 +82,13 @@ for (const relativePath of [
   "en/compounders/universe/index.html",
 ]) {
   const html = read(relativePath);
+  // Current universe pages use responsive cards; older pages used a scroll table.
+  const universeCss = read("assets/compounders-universe.css");
+  const responsiveCards = html.includes("/assets/compounders-universe.css")
+    && /@media[^{]*max-width:[^{]*\{[\s\S]*?\.universe-table,\s*\.universe-table tbody\s*\{\s*display:\s*block/.test(universeCss)
+    && /\.universe-table tbody tr\s*\{[^}]*display:\s*grid/s.test(universeCss)
+    && html.includes('class="cell-label"');
+  if (responsiveCards) continue;
   requireMatch(
     html,
     /\.universe-table\s*\{[^}]*display:block[^}]*overflow-x:auto/s,

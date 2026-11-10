@@ -122,10 +122,8 @@ def esc(s):
 def bake(payload):
     """Write the same rows into the two homepages between HTML markers.
 
-    The hero must never render an empty panel. Baking the rows in means the
-    page is correct before any JavaScript runs, and the cron that refreshes
-    the feed refreshes these too, so what is baked is at most one cron cycle
-    behind what the fetch would return.
+    Keep a dated snapshot for no-JavaScript and network-failure readers.
+    Scheduled --no-bake runs update the runtime JSON without changing pages.
     """
     for path, lang in (("index.html", "jp"), (os.path.join("en", "index.html"), "en")):
         full = os.path.join(ROOT, path)
@@ -161,6 +159,13 @@ def bake(payload):
                 lambda m: m.group(1) + content + m.group(2),
                 html, count=1, flags=re.S)
 
+        latest = max((row["date"] for row in payload["rows"]), default="")
+        label = "TSE capital actions" if lang == "en" else "東証・資本政策開示"
+        if latest:
+            label += " ／ " + latest.replace("-", ".")
+        html = re.sub(r'(<span class="jh-plabel">[\s\S]*?<span>).*?(</span>)',
+                      lambda match: match.group(1) + esc(label) + match.group(2),
+                      html, count=1, flags=re.S)
         open(full, "w", encoding="utf-8", newline="\n").write(html)
         print(f"  baked into {path}")
 
