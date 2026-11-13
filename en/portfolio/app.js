@@ -13,7 +13,8 @@ const dialogOrigins = new Map();
 
 function researchArticles(holding){
   if(!holding) return [];
-  return Array.isArray(holding.research_articles)&&holding.research_articles.length?holding.research_articles:[{title:holding.research_title||'Substack article',url:holding.research_url}];
+  const articles=Array.isArray(holding.research_articles)&&holding.research_articles.length?holding.research_articles:[{title:holding.research_title||'Substack article',url:holding.research_url,published_date:holding.research_date}];
+  return articles.map(article=>({...article,published_date:article.published_date||holding.research_date})).sort((a,b)=>(b.published_date||'').localeCompare(a.published_date||''));
 }
 
 function setSigned(element,value,text){element.textContent=text;element.classList.toggle('negative',value<0);element.classList.toggle('positive',value>0);}
@@ -64,12 +65,11 @@ function renderActivity(){
     if(a.type==='opening_cash') return `<article class="feed-item">${meta}<h3>The portfolio begins</h3><p>${yen(Number(a.amount))} in hypothetical cash.</p></article>`;
     const holding=data.snapshot.holdings.find(h=>h.ticker===a.ticker);
     const company=holding?.name||a.ticker;
-    const articles=researchArticles(holding);
     if(a.type==='buy'||a.type==='sell'){
       const verb=a.type==='sell'?'Trimmed':priorBuys.has(a.id)?'Added':'Opened';
       const allocation=a.target_allocation_pct?` ${Number(a.target_allocation_pct)}% ${verb==='Opened'?'in':'to'}`:a.type==='sell'?'':' a position in';
       const heading=a.type==='sell'?`Trimmed ${esc(company)}`:`${verb}${allocation} ${esc(company)}`;
-      return `<article class="feed-item">${meta}<h3>${heading} <span class="feed-ticker">${esc(a.ticker)}</span></h3><p>${a.shares.toLocaleString('en-US')} shares at ${yen(a.effective_price,2)} each.</p><div class="feed-links"><div class="feed-articles">${articles.map(article=>`<a href="${esc(article.url)}">${esc(article.title)}&nbsp;↗</a>`).join('')}</div><button type="button" data-entry="${esc(a.id)}" aria-haspopup="dialog">Entry details</button></div></article>`;
+      return `<article class="feed-item">${meta}<h3>${heading} <span class="feed-ticker">${esc(a.ticker)}</span></h3><p>${a.shares.toLocaleString('en-US')} shares at ${yen(a.effective_price,2)} each.</p><div class="feed-links">${holding?`<button type="button" data-holding="${esc(a.ticker)}" aria-haspopup="dialog">Position &amp; research →</button>`:'<span></span>'}<button type="button" data-entry="${esc(a.id)}" aria-haspopup="dialog">Entry details</button></div></article>`;
     }
     if(a.type==='dividend') return `<article class="feed-item">${meta}<h3>Dividend from ${esc(company)} <span class="feed-ticker">${esc(a.ticker)}</span></h3><p>${yen(Number(a.amount),2)} received.</p></article>`;
     return `<article class="feed-item">${meta}<h3>${esc(company)} <span class="feed-ticker">${esc(a.ticker||'')}</span></h3><p>${a.type==='split'?'Share split recorded.':'Portfolio record updated.'}</p></article>`;
@@ -92,8 +92,8 @@ function openHolding(ticker,origin){
   const buys=data.snapshot.activity.filter(a=>a.type==='buy'&&a.ticker===ticker);
   const fields=[['Shares',h.shares.toLocaleString('en-US')],['Current weight',pct(h.weight_pct,3)],['Average cost',yen(h.average_cost,4)],['Latest close',yen(h.mark,2)],['Unrealized P&L',signedYen(h.unrealized)],['Return',signed(h.return_pct,2)],['First allocated',date(h.first_date)],['Latest allocation',date(h.last_date)],['Initial target',pct(h.initial_target_pct)],['Price date',date(h.mark_date)]];
   const articles=researchArticles(h);
-  const links=`<div class="detail-research">${articles.map(article=>`<a href="${esc(article.url)}">${esc(article.title)}&nbsp;↗</a>`).join('')}${h.model_url?`<a href="${esc(h.model_url)}">Forecast model ↗</a>`:''}</div>`;
-  $('position-content').innerHTML=`<div class="dialog-heading"><div><p>${esc(h.ticker)} · ${esc(h.japanese_name)} · ${esc(h.exchange)}</p><h2 id="position-title" tabindex="-1">${esc(h.name)}</h2></div><button type="button" class="dialog-close" data-close="position-dialog" aria-label="Close holding details">×</button></div>${links}<dl class="detail-grid">${fields.map(([label,value])=>`<div><dt>${label}</dt><dd>${esc(value)}</dd></div>`).join('')}</dl><h3 class="detail-label">Allocations</h3><ul class="purchase-list">${buys.map(a=>`<li><div><time datetime="${a.date}">${date(a.date)}</time><span>${a.shares} shares · ${yen(a.effective_price,2)} each</span></div><button type="button" class="inline-button" data-entry="${esc(a.id)}" aria-haspopup="dialog">Entry details</button></li>`).join('')}</ul>`;
+  const links=`<section class="holding-research" aria-labelledby="holding-research-title"><h3 id="holding-research-title" class="detail-label">Research</h3><p class="resource-kind">Substack writeups</p><ul class="writeup-list">${articles.map(article=>`<li><a href="${esc(article.url)}">${esc(article.title)}&nbsp;↗</a>${article.published_date?`<time datetime="${esc(article.published_date)}">${date(article.published_date)}</time>`:''}</li>`).join('')}</ul>${h.model_url?`<div class="forecast-resource"><a href="${esc(h.model_url)}">Forecast model&nbsp;↗</a><p>Earnings assumptions${h.model_date?` · <time datetime="${esc(h.model_date)}">${date(h.model_date)}</time>`:''}</p></div>`:''}</section>`;
+  $('position-content').innerHTML=`<div class="dialog-heading"><div><p>${esc(h.ticker)} · ${esc(h.japanese_name)} · ${esc(h.exchange)}</p><h2 id="position-title" tabindex="-1">${esc(h.name)}</h2></div><button type="button" class="dialog-close" data-close="position-dialog" aria-label="Close holding details">×</button></div>${links}<h3 class="detail-label">Position</h3><dl class="detail-grid">${fields.map(([label,value])=>`<div><dt>${label}</dt><dd>${esc(value)}</dd></div>`).join('')}</dl><h3 class="detail-label">Allocations</h3><ul class="purchase-list">${buys.map(a=>`<li><div><time datetime="${a.date}">${date(a.date)}</time><span>${a.shares} shares · ${yen(a.effective_price,2)} each</span></div><button type="button" class="inline-button" data-entry="${esc(a.id)}" aria-haspopup="dialog">Entry details</button></li>`).join('')}</ul>`;
   showDialog('position-dialog',origin);
 }
 
