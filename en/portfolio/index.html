@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#f8f7f3">
-  <meta name="description" content="Teddy Okuyama’s Model Portfolio: simulated Japanese equity holdings, recent actions and dated performance.">
+  <meta name="description" content="JII’s Model Portfolio: simulated Japanese equity holdings, recent actions and dated performance.">
   <meta property="og:title" content="Model Portfolio · Japan Investor Interface">
-  <meta property="og:description" content="Japanese companies, followed through a personal simulated portfolio.">
+  <meta property="og:description" content="Companies covered in JII’s English newsletter, followed through simulated investments.">
   <link rel="canonical" href="https://jpinv.com/en/portfolio/">
   <title>Model Portfolio · Japan Investor Interface</title>
   <link rel="stylesheet" href="style.css?v=20261113-research">
@@ -20,7 +20,7 @@
   </header>
   <main id="main">
     <section class="intro" aria-labelledby="title">
-      <div><h1 id="title">Model Portfolio</h1><p class="portfolio-purpose">A simulated portfolio of companies covered on <a href="https://japaninterface.substack.com">my Substack</a>.</p><p id="inception">Started 2 November 2026 · ¥10 million in hypothetical capital</p></div>
+      <div><h1 id="title">Model Portfolio</h1><p class="portfolio-purpose">A simulated portfolio of companies covered in <a href="https://japaninterface.substack.com">JII’s English newsletter</a>.</p><p id="inception">Started 2 November 2026 · ¥10 million in hypothetical capital</p></div>
       <div class="snapshot-date"><span class="pill">Simulated investments</span><p id="asof">Loading the latest snapshot…</p></div>
     </section>
     <div id="load-error" hidden role="alert">The snapshot could not load. <button type="button" id="retry-load">Try again</button> or <a href="portfolio-data.json">open the saved data</a>.</div>
@@ -58,13 +58,13 @@
           <section id="panel-about" class="tab-panel about-panel" role="tabpanel" aria-labelledby="tab-about" tabindex="0" hidden>
             <h2>About the portfolio</h2>
             <div id="about-summary" class="about-summary">
-              <p>I’m Teddy Okuyama. <a href="https://japaninterface.substack.com">My Substack writeups</a> explain the investment case; forecast models show the earnings assumptions. This personal model portfolio follows selected companies through simulated investments.</p>
+              <p><a href="https://japaninterface.substack.com">JII’s English newsletter</a> explains the investment cases; JII’s forecast models show the earnings assumptions. This model portfolio follows selected companies through simulated investments.</p>
               <p>Entries use the day’s volume-weighted average price (VWAP), plus a modeled 0.2% cost. Whole shares are rounded down; the rest stays in cash. Returns include cash, recorded costs and dividends. Prices are dated, not live.</p>
               <p>This is a learning record, not investment advice or an actual funded account.</p>
             </div>
             <details class="disclosure"><summary>Prices and costs</summary><p>VWAP is the session’s traded value divided by traded volume. Purchases add 0.2%; sales deduct 0.2%. This is an illustrative all-in cost, not a broker quotation. Entry details retain the reference prices and amounts. A reference-priced entry may be recorded after its market date.</p></details>
             <details class="disclosure"><summary>Weights and returns</summary><p>Weights use the latest saved closing prices. Average cost includes purchase costs. Portfolio return compares total holdings plus cash with contributed hypothetical capital. Dividends appear only when recorded; no forecast income or cash interest is assumed. Whole shares, including odd lots, are permitted.</p></details>
-            <details class="disclosure"><summary>Data and project</summary><p>Prices come from TSE session records. <a href="https://www.jpx.co.jp/english/markets/statistics-equities/daily/index.html">JPX daily market data ↗</a>. This is a saved snapshot, updated manually. The personal publication and portfolio are free and will never be monetized. They are separate from <a href="https://jpinv.com/en/company/">Japan Investor Interface Co., Ltd.</a> and its professional services.</p></details>
+            <details class="disclosure"><summary>Data and project</summary><p>Prices come from TSE session records. <a href="https://www.jpx.co.jp/english/markets/statistics-equities/daily/index.html">JPX daily market data ↗</a>. This is a saved snapshot, updated manually. The newsletter is published by <a href="https://jpinv.com/en/company/">Japan Investor Interface Co., Ltd. (JII)</a> and written by Teddy Okuyama. The newsletter and paper portfolio are free and will remain free.</p></details>
             <div class="downloads" aria-label="Download portfolio records"><h3>Download records</h3><a href="holdings.csv" download>Holdings CSV ↓</a><a href="activity.csv" download>Activity CSV ↓</a><a href="performance.csv" download>Performance CSV ↓</a></div>
             <div class="resource-links"><a href="https://jpinv.com/en/models/">Forecast models ↗</a><a href="https://japaninterface.substack.com/about">About the Substack ↗</a></div>
           </section>
@@ -80,6 +80,6 @@
   </main>
   <dialog id="position-dialog" aria-labelledby="position-title"><div id="position-content"></div></dialog>
   <dialog id="entry-dialog" aria-labelledby="entry-title"><div id="entry-content"></div></dialog>
-  <footer><span>© 2026 Teddy Okuyama · Personal research</span><a href="https://japaninterface.substack.com">Substack writeups ↗</a><a href="https://jpinv.com/en/models/">Forecast models ↗</a></footer>
+  <footer><span>© 2026 Teddy Okuyama · JII research</span><a href="https://japaninterface.substack.com">Substack writeups ↗</a><a href="https://jpinv.com/en/models/">Forecast models ↗</a></footer>
 </body>
 </html>
