@@ -1,0 +1,561 @@
+[
+  {
+    "id": "ACTUAL_PNL",
+    "path_values": {
+      "/actual/h1": {
+        "revenue": 126844,
+        "gross_profit": 35015,
+        "sga": 11056,
+        "ebit": 23958,
+        "da": 898,
+        "sga_da": 877,
+        "goodwill_amort": 79,
+        "pension_expense": -663,
+        "equity_pay": 62,
+        "cash_people_cost": 5660,
+        "parent_profit": 16362,
+        "pbt": 25447,
+        "tax": 9009,
+        "nci": 75,
+        "group_profit": 16438,
+        "extraordinary_net": 1063,
+        "ppe_cash_spend": 1134,
+        "other_investing_outflow": 395,
+        "pension_cf_adjustment": -719
+      },
+      "/actual/prior_h1": {
+        "revenue": 118359,
+        "gross_profit": 27470,
+        "sga": 9886,
+        "da": 668,
+        "sga_da": 644,
+        "goodwill_amort": 71,
+        "pension_expense": -351,
+        "equity_pay": 68
+      },
+      "/actual/prior_fy": {
+        "revenue": 256228,
+        "gross_profit": 56083,
+        "sga": 21604,
+        "da": 1429,
+        "sga_da": 1381,
+        "goodwill_amort": 147,
+        "pension_expense": -702,
+        "equity_pay": 149
+      }
+    },
+    "kind": "reported_actual",
+    "units": "JPY million",
+    "observed_anchor": "Current H1, comparable H1 and FY26 original statements; exact reported SG&A9886/21604.",
+    "derivation": "Use headline actuals, explicit −1m H1 rounding. Cash SG&A excludes disclosed D&A, goodwill, pension and equity pay; no invented corporate residual.",
+    "reason_for_base": "Preserve actuals and comparable halves; actual H1 never changes under a forecast stress.",
+    "timing": "Actual periods end Sep2026/Sep2025/Mar2026.",
+    "alternative": "Any restatement must replace source and invalidate review.",
+    "range": "Actual facts; uncertain CF and allocation uses are separately described in FUNDING_PROXY and SGA.",
+    "falsifier": "Issuer correction or extraction mismatch.",
+    "mechanism": "Anchors historical costs, earnings normalization and actual-to-forecast transition.",
+    "evidence": [
+      {
+        "source_id": "H1",
+        "locator": "pp11,13–15; ANNUAL pp83,87,96",
+        "passage": "Source paraphrase: H1 revenue126844, GP35015, SG&A11056, OP23958; prior H1 SG&A9886. Annual SG&A21604. Pension cash-flow asset/liability adjustments total−719, not a disclosed cash contribution. Other investing outflow395 is not identified software capex."
+      },
+      {
+        "source_id": "ANNUAL",
+        "locator": "pp83,87,96",
+        "passage": "Source paraphrase: Annual revenue256228, GP56083, SG&A21604, D&A1429, SG&A D&A1381; SG&A pension−702 and equity provision149."
+      }
+    ],
+    "justification_basis": "reported_actual"
+  },
+  {
+    "id": "ORDER_BOOK",
+    "path_values": {
+      "/actual/lanes": {
+        "HVAC_plumbing": {
+          "backlog": 363167,
+          "ttm_orders": 322341,
+          "h1_revenue": 104373
+        },
+        "electrical": {
+          "backlog": 117947,
+          "ttm_orders": 100574,
+          "h1_revenue": 22470
+        }
+      },
+      "/actual/prior_september_backlog": 322910
+    },
+    "kind": "reported_actual",
+    "units": "JPY million nominal bid value",
+    "observed_anchor": "Cutoff backlog481114; TTM awards422915 from two lanes; current H1 revenue components sum126843. Prior September backlog322910.",
+    "derivation": "Maintain opening + awards − recognition = closing; headline versus lanes rounding1–2m retained separately.",
+    "reason_for_base": "Observable contractual workload; no unsupported market-share/industry growth input.",
+    "timing": "Sep2026 backlog; TTM to Sep2026.",
+    "alternative": "Scope or cancellations would require a separate sourced adjustment.",
+    "range": "Historical facts; future orders −15%/0%/+5% cases.",
+    "falsifier": "Backlog cancellations, scope mismatch or materially different award flow.",
+    "mechanism": "Delivery is constrained by both available work and company capacity.",
+    "evidence": [
+      {
+        "source_id": "DECK",
+        "locator": "pp7–12,28–30; H1 p17",
+        "passage": "Source paraphrase: Backlog, order and revenue tables split HVAC/plumbing and electrical; revenue recognition occurs mainly over time."
+      },
+      {
+        "source_id": "H1",
+        "locator": "p17",
+        "passage": "Source paraphrase: Group equipment construction revenue and over-time recognition split, including the1m rounded lane-component difference."
+      }
+    ],
+    "justification_basis": "reported_actual"
+  },
+  {
+    "id": "DIRECT_COST_MIX",
+    "path_values": {
+      "/actual/parent_direct_labor": 28292,
+      "/actual/parent_construction_cost": 175478
+    },
+    "kind": "house_inference",
+    "units": "JPY million / cost fraction",
+    "observed_anchor": "Parent construction cost175478 includes labor28292, 16.12%.",
+    "derivation": "Use parent disclosed direct-labor weight as group financial proxy; remainder includes materials, outsourcing and other costs. Parent employee costs also include design/management allocated to projects; this is not a disclosed group field-labor split.",
+    "reason_for_base": "More grounded than an arbitrary fixed-field split; group/subsidiary mix remains an identified uncertainty.",
+    "timing": "FY26 cost mix applied to new-award cost escalation only.",
+    "alternative": "Labor weight10–25% sensitivity; no fabricated segment margins.",
+    "range": "10–25% analyst range; not a confidence interval.",
+    "falsifier": "Subsidiary mix or subcontract labor inflation makes parent proxy unrepresentative.",
+    "mechanism": "Separates pay/productivity from nonlabor escalation in bid budgets.",
+    "evidence": [
+      {
+        "source_id": "ANNUAL",
+        "locator": "p124",
+        "passage": "Source paraphrase: Parent cost report distinguishes materials, subcontracting and expenses, including employee costs."
+      }
+    ],
+    "justification_basis": "issuer_evidence_and_explicit_commercial_judgment"
+  },
+  {
+    "id": "BALANCE",
+    "path_values": {
+      "/actual/cash": 90813,
+      "/actual/debt": 3164,
+      "/actual/equity": 139683,
+      "/actual/nci_book": 2539,
+      "/actual/nondebt_noncurrent_liabilities": 6926,
+      "/actual/receivables": 70509,
+      "/actual/inventory": 2712,
+      "/actual/payables": 20030,
+      "/actual/advances": 18490,
+      "/actual/other_deposits": 21169
+    },
+    "kind": "reported_actual",
+    "units": "JPY million",
+    "observed_anchor": "Sep2026 group balance sheet and CF closing equivalents90813.",
+    "derivation": "Use same-date balances; receivables/inventory on annualized H1 sales, payables on annualized cost, advances on backlog.",
+    "reason_for_base": "Preserve cash versus deposits distinction; ratios are dated funding proxies, not proof of distributable surplus.",
+    "timing": "Opening September cash, future March balances.",
+    "alternative": "Receivable delay and other-deposit unwind stresses; omitted OCI/other balance movements stay explicit.",
+    "range": "Funding sensitivity +15 collection days and up to20% deposit unwind/year.",
+    "falsifier": "Changed billing milestones, payables/advance terms or restricted-cash evidence.",
+    "mechanism": "Connects growth to working-capital financing rather than free EPS growth.",
+    "evidence": [
+      {
+        "source_id": "H1",
+        "locator": "pp9–10,13–15",
+        "passage": "Source paraphrase: Balance sheet and cash-flow statements disclose receivables, construction inventory, trade payables, customer advances, deposits and cash-equivalent reconciliation."
+      }
+    ],
+    "justification_basis": "reported_actual"
+  },
+  {
+    "id": "SHARES",
+    "path_values": {
+      "/actual/h1_weighted_shares_m": 129.459579,
+      "/actual/closing_eps_shares_m": 129.543524,
+      "/actual/dividend_eligible_shares_m": 130.186304
+    },
+    "kind": "calculated_actual",
+    "units": "million shares",
+    "observed_anchor": "Issued137.891406m; treasury8.347882m includes BIP0.642780m. Actual H1 weighted129.459579m.",
+    "derivation": "Closing EPS shares129.543524m; legal dividend shares130.186304m include BIP. FY0 weighted half actual H1/half closing; later closing held.",
+    "reason_for_base": "Execution and actual rights determine denominators; an authorization earns no EPS credit.",
+    "timing": "Actual Sep2026; no assumed future share transactions.",
+    "alternative": "Executed buyback/issuance replaces counts, triggers new run/review.",
+    "range": "Known actuals; no hypothetical retirement in central forecast.",
+    "falsifier": "Later executed share event or trust transfer.",
+    "mechanism": "EPS and aggregate dividend cash use distinct compatible share denominators.",
+    "evidence": [
+      {
+        "source_id": "SUMMARY",
+        "locator": "p2; H1 pp16–17",
+        "passage": "Source paraphrase: Summary gives exact issued/treasury/BIP and weighted shares. BIP is deducted from EPS but receives dividend cash."
+      }
+    ],
+    "justification_basis": "accounting_identity"
+  },
+  {
+    "id": "CAPITAL_FACTS",
+    "path_values": {
+      "/actual/declared_interim_cash": 5467,
+      "/actual/announced_final_dps": 51,
+      "/actual/annual_principal_runrate": 714
+    },
+    "kind": "calculated_actual",
+    "units": "JPY million / yen DPS",
+    "observed_anchor": "Declared interim5467m; final forecast51yen; H1 principal repayment357m.",
+    "derivation": "Known interim aggregate used as disclosed; final cash51×legal shares paid next year; debt repayment714m/year proxy from twice H1.",
+    "reason_for_base": "Retain known payments and separate unexecuted capital actions.",
+    "timing": "Dec2026 interim; June2027 final forecast; principal same observed semiannual cadence.",
+    "alternative": "Repayment maturity change/final dividend revision; no invented buyback execution.",
+    "range": "Principal0–714m/year; dividend forecast remains comparator payment assumption.",
+    "falsifier": "New financing schedule or dividend resolution.",
+    "mechanism": "Cash roll-forward recognizes payment timing and legal shares.",
+    "evidence": [
+      {
+        "source_id": "H1",
+        "locator": "pp14,16; SUMMARY p1",
+        "passage": "Source paraphrase: Cash-flow principal repayment357m and interim resolution5467m; summary reports51yen final dividend forecast."
+      }
+    ],
+    "justification_basis": "accounting_identity"
+  },
+  {
+    "id": "NONOP",
+    "path_values": {
+      "/actual/ttm_recurring_nonop_before_interest": 853
+    },
+    "kind": "calculated_actual",
+    "units": "JPY million/year",
+    "observed_anchor": "FY26 non-op exFX before interest815; prior H1 comparable470; current H1508.",
+    "derivation": "815−470+508=853; exclude realized FX and extraordinary items, retain recurring dividends/insurance/rent/other.",
+    "reason_for_base": "TTM observable run rate avoids a fixed net-income/OP multiplier; interest modeled separately.",
+    "timing": "FY28–30 constant nominal run rate; half run rate in current H2.",
+    "alternative": "±250m recurring non-op stress; no asset-disposal gain assumed.",
+    "range": "603–1103m/year analyst sensitivity.",
+    "falsifier": "Changed financial assets, insurance income or persistent FX economics.",
+    "mechanism": "Bridges operating earnings to recurring parent profit.",
+    "evidence": [
+      {
+        "source_id": "H1",
+        "locator": "p11; ANNUAL p83",
+        "passage": "Source paraphrase: Statements separate nonoperating income, interest, FX and extraordinary security disposals."
+      }
+    ],
+    "justification_basis": "accounting_identity"
+  },
+  {
+    "id": "H2_CAPACITY",
+    "path_values": {
+      "/cases/bear/h2_delivery_factor": 0.95,
+      "/cases/base/h2_delivery_factor": 1.0,
+      "/cases/bull/h2_delivery_factor": 1.05
+    },
+    "kind": "house_assumption",
+    "units": "factor",
+    "observed_anchor": "H1 revenue126844 vs118359, +7.17%; prior H2 revenue137869.",
+    "derivation": "Current H2 reference capacity = prior H2 × H1 YoY growth; cases multiply0.95/1/1.05.",
+    "reason_for_base": "Observed recent company delivery is the nearest measurable capacity anchor; no guidance sales target is imported.",
+    "timing": "Current remaining six months only.",
+    "alternative": "Delivery ±5%; do not annualize the six-month +8.02% employee increase.",
+    "range": "0.95–1.05 factor.",
+    "falsifier": "Project progress, staffing or actual Q3 delivery materially departs from recent trend.",
+    "mechanism": "Available workload and observable delivery jointly bound recognized revenue.",
+    "evidence": [
+      {
+        "source_id": "DECK",
+        "locator": "pp5–6,24,31 (corrected)",
+        "passage": "Source paraphrase: Improved delivery and pipeline; group employees2774 at September2026, versus2568 at March2026; quarter results compare like dates."
+      }
+    ],
+    "justification_basis": "issuer_evidence_and_explicit_commercial_judgment"
+  },
+  {
+    "id": "PERSISTENCE",
+    "path_values": {
+      "/cases/bear/improvement_carry": 0.5,
+      "/cases/base/improvement_carry": 1.0,
+      "/cases/bull/improvement_carry": 1.0,
+      "/cases/bear/legacy_overrun": 0.01,
+      "/cases/base/legacy_overrun": 0.0,
+      "/cases/bull/legacy_overrun": 0.0
+    },
+    "kind": "house_assumption",
+    "units": "fraction / extra cash cost fraction",
+    "observed_anchor": "H1 cash gross-margin improvement≈4.41pp versus like H1; prior H2 recognized margin lower than prior H1.",
+    "derivation": "Prior H2 cash GP rate + full observed like-half improvement; future annual cash-cost anchor blends actual H1 with that H2. Existing bid values and vintage cost-escalation factors do not reprice; base unforeseen overrun0. The aggregate cash-cost baseline shifts from current H2 recognition mix to the full-year blend in later annual periods; these are NOT disclosed project-level fixed cost budgets.",
+    "reason_for_base": "Cost-reduction/process changes described as established and spreading; price recovery persists. No quantified temporary benefit supports a central haircut. Full carry is an explicit, testable persistence hypothesis, not a fact.",
+    "timing": "Current H2 onward; matched prior half preserves observed completion timing without treating it as a seasonal law.",
+    "alternative": "Half/no carry, 1–2% unforeseen legacy cash-cost overrun, and adverse completion mix.",
+    "range": "Carry0–1; no future incremental improvement above observed gain. Overrun0–2%.",
+    "falsifier": "Price recovery reverses, bids deteriorate or costs exceed project budgets.",
+    "mechanism": "Observed price/cost improvement changes cash construction costs; margins are outputs. No separate price uplift added to old contracts.",
+    "evidence": [
+      {
+        "source_id": "DECK",
+        "locator": "pp5–6; QA Q4,Q11",
+        "passage": "Source paraphrase: Current gains attributed to cost reductions and price recovery; process improvements established/expanding. Large-project progress and completion affect recognized margin. Some strategic bids can accept lower margins."
+      }
+    ],
+    "justification_basis": "issuer_evidence_and_explicit_commercial_judgment"
+  },
+  {
+    "id": "STAFFING",
+    "path_values": {
+      "/cases/bear/headcount_growth": 0.03,
+      "/cases/base/headcount_growth": 0.0503067484662576,
+      "/cases/bull/headcount_growth": 0.08
+    },
+    "kind": "house_assumption",
+    "units": "annual fraction",
+    "observed_anchor": "2774 group staff at Sep2026, +206 over six months; hiring182→234 in consecutive fiscal years.",
+    "derivation": "Future annual financial-staffing proxy3%/5.0307%/8% cases. Base equals latest completed-year consolidated growth2568/2445−1, about140 on current2774; not the six-month burst annualized.",
+    "reason_for_base": "Active hiring and large backlog support persistence of the latest complete-year group net staffing growth. Gross hiring, attrition, subsidiary scope and maturation are not separately forecast: this remains a financial capacity/cost proxy. A sharp deceleration to3% is an alternative, not an unsupported central haircut.",
+    "timing": "FY3/28 onward.",
+    "alternative": "3–8% annual; higher hiring raises SG&A and delivery capacity together.",
+    "range": "3–8% analyst range.",
+    "falsifier": "Hiring shortfall, attrition or stalled workforce growth.",
+    "mechanism": "Staff expands deliverable reference-price workload and people costs.",
+    "evidence": [
+      {
+        "source_id": "DECK",
+        "locator": "p24 corrected; QA Q1,Q6–7",
+        "passage": "Source paraphrase: Hiring and employee maturation support growth; staffing dates corrected to September2026; frontloading and offsite work support execution."
+      }
+    ],
+    "justification_basis": "issuer_evidence_and_explicit_commercial_judgment"
+  },
+  {
+    "id": "PRODUCTIVITY",
+    "path_values": {
+      "/cases/bear/productivity_growth": 0.0,
+      "/cases/base/productivity_growth": 0.01,
+      "/cases/bull/productivity_growth": 0.02
+    },
+    "kind": "house_assumption",
+    "units": "annual fraction",
+    "observed_anchor": "Management describes employee maturation, frontloading, offsite work and support measures; no quantified productivity target.",
+    "derivation": "0/1/2% annual revenue-equivalent capacity per person; same productivity reduces new-award labor input per reference activity once.",
+    "reason_for_base": "Small positive maturation effect is a bounded house estimate, not a disclosed physical-unit fact.",
+    "timing": "FY3/28 onward.",
+    "alternative": "Zero improvement or2%; costs and throughput respond coherently.",
+    "range": "0–2% analyst range.",
+    "falsifier": "Staff maturation fails to improve accepted workload; execution bottlenecks persist.",
+    "mechanism": "Separates real delivery efficiency from nominal price inflation.",
+    "evidence": [
+      {
+        "source_id": "QA",
+        "locator": "Q1,Q6–7",
+        "passage": "Source paraphrase: Company expects backlog and maturing personnel to support growth; process improvements address labor constraints."
+      }
+    ],
+    "justification_basis": "issuer_evidence_and_explicit_commercial_judgment"
+  },
+  {
+    "id": "PRICE_COST",
+    "path_values": {
+      "/cases/bear/new_bid_price_growth": 0.03,
+      "/cases/base/new_bid_price_growth": 0.04,
+      "/cases/bull/new_bid_price_growth": 0.05,
+      "/cases/bear/nonlabor_input_growth": 0.05,
+      "/cases/base/nonlabor_input_growth": 0.04,
+      "/cases/bull/nonlabor_input_growth": 0.04,
+      "/cases/bear/pay_growth": 0.06,
+      "/cases/base/pay_growth": 0.05,
+      "/cases/bull/pay_growth": 0.05
+    },
+    "kind": "house_assumption",
+    "units": "annual fraction",
+    "observed_anchor": "May Q10 planning inflation~4%; May Q7 cumulative base-pay increase15.77% over3years implies~5.0023%/year. Base pay is not total compensation; current salary/bonus mix remains a proxy.",
+    "derivation": "New bid prices3/4/5%; nonlabor inputs5/4/4%; pay6/5/5%. Apply only to new-vintage expected cost budget and price; old contract nominal values remain fixed. Aggregate recognition cost profiles still differ between H2 and a later full year; no claim of frozen absolute project budgets.",
+    "reason_for_base": "Equal4% price/nonlabor inflation is a neutral pass-through planning proxy. Pay5% is rounded from the independently disclosed three-year base-pay anchor, not chosen to hit a margin. Full compensation can differ; productivity1% is a separate judgment. None is a disclosed future company rate.",
+    "timing": "FY3/28 award vintages onward; cost budgets include expected inflation at award.",
+    "alternative": "Price3% versus cost5%, pay7%, no productivity; no assumption that future repricing rights guarantee recovery.",
+    "range": "Bid3–5%, inputs3–5%, pay3–7%.",
+    "falsifier": "Tender pricing or subcontract/pay costs diverge from modeled spread.",
+    "mechanism": "New work earns a spread derived from separate price and input budgets; only recognized vintages affect earnings.",
+    "evidence": [
+      {
+        "source_id": "QA",
+        "locator": "Q7,Q10–11; DECK pp5–6",
+        "passage": "Source paraphrase: Planning inflation around4%; current cost pass-through; no quantified company forward margin forecast."
+      }
+    ],
+    "justification_basis": "issuer_evidence_and_explicit_commercial_judgment"
+  },
+  {
+    "id": "AWARDS_RECOGNITION",
+    "path_values": {
+      "/cases/bear/orders_growth": -0.15,
+      "/cases/base/orders_growth": 0.0,
+      "/cases/bull/orders_growth": 0.05,
+      "/cases/bear/recognition_factor": 0.9,
+      "/cases/base/recognition_factor": 1.0,
+      "/cases/bull/recognition_factor": 1.0
+    },
+    "kind": "house_assumption",
+    "units": "annual fraction / factor",
+    "observed_anchor": "TTM awards422915 exceed annualized H1 sales253688; prior H2 revenue / prior Sep backlog42.694%.",
+    "derivation": "Flat nominal awards base; bear−15%/year,bull+5%. Half-year eligible opening work uses observed ratio; new awards half that exposure; pro-rata parallel execution and observed lane revenue mix.",
+    "reason_for_base": "Large work bank means delivery is initially the constraint. Uniform award arrival/pro-rata scheduling is an honest financial timing proxy; no unsupported FIFO delay. Flat nominal awards imply declining reference-price volume as bid prices rise.",
+    "timing": "Every half-year; new awards and old backlog conserved once.",
+    "alternative": "Recognition−10%, orders−15%, or no awards stress.",
+    "range": "Awards−20% to+5%; recognition0.9–1.1; new arrival exposure0–1 sensitivity.",
+    "falsifier": "Project schedules/customer delays, cancellations or sharply different award mix.",
+    "mechanism": "Connects orders to revenue without counting the same order twice or treating orders as immediate sales.",
+    "evidence": [
+      {
+        "source_id": "DECK",
+        "locator": "pp7–12,28–30; H1 p17",
+        "passage": "Source paraphrase: Large backlog; contracts mainly recognized over time, with some completed-job recognition."
+      }
+    ],
+    "justification_basis": "issuer_evidence_and_explicit_commercial_judgment"
+  },
+  {
+    "id": "INVESTMENT",
+    "path_values": {
+      "/cases/bear/asset_life": 10.0,
+      "/cases/base/asset_life": 10.0,
+      "/cases/bull/asset_life": 10.0
+    },
+    "kind": "house_assumption",
+    "units": "years",
+    "observed_anchor": "H1 cash PPE1134, D&A898 with SG&A D&A877. Annual PPE cash800; current program includes training facility.",
+    "derivation": "Current H2 PPE repeats H1; future PPE scales real capacity. Existing D&A run rate1796 is replacement proxy; PPE above that depreciates over10y with half-year commissioning. Other investing395/half is separate cash use, never all capitalized.",
+    "reason_for_base": "Observable current investment run rate supports execution; avoid treating old unspent project total as still unpaid. No unsupported50/50 depreciation allocation. Maintenance/run-off and life are bounded proxies.",
+    "timing": "Half-year new commissioning; no incremental capacity from uncommissioned property.",
+    "alternative": "Life5–20y; PPE±50%; no claim that all spend is expansion.",
+    "range": "5–20 years; maintenance proxy current D&A.",
+    "falsifier": "Disclosed new investment plan, useful-life mix or completion delay.",
+    "mechanism": "Investment consumes cash and net expansion adds D&A with observed cost allocation.",
+    "evidence": [
+      {
+        "source_id": "H1",
+        "locator": "pp13–15; ANNUAL pp26,92",
+        "passage": "Source paraphrase: Current PPE cash1134 and depreciation898; depreciation useful lives differ by asset; training facility construction progresses to planned completion."
+      }
+    ],
+    "justification_basis": "issuer_evidence_and_explicit_commercial_judgment"
+  },
+  {
+    "id": "TAX_NCI",
+    "path_values": {
+      "/cases/bear/tax_rate": 0.31011125067288714,
+      "/cases/base/tax_rate": 0.31011125067288714,
+      "/cases/bull/tax_rate": 0.31011125067288714,
+      "/cases/bear/nci_claim_rate": 0.004562598856308554,
+      "/cases/base/nci_claim_rate": 0.004562598856308554,
+      "/cases/bull/nci_claim_rate": 0.004562598856308554
+    },
+    "kind": "house_assumption",
+    "units": "fraction",
+    "observed_anchor": "TTM tax13826 / PBT44584 =31.011%; current H1 NCI75 / group profit16438.",
+    "derivation": "Forward recurring PBT uses observed TTM effective-tax proxy; NCI claim fraction uses most recent actual after-tax group profit. H1 exceptional net1063 removed at H1 actual tax/NCI ratios.",
+    "reason_for_base": "Do not assume wage-tax credit expires; observed blended rate is the nearest whole-year anchor. In a loss stress, tax is floored at zero: no unverified immediate refund/deferred-tax benefit; loss carryforward relief is not forecast. NCI is an explicit group allocation proxy because entity-level subsidiary profit is not disclosed.",
+    "timing": "Only prospective earnings use forward rate; H1 actual normalization fixed.",
+    "alternative": "Tax28.1–35.4%; NCI0–1% after-tax group profit.",
+    "range": "Observed annual28.1%, H135.4%; not statutory predictions.",
+    "falsifier": "Changed tax credits/permanent items or subsidiary profit mix.",
+    "mechanism": "Makes taxes and minority claims explicit rather than frozen NI/OP conversion.",
+    "evidence": [
+      {
+        "source_id": "ANNUAL",
+        "locator": "pp83,112; H1 p11",
+        "passage": "Source paraphrase: Annual tax reconciliation includes wage credit; H1 effective tax higher. Statements separately disclose group and minority profit."
+      }
+    ],
+    "justification_basis": "issuer_evidence_and_explicit_commercial_judgment"
+  },
+  {
+    "id": "FUNDING",
+    "path_values": {
+      "/cases/bear/debt_interest_rate": 0.03,
+      "/cases/base/debt_interest_rate": 0.03,
+      "/cases/bull/debt_interest_rate": 0.03,
+      "/cases/bear/payout": 0.4,
+      "/cases/base/payout": 0.4,
+      "/cases/bull/payout": 0.4,
+      "/cases/bear/liquidity_months": 2.0,
+      "/cases/base/liquidity_months": 2.0,
+      "/cases/bull/liquidity_months": 2.0,
+      "/cases/bear/collection_delay_days": 15.0,
+      "/cases/base/collection_delay_days": 0.0,
+      "/cases/bull/collection_delay_days": 0.0,
+      "/cases/bear/other_deposit_unwind": 0.1,
+      "/cases/base/other_deposit_unwind": 0.0,
+      "/cases/bull/other_deposit_unwind": 0.0
+    },
+    "kind": "house_assumption",
+    "units": "rate / months / days",
+    "observed_anchor": "Cash90813, debt3164; policy payout>=40%; management describes roughly two-month salescash need; H1 collections and deposits materially affect CFO.",
+    "derivation": "3% debt interest funding assumption,40% recurring payout proxy,2-month cash floor; observed WC ratios plus explicit delay/deposit stresses. Current announced dividends override proxy timing. Payout-derived cash tranches are floored at zero, so a loss cannot create negative dividends/cash inflows.",
+    "reason_for_base": "No automatic surplus-cash distribution; model funds workload before discretionary capital actions. 3% is a stress-capable house funding price, not company borrowing quote.",
+    "timing": "September opening to March forecast cash; draw interest charged at midperiod.",
+    "alternative": "15-day collection delay;20% deposit unwind; interest1–5%; liquidity1–3months.",
+    "range": "Analyst funding ranges, not company commitments.",
+    "falsifier": "Payment milestones, deposit return, financing or payout policy changes.",
+    "mechanism": "Growth consumes capital; borrowing incurs interest and changes parent EPS.",
+    "evidence": [
+      {
+        "source_id": "QA",
+        "locator": "Q12; H1 pp9–16; SUMMARY p1",
+        "passage": "Source paraphrase: Management working-cash discussion; policy payout and actual cash-flow/debt/dividend statements."
+      }
+    ],
+    "justification_basis": "issuer_evidence_and_explicit_commercial_judgment"
+  },
+  {
+    "id": "PENSION",
+    "path_values": {
+      "/cases/bear/pension_credit_carry": 1.0,
+      "/cases/base/pension_credit_carry": 1.0,
+      "/cases/bull/pension_credit_carry": 1.0
+    },
+    "kind": "house_assumption",
+    "units": "fraction of current credit",
+    "observed_anchor": "H1 SG&A pension credit−663; cash-flow pension adjustments−719; total pension P&L scope not disclosed for H1.",
+    "derivation": "Carry current credit into future halves; freeze H1. CF adjustment uses observed−719/half proxy; a noncash credit reversal changes adjustment oppositely. Unresolved cash-contribution/direct-cost scope is not labeled an actual contribution.",
+    "reason_for_base": "A recurring accounting credit is not removed as an arbitrary reserve; explicit noncash risk shown separately.",
+    "timing": "Future H2/year only; current H1 unchanged.",
+    "alternative": "Credit eliminated; ±200m/year additional pension cash needs stress.",
+    "range": "Credit carry0–1; pension cash scope remains uncertain.",
+    "falsifier": "Actuarial assumptions/asset returns or issuer expense guidance changes.",
+    "mechanism": "Shows accounting-credit effect on OP/EPS separately from pension cash.",
+    "evidence": [
+      {
+        "source_id": "H1",
+        "locator": "pp13,15; ANNUAL pp110–111",
+        "passage": "Source paraphrase: SG&A retirement credit and cash-flow adjustments are distinct scopes; annual pension note includes direct-cost effects and actuarial assumptions."
+      }
+    ],
+    "justification_basis": "issuer_evidence_and_explicit_commercial_judgment"
+  },
+  {
+    "id": "CONVENTIONS",
+    "path_values": {
+      "/conventions": {
+        "days_in_year": 365.0,
+        "months_in_year": 12.0,
+        "new_order_halfyear_exposure": 0.5
+      }
+    },
+    "kind": "accounting_convention",
+    "units": "days / months / exposure fraction",
+    "observed_anchor": "Annual period365days/12months; new orders arrive through each half.",
+    "derivation": "Uniform arrival gives0.5 opening exposure for new awards; all input paths explicit.",
+    "reason_for_base": "Transparent timing convention; source supports parallel over-time construction, not exact undisclosed schedules.",
+    "timing": "Each forecast half-year.",
+    "alternative": "Exposure0–1 sensitivity; no false precision in actual project timing.",
+    "range": "0–1 analyst exposure range.",
+    "falsifier": "Actual construction schedule sharply front/back-loaded.",
+    "mechanism": "Prevents hidden same-year order conversion and defines cash-day arithmetic.",
+    "evidence": [
+      {
+        "source_id": "H1",
+        "locator": "p17",
+        "passage": "Source paraphrase: Construction revenue chiefly transfers over time; remaining work has multiple concurrent project schedules."
+      }
+    ],
+    "justification_basis": "accounting_identity"
+  }
+]
