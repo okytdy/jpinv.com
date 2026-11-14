@@ -32,7 +32,7 @@ for lang in ['en']:
     count=f'{len(models)} model'+('s' if len(models)!=1 else '') if en else f'{len(models)}件のモデル'
     order='Ticker · ascending' if en else '証券コード順'
     notes=('Each model is a dated JII estimate, distinct from company guidance. Its overview explains the reporting basis and the complete download retains assumptions, scenarios, sensitivities and calculation files. Forecasts are conditional and may differ from actual results.' if en else '各モデルは調査基準日時点のJII独自予想であり、会社予想とは区別しています。概要ページに計算基準を記載し、全データのダウンロードには前提、シナリオ、感応度分析、計算ファイルを含めています。予想は一定の前提に基づくもので、実績と異なる場合があります。')
-    portfolio_link='<a href="/en/portfolio/">Research portfolio</a>'
+    portfolio_link='<a href="/en/portfolio/">Model portfolio</a>'
     site_title=title+' | JII'
     out=f'''<!doctype html>
 <html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{site_title}</title><meta name="description" content="{esc(intro)}"><meta property="og:title" content="{site_title}"><meta property="og:url" content="https://jpinv.com{route}"><link rel="canonical" href="https://jpinv.com{route}"><link rel="alternate" hreflang="en" href="https://jpinv.com/en/models/"><link rel="alternate" hreflang="x-default" href="https://jpinv.com/en/models/"><link rel="icon" href="/favicon.svg"><link rel="stylesheet" href="/assets/site.css?v=20260831c"><link rel="stylesheet" href="/assets/model-library.css?v=20261104"></head>

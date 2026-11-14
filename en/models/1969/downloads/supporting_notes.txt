@@ -1,16 +1,1080 @@
-Takasago Thermal Engineering (1969) — supporting notes
-Research cutoff: 2026-11-12
+Takasago Thermal Engineering (1969) — supporting model notes
+Research cutoff:2026-11-14
+Forecast run:87602b6b96b45a2085592a3c9fcd06f3ba3aa9fd0ed82c968a62af25f8bb9f4f
 
-Download the full model & data ZIP ↓ The three-company forecast, calculation, inputs, source links and dated valuation data. Annual forecast table (.csv) · Full numerical dataset (.json) ← Forecast models Takasago Thermal Engineering 1969 Our forecast model Research cutoff: 12 November 2026 · Version 2026-11-12.1 · Fiscal years end in March Annual forecasts FY3/27: company guidance · FY3/28–30: JII forecasts Fiscal year FY3/27G FY3/28E FY3/29E FY3/30E Revenue (¥bn) 440.00 463.00 487.00 512.00 Operating profit (¥bn) 50.00 53.24 56.98 60.42 OP margin (%) 11.36 11.50 11.70 11.80 Net income (¥bn) 40.00 42.60 45.58 48.33 EPS (¥) 305.63 325.47 348.29 369.30 Swipe sideways to view all years → Model inputs Driver Annual path or value Calculation basis Revenue ¥440bn → ¥463bn → ¥487bn → ¥512bn FY3/27 guidance followed by JII annual revenue assumptions. Operating margin 11.36% → 11.50% → 11.70% → 11.80% Annual OP equals revenue multiplied by the operating margin. Net-income conversion 80.00% of OP Held at the FY3/27 company-guidance ratio. EPS share denominator 130.877204 million weighted shares Guidance-implied weighted shares held constant across the four years. Sources and data Takasago Q1 FY3/27 results, 5 August 2026 Three-company annual forecasts (.csv) · 12 November valuation data (.csv) · Calculation (.py) Related models: Dai-Dan (1980) · Nihon Dengi (1723) Japan Investor Interface Research model · 12 November 2026
+RESULTS REFRESH — 14 NOVEMBER 2026
+Approved as a defensible explicitly conditional central operating forecast. Available backlog/orders, empirical recognition and bounded throughput determine sales; observed cost economics, identified payroll/overhead budgets and depreciation determine profit. No entered annual margin path or management profit guidance determines outputs.
 
-LINKS AND SOURCES
-Download the full model & data ZIP ↓: https://jpinv.com/en/models/1969/downloads/takasago_hvac_model_reproducible.zip
-Annual forecast table (.csv): https://jpinv.com/en/models/1969/downloads/annual_forecast.csv
-Full numerical dataset (.json): https://jpinv.com/en/models/1969/downloads/forecast.json
-← Forecast models: https://jpinv.com/en/models/
-Takasago Q1 FY3/27 results, 5 August 2026: https://www2.jpx.co.jp/disc/19690/140120260804508626.pdf
-Three-company annual forecasts (.csv): https://jpinv.com/en/models/1969/downloads/annual_forecasts_all_companies.csv
-12 November valuation data (.csv): https://jpinv.com/en/models/1969/downloads/valuation_2026-11-12.csv
-Calculation (.py): https://jpinv.com/en/models/1969/downloads/model.py
-Dai-Dan (1980): https://jpinv.com/en/models/1980/
-Nihon Dengi (1723): https://jpinv.com/en/models/1723/
+Old and new forecast bases differ. The table below preserves the former published estimates; the current forecasts are generated from the independently reviewed model. This combined results/accounting/funding rebuild is not an organic-growth or acquisition-EPS attribution. Detailed annual OP/EPS bridges and causal sensitivities are in the complete model.
+
+SUPERSEDED PUBLIC TABLE
+Fiscal year | FY3/27G | FY3/28E | FY3/29E | FY3/30E
+Revenue (¥bn) | 440.00 | 463.00 | 487.00 | 512.00
+Operating profit (¥bn) | 50.00 | 53.24 | 56.98 | 60.42
+OP margin (%) | 11.36 | 11.50 | 11.70 | 11.80
+Net income (¥bn) | 40.00 | 42.60 | 45.58 | 48.33
+EPS (¥) | 305.63 | 325.47 | 348.29 | 369.30
+
+CURRENT REVIEWED TABLE
+2027-03-31: OP 52783.524840547 JPYm; recurring parent EPS 283.918237202
+2028-03-31: OP 55962.275593637 JPYm; recurring parent EPS 301.826032881
+2029-03-31: OP 59281.906117499 JPYm; recurring parent EPS 319.705204205
+2030-03-31: OP 62817.599393728 JPYm; recurring parent EPS 338.757238922
+
+MATERIAL UNCERTAINTIES
+Recognition/throughput and delivered price-mix are aggregate financial-stage proxies, not disclosed physical capacity or rights to reprice old fixed bids.
+AggregateH2SGA seasonality applies an observed prior pattern; actual project, overseas-expense and personnel timing may differ. FlatH2expense is separately stressed.
+Separate impairment/gain tax assumptions are approximations. A nondeductible impairment stress is material; actual marginal tax is undisclosed. The matchedTTM32.2884% is prospective judgment, not proven recurring tax.
+Core depreciation/COGSallocation, payroll pension/stockbenefit cash timing and asset lives remain aggregate proxies; known goodwill is separated and cash capex is funded.
+March tax/bonus and operating-balance ratios are timing proxies, not known future payment calendars. Currentyear newdraw13.804bn is uncommitted; cash does not establish distribution capacity.
+Grossparent dividend payments use exact legal eligible shares and actual declared amounts; exact intercompany elimination is not quantified. Planned future dividends remain changeable.
+No incremental acquisition EPS or share repurchase benefit is invented; segment mix is a small constant observed allocation, not independent unit profit forecasts.
+
+
+KEY ASSUMPTIONS
+Delivery: FY3/27 uses available backlog and incoming orders with the prior H2 financial recognition rate of 35.79%. Later real throughput grows 4% annually; price/mix adds 2%. These are financial proxies, not physical capacity disclosures.
+Costs: direct unit costs rise 2%; pay rises 5% with staffing up 2%. Other overhead has 3% inflation and 2% scope growth. Historical H2 expense seasonality is retained. These budgets determine margins; no margin path is imposed.
+EPS: prospective tax is 32.29%, with separate minority claims and no unexecuted buybacks. The tax treatment of identified exceptional items remains a material sensitivity.
+Funding: seasonal working capital, tax/bonus payments and dividend timing require ¥13.80bn of new FY3/27 borrowing in the base. This funding is uncommitted; slower collections or less financing would change the outcome.
+
+ECONOMIC REVIEW
+{
+  "status": "approved",
+  "reviewer": "/root/forecast_economic_reviewer",
+  "reviewed_at": "2026-11-14T02:07:10.891492+00:00",
+  "forecast_run_id": "87602b6b96b45a2085592a3c9fcd06f3ba3aa9fd0ed82c968a62af25f8bb9f4f",
+  "contract_digest": "b8a7f58acde17da4f8a15af592645cacff10b76bd359927cad43a5c06129c23d",
+  "model_sha256": "2e922ceb3414512873964d797d22cc48e3a0b14c03f1c370e7d603b3a485df59",
+  "input_sha256": "d45f756b73d6ca36f816b377745a7410654ffac3ec47b7165829fdf13ea6a40a",
+  "economic_judgment": "Approved as a defensible explicitly conditional central operating forecast. Available backlog/orders, empirical recognition and bounded throughput determine sales; observed cost economics, identified payroll/overhead budgets and depreciation determine profit. No entered annual margin path or management profit guidance determines outputs.",
+  "operating_lineage": {
+    "revenue": "Available backlog plus orders -> priorH2financial recognition share/current delivery and later bounded throughput -> conserved closing order book; external segment mix reconciles to actual group sales.",
+    "costs": "LatestH1cost anchor -> currentH2aggregate carry -> prospective volume/price-mix/input-cost budget. Core groupD&A is a disclosed aggregate allocated financially to the direct pool, not a measured construction cash-cost split.",
+    "expenses": "H1personnel and otherSGA -> explicit historical aggregateH2 timing -> independent pay/staff and otherinflation/scope growth; retained goodwill separated from timed capital depreciation.",
+    "parent_eps": "RecurringOP plus disclosed nonoperating financial proxies, cash yield and funded interest -> matched prospective tax and separate NCI -> weighted EPSshares. ActualH1exceptional items use distinct disclosed-as-uncertain marginaltax adjustments.",
+    "funding": "SeptemberCFE plus forward cash earnings -> March operating balances, tax/bonus liability rolls -> timed grossparent dividends using legalshares, capex, leases/principal -> interest-bearing uncommitted liquiditydraws."
+  },
+  "base_case_judgment": "Observed priorH2recognition35.7915% produces466.322bnFY3/27sales independently of470bncompanyguidance. CurrentH1economics and aggregateSGA timing1.331693 generate52.784bnOP rather than importing60bnguidance. Later4%real-throughput/2%effectiveprice-mix,2%netdirectcost,5%pay/2%staff and3%otherinflation/2%scope are bounded financial judgments anchored in industrial workload, active efficiency measures and observed payroll expansion. They require monitoring, not false operational precision.",
+  "material_uncertainties": [
+    "Recognition/throughput and delivered price-mix are aggregate financial-stage proxies, not disclosed physical capacity or rights to reprice old fixed bids.",
+    "AggregateH2SGA seasonality applies an observed prior pattern; actual project, overseas-expense and personnel timing may differ. FlatH2expense is separately stressed.",
+    "Separate impairment/gain tax assumptions are approximations. A nondeductible impairment stress is material; actual marginal tax is undisclosed. The matchedTTM32.2884% is prospective judgment, not proven recurring tax.",
+    "Core depreciation/COGSallocation, payroll pension/stockbenefit cash timing and asset lives remain aggregate proxies; known goodwill is separated and cash capex is funded.",
+    "March tax/bonus and operating-balance ratios are timing proxies, not known future payment calendars. Currentyear newdraw13.804bn is uncommitted; cash does not establish distribution capacity.",
+    "Grossparent dividend payments use exact legal eligible shares and actual declared amounts; exact intercompany elimination is not quantified. Planned future dividends remain changeable.",
+    "No incremental acquisition EPS or share repurchase benefit is invented; segment mix is a small constant observed allocation, not independent unit profit forecasts."
+  ],
+  "independence": "Separately delegated economic reviewer, not the model author. I wrote only review artifacts, independently reconstructed principal outcomes, checked original issuer evidence and required source/tax/cash/distribution repairs before approval.",
+  "independent_reconstruction": {
+    "path": "INDEPENDENT_RECONSTRUCTION.json",
+    "sha256": "b8cbf6d7fd0c0b11fccc29256c890eb498ab7bc5830b03631e123f6103bdb9af",
+    "review_calculation": "independent_reconstruction.py",
+    "review_calculation_sha256": "0a9d70b09c7b5f833c369783dc536023b9a5b55385c5825f2906e358dc39e2d1",
+    "status": "PASS",
+    "checks": [
+      "All three cases principal operating, parentEPS, working-capital/tax/bonus and financing outcomes match independent raw-input calculations within1e-7.",
+      "All12sealed sensitivities independently reconstruct.",
+      "AnnualOP/EPSsigned bridges reconcile to independently reconstructed outcomes.",
+      "Additional no-future-awards loss case,5/15yearasset lives and30bnminimum-cash stress reconstruct; funding uses independently written bisection solver.",
+      "No negative dividend or automatic income-tax refund funds losses; legal dividendcash and planned final/interim payment timing independently checked."
+    ],
+    "base_fy2027": {
+      "period_end": "2027-03-31",
+      "revenue": 466321.57816429436,
+      "gross_profit": 104158.34393067195,
+      "sga": 51374.81909012527,
+      "ebit": 52783.524840546685,
+      "recurring_parent_profit": 37165.39098351613,
+      "recurring_eps": 283.91823720169316,
+      "cash": 20000.0,
+      "debt": 18803.80931130951,
+      "backlog": 510581.92183570564,
+      "direct_cash_cost": 358036.73423362244,
+      "personnel": 18546.289800679617,
+      "other_sga": 32424.529289445654,
+      "da": 4126.5,
+      "goodwill_amort": 404.0,
+      "forward_cfo": -24591.80931130951,
+      "forward_interest": 120.49428491741065,
+      "forward_tax": 11729.86397413706,
+      "cash_tax": 7153.079980014569,
+      "closing_tax_payable": 10795.783994122492,
+      "closing_bonus_payable": 11598.27831679667,
+      "draw": 13803.809311309507,
+      "annual_dps": 123,
+      "dividend_cash": 8134
+    },
+    "base_fy2030": {
+      "period_end": "2030-03-31",
+      "revenue": 556654.9114558989,
+      "gross_profit": 123605.19135722663,
+      "sga": 60787.591963498264,
+      "ebit": 62817.59939372837,
+      "recurring_parent_profit": 44347.323636616486,
+      "recurring_eps": 338.75723892183026,
+      "cash": 51269.08857721368,
+      "debt": 3803.809311309509,
+      "backlog": 548931.9751953454,
+      "direct_cash_cost": 427393.70409867226,
+      "personnel": 22783.76299000891,
+      "other_sga": 37599.828973489355,
+      "da": 5656.016,
+      "goodwill_amort": 404.0,
+      "forward_cfo": 41976.35473258087,
+      "forward_interest": 94.55713966964264,
+      "forward_tax": 21359.08444436191,
+      "cash_tax": 20637.0154546903,
+      "closing_tax_payable": 12858.406906231445,
+      "closing_bonus_payable": 13723.287444841617,
+      "draw": 0.0,
+      "annual_dps": 146.7688261297492,
+      "dividend_cash": 19022.32884733558
+    }
+  },
+  "resolved_material_findings": [
+    "Mismatched ordinary-profit tax denominator",
+    "Unseparated exceptional-item marginal taxes and understated asymmetric uncertainty",
+    "Opening tax/provision settlement",
+    "EPSshares incorrectly used for legal dividendcash",
+    "Unexplained forward dividendcut and missing final/interim payment timing",
+    "Goodwill versus coreD&A classification",
+    "Investment-bookvalue fall incorrectly treated as known dividend-income loss"
+  ],
+  "unresolved_material_findings": [],
+  "source_verification": "Independently read latest November13 issuer results, Englishbriefing and EDINETfilingS100ZHAW, especially statutorypp7,11–12,14,16–17,22 and deckp19. Recomputed orders/recognition, payroll, matchedtax and exact legalshare bridge; checked project-stage explanations, buyback/share definitions and shareholder-return policy.",
+  "human_review": {
+    "path": "FINAL_ECONOMIC_REVIEW.md",
+    "sha256": "6fa9ee922048a27511bf49647913cfa9ac94b250bf54f2c3c87ea6c847b7bc4a"
+  },
+  "mechanical_record": {
+    "status": "PASS_COMPLETE_RUN_PENDING_ECONOMIC_REVIEW",
+    "run_id": "87602b6b96b45a2085592a3c9fcd06f3ba3aa9fd0ed82c968a62af25f8bb9f4f",
+    "assumptions": 30,
+    "input_paths": 141,
+    "sources": 3,
+    "files": {
+      "model": "C:\\Users\\okuya\\Desktop\\JII\\5 Capital\\Capital-Action-Alert\\research\\public_model_refresh\\20261114\\1969\\model\\model.py",
+      "inputs": "C:\\Users\\okuya\\Desktop\\JII\\5 Capital\\Capital-Action-Alert\\research\\public_model_refresh\\20261114\\1969\\model\\INPUTS.json",
+      "outputs": "C:\\Users\\okuya\\Desktop\\JII\\5 Capital\\Capital-Action-Alert\\research\\public_model_refresh\\20261114\\1969\\model\\OUTPUTS.json",
+      "assumptions": "C:\\Users\\okuya\\Desktop\\JII\\5 Capital\\Capital-Action-Alert\\research\\public_model_refresh\\20261114\\1969\\model\\ASSUMPTION_REGISTER.json",
+      "sources": "C:\\Users\\okuya\\Desktop\\JII\\5 Capital\\Capital-Action-Alert\\research\\public_model_refresh\\20261114\\1969\\model\\SOURCES.json",
+      "bridges": "C:\\Users\\okuya\\Desktop\\JII\\5 Capital\\Capital-Action-Alert\\research\\public_model_refresh\\20261114\\1969\\model\\BRIDGES.json",
+      "mechanisms": "C:\\Users\\okuya\\Desktop\\JII\\5 Capital\\Capital-Action-Alert\\research\\public_model_refresh\\20261114\\1969\\model\\MECHANISMS.json",
+      "sensitivities": "C:\\Users\\okuya\\Desktop\\JII\\5 Capital\\Capital-Action-Alert\\research\\public_model_refresh\\20261114\\1969\\model\\SENSITIVITIES.json"
+    }
+  }
+}
+
+ASSUMPTION REGISTER
+[
+  {
+    "id": "actual_anchors",
+    "kind": "calculated_actual",
+    "units": "JPY millions, million shares, EPS yen",
+    "observed_anchor": "All latest anchors are September2026 actuals. TTMorders=FY460,057+H1296,259−priorH1218,173=538,143. PriorH2revenue423,923−194,501=229,422; available priorH2work399,112+460,057−218,173=640,996. Their35.7915%financial recognition ratio is observed arithmetic, not physical capacity. SGApersonnel5,575+2,137+70+172=7,954; otherSGA is residual14,108 including source rounding. CoreD&A2,032 is separate from goodwill202; coreD&A is assigned to the aggregate direct-cost proxy, while goodwill remains inSGA. Actual reportedGP/SGA are unchanged. Netreceivables145,082+3,232=148,314; payables36,192+4,635=40,827. Known impairment/share-sale gains are normalized after separately specified uncertain marginal-tax proxies, not erased from reported actuals. Segment external sales177,722+3,875+112 plus1mreported rounding reconcile181,710. Announced interim aggregate8,134m includes dividend-eligible trustshares excluded from EPS. Opening bonus/officerprovision6,075m andtaxpayable6,219m roll forward rather than staying unpaid or being expensed twice.",
+    "derivation": "All latest anchors are September2026 actuals. TTMorders=FY460,057+H1296,259−priorH1218,173=538,143. PriorH2revenue423,923−194,501=229,422; available priorH2work399,112+460,057−218,173=640,996. Their35.7915%financial recognition ratio is observed arithmetic, not physical capacity. SGApersonnel5,575+2,137+70+172=7,954; otherSGA is residual14,108 including source rounding. CoreD&A2,032 is separate from goodwill202; coreD&A is assigned to the aggregate direct-cost proxy, while goodwill remains inSGA. Actual reportedGP/SGA are unchanged. Netreceivables145,082+3,232=148,314; payables36,192+4,635=40,827. Known impairment/share-sale gains are normalized after separately specified uncertain marginal-tax proxies, not erased from reported actuals. Segment external sales177,722+3,875+112 plus1mreported rounding reconcile181,710. Announced interim aggregate8,134m includes dividend-eligible trustshares excluded from EPS. Opening bonus/officerprovision6,075m andtaxpayable6,219m roll forward rather than staying unpaid or being expensed twice.",
+    "reason_for_base": "Latest disclosed actuals replace the prior period. Specified derived/normalized anchors use the stated accounting bridge, not a profit target.",
+    "timing": "Observed through2026-09-30; fixed across all cases.",
+    "alternative": "Corrected issuer actuals would replace these values; normalization alternatives are isolated sensitivities.",
+    "range": "Reported amounts and specified arithmetic conversions, subject to issuer rounding; no scenario overwrite of historical actuals.",
+    "falsifier": "A later correction or source reconciliation changes the reported amount or identified adjustment.",
+    "mechanism": "Opening operating, ownership and cash facts anchor the company-specific executable.",
+    "justification_basis": "reported_actual",
+    "evidence": [
+      {
+        "source_id": "LATEST_RESULTS",
+        "locator": "PDF pp1–2,6–8,10–11,14,18,20",
+        "passage": "H1 sales181,710; gross profit40,163; SGA22,062; OP18,101; parentprofit11,559. Share-salegain3,127; investmentimpairment4,899. Backlog526,122; orders296,259; cash equivalents50,075; bank/bond debt13,328. H1weightedshares130,891,667; issued140,478,804 less treasury9,566,993."
+      }
+    ],
+    "path_values": {
+      "/actual": {
+        "actual_fraction": 0.5,
+        "h1_revenue": 181710,
+        "h1_gross_profit": 40163,
+        "h1_sga": 22062,
+        "h1_sga_personnel": 7954,
+        "h1_parent_profit": 11559,
+        "h1_impairment": 4899,
+        "h1_share_sale_gain": 3127,
+        "h1_dividends": 705,
+        "h1_nonop_ex_interest_dividends": 811,
+        "h1_nci": 192,
+        "h1_weighted_shares": 130.891667,
+        "closing_shares": 130.911811,
+        "announced_interim_dps": 61,
+        "cash": 50075,
+        "debt": 13328,
+        "current_debt": 8328,
+        "backlog": 526122,
+        "receivables": 148314,
+        "inventory": 5283,
+        "payables": 40827,
+        "advances": 22555,
+        "march_receivables": 203174,
+        "march_payables": 51481,
+        "march_inventory": 4161,
+        "march_advances": 17993,
+        "prior_fy_revenue": 423923,
+        "prior_fy_gross_profit": 93719,
+        "prior_h1_revenue": 194501,
+        "prior_fy_sga": 45974,
+        "prior_h1_sga": 19717,
+        "prior_september_backlog": 399112,
+        "prior_fy_orders": 460057,
+        "prior_h1_orders": 218173,
+        "ttm_orders": 538143,
+        "h1_cfo": 47528,
+        "h1_cash_capex": 2428,
+        "segment_sales": {
+          "construction": 177722,
+          "equipment_external": 3875,
+          "other_external": 112,
+          "reported_rounding": 1
+        },
+        "h1_core_da": 2032,
+        "h1_goodwill_amort": 202,
+        "h1_reported_tax": 6203,
+        "tax_payable": 6219,
+        "bonus_payable": 6075,
+        "announced_interim_cash": 8134,
+        "announced_final_cash": 8268,
+        "announced_annual_dps": 123,
+        "legal_dividend_shares": 133.357497
+      }
+    }
+  },
+  {
+    "id": "annual_capex",
+    "kind": "house_assumption",
+    "units": "Explicit rate, monetary amount or annual path, as named in INPUTS.json",
+    "observed_anchor": "Base5bn annual capital budget is rounded from H1cashPPE/intangibles2.428bn annualized4.856bn; bull6bn funds faster execution. It is distinct from R&D or MTP ambitions. New assets enter pooled depreciation with half-period timing and consume cash.",
+    "derivation": "Base5bn annual capital budget is rounded from H1cashPPE/intangibles2.428bn annualized4.856bn; bull6bn funds faster execution. It is distinct from R&D or MTP ambitions. New assets enter pooled depreciation with half-period timing and consume cash.",
+    "reason_for_base": "Base5bn annual capital budget is rounded from H1cashPPE/intangibles2.428bn annualized4.856bn; bull6bn funds faster execution. It is distinct from R&D or MTP ambitions. New assets enter pooled depreciation with half-period timing and consume cash.",
+    "timing": "First forecast period is the unreported remainder of the current fiscal year; later rows are full fiscal years unless the driver explicitly says otherwise.",
+    "alternative": "Bear/base/bull values: {\"bear\": 5000, \"base\": 5000, \"bull\": 6000}",
+    "range": "Conditional house scenario range, not a statistical confidence interval: [5000, 5000, 6000]",
+    "falsifier": "Base5bn annual capital budget is rounded from H1cashPPE/intangibles2.428bn annualized4.856bn; bull6bn funds faster execution. It is distinct from R&D or MTP ambitions. New assets enter pooled depreciation with half-period timing and consume cash.",
+    "mechanism": "Base5bn annual capital budget is rounded from H1cashPPE/intangibles2.428bn annualized4.856bn; bull6bn funds faster execution. It is distinct from R&D or MTP ambitions. New assets enter pooled depreciation with half-period timing and consume cash.",
+    "justification_basis": "issuer_evidence_and_explicit_commercial_judgment",
+    "evidence": [
+      {
+        "source_id": "LATEST_RESULTS",
+        "locator": "PDF pp10–11",
+        "passage": "H1cash purchases ofPPE/intangibles2,428; depreciation2,032andgoodwillamortization202; leaseprincipalrepayments325. Current asset data anchor separate future capex, depreciation and lease cash proxies."
+      }
+    ],
+    "path_values": {
+      "/cases/bear/annual_capex": 5000,
+      "/cases/base/annual_capex": 5000,
+      "/cases/bull/annual_capex": 6000
+    }
+  },
+  {
+    "id": "annual_pool_conversion",
+    "kind": "house_assumption",
+    "units": "Explicit rate, monetary amount or annual path, as named in INPUTS.json",
+    "observed_anchor": "60% annual conversion of available backlog plus new orders is a house demand/recognition proxy. It conserves available order values and is capped by financial throughput in the base. Sensitivity reduces it to50%; no annual-order double counting or automatic revenue from every booked order.",
+    "derivation": "60% annual conversion of available backlog plus new orders is a house demand/recognition proxy. It conserves available order values and is capped by financial throughput in the base. Sensitivity reduces it to50%; no annual-order double counting or automatic revenue from every booked order.",
+    "reason_for_base": "60% annual conversion of available backlog plus new orders is a house demand/recognition proxy. It conserves available order values and is capped by financial throughput in the base. Sensitivity reduces it to50%; no annual-order double counting or automatic revenue from every booked order.",
+    "timing": "First forecast period is the unreported remainder of the current fiscal year; later rows are full fiscal years unless the driver explicitly says otherwise.",
+    "alternative": "Bear/base/bull values: {\"bear\": 0.6, \"base\": 0.6, \"bull\": 0.6}",
+    "range": "Conditional house scenario range, not a statistical confidence interval: [0.6, 0.6, 0.6]",
+    "falsifier": "60% annual conversion of available backlog plus new orders is a house demand/recognition proxy. It conserves available order values and is capped by financial throughput in the base. Sensitivity reduces it to50%; no annual-order double counting or automatic revenue from every booked order.",
+    "mechanism": "60% annual conversion of available backlog plus new orders is a house demand/recognition proxy. It conserves available order values and is capped by financial throughput in the base. Sensitivity reduces it to50%; no annual-order double counting or automatic revenue from every booked order.",
+    "justification_basis": "issuer_evidence_and_explicit_commercial_judgment",
+    "evidence": [
+      {
+        "source_id": "LATEST_RESULTS",
+        "locator": "PDF pp18,20",
+        "passage": "PriorFYsales423,923,orders460,057; priorH1sales194,501,orders218,173; priorSeptemberbacklog399,112. CurrentH1sales181,710,orders296,259; Septemberbacklog526,122. Delivery can only use available work."
+      },
+      {
+        "source_id": "LATEST_DECK_EN",
+        "locator": "PDF pp4–6,21",
+        "passage": "Several large-scale projects remained in early construction stages. Record orders and backlog reflect industrial demand and disciplined acquisition aligned to construction capacity. T-Base production/network and work-hour-saving outlook are operating context, not imported revenue/profit targets."
+      }
+    ],
+    "path_values": {
+      "/cases/bear/annual_pool_conversion": 0.6,
+      "/cases/base/annual_pool_conversion": 0.6,
+      "/cases/bull/annual_pool_conversion": 0.6
+    }
+  },
+  {
+    "id": "annual_principal",
+    "kind": "house_assumption",
+    "units": "Explicit rate, monetary amount or annual path, as named in INPUTS.json",
+    "observed_anchor": "After repaying known current debt8.328bn inH2, later bank/bond principal5bn/year is a house maturity proxy bounded by outstanding debt. New seasonal working-capital funding is explicit, interest bearing and uncommitted. Exact future loan maturities can change timing.",
+    "derivation": "After repaying known current debt8.328bn inH2, later bank/bond principal5bn/year is a house maturity proxy bounded by outstanding debt. New seasonal working-capital funding is explicit, interest bearing and uncommitted. Exact future loan maturities can change timing.",
+    "reason_for_base": "After repaying known current debt8.328bn inH2, later bank/bond principal5bn/year is a house maturity proxy bounded by outstanding debt. New seasonal working-capital funding is explicit, interest bearing and uncommitted. Exact future loan maturities can change timing.",
+    "timing": "First forecast period is the unreported remainder of the current fiscal year; later rows are full fiscal years unless the driver explicitly says otherwise.",
+    "alternative": "Bear/base/bull values: {\"bear\": 5000, \"base\": 5000, \"bull\": 5000}",
+    "range": "Conditional house scenario range, not a statistical confidence interval: [5000, 5000, 5000]",
+    "falsifier": "After repaying known current debt8.328bn inH2, later bank/bond principal5bn/year is a house maturity proxy bounded by outstanding debt. New seasonal working-capital funding is explicit, interest bearing and uncommitted. Exact future loan maturities can change timing.",
+    "mechanism": "After repaying known current debt8.328bn inH2, later bank/bond principal5bn/year is a house maturity proxy bounded by outstanding debt. New seasonal working-capital funding is explicit, interest bearing and uncommitted. Exact future loan maturities can change timing.",
+    "justification_basis": "issuer_evidence_and_explicit_commercial_judgment",
+    "evidence": [
+      {
+        "source_id": "LATEST_RESULTS",
+        "locator": "PDF pp6–8,10–11",
+        "passage": "Septemberbankloans3,328,currentbonds5,000,longbonds5,000; CFE50,075 versuscash/deposits58,173. H1interestpaid181/received292; MarchAR203,174andpayables51,481contrastwithSeptember148,314/40,827. Working-capital seasonality and funding are separately modeled."
+      }
+    ],
+    "path_values": {
+      "/cases/bear/annual_principal": 5000,
+      "/cases/base/annual_principal": 5000,
+      "/cases/bull/annual_principal": 5000
+    }
+  },
+  {
+    "id": "asset_life",
+    "kind": "house_assumption",
+    "units": "Explicit rate, monetary amount or annual path, as named in INPUTS.json",
+    "observed_anchor": "Ten-year pooled life is a house proxy, tested5–15years; it does not claim a detailed asset register. Known H1D&Aincluding goodwill2.234bn is retained. New capex changes depreciation and cash; existing allocations between COGS/SGA are not separately disclosed.",
+    "derivation": "Ten-year pooled life is a house proxy, tested5–15years; it does not claim a detailed asset register. Known H1D&Aincluding goodwill2.234bn is retained. New capex changes depreciation and cash; existing allocations between COGS/SGA are not separately disclosed.",
+    "reason_for_base": "Ten-year pooled life is a house proxy, tested5–15years; it does not claim a detailed asset register. Known H1D&Aincluding goodwill2.234bn is retained. New capex changes depreciation and cash; existing allocations between COGS/SGA are not separately disclosed.",
+    "timing": "First forecast period is the unreported remainder of the current fiscal year; later rows are full fiscal years unless the driver explicitly says otherwise.",
+    "alternative": "Bear/base/bull values: {\"bear\": 10, \"base\": 10, \"bull\": 10}",
+    "range": "Conditional house scenario range, not a statistical confidence interval: [10, 10, 10]",
+    "falsifier": "Ten-year pooled life is a house proxy, tested5–15years; it does not claim a detailed asset register. Known H1D&Aincluding goodwill2.234bn is retained. New capex changes depreciation and cash; existing allocations between COGS/SGA are not separately disclosed.",
+    "mechanism": "Ten-year pooled life is a house proxy, tested5–15years; it does not claim a detailed asset register. Known H1D&Aincluding goodwill2.234bn is retained. New capex changes depreciation and cash; existing allocations between COGS/SGA are not separately disclosed.",
+    "justification_basis": "issuer_evidence_and_explicit_commercial_judgment",
+    "evidence": [
+      {
+        "source_id": "LATEST_RESULTS",
+        "locator": "PDF pp10–11",
+        "passage": "H1cash purchases ofPPE/intangibles2,428; depreciation2,032andgoodwillamortization202; leaseprincipalrepayments325. Current asset data anchor separate future capex, depreciation and lease cash proxies."
+      }
+    ],
+    "path_values": {
+      "/cases/bear/asset_life": 10,
+      "/cases/base/asset_life": 10,
+      "/cases/bull/asset_life": 10
+    }
+  },
+  {
+    "id": "bonus_sga_ratio",
+    "kind": "house_assumption",
+    "units": "Explicit rate, monetary amount or annual path, as named in INPUTS.json",
+    "observed_anchor": "PriorMarchbonus10,163 plusofficerbonus216, divided by annualSGA45,974, gives22.5767% seasonal year-end liability proxy. Opening September6,002+73=6,075. Cash payroll includes expense less increase in provision; liabilities are not silently left unpaid nor deducted twice. A zero-year-end provision and constantopeningbalance alternative test timing; pension/stockbenefit cash timing remains a scope limit.",
+    "derivation": "PriorMarchbonus10,163 plusofficerbonus216, divided by annualSGA45,974, gives22.5767% seasonal year-end liability proxy. Opening September6,002+73=6,075. Cash payroll includes expense less increase in provision; liabilities are not silently left unpaid nor deducted twice. A zero-year-end provision and constantopeningbalance alternative test timing; pension/stockbenefit cash timing remains a scope limit.",
+    "reason_for_base": "PriorMarchbonus10,163 plusofficerbonus216, divided by annualSGA45,974, gives22.5767% seasonal year-end liability proxy. Opening September6,002+73=6,075. Cash payroll includes expense less increase in provision; liabilities are not silently left unpaid nor deducted twice. A zero-year-end provision and constantopeningbalance alternative test timing; pension/stockbenefit cash timing remains a scope limit.",
+    "timing": "First forecast period is the unreported remainder of the current fiscal year; later rows are full fiscal years unless the driver explicitly says otherwise.",
+    "alternative": "Bear/base/bull values: {\"bear\": 0.22575803715143342, \"base\": 0.22575803715143342, \"bull\": 0.22575803715143342}",
+    "range": "Conditional house scenario range, not a statistical confidence interval: [0.22575803715143342, 0.22575803715143342, 0.22575803715143342]",
+    "falsifier": "PriorMarchbonus10,163 plusofficerbonus216, divided by annualSGA45,974, gives22.5767% seasonal year-end liability proxy. Opening September6,002+73=6,075. Cash payroll includes expense less increase in provision; liabilities are not silently left unpaid nor deducted twice. A zero-year-end provision and constantopeningbalance alternative test timing; pension/stockbenefit cash timing remains a scope limit.",
+    "mechanism": "PriorMarchbonus10,163 plusofficerbonus216, divided by annualSGA45,974, gives22.5767% seasonal year-end liability proxy. Opening September6,002+73=6,075. Cash payroll includes expense less increase in provision; liabilities are not silently left unpaid nor deducted twice. A zero-year-end provision and constantopeningbalance alternative test timing; pension/stockbenefit cash timing remains a scope limit.",
+    "justification_basis": "issuer_evidence_and_explicit_commercial_judgment",
+    "evidence": [
+      {
+        "source_id": "LATEST_RESULTS",
+        "locator": "PDF pp7,8,20",
+        "passage": "Marchbonus/officerprovisions10,163/216; September6,002/73. PriorFYSGA45,974. Grouppayroll/cash timing is modeled as a financial provision roll-forward."
+      }
+    ],
+    "path_values": {
+      "/cases/bear/bonus_sga_ratio": 0.22575803715143342,
+      "/cases/base/bonus_sga_ratio": 0.22575803715143342,
+      "/cases/bull/bonus_sga_ratio": 0.22575803715143342
+    }
+  },
+  {
+    "id": "capex_growth",
+    "kind": "house_assumption",
+    "units": "Explicit rate, monetary amount or annual path, as named in INPUTS.json",
+    "observed_anchor": "Base4% annual capex growth follows the real-throughput expansion proxy. Named investment evidence or cash spending would replace this modest financial envelope; capex is not made free when deliveries increase.",
+    "derivation": "Base4% annual capex growth follows the real-throughput expansion proxy. Named investment evidence or cash spending would replace this modest financial envelope; capex is not made free when deliveries increase.",
+    "reason_for_base": "Base4% annual capex growth follows the real-throughput expansion proxy. Named investment evidence or cash spending would replace this modest financial envelope; capex is not made free when deliveries increase.",
+    "timing": "First forecast period is the unreported remainder of the current fiscal year; later rows are full fiscal years unless the driver explicitly says otherwise.",
+    "alternative": "Bear/base/bull values: {\"bear\": 0.04, \"base\": 0.04, \"bull\": 0.04}",
+    "range": "Conditional house scenario range, not a statistical confidence interval: [0.04, 0.04, 0.04]",
+    "falsifier": "Base4% annual capex growth follows the real-throughput expansion proxy. Named investment evidence or cash spending would replace this modest financial envelope; capex is not made free when deliveries increase.",
+    "mechanism": "Base4% annual capex growth follows the real-throughput expansion proxy. Named investment evidence or cash spending would replace this modest financial envelope; capex is not made free when deliveries increase.",
+    "justification_basis": "issuer_evidence_and_explicit_commercial_judgment",
+    "evidence": [
+      {
+        "source_id": "LATEST_RESULTS",
+        "locator": "PDF pp10–11",
+        "passage": "H1cash purchases ofPPE/intangibles2,428; depreciation2,032andgoodwillamortization202; leaseprincipalrepayments325. Current asset data anchor separate future capex, depreciation and lease cash proxies."
+      }
+    ],
+    "path_values": {
+      "/cases/bear/capex_growth": 0.04,
+      "/cases/base/capex_growth": 0.04,
+      "/cases/bull/capex_growth": 0.04
+    }
+  },
+  {
+    "id": "cash_yield",
+    "kind": "house_assumption",
+    "units": "Explicit rate, monetary amount or annual path, as named in INPUTS.json",
+    "observed_anchor": "1% yield on actual starting cash equivalents is a house proxy below the annualized observed H1interest relative to average cash. Excludes illiquid investment securities and historical time deposits outside CFE. Test0–2%; forecast dividends are separate.",
+    "derivation": "1% yield on actual starting cash equivalents is a house proxy below the annualized observed H1interest relative to average cash. Excludes illiquid investment securities and historical time deposits outside CFE. Test0–2%; forecast dividends are separate.",
+    "reason_for_base": "1% yield on actual starting cash equivalents is a house proxy below the annualized observed H1interest relative to average cash. Excludes illiquid investment securities and historical time deposits outside CFE. Test0–2%; forecast dividends are separate.",
+    "timing": "First forecast period is the unreported remainder of the current fiscal year; later rows are full fiscal years unless the driver explicitly says otherwise.",
+    "alternative": "Bear/base/bull values: {\"bear\": 0.01, \"base\": 0.01, \"bull\": 0.01}",
+    "range": "Conditional house scenario range, not a statistical confidence interval: [0.01, 0.01, 0.01]",
+    "falsifier": "1% yield on actual starting cash equivalents is a house proxy below the annualized observed H1interest relative to average cash. Excludes illiquid investment securities and historical time deposits outside CFE. Test0–2%; forecast dividends are separate.",
+    "mechanism": "1% yield on actual starting cash equivalents is a house proxy below the annualized observed H1interest relative to average cash. Excludes illiquid investment securities and historical time deposits outside CFE. Test0–2%; forecast dividends are separate.",
+    "justification_basis": "issuer_evidence_and_explicit_commercial_judgment",
+    "evidence": [
+      {
+        "source_id": "LATEST_RESULTS",
+        "locator": "PDF pp6–8,10–11",
+        "passage": "Septemberbankloans3,328,currentbonds5,000,longbonds5,000; CFE50,075 versuscash/deposits58,173. H1interestpaid181/received292; MarchAR203,174andpayables51,481contrastwithSeptember148,314/40,827. Working-capital seasonality and funding are separately modeled."
+      }
+    ],
+    "path_values": {
+      "/cases/bear/cash_yield": 0.01,
+      "/cases/base/cash_yield": 0.01,
+      "/cases/bull/cash_yield": 0.01
+    }
+  },
+  {
+    "id": "current_cost_factor",
+    "kind": "house_assumption",
+    "units": "Explicit rate, monetary amount or annual path, as named in INPUTS.json",
+    "observed_anchor": "Base1 retains the latest observed H1gross cash-cost budget, without assuming efficiency declined when project-stage mix lowered headline gross margin. PriorH2gross margin was about21.5%, below currentH122.1%. No unsupported H2margin haircut or automatic management23.1%target. Isolated1.01cost factor tests deterioration.",
+    "derivation": "Base1 retains the latest observed H1gross cash-cost budget, without assuming efficiency declined when project-stage mix lowered headline gross margin. PriorH2gross margin was about21.5%, below currentH122.1%. No unsupported H2margin haircut or automatic management23.1%target. Isolated1.01cost factor tests deterioration.",
+    "reason_for_base": "Base1 retains the latest observed H1gross cash-cost budget, without assuming efficiency declined when project-stage mix lowered headline gross margin. PriorH2gross margin was about21.5%, below currentH122.1%. No unsupported H2margin haircut or automatic management23.1%target. Isolated1.01cost factor tests deterioration.",
+    "timing": "First forecast period is the unreported remainder of the current fiscal year; later rows are full fiscal years unless the driver explicitly says otherwise.",
+    "alternative": "Bear/base/bull values: {\"bear\": 1, \"base\": 1, \"bull\": 1}",
+    "range": "Conditional house scenario range, not a statistical confidence interval: [1, 1, 1]",
+    "falsifier": "Base1 retains the latest observed H1gross cash-cost budget, without assuming efficiency declined when project-stage mix lowered headline gross margin. PriorH2gross margin was about21.5%, below currentH122.1%. No unsupported H2margin haircut or automatic management23.1%target. Isolated1.01cost factor tests deterioration.",
+    "mechanism": "Base1 retains the latest observed H1gross cash-cost budget, without assuming efficiency declined when project-stage mix lowered headline gross margin. PriorH2gross margin was about21.5%, below currentH122.1%. No unsupported H2margin haircut or automatic management23.1%target. Isolated1.01cost factor tests deterioration.",
+    "justification_basis": "issuer_evidence_and_explicit_commercial_judgment",
+    "evidence": [
+      {
+        "source_id": "LATEST_RESULTS",
+        "locator": "PDF pp8,20",
+        "passage": "CurrentH1revenue181,710/grossprofit40,163; priorFYrevenue423,923/GP93,719; priorH1revenue194,501/GP44,397. Thus priorH2GP49,322/revenue229,422≈21.50%, versus currentH1GP22.10%."
+      },
+      {
+        "source_id": "LATEST_DECK_EN",
+        "locator": "PDF pp4–6",
+        "passage": "Continued profitability/productivity initiatives at parent and subsidiaries; lower headline H1gross profit also reflects lower project-stage revenue. The company23.1%annualgross-margin outlook is a comparator, not this model input."
+      }
+    ],
+    "path_values": {
+      "/cases/bear/current_cost_factor": 1,
+      "/cases/base/current_cost_factor": 1,
+      "/cases/bull/current_cost_factor": 1
+    }
+  },
+  {
+    "id": "debt_rate",
+    "kind": "house_assumption",
+    "units": "Explicit rate, monetary amount or annual path, as named in INPUTS.json",
+    "observed_anchor": "1.5% prospective bank/bond cost versus3%bear reflects the now-lower September debt after repayments, distinct from actual H1interest on the previously larger balance. New borrowing incurs half-period interest. Credit availability is not guaranteed.",
+    "derivation": "1.5% prospective bank/bond cost versus3%bear reflects the now-lower September debt after repayments, distinct from actual H1interest on the previously larger balance. New borrowing incurs half-period interest. Credit availability is not guaranteed.",
+    "reason_for_base": "1.5% prospective bank/bond cost versus3%bear reflects the now-lower September debt after repayments, distinct from actual H1interest on the previously larger balance. New borrowing incurs half-period interest. Credit availability is not guaranteed.",
+    "timing": "First forecast period is the unreported remainder of the current fiscal year; later rows are full fiscal years unless the driver explicitly says otherwise.",
+    "alternative": "Bear/base/bull values: {\"bear\": 0.03, \"base\": 0.015, \"bull\": 0.015}",
+    "range": "Conditional house scenario range, not a statistical confidence interval: [0.03, 0.015, 0.015]",
+    "falsifier": "1.5% prospective bank/bond cost versus3%bear reflects the now-lower September debt after repayments, distinct from actual H1interest on the previously larger balance. New borrowing incurs half-period interest. Credit availability is not guaranteed.",
+    "mechanism": "1.5% prospective bank/bond cost versus3%bear reflects the now-lower September debt after repayments, distinct from actual H1interest on the previously larger balance. New borrowing incurs half-period interest. Credit availability is not guaranteed.",
+    "justification_basis": "issuer_evidence_and_explicit_commercial_judgment",
+    "evidence": [
+      {
+        "source_id": "LATEST_RESULTS",
+        "locator": "PDF pp6–8,10–11",
+        "passage": "Septemberbankloans3,328,currentbonds5,000,longbonds5,000; CFE50,075 versuscash/deposits58,173. H1interestpaid181/received292; MarchAR203,174andpayables51,481contrastwithSeptember148,314/40,827. Working-capital seasonality and funding are separately modeled."
+      }
+    ],
+    "path_values": {
+      "/cases/bear/debt_rate": 0.03,
+      "/cases/base/debt_rate": 0.015,
+      "/cases/bull/debt_rate": 0.015
+    }
+  },
+  {
+    "id": "dividend_profit_elasticity",
+    "kind": "house_assumption",
+    "units": "Explicit rate, monetary amount or annual path, as named in INPUTS.json",
+    "observed_anchor": "AnnouncedFY27annualDPS123 (61interim/62final) anchors the cash schedule. Knownannounced finalaggregate8,268m is paid inFY28; prospectiveinterim is half the current modeledannualDPS timeslegaleligible133.357497mshares. LaterannualDPS changes proportionally with JIIparentprofit from theFY27base(elasticity1), consistent with earnings-linked dividends. This avoids an unexplained centralcut causedbyforcing40%onadifferentJIIearningsbasis; the company40%guideline remains a comparator. Downsidecases can reduce unannounced futureDPS; flatDPSelasticity0 is a sensitivity. Grossparentcash is a proxy; intercompany dividend eliminations are not claimed quantified.",
+    "derivation": "AnnouncedFY27annualDPS123 (61interim/62final) anchors the cash schedule. Knownannounced finalaggregate8,268m is paid inFY28; prospectiveinterim is half the current modeledannualDPS timeslegaleligible133.357497mshares. LaterannualDPS changes proportionally with JIIparentprofit from theFY27base(elasticity1), consistent with earnings-linked dividends. This avoids an unexplained centralcut causedbyforcing40%onadifferentJIIearningsbasis; the company40%guideline remains a comparator. Downsidecases can reduce unannounced futureDPS; flatDPSelasticity0 is a sensitivity. Grossparentcash is a proxy; intercompany dividend eliminations are not claimed quantified.",
+    "reason_for_base": "AnnouncedFY27annualDPS123 (61interim/62final) anchors the cash schedule. Knownannounced finalaggregate8,268m is paid inFY28; prospectiveinterim is half the current modeledannualDPS timeslegaleligible133.357497mshares. LaterannualDPS changes proportionally with JIIparentprofit from theFY27base(elasticity1), consistent with earnings-linked dividends. This avoids an unexplained centralcut causedbyforcing40%onadifferentJIIearningsbasis; the company40%guideline remains a comparator. Downsidecases can reduce unannounced futureDPS; flatDPSelasticity0 is a sensitivity. Grossparentcash is a proxy; intercompany dividend eliminations are not claimed quantified.",
+    "timing": "First forecast period is the unreported remainder of the current fiscal year; later rows are full fiscal years unless the driver explicitly says otherwise.",
+    "alternative": "Bear/base/bull values: {\"bear\": 1, \"base\": 1, \"bull\": 1}",
+    "range": "Conditional house scenario range, not a statistical confidence interval: [1, 1, 1]",
+    "falsifier": "AnnouncedFY27annualDPS123 (61interim/62final) anchors the cash schedule. Knownannounced finalaggregate8,268m is paid inFY28; prospectiveinterim is half the current modeledannualDPS timeslegaleligible133.357497mshares. LaterannualDPS changes proportionally with JIIparentprofit from theFY27base(elasticity1), consistent with earnings-linked dividends. This avoids an unexplained centralcut causedbyforcing40%onadifferentJIIearningsbasis; the company40%guideline remains a comparator. Downsidecases can reduce unannounced futureDPS; flatDPSelasticity0 is a sensitivity. Grossparentcash is a proxy; intercompany dividend eliminations are not claimed quantified.",
+    "mechanism": "AnnouncedFY27annualDPS123 (61interim/62final) anchors the cash schedule. Knownannounced finalaggregate8,268m is paid inFY28; prospectiveinterim is half the current modeledannualDPS timeslegaleligible133.357497mshares. LaterannualDPS changes proportionally with JIIparentprofit from theFY27base(elasticity1), consistent with earnings-linked dividends. This avoids an unexplained centralcut causedbyforcing40%onadifferentJIIearningsbasis; the company40%guideline remains a comparator. Downsidecases can reduce unannounced futureDPS; flatDPSelasticity0 is a sensitivity. Grossparentcash is a proxy; intercompany dividend eliminations are not claimed quantified.",
+    "justification_basis": "issuer_evidence_and_explicit_commercial_judgment",
+    "evidence": [
+      {
+        "source_id": "LATEST_DECK_EN",
+        "locator": "PDF p19",
+        "passage": "FY27annualDPS123, interim61/yearend62; totaldividendplan16,402m. Dividendgrowth with profit and40%guideline are companypolicy context, not a JIIprofit target."
+      },
+      {
+        "source_id": "LATEST_FILING",
+        "locator": "PDF p7 and interimdividendresolution",
+        "passage": "Issued140,478,804; parenttreasury7,121,300plus7oddlot; legaleligible133,357,497. Interimaggregate8,134m (truncated). Trust and reciprocal holdings have legaldividendrights althoughEPSsharecountdiffers. Knownfinalaggregate proxy16,402−8,134=8,268m."
+      }
+    ],
+    "path_values": {
+      "/cases/bear/dividend_profit_elasticity": 1,
+      "/cases/base/dividend_profit_elasticity": 1,
+      "/cases/bull/dividend_profit_elasticity": 1
+    }
+  },
+  {
+    "id": "effective_new_mix_price",
+    "kind": "house_assumption",
+    "units": "Explicit rate, monetary amount or annual path, as named in INPUTS.json",
+    "observed_anchor": "Base2% annual effective portfolio price/mix proxy, against1%bear/2.5%bull. It describes the future delivered mix of new awards, not repricing rights on old fixed bids. Direct costs have a separate effective growth input. Weak disclosure makes the price/cost gap a required sensitivity.",
+    "derivation": "Base2% annual effective portfolio price/mix proxy, against1%bear/2.5%bull. It describes the future delivered mix of new awards, not repricing rights on old fixed bids. Direct costs have a separate effective growth input. Weak disclosure makes the price/cost gap a required sensitivity.",
+    "reason_for_base": "Base2% annual effective portfolio price/mix proxy, against1%bear/2.5%bull. It describes the future delivered mix of new awards, not repricing rights on old fixed bids. Direct costs have a separate effective growth input. Weak disclosure makes the price/cost gap a required sensitivity.",
+    "timing": "First forecast period is the unreported remainder of the current fiscal year; later rows are full fiscal years unless the driver explicitly says otherwise.",
+    "alternative": "Bear/base/bull values: {\"bear\": 0.01, \"base\": 0.02, \"bull\": 0.025}",
+    "range": "Conditional house scenario range, not a statistical confidence interval: [0.01, 0.02, 0.025]",
+    "falsifier": "Base2% annual effective portfolio price/mix proxy, against1%bear/2.5%bull. It describes the future delivered mix of new awards, not repricing rights on old fixed bids. Direct costs have a separate effective growth input. Weak disclosure makes the price/cost gap a required sensitivity.",
+    "mechanism": "Base2% annual effective portfolio price/mix proxy, against1%bear/2.5%bull. It describes the future delivered mix of new awards, not repricing rights on old fixed bids. Direct costs have a separate effective growth input. Weak disclosure makes the price/cost gap a required sensitivity.",
+    "justification_basis": "issuer_evidence_and_explicit_commercial_judgment",
+    "evidence": [
+      {
+        "source_id": "LATEST_RESULTS",
+        "locator": "PDF pp8,20",
+        "passage": "CurrentH1revenue181,710/grossprofit40,163; priorFYrevenue423,923/GP93,719; priorH1revenue194,501/GP44,397. Thus priorH2GP49,322/revenue229,422≈21.50%, versus currentH1GP22.10%."
+      },
+      {
+        "source_id": "LATEST_DECK_EN",
+        "locator": "PDF pp4–6",
+        "passage": "Continued profitability/productivity initiatives at parent and subsidiaries; lower headline H1gross profit also reflects lower project-stage revenue. The company23.1%annualgross-margin outlook is a comparator, not this model input."
+      }
+    ],
+    "path_values": {
+      "/cases/bear/effective_new_mix_price": 0.01,
+      "/cases/base/effective_new_mix_price": 0.02,
+      "/cases/bull/effective_new_mix_price": 0.025
+    }
+  },
+  {
+    "id": "h2_sga_seasonality",
+    "kind": "house_assumption",
+    "units": "Explicit rate, monetary amount or annual path, as named in INPUTS.json",
+    "observed_anchor": "PriorH2SGA=(45,974−19,717), divided by priorH119,717, gives1.331693. Base applies this aggregate historical seasonality to current payroll/othercash budgets after separating goodwill; it is a financial expense-timing proxy, not disclosed personnel seasonality. FlatH2budget1.0 and intermediate1.2 are sensitivities.",
+    "derivation": "PriorH2SGA=(45,974−19,717), divided by priorH119,717, gives1.331693. Base applies this aggregate historical seasonality to current payroll/othercash budgets after separating goodwill; it is a financial expense-timing proxy, not disclosed personnel seasonality. FlatH2budget1.0 and intermediate1.2 are sensitivities.",
+    "reason_for_base": "PriorH2SGA=(45,974−19,717), divided by priorH119,717, gives1.331693. Base applies this aggregate historical seasonality to current payroll/othercash budgets after separating goodwill; it is a financial expense-timing proxy, not disclosed personnel seasonality. FlatH2budget1.0 and intermediate1.2 are sensitivities.",
+    "timing": "First forecast period is the unreported remainder of the current fiscal year; later rows are full fiscal years unless the driver explicitly says otherwise.",
+    "alternative": "Bear/base/bull values: {\"bear\": 1.3316934624942942, \"base\": 1.3316934624942942, \"bull\": 1.3316934624942942}",
+    "range": "Conditional house scenario range, not a statistical confidence interval: [1.3316934624942942, 1.3316934624942942, 1.3316934624942942]",
+    "falsifier": "PriorH2SGA=(45,974−19,717), divided by priorH119,717, gives1.331693. Base applies this aggregate historical seasonality to current payroll/othercash budgets after separating goodwill; it is a financial expense-timing proxy, not disclosed personnel seasonality. FlatH2budget1.0 and intermediate1.2 are sensitivities.",
+    "mechanism": "PriorH2SGA=(45,974−19,717), divided by priorH119,717, gives1.331693. Base applies this aggregate historical seasonality to current payroll/othercash budgets after separating goodwill; it is a financial expense-timing proxy, not disclosed personnel seasonality. FlatH2budget1.0 and intermediate1.2 are sensitivities.",
+    "justification_basis": "issuer_evidence_and_explicit_commercial_judgment",
+    "evidence": [
+      {
+        "source_id": "LATEST_RESULTS",
+        "locator": "PDF p8",
+        "passage": "Salaries5,575vs4,940; bonusprovisionexpense2,137vs2,268; pensionexpense70; stock-benefitprovisionexpense172; otherSGA14,105vs12,196; totalSGA22,062vs19,717."
+      },
+      {
+        "source_id": "LATEST_DECK_EN",
+        "locator": "PDF p5",
+        "passage": "Overseas subsidiarySGA4,074(+52.1%) and current parent/other subsidiary expenses are disclosed. This anchors the current expense step; future staff/inflation/program splits remain explicit JII judgments."
+      }
+    ],
+    "path_values": {
+      "/cases/bear/h2_sga_seasonality": 1.3316934624942942,
+      "/cases/base/h2_sga_seasonality": 1.3316934624942942,
+      "/cases/bull/h2_sga_seasonality": 1.3316934624942942
+    }
+  },
+  {
+    "id": "impairment_tax_benefit_rate",
+    "kind": "house_assumption",
+    "units": "Explicit rate, monetary amount or annual path, as named in INPUTS.json",
+    "observed_anchor": "Base32.2884% is an explicit marginal-tax approximation on the identified4,899m parent fundimpairment, not disclosed deductibility. Normalize parent earnings by adding impairment net of this assumed tax benefit. A zero-benefit/non-deductible impairment sensitivity is required and materially different; no new loss tax refund is funded.",
+    "derivation": "Base32.2884% is an explicit marginal-tax approximation on the identified4,899m parent fundimpairment, not disclosed deductibility. Normalize parent earnings by adding impairment net of this assumed tax benefit. A zero-benefit/non-deductible impairment sensitivity is required and materially different; no new loss tax refund is funded.",
+    "reason_for_base": "Base32.2884% is an explicit marginal-tax approximation on the identified4,899m parent fundimpairment, not disclosed deductibility. Normalize parent earnings by adding impairment net of this assumed tax benefit. A zero-benefit/non-deductible impairment sensitivity is required and materially different; no new loss tax refund is funded.",
+    "timing": "First forecast period is the unreported remainder of the current fiscal year; later rows are full fiscal years unless the driver explicitly says otherwise.",
+    "alternative": "Bear/base/bull values: {\"bear\": 0.32288408463661455, \"base\": 0.32288408463661455, \"bull\": 0.32288408463661455}",
+    "range": "Conditional house scenario range, not a statistical confidence interval: [0.32288408463661455, 0.32288408463661455, 0.32288408463661455]",
+    "falsifier": "Base32.2884% is an explicit marginal-tax approximation on the identified4,899m parent fundimpairment, not disclosed deductibility. Normalize parent earnings by adding impairment net of this assumed tax benefit. A zero-benefit/non-deductible impairment sensitivity is required and materially different; no new loss tax refund is funded.",
+    "mechanism": "Base32.2884% is an explicit marginal-tax approximation on the identified4,899m parent fundimpairment, not disclosed deductibility. Normalize parent earnings by adding impairment net of this assumed tax benefit. A zero-benefit/non-deductible impairment sensitivity is required and materially different; no new loss tax refund is funded.",
+    "justification_basis": "issuer_evidence_and_explicit_commercial_judgment",
+    "evidence": [
+      {
+        "source_id": "LATEST_RESULTS",
+        "locator": "PDF p8; half-year statutory tax note",
+        "passage": "Parent investment-salegain3,127 andinvestmentvaluationloss4,899. Item-levelmarginaltax/deductibility is not separately disclosed; the interim tax uses an estimated annual effective rate."
+      }
+    ],
+    "path_values": {
+      "/cases/bear/impairment_tax_benefit_rate": 0.32288408463661455,
+      "/cases/base/impairment_tax_benefit_rate": 0.32288408463661455,
+      "/cases/bull/impairment_tax_benefit_rate": 0.32288408463661455
+    }
+  },
+  {
+    "id": "lease_principal",
+    "kind": "house_assumption",
+    "units": "Explicit rate, monetary amount or annual path, as named in INPUTS.json",
+    "observed_anchor": "650m annual finance-lease principal annualizes the disclosed H1cash repayment325m. It is a cash use separate from D&A and bank/bond borrowings; leases are not presented as zero debt. Future lease renewals and balances remain a scope limit.",
+    "derivation": "650m annual finance-lease principal annualizes the disclosed H1cash repayment325m. It is a cash use separate from D&A and bank/bond borrowings; leases are not presented as zero debt. Future lease renewals and balances remain a scope limit.",
+    "reason_for_base": "650m annual finance-lease principal annualizes the disclosed H1cash repayment325m. It is a cash use separate from D&A and bank/bond borrowings; leases are not presented as zero debt. Future lease renewals and balances remain a scope limit.",
+    "timing": "First forecast period is the unreported remainder of the current fiscal year; later rows are full fiscal years unless the driver explicitly says otherwise.",
+    "alternative": "Bear/base/bull values: {\"bear\": 650, \"base\": 650, \"bull\": 650}",
+    "range": "Conditional house scenario range, not a statistical confidence interval: [650, 650, 650]",
+    "falsifier": "650m annual finance-lease principal annualizes the disclosed H1cash repayment325m. It is a cash use separate from D&A and bank/bond borrowings; leases are not presented as zero debt. Future lease renewals and balances remain a scope limit.",
+    "mechanism": "650m annual finance-lease principal annualizes the disclosed H1cash repayment325m. It is a cash use separate from D&A and bank/bond borrowings; leases are not presented as zero debt. Future lease renewals and balances remain a scope limit.",
+    "justification_basis": "issuer_evidence_and_explicit_commercial_judgment",
+    "evidence": [
+      {
+        "source_id": "LATEST_RESULTS",
+        "locator": "PDF pp10–11",
+        "passage": "H1cash purchases ofPPE/intangibles2,428; depreciation2,032andgoodwillamortization202; leaseprincipalrepayments325. Current asset data anchor separate future capex, depreciation and lease cash proxies."
+      }
+    ],
+    "path_values": {
+      "/cases/bear/lease_principal": 650,
+      "/cases/base/lease_principal": 650,
+      "/cases/bull/lease_principal": 650
+    }
+  },
+  {
+    "id": "minimum_cash",
+    "kind": "house_assumption",
+    "units": "Explicit rate, monetary amount or annual path, as named in INPUTS.json",
+    "observed_anchor": "20bn minimum cash-equivalent reserve is a house liquidity trigger, not excess cash or a covenant. March seasonal receivables use the actual prior-March balance/revenue ratios, so H1cash release is not treated as permanently available. Conditional new draws fund any shortfall and pay interest. Test10–30bn.",
+    "derivation": "20bn minimum cash-equivalent reserve is a house liquidity trigger, not excess cash or a covenant. March seasonal receivables use the actual prior-March balance/revenue ratios, so H1cash release is not treated as permanently available. Conditional new draws fund any shortfall and pay interest. Test10–30bn.",
+    "reason_for_base": "20bn minimum cash-equivalent reserve is a house liquidity trigger, not excess cash or a covenant. March seasonal receivables use the actual prior-March balance/revenue ratios, so H1cash release is not treated as permanently available. Conditional new draws fund any shortfall and pay interest. Test10–30bn.",
+    "timing": "First forecast period is the unreported remainder of the current fiscal year; later rows are full fiscal years unless the driver explicitly says otherwise.",
+    "alternative": "Bear/base/bull values: {\"bear\": 20000, \"base\": 20000, \"bull\": 20000}",
+    "range": "Conditional house scenario range, not a statistical confidence interval: [20000, 20000, 20000]",
+    "falsifier": "20bn minimum cash-equivalent reserve is a house liquidity trigger, not excess cash or a covenant. March seasonal receivables use the actual prior-March balance/revenue ratios, so H1cash release is not treated as permanently available. Conditional new draws fund any shortfall and pay interest. Test10–30bn.",
+    "mechanism": "20bn minimum cash-equivalent reserve is a house liquidity trigger, not excess cash or a covenant. March seasonal receivables use the actual prior-March balance/revenue ratios, so H1cash release is not treated as permanently available. Conditional new draws fund any shortfall and pay interest. Test10–30bn.",
+    "justification_basis": "issuer_evidence_and_explicit_commercial_judgment",
+    "evidence": [
+      {
+        "source_id": "LATEST_RESULTS",
+        "locator": "PDF pp6–8,10–11",
+        "passage": "Septemberbankloans3,328,currentbonds5,000,longbonds5,000; CFE50,075 versuscash/deposits58,173. H1interestpaid181/received292; MarchAR203,174andpayables51,481contrastwithSeptember148,314/40,827. Working-capital seasonality and funding are separately modeled."
+      }
+    ],
+    "path_values": {
+      "/cases/bear/minimum_cash": 20000,
+      "/cases/base/minimum_cash": 20000,
+      "/cases/bull/minimum_cash": 20000
+    }
+  },
+  {
+    "id": "nci_growth",
+    "kind": "house_assumption",
+    "units": "Explicit rate, monetary amount or annual path, as named in INPUTS.json",
+    "observed_anchor": "Future outside-owner profit is annualized from observed192mH1claim and grows5%, a bounded aggregate after-tax proxy. It is not allocated from group revenue or segmentOP; exact entity earnings/claim split is unavailable. Check subsidiary claims and test0–20%growth.",
+    "derivation": "Future outside-owner profit is annualized from observed192mH1claim and grows5%, a bounded aggregate after-tax proxy. It is not allocated from group revenue or segmentOP; exact entity earnings/claim split is unavailable. Check subsidiary claims and test0–20%growth.",
+    "reason_for_base": "Future outside-owner profit is annualized from observed192mH1claim and grows5%, a bounded aggregate after-tax proxy. It is not allocated from group revenue or segmentOP; exact entity earnings/claim split is unavailable. Check subsidiary claims and test0–20%growth.",
+    "timing": "First forecast period is the unreported remainder of the current fiscal year; later rows are full fiscal years unless the driver explicitly says otherwise.",
+    "alternative": "Bear/base/bull values: {\"bear\": 0.05, \"base\": 0.05, \"bull\": 0.05}",
+    "range": "Conditional house scenario range, not a statistical confidence interval: [0.05, 0.05, 0.05]",
+    "falsifier": "Future outside-owner profit is annualized from observed192mH1claim and grows5%, a bounded aggregate after-tax proxy. It is not allocated from group revenue or segmentOP; exact entity earnings/claim split is unavailable. Check subsidiary claims and test0–20%growth.",
+    "mechanism": "Future outside-owner profit is annualized from observed192mH1claim and grows5%, a bounded aggregate after-tax proxy. It is not allocated from group revenue or segmentOP; exact entity earnings/claim split is unavailable. Check subsidiary claims and test0–20%growth.",
+    "justification_basis": "issuer_evidence_and_explicit_commercial_judgment",
+    "evidence": [
+      {
+        "source_id": "LATEST_RESULTS",
+        "locator": "PDF pp7–8,14",
+        "passage": "H1noncontrollingprofit192; noncontrollingbalance5,370; no material change in consolidation scope. Future separate aggregate outside claim is a limited house proxy because complete entity attribution is not disclosed."
+      }
+    ],
+    "path_values": {
+      "/cases/bear/nci_growth": 0.05,
+      "/cases/base/nci_growth": 0.05,
+      "/cases/bull/nci_growth": 0.05
+    }
+  },
+  {
+    "id": "net_direct_cost_growth",
+    "kind": "house_assumption",
+    "units": "Explicit rate, monetary amount or annual path, as named in INPUTS.json",
+    "observed_anchor": "Base2% annual direct cash-cost pressure after procurement/productivity offsets, matched to2%effective new-price/mix. It is a financial cost proxy, not a disclosed supplier-inflation statistic. Bear3%/bull1.5% test labor/input recovery. Existing D&A is removed once before adding timed D&A; no double charge.",
+    "derivation": "Base2% annual direct cash-cost pressure after procurement/productivity offsets, matched to2%effective new-price/mix. It is a financial cost proxy, not a disclosed supplier-inflation statistic. Bear3%/bull1.5% test labor/input recovery. Existing D&A is removed once before adding timed D&A; no double charge.",
+    "reason_for_base": "Base2% annual direct cash-cost pressure after procurement/productivity offsets, matched to2%effective new-price/mix. It is a financial cost proxy, not a disclosed supplier-inflation statistic. Bear3%/bull1.5% test labor/input recovery. Existing D&A is removed once before adding timed D&A; no double charge.",
+    "timing": "First forecast period is the unreported remainder of the current fiscal year; later rows are full fiscal years unless the driver explicitly says otherwise.",
+    "alternative": "Bear/base/bull values: {\"bear\": 0.03, \"base\": 0.02, \"bull\": 0.015}",
+    "range": "Conditional house scenario range, not a statistical confidence interval: [0.03, 0.02, 0.015]",
+    "falsifier": "Base2% annual direct cash-cost pressure after procurement/productivity offsets, matched to2%effective new-price/mix. It is a financial cost proxy, not a disclosed supplier-inflation statistic. Bear3%/bull1.5% test labor/input recovery. Existing D&A is removed once before adding timed D&A; no double charge.",
+    "mechanism": "Base2% annual direct cash-cost pressure after procurement/productivity offsets, matched to2%effective new-price/mix. It is a financial cost proxy, not a disclosed supplier-inflation statistic. Bear3%/bull1.5% test labor/input recovery. Existing D&A is removed once before adding timed D&A; no double charge.",
+    "justification_basis": "issuer_evidence_and_explicit_commercial_judgment",
+    "evidence": [
+      {
+        "source_id": "LATEST_RESULTS",
+        "locator": "PDF pp8,20",
+        "passage": "CurrentH1revenue181,710/grossprofit40,163; priorFYrevenue423,923/GP93,719; priorH1revenue194,501/GP44,397. Thus priorH2GP49,322/revenue229,422≈21.50%, versus currentH1GP22.10%."
+      },
+      {
+        "source_id": "LATEST_DECK_EN",
+        "locator": "PDF pp4–6",
+        "passage": "Continued profitability/productivity initiatives at parent and subsidiaries; lower headline H1gross profit also reflects lower project-stage revenue. The company23.1%annualgross-margin outlook is a comparator, not this model input."
+      }
+    ],
+    "path_values": {
+      "/cases/bear/net_direct_cost_growth": 0.03,
+      "/cases/base/net_direct_cost_growth": 0.02,
+      "/cases/bull/net_direct_cost_growth": 0.015
+    }
+  },
+  {
+    "id": "order_growth",
+    "kind": "house_assumption",
+    "units": "Explicit rate, monetary amount or annual path, as named in INPUTS.json",
+    "observed_anchor": "Base holds the latest538.143bn TTMorder pace, rather than extrapolating the35.8%H1order surge or importing620bnmanagement guidance. Bear−15%/bull+10% stress future wins. Existing526.122bn backlog supplies visible work; volume is limited by recognition/throughput, not a revenue target.",
+    "derivation": "Base holds the latest538.143bn TTMorder pace, rather than extrapolating the35.8%H1order surge or importing620bnmanagement guidance. Bear−15%/bull+10% stress future wins. Existing526.122bn backlog supplies visible work; volume is limited by recognition/throughput, not a revenue target.",
+    "reason_for_base": "Base holds the latest538.143bn TTMorder pace, rather than extrapolating the35.8%H1order surge or importing620bnmanagement guidance. Bear−15%/bull+10% stress future wins. Existing526.122bn backlog supplies visible work; volume is limited by recognition/throughput, not a revenue target.",
+    "timing": "First forecast period is the unreported remainder of the current fiscal year; later rows are full fiscal years unless the driver explicitly says otherwise.",
+    "alternative": "Bear/base/bull values: {\"bear\": -0.15, \"base\": 0, \"bull\": 0.1}",
+    "range": "Conditional house scenario range, not a statistical confidence interval: [-0.15, 0, 0.1]",
+    "falsifier": "Base holds the latest538.143bn TTMorder pace, rather than extrapolating the35.8%H1order surge or importing620bnmanagement guidance. Bear−15%/bull+10% stress future wins. Existing526.122bn backlog supplies visible work; volume is limited by recognition/throughput, not a revenue target.",
+    "mechanism": "Base holds the latest538.143bn TTMorder pace, rather than extrapolating the35.8%H1order surge or importing620bnmanagement guidance. Bear−15%/bull+10% stress future wins. Existing526.122bn backlog supplies visible work; volume is limited by recognition/throughput, not a revenue target.",
+    "justification_basis": "issuer_evidence_and_explicit_commercial_judgment",
+    "evidence": [
+      {
+        "source_id": "LATEST_RESULTS",
+        "locator": "PDF pp18,20",
+        "passage": "PriorFYsales423,923,orders460,057; priorH1sales194,501,orders218,173; priorSeptemberbacklog399,112. CurrentH1sales181,710,orders296,259; Septemberbacklog526,122. Delivery can only use available work."
+      },
+      {
+        "source_id": "LATEST_DECK_EN",
+        "locator": "PDF pp4–6,21",
+        "passage": "Several large-scale projects remained in early construction stages. Record orders and backlog reflect industrial demand and disciplined acquisition aligned to construction capacity. T-Base production/network and work-hour-saving outlook are operating context, not imported revenue/profit targets."
+      }
+    ],
+    "path_values": {
+      "/cases/bear/order_growth": -0.15,
+      "/cases/base/order_growth": 0,
+      "/cases/bull/order_growth": 0.1
+    }
+  },
+  {
+    "id": "other_cost_inflation",
+    "kind": "house_assumption",
+    "units": "Explicit rate, monetary amount or annual path, as named in INPUTS.json",
+    "observed_anchor": "Base3% nonpersonnel overhead inflation, after the observed current expense step, versus4%bear. Other overhead includes the current expanded overseas/subsidiary cost base rather than reversing it. Further input/service inflation would change the budget.",
+    "derivation": "Base3% nonpersonnel overhead inflation, after the observed current expense step, versus4%bear. Other overhead includes the current expanded overseas/subsidiary cost base rather than reversing it. Further input/service inflation would change the budget.",
+    "reason_for_base": "Base3% nonpersonnel overhead inflation, after the observed current expense step, versus4%bear. Other overhead includes the current expanded overseas/subsidiary cost base rather than reversing it. Further input/service inflation would change the budget.",
+    "timing": "First forecast period is the unreported remainder of the current fiscal year; later rows are full fiscal years unless the driver explicitly says otherwise.",
+    "alternative": "Bear/base/bull values: {\"bear\": 0.04, \"base\": 0.03, \"bull\": 0.03}",
+    "range": "Conditional house scenario range, not a statistical confidence interval: [0.04, 0.03, 0.03]",
+    "falsifier": "Base3% nonpersonnel overhead inflation, after the observed current expense step, versus4%bear. Other overhead includes the current expanded overseas/subsidiary cost base rather than reversing it. Further input/service inflation would change the budget.",
+    "mechanism": "Base3% nonpersonnel overhead inflation, after the observed current expense step, versus4%bear. Other overhead includes the current expanded overseas/subsidiary cost base rather than reversing it. Further input/service inflation would change the budget.",
+    "justification_basis": "issuer_evidence_and_explicit_commercial_judgment",
+    "evidence": [
+      {
+        "source_id": "LATEST_RESULTS",
+        "locator": "PDF p8",
+        "passage": "Salaries5,575vs4,940; bonusprovisionexpense2,137vs2,268; pensionexpense70; stock-benefitprovisionexpense172; otherSGA14,105vs12,196; totalSGA22,062vs19,717."
+      },
+      {
+        "source_id": "LATEST_DECK_EN",
+        "locator": "PDF p5",
+        "passage": "Overseas subsidiarySGA4,074(+52.1%) and current parent/other subsidiary expenses are disclosed. This anchors the current expense step; future staff/inflation/program splits remain explicit JII judgments."
+      }
+    ],
+    "path_values": {
+      "/cases/bear/other_cost_inflation": 0.04,
+      "/cases/base/other_cost_inflation": 0.03,
+      "/cases/bull/other_cost_inflation": 0.03
+    }
+  },
+  {
+    "id": "other_scope_growth",
+    "kind": "house_assumption",
+    "units": "Explicit rate, monetary amount or annual path, as named in INPUTS.json",
+    "observed_anchor": "Base2% ongoing nonpersonnel program/scope growth, combined multiplicatively with3%inflation (5.06%). Bull3% funds faster expansion. It does not perpetually compound the H1overseasSGA52.1%step without a matching business expansion; no guidance profit residual is used.",
+    "derivation": "Base2% ongoing nonpersonnel program/scope growth, combined multiplicatively with3%inflation (5.06%). Bull3% funds faster expansion. It does not perpetually compound the H1overseasSGA52.1%step without a matching business expansion; no guidance profit residual is used.",
+    "reason_for_base": "Base2% ongoing nonpersonnel program/scope growth, combined multiplicatively with3%inflation (5.06%). Bull3% funds faster expansion. It does not perpetually compound the H1overseasSGA52.1%step without a matching business expansion; no guidance profit residual is used.",
+    "timing": "First forecast period is the unreported remainder of the current fiscal year; later rows are full fiscal years unless the driver explicitly says otherwise.",
+    "alternative": "Bear/base/bull values: {\"bear\": 0.02, \"base\": 0.02, \"bull\": 0.03}",
+    "range": "Conditional house scenario range, not a statistical confidence interval: [0.02, 0.02, 0.03]",
+    "falsifier": "Base2% ongoing nonpersonnel program/scope growth, combined multiplicatively with3%inflation (5.06%). Bull3% funds faster expansion. It does not perpetually compound the H1overseasSGA52.1%step without a matching business expansion; no guidance profit residual is used.",
+    "mechanism": "Base2% ongoing nonpersonnel program/scope growth, combined multiplicatively with3%inflation (5.06%). Bull3% funds faster expansion. It does not perpetually compound the H1overseasSGA52.1%step without a matching business expansion; no guidance profit residual is used.",
+    "justification_basis": "issuer_evidence_and_explicit_commercial_judgment",
+    "evidence": [
+      {
+        "source_id": "LATEST_RESULTS",
+        "locator": "PDF p8",
+        "passage": "Salaries5,575vs4,940; bonusprovisionexpense2,137vs2,268; pensionexpense70; stock-benefitprovisionexpense172; otherSGA14,105vs12,196; totalSGA22,062vs19,717."
+      },
+      {
+        "source_id": "LATEST_DECK_EN",
+        "locator": "PDF p5",
+        "passage": "Overseas subsidiarySGA4,074(+52.1%) and current parent/other subsidiary expenses are disclosed. This anchors the current expense step; future staff/inflation/program splits remain explicit JII judgments."
+      }
+    ],
+    "path_values": {
+      "/cases/bear/other_scope_growth": 0.02,
+      "/cases/base/other_scope_growth": 0.02,
+      "/cases/bull/other_scope_growth": 0.03
+    }
+  },
+  {
+    "id": "pay_growth",
+    "kind": "house_assumption",
+    "units": "Explicit rate, monetary amount or annual path, as named in INPUTS.json",
+    "observed_anchor": "Base5% compensation inflation with2%staff expansion gives7.1% payroll growth, near observed H1salary-plus-bonus growth(7,712/7,208−1≈7%). This is a reasoned split of aggregate expense, not disclosed headcount/pay guidance. Bear6%pay stresses labor scarcity.",
+    "derivation": "Base5% compensation inflation with2%staff expansion gives7.1% payroll growth, near observed H1salary-plus-bonus growth(7,712/7,208−1≈7%). This is a reasoned split of aggregate expense, not disclosed headcount/pay guidance. Bear6%pay stresses labor scarcity.",
+    "reason_for_base": "Base5% compensation inflation with2%staff expansion gives7.1% payroll growth, near observed H1salary-plus-bonus growth(7,712/7,208−1≈7%). This is a reasoned split of aggregate expense, not disclosed headcount/pay guidance. Bear6%pay stresses labor scarcity.",
+    "timing": "First forecast period is the unreported remainder of the current fiscal year; later rows are full fiscal years unless the driver explicitly says otherwise.",
+    "alternative": "Bear/base/bull values: {\"bear\": 0.06, \"base\": 0.05, \"bull\": 0.05}",
+    "range": "Conditional house scenario range, not a statistical confidence interval: [0.06, 0.05, 0.05]",
+    "falsifier": "Base5% compensation inflation with2%staff expansion gives7.1% payroll growth, near observed H1salary-plus-bonus growth(7,712/7,208−1≈7%). This is a reasoned split of aggregate expense, not disclosed headcount/pay guidance. Bear6%pay stresses labor scarcity.",
+    "mechanism": "Base5% compensation inflation with2%staff expansion gives7.1% payroll growth, near observed H1salary-plus-bonus growth(7,712/7,208−1≈7%). This is a reasoned split of aggregate expense, not disclosed headcount/pay guidance. Bear6%pay stresses labor scarcity.",
+    "justification_basis": "issuer_evidence_and_explicit_commercial_judgment",
+    "evidence": [
+      {
+        "source_id": "LATEST_RESULTS",
+        "locator": "PDF p8",
+        "passage": "Salaries5,575vs4,940; bonusprovisionexpense2,137vs2,268; pensionexpense70; stock-benefitprovisionexpense172; otherSGA14,105vs12,196; totalSGA22,062vs19,717."
+      },
+      {
+        "source_id": "LATEST_DECK_EN",
+        "locator": "PDF p5",
+        "passage": "Overseas subsidiarySGA4,074(+52.1%) and current parent/other subsidiary expenses are disclosed. This anchors the current expense step; future staff/inflation/program splits remain explicit JII judgments."
+      }
+    ],
+    "path_values": {
+      "/cases/bear/pay_growth": 0.06,
+      "/cases/base/pay_growth": 0.05,
+      "/cases/bull/pay_growth": 0.05
+    }
+  },
+  {
+    "id": "portfolio_dividend_retained",
+    "kind": "house_assumption",
+    "units": "Explicit rate, monetary amount or annual path, as named in INPUTS.json",
+    "observed_anchor": "Base retains the latest annualized H1dividend flow705m*2, without inferring a15.48%income haircut from the fall in TOTALinvestmentbook64.166→54.233bn. That book change includes noncash impairment/OCI as well as known sales; yields of soldpositions are not disclosed. Future dividends are uncertain, so a70%retention sensitivity is shown. Actual705mdividends increased from582m; no future sale gain is assumed.",
+    "derivation": "Base retains the latest annualized H1dividend flow705m*2, without inferring a15.48%income haircut from the fall in TOTALinvestmentbook64.166→54.233bn. That book change includes noncash impairment/OCI as well as known sales; yields of soldpositions are not disclosed. Future dividends are uncertain, so a70%retention sensitivity is shown. Actual705mdividends increased from582m; no future sale gain is assumed.",
+    "reason_for_base": "Base retains the latest annualized H1dividend flow705m*2, without inferring a15.48%income haircut from the fall in TOTALinvestmentbook64.166→54.233bn. That book change includes noncash impairment/OCI as well as known sales; yields of soldpositions are not disclosed. Future dividends are uncertain, so a70%retention sensitivity is shown. Actual705mdividends increased from582m; no future sale gain is assumed.",
+    "timing": "First forecast period is the unreported remainder of the current fiscal year; later rows are full fiscal years unless the driver explicitly says otherwise.",
+    "alternative": "Bear/base/bull values: {\"bear\": 0.7, \"base\": 1, \"bull\": 1}",
+    "range": "Conditional house scenario range, not a statistical confidence interval: [0.7, 1, 1]",
+    "falsifier": "Base retains the latest annualized H1dividend flow705m*2, without inferring a15.48%income haircut from the fall in TOTALinvestmentbook64.166→54.233bn. That book change includes noncash impairment/OCI as well as known sales; yields of soldpositions are not disclosed. Future dividends are uncertain, so a70%retention sensitivity is shown. Actual705mdividends increased from582m; no future sale gain is assumed.",
+    "mechanism": "Base retains the latest annualized H1dividend flow705m*2, without inferring a15.48%income haircut from the fall in TOTALinvestmentbook64.166→54.233bn. That book change includes noncash impairment/OCI as well as known sales; yields of soldpositions are not disclosed. Future dividends are uncertain, so a70%retention sensitivity is shown. Actual705mdividends increased from582m; no future sale gain is assumed.",
+    "justification_basis": "issuer_evidence_and_explicit_commercial_judgment",
+    "evidence": [
+      {
+        "source_id": "LATEST_RESULTS",
+        "locator": "PDF pp6,8",
+        "passage": "Receiveddividends705(currentH1)versus582(priorH1). Totalinvestmentsecurities54,233versus64,166 include valuation effects. Share-salegain3,127andfundimpairment4,899 are separate exceptional items; sold-position dividendyield is not disclosed."
+      }
+    ],
+    "path_values": {
+      "/cases/bear/portfolio_dividend_retained": 0.7,
+      "/cases/base/portfolio_dividend_retained": 1,
+      "/cases/bull/portfolio_dividend_retained": 1
+    }
+  },
+  {
+    "id": "real_throughput_growth",
+    "kind": "house_assumption",
+    "units": "Explicit rate, monetary amount or annual path, as named in INPUTS.json",
+    "observed_anchor": "Base4% annual real-workload financial proxy follows the ability to execute a growing industrial backlog, against staff/engineering constraints. It is not disclosed physical capacity or the management hour-saving target. Bear1%/bull7% span limited hiring/delivery and faster execution; test future deliveries and labor/partner constraints.",
+    "derivation": "Base4% annual real-workload financial proxy follows the ability to execute a growing industrial backlog, against staff/engineering constraints. It is not disclosed physical capacity or the management hour-saving target. Bear1%/bull7% span limited hiring/delivery and faster execution; test future deliveries and labor/partner constraints.",
+    "reason_for_base": "Base4% annual real-workload financial proxy follows the ability to execute a growing industrial backlog, against staff/engineering constraints. It is not disclosed physical capacity or the management hour-saving target. Bear1%/bull7% span limited hiring/delivery and faster execution; test future deliveries and labor/partner constraints.",
+    "timing": "First forecast period is the unreported remainder of the current fiscal year; later rows are full fiscal years unless the driver explicitly says otherwise.",
+    "alternative": "Bear/base/bull values: {\"bear\": 0.01, \"base\": 0.04, \"bull\": 0.07}",
+    "range": "Conditional house scenario range, not a statistical confidence interval: [0.01, 0.04, 0.07]",
+    "falsifier": "Base4% annual real-workload financial proxy follows the ability to execute a growing industrial backlog, against staff/engineering constraints. It is not disclosed physical capacity or the management hour-saving target. Bear1%/bull7% span limited hiring/delivery and faster execution; test future deliveries and labor/partner constraints.",
+    "mechanism": "Base4% annual real-workload financial proxy follows the ability to execute a growing industrial backlog, against staff/engineering constraints. It is not disclosed physical capacity or the management hour-saving target. Bear1%/bull7% span limited hiring/delivery and faster execution; test future deliveries and labor/partner constraints.",
+    "justification_basis": "issuer_evidence_and_explicit_commercial_judgment",
+    "evidence": [
+      {
+        "source_id": "LATEST_RESULTS",
+        "locator": "PDF pp18,20",
+        "passage": "PriorFYsales423,923,orders460,057; priorH1sales194,501,orders218,173; priorSeptemberbacklog399,112. CurrentH1sales181,710,orders296,259; Septemberbacklog526,122. Delivery can only use available work."
+      },
+      {
+        "source_id": "LATEST_DECK_EN",
+        "locator": "PDF pp4–6,21",
+        "passage": "Several large-scale projects remained in early construction stages. Record orders and backlog reflect industrial demand and disciplined acquisition aligned to construction capacity. T-Base production/network and work-hour-saving outlook are operating context, not imported revenue/profit targets."
+      }
+    ],
+    "path_values": {
+      "/cases/bear/real_throughput_growth": 0.01,
+      "/cases/base/real_throughput_growth": 0.04,
+      "/cases/bull/real_throughput_growth": 0.07
+    }
+  },
+  {
+    "id": "recognition_multiplier",
+    "kind": "house_assumption",
+    "units": "Explicit rate, monetary amount or annual path, as named in INPUTS.json",
+    "observed_anchor": "Base1 applies priorH2recognizedrevenue229.422bn divided by prioravailablework640.996bn (35.7915%) to currentH2available work. This financial-stage proxy reflects large projects still early inH1; it does not imply measured labor output. Bear0.90/bull1.05 test stage/acceptance timing. Check next disclosed delivery/backlog roll-forward.",
+    "derivation": "Base1 applies priorH2recognizedrevenue229.422bn divided by prioravailablework640.996bn (35.7915%) to currentH2available work. This financial-stage proxy reflects large projects still early inH1; it does not imply measured labor output. Bear0.90/bull1.05 test stage/acceptance timing. Check next disclosed delivery/backlog roll-forward.",
+    "reason_for_base": "Base1 applies priorH2recognizedrevenue229.422bn divided by prioravailablework640.996bn (35.7915%) to currentH2available work. This financial-stage proxy reflects large projects still early inH1; it does not imply measured labor output. Bear0.90/bull1.05 test stage/acceptance timing. Check next disclosed delivery/backlog roll-forward.",
+    "timing": "First forecast period is the unreported remainder of the current fiscal year; later rows are full fiscal years unless the driver explicitly says otherwise.",
+    "alternative": "Bear/base/bull values: {\"bear\": 0.9, \"base\": 1, \"bull\": 1.05}",
+    "range": "Conditional house scenario range, not a statistical confidence interval: [0.9, 1, 1.05]",
+    "falsifier": "Base1 applies priorH2recognizedrevenue229.422bn divided by prioravailablework640.996bn (35.7915%) to currentH2available work. This financial-stage proxy reflects large projects still early inH1; it does not imply measured labor output. Bear0.90/bull1.05 test stage/acceptance timing. Check next disclosed delivery/backlog roll-forward.",
+    "mechanism": "Base1 applies priorH2recognizedrevenue229.422bn divided by prioravailablework640.996bn (35.7915%) to currentH2available work. This financial-stage proxy reflects large projects still early inH1; it does not imply measured labor output. Bear0.90/bull1.05 test stage/acceptance timing. Check next disclosed delivery/backlog roll-forward.",
+    "justification_basis": "issuer_evidence_and_explicit_commercial_judgment",
+    "evidence": [
+      {
+        "source_id": "LATEST_RESULTS",
+        "locator": "PDF pp18,20",
+        "passage": "PriorFYsales423,923,orders460,057; priorH1sales194,501,orders218,173; priorSeptemberbacklog399,112. CurrentH1sales181,710,orders296,259; Septemberbacklog526,122. Delivery can only use available work."
+      },
+      {
+        "source_id": "LATEST_DECK_EN",
+        "locator": "PDF pp4–6,21",
+        "passage": "Several large-scale projects remained in early construction stages. Record orders and backlog reflect industrial demand and disciplined acquisition aligned to construction capacity. T-Base production/network and work-hour-saving outlook are operating context, not imported revenue/profit targets."
+      }
+    ],
+    "path_values": {
+      "/cases/bear/recognition_multiplier": 0.9,
+      "/cases/base/recognition_multiplier": 1,
+      "/cases/bull/recognition_multiplier": 1.05
+    }
+  },
+  {
+    "id": "share_sale_tax_rate",
+    "kind": "house_assumption",
+    "units": "Explicit rate, monetary amount or annual path, as named in INPUTS.json",
+    "observed_anchor": "Base32.2884% marginal-tax approximation on the separately identified3,127m realized parent share-sale gain. Remove the gain after this assumed tax; do not bundle uncertain realized-gain tax with impairment deductibility. Observed interim effective tax uses estimated annual tax effects and does not disclose item-specific marginal tax.",
+    "derivation": "Base32.2884% marginal-tax approximation on the separately identified3,127m realized parent share-sale gain. Remove the gain after this assumed tax; do not bundle uncertain realized-gain tax with impairment deductibility. Observed interim effective tax uses estimated annual tax effects and does not disclose item-specific marginal tax.",
+    "reason_for_base": "Base32.2884% marginal-tax approximation on the separately identified3,127m realized parent share-sale gain. Remove the gain after this assumed tax; do not bundle uncertain realized-gain tax with impairment deductibility. Observed interim effective tax uses estimated annual tax effects and does not disclose item-specific marginal tax.",
+    "timing": "First forecast period is the unreported remainder of the current fiscal year; later rows are full fiscal years unless the driver explicitly says otherwise.",
+    "alternative": "Bear/base/bull values: {\"bear\": 0.32288408463661455, \"base\": 0.32288408463661455, \"bull\": 0.32288408463661455}",
+    "range": "Conditional house scenario range, not a statistical confidence interval: [0.32288408463661455, 0.32288408463661455, 0.32288408463661455]",
+    "falsifier": "Base32.2884% marginal-tax approximation on the separately identified3,127m realized parent share-sale gain. Remove the gain after this assumed tax; do not bundle uncertain realized-gain tax with impairment deductibility. Observed interim effective tax uses estimated annual tax effects and does not disclose item-specific marginal tax.",
+    "mechanism": "Base32.2884% marginal-tax approximation on the separately identified3,127m realized parent share-sale gain. Remove the gain after this assumed tax; do not bundle uncertain realized-gain tax with impairment deductibility. Observed interim effective tax uses estimated annual tax effects and does not disclose item-specific marginal tax.",
+    "justification_basis": "issuer_evidence_and_explicit_commercial_judgment",
+    "evidence": [
+      {
+        "source_id": "LATEST_RESULTS",
+        "locator": "PDF p8; half-year statutory tax note",
+        "passage": "Parent investment-salegain3,127 andinvestmentvaluationloss4,899. Item-levelmarginaltax/deductibility is not separately disclosed; the interim tax uses an estimated annual effective rate."
+      }
+    ],
+    "path_values": {
+      "/cases/bear/share_sale_tax_rate": 0.32288408463661455,
+      "/cases/base/share_sale_tax_rate": 0.32288408463661455,
+      "/cases/bull/share_sale_tax_rate": 0.32288408463661455
+    }
+  },
+  {
+    "id": "staff_growth",
+    "kind": "house_assumption",
+    "units": "Explicit rate, monetary amount or annual path, as named in INPUTS.json",
+    "observed_anchor": "Base2% future payroll scope/headcount proxy alongside5%pay; bull3% funds higher delivery. H1staff expense is observed, while the split is JII judgment. No invented engineering headcount or free capacity; actual hiring/payroll and subcontract economics are falsifiers.",
+    "derivation": "Base2% future payroll scope/headcount proxy alongside5%pay; bull3% funds higher delivery. H1staff expense is observed, while the split is JII judgment. No invented engineering headcount or free capacity; actual hiring/payroll and subcontract economics are falsifiers.",
+    "reason_for_base": "Base2% future payroll scope/headcount proxy alongside5%pay; bull3% funds higher delivery. H1staff expense is observed, while the split is JII judgment. No invented engineering headcount or free capacity; actual hiring/payroll and subcontract economics are falsifiers.",
+    "timing": "First forecast period is the unreported remainder of the current fiscal year; later rows are full fiscal years unless the driver explicitly says otherwise.",
+    "alternative": "Bear/base/bull values: {\"bear\": 0.02, \"base\": 0.02, \"bull\": 0.03}",
+    "range": "Conditional house scenario range, not a statistical confidence interval: [0.02, 0.02, 0.03]",
+    "falsifier": "Base2% future payroll scope/headcount proxy alongside5%pay; bull3% funds higher delivery. H1staff expense is observed, while the split is JII judgment. No invented engineering headcount or free capacity; actual hiring/payroll and subcontract economics are falsifiers.",
+    "mechanism": "Base2% future payroll scope/headcount proxy alongside5%pay; bull3% funds higher delivery. H1staff expense is observed, while the split is JII judgment. No invented engineering headcount or free capacity; actual hiring/payroll and subcontract economics are falsifiers.",
+    "justification_basis": "issuer_evidence_and_explicit_commercial_judgment",
+    "evidence": [
+      {
+        "source_id": "LATEST_RESULTS",
+        "locator": "PDF p8",
+        "passage": "Salaries5,575vs4,940; bonusprovisionexpense2,137vs2,268; pensionexpense70; stock-benefitprovisionexpense172; otherSGA14,105vs12,196; totalSGA22,062vs19,717."
+      },
+      {
+        "source_id": "LATEST_DECK_EN",
+        "locator": "PDF p5",
+        "passage": "Overseas subsidiarySGA4,074(+52.1%) and current parent/other subsidiary expenses are disclosed. This anchors the current expense step; future staff/inflation/program splits remain explicit JII judgments."
+      }
+    ],
+    "path_values": {
+      "/cases/bear/staff_growth": 0.02,
+      "/cases/base/staff_growth": 0.02,
+      "/cases/bull/staff_growth": 0.03
+    }
+  },
+  {
+    "id": "tax_payable_ratio",
+    "kind": "house_assumption",
+    "units": "Explicit rate, monetary amount or annual path, as named in INPUTS.json",
+    "observed_anchor": "PriorMarchtaxpayable9,938/currenttaxexpense16,508=60.2011% is a financial year-end lag proxy, applied to forecast full-year tax. Opening September6,219 settles as cashTax=expense+openingPayable−endingPayable; new accrued tax replaces it. No negative tax cash refund finances losses. Zero/50–70%endingbalance tests timing.",
+    "derivation": "PriorMarchtaxpayable9,938/currenttaxexpense16,508=60.2011% is a financial year-end lag proxy, applied to forecast full-year tax. Opening September6,219 settles as cashTax=expense+openingPayable−endingPayable; new accrued tax replaces it. No negative tax cash refund finances losses. Zero/50–70%endingbalance tests timing.",
+    "reason_for_base": "PriorMarchtaxpayable9,938/currenttaxexpense16,508=60.2011% is a financial year-end lag proxy, applied to forecast full-year tax. Opening September6,219 settles as cashTax=expense+openingPayable−endingPayable; new accrued tax replaces it. No negative tax cash refund finances losses. Zero/50–70%endingbalance tests timing.",
+    "timing": "First forecast period is the unreported remainder of the current fiscal year; later rows are full fiscal years unless the driver explicitly says otherwise.",
+    "alternative": "Bear/base/bull values: {\"bear\": 0.6020111461109765, \"base\": 0.6020111461109765, \"bull\": 0.6020111461109765}",
+    "range": "Conditional house scenario range, not a statistical confidence interval: [0.6020111461109765, 0.6020111461109765, 0.6020111461109765]",
+    "falsifier": "PriorMarchtaxpayable9,938/currenttaxexpense16,508=60.2011% is a financial year-end lag proxy, applied to forecast full-year tax. Opening September6,219 settles as cashTax=expense+openingPayable−endingPayable; new accrued tax replaces it. No negative tax cash refund finances losses. Zero/50–70%endingbalance tests timing.",
+    "mechanism": "PriorMarchtaxpayable9,938/currenttaxexpense16,508=60.2011% is a financial year-end lag proxy, applied to forecast full-year tax. Opening September6,219 settles as cashTax=expense+openingPayable−endingPayable; new accrued tax replaces it. No negative tax cash refund finances losses. Zero/50–70%endingbalance tests timing.",
+    "justification_basis": "issuer_evidence_and_explicit_commercial_judgment",
+    "evidence": [
+      {
+        "source_id": "LATEST_RESULTS",
+        "locator": "PDF pp7,8,20",
+        "passage": "Marchtaxpayable9,938; September6,219; priorFYcurrentcorporatetax16,508, separate deferredtax−1,694. Timing ratio is JII inference from the reported balance/expense."
+      }
+    ],
+    "path_values": {
+      "/cases/bear/tax_payable_ratio": 0.6020111461109765,
+      "/cases/base/tax_payable_ratio": 0.6020111461109765,
+      "/cases/bull/tax_payable_ratio": 0.6020111461109765
+    }
+  },
+  {
+    "id": "tax_rate",
+    "kind": "house_assumption",
+    "units": "Explicit rate, monetary amount or annual path, as named in INPUTS.json",
+    "observed_anchor": "Matched reportedTTM effective tax proxy14,039/43,480=32.2884%: tax=FY14,814+H16,203−priorH16,978; PBT=FY52,826+H117,956−priorH127,302. This is a prospective house proxy on a matched reported profit base, not a proven tax rate on recurring earnings. Identified exceptional-item marginal taxes are modeled separately. Test prospective±5pp.",
+    "derivation": "Matched reportedTTM effective tax proxy14,039/43,480=32.2884%: tax=FY14,814+H16,203−priorH16,978; PBT=FY52,826+H117,956−priorH127,302. This is a prospective house proxy on a matched reported profit base, not a proven tax rate on recurring earnings. Identified exceptional-item marginal taxes are modeled separately. Test prospective±5pp.",
+    "reason_for_base": "Matched reportedTTM effective tax proxy14,039/43,480=32.2884%: tax=FY14,814+H16,203−priorH16,978; PBT=FY52,826+H117,956−priorH127,302. This is a prospective house proxy on a matched reported profit base, not a proven tax rate on recurring earnings. Identified exceptional-item marginal taxes are modeled separately. Test prospective±5pp.",
+    "timing": "First forecast period is the unreported remainder of the current fiscal year; later rows are full fiscal years unless the driver explicitly says otherwise.",
+    "alternative": "Bear/base/bull values: {\"bear\": 0.32288408463661455, \"base\": 0.32288408463661455, \"bull\": 0.32288408463661455}",
+    "range": "Conditional house scenario range, not a statistical confidence interval: [0.32288408463661455, 0.32288408463661455, 0.32288408463661455]",
+    "falsifier": "Matched reportedTTM effective tax proxy14,039/43,480=32.2884%: tax=FY14,814+H16,203−priorH16,978; PBT=FY52,826+H117,956−priorH127,302. This is a prospective house proxy on a matched reported profit base, not a proven tax rate on recurring earnings. Identified exceptional-item marginal taxes are modeled separately. Test prospective±5pp.",
+    "mechanism": "Matched reportedTTM effective tax proxy14,039/43,480=32.2884%: tax=FY14,814+H16,203−priorH16,978; PBT=FY52,826+H117,956−priorH127,302. This is a prospective house proxy on a matched reported profit base, not a proven tax rate on recurring earnings. Identified exceptional-item marginal taxes are modeled separately. Test prospective±5pp.",
+    "justification_basis": "issuer_evidence_and_explicit_commercial_judgment",
+    "evidence": [
+      {
+        "source_id": "LATEST_RESULTS",
+        "locator": "PDF pp8,20",
+        "passage": "Tax6,203/PBT17,956 currentH1; priorH1tax6,978/PBT27,302; FYtax16,508−deferred1,694=14,814/PBT52,826. MatchedTTM14,039/43,480=32.2884%."
+      }
+    ],
+    "path_values": {
+      "/cases/bear/tax_rate": 0.32288408463661455,
+      "/cases/base/tax_rate": 0.32288408463661455,
+      "/cases/bull/tax_rate": 0.32288408463661455
+    }
+  },
+  {
+    "id": "accounting_conventions",
+    "kind": "accounting_convention",
+    "units": "Dates, fractional periods and numerical solution conventions",
+    "observed_anchor": "Four fiscal ends, first unreported period, calendar scaling and funding-solver precision; these do not set a desired profit.",
+    "derivation": "The disclosed fiscal period determines the first-year fraction. Days/months annualize financial ratios; iteration/tolerance solve explicitly interest-bearing funding. No guidance is an input.",
+    "reason_for_base": "Accounting and numerical consistency.",
+    "timing": "All four years.",
+    "alternative": "Equivalent finer-period calculations must conserve the same annual totals.",
+    "range": "Specified accounting/calendar and solver values only.",
+    "falsifier": "A fiscal-calendar change or failure of accounting identities requires a correction.",
+    "mechanism": "Period and cash/EPS reconciliation.",
+    "justification_basis": "accounting_identity",
+    "evidence": [
+      {
+        "source_id": "LATEST_RESULTS",
+        "locator": "PDF pp1–2,6–8,10–11,14,18,20",
+        "passage": "H1 sales181,710; gross profit40,163; SGA22,062; OP18,101; parentprofit11,559. Share-salegain3,127; investmentimpairment4,899. Backlog526,122; orders296,259; cash equivalents50,075; bank/bond debt13,328. H1weightedshares130,891,667; issued140,478,804 less treasury9,566,993."
+      }
+    ],
+    "path_values": {
+      "/conventions": {
+        "years": [
+          2027,
+          2028,
+          2029,
+          2030
+        ],
+        "first_fraction": 0.5,
+        "funding_iterations": 100,
+        "funding_tolerance": 1e-10
+      }
+    }
+  }
+]
+
+
+PRIMARY SOURCES
+LATEST_RESULTS · 2026-11-13 · https://ssl4.eir-parts.net/doc/1969/tdnet/2914560/00.pdf · SHA256 e45053bf1cb1bfa1218ab18f32701525b0276003985edd206ba89eafd814a50c
+LATEST_DECK_EN · 2026-11-13 · https://ssl4.eir-parts.net/doc/1969/tdnet/2914580/00.pdf · SHA256 c97dfff6a7bdcb0e645d3319f5c329fa33e5273e711a02f7f490e58699c740d7
+LATEST_FILING · 2026-11-13 · https://ssl4.eir-parts.net/doc/1969/yuho_pdf/S100ZHAW/00.pdf · SHA256 297d312f020d419c6b4d27a4cde16eda3f186cda27384eb75ea837518c03eeee

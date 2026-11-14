@@ -39,7 +39,7 @@ def build(check=False):
         assert upcoming['status'] in ['scheduled', 'expected']
         assert upcoming['period'] and upcoming['display_date'] and event['update_note']
         if upcoming.get('date'):
-            date.fromisoformat(upcoming['date'])
+            assert date.fromisoformat(upcoming['date']) > max(date.fromisoformat(model['as_of']), date.fromisoformat(event['calendar_checked_on'])), f'{ticker}: next announcement has already passed'
         assert summary['forecast_authority_sha256'] == model['forecast_authority_sha256'], f'{ticker}: stale summary'
         if model.get('forecast_run_id'):
             assert summary.get('forecast_run_id') == model['forecast_run_id'], f'{ticker}: wrong run'

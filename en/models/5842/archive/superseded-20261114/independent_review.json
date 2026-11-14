@@ -1,0 +1,69 @@
+{
+  "status": "PASS_WITH_DISCLOSED_LOW_CONFIDENCE",
+  "reviewer": "Independent arithmetic and economic review",
+  "reviewed_at": "2026-11-05T20:32:31.706763+09:00",
+  "scope": "Independent arithmetic and economic review before public model release. This is not a valuation or approval receipt.",
+  "bound_files": {
+    "model.py": "6a59fc40343ff902b114760c0e6f83f6eacd6950fecac8113663c84b09ceb1c3",
+    "actuals.json": "eba15af37938f167cb7957a3909516f49758221634bf79d983d2089678a39217",
+    "assumptions.json": "5b61aa000dc1adadef82f3872f45d0c40cc5068fdd0e65396dfbe2890f833cd6",
+    "forecast.json": "1f52b6ff684d5529f61c024f496e50a22e1677b35740cbd55f6077c7f0be5987"
+  },
+  "independent_recomputation": {
+    "method": "Recalculated all12annual scenario totalEPS,fee-onlyEPS,cash,currentcashTax and fullremainingGP/DTLcashstress directly from raw actuals/assumptions without importing model.py;agreement within1e-7 in model units.",
+    "base_fee_only_eps": [
+      56.707762,
+      42.554521,
+      29.635046,
+      60.123954
+    ],
+    "base_total_basic_eps": [
+      305.43345,
+      124.95385,
+      150.592036,
+      200.658633
+    ],
+    "base_cash_million": [
+      23701.71079977288,
+      26880.00106631483,
+      32136.714250971567,
+      38930.23528607069
+    ],
+    "ttm_basic_eps_approx": 386.69439379048015,
+    "no_successor_fy2029_fee_ebit_delta_million": -2149.875,
+    "no_successor_fy2029_recurring_eps_delta": -43.79646875613497,
+    "base_combined_cash_stress_million": [
+      9981.710799772882,
+      14110.001066314831,
+      20316.714250971567,
+      24730.23528607069
+    ]
+  },
+  "source_anchor_checks": [
+    "H1issuerresults revenue15699/OP12748/PBT12674/groupNP8788/parentNP8766/NCI22m;cash35794/investments57293/equity70538/FVsubsloans10001m match actuals.",
+    "H1fees3860/support171/recurringcost2297/D&A179/financeincome100/financecost174m match issuer results.",
+    "Basic shares34066976,optionincrement784484 verified against semiannual filing S100YW4X EPS note.",
+    "June unrecognized carry700+3900+17400=22000m is a stock after H1recognition;base future18bn does not repeat H1carry.",
+    "Fee AUM366100m excludes2%GP;FundV/REfee bases and oldcohort residual reconcile."
+  ],
+  "repaired_findings": [
+    "Historical fee-only normalization now retains gross174m financecost and excludes100m cashinterest,consistent with forward definition.",
+    "Consolidated cash now includes NCIprofit absent minority distributions.",
+    "Principal calls/distributions are conserved within total investment assets;bear capital-return subset failure corrected and rejected by guard.",
+    "Existing and successor GP obligations now roll forward with future calls and fullremaining-call cash stress;no free funding inferred.",
+    "Current/deferred tax split removes cash tax effects from unrealized marks. Undisclosed cash tax on opening embedded gains is bounded by reserving full11200m openingDTL plus alltaxonpositivefuturemarks with fullGPcashstress, rather than inventing disposal taxbases. Newdrawinterest currenttax and cash taxshields remain consistent and never create cashrefunds."
+  ],
+  "checks_run": [
+    "reproduce.py PASS:all12rows exactly reproduced;cash/equity/investment/GP conservation;impossible carry/sleeve and missing inputs rejected;shares/NCI/capex/debt/successor consequences;guidance deletion/mutation leaves forecast unchanged.",
+    "Guidance comparator cannot enter model.py inputs;FY26housefees/costs differ from reference rather than plug to it."
+  ],
+  "economic_conclusion": "Old fee-paying capital runs off and cash fixed costs rise before conditional successor fees in2029. TotalEPS depends heavily on realizing existing carry;there is no independently established smooth recurringEPS expansion.",
+  "limitations": [
+    "Low-confidence successor250bn mid2029 and carry realization dates are house assumptions;no announced successor or exit-by-exit forecast.",
+    "Existing GP uncalled3470m is an explicitly undisclosed-balance proxy;actual FundV/REdraw profiles and minority profit allocation remain incomplete.",
+    "Latest actuals June2026;refresh with upcoming results. Fee1.95%proxy does not explain all H1timing/mix/catchup differences.",
+    "Tax loss benefits may be accounting credits and are excluded from cash refunds;no committed borrowing line is established.",
+    "Cash-inclusive return on parentequity is not industrialROCE;portfolio simulation and marketprices do not drive forecasts.",
+    "Cash path is before unallocated settlement of tax on opening gains. FullDTL/GPstress is a liquidity bound,not an estimated taxpayment timetable; no complete entity taxbasis or audited future balance sheet is claimed."
+  ]
+}
