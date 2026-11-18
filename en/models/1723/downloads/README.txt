@@ -1,3 +1,0 @@
-Nihon Dengi1723 dated forecast,12November2026.
-Forecast numerical path and research cutoff unchanged.14November: shared export filtered to1723 and supplementary filing check added. This is not new economic approval.
-Run python model.py to reproduce the four Nihon Dengi rows from forecast.json. Annual CSV retains G/E classifications; FY3/28 sales/OP match company medium-term targets. Later margins remain unseparated financial assumptions. Sources and limitations are in supporting_notes.txt and SUPPLEMENTARY_SOURCE_CHECK.json. Current Takasago/Dai-Dan forecasts are separately linked on the model page.

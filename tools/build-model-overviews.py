@@ -13,6 +13,7 @@ import html
 import json
 from datetime import date
 from bs4 import BeautifulSoup
+from model_scope import portfolio_models
 
 ROOT = Path(__file__).resolve().parents[1]
 esc = lambda value: html.escape(str(value), quote=True)
@@ -25,6 +26,7 @@ def bullet_html(text):
 
 def build(check=False):
     catalog = json.loads((ROOT / 'en/models/model-index.json').read_text('utf-8'))['models']
+    portfolio_models(ROOT, catalog)
     summaries = json.loads((ROOT / 'en/models/public-summaries.json').read_text('utf-8'))['models']
     announcements = json.loads((ROOT / 'en/models/announcements.json').read_text('utf-8'))['models']
     assert set(summaries) == {m['ticker'] for m in catalog}, 'Every published model needs a summary'
@@ -65,13 +67,13 @@ def build(check=False):
         related_html = '<p class="related-models">Related models: ' + ' · '.join(f'<a href="{esc(m["overview_url"])}">{esc(m["company_en"])} ({m["ticker"]})</a>' for m in related) + '</p>' if related else ''
         article = f' · <a href="{esc(model["article_url"])}">Read the article ↗</a>' if model.get('article_url') else ''
         download_note = f'<p class="note">{esc(summary["download_note"])}</p>' if summary.get('download_note') else ''
-        upcoming_html = f'<div class="next-announcement"><p><strong>Next announcement:</strong> <a href="{esc(upcoming["source_url"])}">{esc(upcoming["period"])} · {esc(upcoming["display_date"])}</a> <span>({upcoming["status"]})</span></p><p>{esc(event["update_note"])}</p></div>'
+        upcoming_html = f'<div class="next-announcement"><p><strong>Next earnings:</strong> <a href="{esc(upcoming["source_url"])}">{esc(upcoming["period"])} · {esc(upcoming["display_date"])}</a> <span>({upcoming["status"]})</span></p></div>'
         pending = f'<p class="results-update-note">Latest results: {esc(event["latest_results"]["period"])} · {esc(event["latest_results"]["released_on"])}. The forecast below predates this release; an update is in progress.</p>' if event.get('needs_results_update') else ''
         title = f'{model["company_en"]} — JII forecast model'
         body = f'''<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{esc(title)}</title><meta name="description" content="{esc(model['company_en'])} forecast, key assumptions and full model downloads."><link rel="canonical" href="https://jpinv.com{model['overview_url']}"><meta property="og:url" content="https://jpinv.com{model['overview_url']}"><link rel="icon" href="/favicon.svg"><link rel="stylesheet" href="/assets/forecast-model.css?v=20261114"></head>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{esc(title)}</title><meta name="description" content="{esc(model['company_en'])} forecast, key assumptions and full model downloads."><link rel="canonical" href="https://jpinv.com{model['overview_url']}"><meta property="og:url" content="https://jpinv.com{model['overview_url']}"><link rel="icon" href="/favicon.svg"><link rel="stylesheet" href="/assets/forecast-model.css?v=20261119"></head>
 <body class="jii-forecast-model" data-jii-language-fallback="/compounders/"><a class="skip-link" href="#main-content">Skip to model</a><main id="main-content">
-<header><a class="back-to-library" href="/en/models/">← Forecast models</a><div class="titleline"><h1>{esc(model['company_en'])} <span>{ticker}</span></h1><p>JII forecast model</p></div><p class="date">Research cutoff: <time datetime="{model['as_of']}">{model['as_of']}</time>{article}</p>{upcoming_html}{pending}</header>
+<header><a class="back-to-library" href="/en/models/">← Forecast models</a><div class="titleline"><h1>{esc(model['company_en'])} <span>{ticker}</span></h1><p>JII forecast model</p></div><div class="model-dates"><p class="date">Research cutoff: <time datetime="{model['as_of']}">{model['as_of']}</time></p>{upcoming_html}</div><p class="model-update-note">{esc(event['update_note'])}{article}</p>{pending}</header>
 <section aria-labelledby="outlook" data-model-section="forecast"><h2 id="outlook">Forecast</h2><p class="caption">{esc(summary['caption'])}</p><div class="table-wrap" tabindex="0" role="region" aria-label="Annual base-case forecast">{annual}</div><p class="swipe">Swipe sideways to view all years →</p><p class="note">{esc(summary['forecast_notes'])}</p></section>
 <section aria-labelledby="assumptions" data-model-section="assumptions"><h2 id="assumptions">Key Assumptions</h2><ul class="assumption-summary">{bullets}</ul></section>
 <section aria-labelledby="downloads" data-model-section="downloads"><h2 id="downloads">Downloads</h2><a class="primary-download" href="{esc(model['full_model_url'])}" download><span>Download the complete model</span><span class="filetype">ZIP ↓</span></a><p class="download-caption">Model calculations, input data and supporting notes.</p><div class="download-options"><a href="{esc(model['annual_csv_url'])}" download>Annual forecasts · CSV</a><a href="{esc(summary['data_url'])}" download>Full dataset · JSON</a><a href="downloads/supporting_notes.txt" download>Supporting notes &amp; source links · TXT</a></div>{download_note}{related_html}</section>
