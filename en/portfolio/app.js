@@ -38,7 +38,7 @@ function selectTab(name,{focus=false,push=false}={}){
 function renderHoldings(){
   $('holdings-count').textContent=`(${data.snapshot.holdings.length})`;
   $('holdings-body').innerHTML=data.snapshot.holdings.map(h=>`<tr>
-    <td><button type="button" class="company-button" data-holding="${esc(h.ticker)}" aria-haspopup="dialog"><span class="company-name">${esc(h.name)}</span><span class="company-meta">${esc(h.ticker)} · ${h.shares.toLocaleString('en-US')} shares</span></button></td>
+    <td><button type="button" class="company-button" data-holding="${esc(h.ticker)}" aria-haspopup="dialog"><span class="company-identity"><span class="company-name">${esc(h.name)}</span><span class="company-meta">${esc(h.ticker)} · ${h.shares.toLocaleString('en-US')} shares</span></span>${h.business_label?`<span class="business-label">${esc(h.business_label)}</span>`:''}</button></td>
     <td class="number" data-label="Weight">${pct(h.weight_pct,2)}</td>
     <td class="number" data-label="Avg. cost">${yen(h.average_cost,2)}</td>
     <td class="number" data-label="Close">${yen(h.mark,2)}</td>
