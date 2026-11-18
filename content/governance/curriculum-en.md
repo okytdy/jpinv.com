@@ -1,12 +1,12 @@
-# JII Governance Reform Curriculum Japanese manuscript (fully revised version)
+# JII IR Reference English manuscript
 
-## Curriculum top page
+## Reference library top page
 
 **SOURCE URL:** https://jpinv.com/governance/
 
-### Japan’s governance reform: the policy framework and IR practice
+### Japan’s governance reforms: articles and primary sources
 
-Why has the capital efficiency of Japanese companies remained sluggish for so long, and what kind of institutional reforms have been implemented? This course is a step-by-step guide to organizing the knowledge necessary for IR practice while following primary sources.
+A free reference library of 27 articles and primary-source links on Japan’s governance reforms. Browse by topic or use the toolbox to find the documents you need.
 
 ### Understand each rule in the context of the wider reform
 
@@ -32,7 +32,7 @@ Primary materials for practical reference, such as the main text of the code, a 
 
 ### Test your understanding in three questions
 
-We have narrowed down the questions to three questions that are particularly important for understanding the course as a whole.
+Three questions cover key ideas discussed in the reference articles.
 
 #### Q1/Origin of reform
 
@@ -73,9 +73,9 @@ Regarding timely disclosure of companies listed on the prime market, when did si
 2. **Read from the topic you need:** Start reading articles that are close to the issue you are currently facing. Related articles are listed at the end of each article.
 3. **Practical research:** Search the IR toolbox for necessary primary materials and related commentary.
 
-### Can also be used for in-house training
+### Explore at your own pace
 
-The content is designed to suit the target audience and period, such as training for new personnel, in-house study sessions, and courses for listing preparation teams.
+Use the articles and primary-source links for reference or independent study. JII does not offer training or tailored courses through this library.
 
 ---
 
@@ -89,7 +89,7 @@ We have organized the official materials referenced by IR personnel into nine ca
 
 ### About this toolbox
 
-As core materials for the JII governance reform curriculum, we have indexed more than 50 materials published by JPX/TSE, Financial Services Agency, Ministry of Economy, Trade and Industry, SSBJ, Ministry of Justice, and GPIF.
+As core materials for the JII IR reference library, we have indexed more than 50 materials published by JPX/TSE, Financial Services Agency, Ministry of Economy, Trade and Industry, SSBJ, Ministry of Justice, and GPIF.
 
 The English version is also available in full (approximately 7,500 words).
 
@@ -2584,7 +2584,7 @@ In November 2024, the TSE organized how investors read the efforts of listed com
 
 - On **November 21, 2024**, TSE announced “cases where there is a gap between investors' perspectives.” The target is a total of 10 items divided into three stages: (1) analysis and evaluation, (2) consideration and disclosure of initiatives, and (3) dialogue and updates.
 - The problem is not just that the numbers are small. Companies are facing a series of weaknesses, including evaluating the current situation only from their own perspective, failing to decide on the balance sheet they are aiming for, simply listing measures but not showing cause-and-effect relationships, and failing to reflect dialogue with investors in their next decisions.
-- The following “7 Pitfalls” are the result of this course reorganizing the 10 items of the TSE according to the order of practical inspection. TSE itself does not indicate seven classifications.
+- The following “7 Pitfalls” are the result of this reference library reorganizing the 10 items of the TSE according to the order of practical inspection. TSE itself does not indicate seven classifications.
 
 ---
 

@@ -328,19 +328,19 @@ ${scripts}
 function englishShell(html) {
   const ui = {
     'ホーム':'Home', 'パンくず':'Breadcrumb', '本文へ移動':'Skip to content',
-    'ガバナンス改革講座':'Governance Reform Curriculum', 'IR実務講座':'IR practice',
+    'IR資料室':'IR Reference',
     'ページ内メニュー':'On this page', '5つのテーマ':'Five themes', 'IRツールボックス':'IR Toolbox',
-    '理解度チェック':'Knowledge check', '目的別の使い方':'Reading paths', '講座の全体像':'Course overview',
-    'カリキュラム':'Curriculum', '講座テーマ':'Course themes', 'テーマへ →':'Explore theme →',
+    '理解度チェック':'Knowledge check', '目的別の使い方':'Reading paths', '資料集の全体像':'Reference overview',
+    'テーマ別の記事':'Browse by topic', '資料のテーマ':'Reference themes', 'テーマへ →':'Explore theme →',
     '実務資料':'Practical resources', 'ツールボックスを開く →':'Open the toolbox →', '解説:':'Explanation:', 'スコア:':'Score:',
-    '受講・研修の相談':'Discuss training', '研修を相談する →':'Discuss training →', 'お問い合わせ →':'Contact us →',
+    '資料の使い方':'Using this reference', '一次資料を探す →':'Find primary sources →',
     'テーマ概要':'Theme overview', '本テーマの記事一覧':'Articles in this theme', '記事を読む →':'Read article →',
     '記事数:':'Articles:', '期間:':'Period:', '中核資料 · 随時更新':'Core reference · Updated periodically',
     '収録分野:':'Categories:', '一次資料:':'Primary sources:', '約50点以上':'Around 50 or more',
     '更新:':'Updated:', '← 前の記事':'← Previous article', '次の記事 →':'Next article →', '次に読む →':'Read next →',
     '前後の記事':'Article navigation', '読了目安:':'Reading time:', '本文内の制度図':'Diagram of the policy framework',
     'テーマ:':'Theme:', 'テーマ ':'Theme ', '記事 ':'Article ', '読み方':'Reading paths',
-    'IR担当者研修':'IR team training', 'IR研修について相談する →':'Discuss IR training →'
+    '資料室について':'About this library'
   };
   let result = html.replace(/<a href="(\/en\/governance\/[^"]*)">English version →<\/a>/g, (_, href) => '<a href="__JAPANESE__' + href.slice(3) + '" data-locale-route lang="ja">日本語版 →</a>');
   for (const [ja, en] of Object.entries(ui)) result = result.split(ja).join(en);
@@ -394,18 +394,18 @@ function renderLanding(top) {
     title: `${hero.heading}｜JII`,
     description,
     pathname: "/governance/",
-    type: "Course",
+    type: "CollectionPage",
     schema: {
-      provider: { "@type": "Organization", name: "Japan Investor Interface Co., Ltd.", url: `${SITE_ORIGIN}/` },
+      publisher: { "@type": "Organization", name: "Japan Investor Interface Co., Ltd.", url: `${SITE_ORIGIN}/` },
       isAccessibleForFree: true,
-      numberOfCredits: 27
+      about: "Japanese corporate governance and investor relations"
     }
   });
   const main = `  <main id="main-content" class="governance-page" tabindex="-1">
-    ${breadcrumbs([{ label: "ガバナンス改革講座" }])}
+    ${breadcrumbs([{ label: "IR資料室" }])}
     <section class="gov-hero" aria-labelledby="hero-title">
       <div class="gov-wrap">
-        <span class="gov-kicker">IR実務講座</span>
+        <span class="gov-kicker">IR資料室</span>
         <h1 id="hero-title">${escapeHtml(hero.heading)}</h1>
         <p>${renderInline(firstParagraph(hero.content))}</p>
         <nav class="gov-local" aria-label="ページ内メニュー"><a href="#curriculum">5つのテーマ</a><a href="#toolbox">IRツールボックス</a><a href="#check">理解度チェック</a><a href="#howto">目的別の使い方</a></nav>
@@ -413,14 +413,14 @@ function renderLanding(top) {
     </section>
     <section class="gov-section" aria-labelledby="overview-title">
       <div class="gov-wrap">
-        <div class="gov-section-head"><div><span class="gov-kicker">講座の全体像</span><h2 id="overview-title">${escapeHtml(overview.heading)}</h2></div><p>${renderInline(firstParagraph(overview.content))}</p></div>
+        <div class="gov-section-head"><div><span class="gov-kicker">資料集の全体像</span><h2 id="overview-title">${escapeHtml(overview.heading)}</h2></div><p>${renderInline(firstParagraph(overview.content))}</p></div>
         <div class="gov-stats">${stats.map((item) => `<div class="gov-stat"><strong>${escapeHtml(item.value)}</strong><span>${renderInline(item.label)}</span></div>`).join("")}</div>
       </div>
     </section>
     <section id="curriculum" class="gov-section gov-section--soft" aria-labelledby="curriculum-title">
       <div class="gov-wrap">
-        <div class="gov-section-head"><div><span class="gov-kicker">カリキュラム</span><h2 id="curriculum-title">${escapeHtml(top[2].heading)}</h2></div><p>${renderInline(firstParagraph(top[2].content))}</p></div>
-        <nav class="gov-themes" aria-label="講座テーマ">${themes.map((item, index) => `<a class="gov-theme-card" href="/governance/${item.meta.slug}/"><span class="gov-theme-no">${String(index + 1).padStart(2, "0")}</span><span class="gov-theme-title"><strong>${escapeHtml(item.label.split("（")[0])}</strong><span>${escapeHtml(item.label.match(/（(.+)）/)?.[1] || item.meta.period)}</span></span><p>${renderInline(item.description)}</p><span class="gov-theme-arrow">テーマへ →</span></a>`).join("")}</nav>
+        <div class="gov-section-head"><div><span class="gov-kicker">テーマ別の記事</span><h2 id="curriculum-title">${escapeHtml(top[2].heading)}</h2></div><p>${renderInline(firstParagraph(top[2].content))}</p></div>
+        <nav class="gov-themes" aria-label="資料のテーマ">${themes.map((item, index) => `<a class="gov-theme-card" href="/governance/${item.meta.slug}/"><span class="gov-theme-no">${String(index + 1).padStart(2, "0")}</span><span class="gov-theme-title"><strong>${escapeHtml(item.label.split("（")[0])}</strong><span>${escapeHtml(item.label.match(/（(.+)）/)?.[1] || item.meta.period)}</span></span><p>${renderInline(item.description)}</p><span class="gov-theme-arrow">テーマへ →</span></a>`).join("")}</nav>
       </div>
     </section>
     <section id="toolbox" class="gov-section" aria-labelledby="toolbox-title">
@@ -435,8 +435,8 @@ function renderLanding(top) {
     <section id="howto" class="gov-section" aria-labelledby="howto-title">
       <div class="gov-wrap"><div class="gov-section-head"><div><span class="gov-kicker">読み方</span><h2 id="howto-title">${escapeHtml(top[5].heading)}</h2></div></div><div class="gov-use-grid">${uses.map((item, index) => `<article class="gov-use"><i>${String(index + 1).padStart(2, "0")}</i><h3>${escapeHtml(item.title)}</h3><p>${renderInline(item.body)}</p></article>`).join("")}</div></div>
     </section>
-    <section class="gov-section gov-section--soft" aria-labelledby="training-title">
-      <div class="gov-wrap gov-training"><div><span class="gov-kicker">IR担当者研修</span><h2 id="training-title">${escapeHtml(top[6].heading)}</h2></div><div><p>${renderInline(firstParagraph(top[6].content))}</p><a class="gov-contact-link" href="/%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B/">IR研修について相談する →</a></div></div>
+    <section class="gov-section gov-section--soft" aria-labelledby="reference-title">
+      <div class="gov-wrap gov-reference"><div><span class="gov-kicker">資料室について</span><h2 id="reference-title">${escapeHtml(top[6].heading)}</h2></div><div><p>${renderInline(firstParagraph(top[6].content))}</p><a class="gov-contact-link" href="/governance/toolbox/">一次資料を探す →</a></div></div>
     </section>
   </main>`;
   return pageShell(head, main);
@@ -447,12 +447,12 @@ function renderTheme(theme, articles) {
   if (themeArticles.length !== theme.articleTitles.length) fail(`theme ${theme.index} article-count mismatch`);
   const description = stripMarkdown(theme.description);
   const head = commonHead({
-    title: `${theme.pageHeading}（テーマ${theme.index}）｜JII ガバナンス改革講座`,
+    title: `${theme.pageHeading}（テーマ${theme.index}）｜JII IR資料室`,
     description,
     pathname: theme.pathname
   });
   const main = `  <main id="main-content" class="governance-page" tabindex="-1">
-    ${breadcrumbs([{ label: "ガバナンス改革講座", href: "/governance/" }, { label: theme.pageHeading }])}
+    ${breadcrumbs([{ label: "IR資料室", href: "/governance/" }, { label: theme.pageHeading }])}
     <section class="theme-hero" aria-labelledby="theme-title"><div class="gov-wrap"><div class="theme-hero-inner"><span class="theme-eyebrow">テーマ ${theme.index} · ${escapeHtml(theme.period)}</span><h1 id="theme-title">${escapeHtml(theme.pageHeading)}</h1><p class="lede">${renderInline(theme.description)}</p><div class="theme-meta"><span>記事数: <strong>${themeArticles.length}</strong></span><span>期間: <strong>${escapeHtml(theme.period)}</strong></span></div></div></div></section>
     <section class="theme-list" aria-labelledby="article-list-title"><div class="gov-wrap gov-measure"><h2 id="article-list-title">本テーマの記事一覧</h2>${themeArticles.map((article, index) => `<a class="theme-article" href="${article.pathname}"><span class="theme-article-no">${article.number}</span><span class="theme-article-title">${escapeHtml(theme.articleTitles[index])}</span><span class="theme-article-arrow">記事を読む →</span></a>`).join("")}</div></section>
   </main>`;
@@ -467,7 +467,7 @@ function renderToolbox(toolbox) {
   const pathname = "/governance/toolbox/";
   const head = commonHead({ title: `${title}｜JII`, description, pathname });
   const main = `  <main id="main-content" class="governance-page" tabindex="-1">
-    ${breadcrumbs([{ label: "ガバナンス改革講座", href: "/governance/" }, { label: "IRツールボックス" }])}
+    ${breadcrumbs([{ label: "IR資料室", href: "/governance/" }, { label: "IRツールボックス" }])}
     <header class="post-header"><div class="gov-wrap"><div class="post-header-inner"><span class="post-eyebrow">中核資料 · 随時更新</span><h1 class="post-title">${escapeHtml(title)}</h1><p class="post-summary">${renderInline(summary)}</p><div class="post-meta"><span>収録分野: <strong>9</strong></span><span>一次資料: <strong>約50点以上</strong></span><span>更新: <strong>${UPDATED}</strong></span></div></div></div></header>
     <section class="post-body toolbox-body"><div class="gov-wrap"><article class="post-content">${renderMarkdown(body)}${ENGLISH ? fs.readFileSync(path.join(ROOT, 'content/governance/toolbox-reference-en.html'), 'utf8') : ''}</article><div class="post-language"><a href="/en/governance/toolbox/">English version →</a></div></div></section>
   </main>`;
@@ -484,7 +484,7 @@ function renderArticle(article, index, articles, themes) {
   const theme = themes.find((item) => item.index === article.themeIndex);
   const description = stripMarkdown(article.summary);
   const head = commonHead({
-    title: `${article.title}｜JII ガバナンス改革講座`,
+    title: `${article.title}｜JII IR資料室`,
     description,
     pathname: article.pathname,
     type: "Article",
@@ -496,11 +496,7 @@ function renderArticle(article, index, articles, themes) {
     }
   });
   const previous = articles[index - 1];
-  const service = ['3.2', '3.5', '4.2', '5.1'].includes(article.number)
-    ? (article.number === '4.2'
-      ? { ja: '投資家面談の通訳 →', en: 'Investor-meeting interpretation →', href: ENGLISH ? '/en/services/ir-interpretation/' : '/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/IR%E9%80%9A%E8%A8%B3/' }
-      : { ja: '英文開示の翻訳・レビュー →', en: 'Disclosure translation & review →', href: ENGLISH ? '/en/services/disclosure-translation/' : '/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/%E9%96%8B%E7%A4%BA%E7%BF%BB%E8%A8%B3/' })
-    : null;
+  const service = null;
   const next = articles[index + 1];
   const navItems = [];
   if (previous) navItems.push(`<a class="post-nav-link prev" href="${previous.pathname}"><div class="post-nav-dir">← 前の記事</div><div class="post-nav-title">${escapeHtml(previous.title)}</div></a>`);
@@ -508,7 +504,7 @@ function renderArticle(article, index, articles, themes) {
   if (next) navItems.push(`<a class="post-nav-link next" href="${next.pathname}"><div class="post-nav-dir">次の記事 →</div><div class="post-nav-title">${escapeHtml(next.title)}</div></a>`);
   else navItems.push(`<a class="post-nav-link next" href="/governance/toolbox/"><div class="post-nav-dir">次に読む →</div><div class="post-nav-title">IRツールボックス</div></a>`);
   const main = `  <main id="main-content" class="governance-page" tabindex="-1">
-    ${breadcrumbs([{ label: "ガバナンス改革講座", href: "/governance/" }, { label: theme.pageHeading, href: theme.pathname }, { label: `記事 ${article.number}` }])}
+    ${breadcrumbs([{ label: "IR資料室", href: "/governance/" }, { label: theme.pageHeading, href: theme.pathname }, { label: `記事 ${article.number}` }])}
     <header class="post-header"><div class="gov-wrap"><div class="post-header-inner"><span class="post-eyebrow">テーマ ${article.themeIndex} · 記事 ${article.number}</span><h1 class="post-title">${escapeHtml(article.title)}</h1><p class="post-summary">${renderInline(article.summary)}</p><div class="post-meta"><span>テーマ: <strong>${escapeHtml(theme.pageHeading)}</strong></span><span>読了目安: <strong>${readingMinutes(article.body)}分</strong></span><span>更新: <strong>${UPDATED}</strong></span></div></div></div></header>
     <section class="post-body"><div class="gov-wrap"><article class="post-content">${renderMarkdown(article.body)}</article><nav class="post-nav" aria-label="前後の記事">${navItems.join("")}</nav><div class="post-language${service ? ' post-language--service' : ''}">${service ? `<a href="${service.href}">${escapeHtml(ENGLISH ? service.en : service.ja)}</a>` : ''}<a href="/en${article.pathname}">English version →</a></div></div></section>
   </main>`;

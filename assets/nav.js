@@ -77,10 +77,10 @@
   }
 
   /* Reachable, but not from the top bar. These appear in the mobile menu
-     and in the footer. IR研修 and FAQ live here because a visitor who has
+     and in the footer. IR資料室 and FAQ live here because a visitor who has
      never heard of JII does not need either one to decide anything. */
   var SECONDARY = [
-    { ja: "IR研修", en: "IR Training", jaHref: "/governance/", enHref: "/en/governance/" },
+    { ja: "IR資料室", en: "IR Reference", jaHref: "/governance/", enHref: "/en/governance/" },
     { ja: "FAQ",    en: "FAQ",         jaHref: "/faq/",        enHref: "/en/faq/" }
   ];
 
@@ -103,7 +103,7 @@
      One column per section. The column head is the section's own landing
      page; the items under it are the pages inside that section.
 
-     The footer is a navigational summary, not a complete index. IR研修 has
+     The footer is a navigational summary, not a complete index. IR資料室 has
      34 pages and 調査レポート has 32 profiles; listing all of them here
      would bury the sections that sell. The complete index is /sitemap/. */
 
@@ -614,10 +614,12 @@
      contextual CTA or an inquiry form. One clear conversion endpoint is
      enough; the shared strip is only a fallback for pages without one. */
   var onContact = path.replace(/\/$/, "") === href(CONTACT).replace(/\/$/, "");
+  // The IR reference library is self-service reading, not a training offer.
+  var inReferenceLibrary = /^\/(en\/)?governance(\/|$)/.test(path);
   var hasPageContact = document.querySelector(
     "#inquiry-form, #urgent-form, .cta-band, .cta-box, .contact-band"
   );
-  if (!onContact && !hasPageContact) {
+  if (!onContact && !hasPageContact && !inReferenceLibrary) {
     var contactStrip = document.createElement("section");
     contactStrip.id = "jii-contact";
     contactStrip.setAttribute("aria-labelledby", "jii-contact-title");

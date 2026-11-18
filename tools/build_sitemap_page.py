@@ -3,7 +3,7 @@
 Build the human sitemap pages: /sitemap/ and /en/sitemap/.
 
 This is a curated index of the main pages, current Compounder profiles and
-IR-training lessons. Archived reports and individual signal logs remain
+IR-reference articles. Archived reports and individual signal logs remain
 reachable through their respective landing pages.
 
 It reads the built site rather than a hand-kept list, so it cannot drift. Run it
@@ -19,7 +19,7 @@ import re
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-NAV_TAG = '<script src="/assets/nav.js?v=e804627fe1" defer></script>'
+NAV_TAG = '<script src="/assets/nav.js?v=e97a816711" defer></script>'
 
 TITLE_RE = re.compile(r"<title>(.*?)</title>", re.S)
 REFRESH_RE = re.compile(r'http-equiv="refresh"', re.I)
@@ -124,7 +124,7 @@ def build(lang):
                     (L("現行の銘柄分析", "Current profiles"), profiles(lang)),
                     (L("企業別モデル", "Company models"), model_pages)]))
 
-    # IR training
+    # IR reference
     themes = []
     for rel, ja, eng in [
         (f"{gov}/foundations", "改革の起源", "Origins of reform"),
@@ -138,7 +138,7 @@ def build(lang):
     tb = page_title(f"{gov}/toolbox")
     if tb:
         themes.append((L("ツール", "Tools"), [("/" + gov + "/toolbox/", tb)]))
-    groups.append((L("IR研修", "IR training"), f"{P}/governance/", themes))
+    groups.append((L("IR資料室", "IR Reference"), f"{P}/governance/", themes))
 
     # Company
     co = []
