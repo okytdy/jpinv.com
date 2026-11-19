@@ -78,7 +78,7 @@ jobs:
           python -m pyflakes \
             tools/feed_refresh.py tools/classifier.py tools/pdf_enricher.py \
             tools/llm_budget.py tools/tdnet_scraper.py tools/jpx_master.py \
-            tools/scrub_sample_signals.py tools/build_news_data.py tools/check_data_is_read.py > pyflakes.txt 2>&1 || true
+            tools/scrub_sample_signals.py tools/build_hero_data.py tools/build_news_data.py tools/check_data_is_read.py > pyflakes.txt 2>&1 || true
           cat pyflakes.txt
           if grep -q "undefined name" pyflakes.txt; then
             echo "::error::A script this job runs uses a name it never defines."
@@ -138,8 +138,9 @@ jobs:
           # and the per-ticker archives (a one-time backfill artifact; it runs
           # server-side here, where feed.json is fully hydrated).
           run_script tools/scrub_sample_signals.py
-          # The retired Compounders screen, signal logs and hero panel are not rebuilt.
+          # The retired Compounders screen and signal logs are not rebuilt.
           # News retains both market-wide disclosure and new-5% filing tabs.
+          run_script tools/build_hero_data.py --no-bake
           run_script tools/build_news_data.py --no-bake
 
           # Confirm every data file this job writes is actually read by the site.

@@ -1,8 +1,8 @@
 /* ===================================================================
    jpinv.com — the full-bleed homepage hero.
 
-   Company-led homepage. The former capital-policy panel is replaced by
-   Visual changes require mockup review before publication.
+   Four slides that crossfade. Slide 1 carries the live capital-policy
+   panel; slides 2 to 4 are photographs under a heavy navy wash.
 
    The slide markup lives in index.html and en/index.html (so the h1 is
    in the HTML and crawlable). assets/hero.js only rotates the slides
@@ -532,14 +532,4 @@ html[lang="ja"] .nw-in{grid-template-columns:240px minmax(0,1fr);gap:40px}
   .nw-tabs button{min-width:0;padding:10px 4px;white-space:normal;line-height:1.4}
 }
 
-/* Interim text-only hero — visual alternatives require mockup review. */
-.jh.jh-human{height:auto;min-height:0;max-height:none;padding:0}
-.jh.jh-human .jh-slide{position:relative;opacity:1;visibility:visible;display:block}
-.jh.jh-human .jh-in{display:grid;grid-template-columns:minmax(0,1fr);min-height:clamp(600px,calc(100svh - 64px),780px);gap:clamp(32px,4vw,64px);padding:52px clamp(32px,4.5vw,72px);max-width:1600px}
-.jh.jh-human .jh-copy{max-width:760px;min-width:0}
-
-
-
 .nw-archive-link{display:inline-block;font-size:14px;color:var(--text-mid);margin-top:22px;text-underline-offset:4px}
-@media(max-width:900px){.jh.jh-human .jh-in{grid-template-columns:minmax(0,1fr);padding:40px 28px;gap:30px}}
-@media(max-width:700px){.jh.jh-human .jh-in{grid-template-columns:1fr;min-height:0;padding:42px 22px;gap:32px}.jh.jh-human .jh-copy{max-width:none}.jh.jh-human .jh-copy h1{font-size:clamp(25px,5.7vw,31px);line-height:1.6}.jh.jh-human .jh-copy h1 .ln{display:inline}.jh.jh-human .jh-lead{font-size:15px}.jh.jh-human .jh-btn{font-size:15px}.jh.jh-human .jh-scroll{display:none}}

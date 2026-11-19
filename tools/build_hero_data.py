@@ -6,7 +6,7 @@ WHY IT EXISTS. feed.json is 2.1MB. A homepage cannot fetch that. This writes a
 few kilobytes: the newest capital-policy disclosures, already shortened to a
 label and one line of detail, plus the counters the hero shows.
 
-Run it after tools/feed_refresh.py and tools/watchlist_join.py, from the repo
+Run it after tools/feed_refresh.py, independently of the retired watchlist, from the repo
 root:
 
     python3 tools/build_hero_data.py
@@ -24,7 +24,6 @@ from company_names import normalize_company_name_en
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FEED = os.path.join(ROOT, "compounders", "feed", "data", "feed.json")
-WATCH = os.path.join(ROOT, "compounders", "feed", "data", "watchlist_signals.json")
 OUT = os.path.join(ROOT, "compounders", "feed", "data", "hero.json")
 
 ROWS = 6
@@ -144,10 +143,10 @@ def bake(payload):
         )
 
         c = payload["counts"]
-        labels = ([("last30", "material disclosures, 30 days"), ("watched", "names watched"),
-                   ("profiles", "research profiles")] if lang == "en" else
-                  [("last30", "重要開示・直近30日"), ("watched", "追跡銘柄"),
-                   ("profiles", "銘柄レポート")])
+        labels = ([("last30", "material disclosures, 30 days"),
+                   ("profiles", "archived reports")] if lang == "en" else
+                  [("last30", "重要開示・直近30日"),
+                   ("profiles", "調査アーカイブ")])
         stats_html = "".join(
             "<span><b>{v:,}</b><span>{l}</span></span>".format(v=c.get(k, 0), l=esc(lab))
             for k, lab in labels
@@ -171,12 +170,6 @@ def bake(payload):
 
 
 def main():
-    from pathlib import Path as RetirementPath
-    import json as retirement_json
-    retirement_root = RetirementPath(__file__).resolve().parents[1]
-    retirement = retirement_json.loads((retirement_root / "content/compounders/profile-data.json").read_text(encoding="utf-8")).get("retirement", {})
-    if retirement.get("status") == "retired":
-        raise SystemExit("RETIRED: Compounders screening, watchlist signals and the homepage data panel ended on 19 November 2026.")
     feed = json.load(open(FEED, encoding="utf-8"))
     feed = [r for r in feed if r.get("ts")]
     feed.sort(key=lambda r: r["ts"], reverse=True)
@@ -208,10 +201,6 @@ def main():
         })
         if len(rows) >= ROWS:
             break
-
-    watched = 0
-    if os.path.exists(WATCH):
-        watched = json.load(open(WATCH, encoding="utf-8")).get("counts", {}).get("watched_union", 0)
 
     profiles = len(glob.glob(os.path.join(ROOT, "compounders", "[0-9]*", "initiation", "index.html")))
 
@@ -249,7 +238,6 @@ def main():
         "counts": {
             "last30": last30,
             "total": len(feed),
-            "watched": watched,
             "profiles": profiles,
         },
         "rows": rows,
@@ -272,7 +260,7 @@ def main():
     size = os.path.getsize(OUT)
     print(f"hero.json written: {len(rows)} rows, {size:,} bytes")
     print(f"  last 30 days: {last30}   total since {payload['since']}: {len(feed)}")
-    print(f"  watched: {watched}   profiles: {profiles}")
+    print(f"  archived reports: {profiles}")
     for r in rows:
         print(f"  {r['date']}  {r['label_jp']:<10} {r['ticker']} {r['name_jp']}")
 

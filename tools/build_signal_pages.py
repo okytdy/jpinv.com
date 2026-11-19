@@ -363,7 +363,7 @@ def main():
     retirement_root = RetirementPath(__file__).resolve().parents[1]
     retirement = retirement_json.loads((retirement_root / "content/compounders/profile-data.json").read_text(encoding="utf-8")).get("retirement", {})
     if retirement.get("status") == "retired":
-        raise SystemExit("RETIRED: Compounders screening, watchlist signals and the homepage data panel ended on 19 November 2026.")
+        raise SystemExit("RETIRED: Compounders screening and watchlist signals ended on 19 November 2026. Market-wide disclosure feeds remain active.")
     payload = json.load(open(DATA, encoding="utf-8"))
     names = payload["names"]
     active = {n["ticker"] for n in names}

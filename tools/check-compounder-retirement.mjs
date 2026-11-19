@@ -26,17 +26,19 @@ for (const prefix of ['', 'en/']) {
     check(page.includes('noindex,follow') && !/<table\b|data-sec=|UNIVERSE ·/.test(page), `${prefix}${route}: obsolete active content remains.`);
   }
   const home = read(`${prefix}index.html`);
-  check(!/class="jh-panel"|hero-rows|names watched|追跡銘柄|data-tab="reports"/.test(home), `${prefix}: retired homepage panel/report promotion remains.`);
+  check((home.match(/class="jh-slide"/g)||[]).length===4 && home.includes('class="jh-dots"'), `${prefix}: original four-slide carousel is missing.`);
+  check(home.includes('class="jh-panel"'), `${prefix}: restored disclosure feed panel is missing.`);
+  check(!/names watched|追跡銘柄|data-tab="reports"/.test(home), `${prefix}: retired homepage panel/report promotion remains.`);
   check(!home.includes('class="jh-people"'), `${prefix}: removed hero photograph has returned.`);
   check(home.includes('data-tab="capital"') && home.includes('data-tab="holdings"'), `${prefix}: independent news feeds were removed.`);
 }
 check(!/compounders\/(?:methodology|universe|profiles|signals)\//.test(read('assets/nav.js')), 'Retired links remain in shared navigation.');
-check(!/watchlist_join|build_signal_pages|build_hero_data/.test(read('.github/workflows/feed-refresh.yml')), 'The website schedule can regenerate retired outputs.');
-check(!read('assets/hero.js').includes('/hero.json'), 'Homepage still requests the retired data panel.');
+check(!/watchlist_join|build_signal_pages/.test(read('.github/workflows/feed-refresh.yml')), 'The website schedule can regenerate retired outputs.');
+check(read('assets/hero.js').includes('/hero.json'), 'Restored disclosure panel is disconnected.');
 check(read('assets/hero.js').includes('/news.json'), 'Homepage news is no longer connected.');
 check(JSON.parse(read('compounders/feed/data/news.json')).reports.length === 0, 'Archived reports remain in current news.');
 const sitemap = read('sitemap.xml');
 check(!/<loc>[^<]*\/compounders\/(?:methodology|universe|profiles|signals|\d{4})\//.test(sitemap), 'Retired pages remain in sitemap.xml.');
-for (const file of ['_watchlist_v4_compounders.csv', 'compounders/feed/data/hero.json', 'compounders/feed/data/watchlist_signals.json']) check(!fs.existsSync(path.join(root, file)), `Retired public download remains: ${file}`);
+for (const file of ['_watchlist_v4_compounders.csv', 'compounders/feed/data/watchlist_signals.json']) check(!fs.existsSync(path.join(root, file)), `Retired public download remains: ${file}`);
 if (errors.length) { console.error(errors.join('\n')); process.exit(1); }
 console.log(`Compounders retirement: PASS (${Object.keys(data.articles).length} bilingual archived reports; homepage/news/schedules/navigation checked).`);
