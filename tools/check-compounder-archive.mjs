@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const data = JSON.parse(fs.readFileSync(path.join(ROOT, 'content', 'compounders', 'profile-data.json'), 'utf8'));
+if (data.retirement?.status === 'retired') { await import('./check-compounder-retirement.mjs'); process.exit(0); }
 const failures = [];
 
 function read(relative) {

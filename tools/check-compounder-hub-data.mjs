@@ -1,3 +1,5 @@
+import { readFileSync as readRetirementFile } from 'node:fs';
+if (JSON.parse(readRetirementFile(new URL('../content/compounders/profile-data.json', import.meta.url))).retirement?.status === 'retired') { await import('./check-compounder-retirement.mjs'); process.exit(0); }
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';

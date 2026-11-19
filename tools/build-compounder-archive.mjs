@@ -2,12 +2,17 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { englishArchiveCards } from './lib/english-archive-cards.mjs';
+import { buildRetiredResearch } from './lib/retired-research.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DATA_PATH = path.join(ROOT, 'content', 'compounders', 'profile-data.json');
 const SNAPSHOTS_PATH = path.join(ROOT, 'tools', 'compounder-hub-snapshots.json');
 const SITEMAP_PATH = path.join(ROOT, 'sitemap.xml');
 const data = JSON.parse(fs.readFileSync(DATA_PATH, 'utf8'));
+if (data.retirement?.status === 'retired') {
+  buildRetiredResearch(ROOT, data);
+  process.exit(0);
+}
 const snapshots = JSON.parse(fs.readFileSync(SNAPSHOTS_PATH, 'utf8'));
 const snapshotsByTicker = new Map((snapshots.reports || []).map((report) => [report.ticker, report]));
 

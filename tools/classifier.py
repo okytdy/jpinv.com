@@ -64,6 +64,11 @@ _EXCLUDE_PATTERNS: tuple[re.Pattern[str], ...] = (
 
 
 def _load_universe() -> frozenset[str]:
+    # The broad disclosure feed continues independently of the retired screen.
+    import json
+    registry = json.loads((_REPO_ROOT / "content/compounders/profile-data.json").read_text(encoding="utf-8"))
+    if registry.get("retirement", {}).get("status") == "retired":
+        return frozenset()
     if not _WATCHLIST_CSV.exists():
         return _FALLBACK_UNIVERSE
     try:

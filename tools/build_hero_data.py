@@ -171,6 +171,12 @@ def bake(payload):
 
 
 def main():
+    from pathlib import Path as RetirementPath
+    import json as retirement_json
+    retirement_root = RetirementPath(__file__).resolve().parents[1]
+    retirement = retirement_json.loads((retirement_root / "content/compounders/profile-data.json").read_text(encoding="utf-8")).get("retirement", {})
+    if retirement.get("status") == "retired":
+        raise SystemExit("RETIRED: Compounders screening, watchlist signals and the homepage data panel ended on 19 November 2026.")
     feed = json.load(open(FEED, encoding="utf-8"))
     feed = [r for r in feed if r.get("ts")]
     feed.sort(key=lambda r: r["ts"], reverse=True)

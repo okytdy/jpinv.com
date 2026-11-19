@@ -10,8 +10,12 @@ const hash=s=>crypto.createHash('sha256').update(s).digest('hex');
 const count=(s,p)=>(s.match(p)||[]).length;
 const assert=(ok,message)=>{if(!ok)throw Error(message);};
 const pages=new Set();
+const retired=JSON.parse(read('content/compounders/profile-data.json')).retirement?.status==='retired';
 for(const f of fs.readdirSync(path.join(root,'content/english-parity')).filter(f=>f.endsWith('.json'))){
- const r=JSON.parse(read('content/english-parity/'+f));readCheckedTranslation(root,'content/english-parity/'+f,read(r.source));
+ const r=JSON.parse(read('content/english-parity/'+f));
+ // The former methodology translation is immutable evidence, not a live page source.
+ if(retired&&r.source==='compounders/methodology/index.html')continue;
+ readCheckedTranslation(root,'content/english-parity/'+f,read(r.source));
  const en=read(r.target),ja=read(r.source);
  for(const pattern of [/<section\b/g,/<table\b/g,/<svg\b/g])assert(count(en,pattern)===count(ja,pattern),`${r.target}: sections or figures no longer match Japanese`);
  assert(en.includes(`hreflang="ja" href="https://jpinv.com/${encodeURI(r.source.replace(/index\.html$/,''))}"`),`${r.target}: Japanese language link missing`);
@@ -46,7 +50,8 @@ const data=JSON.parse(read('content/compounders/profile-data.json')),metadata=JS
 assert(hash(JSON.stringify(metadata.translations.map(({key,ja})=>({key,ja}))))===metadata.sourceSha256,'Metadata Japanese source checksum differs');
 for(const t of metadata.translations){const[kind,key,field]=t.key.split('.'),value=data[kind][key][field];assert(value.ja===t.ja&&value.en===t.en,`${t.key}: English metadata needs review`);}
 const archive=read('en/compounders/archive/index.html');
-for(const[ticker,card]of englishArchiveCards(root,data))assert(archive.includes(card.trim()),`${ticker}: English archive card is stale`);
+if(retired)await import('./check-compounder-retirement.mjs');
+else for(const[ticker,card]of englishArchiveCards(root,data))assert(archive.includes(card.trim()),`${ticker}: English archive card is stale`);
 const policy=JSON.parse(read('content/english-parity-policy.json'));
 const founder=read('en/founder-message/index.html').match(/<article class="ci-longform[^>]*>([\s\S]*?)<\/article>/)[1].replaceAll('\r\n','\n');
 assert(hash(founder)===policy.founderMessageSha256,'The intentionally distinct English Founder’s message changed');

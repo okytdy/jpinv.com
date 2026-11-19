@@ -8,7 +8,7 @@ const SITE_ORIGIN = 'https://jpinv.com';
 const ROOT = path.dirname(path.dirname(path.dirname(fileURLToPath(import.meta.url))));
 
 function navVersion() {
-  const nav = fs.readFileSync(path.join(ROOT, 'assets', 'nav.js'), 'utf8');
+  const nav = fs.readFileSync(path.join(ROOT, 'assets', 'nav.js'), 'utf8').replaceAll('\r\n', '\n');
   const versionPattern = /(assets\/(?:nav\.js|hero\.js|hero\.css)\?v=)([0-9a-zA-Z]+)/g;
   const stableSource = nav.replace(versionPattern, '$1');
   return crypto.createHash('sha256').update(stableSource).digest('hex').slice(0, 10);
@@ -43,13 +43,12 @@ function isArchived(article) {
 function renderArchiveNotice(page) {
   if (!isArchived(page.article)) return '';
   const isJa = page.language === 'ja';
-  const currentProfiles = isJa ? '/compounders/profiles/' : '/en/compounders/profiles/';
   const archive = isJa ? '/compounders/archive/' : '/en/compounders/archive/';
   return `<aside class="cp-archive-notice" aria-labelledby="cp-archive-title">
   <span class="cp-archive-kicker">${isJa ? 'アーカイブ調査' : 'Archived research'}</span>
-  <h2 id="cp-archive-title">${isJa ? '旧形式で公開したJII Compounder Profileです。' : 'Published under JII\'s previous Compounder format.'}</h2>
-  <p>${isJa ? '本ページは公開時点の調査記録として保存しており、更新していません。JIIの現行フォーマットは、2026年9月2日公開のNJSから適用しています。' : 'This page preserves the research record as published and is not maintained. JII\'s current Compounder format begins with NJS, published on September 2, 2026.'}</p>
-  <div class="cp-archive-links"><a href="${currentProfiles}">${isJa ? '現行のCompounder Profileを見る' : 'View current Compounder profiles'}</a><a href="${archive}">${isJa ? 'アーカイブ一覧' : 'Browse the archive'}</a></div>
+  <h2 id="cp-archive-title">${isJa ? '公開時点の調査記録です。現在は更新していません。' : 'Historical research. No longer maintained.'}</h2>
+  <p>${isJa ? '株価・予想・評価は、それぞれ記載された日付時点のものです。JII Compoundersの調査方針と銘柄一覧は、2026年11月19日をもって公開・更新を終了しました。本レポートは現在のJIIの調査方針を示すものではありません。' : 'Prices, estimates and valuations relate to the dates shown. JII Compounders, its methodology and screening universe were retired on 19 November 2026. This report does not describe JII’s current research approach.'}</p>
+  <div class="cp-archive-links"><a href="${archive}">${isJa ? '調査アーカイブ一覧' : 'Browse archived research'}</a></div>
 </aside>`;
 }
 
@@ -67,10 +66,10 @@ function renderMetric(metric) {
 export function renderProfileFooter(page) {
   const isJa = page.language === 'ja';
   const home = isJa ? '/compounders/' : '/en/compounders/';
-  const method = isJa ? '/compounders/methodology/' : '/en/compounders/methodology/';
+  const method = isJa ? '/compounders/archive/' : '/en/compounders/archive/';
   const current = articleUrl(page.ticker, page.slug, page.language);
   const counterpart = articleUrl(page.ticker, page.slug, isJa ? 'en' : 'ja');
-  return `<div class="meth"><span><a href="${home}">${isJa ? '銘柄レポート' : 'Company research'}</a> · <a href="${method}">${isJa ? '調査方針' : 'Methodology'}</a></span><span class="report-footer-locale">${isJa ? '言語' : 'Language'}: <a href="${isJa ? counterpart : current}"${isJa ? '' : ' class="current" aria-current="page"'}>EN</a> · <a href="${isJa ? current : counterpart}"${isJa ? ' class="current" aria-current="page"' : ''}>JP</a></span><span>Japan Investor Interface Co., Ltd.</span></div>`;
+  return `<div class="meth"><span><a href="${method}">${isJa ? '調査アーカイブ' : 'Research archive'}</a></span><span class="report-footer-locale">${isJa ? '言語' : 'Language'}: <a href="${isJa ? counterpart : current}"${isJa ? '' : ' class="current" aria-current="page"'}>EN</a> · <a href="${isJa ? current : counterpart}"${isJa ? ' class="current" aria-current="page"' : ''}>JP</a></span><span>Japan Investor Interface Co., Ltd.</span></div>`;
 }
 
 export function renderProfileHeader(page) {

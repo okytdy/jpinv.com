@@ -19,7 +19,7 @@ import re
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-NAV_TAG = '<script src="/assets/nav.js?v=e97a816711" defer></script>'
+NAV_TAG = '<script src="/assets/nav.js?v=47db6cd174" defer></script>'
 
 TITLE_RE = re.compile(r"<title>(.*?)</title>", re.S)
 REFRESH_RE = re.compile(r'http-equiv="refresh"', re.I)
@@ -104,13 +104,13 @@ def build(lang):
     # Research
     sect = []
     for rel, ja, eng in [
-        (f"{cmp_}/profiles", "現行の銘柄分析", "Current profiles"),
+
         (f"{cmp_}/archive", "アーカイブ調査", "Archived research"),
-        (f"{cmp_}/universe", "銘柄スクリーニング", "Universe"),
-        (f"{cmp_}/methodology", "着眼点", "Methodology"),
+
+
         (f"{cmp_}/feed", "資本政策開示", "Capital actions"),
         (f"{cmp_}/active-investors", "大量保有報告", "5% filings"),
-        (f"{cmp_}/signals", "シグナルログ", "Signal log"),
+
     ]:
         if page_title(rel):
             sect.append(("/" + rel + "/", L(ja, eng)))
@@ -119,9 +119,9 @@ def build(lang):
             if page_title(rel):
                 sect.append(("/" + rel + "/", label))
     model_pages = children(f"{S}models") if en else []
-    groups.append((L("銘柄レポート", "Research"), f"{P}/compounders/",
+    groups.append((L("銘柄レポート", "Research"), f"{P}/compounders/archive/",
                    [(L("セクション", "Sections"), sect),
-                    (L("現行の銘柄分析", "Current profiles"), profiles(lang)),
+
                     (L("企業別モデル", "Company models"), model_pages)]))
 
     # IR reference

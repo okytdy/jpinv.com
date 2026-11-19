@@ -82,6 +82,8 @@ for (const relativePath of [
   "en/compounders/universe/index.html",
 ]) {
   const html = read(relativePath);
+  // A retired landing page has no screen table to make responsive.
+  if (html.includes('noindex,follow') && !/<table\b/.test(html)) continue;
   // Current universe pages use responsive cards; older pages used a scroll table.
   const universeCss = read("assets/compounders-universe.css");
   const responsiveCards = html.includes("/assets/compounders-universe.css")

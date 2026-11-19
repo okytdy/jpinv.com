@@ -18,7 +18,7 @@ from pathlib import Path
 from company_names import normalize_company_name_en
 
 # The one navigation for jpinv.com. See assets/nav.js.
-NAV_TAG = '<script src="/assets/nav.js?v=e97a816711" defer></script>'
+NAV_TAG = '<script src="/assets/nav.js?v=47db6cd174" defer></script>'
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "compounders", "feed", "data", "watchlist_signals.json")
@@ -358,6 +358,12 @@ def write(path, content):
         f.write(content)
 
 def main():
+    from pathlib import Path as RetirementPath
+    import json as retirement_json
+    retirement_root = RetirementPath(__file__).resolve().parents[1]
+    retirement = retirement_json.loads((retirement_root / "content/compounders/profile-data.json").read_text(encoding="utf-8")).get("retirement", {})
+    if retirement.get("status") == "retired":
+        raise SystemExit("RETIRED: Compounders screening, watchlist signals and the homepage data panel ended on 19 November 2026.")
     payload = json.load(open(DATA, encoding="utf-8"))
     names = payload["names"]
     active = {n["ticker"] for n in names}

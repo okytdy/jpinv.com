@@ -1,6 +1,6 @@
 name: feed-refresh
 
-# JII Compounders -- Capital-Allocation Inflection Feed
+# JII market-wide capital-allocation news (Compounders screen retired 2026-11-19)
 # Polls TDnet every 30 min, runs the classifier,
 # appends new matches to compounders/feed/data/*.json, and pushes back to main.
 # Spec: compounders/feed/_SPEC.md, sections 3, 4, 8.
@@ -62,7 +62,7 @@ jobs:
         timeout-minutes: 2
         run: |
           set -euo pipefail
-          # Why this step exists. On August 3, 2026 tools/build_hero_data.py was
+          # Why this step exists. A previously retired homepage-data builder was
           # committed with a reference to `sys.argv` and no `import sys`. That
           # line sits behind the `--no-bake` flag, and this workflow is the only
           # thing that passes that flag, so running the script by hand never
@@ -78,9 +78,7 @@ jobs:
           python -m pyflakes \
             tools/feed_refresh.py tools/classifier.py tools/pdf_enricher.py \
             tools/llm_budget.py tools/tdnet_scraper.py tools/jpx_master.py \
-            tools/scrub_sample_signals.py tools/watchlist_join.py \
-            tools/build_signal_pages.py tools/build_hero_data.py \
-            tools/build_news_data.py tools/check_data_is_read.py > pyflakes.txt 2>&1 || true
+            tools/scrub_sample_signals.py tools/build_news_data.py tools/check_data_is_read.py > pyflakes.txt 2>&1 || true
           cat pyflakes.txt
           if grep -q "undefined name" pyflakes.txt; then
             echo "::error::A script this job runs uses a name it never defines."
@@ -99,7 +97,7 @@ jobs:
           set -euo pipefail
           python tools/feed_refresh.py
 
-      - name: Scrub sample signals + rebuild join + signal pages
+      - name: Scrub sample disclosures and rebuild independent homepage news
         id: rebuild
         timeout-minutes: 3
         run: |
@@ -140,30 +138,8 @@ jobs:
           # and the per-ticker archives (a one-time backfill artifact; it runs
           # server-side here, where feed.json is fully hydrated).
           run_script tools/scrub_sample_signals.py
-          # Join the fresh feed to the watchlist, then regenerate the per-name
-          # signal pages from that join.
-          run_script tools/watchlist_join.py
-          run_script tools/build_signal_pages.py
-          # The homepage hero and news section each read a small JSON file rather
-          # than the 2MB feed. Both must be rebuilt here or they go stale while
-          # the feed moves.
-          #
-          # --no-bake because this job stages only compounders/feed/data/ and the
-          # signal pages: anything written into index.html here is discarded, and
-          # staging it instead would have a bot editing a file Teddy edits by hand
-          # every 30 minutes.
-          #
-          # CORRECTION, August 5, 2026. This comment used to end: "The baked rows
-          # are the no-JavaScript fallback and are refreshed when the site is
-          # built, not on this schedule." Both halves were false. There is no site
-          # build — jpinv.com is a static repo on GitHub Pages and nothing
-          # regenerates index.html on deploy. And the news rows were not a
-          # fallback, because no JavaScript read news.json at all; they were the
-          # only thing rendering, so the tab froze on whatever a person last baked
-          # by hand. assets/hero.js now fetches news.json the way it already
-          # fetched hero.json, which makes the baked rows a real fallback and
-          # makes --no-bake correct here rather than merely harmless.
-          run_script tools/build_hero_data.py --no-bake
+          # The retired Compounders screen, signal logs and hero panel are not rebuilt.
+          # News retains both market-wide disclosure and new-5% filing tabs.
           run_script tools/build_news_data.py --no-bake
 
           # Confirm every data file this job writes is actually read by the site.
@@ -187,7 +163,7 @@ jobs:
         id: diff
         run: |
           set -euo pipefail
-          if [ -n "$(git status --porcelain compounders/feed/data/ compounders/signals/ en/compounders/signals/ tools/llm_ledger.json)" ]; then
+          if [ -n "$(git status --porcelain compounders/feed/data/ tools/llm_ledger.json)" ]; then
             echo "changed=true" >> "$GITHUB_OUTPUT"
             # Best-effort count of newly-added rows in feed.json for the run summary.
             # Counts lines starting with the row id sentinel; tolerates missing files.
@@ -209,7 +185,7 @@ jobs:
           # tools/llm_budget.py accumulates ACROSS runs. Without this the ledger
           # was never committed back, so every run reloaded the stale (last
           # month's) copy, reset it to $0, and the cap was never really enforced.
-          git add compounders/feed/data/ compounders/signals/ en/compounders/signals/ tools/llm_ledger.json
+          git add compounders/feed/data/ tools/llm_ledger.json
           git commit -m "feed: refresh @ ${{ github.run_id }}"
           # active-investors-refresh (and the next feed run) also push to main, so a
           # plain `git push` can be rejected (non-fast-forward) when main moves

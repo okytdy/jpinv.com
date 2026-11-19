@@ -16,10 +16,12 @@ export const ROUTES={
 const esc=value=>String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 const japanese=/[\u3040-\u30ff\u3400-\u9fff]/;
 const sourceFolder=path.join(ROOT,'content/english-parity');
+const retired=JSON.parse(fs.readFileSync(path.join(ROOT,'content/compounders/profile-data.json'),'utf8')).retirement?.status==='retired';
 let pages=0;
 for(const filename of fs.readdirSync(sourceFolder).filter(x=>x.endsWith('.json'))){
  const filenameRelative=`content/english-parity/${filename}`;
  const record=JSON.parse(fs.readFileSync(path.join(sourceFolder,filename),'utf8'));
+ if(retired&&record.source==='compounders/methodology/index.html')continue;
  const source=fs.readFileSync(path.join(ROOT,record.source),'utf8');
  const translation=readCheckedTranslation(ROOT,filenameRelative,source);
  const dictionary=new Map(translation.translations.map(x=>[x.ja,x.en]));

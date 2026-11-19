@@ -59,7 +59,7 @@
         { ja: "会社概要",       en: "Company Profile",          jaHref: "/%E4%BC%9A%E7%A4%BE%E6%A6%82%E8%A6%81/", enHref: "/en/company/" },
         { ja: "沿革",           en: "History",                  jaHref: "/%E6%B2%BF%E9%9D%A9/", enHref: "/en/history/" }
       ] },
-    { ja: "調査レポート", en: "Research", jaHref: "/compounders/",                          enHref: "/en/compounders/",
+    { ja: "調査レポート", en: "Research", jaHref: "/compounders/archive/",                  enHref: "/en/compounders/archive/",
       panel: true, img: "free05_shoshu_card" }
   ];
 
@@ -90,11 +90,9 @@
   /* The Compounders section keeps its own row of tabs, shown only inside
      /compounders/. These are the tabs the old compounders-nav.js drew. */
   var SUBTABS = [
-    { k: "methodology", ja: "着眼点",             en: "Methodology",  path: "/compounders/methodology/" },
-    { k: "profiles",    ja: "銘柄分析",           en: "Profiles",     path: "/compounders/profiles/" },
+    { k: "archive", ja: "調査アーカイブ", en: "Research archive", path: "/compounders/archive/" },
     { k: "models", en: "Forecast models", path: "/models/", englishOnly: true },
     { k: "portfolio", en: "Research portfolio", enHref: "/en/portfolio/", englishOnly: true },
-    { k: "universe",    ja: "銘柄スクリーニング", en: "Universe",     path: "/compounders/universe/" },
     { k: "signals",     ja: "資本政策開示",       en: "Capital Actions", path: "/compounders/feed/" },
     { k: "disclosures", ja: "大量保有報告",       en: "5% Filings",   path: "/compounders/active-investors/" }
   ];
@@ -117,18 +115,11 @@
         { ja: "品質管理と機密保持", en: "Quality Control and Confidentiality", jaHref: "/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/AI%E3%81%A8%E6%A9%9F%E5%AF%86%E4%BF%9D%E6%8C%81/", enHref: "/en/services/ai-confidentiality/" }
       ] },
     { head: S("調査レポート"), items: [
-        { ja: "銘柄分析",           en: "Profiles",         jaHref: "/compounders/profiles/",          enHref: "/en/compounders/profiles/" },
+        { ja: "調査アーカイブ", en: "Research archive", jaHref: "/compounders/archive/", enHref: "/en/compounders/archive/" },
         { en: "Forecast models", enHref: "/en/models/", englishOnly: true },
         { en: "Research portfolio", enHref: "/en/portfolio/", englishOnly: true },
-        { ja: "銘柄スクリーニング", en: "Universe",         jaHref: "/compounders/universe/",          enHref: "/en/compounders/universe/" },
         { ja: "資本政策開示",       en: "Capital actions",  jaHref: "/compounders/feed/",              enHref: "/en/compounders/feed/" },
-        { ja: "大量保有報告",       en: "5% filings",       jaHref: "/compounders/active-investors/",  enHref: "/en/compounders/active-investors/" },
-        { ja: "着眼点",             en: "Methodology",      jaHref: "/compounders/methodology/",       enHref: "/en/compounders/methodology/" }
-        /* シグナルログ (/compounders/signals/) is deliberately NOT listed here.
-           It is a per-name history, not a destination: a reader reaches one
-           name's log by clicking that name's Latest Signal cell on the universe
-           page. The two market-wide feeds above are the destinations. The signal
-           log still appears in full on /sitemap/. Decided by Teddy, August 3, 2026. */
+        { ja: "大量保有報告",       en: "5% filings",       jaHref: "/compounders/active-investors/",  enHref: "/en/compounders/active-investors/" }
       ] },
     { head: SECONDARY[0], items: [
         { ja: "改革の起源",     en: "Origins of reform",   jaHref: "/governance/foundations/",          enHref: "/en/governance/foundations/" },

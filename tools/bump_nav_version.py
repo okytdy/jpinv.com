@@ -5,7 +5,7 @@ that version into every file that loads it.
 
 WHY THIS EXISTS. Every page loads the navigation as
 
-    <script src="/assets/nav.js?v=e97a816711" defer></script>
+    <script src="/assets/nav.js?v=47db6cd174" defer></script>
 
 The browser caches that URL. If nav.js changes but the `?v=` does not, the
 browser keeps serving the copy it already has, and the site appears not to have
@@ -90,7 +90,7 @@ def main():
         scanned += 1
         new = PATTERN.sub(lambda m: m.group(1) + version.get(m.group(1).split('/')[-1].split('?')[0], m.group(2)), text)
         if new != text:
-            open(path, "w", encoding="utf-8").write(new)
+            open(path, "w", encoding="utf-8", newline="\n").write(new)
             changed += 1
 
     for k, v in version.items():

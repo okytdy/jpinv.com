@@ -83,6 +83,12 @@ def profile_exists(tk):
     return os.path.exists(os.path.join(ROOT, "compounders", tk, "initiation", "index.html"))
 
 def main():
+    from pathlib import Path as RetirementPath
+    import json as retirement_json
+    retirement_root = RetirementPath(__file__).resolve().parents[1]
+    retirement = retirement_json.loads((retirement_root / "content/compounders/profile-data.json").read_text(encoding="utf-8")).get("retirement", {})
+    if retirement.get("status") == "retired":
+        raise SystemExit("RETIRED: Compounders screening, watchlist signals and the homepage data panel ended on 19 November 2026.")
     # Preserve entries for tickers whose by-ticker file is unreadable in THIS environment
     # (OneDrive Files-On-Demand can serve a truncated/dehydrated copy in the sandbox). Without
     # this, a dehydrated file would be silently dropped from the watchlist. The cron (server-side,
