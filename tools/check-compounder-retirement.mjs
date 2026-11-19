@@ -27,7 +27,7 @@ for (const prefix of ['', 'en/']) {
   }
   const home = read(`${prefix}index.html`);
   check(!/class="jh-panel"|hero-rows|names watched|追跡銘柄|data-tab="reports"/.test(home), `${prefix}: retired homepage panel/report promotion remains.`);
-  check(home.includes('class="jh-people"') && home.includes('slot02_mendan'), `${prefix}: genuine meeting photograph is missing.`);
+  check(!home.includes('class="jh-people"'), `${prefix}: removed hero photograph has returned.`);
   check(home.includes('data-tab="capital"') && home.includes('data-tab="holdings"'), `${prefix}: independent news feeds were removed.`);
 }
 check(!/compounders\/(?:methodology|universe|profiles|signals)\//.test(read('assets/nav.js')), 'Retired links remain in shared navigation.');
