@@ -60,7 +60,7 @@
         { ja: "沿革",           en: "History",                  jaHref: "/%E6%B2%BF%E9%9D%A9/", enHref: "/en/history/" }
       ] },
     { ja: "調査レポート", en: "Research", jaHref: "/compounders/archive/",                  enHref: "/en/compounders/archive/",
-      panel: true, img: "free05_shoshu_card", englishOnly: true, footerJa: "公開情報" }
+      panel: true, img: "free05_shoshu_card", englishOnly: true, footerJa: "レポート・開示情報" }
   ];
 
   /* Look a section up by its Japanese name.

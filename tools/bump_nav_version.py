@@ -5,7 +5,7 @@ that version into every file that loads it.
 
 WHY THIS EXISTS. Every page loads the navigation as
 
-    <script src="/assets/nav.js?v=2fc51a0f41" defer></script>
+    <script src="/assets/nav.js?v=9d13b2c9e4" defer></script>
 
 The browser caches that URL. If nav.js changes but the `?v=` does not, the
 browser keeps serving the copy it already has, and the site appears not to have
