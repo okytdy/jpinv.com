@@ -55,7 +55,7 @@
     { ja: "会社情報",     en: "Company",  jaHref: "/%E4%BC%9A%E7%A4%BE%E6%A6%82%E8%A6%81/", enHref: "/en/company/",
       panel: true, img: "slot07_company_card",
       items: [
-        { ja: "代表メッセージ", en: "Message from the Founder", jaHref: "/%E4%BB%A3%E8%A1%A8%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8/", enHref: "/en/founder-message/" },
+        { ja: "代表メッセージ", en: "Our Story", jaHref: "/%E4%BB%A3%E8%A1%A8%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8/", enHref: "/en/founder-message/" },
         { ja: "会社概要",       en: "Company Profile",          jaHref: "/%E4%BC%9A%E7%A4%BE%E6%A6%82%E8%A6%81/", enHref: "/en/company/" },
         { ja: "沿革",           en: "History",                  jaHref: "/%E6%B2%BF%E9%9D%A9/", enHref: "/en/history/" }
       ] },
@@ -130,7 +130,7 @@
         { ja: "IRツールボックス", en: "IR toolbox",        jaHref: "/governance/toolbox/",              enHref: "/en/governance/toolbox/" }
       ] },
     { head: S("会社情報"), items: [
-        { ja: "代表メッセージ", en: "Message from the Founder", jaHref: "/%E4%BB%A3%E8%A1%A8%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8/", enHref: "/en/founder-message/" },
+        { ja: "代表メッセージ", en: "Our Story", jaHref: "/%E4%BB%A3%E8%A1%A8%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8/", enHref: "/en/founder-message/" },
         { ja: "会社概要",       en: "Company Profile",          jaHref: "/%E4%BC%9A%E7%A4%BE%E6%A6%82%E8%A6%81/", enHref: "/en/company/" },
         { ja: "沿革",           en: "History",                  jaHref: "/%E6%B2%BF%E9%9D%A9/", enHref: "/en/history/" },
         { ja: "お問い合わせ",   en: "Contact",                  jaHref: CONTACT.jaHref, enHref: CONTACT.enHref }
