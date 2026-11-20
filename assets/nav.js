@@ -28,8 +28,8 @@
 
   /* ---------- 1. THE NAVIGATION. Edit here and nowhere else. ---------- */
 
-  /* The top bar. Five sections, in the order a first-time visitor needs
-     them: what we do, what it costs, who we are, what we publish. */
+  /* The top bar follows the current offering in each language. Research
+     remains prominent in English; Japanese keeps it in the footer. */
   /* `panel` controls whether a section opens a dropdown under the bar,
      Nikkato-style. About JII is the only single-page section. */
   /* Every section opens a panel. `img` is the tile photo; sections without
@@ -60,7 +60,7 @@
         { ja: "沿革",           en: "History",                  jaHref: "/%E6%B2%BF%E9%9D%A9/", enHref: "/en/history/" }
       ] },
     { ja: "調査レポート", en: "Research", jaHref: "/compounders/archive/",                  enHref: "/en/compounders/archive/",
-      panel: true, img: "free05_shoshu_card" }
+      panel: true, img: "free05_shoshu_card", englishOnly: true, footerJa: "公開情報" }
   ];
 
   /* Look a section up by its Japanese name.
@@ -115,7 +115,7 @@
         { ja: "品質管理と機密保持", en: "Quality Control and Confidentiality", jaHref: "/%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/AI%E3%81%A8%E6%A9%9F%E5%AF%86%E4%BF%9D%E6%8C%81/", enHref: "/en/services/ai-confidentiality/" }
       ] },
     { head: S("調査レポート"), items: [
-        { ja: "調査アーカイブ", en: "Research archive", jaHref: "/compounders/archive/", enHref: "/en/compounders/archive/" },
+        { ja: "過去の調査レポート", en: "Research archive", jaHref: "/compounders/archive/", enHref: "/en/compounders/archive/" },
         { en: "Forecast models", enHref: "/en/models/", englishOnly: true },
         { en: "Research portfolio", enHref: "/en/portfolio/", englishOnly: true },
         { ja: "資本政策開示",       en: "Capital actions",  jaHref: "/compounders/feed/",              enHref: "/en/compounders/feed/" },
@@ -149,6 +149,7 @@
 
   var path = location.pathname;
   var isEn = /^\/en(\/|$)/.test(path);
+  SECTIONS = SECTIONS.filter(function (item) { return !item.englishOnly || isEn; });
   // The model library and personal portfolio are English-only resources.
   SUBTABS = SUBTABS.filter(function (item) { return !item.englishOnly || isEn; });
   FOOTER.forEach(function (column) {
@@ -579,7 +580,8 @@
     for (var c2 = 0; c2 < col.items.length; c2++) {
       itemsHtml += '<li><a href="' + esc(href(col.items[c2])) + '">' + esc(label(col.items[c2])) + '</a></li>';
     }
-    colsHtml += '<div><a class="jf-head" href="' + esc(href(col.head)) + '">' + esc(label(col.head)) +
+    var headLabel = !isEn && col.head.footerJa ? col.head.footerJa : label(col.head);
+    colsHtml += '<div><a class="jf-head" href="' + esc(href(col.head)) + '">' + esc(headLabel) +
                 '</a><ul>' + itemsHtml + '</ul></div>';
   }
 
