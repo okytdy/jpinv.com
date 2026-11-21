@@ -31,7 +31,7 @@ jobs:
     timeout-minutes: 350    # PDF fetch + LLM per row averages ~5-8s; 1010 rows fits in 4-5h
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           persist-credentials: true
           fetch-depth: 1
