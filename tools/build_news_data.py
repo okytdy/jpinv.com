@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Write compounders/feed/data/news.json — the three lists behind the homepage
-news tabs — and bake the same rows into both homepages as the no-JavaScript
+news tabs — and bake the same rows into the Japanese homepage as the no-JavaScript
 fallback.
 
 THE TAB DECISION (August 3, 2026). There is no すべて tab. In the last 30
@@ -149,7 +149,7 @@ def rows_html(payload, which, lang):
 
 
 def bake(payload):
-    for path, lang in (("index.html", "ja"), (os.path.join("en", "index.html"), "en")):
+    for path, lang in (("index.html", "ja"),):
         full = os.path.join(ROOT, path)
         if not os.path.exists(full):
             continue

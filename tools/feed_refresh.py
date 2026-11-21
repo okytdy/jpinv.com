@@ -75,7 +75,8 @@ LEDGER_PATH = _SCRIPT_DIR / "llm_ledger.json"
 # (regex only). BudgetLedger persists to disk and short-circuits LLM calls
 # past the $9 MTD cap defined in tools/llm_budget.py.
 # ---------------------------------------------------------------------------
-_ANTHROPIC_KEY = os.environ.get("ANTHROPIC_API_KEY", "").strip()
+# Paid feed enrichment retired by owner on 2026-11-21.
+_ANTHROPIC_KEY = ""
 _BUDGET = _BudgetLedger.load(LEDGER_PATH)
 
 FEED_ROW_CAP = 5_000  # spec Section 4

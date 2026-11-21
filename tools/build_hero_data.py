@@ -119,12 +119,12 @@ def esc(s):
 
 
 def bake(payload):
-    """Write the same rows into the two homepages between HTML markers.
+    """Write rows into the Japanese homepage between HTML markers.
 
     Keep a dated snapshot for no-JavaScript and network-failure readers.
     Scheduled --no-bake runs update the runtime JSON without changing pages.
     """
-    for path, lang in (("index.html", "jp"), (os.path.join("en", "index.html"), "en")):
+    for path, lang in (("index.html", "jp"),):
         full = os.path.join(ROOT, path)
         if not os.path.exists(full):
             continue

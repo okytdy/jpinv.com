@@ -54,7 +54,7 @@ export function buildRetiredResearch(root, data) {
     for (const route of signalRoutes) {
       const title = en ? 'Watchlist signal log — retired' : '銘柄一覧の開示履歴は公開・更新を終了しました';
       const text = en ? 'The Compounders watchlist and its company signal logs were retired on 19 November 2026. Market-wide capital-allocation disclosures remain available in the news feed.' : 'Compoundersの銘柄一覧と銘柄別の開示履歴は、2026年11月19日をもって公開・更新を終了しました。市場全体の資本政策開示は、引き続きニュースフィードでご覧いただけます。';
-      write(`${base}/${route}index.html`, shell(lang, route, title, text, `<header class="ra-head"><div class="wrap"><h1>${title}</h1></div></header><section class="ra-main"><div class="wrap ra-intro"><p>${text}</p><a class="btn btn-primary" href="${prefix}/compounders/feed/">${en ? 'Capital-allocation news' : '資本政策開示ニュースを見る'}</a></div></section>`, true));
+      write(`${base}/${route}index.html`, shell(lang, route, title, text, `<header class="ra-head"><div class="wrap"><h1>${title}</h1></div></header><section class="ra-main"><div class="wrap ra-intro"><p>${text}</p><a class="btn btn-primary" href="/compounders/feed/">${en ? 'Capital-allocation news (Japanese)' : '資本政策開示ニュースを見る'}</a></div></section>`, true));
     }
   }
   // Retired tools and individual historical reports are deliberately absent from the sitemap.

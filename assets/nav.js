@@ -93,8 +93,8 @@
     { k: "archive", ja: "調査アーカイブ", en: "Research archive", path: "/compounders/archive/" },
     { k: "models", en: "Forecast models", path: "/models/", englishOnly: true },
     { k: "portfolio", en: "Research portfolio", enHref: "/en/portfolio/", englishOnly: true },
-    { k: "signals",     ja: "資本政策開示",       en: "Capital Actions", path: "/compounders/feed/" },
-    { k: "disclosures", ja: "大量保有報告",       en: "5% Filings",   path: "/compounders/active-investors/" }
+    { k: "signals",     ja: "資本政策開示",       en: "Capital Actions", path: "/compounders/feed/", japaneseOnly: true },
+    { k: "disclosures", ja: "大量保有報告",       en: "5% Filings",   path: "/compounders/active-investors/", japaneseOnly: true }
   ];
 
   /* ---------- 1b. THE FOOTER SITEMAP. Same idea: edit here only. ----------
@@ -118,8 +118,8 @@
         { ja: "過去の調査レポート", en: "Research archive", jaHref: "/compounders/archive/", enHref: "/en/compounders/archive/" },
         { en: "Forecast models", enHref: "/en/models/", englishOnly: true },
         { en: "Research portfolio", enHref: "/en/portfolio/", englishOnly: true },
-        { ja: "資本政策開示",       en: "Capital actions",  jaHref: "/compounders/feed/",              enHref: "/en/compounders/feed/" },
-        { ja: "大量保有報告",       en: "5% filings",       jaHref: "/compounders/active-investors/",  enHref: "/en/compounders/active-investors/" }
+        { ja: "資本政策開示",       en: "Capital actions",  jaHref: "/compounders/feed/",              enHref: "/en/compounders/feed/", japaneseOnly: true },
+        { ja: "大量保有報告",       en: "5% filings",       jaHref: "/compounders/active-investors/",  enHref: "/en/compounders/active-investors/", japaneseOnly: true }
       ] },
     { head: SECONDARY[0], items: [
         { ja: "改革の起源",     en: "Origins of reform",   jaHref: "/governance/foundations/",          enHref: "/en/governance/foundations/" },
@@ -149,11 +149,11 @@
 
   var path = location.pathname;
   var isEn = /^\/en(\/|$)/.test(path);
-  SECTIONS = SECTIONS.filter(function (item) { return !item.englishOnly || isEn; });
+  SECTIONS = SECTIONS.filter(function (item) { return (!item.englishOnly || isEn) && (!item.japaneseOnly || !isEn); });
   // The model library and personal portfolio are English-only resources.
-  SUBTABS = SUBTABS.filter(function (item) { return !item.englishOnly || isEn; });
+  SUBTABS = SUBTABS.filter(function (item) { return (!item.englishOnly || isEn) && (!item.japaneseOnly || !isEn); });
   FOOTER.forEach(function (column) {
-    column.items = column.items.filter(function (item) { return !item.englishOnly || isEn; });
+    column.items = column.items.filter(function (item) { return (!item.englishOnly || isEn) && (!item.japaneseOnly || !isEn); });
   });
   var inCompounders = /^\/(en\/)?compounders(\/|$)/.test(path);
   var inModels = /^\/(en\/)?models(\/|$)/.test(path);

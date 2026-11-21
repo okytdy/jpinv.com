@@ -77,33 +77,8 @@ SYSTEM_PROMPT = (
 
 
 def llm_purpose(filing: dict, *, api_key: str, budget=None) -> Optional[str]:
-    """Claude one-line translation of the actual stated purpose (high-signal cases)."""
-    try:
-        import anthropic  # type: ignore
-    except Exception:
-        return None
-    if not api_key or budget is not None and not budget.can_spend():
-        return None
-    purpose = filing.get("purpose_ja") or ""
-    if not purpose:
-        return None
-    try:
-        # Bound every call hard: a short per-request timeout and NO retries, so a
-        # rate-limited / overloaded API (or a long Retry-After backoff) can never
-        # stall the run. purpose_en is optional enrichment — on any failure we
-        # simply fall back to the template summary for this filing.
-        client = anthropic.Anthropic(api_key=api_key, timeout=20.0, max_retries=0)
-        resp = client.messages.create(
-            model=CLAUDE_MODEL, max_tokens=120, system=SYSTEM_PROMPT,
-            messages=[{"role": "user", "content": "保有目的: " + purpose}],
-        )
-        text = "".join(b.text for b in resp.content if getattr(b, "type", "") == "text")
-        data = _extract_json(text)
-        if budget is not None:
-            budget.record(getattr(resp, "usage", None))
-        return (data or {}).get("purpose_en") or None
-    except Exception:
-        return None
+    """Paid purpose translation retired 2026-11-21; use source templates."""
+    return None
 
 
 def _extract_json(text):

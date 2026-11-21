@@ -27,10 +27,11 @@ for (const prefix of ['', 'en/']) {
   }
   const home = read(`${prefix}index.html`);
   check((home.match(/class="jh-slide"/g)||[]).length===4 && home.includes('class="jh-dots"'), `${prefix}: original four-slide carousel is missing.`);
-  check(home.includes('class="jh-panel"'), `${prefix}: restored disclosure feed panel is missing.`);
+  check(home.includes('class="jh-panel"') === !prefix, `${prefix}: disclosure panel must be Japanese-only.`);
   check(!/names watched|追跡銘柄|data-tab="reports"/.test(home), `${prefix}: retired homepage panel/report promotion remains.`);
   check(!home.includes('class="jh-people"'), `${prefix}: removed hero photograph has returned.`);
-  check(home.includes('data-tab="capital"') && home.includes('data-tab="holdings"'), `${prefix}: independent news feeds were removed.`);
+  check((home.includes('data-tab="capital"') && home.includes('data-tab="holdings"')) === !prefix, `${prefix}: news feeds must be Japanese-only.`);
+  if (prefix) check(!home.includes('/en/compounders/feed/') && !home.includes('/en/compounders/active-investors/'), 'English homepage links to retired feeds.');
 }
 check(!/compounders\/(?:methodology|universe|profiles|signals)\//.test(read('assets/nav.js')), 'Retired links remain in shared navigation.');
 check(!/watchlist_join|build_signal_pages/.test(read('.github/workflows/feed-refresh.yml')), 'The website schedule can regenerate retired outputs.');

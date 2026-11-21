@@ -19,7 +19,7 @@ import re
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-NAV_TAG = '<script src="/assets/nav.js?v=3e60a4a054" defer></script>'
+NAV_TAG = '<script src="/assets/nav.js?v=fb98f62278" defer></script>'
 
 TITLE_RE = re.compile(r"<title>(.*?)</title>", re.S)
 REFRESH_RE = re.compile(r'http-equiv="refresh"', re.I)
@@ -112,6 +112,8 @@ def build(lang):
         (f"{cmp_}/active-investors", "大量保有報告", "5% filings"),
 
     ]:
+        if en and rel.endswith(("/feed", "/active-investors")):
+            continue
         if page_title(rel):
             sect.append(("/" + rel + "/", L(ja, eng)))
     if en:

@@ -298,73 +298,9 @@ _LLM_SYSTEM = """日本企業のTDnet開示から、資本政策に関する情�
 
 def tier_c_llm(text: str, class_code: str, ticker: str, name_en: str, name_jp: str,
                doc_title_jp: str, budget, llm_api_key: str) -> Optional[dict]:
-    """Call Claude Haiku 4.5 to produce the rich output. Returns dict or None."""
-    if not llm_api_key:
-        return None
-    user_msg = (
-        f"Disclosure metadata:\n"
-        f"- Ticker: {ticker}\n"
-        f"- Company (EN): {name_en}\n"
-        f"- Company (JP): {name_jp}\n"
-        f"- Class: {class_code}\n"
-        f"- Original title (JP): {doc_title_jp}\n\n"
-        f"PDF text (first 2 pages, may be truncated):\n---\n{text}\n---"
-    )
-    payload = {
-        "model": _LLM_MODEL,
-        "max_tokens": 900,
-        "system": _LLM_SYSTEM,
-        "messages": [{"role": "user", "content": user_msg}],
-    }
-    # Pre-flight budget check
-    from llm_budget import estimate_cost_usd
-    in_tokens = (len(_LLM_SYSTEM) + len(user_msg)) // 4   # rough JP-friendly approximation
-    est = estimate_cost_usd(in_tokens, 900)
-    ok, reason = budget.can_call(est)
-    if not ok:
-        LOG.warning("LLM call skipped: %s", reason)
-        return None
-    headers = {
-        "x-api-key": llm_api_key,
-        "anthropic-version": "2023-06-01",
-        "content-type": "application/json",
-    }
-    backoff = 5.0
-    for attempt in range(2):
-        try:
-            r = requests.post(_LLM_API_URL, json=payload, headers=headers, timeout=30)
-            if r.status_code == 429 or r.status_code >= 500:
-                LOG.warning("LLM HTTP %d (attempt %d) - backing off %.0fs", r.status_code, attempt + 1, backoff)
-                time.sleep(backoff)
-                backoff *= 2
-                continue
-            r.raise_for_status()
-            j = r.json()
-            usage = j.get("usage", {}) or {}
-            actual_cost = estimate_cost_usd(
-                int(usage.get("input_tokens", in_tokens)),
-                int(usage.get("output_tokens", 900)),
-            )
-            budget.record_call(actual_cost)
-            content = j.get("content", [])
-            if not content:
-                return None
-            raw = content[0].get("text", "").strip()
-            # Strip accidental markdown fences
-            if raw.startswith("```"):
-                raw = re.sub(r"^```(?:json)?\s*", "", raw)
-                raw = re.sub(r"\s*```$", "", raw)
-            return json.loads(raw)
-        except Exception as e:
-            LOG.warning("LLM call failed (attempt %d): %s", attempt + 1, e)
-            time.sleep(backoff)
-            backoff *= 2
+    """Paid feed translation retired 2026-11-21; retain free extraction."""
     return None
 
-
-# ---------------------------------------------------------------------------
-# Translation file output
-# ---------------------------------------------------------------------------
 
 def _write_translation_file(doc_id: str, payload: dict) -> None:
     if not payload.get("translation_en_brief"):

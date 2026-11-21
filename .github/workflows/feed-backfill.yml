@@ -58,7 +58,6 @@ jobs:
         timeout-minutes: 355
         continue-on-error: false
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           FEED_MODE: backfill
           FEED_BACKFILL_LOOKBACK_DAYS: ${{ github.event.inputs.lookback_days }}
           PYTHONUNBUFFERED: '1'

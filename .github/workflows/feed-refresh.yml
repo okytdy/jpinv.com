@@ -91,7 +91,6 @@ jobs:
         timeout-minutes: 10
         continue-on-error: false
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           PYTHONUNBUFFERED: '1'
         run: |
           set -euo pipefail

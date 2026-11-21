@@ -46,7 +46,7 @@ export function buildHomepageReports(root, data) {
   const rows = reportRows(data);
   const newsFile = path.join(root, 'compounders/feed/data/news.json');
   const payload = JSON.parse(fs.readFileSync(newsFile, 'utf8'));
-  const pages = [['index.html', 'ja'], ['en/index.html', 'en']].map(([relative, language]) => {
+  const pages = [['index.html', 'ja']].map(([relative, language]) => {
     const file = path.join(root, relative);
     const html = fs.readFileSync(file, 'utf8');
     homepageReportBlock(html);
@@ -57,5 +57,5 @@ export function buildHomepageReports(root, data) {
   payload.reports = rows;
   atomicWrite(newsFile, `${JSON.stringify(payload, null, 1)}\n`);
   for (const [file, html] of pages) atomicWrite(file, html);
-  console.log(`Homepage report feed built: ${rows.map((row) => row.ticker).join(', ')} (JA + EN + news.json).`);
+  console.log(`Homepage report feed built: ${rows.map((row) => row.ticker).join(', ')} (JA + news.json).`);
 }

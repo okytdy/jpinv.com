@@ -11,6 +11,10 @@ const bodyPattern=/<div class="disclaimer-body">([\s\S]*?)<\/div>/g;
 function sync(source,target){
  if(!fs.existsSync(target))return;
  const ja=fs.readFileSync(source,'utf8').replaceAll('\r\n','\n'),en=fs.readFileSync(target,'utf8').replaceAll('\r\n','\n');
+ // Retired English feeds now redirect to the Japanese source, with no report body.
+ if(['en/compounders/feed/index.html','en/compounders/active-investors/index.html'].includes(path.relative(root,target).split(path.sep).join('/')) && /http-equiv="refresh"/.test(en))return;
+ // Retired English feeds redirect to Japanese sources and contain no research.
+ if (/<meta http-equiv="refresh"/.test(en)) return;
  const blocks=[...ja.matchAll(bodyPattern)];let i=0;
  const result=en.replace(bodyPattern,()=>{
   const block=blocks[i++];if(!block)throw Error(`Unpaired disclosure: ${target}`);

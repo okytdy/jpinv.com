@@ -100,7 +100,6 @@ for (const relativePath of [
 
 for (const relativePath of [
   "compounders/feed/index.html",
-  "en/compounders/feed/index.html",
 ]) {
   const html = read(relativePath);
   requireMatch(

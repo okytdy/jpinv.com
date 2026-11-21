@@ -13,7 +13,7 @@ if (JSON.stringify((news.reports || []).map((row) => fields.map((key) => row[key
     JSON.stringify(expected.map((row) => fields.map((key) => row[key])))) {
   errors.push('news.json reports differ from the current publication registry.');
 }
-for (const [relative, language] of [['index.html', 'ja'], ['en/index.html', 'en']]) {
+for (const [relative, language] of [['index.html', 'ja']]) {
   const html = fs.readFileSync(path.join(root, relative), 'utf8');
   try {
     if (homepageReportBlock(html) !== renderReportRows(expected, language)) {
@@ -29,4 +29,4 @@ if (errors.length) {
   console.error(`HOMEPAGE COMPOUNDER FEED: FAIL\n${errors.map((error) => `- ${error}`).join('\n')}`);
   process.exit(1);
 }
-console.log(`HOMEPAGE COMPOUNDER FEED: PASS — ${expected.map((row) => row.ticker).join(', ')} in both homepages and news.json.`);
+console.log(`HOMEPAGE COMPOUNDER FEED: PASS — ${expected.map((row) => row.ticker).join(', ')} in the Japanese homepage and news.json.`);

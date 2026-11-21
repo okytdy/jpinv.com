@@ -56,7 +56,6 @@ jobs:
         timeout-minutes: 12
         env:
           EDINET_API_KEY: ${{ secrets.EDINET_API_KEY }}
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           PYTHONUNBUFFERED: '1'
         run: python tools/active_investors/refresh.py --days "${{ github.event.inputs.days || '30' }}"
 
