@@ -190,10 +190,10 @@
     }
 
     function capitalRow(r) {
-      return '<li><span class="nw-date">' + newsDate(r.date) + '</span>' +
+      return sourceRow(r, '<span class="nw-date">' + newsDate(r.date) + '</span>' +
              '<span class="nw-tag">' + esc(isEn ? r.label_en : r.label_jp) + '</span>' +
              '<span class="nw-tx"><b>' + esc(r.ticker) + '</b> ' +
-             esc(isEn ? r.name_en : r.name_jp) + '</span></li>';
+             esc(isEn ? r.name_en : r.name_jp) + '</span>');
     }
 
     function holdingRow(r) {
@@ -201,9 +201,17 @@
       var filer = (isEn ? r.filer_en : r.filer_jp) || r.filer_en || "";
       var tail = filer + " → " + r.ticker + " " +
                  (isEn ? r.issuer_en : r.issuer_jp) + pct;
-      return '<li><span class="nw-date">' + newsDate(r.date) + '</span>' +
+      return sourceRow(r, '<span class="nw-date">' + newsDate(r.date) + '</span>' +
              '<span class="nw-tag">' + esc(isEn ? r.label_en : r.label_jp) + '</span>' +
-             '<span class="nw-tx">' + esc(tail) + '</span></li>';
+             '<span class="nw-tx">' + esc(tail) + '</span>');
+    }
+
+    function sourceRow(r, content) {
+      if (/^https?:\/\//i.test(r.source_url || "")) {
+        content = '<a href="' + esc(r.source_url) + '" target="_blank" rel="noopener" title="' +
+          esc((r.source_title || '原文') + '（新しいタブで開く）') + '">' + content + '</a>';
+      }
+      return '<li>' + content + '</li>';
     }
 
     var render = { reports: reportRow, capital: capitalRow, holdings: holdingRow };

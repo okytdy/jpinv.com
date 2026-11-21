@@ -82,7 +82,9 @@ def capital():
         out.append({"date": r["ts"][:10], "ticker": r.get("ticker", ""),
                     "name_jp": r.get("name_jp", ""),
                     "name_en": normalize_company_name_en(r.get("name_en") or r.get("name_jp", ""), r.get("ticker", "")),
-                    "label_jp": ja, "label_en": en})
+                    "label_jp": ja, "label_en": en,
+                    "source_url": r.get("doc_url", ""),
+                    "source_title": r.get("doc_title_jp", "")})
         if len(out) >= ROWS:
             break
     return out
@@ -102,7 +104,9 @@ def holdings():
                     "filer_jp": r.get("filer_raw_name") or r.get("filer_name_en", ""),
                     "filer_en": r.get("filer_name_en") or r.get("filer_raw_name", ""),
                     "pct": round(pct, 2) if isinstance(pct, (int, float)) else None,
-                    "label_jp": ja, "label_en": en})
+                    "label_jp": ja, "label_en": en,
+                    "source_url": r.get("source_url", ""),
+                    "source_title": r.get("japanese_title", "")})
     return out
 
 
@@ -114,6 +118,15 @@ def esc(s):
 def short(d):
     p = str(d or "").split("-")
     return p[0] + "." + p[1] + "." + p[2] if len(p) == 3 else ""
+
+
+def source_row(row, content):
+    """Link the whole news row to its own original disclosure when available."""
+    url = row.get("source_url", "")
+    if re.match(r"^https?://", url, re.I):
+        content = '<a href="%s" target="_blank" rel="noopener" title="%s">%s</a>' % (
+            esc(url), esc((row.get("source_title") or "原文") + "（新しいタブで開く）"), content)
+    return "<li>" + content + "</li>"
 
 
 def rows_html(payload, which, lang):
@@ -130,21 +143,21 @@ def rows_html(payload, which, lang):
                         "Report" if en else "銘柄レポート", esc(r["ticker"]), esc(name)))
     elif which == "capital":
         for r in payload["capital"]:
-            L.append('<li><span class="nw-date">%s</span>'
+            L.append(source_row(r, '<span class="nw-date">%s</span>'
                      '<span class="nw-tag">%s</span>'
-                     '<span class="nw-tx"><b>%s</b> %s</span></li>'
+                     '<span class="nw-tx"><b>%s</b> %s</span>'
                      % (short(r["date"]), esc(r["label_en" if en else "label_jp"]),
-                        esc(r["ticker"]), esc(r["name_en" if en else "name_jp"])))
+                        esc(r["ticker"]), esc(r["name_en" if en else "name_jp"]))))
     else:
         for r in payload["holdings"]:
             pct = (" (%.2f%%)" % r["pct"]) if r.get("pct") is not None else ""
             filer = r.get("filer_en" if en else "filer_jp") or r.get("filer_en", "")
             tail = ("%s → %s %s%s" % (filer, r["ticker"],
                     r["issuer_en" if en else "issuer_jp"], pct))
-            L.append('<li><span class="nw-date">%s</span>'
+            L.append(source_row(r, '<span class="nw-date">%s</span>'
                      '<span class="nw-tag">%s</span>'
-                     '<span class="nw-tx">%s</span></li>'
-                     % (short(r["date"]), esc(r["label_en" if en else "label_jp"]), esc(tail)))
+                     '<span class="nw-tx">%s</span>'
+                     % (short(r["date"]), esc(r["label_en" if en else "label_jp"]), esc(tail))))
     return "".join(L)
 
 
