@@ -26,6 +26,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css?v=20260831c">
 <style>.ct-hero-band{position:relative;height:240px;overflow:hidden;background:var(--ink-mid)}.ct-hero-band img{width:100%;height:100%;object-fit:cover;filter:saturate(.85) brightness(1.07) contrast(1.02)}.ct-hero-band::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(23,38,65,.5) 0%,rgba(23,38,65,.08) 46%,rgba(23,38,65,.1) 100%)}@media (max-width:640px){.ct-hero-band{height:160px}}</style>
+<link rel="stylesheet" href="/assets/free-trial.css?v=4e111be047a9">
+<script defer src="/assets/free-trial-inquiry.js?v=f58c97c7eb47"></script>
 </head>
 <body>
 <div class="wrap crumbs"><a href="/">ホーム</a><span>/</span>お問い合わせ</div>
@@ -39,6 +41,9 @@
 <div class="field"><label for="inq_email">メールアドレス *</label><input id="inq_email" name="email" type="email" autocomplete="email" required></div>
 <div class="field"><label for="inq_type">ご相談内容 *</label><select id="inq_type" name="inquiry_type" required>
 <option value="">選択してください</option>
+<!-- jii-trial-option:start -->
+<option data-inquiry="translation-trial">無料試訳のご相談</option>
+<!-- jii-trial-option:end -->
 <option>開示翻訳（決算短信・適時開示・説明会資料）</option>
 <option>招集通知・有報・統合報告書翻訳</option>
 <option>IR通訳</option>
@@ -48,6 +53,9 @@
 <option>NDAを先に締結したい</option>
 <option>その他・未定</option>
 </select></div>
+<!-- jii-trial-note:start -->
+<p class="note jii-trial-inquiry-note" id="trial-inquiry-note" hidden aria-live="polite">資料の種類、正式に依頼する場合のおおよその分量、ご希望の納期をお知らせください。非公開情報や原稿本文は入力せず、概要だけで結構です。資料の送付方法は別途ご相談します。</p>
+<!-- jii-trial-note:end -->
 <div class="field"><label for="inq_msg">ご相談内容と希望納期 *</label><textarea id="inq_msg" name="message" required placeholder="資料の種類、分量、希望納期、面談予定など、決まっている範囲で構いません。"></textarea></div>
 <p class="note">送信いただいた情報は、お見積もりの作成とご連絡にのみ利用します（<a href="/privacy/">プライバシーポリシー</a>）。</p>
 <button class="btn btn-primary" id="inquiry-submit" type="submit">送信する</button>
