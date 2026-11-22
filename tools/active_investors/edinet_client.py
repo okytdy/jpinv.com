@@ -22,6 +22,7 @@ them to investors via common.attribute_investor and hands them to build_data.
 from __future__ import annotations
 
 import datetime as _dt
+import http.client
 import io
 import json
 import re
@@ -72,17 +73,25 @@ class EdinetClient:
 
     def _get(self, url: str) -> bytes:
         req = urllib.request.Request(url, headers={"User-Agent": "jpinv-active-investors/1.0"})
-        try:
-            with urllib.request.urlopen(req, timeout=self.timeout) as resp:
-                return resp.read()
-        except urllib.error.HTTPError as exc:
-            # Do not let urllib's exception string expose Subscription-Key from
-            # the query string in public CI logs.
-            raise EdinetApiError(str(exc.code), "HTTP request rejected",
-                                 operation="transport") from None
-        except urllib.error.URLError as exc:
-            raise EdinetApiError("transport_error", str(exc.reason),
-                                 operation="transport") from None
+        # Retry the complete idempotent GET, including response reads: urllib
+        # can raise a bare TimeoutError after the connection has been opened.
+        for attempt in range(1, 4):
+            try:
+                with urllib.request.urlopen(req, timeout=self.timeout) as resp:
+                    return resp.read()
+            except urllib.error.HTTPError as exc:
+                status, message = str(exc.code), "HTTP request rejected"
+                retryable = exc.code in {429, 500, 502, 503, 504}
+                exc.close()
+            except TimeoutError:
+                status, message, retryable = "timeout", "Request timed out", True
+            except (urllib.error.URLError, ConnectionError, http.client.IncompleteRead):
+                status, message, retryable = "transport_error", "Network request failed", True
+            # Never log URLs or raw exception text: they can contain the key.
+            if not retryable or attempt == 3:
+                raise EdinetApiError(status, f"{message} after {attempt} attempt(s)",
+                                     operation="transport") from None
+            time.sleep(2 ** (attempt - 1))
 
     def list_documents(self, date: str) -> list[dict]:
         """All documents submitted on `date` (YYYY-MM-DD) with metadata."""
