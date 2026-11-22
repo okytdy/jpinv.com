@@ -1,0 +1,24 @@
+name: active-investors-tests
+
+on:
+  pull_request:
+    paths:
+      - 'tools/active_investors/**'
+      - '.github/workflows/active-investors-*.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'tools/active_investors/**'
+      - '.github/workflows/active-investors-*.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test EDINET ingestion and transport recovery
+        run: python3 -m unittest discover -s tools/active_investors/tests -p 'test_*.py' -v
