@@ -100,6 +100,9 @@ jobs:
 
           rm -rf compounders/feed/data
           cp -r "$TMPDIR/data" compounders/feed/data
+          # The backfill never builds homepage news. Keep the version from
+          # current main when restoring the older backfill snapshot.
+          git restore --source=HEAD -- compounders/feed/data/news.json
 
           git add compounders/feed/data/
           git commit -m "feed: backfill ${{ github.event.inputs.lookback_days }}d @ ${{ github.run_id }}"

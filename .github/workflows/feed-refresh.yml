@@ -17,13 +17,14 @@ permissions:
   contents: write    # so the job can commit and push the refreshed JSON
 
 concurrency:
-  # Never let two refresh runs race each other. Keep the active run and queue
-  # the next one rather than cancelling useful work that is already in flight.
+  # Serialize homepage news writes with active-investors-refresh. Keep every
+  # queued import even when another scheduled or manual refresh arrives.
   group: feed-refresh
-  cancel-in-progress: false
+  queue: max
 
 jobs:
   refresh:
+    if: github.ref == 'refs/heads/main'
     name: Poll disclosures and append new matches
     runs-on: ubuntu-latest
     # The bounded steps below can legitimately use up to 21 minutes in total
@@ -37,6 +38,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
+          ref: main  # Read the current tip after acquiring the shared queue.
           # Need full token persistence so the later push step can write back.
           persist-credentials: true
           fetch-depth: 1
@@ -187,11 +189,8 @@ jobs:
           # month's) copy, reset it to $0, and the cap was never really enforced.
           git add compounders/feed/data/ tools/llm_ledger.json
           git commit -m "feed: refresh @ ${{ github.run_id }}"
-          # active-investors-refresh (and the next feed run) also push to main, so a
-          # plain `git push` can be rejected (non-fast-forward) when main moves
-          # mid-run. Rebase our data commit onto the latest main and retry. Our paths
-          # (compounders/feed/, compounders/signals/, tools/llm_ledger.json) are
-          # disjoint from active-investors-refresh's, so the rebase never conflicts.
+          # active-investors-refresh shares our concurrency group. Other pushes
+          # to main can still land mid-run, so rebase our data commit and retry.
           for attempt in 1 2 3 4 5; do
             if git push origin HEAD:main; then
               echo "Pushed on attempt ${attempt}."
