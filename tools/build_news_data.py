@@ -20,6 +20,7 @@ build. That build refreshes the reports JSON and both baked homepage lists at
 publication time; the scheduled job retains the same report sequence.
 
     python3 tools/build_news_data.py [--no-bake]
+    python3 tools/build_news_data.py --holdings-only
 """
 import datetime
 import json
@@ -177,10 +178,22 @@ def bake(payload):
 
 
 def main():
-    payload = {
-        "generated_at": datetime.datetime.now().astimezone().isoformat(timespec="seconds"),
-        "reports": reports(), "capital": capital(), "holdings": holdings(),
-    }
+    holdings_only = "--holdings-only" in sys.argv
+    generated_at = datetime.datetime.now().astimezone().isoformat(timespec="seconds")
+    if holdings_only:
+        with open(OUT, encoding="utf-8") as fh:
+            payload = json.load(fh)
+        latest_holdings = holdings()
+        if payload["holdings"] == latest_holdings:
+            print("news.json: holdings unchanged")
+            return
+        payload["holdings"] = latest_holdings
+        payload["generated_at"] = generated_at
+    else:
+        payload = {
+            "generated_at": generated_at,
+            "reports": reports(), "capital": capital(), "holdings": holdings(),
+        }
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, "w", encoding="utf-8", newline="\n") as fh:
         json.dump(payload, fh, ensure_ascii=False, indent=1)
@@ -188,7 +201,7 @@ def main():
     print("news.json: %d reports / %d capital / %d holdings, %s bytes"
           % (len(payload["reports"]), len(payload["capital"]),
              len(payload["holdings"]), format(os.path.getsize(OUT), ",")))
-    if "--no-bake" not in sys.argv:
+    if not holdings_only and "--no-bake" not in sys.argv:
         bake(payload)
 
 

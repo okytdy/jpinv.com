@@ -23,11 +23,13 @@ permissions:
   contents: write
 
 concurrency:
-  group: active-investors-refresh
-  cancel-in-progress: false
+  # Both workflows write homepage news. Keep every queued import and build.
+  group: feed-refresh
+  queue: max
 
 jobs:
   refresh:
+    if: github.ref == 'refs/heads/main'
     name: Refresh active-investor cards + new-5% feed
     runs-on: ubuntu-latest
     timeout-minutes: 35
@@ -35,6 +37,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
+          ref: main  # Read the current tip after acquiring the shared queue.
           persist-credentials: true
           fetch-depth: 1
 
@@ -88,22 +91,21 @@ jobs:
           # "cannot rebase: You have unstaged changes." on the retry path below —
           # the real cause of the daily "Run failed" emails (Jun–Jul 2026). It must
           # be in $paths so the working tree is clean before any rebase.
-          paths="compounders/active-investors/data/ tools/active_investors/.llm_ledger.json tools/active_investors/.filer_tally.json tools/active_investors/.summary_cache.json"
+          paths="compounders/active-investors/data/ tools/active_investors/.llm_ledger.json tools/active_investors/.filer_tally.json tools/active_investors/.summary_cache.json compounders/feed/data/news.json"
           if [ -z "$(git status --porcelain $paths)" ]; then
             echo "No data changes."
             exit 0
+          fi
+          # Publish the source feed and its homepage rows in the same commit.
+          if ! git diff --quiet -- compounders/active-investors/data/new5_feed.json; then
+            python tools/build_news_data.py --holdings-only
           fi
           git config user.name  "jii-active-investors-bot"
           git config user.email "active-investors-bot@users.noreply.github.com"
           git add $paths
           git commit -m "active-investors: refresh @ ${{ github.run_id }}"
-          # The feed-refresh workflow runs every 30 min and also pushes to main.
-          # This job takes ~8 min, so a feed push can land mid-run and make a plain
-          # `git push` fail with a non-fast-forward rejection — the cause of the
-          # intermittent "Run failed" emails (e.g. 2026-06-22, 2026-06-27). Rebase
-          # our single data commit onto the latest main and retry. Our paths
-          # (compounders/active-investors/, tools/active_investors/) are disjoint
-          # from feed-refresh's, so the rebase never conflicts.
+          # feed-refresh shares our concurrency group. Other pushes to main
+          # can still land mid-run, so rebase our data commit and retry.
           #
           # --autostash makes the rebase resilient to ANY stray unstaged change
           # (e.g. a newly generated file a future script writes that isn't in
